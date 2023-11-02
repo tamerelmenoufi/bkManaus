@@ -16,3 +16,38 @@
     color:#fff;
     font-size: 70px;
 }
+
+@font-face {
+    font-family: 'FonteBk-1';
+    src: url('../fonts/flame-burger-king-font/Flame-Bold.woff') format('truetype');
+}
+
+@font-face {
+    font-family: 'FonteBk-2';
+    src: url('../fonts/flame-burger-king-font/Flame-Regular.woff') format('truetype');
+}
+
+@font-face {
+    font-family: 'FonteBk-3';
+    src: url('../fonts/flame-burger-king-font/FlameBold.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'FonteBk-4';
+    src: url('../fonts/flame-burger-king-font/FlameCondensed.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'FonteBk-5';
+    src: url('../fonts/flame-burger-king-font/FlameRegular.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'FonteBk-6';
+    src: url('../fonts/flame-burger-king-font/FlameSans-Regular.woff') format('truetype');
+}
+
+@font-face {
+    font-family: 'FonteBk-7';
+    src: url('../fonts/flame-burger-king-font/FlameSans.otf') format('truetype');
+}
