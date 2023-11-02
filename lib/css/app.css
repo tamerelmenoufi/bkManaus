@@ -1,0 +1,18 @@
+.Carregando{
+    position:fixed;
+    left:0;
+    bottom:0;
+    right:0;
+    top:0;
+    background-color:#333;
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display:none;
+    z-index: 9999;
+}
+.Carregando div{
+    color:#fff;
+    font-size: 70px;
+}
