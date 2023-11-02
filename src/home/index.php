@@ -23,7 +23,7 @@
             ['src/componentes/menu_topo/menu.php','paginaHomeTopo'],
             ['src/componentes/menu_lateral/menu.php','paginaHomeLateral'],
             ['src/componentes/menu_lateral_direita/menu.php','paginaHomeLateralDireita'],
-            ['src/relatorios/index1.php','paginaHome'],
+            ['src/dashboard/index.php','paginaHome'],
             ];
 
         for(i=0;i<pags.length;i++){
