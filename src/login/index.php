@@ -147,13 +147,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
             <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
             <img id="profile-img" class="profile-img-card" src="img/logo.svg" />
             <p id="profile-name" class="profile-name-card"></p>
-            <h1 class="FonteBk-1">Burger King</h1>
-            <h1 class="FonteBk-2">Burger King</h1>
-            <h1 class="FonteBk-3">Burger King</h1>
-            <h1 class="FonteBk-4">Burger King</h1>
-            <h1 class="FonteBk-5">Burger King</h1>
-            <h1 class="FonteBk-6">Burger King</h1>
-            <h1 class="FonteBk-7">Burger King</h1>
+            <h1 class="FonteBk">Burger King</h1>
 
             <div class="form-floating mb-2">
                 <input type="text" class="form-control" id="login" placeholder="Digite seu login" required autofocus>
