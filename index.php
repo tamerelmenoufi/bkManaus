@@ -1,8 +1,6 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-    exit();
-
     //Agora tudo vai começar!!!
 
     if($_GET['s']){
