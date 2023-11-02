@@ -1,6 +1,6 @@
 <?php
 
-    include("{$_SERVER['DOCUMENT_ROOT']}/app/projectSocioEconomico/lib/includes.php");
+    include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     
     $delTab = ['dashboard', 'relatorios','sisLog','logs'];
     $dataTable = ['usuarios']; 

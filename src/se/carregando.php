@@ -1,5 +1,5 @@
 <?php
-    include("{$_SERVER['DOCUMENT_ROOT']}/app/projectSocioEconomico/lib/includes.php");
+    include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     $_SESSION['filtro_atual_reg'] = ($_SESSION['filtro_atual_reg'] + 50);
 

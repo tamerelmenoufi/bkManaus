@@ -1,5 +1,5 @@
 <?php
-    include("{$_SERVER['DOCUMENT_ROOT']}/app/projectSocioEconomico/lib/includes.php");
+    include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     if($_POST['del']){
         mysqli_query($con, "delete from se_estrutura_familiar where codigo = '{$_POST['del']}'");

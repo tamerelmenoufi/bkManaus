@@ -1,5 +1,5 @@
 <?php
-    include("{$_SERVER['DOCUMENT_ROOT']}/app/projectSocioEconomico/lib/includes.php");
+    include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     if($_POST['campo']) $_SESSION['s_campo'] = $_POST['campo'];
     if($_POST['valor']) $_SESSION['s_valor'] = $_POST['valor'];

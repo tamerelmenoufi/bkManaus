@@ -1,6 +1,6 @@
 <?php
 
-    include("{$_SERVER['DOCUMENT_ROOT']}/app/projectSocioEconomico/lib/includes.php");
+    include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     $query_geral = "select * from se where acao = '0' /*and coordenadas != ''*/ group by municipio, local, bairro_comunidade order by municipio desc limit 1";
     $result_geral = mysqli_query($con, $query_geral);

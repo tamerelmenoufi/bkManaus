@@ -1,5 +1,5 @@
 <?php
-    include("{$_SERVER['DOCUMENT_ROOT']}/app/projectSocioEconomico/lib/includes.php");
+    include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     $md5 = md5($_POST['rotulo'].$_POST['cod'].$md5);
 
     $cod = $_POST['cod'];
