@@ -19,12 +19,12 @@
 
 @font-face {
     font-family: 'FonteBk-1';
-    src: url('../fonts/flame-burger-king-font/Flame-Bold.woff') format('truetype');
+    src: url('../fonts/flame-burger-king-font/Flame-Bold.woff') format('woff');
 }
 
 @font-face {
     font-family: 'FonteBk-2';
-    src: url('../fonts/flame-burger-king-font/Flame-Regular.woff') format('truetype');
+    src: url('../fonts/flame-burger-king-font/Flame-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -44,7 +44,7 @@
 
 @font-face {
     font-family: 'FonteBk-6';
-    src: url('../fonts/flame-burger-king-font/FlameSans-Regular.woff') format('truetype');
+    src: url('../fonts/flame-burger-king-font/FlameSans-Regular.woff') format('woff');
 }
 
 @font-face {
