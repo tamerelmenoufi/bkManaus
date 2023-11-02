@@ -1,6 +1,8 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/app/projectSocioEconomico/lib/includes.php");
 
+    //Agora tudo vai começar!!!
+
     if($_GET['s']){
         $_SESSION = [];
         header("location:./");
