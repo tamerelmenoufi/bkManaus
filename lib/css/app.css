@@ -27,3 +27,9 @@
     src: url('../fonts/flame-burger-king-font/FlameSans-Regular.woff') format('woff');
     src: url('../fonts/flame-burger-king-font/FlameSans.otf') format('opentype');
 }
+
+.FonteBk{
+    font-family: FonteBk;
+    color:#a33;
+    font-weight: bold;
+}
