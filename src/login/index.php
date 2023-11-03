@@ -142,6 +142,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 .btn-warning{
     background-color:#ff8732;
 }
+.btn-warning:hover{
+    background-color:#ff8732;
+    opacity:0.7;
+}
 </style>
 
 <div class="pagina">
