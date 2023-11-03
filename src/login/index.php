@@ -154,7 +154,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     <div class="container">
         <div class="card card-container">
             <div>
-                <h3 class="FonteBk_2 w-100" style="text-align:center">PAINEL DE CONTROLE</h3>
+                <h3 class="FonteBk_2 w-100" style="text-align:center">Painel de Controle</h3>
                 <img id="profile-img" class="profile-img-card" src="img/logo.svg" />
                                 
                 <!-- <h1 class="FonteBk_2 w-100" style="text-align:center">BURGER KING</h1>                 -->
