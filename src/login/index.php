@@ -139,19 +139,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 .forgot-password:focus{
     color: rgb(12, 97, 33);
 }
-.btn-warning{
-    background-color:#ff8732;
-    color:#fff;
-}
-.btn-warning:hover{
-    background-color:#ff8732;
-    opacity:0.9;
-    color:#fff;
-}
-.btn-warning:active{
-    background-color:#ff8732;
-    color:#fff;
-}
+
 </style>
 
 <div class="pagina">
@@ -177,7 +165,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
                     <input type="checkbox" value="remember-me"> Manter-me sempre conectado
                 </label>
             </div>
-            <button id="Acessar" class="btn btn-lg btn-warning btn-block btn-signinXX" type="submit">Entrar</button>
+            <button id="Acessar" class="btn btn-lg btn-bk btn-block btn-signinXX" type="submit">Entrar</button>
 
             <!-- <div class="form-signin">
                 <span id="reauth-email" class="reauth-email"></span>
