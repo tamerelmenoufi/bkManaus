@@ -41,7 +41,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     background-repeat: no-repeat;
     /* background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33)); */
     /* background-image: linear-gradient(#19ae46, #ffffff); */
-    background-color:#333;
+    background-color:#ccc;
 }
 
 .card-container.card {
