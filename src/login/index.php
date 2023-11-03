@@ -132,12 +132,14 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
 .forgot-password {
     color: #d62300;
+    text-decoration:none;
 }
 
 .forgot-password:hover,
 .forgot-password:active,
 .forgot-password:focus{
     color: #d62300;
+    text-decoration:none;
 }
 
 </style>
