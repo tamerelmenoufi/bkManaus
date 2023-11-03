@@ -141,10 +141,12 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 }
 .btn-warning{
     background-color:#ff8732;
+    color:#fff;
 }
 .btn-warning:hover{
     background-color:#ff8732;
-    opacity:0.7;
+    opacity:0.9;
+    color:#fff;
 }
 </style>
 
