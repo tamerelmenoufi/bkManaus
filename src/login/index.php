@@ -148,6 +148,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     opacity:0.9;
     color:#fff;
 }
+.btn-warning:active{
+    background-color:#ff8732;
+    color:#fff;
+}
 </style>
 
 <div class="pagina">
