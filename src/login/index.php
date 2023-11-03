@@ -139,6 +139,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 .forgot-password:focus{
     color: rgb(12, 97, 33);
 }
+.btn-warning{
+    background-color:#ff8732;
+}
 </style>
 
 <div class="pagina">
