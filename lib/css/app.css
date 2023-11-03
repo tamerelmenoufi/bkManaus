@@ -28,8 +28,23 @@
     src: url('../fonts/flame-burger-king-font/FlameSans.otf') format('opentype');
 }
 
-.FonteBk{
+@font-face {
+    font-family: 'FonteBk2';
+    src: url('../fonts/Insaniburger-Font/Insanibc.ttf') format('truetype');
+    src: url('../fonts/Insaniburger-Font/Insanibu.ttf') format('truetype');
+}
+
+
+
+.FonteBk_1{
     font-family: FonteBk;
     color:#d62300;
     font-weight: bold;
 }
+
+.FonteBk_2{
+    font-family: FonteBk2;
+    color:#d62300;
+    font-weight: bold;
+}
+
