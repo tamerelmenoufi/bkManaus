@@ -7,6 +7,9 @@
     $q = "select * from produtos where situacao = '1' and deletado != '1' ".(($_POST['categoria'])?" and categoria = '{$_POST['categoria']}'":false);
     $r = mysqli_query($con, $q);
     
-    $p = mysqli_fetch_object($r);
+    $p = [];
+    while($d = mysqli_fetch_object($r)){
+        $p[] = $d;
+    }
     
     echo json_encode($p);
