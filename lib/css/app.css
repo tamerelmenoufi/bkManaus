@@ -17,21 +17,130 @@
     font-size: 70px;
 }
 
-@font-face {
-    font-family: 'FonteBk';
-    src: url('../fonts/flame-burger-king-font/Flame-Bold.woff') format('woff');
-    src: url('../fonts/flame-burger-king-font/Flame-Regular.woff') format('woff');
-    src: url('../fonts/flame-burger-king-font/FlameBold.otf') format('opentype');
-    src: url('../fonts/flame-burger-king-font/FlameCondensed.otf') format('opentype');
-    src: url('../fonts/flame-burger-king-font/FlameRegular.otf') format('opentype');
-    src: url('../fonts/flame-burger-king-font/FlameSans-Regular.woff') format('woff');
-    src: url('../fonts/flame-burger-king-font/FlameSans.otf') format('opentype');
-}
 
 @font-face {
-    font-family: 'FonteBk2';
-    src: url('../fonts/Insaniburger-Font/Insanibc.ttf') format('truetype');
-    src: url('../fonts/Insaniburger-Font/Insanibu.ttf') format('truetype');
+    font-family: 'FlameBold';
+    src: url('../fonts/fonts/FlameBold.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'Insanibc';
+    src: url('../fonts/fonts/Insanibc.ttf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'Insanibu';
+    src: url('../fonts/fonts/Insanibu.ttf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformBlack';
+    src: url('../fonts/fonts/UniformBlack.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformBold';
+    src: url('../fonts/fonts/UniformBold.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformCondensedBlack';
+    src: url('../fonts/fonts/UniformCondensedBlack.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformCondensedBold';
+    src: url('../fonts/fonts/UniformCondensedBold.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformCondensedLight';
+    src: url('../fonts/fonts/UniformCondensedLight.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformCondensedMedium';
+    src: url('../fonts/fonts/UniformCondensedMedium.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformCondensed';
+    src: url('../fonts/fonts/UniformCondensed.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformCondensedUltra';
+    src: url('../fonts/fonts/UniformCondensedUltra.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformExtraCondensedBlack';
+    src: url('../fonts/fonts/UniformExtraCondensedBlack.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformExtraCondensedBold';
+    src: url('../fonts/fonts/UniformExtraCondensedBold.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformExtraCondensedLight';
+    src: url('../fonts/fonts/UniformExtraCondensedLight.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformExtraCondensedMedium';
+    src: url('../fonts/fonts/UniformExtraCondensedMedium.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformExtraCondensed';
+    src: url('../fonts/fonts/UniformExtraCondensed.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformExtraCondensedUltra';
+    src: url('../fonts/fonts/UniformExtraCondensedUltra.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformLight';
+    src: url('../fonts/fonts/UniformLight.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformMedium';
+    src: url('../fonts/fonts/UniformMedium.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'Uniform';
+    src: url('../fonts/fonts/Uniform.otf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'UniformUltra';
+    src: url('../fonts/fonts/UniformUltra.otf') format('opentype');
 }
 
 
