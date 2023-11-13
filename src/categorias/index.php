@@ -60,6 +60,14 @@
                     >
                       Editar
                     </button>
+
+                    <button
+                      class="btn btn-warning"
+                      produtos
+                      categoria="<?=$d->codigo?>"
+                    >
+                      Produtos
+                    </button>
                   </td>
                 </tr>
                 <?php
@@ -78,7 +86,21 @@
 
 <script>
     $(function(){
-        Carregando('none');       
+        Carregando('none');  
+        
+        $("button[produtos]").click(function(){
+            categoria = $(this).attr("categoria");
+            $.ajax({
+                url:"src/produtos/index.php",
+                type:"POST",
+                data:{
+                  categoria
+                },
+                success:function(dados){
+                  $("#paginaHome").html(dados);
+                }
+            })
+        })        
 
         
         $("button[edit]").click(function(){
