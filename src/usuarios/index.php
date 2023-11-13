@@ -88,7 +88,7 @@
               </thead>
               <tbody>
                 <?php
-                  echo $query = "select * from usuarios where deletado != '1' {$where} order by nome asc";
+                  $query = "select * from usuarios where deletado != '1' {$where} order by nome asc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
@@ -114,9 +114,15 @@
                     >
                       Editar
                     </button>
+                    <?php
+                    if($d->codigo != 1){
+                    ?>
                     <button class="btn btn-danger" delete="<?=$d->codigo?>">
                       Excluir
                     </button>
+                    <?php
+                    }
+                    ?>
                   </td>
                 </tr>
                 <?php
