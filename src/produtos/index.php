@@ -42,6 +42,10 @@
   td, th{
     white-space: nowrap;
   }
+  card label{
+    font-size:10px;
+    color:#a1a1a1;
+  }
 </style>
 <div class="col">
   <div class="m-3">
@@ -189,21 +193,21 @@
                     <div class="row">
                       <div class="col-12">
                         <label>Produto</label>
-                        <?=$d->produto?>
+                        <div><?=$d->produto?></div>
                       </div>
                     </div>
 
                     <div class="row">
                       <div class="col-12">
                       <label>Valor Unitário</label>
-                       <?=$d->valor?>
+                       <div><?=$d->valor?></div>
                       </div>
                     </div>
 
                     <div class="row">
                       <div class="col-12">
                         <label>Valor no combo</label>
-                        <?=$d->valor_combo?>
+                        <div><?=$d->valor_combo?></div>
                       </div>
                     </div>
 
