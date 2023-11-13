@@ -152,7 +152,7 @@
             $.ajax({
                 url:"src/categorias/index.php",
                 success:function(dados){
-                    $(".LateralDireita").html(dados);
+                  $("#paginaHome").html(dados);
                 }
             })
         })
