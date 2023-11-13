@@ -1,6 +1,13 @@
 <?php
 
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
+
+
+    $query = "udapte produtos set 
+                                    valor = '2.44'
+                            where categoria = 2
+    ";
+    sisLog($query);
     
 ?>
 <style>
