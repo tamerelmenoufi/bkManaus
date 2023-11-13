@@ -82,7 +82,7 @@
               </div>
             </div>
 
-            <div class="d-none d-md-none">
+            <div class="d-none d-md-block d-md-none">
               <div class="d-flex justify-content-between mb-3">
 
                   <div class="row">
