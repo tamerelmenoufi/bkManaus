@@ -79,7 +79,7 @@
 
             </div>
 
-            <div class="table-reasponsive">
+            <div class="table-responsive">
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
@@ -128,8 +128,8 @@
                   }
                 ?>
               </tbody>
-              </div>
             </table>
+            </div>
           </div>
         </div>
       </div>
