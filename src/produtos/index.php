@@ -53,7 +53,7 @@
           <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
 
-                <div class="input-group col-xs-12">
+                <div class="input-group">
                   <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
                   <input campoBusca type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
                   <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
@@ -63,13 +63,13 @@
 
                 <button
                     categorias
-                    class="btn btn-warning btn-sm col-xs-4"
+                    class="btn btn-warning btn-sm"
                     style="margin-left:20px;"
                 >Categorias</button>
 
                 <button
                     novoCadastro
-                    class="btn btn-success btn-sm col-xs-4"
+                    class="btn btn-success btn-sm"
                     data-bs-toggle="offcanvas"
                     href="#offcanvasDireita"
                     role="button"
