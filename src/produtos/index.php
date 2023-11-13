@@ -82,6 +82,44 @@
               </div>
             </div>
 
+            <div class="d-none d-sm-block d-md-none">
+              <div class="d-flex justify-content-between mb-3">
+
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="input-group">
+                        <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
+                        <input campoBusca type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
+                    </div>
+                    <div class="col-12">
+                      <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
+                    </div>
+                    <div class="col-12">
+                      <button
+                        categorias
+                        class="btn btn-warning btn-sm"
+                        style="margin-left:20px;"
+                      >Categorias</button>
+                    </div>
+                    <div class="col-12">
+                      <button
+                          novoCadastro
+                          class="btn btn-success btn-sm"
+                          data-bs-toggle="offcanvas"
+                          href="#offcanvasDireita"
+                          role="button"
+                          aria-controls="offcanvasDireita"
+                          style="margin-left:20px;"
+                      >Novo</button>                      
+                    </div>
+                  </div>
+              </div>
+            </div>
+
             <div class="table-responsive">
             <table class="table table-striped table-hover">
               <thead>
