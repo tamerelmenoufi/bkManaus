@@ -13,14 +13,14 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
             $_SESSION['appLogin'] = $d;
             $retorno = [
                 'sucesso' => true,
-                'AppLogin' => $d->codigo,
+                'appLogin' => $d->codigo,
                 'ManterConnectado' => $_POST['ManterConnectado'],
                 'msg' => 'Login Realizado com sucesso',
             ];
         }else{
             $retorno = [
                 'sucesso' => false,
-                'AppLogin' => false,
+                'appLogin' => false,
                 'ManterConnectado' => false,
                 'msg' => 'Ocorreu um erro no seu login',
             ];
@@ -206,7 +206,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
                 success:function(dados){
                     // let retorno = JSON.parse(dados);
                     // $.alert(dados.sucesso);
-                    console.log(dados.AppLogin);
+                    console.log(dados.appLogin);
                     if(dados.AppLogin > 0){
                         window.location.href='./';
                     }else{
