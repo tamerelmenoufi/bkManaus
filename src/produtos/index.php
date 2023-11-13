@@ -51,7 +51,7 @@
         <div class="card">
           <h5 class="card-header">Lista de Usuários</h5>
           <div class="card-body">
-            <div class="d-flex justify-content-between mb-3">
+            <div class="d-flex justify-content-between mb-3 d-none d-sm-block">
 
                 <div class="input-group">
                   <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
