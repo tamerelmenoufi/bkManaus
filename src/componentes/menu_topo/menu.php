@@ -29,7 +29,7 @@
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <?=$_SESSION['ProjectSeLogin']->nome?> <i class="fa-solid fa-user"></i>
+                  <?=$_SESSION['appLogin']->nome?> <i class="fa-solid fa-user"></i>
                 </a>
                 <ul class="dropdown-menu  dropdown-menu-end" aria-labelledby="navbarScrollingDropdown">
                     <li class="MenuLogin">

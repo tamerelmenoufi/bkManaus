@@ -9,7 +9,7 @@
         exit();
     }
 
-    if($_SESSION['ProjectSeLogin']){
+    if($_SESSION['appLogin']){
         $url = "src/home/index.php";
     }else{
         $url = "src/login/index.php";

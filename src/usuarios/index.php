@@ -63,9 +63,7 @@
                   <button limpar class="btn btn-outline-danger" type="button">limpar</button>
                 </div>
 
-                <?php
-                if(in_array($_SESSION['ProjectSeLogin']->perfil, ['adm', 'sup'])){
-                ?>
+
                 <button
                     novoCadastro
                     class="btn btn-success btn-sm"
@@ -75,9 +73,6 @@
                     aria-controls="offcanvasDireita"
                     style="margin-left:20px;"
                 >Novo</button>
-                <?php
-                }
-                ?>
             </div>
 
 
