@@ -15,42 +15,18 @@
     if($_POST['delete']){
       // $query = "delete from usuarios where codigo = '{$_POST['delete']}'";
       $query = "update usuarios set deletado = '1' where codigo = '{$_POST['delete']}'";
-      mysqli_query($con, $query);
-      sisLog(
-        [
-            'query' => $query,
-            'file' => $_SERVER["PHP_SELF"],
-            'sessao' => $_SESSION,
-            'registro' => $_POST['delete']
-        ]
-    );
+      sisLog($query);
     }
 
     if($_POST['situacao']){
       $query = "update usuarios set situacao = '{$_POST['opc']}' where codigo = '{$_POST['situacao']}'";
-      mysqli_query($con, $query);
-      sisLog(
-        [
-            'query' => $query,
-            'file' => $_SERVER["PHP_SELF"],
-            'sessao' => $_SESSION,
-            'registro' => $_POST['situacao']
-        ]
-      );
+      sisLog($query);
       exit();
     }
 
     if($_POST['acao'] == 'pac'){
       $query = "update usuarios set pac = '{$_POST['pac']}' where codigo = '{$_POST['usu']}'";
-      mysqli_query($con, $query);
-      sisLog(
-        [
-            'query' => $query,
-            'file' => $_SERVER["PHP_SELF"],
-            'sessao' => $_SESSION,
-            'registro' => $_POST['usu']
-        ]
-    );
+      sisLog($query);
     }
 
     if($_POST['acao'] == 'filtro'){
@@ -113,7 +89,7 @@
                   <select busca_pac class="form-control" style="display:<?=(($_SESSION['usuarioBuscaCampo'] != 'pac')?'none':'block')?>">
                     <?php
                         $queryp = "select * from pacs where situacao = '1' and deletado != '1'";
-                        $resultp = mysqli_query($con, $queryp);
+                        $resultp = sisLog($queryp);
                         while($p = mysqli_fetch_object($resultp)){
                     ?>
                     <option value="<?=$p->codigo?>" <?=(($_SESSION['usuarioBusca'] == $p->codigo)?'selected':false)?>><?=$p->nome?></option>
@@ -173,7 +149,8 @@
                             where 
                                   (a.deletado != '1' {$where} )".
                                   ($_SESSION['ProjectSeLogin']->codigo != 1?(($_SESSION['ProjectSeLogin']->perfil == 'crd')?" and a.coordenador = '{$_SESSION['ProjectSeLogin']->codigo}' ":false).(($_SESSION['ProjectSeLogin']->perfil == 'adm')?" and (a.perfil != 'adm' or a.codigo = '{$_SESSION['ProjectSeLogin']->codigo}') ":false):false)." order by a.nome asc";
-                  $result = mysqli_query($con, $query);
+                  $result = sisLog($query);
+                  
                   while($d = mysqli_fetch_object($result)){
                 ?>
                 <tr>
