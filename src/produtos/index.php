@@ -102,7 +102,6 @@
                       <button
                         categorias
                         class="btn btn-warning btn-sm w-100"
-                        style="margin-left:20px;"
                       >Categorias</button>
                     </div>
                     <div class="col-12 mb-2">
@@ -113,7 +112,6 @@
                           href="#offcanvasDireita"
                           role="button"
                           aria-controls="offcanvasDireita"
-                          style="margin-left:20px;"
                       >Novo</button>                      
                     </div>
                   </div>
