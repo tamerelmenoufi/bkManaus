@@ -27,7 +27,7 @@
 
     if($_POST['filtro'] == 'filtrar'){
       $_SESSION['usuarioBusca'] = $_POST['campo'];
-    }elseif($_POST['filtrar']){
+    }elseif($_POST['filtro']){
       $_SESSION['usuarioBusca'] = false;
     }
 
