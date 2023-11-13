@@ -48,7 +48,7 @@
         <div class="card">
           <h5 class="card-header">Lista de Usuários</h5>
           <div class="card-body">
-            <div class="d-flex justify-content-between">
+            <div class="">
                 <div class="input-group mb-3">
                   <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
                   <input campoBusca type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
