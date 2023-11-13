@@ -22,28 +22,12 @@
 
         if($_POST['codigo']){
             $query = "update usuarios set {$attr} where codigo = '{$_POST['codigo']}'";
-            mysqli_query($con, $query);
+            sisLog($query);
             $cod = $_POST['codigo'];
-            sisLog(
-                [
-                    'query' => $query,
-                    'file' => $_SERVER["PHP_SELF"],
-                    'sessao' => $_SESSION,
-                    'registro' => $cod
-                ]
-            );
         }else{
             $query = "insert into usuarios set data_cadastro = NOW(), {$attr}";
-            mysqli_query($con, $query);
+            sisLog($query);
             $cod = mysqli_insert_id($con);
-            sisLog(
-                [
-                    'query' => $query,
-                    'file' => $_SERVER["PHP_SELF"],
-                    'sessao' => $_SESSION,
-                    'registro' => $cod
-                ]
-            );
         }
 
         $retorno = [
@@ -58,7 +42,7 @@
 
 
     $query = "select * from usuarios where codigo = '{$_POST['cod']}'";
-    $result = mysqli_query($con, $query);
+    $result = sisLog($query);
     $d = mysqli_fetch_object($result);
 ?>
 <style>
@@ -82,63 +66,14 @@
                     <label for="cpf">CPF*</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" name="telefone" id="telefone" class="form-control" placeholder="telefone" value="<?=$d->telefone?>">
-                    <label for="telefone">Telefone*</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="email" id="email" class="form-control" placeholder="E-mail" value="<?=$d->email?>">
-                    <label for="email">E-mail</label>
-                </div>
-                <?php
-                if($d->codigo != 1 and $_SESSION['ProjectSeLogin']->perfil == 'adm' and $_SESSION['ProjectSeLogin']->codigo != $d->codigo){
-                ?>
-                <div class="form-floating mb-3">
-                    <select name="perfil" class="form-control" id="perfil">
-                        <option value="adm" <?=(($d->perfil == 'adm')?'selected':false)?>>Administrador</option>
-                        <option value="sup" <?=(($d->perfil == 'sup')?'selected':false)?>>Supervisor</option>
-                        <option value="crd" <?=(($d->perfil == 'crd')?'selected':false)?>>Coordenador</option>
-                        <option value="usr" <?=(($d->perfil == 'usr')?'selected':false)?>>Agente</option>
-
-                    </select>
-                    <label for="email">Perfil</label>
-                </div>
-                <?php
-                }
-                if($d->codigo != 1 and ($_SESSION['ProjectSeLogin']->perfil != 'usr')){
-                ?>
-                <div class="form-floating mb-3">
                     <input type="text" name="login" id="login" class="form-control" placeholder="Login" value="<?=$d->login?>">
                     <label for="login">Login</label>
                 </div>
-                <?php
-                }
-                ?>
+
                 <div class="form-floating mb-3">
                     <input type="text" name="senha" id="senha" class="form-control" placeholder="E-mail" value="">
                     <label for="senha">Senha</label>
                 </div>
-                <?php
-                if( (($d->codigo != 1 and $_SESSION['ProjectSeLogin']->codigo != $d->codigo) or !$_POST['cod']) and $_SESSION['ProjectSeLogin']->perfil != 'crd' and $_SESSION['ProjectSeLogin']->perfil != 'sup'){
-                ?>
-
-                <div class="form-floating mb-3">
-                    <select name="coordenador" id="coordenador" class="form-control" placeholder="Coordenador">
-                        <option value="">::Selecione o Coordenador::</option>
-                        <?php
-                            $q = "select * from usuarios where perfil in ('crd') and situacao = '1' and deletado != '1' order by nome";
-                            $r = mysqli_query($con, $q);
-                            while($s = mysqli_fetch_object($r)){
-                        ?>
-                        <option <?=(($d->perfil != 'usr' and $_SESSION['ProjectSeLogin']->perfil != 'sup')?'disabled':false)?> value="<?=$s->codigo?>" <?=(($d->coordenador == $s->codigo)?'selected':false)?>>
-                            <?=$s->nome?>
-                        </option>
-                        <?php
-                            }
-                        ?>
-                    </select>
-                    <label for="coordenador">Coordenador</label>
-                </div>
-
                 <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
                         <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
@@ -146,9 +81,6 @@
                     </select>
                     <label for="email">Situação</label>
                 </div>
-                <?php
-                }
-                ?>
             </div>
         </div>
 
@@ -157,21 +89,6 @@
                 <div style="display:flex; justify-content:end">
                     <button type="submit" class="btn btn-success btn-ms">Salvar</button>
                     <input type="hidden" id="codigo" value="<?=$_POST['cod']?>" />
-                    <?php
-                    if($_SESSION['ProjectSeLogin']->perfil == 'crd'){
-                    ?>
-                    <input type="hidden" id="coordenador" name="coordenador" value="<?=$_SESSION['ProjectSeLogin']->codigo?>" />
-                    <input type="hidden" id="perfil" name="perfil" value="usr" />
-                    <?php
-                    }
-                    if($_SESSION['ProjectSeLogin']->perfil == 'sup'){
-                    ?>
-                    <input type="hidden" id="coordenador" name="coordenador" value="" />
-                    <input type="hidden" id="perfil" name="perfil" value="crd" />
-                    <?php
-                    }
-
-                    ?>
                 </div>
             </div>
         </div>
@@ -182,17 +99,7 @@
             Carregando('none');
 
             $("#cpf").mask("999.999.999-99");
-            $("#telefone").mask("(99) 99999-9999");
 
-            $("#perfil").change(function(){
-                opc = $(this).val();
-                $("#coordenador").val('')
-                if(opc == 'usr'){
-                    $("#coordenador option").removeAttr("disabled");
-                }else{
-                    $("#coordenador option").attr("disabled", "disabled");
-                }
-            })
 
             $('#form-<?=$md5?>').submit(function (e) {
 
