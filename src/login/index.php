@@ -207,7 +207,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
                     // let retorno = JSON.parse(dados);
                     // $.alert(dados.sucesso);
                     console.log(dados.appLogin);
-                    if(dados.AppLogin > 0){
+                    if(dados.appLogin > 0){
                         window.location.href='./';
                     }else{
                         $.alert('Ocorreu um erro.<br>Favor confira os dados do login.')
