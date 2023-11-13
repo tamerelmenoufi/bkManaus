@@ -3,11 +3,11 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
 
-    echo $query = "update produtos set 
-                                    valor = '3.44'
-                            where categoria = 2
-    ";
-    sisLog($query);
+    // echo $query = "update produtos set 
+    //                                 valor = '3.44'
+    //                         where categoria = 2
+    // ";
+    // sisLog($query);
     
 ?>
 <style>
