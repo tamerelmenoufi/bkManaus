@@ -88,7 +88,7 @@
               </thead>
               <tbody>
                 <?php
-                  $query = "select * from usuarios where deletado != '1' {$where} order by nome asc";
+                  echo $query = "select * from usuarios where deletado != '1' {$where} order by nome asc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
