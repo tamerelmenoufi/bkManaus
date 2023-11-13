@@ -185,24 +185,28 @@
                         </div>
                       </div>
                     </div>
+
                     <div class="row">
                       <div class="col-12">
                         <label>Produto</label>
                         <?=$d->produto?>
                       </div>
                     </div>
+
                     <div class="row">
                       <div class="col-12">
                       <label>Valor Unitário</label>
                        <?=$d->valor?>
                       </div>
                     </div>
+
                     <div class="row">
                       <div class="col-12">
                         <label>Valor no combo</label>
                         <?=$d->valor_combo?>
                       </div>
                     </div>
+
                     <div class="row">
                       <div class="col-6 p-2">
                         <button
@@ -222,6 +226,7 @@
                         </button>
                       </div>
                     </div>
+                  </div>
                 <?php
                   }
                 ?>
