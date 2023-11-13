@@ -7,7 +7,7 @@
 
 </style>
 <div class="row mb-3 mt-3">
-    <div class="col-md-12" style="text-align:right">
+    <div class="col-md-12">
         DashBoard
     </div>
 </div>
