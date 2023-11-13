@@ -86,29 +86,29 @@
               <div class="d-flex justify-content-between mb-3">
 
                   <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 mb-2">
                       <div class="input-group">
                         <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
                         <input campoBusca type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
                       </div>
                     </div>
-                    <div class="col-12">
-                      <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
+                    <div class="col-12 mb-2">
+                      <button filtro="filtrar" class="btn btn-outline-secondary w-100" type="button">Buscar</button>
                     </div>
-                    <div class="col-12">
-                      <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
+                    <div class="col-12 mb-2">
+                      <button filtro="limpar" class="btn btn-outline-danger w-100" type="button">limpar</button>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 mb-2">
                       <button
                         categorias
-                        class="btn btn-warning btn-sm"
+                        class="btn btn-warning btn-sm w-100"
                         style="margin-left:20px;"
                       >Categorias</button>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 mb-2">
                       <button
                           novoCadastro
-                          class="btn btn-success btn-sm"
+                          class="btn btn-success btn-sm w-100"
                           data-bs-toggle="offcanvas"
                           href="#offcanvasDireita"
                           role="button"
