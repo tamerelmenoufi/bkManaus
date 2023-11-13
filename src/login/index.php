@@ -10,7 +10,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
         if(mysqli_num_rows($result)){
             $d = mysqli_fetch_object($result);
-            $_SESSION['ProjectSeLogin'] = $d;
+            $_SESSION['appLogin'] = $d;
             $retorno = [
                 'sucesso' => true,
                 'AppLogin' => $d->codigo,
