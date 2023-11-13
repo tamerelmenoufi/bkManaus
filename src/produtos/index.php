@@ -95,7 +95,7 @@
                   while($d = mysqli_fetch_object($result)){
                 ?>
                 <tr>
-                  <td><?=$d->produto?></td>
+                  <td style='width:100%'><?=$d->produto?></td>
                   <td><?=$d->valor?></td>
                   <td><?=$d->valor_combo?></td>
                   <td>
