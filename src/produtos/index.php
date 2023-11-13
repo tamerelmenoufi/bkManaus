@@ -176,33 +176,37 @@
                   
                   while($d = mysqli_fetch_object($result)){
                 ?>
-                <div class="card">
+                <div class="card mb-3">
                     <div class="row">
                       <div class="col-12">
                         <div class="form-check form-switch">
                           <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
+                          Situação
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-12">
+                        <label>Produto</label>
                         <?=$d->produto?>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-12">
+                      <label>Valor Unitário</label>
                        <?=$d->valor?>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-12">
+                        <label>Valor no combo</label>
                         <?=$d->valor_combo?>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-6">
+                      <div class="col-6 p-2">
                         <button
-                          class="btn btn-primary"
+                          class="btn btn-primary w-100"
                           edit="<?=$d->codigo?>"
                           data-bs-toggle="offcanvas"
                           href="#offcanvasDireita"
@@ -212,8 +216,8 @@
                           Editar
                         </button>
                       </div>
-                      <div class="col-6">
-                        <button class="btn btn-danger" delete="<?=$d->codigo?>">
+                      <div class="col-6 p-2">
+                        <button class="btn btn-danger w-100" delete="<?=$d->codigo?>">
                           Excluir
                         </button>
                       </div>
