@@ -24,6 +24,19 @@
       exit();
     }
 
+
+    if($_POST['filtro'] == 'filtrar'){
+      $_SESSION['usuarioBusca'] = $_POST['campo'];
+    }elseif($_POST['filtrar']){
+      $_SESSION['usuarioBusca'] = false;
+    }
+
+    if($_SESSION['usuarioBusca']){
+      $where = " and nome like '%{$_SESSION['usuarioBusca']}%' or cpf = '{$_SESSION['usuarioBusca']}' ";
+    }
+
+
+
 ?>
 <style>
   .btn-perfil{
@@ -45,9 +58,9 @@
             <div class="d-flex justify-content-between">
                 <div class="input-group mb-3">
                   <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
-                  <input type="text" texto_busca style="display:<?=(($_SESSION['usuarioBuscaCampo'] == 'perfil' or $_SESSION['usuarioBuscaCampo'] == 'pac')?'none':'block')?>" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
-                  <button filtrar class="btn btn-outline-secondary" type="button">Buscar</button>
-                  <button limpar class="btn btn-outline-danger" type="button">limpar</button>
+                  <input campoBusca type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
+                  <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
+                  <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
                 </div>
 
 
@@ -74,7 +87,7 @@
               </thead>
               <tbody>
                 <?php
-                  $query = "select * from usuarios where deletado != '1' order by nome asc";
+                  $query = "select * from usuarios where deletado != '1' {$where} order by nome asc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
@@ -122,6 +135,7 @@
 <script>
     $(function(){
         Carregando('none');
+
         $("button[novoCadastro]").click(function(){
             $.ajax({
                 url:"src/usuarios/form.php",
@@ -131,6 +145,23 @@
             })
         })
 
+        
+
+        $("button[filtro]").click(function(){
+          filtro = $(this).attr("filtro");
+          campo = $(this).attr("input[campoBusca]");
+          $.ajax({
+              url:"src/usuarios/index.php",
+              type:"POST",
+              data:{
+                  filtro,
+                  campo
+              },
+              success:function(dados){
+                  $("#paginaHome").html(dados);
+              }
+          })
+        })
 
 
         $("button[edit]").click(function(){
