@@ -3,7 +3,9 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
 
-    echo $query = "update produtos set 
+    echo $query = "update
+                    produtos
+                    set 
                                     valor = '2.44'
                             where categoria = 2
     ";
