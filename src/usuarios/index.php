@@ -36,7 +36,7 @@
             'sessao' => $_SESSION,
             'registro' => $_POST['situacao']
         ]
-    );
+      );
       exit();
     }
 
