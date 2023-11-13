@@ -42,7 +42,7 @@
   td, th{
     white-space: nowrap;
   }
-  card label{
+  .card label{
     font-size:10px;
     color:#a1a1a1;
   }
