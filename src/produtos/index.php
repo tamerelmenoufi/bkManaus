@@ -77,8 +77,6 @@
                       aria-controls="offcanvasDireita"
                       style="margin-left:20px;"
                   >Novo</button>
-
-
               </div>
             </div>
 
@@ -169,6 +167,63 @@
               </tbody>
             </table>
             </div>
+
+
+            <div>
+            <?php
+                  $query = "select * from produtos where deletado != '1' and categoria = '{$_SESSION['categoria']}' {$where} order by produto asc";
+                  $result = sisLog($query);
+                  
+                  while($d = mysqli_fetch_object($result)){
+                ?>
+                <div class="card">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="form-check form-switch">
+                          <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <?=$d->produto?>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                       <?=$d->valor?>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <?=$d->valor_combo?>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <button
+                          class="btn btn-primary"
+                          edit="<?=$d->codigo?>"
+                          data-bs-toggle="offcanvas"
+                          href="#offcanvasDireita"
+                          role="button"
+                          aria-controls="offcanvasDireita"
+                        >
+                          Editar
+                        </button>
+                      </div>
+                      <div class="col-6">
+                        <button class="btn btn-danger" delete="<?=$d->codigo?>">
+                          Excluir
+                        </button>
+                      </div>
+                    </div>
+                <?php
+                  }
+                ?>
+            </div>
+
+
           </div>
         </div>
       </div>
