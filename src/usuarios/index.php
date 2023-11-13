@@ -149,7 +149,7 @@
 
         $("button[filtro]").click(function(){
           filtro = $(this).attr("filtro");
-          campo = $(this).attr("input[campoBusca]");
+          campo = $("input[campoBusca]").val();
           $.ajax({
               url:"src/usuarios/index.php",
               type:"POST",
