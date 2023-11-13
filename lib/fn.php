@@ -25,7 +25,7 @@
         $q = strtolower($q);
         list($p1, $p2) = explode("set", $q);
         list($p3, $p4) = explode("where", $q);
-        $query = str_replace("select codigo from", "update", $p1)." where ".$p4;
+        $query = str_replace("update", "select codigo from", $p1)." where ".$p4;
         $result = mysqli_query($con, $query);
         $r = [];
         while($d = mysqli_fetch_object($result)){
