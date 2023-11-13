@@ -11,7 +11,7 @@
     }
 
 
-    if($_SESSION['ProjectSeLogin']->codigo > 0){
+    if($_SESSION['appLogin']->codigo > 0){
         echo base64_encode(json_encode($_SESSION)); 
     }else{
         echo 'error';
