@@ -41,7 +41,7 @@
                   while($d = mysqli_fetch_object($result)){
                 ?>
                 <tr>
-                  <td><?=$d->nome?></td>
+                  <td><?=$d->categoria?></td>
                   <td>
 
                   <div class="form-check form-switch">
