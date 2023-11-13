@@ -83,6 +83,7 @@
                   <th scope="col">Produto</th>
                   <th scope="col">Valor Individual</th>
                   <th scope="col">Valor no Combo</th>
+                  <th scope="col">Situação</th>
                   <th scope="col">Ações</th>
                 </tr>
               </thead>
