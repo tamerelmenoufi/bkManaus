@@ -39,7 +39,7 @@
     background-color:#a1a1a1;
     cursor: pointer;
   }
-  td{
+  td, th{
     white-space: nowrap;
   }
 </style>
