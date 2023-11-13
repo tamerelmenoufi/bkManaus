@@ -1,17 +1,6 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-
-    function Pefil($p){
-      $Perfil = [
-        'adm' => 'Administrador',
-        'sup' => 'Supervisor',
-        'crd' => 'Coordenador',
-        'usr' => 'Agente',
-      ];
-      return $Perfil[$p];
-    }
-
     if($_POST['delete']){
       // $query = "delete from usuarios where codigo = '{$_POST['delete']}'";
       $query = "update usuarios set deletado = '1' where codigo = '{$_POST['delete']}'";
