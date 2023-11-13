@@ -45,7 +45,6 @@
             <div class="d-flex justify-content-between">
                 <div class="input-group mb-3">
                   <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
-                  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" rotulo_busca aria-expanded="false"><?=((!$_SESSION['usuarioBuscaCampo'] or $_SESSION['usuarioBuscaCampo'] == 'nome')?'Nome':(($_SESSION['usuarioBuscaCampo'] == 'perfil')?'Perfil':(($_SESSION['usuarioBuscaCampo'] == 'pac')?'PAC':'CPF')))?></button>
                   <input type="text" texto_busca style="display:<?=(($_SESSION['usuarioBuscaCampo'] == 'perfil' or $_SESSION['usuarioBuscaCampo'] == 'pac')?'none':'block')?>" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
                   <button filtrar class="btn btn-outline-secondary" type="button">Buscar</button>
                   <button limpar class="btn btn-outline-danger" type="button">limpar</button>
