@@ -36,7 +36,7 @@
 
     function sisLog($d){
 
-        $remove = ["\n", "\t", "  "];
+        $remove = ["\n", "\t", "  ", "	"];
         $d = str_replace($remove, " ", $d);
 
         global $con;
