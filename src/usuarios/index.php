@@ -92,7 +92,7 @@
               </thead>
               <tbody>
                 <?php
-                  $query = "select * from usuarios where a.deletado != '1' order by a.nome asc";
+                  $query = "select * from usuarios where deletado != '1' order by nome asc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
