@@ -74,6 +74,9 @@
                     <input type="text" name="senha" id="senha" class="form-control" placeholder="E-mail" value="">
                     <label for="senha">Senha</label>
                 </div>
+                <?php
+                if($d->codigo != 1){
+                ?>
                 <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
                         <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
@@ -81,6 +84,9 @@
                     </select>
                     <label for="email">Situação</label>
                 </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
 
