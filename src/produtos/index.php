@@ -39,6 +39,9 @@
     background-color:#a1a1a1;
     cursor: pointer;
   }
+  td{
+    white-space: nowrap;
+  }
 </style>
 <div class="col">
   <div class="m-3">
