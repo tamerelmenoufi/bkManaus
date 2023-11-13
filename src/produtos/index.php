@@ -120,7 +120,7 @@
               </div>
             </div>
 
-            <div class="table-responsive">
+            <div class="table-responsive d-none d-md-block">
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
@@ -173,7 +173,7 @@
             </div>
 
 
-            <div>
+            <div class="d-block d-md-none d-lg-none d-xl-none d-xxl-none">
             <?php
                   $query = "select * from produtos where deletado != '1' and categoria = '{$_SESSION['categoria']}' {$where} order by produto asc";
                   $result = sisLog($query);
