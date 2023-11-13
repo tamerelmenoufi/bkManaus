@@ -13,15 +13,15 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
             $_SESSION['ProjectSeLogin'] = $d;
             $retorno = [
                 'sucesso' => true,
-                'ProjectSeLogin' => $d->codigo,
-                'MaterConnectado' => $_POST['MaterConnectado'],
+                'AppLogin' => $d->codigo,
+                'ManterConnectado' => $_POST['ManterConnectado'],
                 'msg' => 'Login Realizado com sucesso',
             ];
         }else{
             $retorno = [
                 'sucesso' => false,
-                'ProjectSeLogin' => false,
-                'MaterConnectado' => false,
+                'AppLogin' => false,
+                'ManterConnectado' => false,
                 'msg' => 'Ocorreu um erro no seu login',
             ];
         }
