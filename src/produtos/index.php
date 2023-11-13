@@ -58,6 +58,12 @@
 
 
                 <button
+                    categorias
+                    class="btn btn-warning btn-sm"
+                    style="margin-left:20px;"
+                >Categorias</button>
+
+                <button
                     novoCadastro
                     class="btn btn-success btn-sm"
                     data-bs-toggle="offcanvas"
@@ -66,6 +72,8 @@
                     aria-controls="offcanvasDireita"
                     style="margin-left:20px;"
                 >Novo</button>
+
+
             </div>
 
 
@@ -133,6 +141,16 @@
         $("button[novoCadastro]").click(function(){
             $.ajax({
                 url:"src/produtos/form.php",
+                success:function(dados){
+                    $(".LateralDireita").html(dados);
+                }
+            })
+        })
+
+
+        $("button[categorias]").click(function(){
+            $.ajax({
+                url:"src/categorias/index.php",
                 success:function(dados){
                     $(".LateralDireita").html(dados);
                 }
