@@ -29,7 +29,7 @@
         $result = mysqli_query($con, $query);
         $r = [];
         while($d = mysqli_fetch_object($result)){
-            $r[] = $d->codigo;
+            $r[] = (int)($d->codigo);
         }
         return json_encode($r);
     }
