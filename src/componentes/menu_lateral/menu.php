@@ -30,6 +30,14 @@
       </div>
     </div>
 
+    <div class="row mb-1">
+      <div class="col">
+        <a url="src/categorias/index.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Categorias de Produtos</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </div>
 
