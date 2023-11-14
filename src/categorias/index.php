@@ -106,7 +106,7 @@
 
               <div class="row">
                 <div class="col-12">
-                  <label>Produto</label>
+                  <label>Categoria</label>
                   <div><?=$d->categoria?></div>
                 </div>
               </div>
