@@ -124,7 +124,7 @@
                 </button>
                 <div class="col-6 p-2">
                   <button
-                    class="btn btn-warning"
+                    class="btn btn-warning w-100"
                     produtos
                     categoria="<?=$d->codigo?>"
                   >
