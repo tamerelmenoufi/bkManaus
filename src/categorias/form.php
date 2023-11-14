@@ -58,6 +58,24 @@
                     <label for="categoria">Categoria*</label>
                 </div>
                 <div class="form-floating mb-3">
+                    <input
+                            type="file"
+                            name="file_<?= $md5 ?>"
+                            id="file_<?= $md5 ?>"
+                            accept="image/*"
+                            style="margin-buttom:20px"
+                    >
+
+                    <input
+                            type="hidden"
+                            id="encode_file"
+                            nome=""
+                            tipo=""
+                            value=""
+                            atual="<?= $d->icon; ?>"
+                    />
+                </div>
+                <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
                         <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
                         <option value="0" <?=(($d->situacao == '0')?'selected':false)?>>Bloqueado</option>
@@ -80,6 +98,41 @@
     <script>
         $(function(){
             Carregando('none');
+
+
+            if (window.File && window.FileList && window.FileReader) {
+
+            $('input[type="file"]').change(function () {
+
+                if ($(this).val()) {
+                    var files = $(this).prop("files");
+                    for (var i = 0; i < files.length; i++) {
+                        (function (file) {
+                            var fileReader = new FileReader();
+                            fileReader.onload = function (f) {
+                                var Base64 = f.target.result;
+                                var type = file.type;
+                                var name = file.name;
+
+                                $("#encode_file").val(Base64);
+                                $("#encode_file").attr("nome", name);
+                                $("#encode_file").attr("tipo", type);
+
+
+                            };
+                            fileReader.readAsDataURL(file);
+                        })(files[i]);
+                    }
+                }
+            });
+            } else {
+            alert('Nao suporta HTML5');
+            }
+
+
+
+
+
 
             $('#form-<?=$md5?>').submit(function (e) {
 
