@@ -105,12 +105,15 @@
                     for (var i = 0; i < files.length; i++) {
                         (function (file) {
                             var fileReader = new FileReader();
+                            var Imagem = new Image();
+                            Image.onload = function (){
+                                var w = this.width;
+                                var h = this.height;                                
+                            }
                             fileReader.onload = function (f) {
                                 var Base64 = f.target.result;
                                 var type = file.type;
                                 var name = file.name;
-                                var w = this.width;
-                                var h = this.height;
 
                                 $("#encode_file").val(Base64);
                                 $("#encode_file").attr("nome", name);
