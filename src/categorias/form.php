@@ -118,6 +118,8 @@
                                 $("#encode_file").attr("w", w);
                                 $("#encode_file").attr("h", h);
 
+                                console.log(`W = ${w} & H = ${h}`)
+
 
                             };
                             fileReader.readAsDataURL(file);
