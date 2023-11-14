@@ -112,6 +112,7 @@
                                 image.src = fileReader.result;
                                 image.onload = function() {
                                     console.log("W: " + image.width);
+                                    console.log("H: " + image.height);
                                 };
 
 
