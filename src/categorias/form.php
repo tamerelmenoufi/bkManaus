@@ -57,15 +57,10 @@
                     <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Nome da Categoria" value="<?=$d->categoria?>">
                     <label for="categoria">Categoria*</label>
                 </div>
-                <div class="form-floating mb-3">
-                    <input
-                            type="file"
-                            name="file_<?= $md5 ?>"
-                            id="file_<?= $md5 ?>"
-                            accept="image/*"
-                            style="margin-buttom:20px"
-                    >
 
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="file_<?= $md5 ?>" accept="image/*">
+                    <label class="input-group-text" for="file_<?= $md5 ?>">Selecionar</label>
                     <input
                             type="hidden"
                             id="encode_file"
@@ -75,6 +70,7 @@
                             atual="<?= $d->icon; ?>"
                     />
                 </div>
+
                 <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
                         <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
