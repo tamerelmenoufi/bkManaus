@@ -16,6 +16,13 @@
     background-color:#a1a1a1;
     cursor: pointer;
   }
+  td, th{
+    white-space: nowrap;
+  }
+  .card label{
+    font-size:10px;
+    color:#a1a1a1;
+  }
 </style>
 <div class="col">
   <div class="m-3">
@@ -41,7 +48,7 @@
                   while($d = mysqli_fetch_object($result)){
                 ?>
                 <tr>
-                  <td><?=$d->categoria?></td>
+                  <td class="w-100"><?=$d->categoria?></td>
                   <td>
 
                   <div class="form-check form-switch">
