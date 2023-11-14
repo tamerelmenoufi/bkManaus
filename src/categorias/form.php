@@ -109,8 +109,8 @@
                                 var Base64 = f.target.result;
                                 var type = file.type;
                                 var name = file.name;
-                                var w = file.width;
-                                var h = file.height;
+                                var w = this.width;
+                                var h = this.height;
 
                                 $("#encode_file").val(Base64);
                                 $("#encode_file").attr("nome", name);
