@@ -49,7 +49,7 @@
         z-index:0;
     }
 </style>
-<h4 class="Titulo<?=$md5?>">Cadastro do Usuário</h4>
+<h4 class="Titulo<?=$md5?>">Cadastro de Categoria</h4>
     <form id="form-<?= $md5 ?>">
         <div class="row">
             <div class="col">
@@ -109,10 +109,14 @@
                                 var Base64 = f.target.result;
                                 var type = file.type;
                                 var name = file.name;
+                                var w = file.width;
+                                var h = file.height;
 
                                 $("#encode_file").val(Base64);
                                 $("#encode_file").attr("nome", name);
                                 $("#encode_file").attr("tipo", type);
+                                $("#encode_file").attr("w", w);
+                                $("#encode_file").attr("h", h);
 
 
                             };
