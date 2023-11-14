@@ -112,16 +112,18 @@
               </div>
 
               <div class="row">
-                <button
-                  class="btn btn-primary w-100"
-                  edit="<?=$d->codigo?>"
-                  data-bs-toggle="offcanvas"
-                  href="#offcanvasDireita"
-                  role="button"
-                  aria-controls="offcanvasDireita"
-                >
-                  Editar
-                </button>
+                <div class="col-6 p-2">
+                  <button
+                    class="btn btn-primary w-100"
+                    edit="<?=$d->codigo?>"
+                    data-bs-toggle="offcanvas"
+                    href="#offcanvasDireita"
+                    role="button"
+                    aria-controls="offcanvasDireita"
+                  >
+                    Editar
+                  </button>
+                </div>
                 <div class="col-6 p-2">
                   <button
                     class="btn btn-warning w-100"
