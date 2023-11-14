@@ -32,57 +32,114 @@
         <div class="card">
           <h5 class="card-header">Lista das Categorias</h5>
           <div class="card-body">
-            <table class="table table-striped table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Situação</th>
-                  <th scope="col">Ações</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                  $query = "select * from categorias where deletado != '1' order by categoria asc";
-                  $result = sisLog($query);
-                  
-                  while($d = mysqli_fetch_object($result)){
-                ?>
-                <tr>
-                  <td class="w-100"><?=$d->categoria?></td>
-                  <td>
+            <div class="table-responsive d-none d-md-block">
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Situação</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                    $query = "select * from categorias where deletado != '1' order by categoria asc";
+                    $result = sisLog($query);
+                    
+                    while($d = mysqli_fetch_object($result)){
+                  ?>
+                  <tr>
+                    <td class="w-100"><?=$d->categoria?></td>
+                    <td>
 
+                    <div class="form-check form-switch">
+                      <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
+                    </div>
+
+                    </td>
+                    <td>
+                      <button
+                        class="btn btn-primary"
+                        edit="<?=$d->codigo?>"
+                        data-bs-toggle="offcanvas"
+                        href="#offcanvasDireita"
+                        role="button"
+                        aria-controls="offcanvasDireita"
+                      >
+                        Editar
+                      </button>
+
+                      <button
+                        class="btn btn-warning"
+                        produtos
+                        categoria="<?=$d->codigo?>"
+                      >
+                        Produtos
+                      </button>
+                    </td>
+                  </tr>
+                  <?php
+                    }
+                  ?>
+                </tbody>
+              </table>
+            </div>
+
+
+
+            <div class="d-block d-md-none d-lg-none d-xl-none d-xxl-none">
+            <?php
+              $query = "select * from categorias where deletado != '1' order by categoria asc";
+              $result = sisLog($query);
+              
+              while($d = mysqli_fetch_object($result)){
+            ?>
+            <div class="card mb-3 p-3">
+              <div class="row">
+                <div class="col-12 d-flex justify-content-end">
                   <div class="form-check form-switch">
                     <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
+                    Situação
                   </div>
+                </div>
+              </div>
 
-                  </td>
-                  <td>
-                    <button
-                      class="btn btn-primary"
-                      edit="<?=$d->codigo?>"
-                      data-bs-toggle="offcanvas"
-                      href="#offcanvasDireita"
-                      role="button"
-                      aria-controls="offcanvasDireita"
-                    >
-                      Editar
-                    </button>
+              <div class="row">
+                <div class="col-12">
+                  <label>Produto</label>
+                  <div><?=$d->categoria?></div>
+                </div>
+              </div>
 
-                    <button
-                      class="btn btn-warning"
-                      produtos
-                      categoria="<?=$d->codigo?>"
-                    >
-                      Produtos
-                    </button>
-                  </td>
-                </tr>
-                <?php
-                  }
-                ?>
-              </tbody>
-            </table>
-          </div>
+              <div class="row">
+                <button
+                  class="btn btn-primary w-100"
+                  edit="<?=$d->codigo?>"
+                  data-bs-toggle="offcanvas"
+                  href="#offcanvasDireita"
+                  role="button"
+                  aria-controls="offcanvasDireita"
+                >
+                  Editar
+                </button>
+                <div class="col-6 p-2">
+                  <button
+                    class="btn btn-warning"
+                    produtos
+                    categoria="<?=$d->codigo?>"
+                  >
+                    Produtos
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <?php
+              }
+            ?>
+            </div>
+
+
         </div>
       </div>
     </div>
