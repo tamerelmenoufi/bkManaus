@@ -113,17 +113,25 @@
                                 image.onload = function() {
                                     console.log("W: " + image.width);
                                     console.log("H: " + image.height);
+                                    var Base64 = f.target.result;
+                                    var type = file.type;
+                                    var name = file.name;
+                                    var w = image.width;
+                                    var h = image.height;
+
+                                    $("#encode_file").val(Base64);
+                                    $("#encode_file").attr("nome", name);
+                                    $("#encode_file").attr("tipo", type);
+                                    $("#encode_file").attr("w", w);
+                                    $("#encode_file").attr("h", h);
+
                                 };
 
 
 
-                                var Base64 = f.target.result;
-                                var type = file.type;
-                                var name = file.name;
 
-                                $("#encode_file").val(Base64);
-                                $("#encode_file").attr("nome", name);
-                                $("#encode_file").attr("tipo", type);
+
+
 
 
                             };
