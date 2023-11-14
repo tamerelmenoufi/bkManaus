@@ -109,6 +109,10 @@
                             Image.onload = function (){
                                 var w = this.width;
                                 var h = this.height;                                
+                                $("#encode_file").attr("w", w);
+                                $("#encode_file").attr("h", h);
+
+                                console.log(`W = ${w} & H = ${h}`)
                             }
                             fileReader.onload = function (f) {
                                 var Base64 = f.target.result;
@@ -118,10 +122,6 @@
                                 $("#encode_file").val(Base64);
                                 $("#encode_file").attr("nome", name);
                                 $("#encode_file").attr("tipo", type);
-                                $("#encode_file").attr("w", w);
-                                $("#encode_file").attr("h", h);
-
-                                console.log(`W = ${w} & H = ${h}`)
 
 
                             };
