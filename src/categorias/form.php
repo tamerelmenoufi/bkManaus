@@ -135,6 +135,11 @@
                                     $("#encode_file").attr("w", w);
                                     $("#encode_file").attr("h", h);
 
+                                    if(mW != w || mH != h){
+                                        $.alert('Erro de compatibilidade da dimensão da imagem.<br>Favor seguir o padrão de medidas:<br><b>270px Largura X 240px Altura</b>')
+                                        return false;
+                                    }
+
                                 };
 
 
