@@ -61,7 +61,14 @@
 
                 <label for="file_<?= $md5 ?>">Imagem da categoria deve ser nas dimensões (270px Largura X 240px Altura) *</label>
                 <div class="input-group mb-3">
-                    <input type="file" class="form-control" id="file_<?= $md5 ?>" accept="image/*">
+                    <input 
+                        type="file" 
+                        class="form-control" 
+                        id="file_<?= $md5 ?>" 
+                        accept="image/*"
+                        w="270"
+                        h="240"
+                    >
                     <label class="input-group-text" for="file_<?= $md5 ?>">Selecionar</label>
                     <input
                             type="hidden"
@@ -106,6 +113,9 @@
                     var files = $(this).prop("files");
                     for (var i = 0; i < files.length; i++) {
                         (function (file) {
+                            var mW = file.attr("w")
+                            var mH = file.attr("h")
+                            console.log(`W: ${mW} & H: ${mH}`)
                             var fileReader = new FileReader();
                             fileReader.onload = function (f) {
 
