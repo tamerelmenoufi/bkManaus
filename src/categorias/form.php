@@ -58,6 +58,8 @@
                     <label for="categoria">Categoria*</label>
                 </div>
 
+
+                <label for="file_<?= $md5 ?>">Imagem da categoria deve ser nas dimensões (270px Largura X 240px Altura) *</label>
                 <div class="input-group mb-3">
                     <input type="file" class="form-control" id="file_<?= $md5 ?>" accept="image/*">
                     <label class="input-group-text" for="file_<?= $md5 ?>">Selecionar</label>
