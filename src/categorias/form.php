@@ -108,14 +108,13 @@
             if (window.File && window.FileList && window.FileReader) {
 
             $('input[type="file"]').change(function () {
-
+                var mW = $(this).attr("w")
+                var mH = $(this).attr("h")
+                console.log(`W: ${mW} & H: ${mH}`)
                 if ($(this).val()) {
                     var files = $(this).prop("files");
                     for (var i = 0; i < files.length; i++) {
                         (function (file) {
-                            var mW = file.attr("w")
-                            var mH = file.attr("h")
-                            console.log(`W: ${mW} & H: ${mH}`)
                             var fileReader = new FileReader();
                             fileReader.onload = function (f) {
 
