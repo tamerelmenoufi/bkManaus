@@ -122,7 +122,7 @@
                   while($d = mysqli_fetch_object($result)){
                 ?>
                 <tr>
-                  <td><?=$d->nome?></td>
+                  <td class="w-100"><?=$d->nome?></td>
                   <td><?=$d->cpf?></td>
                   <td>
 
