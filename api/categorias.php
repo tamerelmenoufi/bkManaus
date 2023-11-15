@@ -4,7 +4,7 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($_POST))
     $_POST = json_decode(file_get_contents('php://input'), true);
 
-    $q = "select a.*, concat('BK ',categoria) as categoria, (select icon from produtos where a.codigo = categoria and icon != '' order by rand() limit 1) as icon from categorias where situacao = '1' and deletado != '1' order by ordem desc";
+    $q = "select a.*, concat('BK ',categoria) as categoria, (select icon from produtos where a.codigo = categoria and icon != '' order by rand() limit 1) as icon from categorias a where a.situacao = '1' and a.deletado != '1' order by a.ordem desc";
     $r = mysqli_query($con, $q);
     
     $p = [];
