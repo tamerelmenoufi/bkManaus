@@ -111,8 +111,7 @@
                                 var image = new Image();
                                 image.src = fileReader.result;
                                 image.onload = function() {
-                                    console.log("W: " + image.width);
-                                    console.log("H: " + image.height);
+
                                     var Base64 = f.target.result;
                                     var type = file.type;
                                     var name = file.name;

@@ -4,7 +4,7 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($_POST))
     $_POST = json_decode(file_get_contents('php://input'), true);
 
-    $q = "select * from categorias where situacao = '1' and deletado != '1' order by ordem desc";
+    $q = "select *, concat('BK ',categoria) as categoria from categorias where situacao = '1' and deletado != '1' order by ordem desc";
     $r = mysqli_query($con, $q);
     
     $p = [];
