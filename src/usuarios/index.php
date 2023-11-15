@@ -104,60 +104,120 @@
               </div>
             </div>
 
+            <div class="table-responsive d-none d-md-block">
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Situação</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                    $query = "select * from usuarios where deletado != '1' {$where} order by nome asc";
+                    $result = sisLog($query);
+                    
+                    while($d = mysqli_fetch_object($result)){
+                  ?>
+                  <tr>
+                    <td class="w-100"><?=$d->nome?></td>
+                    <td><?=$d->cpf?></td>
+                    <td>
 
-            <table class="table table-striped table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">Nome</th>
-                  <th scope="col">CPF</th>
-                  <th scope="col">Situação</th>
-                  <th scope="col">Ações</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
+                    <div class="form-check form-switch">
+                      <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->situacao)?'checked':false)?> usuario="<?=$d->codigo?>">
+                    </div>
+
+                    </td>
+                    <td>
+                      <button
+                        class="btn btn-primary"
+                        edit="<?=$d->codigo?>"
+                        data-bs-toggle="offcanvas"
+                        href="#offcanvasDireita"
+                        role="button"
+                        aria-controls="offcanvasDireita"
+                      >
+                        Editar
+                      </button>
+                      <?php
+                      if($d->codigo != 1){
+                      ?>
+                      <button class="btn btn-danger" delete="<?=$d->codigo?>">
+                        Excluir
+                      </button>
+                      <?php
+                      }
+                      ?>
+                    </td>
+                  </tr>
+                  <?php
+                    }
+                  ?>
+                </tbody>
+              </table>
+            </div>
+
+
+            <div class="d-block d-md-none d-lg-none d-xl-none d-xxl-none">
+            <?php
                   $query = "select * from usuarios where deletado != '1' {$where} order by nome asc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
                 ?>
-                <tr>
-                  <td class="w-100"><?=$d->nome?></td>
-                  <td><?=$d->cpf?></td>
-                  <td>
+                <div class="card mb-3 p-3">
+                    <div class="row">
+                      <div class="col-12 d-flex justify-content-end">
+                        <div class="form-check form-switch">
+                          <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
+                          Situação
+                        </div>
+                      </div>
+                    </div>
 
-                  <div class="form-check form-switch">
-                    <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->situacao)?'checked':false)?> usuario="<?=$d->codigo?>">
+                    <div class="row">
+                      <div class="col-12">
+                        <label>Nome</label>
+                        <div><?=$d->nome?></div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                      <label>CPF</label>
+                       <div><?=$d->cpf?></div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-6 p-2">
+                        <button
+                          class="btn btn-primary w-100"
+                          edit="<?=$d->codigo?>"
+                          data-bs-toggle="offcanvas"
+                          href="#offcanvasDireita"
+                          role="button"
+                          aria-controls="offcanvasDireita"
+                        >
+                          Editar
+                        </button>
+                      </div>
+                      <div class="col-6 p-2">
+                        <button class="btn btn-danger w-100" delete="<?=$d->codigo?>">
+                          Excluir
+                        </button>
+                      </div>
+                    </div>
                   </div>
-
-                  </td>
-                  <td>
-                    <button
-                      class="btn btn-primary"
-                      edit="<?=$d->codigo?>"
-                      data-bs-toggle="offcanvas"
-                      href="#offcanvasDireita"
-                      role="button"
-                      aria-controls="offcanvasDireita"
-                    >
-                      Editar
-                    </button>
-                    <?php
-                    if($d->codigo != 1){
-                    ?>
-                    <button class="btn btn-danger" delete="<?=$d->codigo?>">
-                      Excluir
-                    </button>
-                    <?php
-                    }
-                    ?>
-                  </td>
-                </tr>
                 <?php
                   }
                 ?>
-              </tbody>
-            </table>
+            </div>
+
+
           </div>
         </div>
       </div>
