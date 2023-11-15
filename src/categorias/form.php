@@ -129,15 +129,20 @@
                                     var w = image.width;
                                     var h = image.height;
 
-                                    $("#encode_file").val(Base64);
-                                    $("#encode_file").attr("nome", name);
-                                    $("#encode_file").attr("tipo", type);
-                                    $("#encode_file").attr("w", w);
-                                    $("#encode_file").attr("h", h);
-
                                     if(mW != w || mH != h){
                                         $.alert('Erro de compatibilidade da dimensão da imagem.<br>Favor seguir o padrão de medidas:<br><b>270px Largura X 240px Altura</b>')
+                                        $("#encode_file").val('');
+                                        $("#encode_file").attr("nome", '');
+                                        $("#encode_file").attr("tipo", '');
+                                        $("#encode_file").attr("w", '');
+                                        $("#encode_file").attr("h", '');                                        
                                         return false;
+                                    }else{
+                                        $("#encode_file").val(Base64);
+                                        $("#encode_file").attr("nome", name);
+                                        $("#encode_file").attr("tipo", type);
+                                        $("#encode_file").attr("w", w);
+                                        $("#encode_file").attr("h", h);
                                     }
 
                                 };
