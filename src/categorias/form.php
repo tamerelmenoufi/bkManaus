@@ -10,6 +10,35 @@
         unset($data['codigo']);
         unset($data['acao']);
 
+        if ($data['file-base']) {
+
+            if(is_dir("icon")) mkdir("icon");
+
+            list($x, $icon) = explode(';base64,', $data['file-base']);
+            $icon = base64_decode($icon);
+            $pos = strripos($data['file-name'], '.');
+            $ext = substr($data['file-name'], $pos, strlen($data['file-name']));
+    
+            $atual = $data['file-atual'];
+    
+            unset($data['file-base']);
+            unset($data['file-type']);
+            unset($data['file-name']);
+            unset($data['file-atual']);
+    
+            if (file_put_contents("icon/{$md5}{$ext}", $icon)) {
+                $attr[] = "icon = '{$md5}{$ext}'";
+                if ($atual) {
+                    unlink("icon/{$atual}");
+                }
+            }
+    
+        }
+    
+
+
+
+
         foreach ($data as $name => $value) {
             $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
         }
@@ -60,6 +89,13 @@
 
 
                 <label for="file_<?= $md5 ?>">Imagem da categoria deve ser nas dimensões (270px Largura X 240px Altura) *</label>
+                <?php
+                if(is_file("icon/{$d->icone}")){
+                ?>
+                <center><img src="icon/<?=$d->icon?>" style="margin: 20px;" /></center>
+                <?php
+                }
+                ?>
                 <div class="input-group mb-3">
                     <input 
                         type="file" 
@@ -147,13 +183,6 @@
 
                                 };
 
-
-
-
-
-
-
-
                             };
                             fileReader.readAsDataURL(file);
                         })(files[i]);
@@ -161,7 +190,7 @@
                 }
             });
             } else {
-            alert('Nao suporta HTML5');
+                alert('Nao suporta HTML5');
             }
 
 
