@@ -92,7 +92,7 @@
                 <?php
                 if(is_file("icon/{$d->icon}")){
                 ?>
-                <center><img src="icon/<?=$d->icon?>" style="margin: 20px;" /></center>
+                <center><img src="src/categorias/icon/<?=$d->icon?>" style="margin: 20px;" /></center>
                 <?php
                 }
                 ?>
