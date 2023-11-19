@@ -12,7 +12,7 @@
 
         if ($data['file-base']) {
 
-            if(is_dir("icon")) mkdir("icon");
+            if(!is_dir("icon")) mkdir("icon");
 
             list($x, $icon) = explode(';base64,', $data['file-base']);
             $icon = base64_decode($icon);
