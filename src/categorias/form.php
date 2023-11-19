@@ -90,7 +90,7 @@
 
                 <label for="file_<?= $md5 ?>">Imagem da categoria deve ser nas dimensões (270px Largura X 240px Altura) *</label>
                 <?php
-                if(is_file("icon/{$d->icone}")){
+                if(is_file("icon/{$d->icon}")){
                 ?>
                 <center><img src="icon/<?=$d->icon?>" style="margin: 20px;" /></center>
                 <?php
