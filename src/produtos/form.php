@@ -12,6 +12,33 @@
         unset($data['codigo']);
         unset($data['acao']);
 
+        
+        if ($data['file-base']) {
+
+            if(!is_dir("icon")) mkdir("icon");
+
+            list($x, $icon) = explode(';base64,', $data['file-base']);
+            $icon = base64_decode($icon);
+            $pos = strripos($data['file-name'], '.');
+            $ext = substr($data['file-name'], $pos, strlen($data['file-name']));
+    
+            $atual = $data['file-atual'];
+    
+            unset($data['file-base']);
+            unset($data['file-type']);
+            unset($data['file-name']);
+            unset($data['file-atual']);
+    
+            if (file_put_contents("icon/{$md5}{$ext}", $icon)) {
+                $attr[] = "icon = '{$md5}{$ext}'";
+                if ($atual) {
+                    unlink("icon/{$atual}");
+                }
+            }
+    
+        }
+
+
         foreach ($data as $name => $value) {
             $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
         }
@@ -59,6 +86,38 @@
                     <input type="text" class="form-control" id="produto" name="produto" placeholder="Nome do produto" value="<?=$d->produto?>">
                     <label for="produto">Produto*</label>
                 </div>
+
+
+                <label for="file_<?= $md5 ?>">Imagem da categoria deve ser nas dimensões (270px Largura X 240px Altura) *</label>
+                <?php
+                if(is_file("icon/{$d->icon}")){
+                ?>
+                <center><img src="src/produtos/icon/<?=$d->icon?>" style="margin: 20px;" /></center>
+                <?php
+                }
+                ?>
+                <div class="input-group mb-3">
+                    <input 
+                        type="file" 
+                        class="form-control" 
+                        id="file_<?= $md5 ?>" 
+                        accept="image/*"
+                        w="270"
+                        h="240"
+                    >
+                    <label class="input-group-text" for="file_<?= $md5 ?>">Selecionar</label>
+                    <input
+                            type="hidden"
+                            id="encode_file"
+                            nome=""
+                            tipo=""
+                            value=""
+                            atual="<?= $d->icon; ?>"
+                    />
+                </div>
+
+
+
                 <div class="form-floating mb-3">
                     <textarea type="text" name="descricao" id="descricao" class="form-control" placeholder="Descrição"><?=$d->descricao?></textarea>
                     <label for="descricao">Descrição*</label>
@@ -95,6 +154,61 @@
         $(function(){
             Carregando('none');
 
+
+            if (window.File && window.FileList && window.FileReader) {
+
+            $('input[type="file"]').change(function () {
+                var mW = $(this).attr("w")
+                var mH = $(this).attr("h")
+                console.log(`W: ${mW} & H: ${mH}`)
+                if ($(this).val()) {
+                    var files = $(this).prop("files");
+                    for (var i = 0; i < files.length; i++) {
+                        (function (file) {
+                            var fileReader = new FileReader();
+                            fileReader.onload = function (f) {
+
+
+                                var image = new Image();
+                                image.src = fileReader.result;
+                                image.onload = function() {
+
+                                    var Base64 = f.target.result;
+                                    var type = file.type;
+                                    var name = file.name;
+                                    var w = image.width;
+                                    var h = image.height;
+
+                                    if(mW != w || mH != h){
+                                        $.alert('Erro de compatibilidade da dimensão da imagem.<br>Favor seguir o padrão de medidas:<br><b>270px Largura X 240px Altura</b>')
+                                        $("#encode_file").val('');
+                                        $("#encode_file").attr("nome", '');
+                                        $("#encode_file").attr("tipo", '');
+                                        $("#encode_file").attr("w", '');
+                                        $("#encode_file").attr("h", '');                                        
+                                        return false;
+                                    }else{
+                                        $("#encode_file").val(Base64);
+                                        $("#encode_file").attr("nome", name);
+                                        $("#encode_file").attr("tipo", type);
+                                        $("#encode_file").attr("w", w);
+                                        $("#encode_file").attr("h", h);
+                                    }
+
+                                };
+
+                            };
+                            fileReader.readAsDataURL(file);
+                        })(files[i]);
+                    }
+                }
+            });
+            } else {
+                alert('Nao suporta HTML5');
+            }
+
+
+
             $('#form-<?=$md5?>').submit(function (e) {
 
                 e.preventDefault();
@@ -107,6 +221,22 @@
                 }
 
                 campos.push({name: 'acao', value: 'salvar'})
+
+
+                file_name = $("#encode_file").attr("nome");
+                file_type = $("#encode_file").attr("tipo");
+                file_base = $("#encode_file").val();
+                file_atual = $("#encode_file").attr("atual");
+
+                if(file_name && file_type && file_base){
+
+                    campos.push({name: 'file-name', value: file_name})
+                    campos.push({name: 'file-type', value: file_type})
+                    campos.push({name: 'file-base', value: file_base})
+                    campos.push({name: 'file-atual', value: file_atual})
+
+                }
+
 
                 Carregando();
 
