@@ -38,6 +38,15 @@
       </div>
     </div>
 
+
+    <div class="row mb-1">
+      <div class="col">
+        <a url="src/combos/index.php?categoria=8" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Combos</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </div>
 
