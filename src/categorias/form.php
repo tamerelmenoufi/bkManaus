@@ -211,6 +211,19 @@
 
                 campos.push({name: 'acao', value: 'salvar'})
 
+                file_name = $("#encode_file").attr("nome");
+                file_type = $("#encode_file").attr("tipo");
+                file_base = $("#encode_file").val();
+                file_atual = $("#encode_file").attr("atual");
+
+                if(file_name && file_type && file_base){
+
+                    campos.push({name: 'file-name', value: file_name})
+                    campos.push({name: 'file-type', value: file_type})
+                    campos.push({name: 'file-base', value: file_base})
+                    campos.push({name: 'file-atual', value: file_atual})
+
+                }
 
                 Carregando();
 
