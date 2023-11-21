@@ -83,8 +83,8 @@
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="produto" name="produto" placeholder="Nome do produto" value="<?=$d->produto?>">
-                    <label for="produto">Produto*</label>
+                    <input type="text" class="form-control" id="item" name="item" placeholder="Nome do item" value="<?=$d->item?>">
+                    <label for="item">item*</label>
                 </div>
 
 
