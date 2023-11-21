@@ -145,7 +145,7 @@
                             <?=$d1->categoria?>
                         </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div id="itens<?=$d1->codigo?>" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <?=
                                     $d1->categoria;
