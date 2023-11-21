@@ -119,7 +119,8 @@
 
 
                 <div class="form-floating mb-3">
-                    <textarea type="text" name="descricao" id="descricao" class="form-control" placeholder="Descrição"><?=$d->descricao?></textarea>
+                    <textarea type="text" name="descricao" id="descricao" class="form-control" placeholder="Descrição"
+                     style="height:150px;"><?=$d->descricao?></textarea>
                     <label for="descricao">Descrição*</label>
                 </div>
                 <div class="form-floating mb-3">
