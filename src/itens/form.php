@@ -151,7 +151,7 @@
                                     
                                     $q2 = "select * from itens where categoria = '{$d1->codigo}' and deletado != '1'";
                                     $r2 = mysqli_query($con, $q2);
-                                    while($d2 = mysqli_fetch_object($r)){
+                                    while($d2 = mysqli_fetch_object($r2)){
 
 
                                         echo $d2->item."<br>";
