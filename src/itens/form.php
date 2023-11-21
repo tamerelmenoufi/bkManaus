@@ -136,7 +136,7 @@
                     <?php
                     $q = "select * from categorias_itens where deletado != '1'";
                     $r = mysqli_query($con, $q);
-                    while($d1 = mysql_fwetch_object($r)){
+                    while($d1 = mysqli_fetch_object($r)){
                     ?>
             
                     <div class="accordion-item">
@@ -148,7 +148,7 @@
                         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <?=
-                                    $d->descricao;
+                                    $d1->descricao;
                                 ?>
                             </div>
                         </div>
