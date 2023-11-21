@@ -136,7 +136,7 @@
                     <?php
                     $q = "select * from categorias_itens where deletado != '1'";
                     $r = mysqli_query($con, $q);
-                    while($d1 = mysql_fwetch_object($result)){
+                    while($d1 = mysql_fwetch_object($r)){
                     ?>
             
                     <div class="accordion-item">
