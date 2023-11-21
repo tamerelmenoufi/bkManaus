@@ -25,7 +25,7 @@
     }
 
     if($_SESSION['usuarioBusca']){
-      $where = " and produto like '%{$_SESSION['usuarioBusca']}%' ";
+      $where = " and item like '%{$_SESSION['usuarioBusca']}%' ";
     }
 
 
@@ -124,7 +124,7 @@
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
-                  <th scope="col">Produto</th>
+                  <th scope="col">item</th>
                   <th scope="col">Valor Individual</th>
                   <th scope="col">Valor no Combo</th>
                   <th scope="col">Situação</th>
@@ -133,13 +133,13 @@
               </thead>
               <tbody>
                 <?php
-                  $query = "select * from itens where deletado != '1' and categoria_itens = '{$_SESSION['categoria_itens']}' {$where} order by produto asc";
+                  $query = "select * from itens where deletado != '1' and categoria = '{$_SESSION['categoria_itens']}' {$where} order by item asc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
                 ?>
                 <tr>
-                  <td style='width:100%'><?=$d->produto?></td>
+                  <td style='width:100%'><?=$d->item?></td>
                   <td><?=$d->valor?></td>
                   <td><?=$d->valor_combo?></td>
                   <td>
@@ -175,7 +175,7 @@
 
             <div class="d-block d-md-none d-lg-none d-xl-none d-xxl-none">
             <?php
-                  $query = "select * from itens where deletado != '1' and categoria = '{$_SESSION['categoria_itens']}' {$where} order by produto asc";
+                  $query = "select * from itens where deletado != '1' and categoria = '{$_SESSION['categoria_itens']}' {$where} order by item asc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
@@ -192,8 +192,8 @@
 
                     <div class="row">
                       <div class="col-12">
-                        <label>Produto</label>
-                        <div><?=$d->produto?></div>
+                        <label>item</label>
+                        <div><?=$d->item?></div>
                       </div>
                     </div>
 
