@@ -148,7 +148,7 @@
                         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <?=
-                                    $d1->descricao;
+                                    $d1->categoria;
                                 ?>
                             </div>
                         </div>
