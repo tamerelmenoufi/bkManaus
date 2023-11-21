@@ -1,8 +1,8 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-    if($_POST['categoria_itens']){
-      $_SESSION['categoria_itens'] = $_POST['categoria_itens'];
+    if($_POST['categoria']){
+      $_SESSION['categoria_itens'] = $_POST['categoria'];
     }
 
     if($_POST['delete']){
