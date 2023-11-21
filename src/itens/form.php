@@ -125,11 +125,7 @@
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" name="valor" id="valor" class="form-control" placeholder="Valor Individual" value="<?=$d->valor?>">
-                    <label for="valor">Valor Individual</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="valor_combo" id="valor_combo" class="form-control" placeholder="Valor no combo" value="<?=$d->valor_combo?>">
-                    <label for="valor_combo">Valor no combo</label>
+                    <label for="valor">Valor</label>
                 </div>
                 <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
