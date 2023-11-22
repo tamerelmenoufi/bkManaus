@@ -8,7 +8,7 @@
         exit();
     }
 
-    $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['catgegoria']}'"));
+    $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));
 
 
     if($_POST['acao'] == 'salvar'){
@@ -228,7 +228,7 @@
                 <div style="display:flex; justify-content:end">
                     <button type="submit" class="btn btn-success btn-ms">Salvar</button>
                     <input type="hidden" id="codigo" value="<?=$_POST['cod']?>" />
-                    <input type="hidden" name="categoria" id="categoria" value="<?=$_SESSION['catgegoria']?>" />
+                    <input type="hidden" name="categoria" id="categoria" value="<?=$_SESSION['categoria']?>" />
                 </div>
             </div>
         </div>
