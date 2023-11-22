@@ -150,8 +150,6 @@
                     <label for="valor_combo">Valor no combo</label>
                 </div>
 
-
-
                 <div class="accordion mb-3" id="accordionExample">
                     <?php
                     $q = "select * from categorias_itens where deletado != '1'";
@@ -348,6 +346,21 @@
                     campos.push({name: 'file-atual', value: file_atual})
 
                 }
+
+
+                itens = [];
+                $("input.opcao").each(function(){
+                    if($(this).prop("checked") == true){
+                        item = $(this).attr("codigo");
+                        quantidade = $(`#quantidade${item}`).val();
+                        itens.push({'item':item, 'quantidade':quantidade});                            
+                    }
+                })
+                if(itens){
+                    campos.push({name: 'itens', value: itens})
+                }
+                
+
 
 
                 Carregando();
