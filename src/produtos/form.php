@@ -369,8 +369,8 @@
                         itens.push({'item':item, 'quantidade':quantidade});                            
                     }
                 })
-                campos.concat(itens)
-                
+                campos.push({name:'itens', value:itens})
+                campos = JSON.stringify(campos)
 
 console.log(campos);
 // return false;
