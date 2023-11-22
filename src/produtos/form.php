@@ -209,7 +209,8 @@
 
             $(".opcao").change(function(){
                 opc = $(this).val();
-                console.log(opc)
+                acao = $(this).prop("checked");
+                console.log(opc + " : " + acao)
             })
 
 
