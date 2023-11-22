@@ -161,7 +161,7 @@
                                             <label class="form-check-label w-100" for="opcao<?=$d2->codigo?>">
                                                 <div class="d-flex justify-content-between">
                                                     <span class="text-break"><?=$d2->item?></span>
-                                                    <input type="text" inputmode="numeric" id="quantidade<?=$d2->codigo?>" class="form-control quantidade" style="width:50px;" maxlength="1" />
+                                                    <input type="text" inputmode="numeric" id="quantidade<?=$d2->codigo?>" codigo="<?=$d2->codigo?>" class="form-control quantidade" style="width:50px;" maxlength="1" />
                                                 </div>
                                             </label> 
                                     </li>
@@ -211,6 +211,13 @@
                 opc = $(this).val();
                 acao = $(this).prop("checked");
                 quantidade = (($(`#quantidade${opc}`).val()>0)?$(`#quantidade${opc}`).val():1);
+                console.log(opc + " : " + acao + " : " + quantidade)
+            })
+
+            $(".quantidade").blur(function(){
+                opc = $(this).attr("codigo");
+                quantidade = $(this).val();
+                acao = (($(`.opcao[value="${opc}"]`).val()>0)?$(`.opcao[value="${opc}"]`).val():1);
                 console.log(opc + " : " + acao + " : " + quantidade)
             })
 
