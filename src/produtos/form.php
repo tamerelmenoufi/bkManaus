@@ -131,6 +131,46 @@
                     <input type="text" name="valor_combo" id="valor_combo" class="form-control" placeholder="Valor no combo" value="<?=$d->valor_combo?>">
                     <label for="valor_combo">Valor no combo</label>
                 </div>
+
+
+
+                <div class="accordion mb-3" id="accordionExample">
+                    <?php
+                    $q = "select * from categorias_itens where deletado != '1'";
+                    $r = mysqli_query($con, $q);
+                    while($d1 = mysqli_fetch_object($r)){
+                    ?>
+            
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#itens<?=$d1->codigo?>" aria-expanded="true" aria-controls="itens<?=$d1->codigo?>">
+                            <?=$d1->categoria?>
+                        </button>
+                        </h2>
+                        <div id="itens<?=$d1->codigo?>" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <?php
+                                    
+                                    $q2 = "select * from itens where categoria = '{$d1->codigo}' and deletado != '1'";
+                                    $r2 = mysqli_query($con, $q2);
+                                    while($d2 = mysqli_fetch_object($r2)){
+
+
+                                        echo $d2->item."<br>";
+
+                                    }
+
+                                ?>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                    </div>
+                </div>
+
+
+
                 <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
                         <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
