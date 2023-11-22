@@ -156,10 +156,10 @@
                                     $r2 = mysqli_query($con, $q2);
                                     while($d2 = mysqli_fetch_object($r2)){
                                 ?>
-                                    <li class="list-group-item" >
+                                    <li class="list-group-item list-group-item-action text-nowrap" >
                                         <input class="form-check-input me-1" type="checkbox" <?=(($d2->situacao == '0')?'checked':false)?> value=""  id="firstCheckboxStretched<?=$d2->codigo?>">
                                         <div class="d-flex justify-content-between">
-                                            <label class="form-check-label stretched-link" for="firstCheckboxStretched<?=$d2->codigo?>">
+                                            <label class="form-check-label stretched-link text-nowrap" for="firstCheckboxStretched<?=$d2->codigo?>">
                                                 <?=$d2->item?>
                                             </label>
                                             <input type="number" class="form-control" />
