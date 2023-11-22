@@ -160,7 +160,7 @@
                                         <input class="form-check-input me-1" type="checkbox" <?=(($d2->situacao == '0')?'checked':false)?> value=""  id="firstCheckboxStretched<?=$d2->codigo?>">
                                             <label class="form-check-label w-100" for="firstCheckboxStretched<?=$d2->codigo?>">
                                                 <div class="d-flex justify-content-between">
-                                                    <span class="text-nowrap"><?=$d2->item?></span>
+                                                    <span class="text-break"><?=$d2->item?></span>
                                                     <input type="text" inputmode="numeric" class="form-control xxx" style="width:50px;" maxlength="1" />
                                                 </div>
                                             </label>
