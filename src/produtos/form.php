@@ -149,18 +149,23 @@
                         </h2>
                         <div id="itens<?=$d1->codigo?>" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
+                                <ul class="list-group">
                                 <?php
                                     
                                     $q2 = "select * from itens where categoria = '{$d1->codigo}' and deletado != '1'";
                                     $r2 = mysqli_query($con, $q2);
                                     while($d2 = mysqli_fetch_object($r2)){
-
-
-                                        echo $d2->item."<br>";
+                                ?>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" >
+                                        <label class="form-check-label" for="firstRadio"><?=$d2->item?></label>
+                                    </li>
+                                <?php
 
                                     }
 
                                 ?>
+                                </ul>
                             </div>
                         </div>
                     </div>    
