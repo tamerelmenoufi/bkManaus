@@ -77,6 +77,10 @@
     $query = "select * from produtos where codigo = '{$_POST['cod']}'";
     $result = sisLog($query);
     $d = mysqli_fetch_object($result);
+
+    $dados = json_decode($d->itens);
+
+    echo $dados;
 ?>
 <style>
     .Titulo<?=$md5?>{
