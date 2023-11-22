@@ -157,11 +157,11 @@
                                     while($d2 = mysqli_fetch_object($r2)){
                                 ?>
                                     <li class="d-flex justify-content-start list-group-item list-group-item-action" >
-                                        <input class="form-check-input me-1 opcao" type="checkbox" <?=(($d2->situacao == '0')?'checked':false)?> value="<?=$d2->codigo?>"  id="firstCheckboxStretched<?=$d2->codigo?>">
-                                            <label class="form-check-label w-100" for="firstCheckboxStretched<?=$d2->codigo?>">
+                                        <input class="form-check-input me-1 opcao" type="checkbox" <?=(($d2->situacao == '0')?'checked':false)?> value="<?=$d2->codigo?>"  id="opcao<?=$d2->codigo?>">
+                                            <label class="form-check-label w-100" for="opcao<?=$d2->codigo?>">
                                                 <div class="d-flex justify-content-between">
                                                     <span class="text-break"><?=$d2->item?></span>
-                                                    <input type="text" inputmode="numeric" class="form-control quantidade" style="width:50px;" maxlength="1" />
+                                                    <input type="text" inputmode="numeric" id="quantidade<?=$d2->codigo?>" class="form-control quantidade" style="width:50px;" maxlength="1" />
                                                 </div>
                                             </label> 
                                     </li>
@@ -210,7 +210,8 @@
             $(".opcao").change(function(){
                 opc = $(this).val();
                 acao = $(this).prop("checked");
-                console.log(opc + " : " + acao)
+                quantidade = (($(`quantidade${opc}`).val()>0)?$(`quantidade${opc}`).val():1);
+                console.log(opc + " : " + acao + " : " + quantidade)
             })
 
 
