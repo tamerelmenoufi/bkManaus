@@ -20,6 +20,10 @@
         unset($data['acao']);
         unset($data['itens']);
 
+        print_r($_POST);
+
+        exit();
+
         
         if ($data['file-base']) {
 
