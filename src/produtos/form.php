@@ -77,6 +77,9 @@
     $query = "select * from produtos where codigo = '{$_POST['cod']}'";
     $result = sisLog($query);
     $d = mysqli_fetch_object($result);
+
+    $dados = json_decode($d->itens);
+
     
 ?>
 <style>
@@ -92,7 +95,7 @@
         <div class="row">
             <div class="col">
                 <?php
-                    print_r($d)
+echo "Itens: ".$dados;
                 ?>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="produto" name="produto" placeholder="Nome do produto" value="<?=$d->produto?>">
