@@ -80,6 +80,12 @@
 
     $dados = json_decode($d->itens);
 
+    $itens = [];
+
+    foreach($dados as $p => $q){
+        $itens[$q->produto] = $q->quantidade;
+    }
+
     
 ?>
 <style>
@@ -94,9 +100,7 @@
     <form id="form-<?= $md5 ?>">
         <div class="row">
             <div class="col">
-                <?php
-print_r($dados);
-                ?>
+                
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="produto" name="produto" placeholder="Nome do produto" value="<?=$d->produto?>">
                     <label for="produto">Produto*</label>
@@ -172,7 +176,7 @@ print_r($dados);
                                     while($d2 = mysqli_fetch_object($r2)){
                                 ?>
                                     <li class="d-flex justify-content-start list-group-item list-group-item-action" >
-                                        <input class="form-check-input me-1 opcao" codigo="<?=$d2->codigo?>" type="checkbox" <?=(($d2->situacao == '0')?'checked':false)?> value="<?=$d2->codigo?>"  id="acao<?=$d2->codigo?>">
+                                        <input class="form-check-input me-1 opcao" codigo="<?=$d2->codigo?>" type="checkbox" <?=(($itens[$d2->codigo])?'checked':false)?> value="<?=$d2->codigo?>"  id="acao<?=$d2->codigo?>">
                                             <label class="form-check-label w-100" for="acao<?=$d2->codigo?>">
                                                 <div class="d-flex justify-content-between">
                                                     <span class="text-break"><?=$d2->item?></span>
