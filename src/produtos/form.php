@@ -184,7 +184,7 @@
                                                     <?php
                                                     for($i = 1; $i <= 9; $i++){
                                                     ?>
-                                                    <option value="<?=$i?>"><?=$i?></option>
+                                                    <option value="<?=$i?>" <?=(($itens[$d2->codigo] == $i)?'selected':false)?>><?=$i?></option>
                                                     <?php
                                                     }
                                                     ?>
