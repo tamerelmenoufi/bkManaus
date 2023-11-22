@@ -128,6 +128,24 @@
                     <label for="valor">Valor</label>
                 </div>
 
+
+                <div class="form-floating mb-3">
+                    <select name="situacao" class="form-control" id="situacao">
+                        <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
+                        <option value="0" <?=(($d->situacao == '0')?'selected':false)?>>Bloqueado</option>
+                    </select>
+                    <label for="email">Situação</label>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div style="display:flex; justify-content:end">
+                            <button type="submit" class="btn btn-success btn-ms">Salvar</button>
+                            <input type="hidden" id="codigo" value="<?=$_POST['cod']?>" />
+                        </div>
+                    </div>
+                </div>
+
     </form>
 
     <script>
