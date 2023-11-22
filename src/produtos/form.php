@@ -95,7 +95,7 @@
         <div class="row">
             <div class="col">
                 <?php
-echo $dados;
+echo "Itens: ".$dados;
                 ?>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="produto" name="produto" placeholder="Nome do produto" value="<?=$d->produto?>">
