@@ -161,6 +161,7 @@
                                         <label class="form-check-label stretched-link" for="firstCheckboxStretched<?=$d2->codigo?>">
                                             <?=$d2->item?>
                                         </label>
+                                        <input type="number" class="form-control" />
                                     </li>
                                 <?php
 
