@@ -369,7 +369,7 @@
                         itens.push({'item':item, 'quantidade':quantidade});                            
                     }
                 })
-                campos.push(itens)
+                campos.push({name: 'itens', value: {itens}})
                 
 
 console.log(campos);
