@@ -10,6 +10,8 @@
 
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));
 
+    print_r($_POST);
+
 
     if($_POST['acao'] == 'salvar'){
 
