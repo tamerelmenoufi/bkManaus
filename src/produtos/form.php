@@ -143,11 +143,11 @@
             
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#itens<?=$d1->codigo?>" aria-expanded="true" aria-controls="itens<?=$d1->codigo?>">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#itens<?=$d1->codigo?>" aria-expanded="false" aria-controls="itens<?=$d1->codigo?>">
                             <?=$d1->categoria?>
                         </button>
                         </h2>
-                        <div id="itens<?=$d1->codigo?>" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div id="itens<?=$d1->codigo?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <ul class="list-group">
                                 <?php
