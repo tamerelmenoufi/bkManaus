@@ -161,7 +161,7 @@
                                             <label class="form-check-label w-100" for="firstCheckboxStretched<?=$d2->codigo?>">
                                                 <div class="d-flex justify-content-between">
                                                     <span class="text-nowrap"><?=$d2->item?></span>
-                                                    <input type="number" class="form-control" style="width:70px;" maxlength="1" />
+                                                    <input type="text" inputmode="numeric" class="form-control" style="width:70px;" maxlength="1" />
                                                 </div>
                                             </label>
                                         
