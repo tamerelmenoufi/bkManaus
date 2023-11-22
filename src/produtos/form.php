@@ -159,10 +159,10 @@
                                     <li class="d-flex justify-content-start list-group-item list-group-item-action text-nowrap" >
                                         <input class="form-check-input me-1" type="checkbox" <?=(($d2->situacao == '0')?'checked':false)?> value=""  id="firstCheckboxStretched<?=$d2->codigo?>">
                                         <div class="d-flex justify-content-between">
+                                            <input type="number" class="form-control" style='width:50px;' />
                                             <label class="form-check-label stretched-link text-nowrap" for="firstCheckboxStretched<?=$d2->codigo?>">
                                                 <?=$d2->item?>
                                             </label>
-                                            <input type="number" class="form-control w-10" />
                                         </div>
                                     </li>
                                 <?php
