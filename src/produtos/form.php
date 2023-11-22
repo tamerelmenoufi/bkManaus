@@ -4,6 +4,8 @@
     if($_POST['acao'] == 'ingredientes'){
 
         $dados = json_encode($_POST['dados']);
+        mysqli_query($con, "update produtos set itens = '{$dados}' where codigo = '{$_POST['produto']}'");
+
         echo $dados;
 
         exit();
@@ -83,7 +85,7 @@
     $itens = [];
 
     foreach($dados as $p => $q){
-        $itens[$q->produto] = $q->quantidade;
+        $itens[$q->item] = $q->quantidade;
     }
 
     
@@ -238,9 +240,9 @@
                 dados = [];
                 $("input.opcao").each(function(){
                     if($(this).prop("checked") == true){
-                        produto = $(this).attr("codigo");
-                        quantidade = $(`#quantidade${produto}`).val();
-                        dados.push({'produto':produto, 'quantidade':quantidade});                            
+                        item = $(this).attr("codigo");
+                        quantidade = $(`#quantidade${item}`).val();
+                        dados.push({'item':item, 'quantidade':quantidade});                            
                     }
                 })
 
@@ -249,6 +251,7 @@
                     type:"POST",
                     data:{
                         dados,
+                        produto:'<?=$d->codigo?>',
                         acao:'ingredientes'
                     },
                     success:function(dados){
