@@ -78,7 +78,7 @@
     $result = sisLog($query);
     $d = mysqli_fetch_object($result);
 
-    $dados = json_decode($d->itens);
+    $dados = ($d->itens);
 
     
 ?>
