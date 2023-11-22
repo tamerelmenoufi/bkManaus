@@ -157,11 +157,11 @@
                                     while($d2 = mysqli_fetch_object($r2)){
                                 ?>
                                     <li class="d-flex justify-content-start list-group-item list-group-item-action" >
-                                        <input class="form-check-input me-1 opcao" type="checkbox" <?=(($d2->situacao == '0')?'checked':false)?> value="<?=$d2->codigo?>"  id="opcao<?=$d2->codigo?>">
-                                            <label class="form-check-label w-100" for="opcao<?=$d2->codigo?>">
+                                        <input class="form-check-input me-1 opcao" codigo="<?=$d2->codigo?>" type="checkbox" <?=(($d2->situacao == '0')?'checked':false)?> value="<?=$d2->codigo?>"  id="acao<?=$d2->codigo?>">
+                                            <label class="form-check-label w-100" for="acao<?=$d2->codigo?>">
                                                 <div class="d-flex justify-content-between">
                                                     <span class="text-break"><?=$d2->item?></span>
-                                                    <select class="form-select" style="width:60px" id="quantidade<?=$d2->codigo?>">
+                                                    <select class="form-select opcao" codigo="<?=$d2->codigo?>" style="width:60px" id="quantidade<?=$d2->codigo?>">
                                                     <?php
                                                     for($i = 1; $i <= 9; $i++){
                                                     ?>
@@ -215,10 +215,10 @@
 
 
             $(".opcao").change(function(){
-                opc = $(this).val();
-                acao = $(this).prop("checked");
-                quantidade = (($(`#quantidade${opc}`).val()>0)?$(`#quantidade${opc}`).val():1);
-                console.log(opc + " : " + acao + " : " + quantidade)
+                codigo = $(this).attr("codigo");
+                acao = $(`#acao${codigo}`).prop("checked");
+                quantidade = $(`#quantidade${codigo}`).val();
+                console.log(codigo + " : " + acao + " : " + quantidade)
             })
 
 
