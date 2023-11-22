@@ -158,10 +158,12 @@
                                 ?>
                                     <li class="list-group-item list-group-item-action" >
                                         <input class="form-check-input me-1" type="checkbox" <?=(($d2->situacao == '0')?'checked':false)?> value=""  id="firstCheckboxStretched<?=$d2->codigo?>">
-                                        <label class="form-check-label stretched-link" for="firstCheckboxStretched<?=$d2->codigo?>">
-                                            <?=$d2->item?>
-                                        </label>
-                                        <input type="number" class="form-control" />
+                                        <div class="d-flex justify-content-between">
+                                            <label class="form-check-label stretched-link" for="firstCheckboxStretched<?=$d2->codigo?>">
+                                                <?=$d2->item?>
+                                            </label>
+                                            <input type="number" class="form-control" />
+                                        </div>
                                     </li>
                                 <?php
 
