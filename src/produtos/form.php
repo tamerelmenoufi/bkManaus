@@ -252,7 +252,7 @@
                         acao:'ingredientes'
                     },
                     success:function(dados){
-                        console.log(dados)
+                        // console.log(dados)
                     },
                     error:function(erro){
 
@@ -261,7 +261,7 @@
                     }
                 });
 
-                console.log(dados)
+                // console.log(dados)
 
 
             })
