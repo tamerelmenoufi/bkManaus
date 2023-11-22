@@ -1,6 +1,13 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+    if($_POST['acao'] == 'ingredientes'){
+
+
+
+        exit();
+    }
+
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['catgegoria']}'"));
 
 
@@ -215,10 +222,23 @@
 
 
             $(".opcao").change(function(){
-                codigo = $(this).attr("codigo");
-                acao = $(`#acao${codigo}`).prop("checked");
-                quantidade = $(`#quantidade${codigo}`).val();
-                console.log(codigo + " : " + acao + " : " + quantidade)
+
+                if(acao == true){
+                    console.log(codigo + " : " + acao + " : " + quantidade)
+                    dados = [];
+                    $("input.opcoes").each(function(){
+                        if($(this).prop("checked") == true){
+                            produto = $(this).attr("codigo");
+                            quantidade = $(`#quantidade${produto}`).val();
+                            dados.push({'produto':produto, 'quantidade':quantidade});                            
+                        }
+                    })
+
+                    console.log(dados)
+                    
+                }
+
+
             })
 
 
