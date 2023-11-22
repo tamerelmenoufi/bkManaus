@@ -10,17 +10,15 @@
 
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));
 
-    print_r($_POST);
 
+    if($_POST['acao'] == 'salvar'){
 
-    if($_POST['campos']['acao'] == 'salvar'){
-
-        $data = $_POST['campos'];
-        $itens = $_POST['itens'];
+        $data = $_POST;
         $attr = [];
 
         unset($data['codigo']);
         unset($data['acao']);
+        unset($data['itens']);
 
         print_r($_POST);
 
@@ -371,6 +369,7 @@
                         itens.push({'item':item, 'quantidade':quantidade});                            
                     }
                 })
+                campos.push(itens)
                 
 
 console.log(campos);
@@ -383,7 +382,7 @@ console.log(campos);
                     type:"POST",
                     typeData:"JSON",
                     mimeType: 'multipart/form-data',
-                    data: {campos, itens},
+                    data: campos,
                     success:function(dados){
 
                         console.log(dados)
