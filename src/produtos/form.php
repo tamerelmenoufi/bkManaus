@@ -210,7 +210,7 @@
             $(".opcao").change(function(){
                 opc = $(this).val();
                 acao = $(this).prop("checked");
-                quantidade = (($(`quantidade${opc}`).val()>0)?$(`quantidade${opc}`).val():1);
+                quantidade = (($(`#quantidade${opc}`).val()>0)?$(`#quantidade${opc}`).val():1);
                 console.log(opc + " : " + acao + " : " + quantidade)
             })
 
