@@ -369,9 +369,7 @@
                         itens.push({'item':item, 'quantidade':quantidade});                            
                     }
                 })
-                if(itens){
-                    campos.push({name: 'itens', value: itens})
-                }
+                campos.push({name: 'itens', value: itens})
                 
 
 console.log(campos);
@@ -384,7 +382,10 @@ console.log(campos);
                     type:"POST",
                     typeData:"JSON",
                     mimeType: 'multipart/form-data',
-                    data: campos,
+                    data: {
+                        campos,
+                        itens
+                    },
                     success:function(dados){
 
                         console.log(dados)
