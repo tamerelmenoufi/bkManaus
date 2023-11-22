@@ -81,9 +81,12 @@
 
     $itens = [];
 
-    foreach($dados as $p => $q){
-        $itens[$q->item] = $q->quantidade;
+    if($dados){
+        foreach($dados as $p => $q){
+            $itens[$q->item] = $q->quantidade;
+        }        
     }
+
 
     
 ?>
