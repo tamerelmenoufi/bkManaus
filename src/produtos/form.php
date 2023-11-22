@@ -362,15 +362,14 @@
 
 
                 itens = [];
-                campos.push({name: 'itens', value: itens})
                 $("input.opcao").each(function(){
                     if($(this).prop("checked") == true){
                         item = $(this).attr("codigo");
                         quantidade = $(`#quantidade${item}`).val();
-                        campos.itens.push({'item':item, 'quantidade':quantidade});                            
+                        itens.push({'item':item, 'quantidade':quantidade});                            
                     }
                 })
-                
+                campos.push({name: 'itens', value: [itens]})
                 
 
 console.log(campos);
