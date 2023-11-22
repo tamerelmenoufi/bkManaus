@@ -3,7 +3,8 @@
 
     if($_POST['acao'] == 'ingredientes'){
 
-
+        $dados = json_encode($_POST['dados']);
+        echo $dados;
 
         exit();
     }
@@ -231,6 +232,23 @@
                         dados.push({'produto':produto, 'quantidade':quantidade});                            
                     }
                 })
+
+                $.ajax({
+                    url:"src/produtos/form.php",
+                    type:"POST",
+                    data:{
+                        dados,
+                        acao:'ingredientes'
+                    },
+                    success:function(dados){
+                        console.log(dados)
+                    },
+                    error:function(erro){
+
+                        // $.alert('Ocorreu um erro!' + erro.toString());
+                        //dados de teste
+                    }
+                });
 
                 console.log(dados)
 
