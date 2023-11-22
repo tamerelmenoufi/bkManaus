@@ -143,7 +143,7 @@
             
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#itens<?=$d1->codigo?>" aria-expanded="false" aria-controls="itens<?=$d1->codigo?>">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#itens<?=$d1->codigo?>" aria-expanded="false" aria-controls="itens<?=$d1->codigo?>">
                             <?=$d1->categoria?>
                         </button>
                         </h2>
