@@ -161,7 +161,15 @@
                                             <label class="form-check-label w-100" for="opcao<?=$d2->codigo?>">
                                                 <div class="d-flex justify-content-between">
                                                     <span class="text-break"><?=$d2->item?></span>
-                                                    <input type="text" inputmode="numeric" id="quantidade<?=$d2->codigo?>" codigo="<?=$d2->codigo?>" class="form-control quantidade" style="width:50px;" maxlength="1" />
+                                                    <select id="quantidade<?=$d2->codigo?>">
+                                                    <?php
+                                                    for($i = 1; $i <= 9; $i++){
+                                                    ?>
+                                                    <option value="<?=$i?>"><?=$i?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                    </select>
                                                 </div>
                                             </label> 
                                     </li>
@@ -205,19 +213,11 @@
         $(function(){
             Carregando('none');
 
-            $(".quantidade").mask("9");
 
             $(".opcao").change(function(){
                 opc = $(this).val();
                 acao = $(this).prop("checked");
                 quantidade = (($(`#quantidade${opc}`).val()>0)?$(`#quantidade${opc}`).val():1);
-                console.log(opc + " : " + acao + " : " + quantidade)
-            })
-
-            $(".quantidade").blur(function(){
-                opc = $(this).attr("codigo");
-                quantidade = $(this).val();
-                acao = (($(`.opcao[value="${opc}"]`).val()>0)?$(`.opcao[value="${opc}"]`).val():1);
                 console.log(opc + " : " + acao + " : " + quantidade)
             })
 
