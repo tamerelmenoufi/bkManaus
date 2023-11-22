@@ -18,6 +18,7 @@
 
         unset($data['codigo']);
         unset($data['acao']);
+        unset($data['itens']);
 
         
         if ($data['file-base']) {
@@ -43,6 +44,10 @@
                 }
             }
     
+        }
+
+        if($_POST['itens']){
+            $attr[] = "itens = '" . json_encode($_POST['itens']) . "'";
         }
 
 
