@@ -161,7 +161,7 @@
                                             <label class="form-check-label w-100" for="opcao<?=$d2->codigo?>">
                                                 <div class="d-flex justify-content-between">
                                                     <span class="text-break"><?=$d2->item?></span>
-                                                    <select class="form-select" id="quantidade<?=$d2->codigo?>">
+                                                    <select class="form-select" style="width:60px" id="quantidade<?=$d2->codigo?>">
                                                     <?php
                                                     for($i = 1; $i <= 9; $i++){
                                                     ?>
