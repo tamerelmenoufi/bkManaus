@@ -157,14 +157,13 @@
                                     while($d2 = mysqli_fetch_object($r2)){
                                 ?>
                                     <li class="d-flex justify-content-start list-group-item list-group-item-action" >
-                                        <input class="form-check-input me-1" type="checkbox" <?=(($d2->situacao == '0')?'checked':false)?> value=""  id="firstCheckboxStretched<?=$d2->codigo?>">
+                                        <input class="form-check-input me-1 opcao" type="checkbox" <?=(($d2->situacao == '0')?'checked':false)?> value="<?=$d2->codigo?>"  id="firstCheckboxStretched<?=$d2->codigo?>">
                                             <label class="form-check-label w-100" for="firstCheckboxStretched<?=$d2->codigo?>">
                                                 <div class="d-flex justify-content-between">
                                                     <span class="text-break"><?=$d2->item?></span>
-                                                    <input type="text" inputmode="numeric" class="form-control xxx" style="width:50px;" maxlength="1" />
+                                                    <input type="text" inputmode="numeric" class="form-control quantidade" style="width:50px;" maxlength="1" />
                                                 </div>
-                                            </label>
-                                        
+                                            </label> 
                                     </li>
                                 <?php
 
@@ -206,7 +205,12 @@
         $(function(){
             Carregando('none');
 
-            $(".xxx").mask("9");
+            $(".quantidade").mask("9");
+
+            $(".opcao").change(function(){
+                opc = $(this).val();
+                console.log(opc)
+            })
 
 
             if (window.File && window.FileList && window.FileReader) {
