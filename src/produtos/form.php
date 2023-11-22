@@ -223,20 +223,16 @@
 
             $(".opcao").change(function(){
 
-                if(acao == true){
-                    console.log(codigo + " : " + acao + " : " + quantidade)
-                    dados = [];
-                    $("input.opcoes").each(function(){
-                        if($(this).prop("checked") == true){
-                            produto = $(this).attr("codigo");
-                            quantidade = $(`#quantidade${produto}`).val();
-                            dados.push({'produto':produto, 'quantidade':quantidade});                            
-                        }
-                    })
+                dados = [];
+                $("input.opcoes").each(function(){
+                    if($(this).prop("checked") == true){
+                        produto = $(this).attr("codigo");
+                        quantidade = $(`#quantidade${produto}`).val();
+                        dados.push({'produto':produto, 'quantidade':quantidade});                            
+                    }
+                })
 
-                    console.log(dados)
-                    
-                }
+                console.log(dados)
 
 
             })
