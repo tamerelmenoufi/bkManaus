@@ -157,8 +157,8 @@
                                     while($d2 = mysqli_fetch_object($r2)){
                                 ?>
                                     <li class="list-group-item">
-                                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" >
-                                        <label class="form-check-label" for="firstRadio"><?=$d2->item?></label>
+                                        <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckboxStretched">
+                                        <label class="form-check-label stretched-link" for="firstCheckboxStretched"><?=$d2->item?></label>
                                     </li>
                                 <?php
 
