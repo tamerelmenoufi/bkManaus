@@ -224,7 +224,7 @@
             $(".opcao").change(function(){
 
                 dados = [];
-                $("input.opcoes").each(function(){
+                $("input.opcao").each(function(){
                     if($(this).prop("checked") == true){
                         produto = $(this).attr("codigo");
                         quantidade = $(`#quantidade${produto}`).val();
