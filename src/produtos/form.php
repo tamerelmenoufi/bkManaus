@@ -384,7 +384,7 @@ console.log(campos);
                     type:"POST",
                     typeData:"JSON",
                     mimeType: 'multipart/form-data',
-                    data: campos,
+                    data: {campos},
                     success:function(dados){
 
                         console.log(dados)
