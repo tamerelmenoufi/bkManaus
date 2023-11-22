@@ -5,9 +5,6 @@
 
         $dados = json_encode($_POST['dados']);
         mysqli_query($con, "update produtos set itens = '{$dados}' where codigo = '{$_POST['produto']}'");
-
-        echo $dados;
-
         exit();
     }
 
