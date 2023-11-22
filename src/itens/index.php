@@ -133,10 +133,12 @@
               </thead>
               <tbody>
                 <?php
+
                   $query = "select * from itens where deletado != '1' and categoria = '{$_SESSION['categoria_itens']}' {$where} order by item asc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
+
                 ?>
                 <tr>
                   <td style='width:100%'><?=$d->item?></td>
@@ -166,7 +168,9 @@
                   </td>
                 </tr>
                 <?php
+                
                   }
+
                 ?>
               </tbody>
             </table>
