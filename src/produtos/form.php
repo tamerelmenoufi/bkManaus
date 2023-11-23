@@ -13,20 +13,11 @@
 
     if($_POST['acao'] == 'salvar'){
 
-        print_r($_POST);
-
-        exit();
-
         $data = $_POST;
         $attr = [];
 
         unset($data['codigo']);
         unset($data['acao']);
-        unset($data['itens']);
-
-        print_r($_POST);
-
-        exit();
 
         
         if ($data['file-base']) {
@@ -52,10 +43,6 @@
                 }
             }
     
-        }
-
-        if($_POST['itens']){
-            $attr[] = "itens = '" . json_encode($_POST['itens']) . "'";
         }
 
 
