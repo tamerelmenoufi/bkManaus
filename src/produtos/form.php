@@ -234,39 +234,39 @@
             Carregando('none');
 
 
-            $(".opcao").change(function(){
+            // $(".opcao").change(function(){
 
-                dados = [];
-                $("input.opcao").each(function(){
-                    if($(this).prop("checked") == true){
-                        item = $(this).attr("codigo");
-                        quantidade = $(`#quantidade${item}`).val();
-                        dados.push({'item':item, 'quantidade':quantidade});                            
-                    }
-                })
+            //     dados = [];
+            //     $("input.opcao").each(function(){
+            //         if($(this).prop("checked") == true){
+            //             item = $(this).attr("codigo");
+            //             quantidade = $(`#quantidade${item}`).val();
+            //             dados.push({'item':item, 'quantidade':quantidade});                            
+            //         }
+            //     })
 
-                $.ajax({
-                    url:"src/produtos/form.php",
-                    type:"POST",
-                    data:{
-                        dados,
-                        produto:'<?=$d->codigo?>',
-                        acao:'ingredientes'
-                    },
-                    success:function(dados){
-                        // console.log(dados)
-                    },
-                    error:function(erro){
+            //     $.ajax({
+            //         url:"src/produtos/form.php",
+            //         type:"POST",
+            //         data:{
+            //             dados,
+            //             produto:'<?=$d->codigo?>',
+            //             acao:'ingredientes'
+            //         },
+            //         success:function(dados){
+            //             // console.log(dados)
+            //         },
+            //         error:function(erro){
 
-                        // $.alert('Ocorreu um erro!' + erro.toString());
-                        //dados de teste
-                    }
-                });
+            //             // $.alert('Ocorreu um erro!' + erro.toString());
+            //             //dados de teste
+            //         }
+            //     });
 
-                // console.log(dados)
+            //     // console.log(dados)
 
 
-            })
+            // })
 
 
             if (window.File && window.FileList && window.FileReader) {
