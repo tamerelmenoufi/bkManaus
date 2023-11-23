@@ -13,9 +13,7 @@
 
     if($_POST['acao'] == 'salvar'){
 
-        $post = json_decode($_POST['campos']);
-
-        print_r($post);
+        print_r($_POST);
 
         exit();
 
