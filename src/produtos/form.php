@@ -11,7 +11,7 @@
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));
 
 
-    if($_POST['campos']){
+    if($_POST['acao'] == 'salvar'){
 
         $post = json_decode($_POST['campos']);
 
