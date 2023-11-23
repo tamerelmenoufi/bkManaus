@@ -375,9 +375,11 @@
                         itens.push({'item':item, 'quantidade':quantidade});                            
                     }
                 })
-                campos.push({name:'itens', value:itens})
-                campos = JSON.stringify(campos)
 
+                itens = JSON.stringify(itens)
+
+                campos.push({name:'itens', value:itens})
+                
 console.log(campos);
 // return false;
 
@@ -388,7 +390,7 @@ console.log(campos);
                     type:"POST",
                     typeData:"JSON",
                     mimeType: 'multipart/form-data',
-                    data: {campos},
+                    data: campos,
                     success:function(dados){
 
                         console.log(dados)
