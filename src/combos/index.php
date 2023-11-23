@@ -230,7 +230,7 @@
 
         $("button[novoCadastro]").click(function(){
             $.ajax({
-                url:"src/produtos/form.php",
+                url:"src/combos/form.php",
                 success:function(dados){
                     $(".LateralDireita").html(dados);
                 }
@@ -242,7 +242,7 @@
           filtro = $(this).attr("filtro");
           campo = $("input[campoBusca]").val();
           $.ajax({
-              url:"src/produtos/index.php",
+              url:"src/combos/index.php",
               type:"POST",
               data:{
                   filtro,
@@ -258,7 +258,7 @@
         $("button[edit]").click(function(){
             cod = $(this).attr("edit");
             $.ajax({
-                url:"src/produtos/form.php",
+                url:"src/combos/form.php",
                 type:"POST",
                 data:{
                   cod
@@ -279,7 +279,7 @@
                 buttons:{
                     'SIM':function(){
                         $.ajax({
-                            url:"src/produtos/index.php",
+                            url:"src/combos/index.php",
                             type:"POST",
                             data:{
                                 delete:deletar
@@ -311,7 +311,7 @@
 
 
             $.ajax({
-                url:"src/produtos/index.php",
+                url:"src/combos/index.php",
                 type:"POST",
                 data:{
                     situacao,
