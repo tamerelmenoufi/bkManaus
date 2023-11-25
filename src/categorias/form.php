@@ -118,7 +118,7 @@
 
 
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input acao_item"  id="inclusao">
+                    <input type="checkbox" class="form-check-input acao_itens"  id="inclusao">
                     <label class="form-check-label" for="inclusao">Inclusão de Itens</label>
                 </div>
 
