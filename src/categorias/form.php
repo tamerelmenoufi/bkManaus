@@ -85,9 +85,6 @@
 <h4 class="Titulo<?=$md5?>">Cadastro de Categoria</h4>
     <form id="form-<?= $md5 ?>">
         <div class="row">
-            <?php
-                print_r($acoes_itens);
-            ?>
             <div class="col">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Nome da Categoria" value="<?=$d->categoria?>">
