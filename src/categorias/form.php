@@ -69,6 +69,10 @@
     $query = "select * from categorias where codigo = '{$_POST['cod']}'";
     $result = sisLog($query);
     $d = mysqli_fetch_object($result);
+
+    $acoes_itens = json_decode($d->acoes_itens);
+
+
 ?>
 <style>
     .Titulo<?=$md5?>{
@@ -81,6 +85,9 @@
 <h4 class="Titulo<?=$md5?>">Cadastro de Categoria</h4>
     <form id="form-<?= $md5 ?>">
         <div class="row">
+            <?php
+                print_r($acoes_itens);
+            ?>
             <div class="col">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Nome da Categoria" value="<?=$d->categoria?>">
@@ -118,12 +125,12 @@
 
 
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input acao_itens"  id="inclusao">
+                    <input type="checkbox" class="form-check-input acoes_itens"  id="inclusao">
                     <label class="form-check-label" for="inclusao">Inclusão de Itens</label>
                 </div>
 
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input acao_itens" id="substituicao">
+                    <input type="checkbox" class="form-check-input acoes_itens" id="substituicao">
                     <label class="form-check-label" for="substituicao">Substituição de Itens</label>
                 </div>
 
@@ -158,14 +165,13 @@
         $(function(){
             Carregando('none');
 
-            $(".acao_itens").click(function(){
+            $(".acoes_itens").click(function(){
                 obj = $(this);
                 acao = obj.prop("checked");
                 console.log(acao)
                 if(acao == true){
-                    $(".acao_itens").prop("checked", false);
+                    $(".acoes_itens").prop("checked", false);
                     obj.prop("checked", true);
-                    console.log('troca')
                 }
             })
 
@@ -253,6 +259,13 @@
                     campos.push({name: 'file-atual', value: file_atual})
 
                 }
+
+                inclusao = $("#inclusao").prop("checked");
+                substituicao = $("#substituicao").prop("checked");
+                remocao = $("#remocao").prop("checked");
+
+                campos.push({name: 'file-atual', value: `{"inclusao":${inclusao}, "substituicao":${substituicao}, "remocao":${remocao}}`});
+
 
                 Carregando();
 
