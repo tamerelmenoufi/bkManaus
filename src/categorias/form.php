@@ -163,8 +163,8 @@
                 acao = obj.prop("checked");
                 console.log(acao)
                 if(acao == true){
-                    $(".acao_itens").removeAttr("checked");
-                    obj.attr("checked");
+                    $(".acao_itens").prop("checked", false);
+                    obj.prop("checked", true);
                     console.log('troca')
                 }
             })
