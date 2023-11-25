@@ -118,12 +118,12 @@
 
 
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" name="acao_itens" id="inclusao">
+                    <input type="checkbox" class="form-check-input acao_item"  id="inclusao">
                     <label class="form-check-label" for="inclusao">Inclusão de Itens</label>
                 </div>
 
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" name="acao_itens" id="substituicao">
+                    <input type="checkbox" class="form-check-input acao_itens" id="substituicao">
                     <label class="form-check-label" for="substituicao">Substituição de Itens</label>
                 </div>
 
@@ -157,6 +157,15 @@
     <script>
         $(function(){
             Carregando('none');
+
+            $(".acao_itens").click(function(){
+                obj = $(this);
+                acao = obj.prop("checked");
+                if(acao == true){
+                    $(".acao_itens").prop("checked", false);
+                    obj.prop("checked", true);
+                }
+            })
 
 
             if (window.File && window.FileList && window.FileReader) {
