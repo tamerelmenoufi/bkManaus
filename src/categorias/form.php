@@ -135,7 +135,7 @@
                 </div>
 
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="romocao">
+                    <input type="checkbox" class="form-check-input" id="remocao">
                     <label class="form-check-label" for="romocao">Remover Itens do produto</label>
                 </div>
                 
@@ -264,7 +264,7 @@
                 substituicao = $("#substituicao").prop("checked");
                 remocao = $("#remocao").prop("checked");
 
-                campos.push({name: 'acoes_itens', value: `{"inclusao":${inclusao}, "substituicao":${substituicao}, "remocao":${remocao}}`});
+                campos.push({name: 'acoes_itens', value: `{"inclusao":"${inclusao}", "substituicao":"${substituicao}", "remocao":"${remocao}"}`});
 
 
                 Carregando();
