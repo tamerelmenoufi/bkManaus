@@ -161,6 +161,7 @@
             $(".acao_itens").click(function(){
                 obj = $(this);
                 acao = obj.prop("checked");
+                console.log(acao)
                 if(acao == true){
                     $(".acao_itens").prop("checked", false);
                     obj.prop("checked", true);
