@@ -125,17 +125,17 @@
 
 
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input acoes_itens" <?=(($acoes_itens->inclusao)?"checked":false)?> id="inclusao">
+                    <input type="checkbox" class="form-check-input acoes_itens" <?=(($acoes_itens->inclusao == 'true')?"checked":false)?> id="inclusao">
                     <label class="form-check-label" for="inclusao">Inclusão de Itens</label>
                 </div>
 
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input acoes_itens" <?=(($acoes_itens->substituicao)?"checked":false)?> id="substituicao">
+                    <input type="checkbox" class="form-check-input acoes_itens" <?=(($acoes_itens->substituicao == 'true')?"checked":false)?> id="substituicao">
                     <label class="form-check-label" for="substituicao">Substituição de Itens</label>
                 </div>
 
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input"  <?=(($acoes_itens->remocao)?"checked":false)?> id="remocao">
+                    <input type="checkbox" class="form-check-input"  <?=(($acoes_itens->remocao == 'true')?"checked":false)?> id="remocao">
                     <label class="form-check-label" for="romocao">Remover Itens do produto</label>
                 </div>
                 
