@@ -117,25 +117,23 @@
                 </div>
 
 
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Inclusão de Itens
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        Substituição de Itens
-                    </label>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" name="acao_itens" id="inclusao">
+                    <label class="form-check-label" for="inclusao">Inclusão de Itens</label>
                 </div>
 
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Remover Itens do produto</label>
+                    <input type="checkbox" class="form-check-input" name="acao_itens" id="substituicao">
+                    <label class="form-check-label" for="substituicao">Substituição de Itens</label>
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="romocao">
+                    <label class="form-check-label" for="romocao">Remover Itens do produto</label>
                 </div>
                 
                 
+
                 <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
                         <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
