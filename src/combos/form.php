@@ -145,7 +145,7 @@
 
                 <div class="accordion mb-3" id="accordionExample">
                     <?php
-                    $q = "select * from categorias where deletado != '1'";
+                    $q = "select * from categorias where tipo = 'prd' and deletado != '1'";
                     $r = mysqli_query($con, $q);
                     while($d1 = mysqli_fetch_object($r)){
                     ?>
