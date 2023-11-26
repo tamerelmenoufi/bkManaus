@@ -133,7 +133,7 @@
                     <label for="descricao">Descrição*</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" name="valor" id="valor" class="form-control" placeholder="Valor Individual" value="<?=$d->valor?>">
+                    <input type="text" nameXXX="valor" id="valor" class="form-control" placeholder="Valor Individual" value="<?=$d->valor?>">
                     <label for="valor">Valor Individual</label>
                 </div>
 
