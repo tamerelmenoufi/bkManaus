@@ -223,7 +223,7 @@
                         total = (total*1) + (($(this).attr("valor"))*quantidade*1);
                     }
                 })
-                $("#valor").val(total.toFixed(2));                
+                $("#valor").html(total.toFixed(2));                
             }
 
             CalcularValorCombo();
