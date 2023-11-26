@@ -128,7 +128,7 @@
                 <tr>
                   <th scope="col">item</th>
                   <th scope="col">Valor Individual</th>
-                  <th scope="col">Valor no Combo</th>
+                  <!-- <th scope="col">Valor no Combo</th> -->
                   <th scope="col">Situação</th>
                   <th scope="col">Ações</th>
                 </tr>
@@ -145,7 +145,7 @@
                 <tr>
                   <td style='width:100%'><?=$d->item?></td>
                   <td><?=$d->valor?></td>
-                  <td><?=$d->valor_combo?></td>
+                  <!-- <td><?=$d->valor_combo?></td> -->
                   <td>
 
                   <div class="form-check form-switch">
