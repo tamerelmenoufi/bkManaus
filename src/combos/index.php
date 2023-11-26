@@ -1,6 +1,20 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+    function CalculaValorCombo($cod){
+      $query = "SELECT produtos->'$[*].produto' as codigos, produtos->'$[*].quantidade' as quantidades FROM `produtos` where codigo = '{$cod}'";
+      $result = mysqli_query($con, $query);
+      $d = mysqli_fetch_object($result);
+      $cods = json_decode($d->codigos);
+      $qtds = json_decode($d->quantidades);
+      $total = 0;
+      for($cods as $i => $v){
+        $t = mysqli_fetch_object(mysqli_query($con, "select (valor_combo*{$qtds[$i]}) as total from produtos where codigo = '{$v}'"));
+        $total = ($total + $t->total);
+      }
+      mysqli_query($con, "update produtos set valor = '{$total}' where codigo = '{$d->codigo}'");
+    }
+
     if($_GET['categoria']){
       $_SESSION['categoria'] = $_GET['categoria'];
     }
@@ -126,7 +140,7 @@
                 ?>
                 <tr>
                   <td style='width:100%'><?=$d->produto?></td>
-                  <td><?=$d->valor?></td>
+                  <td><?=CalculaValorCombo($d->codigo)?></td>
                   <td>
 
                   <div class="form-check form-switch">
