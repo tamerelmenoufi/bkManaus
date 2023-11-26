@@ -37,7 +37,7 @@
         }
     
         if($_POST['categorias_itens']){
-            $attr[] = "categorias_itens = '" . json_encode($_POST['categorias_itens']) . "'";
+            $attr[] = "categorias_itens = '{" . json_encode($_POST['categorias_itens']) . "}'";
         }
 
 
