@@ -5,6 +5,8 @@
       $_SESSION['categoria_itens'] = $_POST['categoria'];
     }
 
+    $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias_itens where codigo = '{$_SESSION['categoria_itens']}'"));
+
     if($_POST['delete']){
       // $query = "delete from itens where codigo = '{$_POST['delete']}'";
       $query = "update itens set deletado = '1' where codigo = '{$_POST['delete']}'";
@@ -53,7 +55,7 @@
     <div class="row">
       <div class="col">
         <div class="card">
-          <h5 class="card-header">Lista de Itens</h5>
+          <h5 class="card-header">Lista de Itens - <?=$c->categoria?></h5>
           <div class="card-body">
             <div class="d-none d-md-block">
               <div class="d-flex justify-content-between mb-3">
