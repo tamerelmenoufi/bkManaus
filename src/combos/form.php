@@ -134,7 +134,7 @@
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" nameXXX="valor" id="valor" class="form-control" placeholder="Valor Individual" value="<?=$d->valor?>">
-                    <label for="valor">Valor Individual</label>
+                    <label for="valor">Valor</label>
                 </div>
 
                 <div class="accordion mb-3" id="accordionExample">
