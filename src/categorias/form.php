@@ -194,6 +194,8 @@
 
                 if(categorias_itens == true){
                     $(".categorias_itens").removeAttr("disabled");
+                }else{
+                    $(".categorias_itens").removeAttr("checked");
                 }
 
             })
