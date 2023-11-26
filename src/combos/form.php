@@ -103,7 +103,7 @@
                 <?php
                 if(is_file("icon/{$d->icon}")){
                 ?>
-                <center><img src="src/produtos/icon/<?=$d->icon?>" style="margin: 20px;" /></center>
+                <center><img src="src/combos/icon/<?=$d->icon?>" style="margin: 20px;" /></center>
                 <?php
                 }
                 ?>
@@ -137,11 +137,6 @@
                     <input type="text" name="valor" id="valor" class="form-control" placeholder="Valor Individual" value="<?=$d->valor?>">
                     <label for="valor">Valor Individual</label>
                 </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="valor_combo" id="valor_combo" class="form-control" placeholder="Valor no combo" value="<?=$d->valor_combo?>">
-                    <label for="valor_combo">Valor no combo</label>
-                </div>
-
 
                 <div class="accordion mb-3" id="accordionExample">
                     <?php
@@ -152,11 +147,11 @@
             
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#itens<?=$d1->codigo?>" aria-expanded="false" aria-controls="itens<?=$d1->codigo?>">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#produtos<?=$d1->codigo?>" aria-expanded="false" aria-controls="produtos<?=$d1->codigo?>">
                             <?=$d1->categoria?>
                         </button>
                         </h2>
-                        <div id="itens<?=$d1->codigo?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div id="produtos<?=$d1->codigo?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <ul class="list-group">
                                 <?php
