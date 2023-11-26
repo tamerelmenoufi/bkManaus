@@ -163,7 +163,7 @@
                                         <input class="form-check-input me-1 opcao" codigo="<?=$d2->codigo?>" type="checkbox" valor="<?=$d2->valor_combo?>" <?=(($produtos[$d2->codigo])?'checked':false)?> value="<?=$d2->codigo?>"  id="acao<?=$d2->codigo?>">
                                             <label class="form-check-label w-100" for="acao<?=$d2->codigo?>">
                                                 <div class="d-flex justify-content-between">
-                                                    <span class="text-break"><?=$d2->produto?></span>
+                                                    <span class="text-break"><?=$d2->produto?> - <?=$d2->valor_combo?></span>
                                                     <select class="form-select opcao" codigo="<?=$d2->codigo?>" style="width:60px" id="quantidade<?=$d2->codigo?>">
                                                     <?php
                                                     for($i = 1; $i <= 9; $i++){
@@ -226,7 +226,7 @@
                     }
                 })
 
-                $("#valor").val(total);
+                $("#valor").val(total.toFixed(2));
 
                 // console.log(dados)
 
