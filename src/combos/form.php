@@ -160,7 +160,7 @@
                                     while($d2 = mysqli_fetch_object($r2)){
                                 ?>
                                     <li class="d-flex justify-content-start list-group-item list-group-item-action" >
-                                        <input class="form-check-input me-1 opcao" codigo="<?=$d2->codigo?>" type="checkbox" <?=(($produtos[$d2->codigo])?'checked':false)?> value="<?=$d2->codigo?>"  id="acao<?=$d2->codigo?>">
+                                        <input class="form-check-input me-1 opcao" codigo="<?=$d2->codigo?>" type="checkbox" valor="<?=$d2->valor_combo?>" <?=(($produtos[$d2->codigo])?'checked':false)?> value="<?=$d2->codigo?>"  id="acao<?=$d2->codigo?>">
                                             <label class="form-check-label w-100" for="acao<?=$d2->codigo?>">
                                                 <div class="d-flex justify-content-between">
                                                     <span class="text-break"><?=$d2->produto?></span>
