@@ -152,7 +152,7 @@ var_dump($categorias_itens);
                 while($d1 = mysqli_fetch_object($r)){
                 ?>
                 <div class="form-check">
-                    <input class="form-check-input categorias_itens" value="<?=$d1->codigo?>" type="radio" name="categorias_itens" <?=((in_array('true', (array)$acoes_itens))?false:'disabled')?> <?=(in_array($d1->codigo, $categorias_itens)?"checked":false)?> id="categorias_itens<?=$d1->codigo?>">
+                    <input class="form-check-input categorias_itens" value="<?=$d1->codigo?>" type="radio" name="categorias_itens" <?=((in_array('true', (array)$acoes_itens))?false:'disabled')?> <?=(($d1->codigo == $categorias_itens)?"checked":false)?> id="categorias_itens<?=$d1->codigo?>">
                     <label class="form-check-label" for="categorias_itens<?=$d1->codigo?>">
                         <?=$d1->categoria?>
                     </label>
