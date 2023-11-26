@@ -76,7 +76,7 @@
 
     if($dados){
         foreach($dados as $p => $q){
-            $produtos[$q->produtos] = $q->quantidade;
+            $produtos[$q->produto] = $q->quantidade;
         }        
     }
 
