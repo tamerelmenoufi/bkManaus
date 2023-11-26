@@ -2,7 +2,7 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     function CalculaValorCombo($cod){
-      $query = "SELECT produtos->'$[*].produto' as codigos, produtos->'$[*].quantidade' as quantidades FROM `produtos` where codigo = '{$cod}'";
+      echo $query = "SELECT produtos->'$[*].produto' as codigos, produtos->'$[*].quantidade' as quantidades FROM `produtos` where codigo = '{$cod}'";
       $result = mysqli_query($con, $query);
       $d = mysqli_fetch_object($result);
       $cods = json_decode($d->codigos);
