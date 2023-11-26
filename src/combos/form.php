@@ -133,7 +133,7 @@
                     <label for="descricao">Descrição*</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" nameXXX="valor" id="valor" class="form-control" placeholder="Valor Individual" value="<?=$d->valor?>">
+                    <div id="valor" class="form-control" ><?=$d->valor?></div>
                     <label for="valor">Valor</label>
                 </div>
 
@@ -214,9 +214,7 @@
         $(function(){
             Carregando('none');
 
-
-            $(".opcao").change(function(){
-
+            function CalcularValorCombo(){
                 total = 0;
                 $("input.opcao").each(function(){
                     if($(this).prop("checked") == true){
@@ -225,12 +223,14 @@
                         total = (total*1) + (($(this).attr("valor"))*quantidade*1);
                     }
                 })
+                $("#valor").val(total.toFixed(2));                
+            }
 
-                $("#valor").val(total.toFixed(2));
-
-                // console.log(dados)
+            CalcularValorCombo();
 
 
+            $(".opcao").change(function(){
+                CalcularValorCombo();
             })
 
 
