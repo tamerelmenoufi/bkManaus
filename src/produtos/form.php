@@ -155,7 +155,7 @@
 
                 <div class="accordion mb-3" id="accordionExample">
                     <?php
-                    $q = "select * from categorias_itens where codigo in(".(($c->categorias_itens)?:0).") deletado != '1'";
+                    echo $q = "select * from categorias_itens where codigo in(".(($c->categorias_itens)?:0).") deletado != '1'";
                     $r = mysqli_query($con, $q);
                     while($d1 = mysqli_fetch_object($r)){
                     ?>
