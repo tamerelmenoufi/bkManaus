@@ -303,6 +303,19 @@
 
                 }
 
+                produtos = [];
+                $("input.opcao").each(function(){
+                    if($(this).prop("checked") == true){
+                        produto = $(this).attr("codigo");
+                        quantidade = $(`#quantidade${produto}`).val();
+                        produtos.push({'produto':produto, 'quantidade':quantidade});                            
+                    }
+                })
+
+                produtos = JSON.stringify(produtos)
+
+                campos.push({name:'produtos', value:produtos})
+
 
                 Carregando();
 
