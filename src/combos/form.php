@@ -98,10 +98,6 @@
                     <label for="produto">Produto*</label>
                 </div>
 
-                <?php
-    echo "Remoção:".print_r($produtos, true);
-
-?>
                 <label for="file_<?= $md5 ?>">Imagem da categoria deve ser nas dimensões (270px Largura X 240px Altura) *</label>
                 <?php
                 if(is_file("icon/{$d->icon}")){
@@ -133,7 +129,7 @@
 
 
                 <div class="form-floating mb-3">
-                    <textarea type="text" name="descricao" id="descricao" class="form-control" placeholder="Descrição"><?=$d->descricao?></textarea>
+                    <textarea type="text" name="descricao" id="descricao" class="form-control" style="height:120px;" placeholder="Descrição"><?=$d->descricao?></textarea>
                     <label for="descricao">Descrição*</label>
                 </div>
                 <div class="form-floating mb-3">
