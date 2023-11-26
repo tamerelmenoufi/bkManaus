@@ -10,6 +10,8 @@
 
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));
 
+    $remocao = ((in_array('true',(array)json_decode($c->acoes_itens)))?true:false);
+
 
     if($_POST['acao'] == 'salvar'){
 
@@ -155,7 +157,7 @@
 
                 <div class="accordion mb-3" id="accordionExample">
                     <?php
-                    $q = "select * from categorias_itens where codigo in(".(($c->categorias_itens)?:0).") and deletado != '1'";
+                    $q = "select * from categorias_itens where codigo in(".(($c->categorias_itens and $remocao)?$c->categorias_itens:0).") and deletado != '1'";
                     $r = mysqli_query($con, $q);
                     while($d1 = mysqli_fetch_object($r)){
                     ?>
