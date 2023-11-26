@@ -215,6 +215,25 @@
             Carregando('none');
 
 
+            $(".opcao").change(function(){
+
+                total = 0;
+                $("input.opcao").each(function(){
+                    if($(this).prop("checked") == true){
+                        item = $(this).attr("codigo");
+                        quantidade = $(`#quantidade${item}`).val();
+                        total = (total*1) + (($(this).attr("valor"))*1);
+                    }
+                })
+
+                $("#valor").val(total);
+
+                // console.log(dados)
+
+
+            })
+
+
             if (window.File && window.FileList && window.FileReader) {
 
             $('input[type="file"]').change(function () {
