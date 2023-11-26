@@ -3,17 +3,20 @@
 
     function CalculaValorCombo($cod){
       global $con;
-      echo $query = "SELECT produtos->'$[*].produto' as codigos, produtos->'$[*].quantidade' as quantidades FROM `produtos` where codigo = '{$cod}'";
+      $query = "SELECT produtos->'$[*].produto' as codigos, produtos->'$[*].quantidade' as quantidades FROM `produtos` where codigo = '{$cod}'";
       $result = mysqli_query($con, $query);
       $d = mysqli_fetch_object($result);
       $cods = json_decode($d->codigos);
       $qtds = json_decode($d->quantidades);
       $total = 0;
-      foreach($cods as $i => $v){
-        $t = mysqli_fetch_object(mysqli_query($con, "select (valor_combo*{$qtds[$i]}) as total from produtos where codigo = '{$v}'"));
-        $total = ($total + $t->total);
+      if($cods){
+        foreach($cods as $i => $v){
+          $t = mysqli_fetch_object(mysqli_query($con, "select (valor_combo*{$qtds[$i]}) as total from produtos where codigo = '{$v}'"));
+          $total = ($total + $t->total);
+        }
+        mysqli_query($con, "update produtos set valor = '{$total}' where codigo = '{$d->codigo}'");
       }
-      mysqli_query($con, "update produtos set valor = '{$total}' where codigo = '{$d->codigo}'");
+      return $total;
     }
 
     if($_GET['categoria']){
