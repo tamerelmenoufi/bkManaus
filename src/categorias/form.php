@@ -96,12 +96,6 @@
                     <label for="categoria">Categoria*</label>
                 </div>
 
-                <?php
-
-var_dump($categorias_itens);
-?>
-
-
                 <label for="file_<?= $md5 ?>">Imagem da categoria deve ser nas dimensões (270px Largura X 240px Altura) *</label>
                 <?php
                 if(is_file("icon/{$d->icon}")){
