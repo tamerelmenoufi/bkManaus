@@ -132,10 +132,7 @@
                     <textarea type="text" name="descricao" id="descricao" class="form-control" style="height:120px;" placeholder="Descrição"><?=$d->descricao?></textarea>
                     <label for="descricao">Descrição*</label>
                 </div>
-                <div class="form-floating mb-3">
-                    <div id="valor" class="form-control" ><?=$d->valor?></div>
-                    <label for="valor">Valor</label>
-                </div>
+
 
                 <div class="accordion mb-3" id="accordionExample">
                     <?php
@@ -188,6 +185,11 @@
                     <?php
                     }
                     ?>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <div id="valor" class="form-control" ><?=$d->valor?></div>
+                    <label for="valor">Valor</label>
                 </div>
 
                 <div class="form-floating mb-3">
