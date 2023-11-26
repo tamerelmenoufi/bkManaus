@@ -222,7 +222,7 @@
                     if($(this).prop("checked") == true){
                         item = $(this).attr("codigo");
                         quantidade = $(`#quantidade${item}`).val();
-                        total = (total*1) + (($(this).attr("valor"))*1);
+                        total = (total*1) + (($(this).attr("valor"))*quantidade*1);
                     }
                 })
 
