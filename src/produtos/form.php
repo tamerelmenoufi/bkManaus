@@ -9,8 +9,8 @@
     }
 
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));
-
-    $remocao = ((in_array('true',(array)json_decode($c->acoes_itens)))?true:false);
+    $acoes_itens = json_decode($c->acoes_itens);
+    $remocao = $acoes_itens->remocao;
 
 
     if($_POST['acao'] == 'salvar'){
