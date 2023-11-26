@@ -68,7 +68,7 @@
         $result = mysqli_query($con, $query);
         while($d = mysqli_fetch_object($result)){
             $cods = json_decode($d->codigos);
-            $t = mysqli_fetch_object(mysqli_query("select sum(valor_combo) as total from produtos where codigo in (".(implode(", ", $cods)).")"));
+            $t = mysqli_fetch_object(mysqli_query($con, "select sum(valor_combo) as total from produtos where codigo in (".(implode(", ", $cods)).")"));
             mysqli_query($con, "update produtos set valor = '{$t->total}' where codigo = '{$d->codigo}'");
         }
 
