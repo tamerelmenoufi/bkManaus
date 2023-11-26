@@ -8,7 +8,7 @@
       $cods = json_decode($d->codigos);
       $qtds = json_decode($d->quantidades);
       $total = 0;
-      for($cods as $i => $v){
+      foreach($cods as $i => $v){
         $t = mysqli_fetch_object(mysqli_query($con, "select (valor_combo*{$qtds[$i]}) as total from produtos where codigo = '{$v}'"));
         $total = ($total + $t->total);
       }
