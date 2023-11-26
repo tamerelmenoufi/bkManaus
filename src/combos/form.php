@@ -320,7 +320,7 @@
                 Carregando();
 
                 $.ajax({
-                    url:"src/produtos/form.php",
+                    url:"src/combos/form.php",
                     type:"POST",
                     typeData:"JSON",
                     mimeType: 'multipart/form-data',
@@ -328,7 +328,7 @@
                     success:function(dados){
                         // if(dados.status){
                             $.ajax({
-                                url:"src/produtos/index.php",
+                                url:"src/combos/index.php",
                                 type:"POST",
                                 success:function(dados){
                                     $("#paginaHome").html(dados);
