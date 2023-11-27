@@ -19,7 +19,6 @@
     }
 </style>
 
-<div style="position:absolute; top:0; bottom:0; color:red">
 <div class="slider-for">
   <div><h3>1</h3></div>
   <div><h3>2</h3></div>
@@ -28,7 +27,6 @@
   <div><h3>5</h3></div>
   <div><h3>6</h3></div>
 </div>
-</div>			
 <script>
 
 $(function(){
