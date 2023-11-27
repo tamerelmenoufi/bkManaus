@@ -20,9 +20,7 @@
             background-color:#000;
         }
         .semUso{
-            background-color:#000;
             position:relative;
-            height:100%;
         }
     </Style>
   </head>
@@ -35,7 +33,7 @@
 
     <div class="row">
         <div class="col-4 d-none d-md-block semUso"></div>
-        <div class="col CorpoApp" style="position:relative">
+        <div class="col CorpoApp semUso">
             
         </div>
         <div class="col-4 d-none d-md-block semUso"></div>
