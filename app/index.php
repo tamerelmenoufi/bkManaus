@@ -17,6 +17,7 @@
             height:100%;
             padding:0;
             margin:0;
+            background-color:#000;
         }
         .semUso{
             background-color:#000;
