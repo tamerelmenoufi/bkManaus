@@ -2,8 +2,12 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 ?>
 <style>
+    .slider-for{
+        position:absolute;
+        width:100%;
+        height:100%;
+    }
     .slider-for div{
-        position:relative;
         margin:0;
         padding:0;
         width:100%;
