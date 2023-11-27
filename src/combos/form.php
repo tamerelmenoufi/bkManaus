@@ -224,7 +224,7 @@
                 </div>
 
 
-                <div class="card bg-secondary-subtle mb-3">
+                <div class="card mb-3">
                     <div class="card-header">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="promocao" <?=(($d->promocao)?'checked':false)?>>
@@ -232,7 +232,7 @@
                         </div>
                     </div>
                     
-                    <div class="p-2">
+                    <div class="p-2 bg-secondary-subtle">
                     
                         <label for="capa_<?= $md5 ?>">Imagem da capa promocional deve ser nas dimensões (270px Largura X 240px Altura) *</label>
                         <?php
