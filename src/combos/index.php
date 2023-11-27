@@ -147,7 +147,7 @@
                   <td style='width:100%'><?=$d->produto?></td>
                   <td><?=CalculaValorCombo($d->codigo)?></td>
                   <td class="text-center">
-                    <i class="fa-solid fa-star bg-secondary-subtle"></i>
+                    <i class="fa-solid fa-star bg-light"></i>
                   </td>
                   <td>
 
