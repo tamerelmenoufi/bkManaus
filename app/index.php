@@ -18,10 +18,11 @@
             padding:0;
             margin:0;
             background-color:#000;
-            flex:1;
+            
         }
         .area{
             position:relative;
+            flex:1;
         }
     </Style>
   </head>
