@@ -201,7 +201,7 @@
                         </div>
                     </div>
                     
-                    <div class="p-1">
+                    <div class="p-2">
                     
                         <label for="capa_<?= $md5 ?>">Imagem da capa promocional deve ser nas dimensões (270px Largura X 240px Altura) *</label>
                         <?php
@@ -231,12 +231,11 @@
                             />
                         </div>
 
-                        <div class="form-floating mb-3">
+                        <div class="form-floating">
                             <input type="text" name="valor_promocao" id="valor_promocao" class="form-control" placeholder="Valor Promocional" value="<?=$d->valor_promocao?>">
-                            <label for="valor_promocao">Valor Individual</label>
+                            <label for="valor_promocao">Valor Promocial</label>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="form-floating mb-3">
