@@ -465,6 +465,12 @@
                 itens = JSON.stringify(itens)
 
                 campos.push({name:'itens', value:itens})
+
+                if($("#promocao").prop("checked") == true){
+                    campos.push({name:'promocao', value:'1'})                           
+                }else{
+                    campos.push({name:'promocao', value:'0'})                           
+                }
                 
                 // console.log(campos);
                 // // return false;
