@@ -19,8 +19,9 @@
             margin:0;
             background-color:#000;
         }
-        .semUso{
+        .area{
             position:relative;
+            border:solid 1px #fff;
         }
     </Style>
   </head>
@@ -32,11 +33,11 @@
 
 
     <div class="row">
-        <div class="col-4 d-none d-md-block semUso"></div>
-        <div class="col CorpoApp semUso">
+        <div class="col-4 d-none d-md-block area"></div>
+        <div class="col CorpoApp area">
             
         </div>
-        <div class="col-4 d-none d-md-block semUso"></div>
+        <div class="col-4 d-none d-md-block area"></div>
     </div>
 
     <?php
