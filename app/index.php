@@ -11,6 +11,11 @@
     <?php
     include("../lib/header.php");
     ?>
+    <Style>
+        .semUso{
+            background-color:#000;
+        }
+    </Style>
   </head>
   <body translate="no">
 
@@ -20,11 +25,11 @@
 
 
     <div class="row">
-        <div class="col-4 table-responsive d-none d-md-block"></div>
+        <div class="col-4 d-none d-md-block semUso"></div>
         <div class="col CorpoApp">
             
         </div>
-        <div class="col-4 table-responsive d-none d-md-block"></div>
+        <div class="col-4 d-none d-md-block semUso"></div>
     </div>
 
     <?php
