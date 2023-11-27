@@ -272,7 +272,7 @@
                                 target="encode_capa"
                                 accept="image/*"
                                 w="270"
-                                h="440"
+                                h="240"
                             >
                             <label class="input-group-text" for="capa_<?= $md5 ?>">Selecionar</label>
                             <input
