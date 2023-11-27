@@ -47,6 +47,33 @@
     
         }
 
+        if ($data['capa-base']) {
+
+            $md52 = md5($md5.$data['capa-name']);
+
+            if(!is_dir("icon")) mkdir("icon");
+
+            list($x, $icon) = explode(';base64,', $data['capa-base']);
+            $icon = base64_decode($icon);
+            $pos = strripos($data['capa-name'], '.');
+            $ext = substr($data['capa-name'], $pos, strlen($data['capa-name']));
+    
+            $atual = $data['capa-atual'];
+    
+            unset($data['capa-base']);
+            unset($data['capa-type']);
+            unset($data['capa-name']);
+            unset($data['capa-atual']);
+    
+            if (file_put_contents("icon/{$md52}{$ext}", $icon)) {
+                $attr[] = "capa = '{$md52}{$ext}'";
+                if ($atual) {
+                    unlink("icon/{$atual}");
+                }
+            }
+    
+        }
+
 
         foreach ($data as $name => $value) {
             $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
@@ -132,6 +159,7 @@
                         type="file" 
                         class="form-control" 
                         id="file_<?= $md5 ?>" 
+                        target="encode_file"
                         accept="image/*"
                         w="270"
                         h="240"
@@ -218,6 +246,54 @@
 
 
 
+                <div class="card mb-3" style="background-color:#eee">
+                    <div class="card-header">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="promocao" <?=(($d->promocao)?'checked':false)?>>
+                            <label class="form-check-label" for="promocao">Ativar Produto em Promoção</label>
+                        </div>
+                    </div>
+                    
+                    <div class="p-2">
+                    
+                        <label for="capa_<?= $md5 ?>">Imagem da capa promocional deve ser nas dimensões (270px Largura X 240px Altura) *</label>
+                        <?php
+                        if(is_file("icon/{$d->capa}")){
+                        ?>
+                        <center><img src="src/produtos/icon/<?=$d->capa?>" style="margin: 20px;" /></center>
+                        <?php
+                        }
+                        ?>
+                        <div class="input-group mb-3">
+                            <input 
+                                type="file" 
+                                class="form-control" 
+                                id="capa_<?= $md5 ?>" 
+                                target="encode_capa"
+                                accept="image/*"
+                                w="270"
+                                h="440"
+                            >
+                            <label class="input-group-text" for="capa_<?= $md5 ?>">Selecionar</label>
+                            <input
+                                    type="hidden"
+                                    id="encode_capa"
+                                    nome=""
+                                    tipo=""
+                                    value=""
+                                    atual="<?= $d->capa; ?>"
+                            />
+                        </div>
+
+                        <div class="form-floating">
+                            <input type="text" name="valor_promocao" id="valor_promocao" class="form-control" placeholder="Valor Promocional" value="<?=$d->valor_promocao?>">
+                            <label for="valor_promocao">Valor Promocial</label>
+                        </div>
+                    </div>
+                </div>
+
+
+
                 <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
                         <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
@@ -281,52 +357,53 @@
 
             if (window.File && window.FileList && window.FileReader) {
 
-            $('input[type="file"]').change(function () {
-                var mW = $(this).attr("w")
-                var mH = $(this).attr("h")
-                console.log(`W: ${mW} & H: ${mH}`)
-                if ($(this).val()) {
-                    var files = $(this).prop("files");
-                    for (var i = 0; i < files.length; i++) {
-                        (function (file) {
-                            var fileReader = new FileReader();
-                            fileReader.onload = function (f) {
+                $('input[type="file"]').change(function () {
+                    var mW = $(this).attr("w")
+                    var mH = $(this).attr("h")
+                    var tgt = $(this).attr("target")
+                    console.log(`W: ${mW} & H: ${mH}`)
+                    if ($(this).val()) {
+                        var files = $(this).prop("files");
+                        for (var i = 0; i < files.length; i++) {
+                            (function (file) {
+                                var fileReader = new FileReader();
+                                fileReader.onload = function (f) {
 
 
-                                var image = new Image();
-                                image.src = fileReader.result;
-                                image.onload = function() {
+                                    var image = new Image();
+                                    image.src = fileReader.result;
+                                    image.onload = function() {
 
-                                    var Base64 = f.target.result;
-                                    var type = file.type;
-                                    var name = file.name;
-                                    var w = image.width;
-                                    var h = image.height;
+                                        var Base64 = f.target.result;
+                                        var type = file.type;
+                                        var name = file.name;
+                                        var w = image.width;
+                                        var h = image.height;
 
-                                    if(mW != w || mH != h){
-                                        $.alert('Erro de compatibilidade da dimensão da imagem.<br>Favor seguir o padrão de medidas:<br><b>270px Largura X 240px Altura</b>')
-                                        $("#encode_file").val('');
-                                        $("#encode_file").attr("nome", '');
-                                        $("#encode_file").attr("tipo", '');
-                                        $("#encode_file").attr("w", '');
-                                        $("#encode_file").attr("h", '');                                        
-                                        return false;
-                                    }else{
-                                        $("#encode_file").val(Base64);
-                                        $("#encode_file").attr("nome", name);
-                                        $("#encode_file").attr("tipo", type);
-                                        $("#encode_file").attr("w", w);
-                                        $("#encode_file").attr("h", h);
-                                    }
+                                        if(mW != w || mH != h){
+                                            $.alert(`Erro de compatibilidade da dimensão da imagem.<br>Favor seguir o padrão de medidas:<br><b>${mW}px Largura X ${mH}px Altura</b>`)
+                                            $(`#${tgt}`).val('');
+                                            $(`#${tgt}`).attr("nome", '');
+                                            $(`#${tgt}`).attr("tipo", '');
+                                            $(`#${tgt}`).attr("w", '');
+                                            $(`#${tgt}`).attr("h", '');                                        
+                                            return false;
+                                        }else{
+                                            $(`#${tgt}`).val(Base64);
+                                            $(`#${tgt}`).attr("nome", name);
+                                            $(`#${tgt}`).attr("tipo", type);
+                                            $(`#${tgt}`).attr("w", w);
+                                            $(`#${tgt}`).attr("h", h);
+                                        }
+
+                                    };
 
                                 };
-
-                            };
-                            fileReader.readAsDataURL(file);
-                        })(files[i]);
+                                fileReader.readAsDataURL(file);
+                            })(files[i]);
+                        }
                     }
-                }
-            });
+                });
             } else {
                 alert('Nao suporta HTML5');
             }
@@ -361,6 +438,20 @@
 
                 }
 
+                capa_name = $("#encode_capa").attr("nome");
+                capa_type = $("#encode_capa").attr("tipo");
+                capa_base = $("#encode_capa").val();
+                capa_atual = $("#encode_capa").attr("atual");
+
+                if(capa_name && capa_type && capa_base){
+
+                    campos.push({name: 'capa-name', value: capa_name})
+                    campos.push({name: 'capa-type', value: capa_type})
+                    campos.push({name: 'capa-base', value: capa_base})
+                    campos.push({name: 'capa-atual', value: capa_atual})
+
+                }
+
 
                 itens = [];
                 $("input.opcao").each(function(){
@@ -375,8 +466,8 @@
 
                 campos.push({name:'itens', value:itens})
                 
-console.log(campos);
-// return false;
+                // console.log(campos);
+                // // return false;
 
                 Carregando();
 
