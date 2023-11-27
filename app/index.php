@@ -18,7 +18,14 @@
         <div><i class="fa-solid fa-rotate fa-pulse"></i></div>
     </div>
 
-    <div class="CorpoApp"></div>
+
+    <div class="row">
+        <div class="col-4 table-responsive d-none d-md-block"></div>
+        <div class="col CorpoApp">
+            
+        </div>
+        <div class="col-4 table-responsive d-none d-md-block"></div>
+    </div>
 
     <?php
     include("../lib/footer.php");

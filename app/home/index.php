@@ -1,4 +1,6 @@
-Página principal do app
+<?php
+    include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
+?>
 <style>
     .slider-for div{
         width:200px;
@@ -8,7 +10,6 @@ Página principal do app
         text-align:center;
     }
 </style>
-
 
 <div class="slider-for">
   <div><h3>1</h3></div>
