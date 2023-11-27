@@ -189,7 +189,10 @@
                 <div class="card mb-3 p-3">
                     <div class="row">
                       <div class="col-12 d-flex justify-content-end">
-                        <i class="fa-solid fa-star <?=(($d->promocao)?'text-warning':'text-secondary opacity-25')?>"></i>
+                        <span class="me-3">
+                          <i class="fa-solid fa-star <?=(($d->promocao)?'text-warning':'text-secondary opacity-25')?>"></i>
+                          Promoção
+                        </span>
                         <div class="form-check form-switch">
                           <input class="form-check-input situacao" type="checkbox" <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
                           Situação
