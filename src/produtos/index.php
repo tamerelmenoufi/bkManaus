@@ -129,6 +129,7 @@
                   <th scope="col">Produto</th>
                   <th scope="col">Valor Individual</th>
                   <th scope="col">Valor no Combo</th>
+                  <th scope="col">Promoção</th>
                   <th scope="col">Situação</th>
                   <th scope="col">Ações</th>
                 </tr>
@@ -144,6 +145,9 @@
                   <td style='width:100%'><?=$d->produto?></td>
                   <td><?=$d->valor?></td>
                   <td><?=$d->valor_combo?></td>
+                  <td class="text-center">
+                    <i class="fa-solid fa-star <?=(($d->promocao)?'text-warning':'text-secondary opacity-25')?>"></i>
+                  </td>
                   <td>
 
                   <div class="form-check form-switch">
