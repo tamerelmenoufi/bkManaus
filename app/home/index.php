@@ -3,8 +3,10 @@
 ?>
 <style>
     .slider-for div{
-        width:200px;
-        height:200px;
+        margin:0;
+        padding:0;
+        width:100%;
+        height:460px;
         background:#ccc;
         color:#000;
         text-align:center;
