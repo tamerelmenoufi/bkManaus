@@ -2,7 +2,7 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 ?>
 <style>
-    .slider-for{
+    .xxx{
         position:absolute;
         top:0;
         bottom:0;
@@ -19,6 +19,7 @@
     }
 </style>
 
+<div style="xxx">
 <div class="slider-for">
   <div><h3>1</h3></div>
   <div><h3>2</h3></div>
@@ -27,7 +28,7 @@
   <div><h3>5</h3></div>
   <div><h3>6</h3></div>
 </div>
-			
+</div>			
 <script>
 
 $(function(){
