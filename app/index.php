@@ -49,7 +49,7 @@
             // Carregando();
 
 
-            $(".CorpoApp").css("height", $(window).height());
+            $(".CorpoApp").css("min-height", $(window).height());
 
             $.ajax({
                 url:"home/index.php",
