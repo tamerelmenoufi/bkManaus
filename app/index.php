@@ -33,7 +33,7 @@
     </div>
 
 
-    <div class="row">
+    <div class="row g-0">
         <div class="col-4 d-none d-md-block area"></div>
         <div class="col CorpoApp area">
             
