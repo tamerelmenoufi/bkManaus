@@ -21,8 +21,6 @@
         }
         .area{
             position:relative;
-            border:solid 1px #fff;
-            clear:both;
         }
     </Style>
   </head>
