@@ -138,7 +138,7 @@
               </thead>
               <tbody>
                 <?php
-                  $query = "select * from produtos where deletado != '1' and categoria = '{$_SESSION['categoria']}' {$where} order by produto asc";
+                  $query = "select * from produtos where deletado != '1' and categoria = '{$_SESSION['categoria']}' {$where} order by promocao desc, produto asc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
