@@ -132,6 +132,7 @@
                   <th scope="col">Combo</th>
                   <th scope="col">Valor</th>
                   <th scope="col">Situação</th>
+                  <th scope="col">Promoção</th>
                   <th scope="col">Ações</th>
                 </tr>
               </thead>
@@ -145,6 +146,9 @@
                 <tr>
                   <td style='width:100%'><?=$d->produto?></td>
                   <td><?=CalculaValorCombo($d->codigo)?></td>
+                  <td>
+                    <i class="fa-solid fa-star"></i>
+                  </td>
                   <td>
 
                   <div class="form-check form-switch">
