@@ -22,7 +22,6 @@
         }
         .area{
             position:relative;
-            display:flex;
         }
     </Style>
   </head>
@@ -35,7 +34,7 @@
 
     <div class="row g-0">
         <div class="col-4 d-none d-md-block area"></div>
-        <div class="col CorpoApp area">
+        <div class="col CorpoApp area" style="background-color:#fff; min-height:900px;">
             
         </div>
         <div class="col-4 d-none d-md-block area"></div>
