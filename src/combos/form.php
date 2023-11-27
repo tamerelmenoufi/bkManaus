@@ -15,6 +15,8 @@
         
         if ($data['file-base']) {
 
+            $md52 = md5($md5.$data['file-name']);
+
             if(!is_dir("icon")) mkdir("icon");
 
             list($x, $icon) = explode(';base64,', $data['file-base']);
@@ -29,8 +31,36 @@
             unset($data['file-name']);
             unset($data['file-atual']);
     
-            if (file_put_contents("icon/{$md5}{$ext}", $icon)) {
-                $attr[] = "icon = '{$md5}{$ext}'";
+            if (file_put_contents("icon/{$md52}{$ext}", $icon)) {
+                $attr[] = "icon = '{$md52}{$ext}'";
+                if ($atual) {
+                    unlink("icon/{$atual}");
+                }
+            }
+    
+        }
+
+
+        if ($data['capa-base']) {
+
+            $md52 = md5($md5.$data['capa-name']);
+
+            if(!is_dir("icon")) mkdir("icon");
+
+            list($x, $icon) = explode(';base64,', $data['capa-base']);
+            $icon = base64_decode($icon);
+            $pos = strripos($data['capa-name'], '.');
+            $ext = substr($data['capa-name'], $pos, strlen($data['capa-name']));
+    
+            $atual = $data['capa-atual'];
+    
+            unset($data['capa-base']);
+            unset($data['capa-type']);
+            unset($data['capa-name']);
+            unset($data['capa-atual']);
+    
+            if (file_put_contents("icon/{$md52}{$ext}", $icon)) {
+                $attr[] = "capa = '{$md52}{$ext}'";
                 if ($atual) {
                     unlink("icon/{$atual}");
                 }
@@ -111,6 +141,7 @@
                         type="file" 
                         class="form-control" 
                         id="file_<?= $md5 ?>" 
+                        target="encode_file"
                         accept="image/*"
                         w="270"
                         h="240"
@@ -216,6 +247,7 @@
                                 type="file" 
                                 class="form-control" 
                                 id="capa_<?= $md5 ?>" 
+                                target="encode_capa"
                                 accept="image/*"
                                 w="270"
                                 h="240"
@@ -287,6 +319,7 @@
             $('input[type="file"]').change(function () {
                 var mW = $(this).attr("w")
                 var mH = $(this).attr("h")
+                var tgt = $(this).attr("target")
                 console.log(`W: ${mW} & H: ${mH}`)
                 if ($(this).val()) {
                     var files = $(this).prop("files");
@@ -308,18 +341,18 @@
 
                                     if(mW != w || mH != h){
                                         $.alert('Erro de compatibilidade da dimensão da imagem.<br>Favor seguir o padrão de medidas:<br><b>270px Largura X 240px Altura</b>')
-                                        $("#encode_file").val('');
-                                        $("#encode_file").attr("nome", '');
-                                        $("#encode_file").attr("tipo", '');
-                                        $("#encode_file").attr("w", '');
-                                        $("#encode_file").attr("h", '');                                        
+                                        $(`#${tgt}`).val('');
+                                        $(`#${tgt}`).attr("nome", '');
+                                        $(`#${tgt}`).attr("tipo", '');
+                                        $(`#${tgt}`).attr("w", '');
+                                        $(`#${tgt}`).attr("h", '');                                        
                                         return false;
                                     }else{
-                                        $("#encode_file").val(Base64);
-                                        $("#encode_file").attr("nome", name);
-                                        $("#encode_file").attr("tipo", type);
-                                        $("#encode_file").attr("w", w);
-                                        $("#encode_file").attr("h", h);
+                                        $(`#${tgt}`).val(Base64);
+                                        $(`#${tgt}`).attr("nome", name);
+                                        $(`#${tgt}`).attr("tipo", type);
+                                        $(`#${tgt}`).attr("w", w);
+                                        $(`#${tgt}`).attr("h", h);
                                     }
 
                                 };
@@ -363,6 +396,22 @@
                     campos.push({name: 'file-atual', value: file_atual})
 
                 }
+
+
+                capa_name = $("#encode_capa").attr("nome");
+                capa_type = $("#encode_capa").attr("tipo");
+                capa_base = $("#encode_capa").val();
+                capa_atual = $("#encode_capa").attr("atual");
+
+                if(capa_name && capa_type && capa_base){
+
+                    campos.push({name: 'capa-name', value: capa_name})
+                    campos.push({name: 'capa-type', value: capa_type})
+                    campos.push({name: 'capa-base', value: capa_base})
+                    campos.push({name: 'capa-atual', value: capa_atual})
+
+                }
+
 
                 produtos = [];
                 $("input.opcao").each(function(){
