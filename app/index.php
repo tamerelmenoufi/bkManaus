@@ -34,7 +34,7 @@
 
     <div class="row g-0">
         <div class="col-4 d-none d-md-block area"></div>
-        <div class="col CorpoApp area" style="background-color:#fff; height:100%;">
+        <div class="col CorpoApp area" style="background-color:#fff;">
             
         </div>
         <div class="col-4 d-none d-md-block area"></div>
@@ -47,6 +47,10 @@
     <script>
         $(function(){
             // Carregando();
+
+
+            $("#.CorpoApp").css("height", $(window).height();)
+
             $.ajax({
                 url:"home/index.php",
                 success:function(dados){
