@@ -377,6 +377,11 @@
 
                 campos.push({name:'produtos', value:produtos})
 
+                if($("#promocao").prop("checked") == true){
+                    campos.push({name:'promocao', value:'1'})                           
+                }else{
+                    campos.push({name:'promocao', value:'0'})                           
+                }
 
                 Carregando();
 
