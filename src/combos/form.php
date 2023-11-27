@@ -192,6 +192,51 @@
                     <label for="valor">Valor</label>
                 </div>
 
+
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="ativar_promocao" <?=(($d->promocao)?'checked':false)?>>
+                            <label class="form-check-label" for="ativar_promocao">Ativar Combo em Promoção</label>
+                        </div>
+                    </div>
+                    
+                    
+                    <label for="capa_<?= $md5 ?>">Imagem da capa promocional deve ser nas dimensões (270px Largura X 240px Altura) *</label>
+                    <?php
+                    if(is_file("icon/{$d->capa}")){
+                    ?>
+                    <center><img src="src/combos/icon/<?=$d->capa?>" style="margin: 20px;" /></center>
+                    <?php
+                    }
+                    ?>
+                    <div class="input-group mb-3">
+                        <input 
+                            type="file" 
+                            class="form-control" 
+                            id="capa_<?= $md5 ?>" 
+                            accept="image/*"
+                            w="270"
+                            h="240"
+                        >
+                        <label class="input-group-text" for="capa_<?= $md5 ?>">Selecionar</label>
+                        <input
+                                type="hidden"
+                                id="encode_capa"
+                                nome=""
+                                tipo=""
+                                value=""
+                                atual="<?= $d->capa; ?>"
+                        />
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" name="valor_promocao" id="valor_promocao" class="form-control" placeholder="Valor Promocional" value="<?=$d->valor_promocao?>">
+                        <label for="valor_promocao">Valor Individual</label>
+                    </div>
+
+                </div>
+
                 <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
                         <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
