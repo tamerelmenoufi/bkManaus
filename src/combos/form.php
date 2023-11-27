@@ -196,8 +196,8 @@
                 <div class="card mb-3">
                     <div class="card-header">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="ativar_promocao" <?=(($d->promocao)?'checked':false)?>>
-                            <label class="form-check-label" for="ativar_promocao">Ativar Combo em Promoção</label>
+                            <input type="checkbox" class="form-check-input" id="promocao" <?=(($d->promocao)?'checked':false)?>>
+                            <label class="form-check-label" for="promocao">Ativar Combo em Promoção</label>
                         </div>
                     </div>
                     
