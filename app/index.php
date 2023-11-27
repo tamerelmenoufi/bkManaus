@@ -34,7 +34,7 @@
 
     <div class="row g-0">
         <div class="col-4 d-none d-md-block area"></div>
-        <div class="col CorpoApp area" style="background-color:#fff; min-height:900px;">
+        <div class="col CorpoApp area" style="background-color:#fff; height:100%;">
             
         </div>
         <div class="col-4 d-none d-md-block area"></div>
