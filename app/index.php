@@ -22,7 +22,7 @@
         }
         .area{
             position:relative;
-            flex:1;
+            flex:1 0 0%;
         }
     </Style>
   </head>
