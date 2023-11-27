@@ -193,7 +193,7 @@
                 </div>
 
 
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <div class="card-header">
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="ativar_promocao" <?=(($d->promocao)?'checked':false)?>>
