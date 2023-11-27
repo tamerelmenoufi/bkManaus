@@ -20,7 +20,7 @@
             background-color:#000;
         }
         .area{
-            position:relative;
+            position:absolute;
             border:solid 1px #fff;
             clear:both;
         }
