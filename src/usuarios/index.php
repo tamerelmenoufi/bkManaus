@@ -39,7 +39,7 @@
   td, th{
     white-space: nowrap;
   }
-  .card label{
+  .label{
     font-size:10px;
     color:#a1a1a1;
   }
@@ -180,14 +180,14 @@
 
                     <div class="row">
                       <div class="col-12">
-                        <label>Nome</label>
+                        <label class="label">Nome</label>
                         <div><?=$d->nome?></div>
                       </div>
                     </div>
 
                     <div class="row">
                       <div class="col-12">
-                      <label>CPF</label>
+                      <label class="label">CPF</label>
                        <div><?=$d->cpf?></div>
                       </div>
                     </div>

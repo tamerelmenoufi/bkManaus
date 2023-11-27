@@ -60,7 +60,7 @@
   td, th{
     white-space: nowrap;
   }
-  .card label{
+  .label{
     font-size:10px;
     color:#a1a1a1;
   }
@@ -195,14 +195,14 @@
 
                     <div class="row">
                       <div class="col-12">
-                        <label>Combo</label>
+                        <label class="label">Combo</label>
                         <div><?=$d->produto?></div>
                       </div>
                     </div>
 
                     <div class="row">
                       <div class="col-12">
-                      <label>Valor</label>
+                      <label class="label">Valor</label>
                        <div><?=$d->valor?></div>
                       </div>
                     </div>
