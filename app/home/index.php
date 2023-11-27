@@ -28,7 +28,7 @@ $(function(){
         slidesToScroll: 1,
         arrows: false,
         fade: true,
-        asNavFor: '.slider-nav'
+        // asNavFor: '.slider-nav'
     });
     // $('.slider-nav').slick({
     //     slidesToShow: 3,
