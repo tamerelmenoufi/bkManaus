@@ -224,7 +224,7 @@
                 </div>
 
 
-                <div class="card mb-3">
+                <div class="card bg-secondary-subtle mb-3">
                     <div class="card-header">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="promocao" <?=(($d->promocao)?'checked':false)?>>
