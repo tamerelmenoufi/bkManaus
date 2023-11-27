@@ -12,9 +12,16 @@
     include("../lib/header.php");
     ?>
     <Style>
+        body{
+            width:100%;
+            height:100%;
+            padding:0;
+            margin:0;
+        }
         .semUso{
             background-color:#000;
             position:relative;
+            height:100%;
         }
     </Style>
   </head>
