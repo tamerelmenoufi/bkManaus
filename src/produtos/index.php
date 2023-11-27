@@ -129,6 +129,7 @@
                   <th scope="col">Produto</th>
                   <th scope="col">Valor Individual</th>
                   <th scope="col">Valor no Combo</th>
+                  <th scope="col">Valor Promocional</th>
                   <th scope="col">Promoção</th>
                   <th scope="col">Situação</th>
                   <th scope="col">Ações</th>
@@ -145,6 +146,7 @@
                   <td style='width:100%'><?=$d->produto?></td>
                   <td><?=$d->valor?></td>
                   <td><?=$d->valor_combo?></td>
+                  <td><?=$d->valor_promocao?></td>
                   <td class="text-center">
                     <i class="fa-solid fa-star <?=(($d->promocao)?'text-warning':'text-secondary opacity-25')?>"></i>
                   </td>
@@ -218,6 +220,13 @@
                       <div class="col-12">
                         <label class="label">Valor no combo</label>
                         <div><?=$d->valor_combo?></div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <label class="label">Valor Promocional</label>
+                        <div><?=$d->valor_promocao?></div>
                       </div>
                     </div>
 
