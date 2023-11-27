@@ -13,3 +13,8 @@
 
 <link href="<?=$urlPainel?>lib/css/app.css" rel="stylesheet">
 <script src="<?=$urlPainel?>lib/js/app.js?<?=date("YmdHis")?>" ></script>
+
+<link href="<?=$urlPainel?>lib/vendor/slick/slick.css" rel="stylesheet">
+<script src="<?=$urlPainel?>lib/vendor/slick/slick.js" ></script>
+
+
