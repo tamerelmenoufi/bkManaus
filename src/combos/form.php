@@ -340,7 +340,7 @@
                                     var h = image.height;
 
                                     if(mW != w || mH != h){
-                                        $.alert('Erro de compatibilidade da dimensão da imagem.<br>Favor seguir o padrão de medidas:<br><b>270px Largura X 240px Altura</b>')
+                                        $.alert(`Erro de compatibilidade da dimensão da imagem.<br>Favor seguir o padrão de medidas:<br><b>${mW}px Largura X ${mH}px Altura</b>`)
                                         $(`#${tgt}`).val('');
                                         $(`#${tgt}`).attr("nome", '');
                                         $(`#${tgt}`).attr("tipo", '');
