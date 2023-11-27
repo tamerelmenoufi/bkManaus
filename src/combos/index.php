@@ -131,8 +131,8 @@
                 <tr>
                   <th scope="col">Combo</th>
                   <th scope="col">Valor</th>
-                  <th scope="col">Situação</th>
                   <th scope="col">Promoção</th>
+                  <th scope="col">Situação</th>
                   <th scope="col">Ações</th>
                 </tr>
               </thead>
