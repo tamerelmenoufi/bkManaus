@@ -96,7 +96,7 @@ while($d = mysqli_fetch_object($result)){
                 <p style="color:#c45018; font-size:20px;"><?=$d->descricao?></p>
             </div>
             <div class="produto_dados">
-                <h2 style="color:#f12a2a">R$ <?=number_format($d->valor,2,false,",")?></h2>
+                <h2 style="color:#f12a2a">R$ <?=number_format($d->valor,2,",",false)?></h2>
             </div>            
         </div>
 
