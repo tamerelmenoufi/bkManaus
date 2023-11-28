@@ -62,11 +62,7 @@
         height:120px;
     }
     .produto_dados h4, .produto_dados p{
-        position:absolute;
-        left:0;
-        right:0;
-        padding:0;
-        margin:0;
+        width:100%;
         font-family:FlameBold;
         display: inline-block;
         white-space: nowrap;
