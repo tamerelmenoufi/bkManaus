@@ -39,7 +39,7 @@ $(function(){
 
 
     $.ajax({
-        url:"rodape/categorias.php",
+        url:"home/categorias.php",
         success:function(dados){
             $(".home_categorias").html(dados);
         }
