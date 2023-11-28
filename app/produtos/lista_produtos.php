@@ -30,9 +30,9 @@
 $(function(){
 
     $.ajax({
-        url:"home/banner.php",
+        url:"rodape/rodape.php",
         success:function(dados){
-            $(".home_promocao").html(dados);
+            $(".home_rodape").html(dados);
         }
     });
 
