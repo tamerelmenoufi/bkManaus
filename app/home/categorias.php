@@ -21,6 +21,7 @@
     .categorias span{
         margin:10px;
         /* word-break: break-word; */
+        color:#52231b;
         font-family:FlameBold;
         word-break: break-all;
         overflow: hidden; // Removendo barra de rolagem
