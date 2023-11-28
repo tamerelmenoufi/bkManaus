@@ -61,8 +61,13 @@
         width:100%;
         height:120px;
     }
-    h4, p{
-        width:100%;
+    .produto_dados h4, .produto_dados p{
+        position:absolute;
+        height:30px;
+        left:0;
+        right:0;
+        padding:0;
+        margin:0;
         font-family:FlameBold;
         display: inline-block;
         white-space: nowrap;
@@ -87,7 +92,7 @@ while($d = mysqli_fetch_object($result)){
         <div class="produto_dados">
             <h4><?=$d->produto?></h4>
             <p>Batat Frita, Guaraná Antártica</p>
-            <h3>R$ 13,99</h3>
+            <h2>R$ 13,99</h2>
         </div>
     </div>
 <?php
