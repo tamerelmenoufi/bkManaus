@@ -21,6 +21,7 @@
     .categorias span{
         margin:10px;
         /* word-break: break-word; */
+        font-family:FlameBold;
         word-break: break-all;
         overflow: hidden; // Removendo barra de rolagem
         text-overflow: ellipsis; // Adicionando "..." ao final
