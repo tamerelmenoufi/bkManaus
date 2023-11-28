@@ -4,7 +4,8 @@
 <style>
     .combo{
         margin:5px;
-        background-color:red;
+        background-image:url(img/bg_botao_combo.png);
+        background-size:cover;
         border-radius:20px;
         height:90px;
     }
