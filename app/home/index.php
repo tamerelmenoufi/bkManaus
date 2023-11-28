@@ -2,7 +2,7 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 ?>
 <style>
-    .home_promocao{
+    .home_corpo{
         position: absolute;
         top:0;
         bottom:90px;
@@ -20,7 +20,10 @@
     }
 </style>
 
-<div class="home_promocao"></div>
+<div class="home_corpo">
+    <div class="home_promocao"></div>
+    <div class="home_categorias"></div>
+</div>
 <div class="home_rodape"></div>
 
 <script>
@@ -34,6 +37,15 @@ $(function(){
         }
     });
 
+
+    $.ajax({
+        url:"rodape/categorias.php",
+        success:function(dados){
+            $(".home_categorias").html(dados);
+        }
+    });
+
+    
     $.ajax({
         url:"rodape/rodape.php",
         success:function(dados){
