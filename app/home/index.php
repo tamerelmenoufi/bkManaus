@@ -9,12 +9,7 @@
         overflow:auto;
         background-color:#fff;
         width:100%;
-        border: solid 1px blue;
     }
-
-
-
-
 
     .home_rodape{
         position: absolute;
@@ -22,7 +17,6 @@
         width:100%;
         bottom:0;
         height:90px;
-        border: solid 1px blue;
     }
 </style>
 
