@@ -34,6 +34,7 @@
     .home_rodape{
         position: relative;
         width:100%;
+        margin-top:100px;
         border: solid 1px blue;
     }
 </style>
