@@ -20,7 +20,7 @@
 </style>
 
 <div class="slider-for">
-  <div style="background-image:url(img/banner.png); background-size:cover;"></div>
+  <div style="background-image:url(img/banner.png); background-size:contain;"></div>
 </div>
 
 <div class="home_rodape"></div>
