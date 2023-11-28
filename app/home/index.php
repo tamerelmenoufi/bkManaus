@@ -26,10 +26,8 @@
         margin-top:-30px;
         height:30px;
         width:100%;
-        border:solid 1px green;
     }
     .barra_banner div{
-        border:solid 0px blue;
         background-color:#fff;
         width:100%;
     }    
