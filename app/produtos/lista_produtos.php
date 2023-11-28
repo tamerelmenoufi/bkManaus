@@ -11,6 +11,10 @@
 <style>
     .barra_topo{
         position:absolute;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
         top:0;
         width:100%;
         height:100px;
@@ -18,6 +22,10 @@
         color:#c45018;
         border-bottom-right-radius:40px;
         border-bottom-left-radius:40px;
+
+    }
+    .barra_topo h2{
+        
     }
 
     .home_corpo{
