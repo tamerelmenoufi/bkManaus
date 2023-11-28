@@ -29,6 +29,9 @@
         background:#fff;
         border:solid 1px green;
     }
+    .barra_banner div{
+        border:solid 1px blue;
+    }    
 </style>
 <div class="slider">
     <div class="slider-for">
@@ -38,7 +41,11 @@
         <img src="img/banner.png" />
     <!-- <div style="background-image:url(img/banner.png); background-size:contain;"></div> -->
     </div>
-    <div class="barra_banner"></div>
+    <div class="d-flex justify-content-center barra_banner">
+        <div></div>
+        <img src="img/banner_seta.png" />
+        <div></div>
+    </div>
 </div>
 
 <div class="home_rodape"></div>
