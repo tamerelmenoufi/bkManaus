@@ -31,6 +31,7 @@
     }
     .barra_banner div{
         border:solid 1px blue;
+        width:100%;
     }    
 </style>
 <div class="slider">
