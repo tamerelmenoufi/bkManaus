@@ -4,6 +4,7 @@
 <style>
     .slider{
         position:absolute;
+        background:#fff;
         top:0;
         bottom:0;
         width:100%;        
@@ -17,9 +18,6 @@
         padding:0;
         width:100%;
         height:auto;
-        background:#ccc;
-        color:#000;
-        text-align:center;
     }
     .barra_banner{
         position: absolute;
