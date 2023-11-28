@@ -51,9 +51,10 @@
         <img src="img/banner_seta.png" />
         <div></div>
     </div>
+    <div class="home_rodape"></div>
 </div>
 
-<div class="home_rodape"></div>
+
 
 <script>
 
