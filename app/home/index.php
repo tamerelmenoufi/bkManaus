@@ -29,7 +29,8 @@
         border:solid 1px green;
     }
     .barra_banner div{
-        border:solid 1px blue;
+        border:solid 0px blue;
+        background-color:#fff;
         width:100%;
     }    
 </style>
