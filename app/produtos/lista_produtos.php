@@ -59,6 +59,10 @@
     .produto_dados{
         width:100%;
     }
+    .produto_dados h4, .produto_dados p{
+        padding:0;
+        margin:0;
+    }
 </style>
 
 <div class="barra_topo">
