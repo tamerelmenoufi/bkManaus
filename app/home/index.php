@@ -4,6 +4,7 @@
 <style>
     .slider{
         position:absolute;
+        padding-bottom:100px;
         top:0;
         bottom:0;
         width:100%;        
