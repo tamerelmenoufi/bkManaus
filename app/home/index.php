@@ -24,9 +24,8 @@
     .barra_banner{
         position: absolute;
         margin-top:-30px;
-        height:20px;
+        height:30px;
         width:100%;
-        background:#fff;
         border:solid 1px green;
     }
     .barra_banner div{
