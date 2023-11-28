@@ -62,6 +62,11 @@
     .produto_dados h4, .produto_dados p{
         padding:0;
         margin:0;
+        font-family:FlameBold;
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden; /* "overflow" value must be different from "visible" */
+        text-overflow: ellipsis;
     }
 </style>
 
