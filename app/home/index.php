@@ -21,6 +21,8 @@
 
 <div class="slider-for">
     <img src="img/banner.png" style="width:100%; height:auto" />
+    <img src="img/banner.png" style="width:100%; height:auto" />
+    <img src="img/banner.png" style="width:100%; height:auto" />
   <!-- <div style="background-image:url(img/banner.png); background-size:contain;"></div> -->
 </div>
 
