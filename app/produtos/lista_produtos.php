@@ -59,10 +59,10 @@
     .produto_dados{
         position:relative;
         width:100%;
+        height:30px;
     }
     .produto_dados h4, .produto_dados p{
         position:absolute;
-        height:30px;
         left:0;
         right:0;
         padding:0;
