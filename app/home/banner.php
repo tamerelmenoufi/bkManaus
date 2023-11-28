@@ -5,8 +5,6 @@
     .slider{
         position:relative;
         background:#fff;
-        top:0;
-        bottom:0;
         width:100%;        
     }
     .slider-for{
