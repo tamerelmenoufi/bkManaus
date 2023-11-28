@@ -18,7 +18,7 @@
         text-align:center;
     }
     .barra_banner{
-        position: absolute;
+        position: relative;
         height:20px;
         width:100%;
         background:#fff;
