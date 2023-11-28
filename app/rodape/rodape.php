@@ -4,7 +4,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
 <style>
     .rodape{
-        position:absolute;
+        position:fixed;
         bottom:0;
         width:100%;
         background-color:#fff;
