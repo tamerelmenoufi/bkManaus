@@ -6,11 +6,13 @@
         margin:5px;
         background-color:red;
         border-radius:20px;
+        height:90px;
     }
     .categorias{
         margin:5px;
         background-color:orange;
         border-radius:20px;
+        height:90px;
     }
     
 </style>
