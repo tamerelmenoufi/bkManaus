@@ -3,7 +3,7 @@
 ?>
 <style>
     .slider{
-        position:absolute;
+        position:relative;
         background:#fff;
         top:0;
         bottom:0;
