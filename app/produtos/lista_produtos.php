@@ -39,7 +39,7 @@
 </style>
 
 <div class="barra_topo">
-
+    <h2><?=$c->categoria?></h2>
 </div>
 
 <div class="home_corpo">
