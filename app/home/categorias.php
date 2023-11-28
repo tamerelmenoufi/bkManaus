@@ -21,7 +21,9 @@
         <div class="combo"></div>
     </div>
     <?php
-    for($i=0;$i<6;$i++){
+    $query = "select * from categorias where tipo = 'prd' order by ordem";
+    $result = mysqli_query($con, $query);
+    while($d = mysqli_fetch_object($result)){
     ?>
     <div class="col-6">
         <div class="categorias"></div>
