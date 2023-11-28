@@ -60,9 +60,9 @@
         position:relative;
         width:100%;
         height:30px;
-        overflow: hidden;
+        /* overflow: hidden; */
     }
-    .produto_dados h4, .produto_dados h2, .produto_dados p{
+    .produto_dados h4, .produto_dados h2, .produto_dados div{
         position:absolute;
         left:0;
         right:0;
