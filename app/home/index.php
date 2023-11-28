@@ -28,11 +28,18 @@
   <div><h3>6</h3></div>
 </div>
 
-<div style="height:1200px;"></div>
+<div class="home_rodape"></div>
 
 <script>
 
 $(function(){
+
+    $.ajax({
+        url:"rodape/rodape.php",
+        success:function(dados){
+            $(".home_rodape").html(dados);
+        }
+    });
 
     $('.slider-for').slick({
         slidesToShow: 1,
