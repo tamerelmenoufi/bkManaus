@@ -48,7 +48,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
+        flex-direction: row;
     }
     .produto_painel img{
         height:100px;
