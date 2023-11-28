@@ -63,10 +63,12 @@
         padding:0;
         margin:0;
         font-family:FlameBold;
+        
+        display: inline-block;
         white-space: nowrap;
-        width: 100%;
-        overflow: hidden; /* "overflow" value must be different from "visible" */
+        overflow: hidden;
         text-overflow: ellipsis;
+        direction: ltr;
     }
 </style>
 
