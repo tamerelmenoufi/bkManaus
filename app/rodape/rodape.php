@@ -71,7 +71,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 <script>
     $(function(){
 
-        $("img[home]").click(function({
+        $("img[home]").click(function(){
             Carregando();
 
             $.ajax({
@@ -82,7 +82,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
                 }
             })
 
-        }));
+        });
 
     })
 </script>
