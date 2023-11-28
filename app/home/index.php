@@ -20,7 +20,8 @@
 </style>
 
 <div class="slider-for">
-  <div style="background-image:url(img/banner.png); background-size:contain;"></div>
+    <img src="img/banner.png" style="width:100%; height:auto" />
+  <!-- <div style="background-image:url(img/banner.png); background-size:contain;"></div> -->
 </div>
 
 <div class="home_rodape"></div>
