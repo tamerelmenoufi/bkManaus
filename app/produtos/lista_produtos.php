@@ -90,13 +90,13 @@ while($d = mysqli_fetch_object($result)){
         <img src="img/logo.png" />
         <div class="w-100">
             <div class="produto_dados">
-                <h4><?=$d->produto?></h4>
+                <h4 style="color:#f12a2a"><?=$d->produto?></h4>
             </div>
             <div class="produto_dados">
                 <p>Batat Frita, Guaraná Antártica</p>
             </div>
             <div class="produto_dados">
-                <h2>R$ 13,99</h2>
+                <h2 style="color:#f12a2a">R$ 13,99</h2>
             </div>            
         </div>
 
