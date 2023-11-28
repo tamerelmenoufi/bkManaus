@@ -17,7 +17,7 @@
         /* word-break: break-word; */
         color:#fff;
         font-size:20px;
-        margin-left:20px;
+        margin-right:20px;
         font-family:FlameBold;
         word-break: break-all;
         overflow: hidden; // Removendo barra de rolagem
