@@ -34,7 +34,15 @@
 </style>
 <div class="row g-0">
     <div class="col-12">
-        <div class="combo"></div>
+    <?php
+    $query = "select * from categorias where codigo = 8";
+    $result = mysqli_query($con, $query);
+    $d = mysqli_fetch_object($result);
+    ?>
+        <div class="d-flex justify-content-start align-items-center categorias">
+            <img src="img/logo.png" alt="">
+            <span><?=$d->categoria?></span>
+        </div>
     </div>
     <?php
     $query = "select * from categorias where tipo = 'prd' and deletado != '1' and situacao = '1' order by ordem";
