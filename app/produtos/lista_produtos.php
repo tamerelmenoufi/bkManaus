@@ -22,7 +22,7 @@
         color:#c45018;
         border-bottom-right-radius:40px;
         border-bottom-left-radius:40px;
-
+        font-family:FlameBold;
     }
     .barra_topo h2{
         
