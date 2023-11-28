@@ -18,7 +18,10 @@
         margin:5px;
         height:80px;
     }
-    
+    .categorias span{
+        margin:5px;
+        word-break: break-word;
+    }
 </style>
 <div class="row g-0">
     <div class="col-12">
@@ -32,7 +35,7 @@
     <div class="col-6">
         <div class="d-flex justify-content-between categorias">
             <img src="img/logo.png" alt="">
-            <?=$d->categoria?>
+            <span><?=$d->categoria?></span>
         </div>
     </div>
     <?php
