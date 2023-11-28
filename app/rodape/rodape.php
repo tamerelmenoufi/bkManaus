@@ -29,7 +29,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     }
     .rodape_area i{
         font-size:40px;
-        color:orange;
+        color:#ffdb37;
     }
 </style>
 <div class="rodape">
