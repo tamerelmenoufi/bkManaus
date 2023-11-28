@@ -93,10 +93,10 @@ while($d = mysqli_fetch_object($result)){
                 <h4 style="color:#f12a2a"><?=$d->produto?></h4>
             </div>
             <div class="produto_dados">
-                <p style="color:#c45018">Batat Frita, Guaraná Antártica</p>
+                <p style="color:#c45018; font-size:14px;"><?=$d->descricao?></p>
             </div>
             <div class="produto_dados">
-                <h2 style="color:#f12a2a">R$ 13,99</h2>
+                <h2 style="color:#f12a2a">R$ <?=number_format($d->valor,2,false,",")?></h2>
             </div>            
         </div>
 
