@@ -26,9 +26,13 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         height:70px;
         width:auto;
     }
+    .rodape_area i{
+        font-size:70px;
+        color:orange;
+    }
 </style>
 <div class="rodape">
-    <div class="d-flex justify-content-between rodape_area">
+    <div class="d-flex justify-content-between align-items-center rodape_area">
         <img src="img/logo.png" />
         <i class="fa-solid fa-user"></i>
         <i class="fa-solid fa-bag-shopping"></i>
