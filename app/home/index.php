@@ -23,6 +23,7 @@
     }
     .barra_banner{
         position: absolute;
+        margin-top:-30px;
         height:20px;
         width:100%;
         background:#fff;
