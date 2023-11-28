@@ -54,6 +54,9 @@
         height:120px;
         margin:5px;
     }
+    .produto_dados{
+        width:100%;
+    }
 </style>
 
 <div class="barra_topo">
