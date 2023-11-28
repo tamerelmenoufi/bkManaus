@@ -33,11 +33,11 @@
 
 
     <div class="row g-0">
-        <div class="col-4 d-none d-md-block area"></div>
+        <div class="col-5 d-none d-md-block area"></div>
         <div class="col CorpoApp area" style="background-color:#fff;">
             
         </div>
-        <div class="col-4 d-none d-md-block area"></div>
+        <div class="col-5 d-none d-md-block area"></div>
     </div>
 
     <?php
