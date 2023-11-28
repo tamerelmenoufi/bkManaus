@@ -19,7 +19,7 @@
         height:80px;
     }
     .categorias span{
-        margin:5px;
+        margin:10px;
         word-break: break-word;
     }
 </style>
