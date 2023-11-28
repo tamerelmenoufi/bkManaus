@@ -9,6 +9,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         width:100%;
         background-color:#fff;
         height:90px;
+        z-index:1;
     }
     .rodape_area:{
         position:absolute;
@@ -19,6 +20,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         right:0;
         top:0;
         bottom:0;
+        z-index:10;
     }
 </style>
 <div class="rodape">
