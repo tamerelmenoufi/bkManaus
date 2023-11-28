@@ -27,7 +27,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         width:auto;
     }
     .rodape_area i{
-        font-size:50px;
+        font-size:40px;
         color:orange;
     }
 </style>
