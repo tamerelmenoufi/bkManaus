@@ -41,6 +41,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         padding:0;
     }
     .rodape_area p{
+        font-family:Insanibu;
         font-size:12px;
         color:#fff;
         margin:0;
