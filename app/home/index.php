@@ -2,10 +2,14 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 ?>
 <style>
-    .slider-for{
+    .slider{
         position:absolute;
         top:0;
         bottom:0;
+        width:100%;        
+    }
+    .slider-for{
+        position:relative;
         width:100%;
     }
     .slider-for img{
@@ -25,15 +29,17 @@
         border:solid 1px green;
     }
 </style>
-
-<div class="slider-for">
-    <img src="img/banner.png" />
-    <img src="img/banner.png" />
-    <img src="img/banner.png" />
-    <img src="img/banner.png" />
-  <!-- <div style="background-image:url(img/banner.png); background-size:contain;"></div> -->
+<div class="slider">
+    <div class="slider-for">
+        <img src="img/banner.png" />
+        <img src="img/banner.png" />
+        <img src="img/banner.png" />
+        <img src="img/banner.png" />
+    <!-- <div style="background-image:url(img/banner.png); background-size:contain;"></div> -->
+    </div>
+    <div class="barra_banner"></div>
 </div>
-<div class="barra_banner"></div>
+
 <div class="home_rodape"></div>
 
 <script>
