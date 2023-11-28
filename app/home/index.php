@@ -8,11 +8,11 @@
         bottom:0;
         width:100%;
     }
-    .slider-for div{
+    .slider-for img{
         margin:0;
         padding:0;
         width:100%;
-        height:460px;
+        height:auto;
         background:#ccc;
         color:#000;
         text-align:center;
@@ -20,9 +20,10 @@
 </style>
 
 <div class="slider-for">
-    <img src="img/banner.png" style="width:100%; height:auto" />
-    <img src="img/banner.png" style="width:100%; height:auto" />
-    <img src="img/banner.png" style="width:100%; height:auto" />
+    <img src="img/banner.png" />
+    <img src="img/banner.png" />
+    <img src="img/banner.png" />
+    <img src="img/banner.png" />
   <!-- <div style="background-image:url(img/banner.png); background-size:contain;"></div> -->
 </div>
 
