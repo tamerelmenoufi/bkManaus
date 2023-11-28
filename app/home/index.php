@@ -3,7 +3,11 @@
 ?>
 <style>
     .home_promocao{
-
+        position: relative;
+        background-color:#fff;
+        width:100%;
+        margin-top:100px;
+        border: solid 1px blue;
     }
     .home_rodape{
         position: relative;
