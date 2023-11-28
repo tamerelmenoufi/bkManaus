@@ -28,7 +28,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     }
 </style>
 <div class="rodape">
-    <div class="rodape_area">
+    <div class="d-flex justify-content-between rodape_area">
         <img src="img/logo.png" />
+        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-bag-shopping"></i>
+        <i class="fa-solid fa-circle-dollar-to-slot"></i>
     </div>
 </div>
