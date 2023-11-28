@@ -7,6 +7,8 @@
         top:0;
         bottom:90px;
         overflow:auto;
+        scrollbar-width: thin;          /* "auto" or "thin" */
+        scrollbar-color: blue orange;   /* scroll thumb and track */
         background-color:#fff;
         width:100%;
         border: solid 1px blue;
