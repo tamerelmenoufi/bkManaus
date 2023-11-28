@@ -10,7 +10,8 @@
     }
     .categorias{
         margin:5px;
-        background-color:orange;
+        background-image:url(img/bg_botao.png);
+        background-size:cover;
         border-radius:20px;
         height:90px;
     }
