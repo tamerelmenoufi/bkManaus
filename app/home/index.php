@@ -3,9 +3,7 @@
 ?>
 <style>
     .slider-for{
-        position:absolute;
-        top:0;
-        bottom:0;
+        position:relative;
         width:100%;
     }
     .slider-for img{
