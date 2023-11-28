@@ -51,7 +51,7 @@
         flex-direction: row;
     }
     .produto_painel img{
-        height:100px;
+        height:120px;
         margin:5px;
     }
 </style>
