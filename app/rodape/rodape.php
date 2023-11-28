@@ -4,7 +4,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
 <style>
     .rodape{
-        position:fixed;
+        position:absolute;
         bottom:0;
         width:100%;
         background-color:#fff;
@@ -23,6 +23,6 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 </style>
 <div class="rodape">
     <div class="rodape_area">
-        
+
     </div>
 </div>
