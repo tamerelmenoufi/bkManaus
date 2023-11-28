@@ -91,13 +91,13 @@
             Carregando();
 
             local = $(this).attr("local")
-            codigo = $(this).attr("codigo")
+            categoria = $(this).attr("codigo")
 
             $.ajax({
                 url:local,
                 type:"POST",
                 data:{
-                    categoria:codigo
+                    categoria
                 },
                 success:function(dados){
                     Carregando('none');
