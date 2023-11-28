@@ -60,9 +60,8 @@
         position:relative;
         width:100%;
         height:30px;
-        overflow: hidden;
     }
-    .produto_dados h4, .produto_dados h2, .produto_dados div{
+    .produto_dados h4, .produto_dados h2{
         position:absolute;
         left:0;
         right:0;
@@ -94,7 +93,7 @@ while($d = mysqli_fetch_object($result)){
                 <h4 style="color:#f12a2a"><?=$d->produto?></h4>
             </div>
             <div class="produto_dados" style="height:60px;">
-                <div style="color:#c45018; font-size:20px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;"><?=$d->descricao?></div>
+                <div style="color:#c45018; font-family:FlameBold; font-size:20px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;"><?=$d->descricao?></div>
             </div>
             <div class="produto_dados">
                 <h2 style="color:#f12a2a">R$ <?=number_format($d->valor,2,",",false)?></h2>
