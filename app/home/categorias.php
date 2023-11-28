@@ -58,8 +58,8 @@
     $d = mysqli_fetch_object($result);
     ?>
         <div class="d-flex justify-content-center align-items-center combo">
-            <img src="img/logo.png" alt="">
             <span><?=$d->categoria?></span>
+            <img src="img/logo.png" alt="">
         </div>
     </div>
     <?php
