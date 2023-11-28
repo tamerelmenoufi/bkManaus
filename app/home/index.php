@@ -3,7 +3,10 @@
 ?>
 <style>
     .slider-for{
-        position:relative;
+        position:absolute;
+        top:0;
+        bottom:0;
+        width:100%;
     }
     .slider-for img{
         margin:0;
@@ -15,7 +18,7 @@
         text-align:center;
     }
     .barra_banner{
-        position: relative;
+        position: absolute;
         height:20px;
         width:100%;
         background:#fff;
