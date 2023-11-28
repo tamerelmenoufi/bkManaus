@@ -33,7 +33,7 @@
     while($d = mysqli_fetch_object($result)){
     ?>
     <div class="col-6">
-        <div class="d-flex justify-content-between categorias">
+        <div class="d-flex justify-content-start categorias">
             <img src="img/logo.png" alt="">
             <span><?=$d->categoria?></span>
         </div>
