@@ -4,7 +4,6 @@
 <style>
     .slider{
         position:absolute;
-        margin-bottom:300px;
         top:0;
         bottom:0;
         width:100%;        
@@ -31,8 +30,14 @@
     .barra_banner div{
         background-color:#fff;
         width:100%;
-    }    
+    } 
+    .home_rodape{
+        position: relative;
+        width:100%;
+        border: solid 1px blue;
+    }
 </style>
+
 <div class="slider">
     <div class="slider-for">
         <img src="img/banner.png" />
