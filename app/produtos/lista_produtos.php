@@ -74,6 +74,15 @@
         text-overflow: ellipsis;
         direction: ltr;
     }
+    .produto_dados div{
+        color:#c45018; 
+        overflow: hidden; 
+        font-family:FlameBold; 
+        font-size:16px; 
+        display: -webkit-box; 
+        -webkit-box-orient: vertical; 
+        -webkit-line-clamp: 2;
+    }
 </style>
 
 <div class="barra_topo">
@@ -93,7 +102,7 @@ while($d = mysqli_fetch_object($result)){
                 <h4 style="color:#f12a2a"><?=$d->produto?></h4>
             </div>
             <div class="produto_dados" style="height:60px;">
-                <div style="color:#c45018; overflow: hidden; font-family:FlameBold; font-size:20px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;"><?=$d->descricao?></div>
+                <div><?=$d->descricao?></div>
             </div>
             <div class="produto_dados">
                 <h2 style="color:#f12a2a">R$ <?=number_format($d->valor,2,",",false)?></h2>
