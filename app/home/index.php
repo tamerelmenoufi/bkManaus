@@ -21,7 +21,7 @@
 </style>
 
 <div class="home_corpo">
-    <!-- <div class="home_promocao"></div> -->
+    <div class="home_promocao"></div>
     <div class="home_categorias"></div>
 </div>
 <div class="home_rodape"></div>
