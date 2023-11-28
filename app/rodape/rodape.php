@@ -33,6 +33,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         justify-content: flex-end;
         align-items: center;
         flex-direction: column;
+        cursor:pointer;
     }
     .rodape_area i{
         font-size:40px;

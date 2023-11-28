@@ -8,6 +8,7 @@
         background-size:cover;
         border-radius:20px;
         height:90px;
+        cursor:pointer;
     }
     .combo img{
         margin:5px;
@@ -35,6 +36,7 @@
         background-size:cover;
         border-radius:20px;
         height:90px;
+        cursor:pointer;
     }
     .categorias img{
         margin:5px;
