@@ -39,7 +39,7 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
     ?>
-        <div class="d-flex justify-content-start align-items-center categorias">
+        <div class="d-flex justify-content-start align-items-center combo">
             <img src="img/logo.png" alt="">
             <span><?=$d->categoria?></span>
         </div>
