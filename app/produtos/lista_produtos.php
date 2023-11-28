@@ -59,6 +59,7 @@
     .produto_dados{
         position:relative;
         width:100%;
+        height:120px;
     }
     .produto_dados h4, .produto_dados p{
         position:absolute;
@@ -67,7 +68,6 @@
         padding:0;
         margin:0;
         font-family:FlameBold;
-
         display: inline-block;
         white-space: nowrap;
         overflow: hidden;
