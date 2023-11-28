@@ -13,26 +13,6 @@
     }
 
 
-    /* Works on Firefox */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: black transparent;
-}
-
-/* Works on Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-    width: 3px;
-    height: 3px; /* A altura só é vista quando a rolagem é horizontal */
-}
-
-*::-webkit-scrollbar-track {
-    background: transparent;
-    padding: 2px;
-}
-
-*::-webkit-scrollbar-thumb {
-    background-color: #000;
-}
 
 
 
