@@ -15,7 +15,7 @@
     .combo span{
         margin:10px;
         /* word-break: break-word; */
-        color:#52231b;
+        color:#fff;
         font-family:FlameBold;
         word-break: break-all;
         overflow: hidden; // Removendo barra de rolagem
@@ -57,7 +57,7 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
     ?>
-        <div class="d-flex justify-content-start align-items-center combo">
+        <div class="d-flex justify-content-center align-items-center combo">
             <img src="img/logo.png" alt="">
             <span><?=$d->categoria?></span>
         </div>
