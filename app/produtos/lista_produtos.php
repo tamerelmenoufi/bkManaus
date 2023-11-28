@@ -59,7 +59,6 @@
     .produto_dados{
         position:relative;
         width:100%;
-        height:120px;
     }
     .produto_dados h4, .produto_dados p{
         position:absolute;
@@ -89,11 +88,18 @@ while($d = mysqli_fetch_object($result)){
 ?>
     <div class="produto_painel">
         <img src="img/logo.png" />
-        <div class="produto_dados">
-            <h4><?=$d->produto?></h4>
-            <p>Batat Frita, Guaraná Antártica</p>
-            <h2>R$ 13,99</h2>
+        <div class="w-100">
+            <div class="produto_dados">
+                <h4><?=$d->produto?></h4>
+            </div>
+            <div class="produto_dados">
+                <p>Batat Frita, Guaraná Antártica</p>
+            </div>
+            <div class="produto_dados">
+                <h2>R$ 13,99</h2>
+            </div>            
         </div>
+
     </div>
 <?php
 }
