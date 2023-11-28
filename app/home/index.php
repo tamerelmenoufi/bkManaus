@@ -17,6 +17,12 @@
         color:#000;
         text-align:center;
     }
+    .barra_banner{
+        position: absolute;
+        height:20px;
+        width:100%;
+        background:#fff;
+    }
 </style>
 
 <div class="slider-for">
@@ -26,7 +32,7 @@
     <img src="img/banner.png" />
   <!-- <div style="background-image:url(img/banner.png); background-size:contain;"></div> -->
 </div>
-
+<div class="barra_banner"></div>
 <div class="home_rodape"></div>
 
 <script>
