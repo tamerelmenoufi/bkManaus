@@ -23,7 +23,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         z-index:10;
     }
     .rodape_area img{
-        height:80px;
+        height:90px;
         width:auto;
     }
 </style>
