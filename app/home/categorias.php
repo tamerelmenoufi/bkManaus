@@ -27,9 +27,9 @@
         word-break: break-all;
         overflow: hidden; // Removendo barra de rolagem
         text-overflow: ellipsis; // Adicionando "..." ao final
-        display: -webkit-box;
+        display:-webkit-box;
         -webkit-line-clamp: 2; // Quantidade de linhas
-        -webkit-box-orient: vertical; 
+        -webkit-box-orient: vertical;
     }
 </style>
 <div class="row g-0">
