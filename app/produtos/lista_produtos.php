@@ -67,12 +67,12 @@ $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
 ?>
     <div class="produto_painel">
+        <img src="img/logo.png" />
         <div class="produto_dados">
             <h4><?=$d->produto?></h4>
-            <p>Batat Frita</p>
-            <h2>Guaraná Antártica</h2>
+            <p>Batat Frita, Guaraná Antártica</p>
+            <h2>R$ 13,99</h2>
         </div>
-        <img src="img/logo.png" />
     </div>
 <?php
 }
