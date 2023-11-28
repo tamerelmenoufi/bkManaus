@@ -14,6 +14,10 @@
         border-radius:20px;
         height:90px;
     }
+    .categorias img{
+        margin:5px;
+        height:80px;
+    }
     
 </style>
 <div class="row g-0">
@@ -26,7 +30,8 @@
     while($d = mysqli_fetch_object($result)){
     ?>
     <div class="col-6">
-        <div class="categorias">
+        <div class="d-flex justify-content-between categorias">
+            <img src="" alt="">
             <?=$d->categoria?>
         </div>
     </div>
