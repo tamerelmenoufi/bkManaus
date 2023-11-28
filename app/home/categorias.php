@@ -97,7 +97,7 @@
                 url:local,
                 type:"POST",
                 data:{
-                    codigo
+                    categoria:codigo
                 },
                 success:function(dados){
                     Carregando('none');
