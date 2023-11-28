@@ -29,6 +29,6 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 </style>
 <div class="rodape">
     <div class="rodape_area">
-        <img src="img/logo.svg" />
+        <img src="img/logo.png" />
     </div>
 </div>
