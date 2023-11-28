@@ -4,7 +4,6 @@
 <style>
     .slider-for{
         position:relative;
-        width:100%;
     }
     .slider-for img{
         margin:0;
