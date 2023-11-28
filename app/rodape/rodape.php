@@ -28,6 +28,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         width:auto;
     }
     .rodape_area div{
+        height:100%;
         display: flex;
         justify-content: flex-end;
         align-items: center;
