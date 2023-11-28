@@ -22,7 +22,7 @@
 $(function(){
 
     $.ajax({
-        url:"rodape/banner.php",
+        url:"home/banner.php",
         success:function(dados){
             $(".home_promocao").html(dados);
         }
