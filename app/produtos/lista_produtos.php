@@ -15,7 +15,8 @@
         width:100%;
         height:100px;
         background-color:red;
-        border-bottom-right-radius: 20px 20px;
+        border-bottom-right-radius:20px;
+        border-bottom-left-radius:20px;
     }
 
     .home_corpo{
