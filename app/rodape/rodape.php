@@ -35,8 +35,17 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 <div class="rodape">
     <div class="d-flex justify-content-between align-items-center rodape_area">
         <img src="img/logo.png" />
-        <i class="fa-solid fa-user"></i>
-        <i class="fa-solid fa-bag-shopping"></i>
-        <i class="fa-solid fa-circle-dollar-to-slot"></i>
+        <div>
+            <i class="fa-solid fa-user"></i>
+            <p>Usuário</p>
+        </div>
+        <div>
+            <i class="fa-solid fa-bag-shopping"></i>
+            <p>Usuário</p>
+        </div>        
+        <div>
+            <i class="fa-solid fa-circle-dollar-to-slot"></i>
+            <p>Usuário</p>
+        </div>        
     </div>
 </div>
