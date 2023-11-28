@@ -26,6 +26,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     .rodape_area img{
         height:70px;
         width:auto;
+        cursor:pointer;
     }
     .rodape_area div{
         height:100%;
@@ -51,7 +52,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 </style>
 <div class="rodape">
     <div class="d-flex justify-content-between align-items-center rodape_area">
-        <img src="img/logo.png" />
+        <img home src="img/logo.png" />
         <div>
             <i class="fa-solid fa-user"></i>
             <p>Perfil</p>
@@ -66,3 +67,22 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         </div>        
     </div>
 </div>
+
+<script>
+    $(funciton(){
+
+        $("img[home]").click(function({
+            Carregando();
+
+            $.ajax({
+                url:"home/index.php",
+                success:function(dados){
+                    Carregando('none');
+                    $(".CorpoApp").html(dados);
+                }
+            })
+
+        }));
+
+    })
+</script>
