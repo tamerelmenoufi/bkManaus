@@ -21,6 +21,11 @@
     .categorias span{
         margin:10px;
         word-break: break-word;
+        overflow: hidden; // Removendo barra de rolagem
+        text-overflow: ellipsis; // Adicionando "..." ao final
+        display: -webkit-box;
+        -webkit-line-clamp: 2; // Quantidade de linhas
+        -webkit-box-orient: vertical; 
     }
 </style>
 <div class="row g-0">
