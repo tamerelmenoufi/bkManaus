@@ -62,7 +62,7 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
     ?>
-        <div class="d-flex justify-content-center align-items-center combo">
+        <div class="d-flex justify-content-center align-items-center combo" codigo="8" local="produtos/lista_produtos.php">
             <span><?=$d->categoria?></span>
             <img src="img/logo.png" alt="">
         </div>
@@ -73,7 +73,7 @@
     while($d = mysqli_fetch_object($result)){
     ?>
     <div class="col-6">
-        <div class="d-flex justify-content-start align-items-center categorias">
+        <div class="d-flex justify-content-start align-items-center categorias" codigo="<?=$d->codigo?>" local="produtos/lista_produtos.php">
             <img src="img/logo.png" alt="">
             <span><?=$d->categoria?></span>
         </div>
@@ -82,3 +82,31 @@
     }
     ?>
 </div>
+
+<script>
+
+    $(function(){
+
+        $(".combo, .categorias").click(function(){
+            Carregando();
+
+            local = $(this).attr("local")
+            codigo = $(this).attr("codigo")
+
+            $.ajax({
+                url:local,
+                type:"POST",
+                data:{
+                    codigo
+                },
+                success:function(dados){
+                    Carregando('none');
+                    $(".CorpoApp").html(dados);
+                }
+            })
+
+        });
+
+    })
+
+</script>
