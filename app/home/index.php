@@ -22,6 +22,7 @@
         height:20px;
         width:100%;
         background:#fff;
+        border:solid 1px green;
     }
 </style>
 
