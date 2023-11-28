@@ -14,7 +14,8 @@
         top:0;
         width:100%;
         height:100px;
-        background-color:red;
+        background-color:#ffc63a;
+        color:#c45018;
         border-bottom-right-radius:40px;
         border-bottom-left-radius:40px;
     }
