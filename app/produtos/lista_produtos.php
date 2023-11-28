@@ -44,6 +44,16 @@
         bottom:0;
         height:90px;
     }
+    .produto_painel{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .produto_painel img{
+        height:100px;
+        margin:5px;
+    }
 </style>
 
 <div class="barra_topo">
@@ -56,7 +66,14 @@ $query = "select * from produtos where categoria = '{$c->codigo}' and deletado !
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
 ?>
-    <div><?=$d->produto?></div>
+    <div class="produto_painel">
+        <div class="produto_dados">
+            <h4><?=$d->produto?></h4>
+            <p>Batat Frita</p>
+            <h2>Guaraná Antártica</h2>
+        </div>
+        <img src="img/logo.png" />
+    </div>
 <?php
 }
 ?>
