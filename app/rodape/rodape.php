@@ -22,9 +22,13 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         bottom:0;
         z-index:10;
     }
+    .rodape_area img{
+        height:60px;
+        width:auto;
+    }
 </style>
 <div class="rodape">
     <div class="rodape_area">
-
+        <img src="img/logo.csv" />
     </div>
 </div>
