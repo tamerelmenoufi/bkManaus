@@ -31,7 +31,7 @@
     ?>
     <div class="col-6">
         <div class="d-flex justify-content-between categorias">
-            <img src="" alt="">
+            <img src="img/logo.png" alt="">
             <?=$d->categoria?>
         </div>
     </div>
