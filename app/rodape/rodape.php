@@ -53,15 +53,15 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         <img src="img/logo.png" />
         <div>
             <i class="fa-solid fa-user"></i>
-            <p>Usuário</p>
+            <p>Perfil</p>
         </div>
         <div>
             <i class="fa-solid fa-bag-shopping"></i>
-            <p>Usuário</p>
+            <p>Pedido</p>
         </div>        
         <div>
             <i class="fa-solid fa-circle-dollar-to-slot"></i>
-            <p>Usuário</p>
+            <p>Pagar</p>
         </div>        
     </div>
 </div>
