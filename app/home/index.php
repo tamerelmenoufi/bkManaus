@@ -3,16 +3,20 @@
 ?>
 <style>
     .home_promocao{
-        position: relative;
+        position: absolute;
+        top:0;
+        bottom:90px;
+        overflow:auto;
         background-color:#fff;
         width:100%;
         border: solid 1px blue;
     }
     .home_rodape{
-        position: relative;
+        position: absolute;
         background-color:#fff;
         width:100%;
-        margin-top:100px;
+        bottom:0;
+        height:90px;
         border: solid 1px blue;
     }
 </style>
