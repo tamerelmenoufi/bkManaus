@@ -69,7 +69,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 </div>
 
 <script>
-    $(funciton(){
+    $(function(){
 
         $("img[home]").click(function({
             Carregando();
