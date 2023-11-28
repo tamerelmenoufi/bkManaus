@@ -20,7 +20,8 @@
     }
     .categorias span{
         margin:10px;
-        word-break: break-word;
+        /* word-break: break-word; */
+        word-break: break-all;
         overflow: hidden; // Removendo barra de rolagem
         text-overflow: ellipsis; // Adicionando "..." ao final
         display: -webkit-box;
