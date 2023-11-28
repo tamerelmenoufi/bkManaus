@@ -15,6 +15,7 @@
         width:100%;
         height:100px;
         background-color:red;
+        border-bottom-right-radius: 20px 20px;
     }
 
     .home_corpo{
@@ -41,7 +42,7 @@
 
 <div class="home_corpo">
 <?php
-echo $query = "select * from produtos where categoria = '{$c->codigo}' and deletado != '1' and situacao = '1'";
+$query = "select * from produtos where categoria = '{$c->codigo}' and deletado != '1' and situacao = '1'";
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
 ?>
