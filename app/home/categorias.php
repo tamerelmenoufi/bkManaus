@@ -21,12 +21,14 @@
         <div class="combo"></div>
     </div>
     <?php
-    $query = "select * from categorias where tipo = 'prd' order by ordem";
+    $query = "select * from categorias where tipo = 'prd' and deletado != '1' and situacao = '1' order by ordem";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
     ?>
     <div class="col-6">
-        <div class="categorias"></div>
+        <div class="categorias">
+            <?=$d->categoria?>
+        </div>
     </div>
     <?php
     }
