@@ -77,6 +77,7 @@
     .produto_dados div{
         color:#c45018; 
         overflow: hidden; 
+        height:30px;
         font-family:FlameBold; 
         font-size:16px; 
         display: -webkit-box; 
@@ -114,7 +115,7 @@ while($d = mysqli_fetch_object($result)){
             <div class="produto_dados">
                 <h4 style="color:#f12a2a"><?=$d->produto?></h4>
             </div>
-            <div class="produto_dados" style="height:30px;">
+            <div class="produto_dados">
                 <div><?=$prd?></div>
             </div>
             <div class="produto_dados">
