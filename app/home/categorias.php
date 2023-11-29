@@ -62,7 +62,7 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
     ?>
-        <div class="d-flex justify-content-center align-items-center combo" codigo="8" local="produtos/lista_produtos.php">
+        <div class="d-flex justify-content-center align-items-center combo" codigo="8" local="produtos/lista_combos.php">
             <span><?=$d->categoria?></span>
             <img src="img/logo.png" alt="">
         </div>
