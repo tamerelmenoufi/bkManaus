@@ -141,7 +141,7 @@ $(function(){
                 codigo
             },
             success:function(dados){
-                $(".home_rodape").html(dados);
+                $(".CorpoApp").html(dados);
             }
         });        
 
