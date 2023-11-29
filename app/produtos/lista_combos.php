@@ -81,7 +81,7 @@
         font-size:16px; 
         display: -webkit-box; 
         -webkit-box-orient: vertical; 
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 3;
     }
 </style>
 
