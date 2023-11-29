@@ -61,6 +61,7 @@
     .produto_titulo{
         color:#c45018;
         font-family:FlameBold;
+        text-align:center;
     }
     .produto_img{
         height:270px;
