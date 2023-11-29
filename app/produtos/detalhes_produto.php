@@ -39,6 +39,16 @@
         height:90px;
     }
 
+    .produto_botoes{
+        position:absolute;
+        bottom:90px;
+        left:0;
+        right:0;
+        padding:15px;
+        border: solid 1px red;
+        height:60px;
+    }
+
     .produto_painel{
         display: flex;
         justify-content: center;
@@ -60,15 +70,7 @@
         position:relative;
         width:100%;
     }
-    .produto_botoes{
-        position:absolute;
-        bottom:60px;
-        left:0;
-        right:0;
-        padding:15px;
-        border: solid 1px red;
-        height:100px;
-    }
+
     
 </style>
 
