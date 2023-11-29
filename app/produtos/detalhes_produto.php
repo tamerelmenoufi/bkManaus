@@ -93,9 +93,9 @@
 </div>
 <div class="produto_botoes d-flex justify-content-between">
     <div class="d-flex justify-content-between">
-        <i class="fa-solid fa-circle-plus" style="color:red"></i>
+        <i class="fa-solid fa-circle-minus" style="color:red"></i>
         <div style="margin-top:-8px; text-align:center; width:60px; font-family:UniformBold;">1</div>
-        <i class="fa-solid fa-circle-minus" style="color:green"></i>
+        <i class="fa-solid fa-circle-plus" style="color:green"></i>
     </div>
     <div>
         <button type="button" class="btn btn-danger" style="font-family:FlameBold; font-size:25px; margin-top:-20px;">R$ <?=number_format($d->valor,2,",",false)?></button>
