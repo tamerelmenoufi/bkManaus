@@ -45,7 +45,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        padding:5px;
+        padding:15px;
         margin-bottom:20px;
     }
     .produto_painel img{
