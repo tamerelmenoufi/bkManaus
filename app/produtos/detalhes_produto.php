@@ -94,7 +94,7 @@
 <div class="produto_botoes d-flex justify-content-between">
     <div class="d-flex justify-content-between">
         <i class="fa-solid fa-circle-plus" style="color:red"></i>
-        <div style="border:solid 1px red; padding:0; height:100%; justify-content: center; align-items: center; ">1</div>
+        <div style="margin-top:-10px;">1</div>
         <i class="fa-solid fa-circle-minus" style="color:green"></i>
     </div>
     <div>R$ <?=number_format($d->valor,2,",",false)?></div>
