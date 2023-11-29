@@ -105,7 +105,7 @@ while($d = mysqli_fetch_object($result)){
             $prd[] = $d1->produto;
         }
 
-        $prd = implode("</div>><div>- ", $prd);
+        $prd = implode("</div><div>- ", $prd);
     }
 ?>
     <div class="produto_painel">
