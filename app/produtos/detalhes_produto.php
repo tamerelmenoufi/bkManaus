@@ -107,6 +107,17 @@ $(function(){
         }
     });
 
+    $(".barra_topo").click(function(){
+
+        $.ajax({
+            url:"produtos/lista_produtos.php",
+            success:function(dados){
+                $(".CorpoApp").html(dados);
+            }
+        });        
+
+    })
+
 })
 
 	
