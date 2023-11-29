@@ -20,9 +20,7 @@
         border-bottom-left-radius:40px;
         font-family:FlameBold;
     }
-    .barra_topo h2{
-        
-    }
+
 
     .home_corpo{
         position: absolute;
@@ -39,6 +37,10 @@
         width:100%;
         bottom:0;
         height:90px;
+    }
+
+    .produto_painel{
+        padding:15px;
     }
 
     .produto_titulo{
@@ -70,16 +72,15 @@
     <h2><?=$c->categoria?></h2>
 </div>
 
-<div class="home_corpo">
 <?php
-$query = "select * from produtos where codigo = '{$_POST['codigo']}'";
-$result = mysqli_query($con, $query);
-$d = mysqli_fetch_object($result);
+    $query = "select * from produtos where codigo = '{$_POST['codigo']}'";
+    $result = mysqli_query($con, $query);
+    $d = mysqli_fetch_object($result);
 ?>
+<div class="home_corpo">
     <div class="produto_painel" codigo="<?=$d->codigo?>">
         <h1 class="produto_titulo"><?=$d->produto?></h1>
         <img src="img/logo.png" class="produto_img" />
-
         <div class="produto_descricao"><?=$d->descricao?></div>       
     </div>
 </div>
