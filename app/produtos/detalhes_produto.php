@@ -55,7 +55,7 @@
         height:30px;
     }
     .produto_botoes{
-        position:fixed;
+        position:absolute;
         bottom:90px;
         left:0;
         right:0;
