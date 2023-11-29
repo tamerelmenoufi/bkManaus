@@ -53,7 +53,7 @@
         margin-bottom:20px;
     }
     .produto_painel img{
-        height:120px;
+        height:150px;
         margin:5px;
     }
     .produto_dados{
@@ -91,14 +91,14 @@
 
 <div class="home_corpo">
 <?php
-echo $query = "select *, produtos->>'$[*].produto' as cod_prod, produtos->>'$[*].quantidade' as qtd_prod from produtos where categoria = '{$c->codigo}' and deletado != '1' and situacao = '1'";
+$query = "select *, produtos->>'$[*].produto' as cod_prod, produtos->>'$[*].quantidade' as qtd_prod from produtos where categoria = '{$c->codigo}' and deletado != '1' and situacao = '1'";
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
 
     $lista_produtos = json_decode($d->cod_prod);
     if($lista_produtos){
         $cods = implode(", ",$lista_produtos);
-        echo $q = "select * from produtos where codigo in ($cods)";
+        $q = "select * from produtos where codigo in ($cods)";
         $r = mysqli_query($con, $q);
         $prd = [];
         while($d1 = mysqli_fetch_object($r)){
