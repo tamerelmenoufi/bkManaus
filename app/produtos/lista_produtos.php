@@ -138,7 +138,7 @@ $(function(){
             url:"produtos/detalhes_produto.php",
             type:"POST",
             data:{
-                codigo,
+                codigo
             },
             success:function(dados){
                 $(".home_rodape").html(dados);
