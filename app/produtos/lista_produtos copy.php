@@ -95,7 +95,7 @@ $query = "select * from produtos where categoria = '{$c->codigo}' and deletado !
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
 ?>
-    <div class="produto_painel">
+    <div class="produto_painel" codigo="<?=$d->codigo?>">
         <img src="img/logo.png" />
         <div class="w-100">
             <div class="produto_dados">
@@ -129,6 +129,23 @@ $(function(){
             $(".home_rodape").html(dados);
         }
     });
+
+
+    $(".produto_painel").click(function(){
+        codigo = $(this).attr("codigo");
+
+        $.ajax({
+            url:"produtos/detalhes_produto.php",
+            type:"POST",
+            data:{
+                codigo,
+            },
+            success:function(dados){
+                $(".home_rodape").html(dados);
+            }
+        });        
+
+    })
 
 
 })
