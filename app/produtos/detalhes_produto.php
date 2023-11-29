@@ -73,7 +73,9 @@
         width:100%;
     }
     .produto_detalhes{
-
+        padding:2px;
+        border:solid 1px #ccc;
+        border-radius:5px;
     }
 
     
