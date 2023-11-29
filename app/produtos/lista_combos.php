@@ -99,7 +99,7 @@ while($d = mysqli_fetch_object($result)){
     $lista_produtos = json_decode($d->cod_prod);
     if($lista_produtos){
         $cods = implode(", ",$lista_produtos);
-        $q = "select * from produtos where codigo in ($cods)";
+        $q = "select * from produtos where codigo in ($cods) limit 3";
         $r = mysqli_query($con, $q);
         $prd = [];
         while($d1 = mysqli_fetch_object($r)){
@@ -115,8 +115,8 @@ while($d = mysqli_fetch_object($result)){
             <div class="produto_dados">
                 <h4 style="color:#f12a2a"><?=$d->produto?></h4>
             </div>
-            <div class="produto_dados" style="height:90px;">
-                <div><?=$prd?></div>
+            <div class="produto_dados" style="height:70px;">
+                <div>- <?=$prd?></div>
             </div>
             <div class="produto_dados">
                 <h2 style="color:#f12a2a">
