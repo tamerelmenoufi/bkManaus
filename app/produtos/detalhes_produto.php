@@ -89,7 +89,14 @@
     <div class="produto_painel" codigo="<?=$d->codigo?>">
         <h1 class="produto_titulo"><?=$d->produto?></h1>
         <img src="img/logo.png" class="produto_img" />
-        <div class="produto_descricao"><?=$d->descricao?></div>       
+        <div class="produto_descricao"><?=$d->descricao?></div>
+        <div class="produto_detalhes d-flex justify-content-between">
+            <div>
+                <i class="fa-regular fa-message fa-flip-horizontal"></i>
+                Inclua aqui suas observações
+            </div>
+            <button type="button" class="btn btn-outline-secondary btn-sm">Anotações</button>
+        </div>     
     </div>
 </div>
 <div class="produto_botoes d-flex justify-content-between">
