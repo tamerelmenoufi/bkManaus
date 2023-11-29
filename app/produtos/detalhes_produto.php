@@ -53,7 +53,7 @@
         font-family:FlameBold;
     }
     .produto_img{
-        height:120px;
+        height:270px;
         margin:5px;
     }
     .produto_descricao{
