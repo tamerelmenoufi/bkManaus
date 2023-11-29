@@ -47,7 +47,8 @@
         padding:15px;
         border: solid 1px red;
         height:60px;
-        font-size:20px;
+        font-size:30px;
+        color:red;
     }
 
     .produto_painel{
