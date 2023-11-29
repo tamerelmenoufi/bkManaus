@@ -110,7 +110,7 @@
     </div>
 </div>
 <div class="produto_botoes d-flex justify-content-between">
-    <button type="button" class="btn btn-warning btn-sm" style="font-family:Uniform; margin-top:-20px; margin-right:20px;">Cancelar</button>
+    <button type="button" class="btn btn-warning" style="font-family:Uniform; margin-top:-20px; margin-right:20px;">Cancelar</button>
     <button type="button" class="btn btn-danger w-100" style="font-family:Uniform; margin-top:-20px;">Incluir</button>
 </div>   
 <div class="home_rodape"></div>
