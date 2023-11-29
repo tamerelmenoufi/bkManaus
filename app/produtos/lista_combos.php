@@ -53,7 +53,7 @@
         margin-bottom:20px;
     }
     .produto_painel img{
-        height:160px;
+        height:150px;
         margin:5px;
     }
     .produto_dados{
