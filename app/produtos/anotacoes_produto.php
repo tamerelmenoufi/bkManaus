@@ -96,7 +96,8 @@
 <div class="home_corpo">
     <div class="produto_painel" codigo="<?=$d->codigo?>">
         <h1 class="produto_titulo"><?=$d->produto?></h1>
-        <img src="img/logo.png" class="produto_img" />
+
+        <!-- <img src="img/logo.png" class="produto_img" />
         <div class="produto_detalhes d-flex justify-content-between align-items-center w-100">
             <div style="cursor:pointer">
                 <i class="fa-regular fa-message fa-flip-horizontal"></i>
@@ -104,19 +105,13 @@
             </div>
             <button type="button" class="btn btn-outline-secondary btn-sm">Anotações</button>
         </div>   
-        <div class="produto_descricao"><?=$d->descricao?></div>
+        <div class="produto_descricao"><?=$d->descricao?></div> -->
           
     </div>
 </div>
 <div class="produto_botoes d-flex justify-content-between">
-    <div class="d-flex justify-content-between">
-        <i class="fa-solid fa-circle-minus" style="color:red"></i>
-        <div style="margin-top:-8px; text-align:center; width:60px; font-family:UniformBold;">1</div>
-        <i class="fa-solid fa-circle-plus" style="color:green"></i>
-    </div>
-    <div>
-        <button type="button" class="btn btn-danger" style="font-family:FlameBold; font-size:25px; margin-top:-20px;">R$ <?=number_format($d->valor,2,",",false)?></button>
-    </div>
+    <button type="button" class="btn btn-secondary" style="font-family:Uniform; font-size:25px; margin-top:-20px; margin-right:30px;">Cancelar</button>
+    <button type="button" class="btn btn-danger w-100" style="font-family:Uniform; font-size:25px; margin-top:-20px;">Incluir</button>
 </div>   
 <div class="home_rodape"></div>
 
@@ -134,18 +129,7 @@ $(function(){
     $(".barra_topo").click(function(){
 
         $.ajax({
-            url:"produtos/lista_produtos.php",
-            success:function(dados){
-                $(".CorpoApp").html(dados);
-            }
-        });        
-
-    })
-
-    $(".produto_detalhes").click(function(){
-
-        $.ajax({
-            url:"produtos/anotacoes_produto.php",
+            url:"produtos/detalhes_produto.php",
             type:"POST",
             data:{
                 codigo:'<?=$d->codigo?>'
@@ -153,7 +137,7 @@ $(function(){
             success:function(dados){
                 $(".CorpoApp").html(dados);
             }
-        });           
+        });        
 
     })
 
