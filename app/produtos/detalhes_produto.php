@@ -98,7 +98,7 @@
         <i class="fa-solid fa-circle-minus" style="color:green"></i>
     </div>
     <div>
-        <button type="button" class="btn btn-danger" style="font-family:FlameBold; font-size:30px; margin-top:-20px;">R$ <?=number_format($d->valor,2,",",false)?></button>
+        <button type="button" class="btn btn-danger" style="font-family:FlameBold; font-size:25px; margin-top:-20px;">R$ <?=number_format($d->valor,2,",",false)?></button>
     </div>
 </div>   
 <div class="home_rodape"></div>
