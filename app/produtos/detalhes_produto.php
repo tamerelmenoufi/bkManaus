@@ -80,14 +80,13 @@ $d = mysqli_fetch_object($result);
         <h1 class="produto_titulo"><?=$d->produto?></h1>
         <img src="img/logo.png" class="produto_img" />
 
-        <div class="produto_descricao"><?=$d->descricao?></div>
-
-        <div class="produto_botoes d-flex justify-content-between">
-            <div>Quantidade</div>
-            <div>R$ <?=number_format($d->valor,2,",",false)?></div>
-        </div>          
+        <div class="produto_descricao"><?=$d->descricao?></div>       
     </div>
 </div>
+<div class="produto_botoes d-flex justify-content-between">
+    <div>Quantidade</div>
+    <div>R$ <?=number_format($d->valor,2,",",false)?></div>
+</div>   
 <div class="home_rodape"></div>
 
 <script>
