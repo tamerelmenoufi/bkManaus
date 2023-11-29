@@ -69,6 +69,7 @@
     }
     .produto_descricao{
         position:relative;
+        font-family:Uniform;
         width:100%;
     }
 
