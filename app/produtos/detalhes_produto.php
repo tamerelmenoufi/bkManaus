@@ -27,7 +27,7 @@
     .home_corpo{
         position: absolute;
         top:100px;
-        bottom:90px;
+        bottom:190px;
         overflow:auto;
         background-color:#fff;
         width:100%;
@@ -40,45 +40,30 @@
         bottom:0;
         height:90px;
     }
-    .produto_painel{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding:15px;
-        margin-bottom:20px;
+
+    .produto_titulo{
+        color:#c45018;
+        font-family:FlameBold;
     }
-    .produto_painel img{
+    .produto_img{
         height:120px;
         margin:5px;
     }
-    .produto_dados{
+    .produto_descricao{
         position:relative;
         width:100%;
         height:30px;
     }
-    .produto_dados h4, .produto_dados h2{
-        position:absolute;
+    .produto_botoes{
+        position:fixed;
+        bottom:90px;
         left:0;
         right:0;
-        padding:0;
-        margin:0;
-        font-family:FlameBold;
-        display: inline-block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        direction: ltr;
+        padding:15px;
+        border: solid 1px red;
+        height:100px;
     }
-    .produto_dados div{
-        color:#c45018; 
-        overflow: hidden; 
-        font-family:FlameBold; 
-        font-size:16px; 
-        display: -webkit-box; 
-        -webkit-box-orient: vertical; 
-        -webkit-line-clamp: 2;
-    }
+    
 </style>
 
 <div class="barra_topo">
@@ -92,12 +77,12 @@ $result = mysqli_query($con, $query);
 $d = mysqli_fetch_object($result);
 ?>
     <div class="produto_painel" codigo="<?=$d->codigo?>">
-        <h1 style="color:#f12a2a"><?=$d->produto?></h1>
-        <img src="img/logo.png" />
+        <h1 class="produto_titulo"><?=$d->produto?></h1>
+        <img src="img/logo.png" class="produto_img" />
 
-        <div><?=$d->descricao?></div>
+        <div class="produto_descricao"><?=$d->descricao?></div>
 
-        <div class="d-flex justify-content-between">
+        <div class="produto_botoes d-flex justify-content-between">
             <div>Quantidade</div>
             <div>R$ <?=number_format($d->valor,2,",",false)?></div>
         </div>          
