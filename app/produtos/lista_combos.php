@@ -121,7 +121,7 @@ while($d = mysqli_fetch_object($result)){
             <div class="produto_dados">
                 <h2 style="color:#f12a2a">
                     <i class="fa-solid fa-circle-play me-3"></i>
-                    R$ <?=number_format($d->valor,2,",",false)?>
+                    R$ <?=number_format(CalculaValorCombo($d->codigo),2,",",false)?>
                 </h2>
             </div>            
         </div>
