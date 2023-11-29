@@ -96,19 +96,14 @@ $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
 
 
-    // $q = "select * from produtos where codigo in ($d->descricao)";
-    // $r = mysqli_query($con, $q);
-    // $prd = [];
-    // while($d1 = mysqli_fetch_object($r)){
-    //     $prd[] = ['produto' => $d1->codigo, 'quantidade' => 1];
-    // }
-    // if($prd){
-    //     $prd = json_encode($prd);
-    //     mysqli_query($con, "update produtos set produtos = '{$prd}' where codigo = '$d->codigo'");
-    // }
+    $q = "select * from produtos where codigo in ($d->descricao)";
+    $r = mysqli_query($con, $q);
+    $prd = [];
+    while($d1 = mysqli_fetch_object($r)){
+        $prd[] = $d1->produto;
+    }
 
-
-
+    $prd = "- ".implode("<br>- ", $prd);
 
 ?>
     <div class="produto_painel">
@@ -118,7 +113,7 @@ while($d = mysqli_fetch_object($result)){
                 <h4 style="color:#f12a2a"><?=$d->produto?></h4>
             </div>
             <div class="produto_dados" style="height:60px;">
-                <div><?=$d->descricao?></div>
+                <div><?=$prd?></div>
             </div>
             <div class="produto_dados">
                 <h2 style="color:#f12a2a">
