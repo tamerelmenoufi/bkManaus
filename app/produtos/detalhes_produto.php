@@ -97,7 +97,7 @@
         <img src="img/logo.png" class="produto_img" />
         <div class="produto_descricao"><?=$d->descricao?></div>
         <div class="produto_detalhes d-flex justify-content-between align-items-center w-100">
-            <div>
+            <div style="cursor:pointer">
                 <i class="fa-regular fa-message fa-flip-horizontal"></i>
                 Inclua aqui suas observações
             </div>
