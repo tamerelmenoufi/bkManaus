@@ -40,7 +40,11 @@
     }
 
     .produto_painel{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding:15px;
+
     }
 
     .produto_titulo{
@@ -54,7 +58,6 @@
     .produto_descricao{
         position:relative;
         width:100%;
-        height:30px;
     }
     .produto_botoes{
         position:absolute;
