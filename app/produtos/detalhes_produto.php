@@ -99,7 +99,7 @@
         <div class="produto_detalhes d-flex justify-content-between align-items-center w-100">
             <div style="cursor:pointer">
                 <i class="fa-regular fa-message fa-flip-horizontal"></i>
-                Inclua aqui suas observações
+                Observações aqui
             </div>
             <button type="button" class="btn btn-outline-secondary btn-sm">Anotações</button>
         </div>     
