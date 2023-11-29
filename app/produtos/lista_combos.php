@@ -95,6 +95,9 @@ $query = "select * from produtos where categoria = '{$c->codigo}' and deletado !
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
 
+    $t = json_decode($d->produtos);
+
+    print_r($t);
 
     $q = "select * from produtos where codigo in ($d->descricao)";
     $r = mysqli_query($con, $q);
