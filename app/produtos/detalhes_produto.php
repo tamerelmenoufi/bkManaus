@@ -25,7 +25,7 @@
     .home_corpo{
         position: absolute;
         top:100px;
-        bottom:190px;
+        bottom:150px;
         overflow:auto;
         background-color:#fff;
         width:100%;
@@ -62,7 +62,7 @@
     }
     .produto_botoes{
         position:absolute;
-        bottom:90px;
+        bottom:60px;
         left:0;
         right:0;
         padding:15px;
