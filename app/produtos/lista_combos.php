@@ -112,7 +112,7 @@ while($d = mysqli_fetch_object($result)){
             <div class="produto_dados">
                 <h4 style="color:#f12a2a"><?=$d->produto?></h4>
             </div>
-            <div class="produto_dados" style="height:60px;">
+            <div class="produto_dados" style="height:90px;">
                 <div><?=$prd?></div>
             </div>
             <div class="produto_dados">
