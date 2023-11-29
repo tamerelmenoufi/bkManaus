@@ -91,15 +91,13 @@
 
 <div class="home_corpo">
 <?php
-$query = "select * from produtos where categoria = '{$c->codigo}' and deletado != '1' and situacao = '1'";
+$query = "select * from produtos->>'$[*].produto' as cod_prod, produtos->>'$[*].quantidade' as qtd_prod where categoria = '{$c->codigo}' and deletado != '1' and situacao = '1'";
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
 
-    $t = json_decode($d->produtos);
+    $lista_produtos = json_decode($d->cod_prod);
 
-    print_r($t);
-
-    $q = "select * from produtos where codigo in ($d->descricao)";
+    echo $q = "select * from produtos where codigo in ($d->descricao)";
     $r = mysqli_query($con, $q);
     $prd = [];
     while($d1 = mysqli_fetch_object($r)){
