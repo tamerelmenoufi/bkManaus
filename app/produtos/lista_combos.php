@@ -81,7 +81,7 @@
         font-size:16px; 
         display: -webkit-box; 
         -webkit-box-orient: vertical; 
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 1;
     }
 </style>
 
@@ -105,7 +105,7 @@ while($d = mysqli_fetch_object($result)){
             $prd[] = $d1->produto;
         }
 
-        $prd = "- ".implode("<br>- ", $prd);
+        $prd = implode("</div>><div>- ", $prd);
     }
 ?>
     <div class="produto_painel">
@@ -114,7 +114,7 @@ while($d = mysqli_fetch_object($result)){
             <div class="produto_dados">
                 <h4 style="color:#f12a2a"><?=$d->produto?></h4>
             </div>
-            <div class="produto_dados" style="height:90px;">
+            <div class="produto_dados" style="height:30px;">
                 <div><?=$prd?></div>
             </div>
             <div class="produto_dados">
