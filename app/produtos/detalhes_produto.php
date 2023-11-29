@@ -48,7 +48,6 @@
         border: solid 1px red;
         height:60px;
         font-size:30px;
-        color:red;
     }
 
     .produto_painel{
@@ -95,9 +94,9 @@
 </div>
 <div class="produto_botoes d-flex justify-content-between">
     <div class="d-flex justify-content-between">
-        <i class="fa-solid fa-circle-plus"></i>
-        <span>1</span>
-        <i class="fa-solid fa-circle-minus"></i>
+        <i class="fa-solid fa-circle-plus" style="color:red"></i>
+        <div>1</div>
+        <i class="fa-solid fa-circle-minus" style="color:green"></i>
     </div>
     <div>R$ <?=number_format($d->valor,2,",",false)?></div>
 </div>   
