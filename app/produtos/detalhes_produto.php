@@ -45,7 +45,6 @@
         left:0;
         right:0;
         padding:15px;
-        border: solid 1px red;
         height:60px;
         font-size:30px;
     }
@@ -95,7 +94,7 @@
 <div class="produto_botoes d-flex justify-content-between">
     <div class="d-flex justify-content-between">
         <i class="fa-solid fa-circle-plus" style="color:red"></i>
-        <div style="padding:5px; margin-horizontal:10px;">1</div>
+        <div style="padding:5px; border:solid 1px red">1</div>
         <i class="fa-solid fa-circle-minus" style="color:green"></i>
     </div>
     <div>R$ <?=number_format($d->valor,2,",",false)?></div>
