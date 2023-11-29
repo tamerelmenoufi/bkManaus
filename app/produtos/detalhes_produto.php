@@ -92,7 +92,11 @@
     </div>
 </div>
 <div class="produto_botoes d-flex justify-content-between">
-    <div>Quantidade</div>
+    <div class="d-flex justify-content-between">
+        <i class="fa-solid fa-circle-plus"></i>
+        <span>1</span>
+        <i class="fa-solid fa-circle-minus"></i>
+    </div>
     <div>R$ <?=number_format($d->valor,2,",",false)?></div>
 </div>   
 <div class="home_rodape"></div>
