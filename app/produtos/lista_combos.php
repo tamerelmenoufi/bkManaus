@@ -91,21 +91,21 @@
 
 <div class="home_corpo">
 <?php
-$query = "select * from produtos where categoria = '{$c->codigo}'";
+$query = "select * from produtos where categoria = '{$c->codigo}' and deletado != '1' and situacao = '1'";
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
 
 
-    $q = "select * from produtos where codigo in ($d->descricao)";
-    $r = mysqli_query($con, $q);
-    $prd = [];
-    while($d1 = mysqli_fetch_object($r)){
-        $prd[] = ['produto' => $d1->codigo, 'quantidade' => 1];
-    }
-    if($prd){
-        $prd = json_encode($prd);
-        mysqli_query($con, "update produtos set produtos = '{$prd}' where codigo = '$d->codigo'");
-    }
+    // $q = "select * from produtos where codigo in ($d->descricao)";
+    // $r = mysqli_query($con, $q);
+    // $prd = [];
+    // while($d1 = mysqli_fetch_object($r)){
+    //     $prd[] = ['produto' => $d1->codigo, 'quantidade' => 1];
+    // }
+    // if($prd){
+    //     $prd = json_encode($prd);
+    //     mysqli_query($con, "update produtos set produtos = '{$prd}' where codigo = '$d->codigo'");
+    // }
 
 
 
