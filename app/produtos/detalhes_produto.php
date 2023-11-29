@@ -77,6 +77,8 @@
         border:solid 1px #ccc;
         border-radius:5px;
         font-family:Uniform;
+        margin-bottom:10px;
+        margin-top:10px;
     }
 
     
@@ -95,14 +97,15 @@
     <div class="produto_painel" codigo="<?=$d->codigo?>">
         <h1 class="produto_titulo"><?=$d->produto?></h1>
         <img src="img/logo.png" class="produto_img" />
-        <div class="produto_descricao"><?=$d->descricao?></div>
         <div class="produto_detalhes d-flex justify-content-between align-items-center w-100">
             <div style="cursor:pointer">
                 <i class="fa-regular fa-message fa-flip-horizontal"></i>
                 Observações aqui
             </div>
             <button type="button" class="btn btn-outline-secondary btn-sm">Anotações</button>
-        </div>     
+        </div>   
+        <div class="produto_descricao"><?=$d->descricao?></div>
+          
     </div>
 </div>
 <div class="produto_botoes d-flex justify-content-between">
