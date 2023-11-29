@@ -94,10 +94,12 @@
 <div class="produto_botoes d-flex justify-content-between">
     <div class="d-flex justify-content-between">
         <i class="fa-solid fa-circle-plus" style="color:red"></i>
-        <div style="margin-top:-8px; text-align:center; width:60px;">1</div>
+        <div style="margin-top:-8px; text-align:center; width:60px; font-family:FlameBold;">1</div>
         <i class="fa-solid fa-circle-minus" style="color:green"></i>
     </div>
-    <div>R$ <?=number_format($d->valor,2,",",false)?></div>
+    <div>
+        <button type="button" class="btn btn-danger" style="font-family:FlameBold;">R$ <?=number_format($d->valor,2,",",false)?></button>
+    </div>
 </div>   
 <div class="home_rodape"></div>
 
