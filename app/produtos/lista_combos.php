@@ -96,16 +96,17 @@ $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
 
     $lista_produtos = json_decode($d->cod_prod);
+    if($lista_produtos){
+        $cods = implode(", ",$lista_produtos);
+        echo $q = "select * from produtos where codigo in ($cods)";
+        $r = mysqli_query($con, $q);
+        $prd = [];
+        while($d1 = mysqli_fetch_object($r)){
+            $prd[] = $d1->produto;
+        }
 
-    echo $q = "select * from produtos where codigo in ($d->descricao)";
-    $r = mysqli_query($con, $q);
-    $prd = [];
-    while($d1 = mysqli_fetch_object($r)){
-        $prd[] = $d1->produto;
+        $prd = "- ".implode("<br>- ", $prd);
     }
-
-    $prd = "- ".implode("<br>- ", $prd);
-
 ?>
     <div class="produto_painel">
         <img src="img/logo.png" />
