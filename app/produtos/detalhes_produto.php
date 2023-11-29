@@ -76,6 +76,7 @@
         padding:2px;
         border:solid 1px #ccc;
         border-radius:5px;
+        font-family:Uniform;
     }
 
     
@@ -95,7 +96,7 @@
         <h1 class="produto_titulo"><?=$d->produto?></h1>
         <img src="img/logo.png" class="produto_img" />
         <div class="produto_descricao"><?=$d->descricao?></div>
-        <div class="produto_detalhes d-flex justify-content-between w-100">
+        <div class="produto_detalhes d-flex justify-content-between align-items-center w-100">
             <div>
                 <i class="fa-regular fa-message fa-flip-horizontal"></i>
                 Inclua aqui suas observações
