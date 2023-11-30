@@ -120,7 +120,7 @@
             ?>
             <li class="list-group-item">
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="remocao<?=$i->codigo?>">
+                    <input type="checkbox" class="form-check-input remocao" codigo="<?=$i->codigo?>" id="remocao<?=$i->codigo?>">
                     <label class="form-check-label" for="remocao<?=$i->codigo?>"><?=$i->item?></label>
                 </div>
             </li>
@@ -148,12 +148,12 @@
                 ?>
                 <li class="list-group-item d-flex justify-content-between flex-column">
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="inclusao<?=$i->codigo?>">
+                        <input type="checkbox" class="form-check-input inclusao" valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao<?=$i->codigo?>">
                         <label class="form-check-label" for="inclusao<?=$i->codigo?>"><?=$i->item?></label>
                     </div>
                     <div class="d-flex justify-content-end w-100">
                         <div class="input-group" style="width:150px;">
-                            <select class="form-select form-select-sm" id="inclusao_valor<?=$i->codigo?>">
+                            <select class="form-select form-select-sm" id="inclusao_quantidade<?=$i->codigo?>">
                                 <?php
                                 for($j=1;$j<=10;$j++){
                                 ?>
@@ -190,7 +190,7 @@
                 ?>
                 <li class="list-group-item d-flex justify-content-between">
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="substituicao<?=$i->codigo?>">
+                        <input type="checkbox" class="form-check-input substituicao" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>">
                         <label class="form-check-label" for="substituicao<?=$i->codigo?>"><?=$i->item?></label>
                     </div>
                     <div>
@@ -210,11 +210,11 @@
         ?>
 
         <div class="mb-3 w-100">
-        <label for="exampleFormControlTextarea1" class="form-label">
+        <label for="anotacoes" class="form-label">
             <i class="fa-regular fa-message fa-flip-horizontal"></i>
             Anotações do pedido
         </label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" id="anotacoes" rows="3"></textarea>
         </div>
 
         <!-- <img src="img/logo.png" class="produto_img" />
@@ -231,7 +231,7 @@
 </div>
 <div class="produto_botoes d-flex justify-content-between">
     <button type="button" class="btn btn-warning cancelar" style="font-family:Uniform; margin-top:-20px; margin-right:20px;">Cancelar</button>
-    <button type="button" class="btn btn-danger w-100" style="font-family:Uniform; margin-top:-20px;">Incluir</button>
+    <button type="button" class="btn btn-danger w-100 incluir" style="font-family:Uniform; margin-top:-20px;">Incluir</button>
 </div>   
 <div class="home_rodape"></div>
 
@@ -246,8 +246,8 @@ $(function(){
         }
     });
 
-    $(".barra_topo").click(function(){
-
+    $(".cancelar").click(function(){
+        Carregando();
         $.ajax({
             url:"produtos/detalhes_produto.php",
             type:"POST",
@@ -256,18 +256,61 @@ $(function(){
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);
+                Carregando('none');
             }
         });        
 
     })
 
-    $(".cancelar, .barra_topo").click(function(){
+    $(".incluir").click(function(){
+
+        remocao = [];
+        inclusao = [];
+        inclusao_valor = [];
+        inclusao_quantidade = [];
+        substituicao = [];
+        substituicao_valor = [];
+
+        $(".remocao").each(function(){
+            codigo = $(this).attr("codigo");
+            if($(this).prop("checked") == true){
+                remocao.push(codigo)
+            }
+        })
+
+        $(".inclusao").each(function(){
+            codigo = $(this).attr("codigo");
+            valor = $(this).attr("valor");
+            quantidade = $(`#inclusao_valor${codigo}`).val();
+            if($(this).prop("checked") == true){
+                inclusao.push(codigo)
+                inclusao_valor.push(valor);
+                inclusao_quantidade.push(quantidade);
+            }
+        })
+
+        $(".substituicao").each(function(){
+            codigo = $(this).attr("codigo");
+            valor = $(this).attr("valor");
+            if($(this).prop("checked") == true){
+                substituicao.push(codigo)
+                substituicao_valor.push(valor);
+            }
+        })
+
         Carregando();
         $.ajax({
             url:"produtos/detalhes_produto.php",
             type:"POST",
             data:{
-                codigo:'<?=$d->codigo?>'
+                codigo:'<?=$d->codigo?>',
+                remocao,
+                inclusao,
+                inclusao_valor,
+                inclusao_quantidade,
+                substituicao,
+                substituicao_valor,
+                acao:'anotacoes'
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);

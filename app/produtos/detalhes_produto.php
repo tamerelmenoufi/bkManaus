@@ -1,7 +1,14 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-    $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));    
+    $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));  
+    
+    if($_POST['acao'] == 'anotacoes'){
+
+        $anota = print_r($_POST, true);
+
+        
+    }
 
 ?>
 <style>
@@ -94,6 +101,7 @@
     $d = mysqli_fetch_object($result);
 ?>
 <div class="home_corpo">
+    <?=$anota?>
     <div class="produto_painel" codigo="<?=$d->codigo?>">
         <h1 class="produto_titulo"><?=$d->produto?></h1>
         <img src="img/logo.png" class="produto_img" />
