@@ -311,6 +311,7 @@ $(function(){
                 inclusao_quantidade,
                 substituicao,
                 substituicao_valor,
+                anotacoes,
                 acao:'anotacoes'
             },
             success:function(dados){
