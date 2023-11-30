@@ -158,7 +158,7 @@
                         <input type="checkbox" class="form-check-input" id="remocao<?=$i->codigo?>">
                         <label class="form-check-label" for="remocao<?=$i->codigo?>"><?=$i->item?></label>
                     </div>
-                    <div class="input-group">
+                    <div class="input-group" style="width:150px;">
                         <label class="input-group-text" for="remocao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
                         <select class="form-select form-select-sm" id="remocao_valor<?=$i->codigo?>">
                             <?php
