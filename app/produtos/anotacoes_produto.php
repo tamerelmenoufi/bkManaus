@@ -96,18 +96,19 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
-    echo $d->lista_itens;
 
-    $itens = json_decode($d->lista_itens);
-
-    print_r($itens);
 ?>
 <div class="home_corpo">
     <div class="produto_painel" codigo="<?=$d->codigo?>">
         <h1 class="produto_titulo"><?=$d->produto?></h1>
 
         <?php
+    echo $d->lista_itens;
 
+    $itens = json_decode($d->lista_itens);
+
+    print_r($itens);
+    
         if($acoes->remocao == 'true'){
         ?>
 
