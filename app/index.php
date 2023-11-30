@@ -29,7 +29,7 @@
             bottom:0;
             right:0;
             top:0;
-            background-color:rgb(0,0,0, 0.7);
+            background-color:rgb(0,0,0, 0.9);
             display: flex;
             justify-content: center;
             align-items: center;
