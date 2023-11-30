@@ -133,7 +133,7 @@
         <?php
         }
 
-        if($acoes->inclusao == 'true' and $inclusao and $inclusao != 'null'){
+        if($acoes->inclusao == 'true' and $categorias_itens and $categorias_itens != 'null'){
         ?>
     
             <div class="card w-100 mb-3">
