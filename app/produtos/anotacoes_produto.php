@@ -230,7 +230,7 @@
     </div>
 </div>
 <div class="produto_botoes d-flex justify-content-between">
-    <button type="button" class="btn btn-warning" style="font-family:Uniform; margin-top:-20px; margin-right:20px;">Cancelar</button>
+    <button type="button" class="btn btn-warning cancelar" style="font-family:Uniform; margin-top:-20px; margin-right:20px;">Cancelar</button>
     <button type="button" class="btn btn-danger w-100" style="font-family:Uniform; margin-top:-20px;">Incluir</button>
 </div>   
 <div class="home_rodape"></div>
@@ -256,6 +256,22 @@ $(function(){
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);
+            }
+        });        
+
+    })
+
+    $(".cancelar, .barra_topo").click(function(){
+        Carregando();
+        $.ajax({
+            url:"produtos/detalhes_produto.php",
+            type:"POST",
+            data:{
+                codigo:'<?=$d->codigo?>'
+            },
+            success:function(dados){
+                $(".CorpoApp").html(dados);
+                Carregando('none');
             }
         });        
 
