@@ -234,7 +234,7 @@
                     
                     <div class="p-2">
                     
-                        <label for="capa_<?= $md5 ?>">Imagem da capa promocional deve ser nas dimensões (270px Largura X 240px Altura) *</label>
+                        <label for="capa_<?= $md5 ?>">Imagem da capa promocional deve ser nas dimensões (600px Largura X 923px Altura) *</label>
                         <?php
                         if(is_file("icon/{$d->capa}")){
                         ?>
@@ -249,8 +249,8 @@
                                 id="capa_<?= $md5 ?>" 
                                 target="encode_capa"
                                 accept="image/*"
-                                w="270"
-                                h="440"
+                                w="600"
+                                h="923"
                             >
                             <label class="input-group-text" for="capa_<?= $md5 ?>">Selecionar</label>
                             <input
