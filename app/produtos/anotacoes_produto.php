@@ -4,7 +4,7 @@
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));  
     
     
-    $acoes = json_decode($d->acoes_itens);
+    $acoes = json_decode($c->acoes_itens);
 
 ?>
 <style>
