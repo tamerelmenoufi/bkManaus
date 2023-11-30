@@ -260,7 +260,7 @@
                         <?php
                         if(is_file("icon/{$d->capa}")){
                         ?>
-                        <center><img src="src/produtos/icon/<?=$d->capa?>" class="img-fluid" style="margin: 20px;" /></center>
+                        <center><img src="src/produtos/icon/<?=$d->capa?>" class="img-fluid" /></center>
                         <?php
                         }
                         ?>
