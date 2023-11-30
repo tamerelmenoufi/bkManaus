@@ -270,6 +270,7 @@ $(function(){
         inclusao_quantidade = [];
         substituicao = [];
         substituicao_valor = [];
+        anotacoes = $("#anotacoes").val();
 
         $(".remocao").each(function(){
             codigo = $(this).attr("codigo");
