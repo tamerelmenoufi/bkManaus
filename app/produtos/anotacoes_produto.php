@@ -211,7 +211,10 @@
         ?>
 
         <div class="mb-3 w-100">
-        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+        <label for="exampleFormControlTextarea1" class="form-label">
+            <i class="fa-regular fa-message fa-flip-horizontal"></i>
+            Anotações do pedido
+        </label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
 
