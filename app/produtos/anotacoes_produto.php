@@ -281,7 +281,7 @@ $(function(){
         $(".inclusao").each(function(){
             codigo = $(this).attr("codigo");
             valor = $(this).attr("valor");
-            quantidade = $(`#inclusao_valor${codigo}`).val();
+            quantidade = $(`#inclusao_quantidade${codigo}`).val();
             if($(this).prop("checked") == true){
                 inclusao.push(codigo)
                 inclusao_valor.push(valor);
