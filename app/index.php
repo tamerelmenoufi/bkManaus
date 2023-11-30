@@ -23,19 +23,37 @@
         .area{
             position:relative;
         }
+        .Carregando{
+            position:absolute;
+            left:0;
+            bottom:0;
+            right:0;
+            top:0;
+            background-color:rgb(0,0,0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display:none;
+            z-index: 9999;
+        }
+        .Carregando div{
+            color:#fff;
+            font-size: 70px;
+        }
     </Style>
   </head>
   <body translate="no">
 
-    <div class="Carregando">
-        <div><i class="fa-solid fa-rotate fa-pulse"></i></div>
-    </div>
+
 
 
     <div class="row g-0">
         <div class="col-5 d-none d-md-block area"></div>
-        <div class="col CorpoApp area" style="background-color:#fff;">
-            
+        <div class="col area" style="background-color:#fff;">
+            <div class="Carregando">
+                <div><i class="fa-solid fa-rotate fa-pulse"></i></div>
+            </div>    
+            <div class="CorpoApp area"></div>             
         </div>
         <div class="col-4 d-none d-md-block area"></div>
     </div>
