@@ -92,9 +92,14 @@
 </div>
 
 <?php
-    $query = "select * from produtos where codigo = '{$_POST['codigo']}'";
+    $query = "select *, itens->>'$[*].item' as lista_itens from produtos where codigo = '{$_POST['codigo']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
+
+
+    echo $itens = json_decode($d->lista_itens);
+
+
 ?>
 <div class="home_corpo">
     <div class="produto_painel" codigo="<?=$d->codigo?>">
