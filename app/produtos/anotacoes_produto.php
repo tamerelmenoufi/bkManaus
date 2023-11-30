@@ -97,9 +97,9 @@
     $d = mysqli_fetch_object($result);
 
 
-    echo $itens = json_decode($d->lista_itens);
+    $itens = json_decode($d->lista_itens);
 
-
+    print_r($itens);
 ?>
 <div class="home_corpo">
     <div class="produto_painel" codigo="<?=$d->codigo?>">
