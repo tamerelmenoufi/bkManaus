@@ -158,7 +158,7 @@
                         <input type="checkbox" class="form-check-input" id="remocao<?=$i->codigo?>">
                         <label class="form-check-label" for="remocao<?=$i->codigo?>"><?=$i->item?></label>
                     </div>
-                    <div class="input-group" style="width:200px;">
+                    <div class="input-group" style="width:150px;">
                         <select class="form-select form-select-sm" id="remocao_valor<?=$i->codigo?>">
                             <?php
                             for($j=1;$j<=10;$j++){
@@ -168,7 +168,7 @@
                             }
                             ?>
                         </select>
-                        <label class="input-group-text w-100" for="remocao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
+                        <label class="input-group-text" style="width:100px;" for="remocao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
                     </div>
                 </li>
                 <?php
