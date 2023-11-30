@@ -149,12 +149,12 @@
                 ?>
                 <li class="list-group-item d-flex justify-content-between flex-column">
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="remocao<?=$i->codigo?>">
-                        <label class="form-check-label" for="remocao<?=$i->codigo?>"><?=$i->item?></label>
+                        <input type="checkbox" class="form-check-input" id="inclusao<?=$i->codigo?>">
+                        <label class="form-check-label" for="inclusao<?=$i->codigo?>"><?=$i->item?></label>
                     </div>
                     <div class="d-flex justify-content-end w-100">
                         <div class="input-group" style="width:150px;">
-                            <select class="form-select form-select-sm" id="remocao_valor<?=$i->codigo?>">
+                            <select class="form-select form-select-sm" id="inclusao_valor<?=$i->codigo?>">
                                 <?php
                                 for($j=1;$j<=10;$j++){
                                 ?>
@@ -163,7 +163,7 @@
                                 }
                                 ?>
                             </select>
-                            <label class="input-group-text" style="width:85px; text-align:right;" for="remocao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
+                            <label class="input-group-text" style="width:85px; text-align:right;" for="inclusao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
                         </div>                        
                     </div>
                 </li>
@@ -191,8 +191,8 @@
                 ?>
                 <li class="list-group-item d-flex justify-content-between">
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="remocao<?=$i->codigo?>">
-                        <label class="form-check-label" for="remocao<?=$i->codigo?>"><?=$i->item?></label>
+                        <input type="checkbox" class="form-check-input" id="substituicao<?=$i->codigo?>">
+                        <label class="form-check-label" for="substituicao<?=$i->codigo?>"><?=$i->item?></label>
                     </div>
                     <div>
                         R$ <?=number_format($i->valor, 2, ",", false)?>
