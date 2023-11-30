@@ -95,8 +95,6 @@
     $query = "select *, itens->>'$[*].item' as lista_itens from produtos where codigo = '{$_POST['codigo']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
-
-
 ?>
 <div class="home_corpo">
     <div class="produto_painel" codigo="<?=$d->codigo?>">
@@ -104,11 +102,12 @@
 
         <?php
 
-    echo $d->lista_itens;
+        echo $d->lista_itens;
 
-    $itens = json_decode($d->lista_itens);
+        $itens = json_decode($d->lista_itens);
+        $categorias_itens = json_decode($d->categorias_itens);
 
-    print_r($itens);
+        print_r($itens);
 
         if($acoes->remocao == 'true' and $itens){
 
@@ -149,9 +148,20 @@
                 Incluir algum Item?
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
+                <?php
+                $q = "select * from itens where codigo in ('".implode("', '", $categorias_itens)."')";
+                $r = mysqli_query($con, $q);
+                while($i = mysqli_fetch_object($r)){
+                ?>
+                <li class="list-group-item">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="remocao<?=$i->codigo?>">
+                        <label class="form-check-label" for="remocao<?=$i->codigo?>"><?=$i->item?></label>
+                    </div>
+                </li>
+                <?php
+                }
+                ?>
             </ul>
             </div>
     
