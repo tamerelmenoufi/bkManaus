@@ -189,7 +189,7 @@
                 $r = mysqli_query($con, $q);
                 while($i = mysqli_fetch_object($r)){
                 ?>
-                <li class="list-group-item d-flex justify-content-between flex-column">
+                <li class="list-group-item d-flex justify-content-between">
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="remocao<?=$i->codigo?>">
                         <label class="form-check-label" for="remocao<?=$i->codigo?>"><?=$i->item?></label>
