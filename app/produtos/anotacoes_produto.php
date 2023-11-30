@@ -159,7 +159,17 @@
                         <label class="form-check-label" for="remocao<?=$i->codigo?>"><?=$i->item?></label>
                     </div>
                     <div>
-                        xxx
+                        R$ <?=number_format($i->valor, 2, ",", false)?>
+                        <select class="form-select form-select-sm">
+                            <?php
+                            for($j<1;$j<=10;$j++){
+                            ?>
+                            <option value="<?=$j?>"><?=$j?></option>
+                            <?php
+                            }
+                            ?>
+                            <option ></option>
+                        </select>
                     </div>
                 </li>
                 <?php
