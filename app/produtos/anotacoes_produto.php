@@ -3,7 +3,6 @@
 
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));  
     
-    
     $acoes = json_decode($c->acoes_itens);
 
 ?>
@@ -105,7 +104,7 @@
         $itens = json_decode($d->lista_itens);
         $categorias_itens = json_decode($d->categorias_itens);
 
-        if($acoes->remocao == 'true' and $itens){
+        if($acoes->remocao == 'true' and $itens and $itens != null){
 
         ?>
 
@@ -134,7 +133,7 @@
         <?php
         }
 
-        if($acoes->inclusao == 'true'){
+        if($acoes->inclusao == 'true' and $inclusao and $inclusao != null){
         ?>
     
             <div class="card w-100 mb-3">
@@ -176,7 +175,7 @@
         <?php
         }
 
-        if($acoes->substituicao == 'true' and $categorias_itens){
+        if($acoes->substituicao == 'true' and $categorias_itens and $categorias_itens != null){
         ?>
     
             <div class="card w-100 mb-3">
