@@ -238,7 +238,7 @@
                         <?php
                         if(is_file("icon/{$d->capa}")){
                         ?>
-                        <center><img src="src/combos/icon/<?=$d->capa?>" style="margin: 20px;" /></center>
+                        <center><img src="src/combos/icon/<?=$d->capa?>" class="img-fluid" style="margin: 20px;" /></center>
                         <?php
                         }
                         ?>
