@@ -176,7 +176,7 @@
         <?php
         }
 
-        if($acoes->substituicao == 'true'){
+        if($acoes->substituicao == 'true' and $categorias_itens){
         ?>
     
             <div class="card w-100 mb-3">
@@ -184,9 +184,34 @@
                 Substituir algum Item?
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
+                <?php
+                $q = "select * from itens where categoria in ('".implode("', '", $categorias_itens)."')";
+                $r = mysqli_query($con, $q);
+                while($i = mysqli_fetch_object($r)){
+                ?>
+                <li class="list-group-item d-flex justify-content-between flex-column">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="remocao<?=$i->codigo?>">
+                        <label class="form-check-label" for="remocao<?=$i->codigo?>"><?=$i->item?></label>
+                    </div>
+                    <div class="d-flex justify-content-end w-100">
+                        <div class="input-group" style="width:160px;">
+                            <select class="form-select form-select-sm" id="remocao_valor<?=$i->codigo?>">
+                                <?php
+                                for($j=1;$j<=10;$j++){
+                                ?>
+                                <option value="<?=$j?>"><?=$j?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                            <label class="input-group-text" style="width:100px; text-align:right;" for="remocao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
+                        </div>                        
+                    </div>
+                </li>
+                <?php
+                }
+                ?>
             </ul>
             </div>
     
