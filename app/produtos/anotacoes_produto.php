@@ -96,6 +96,7 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
+    echo $d->lista_itens;
 
     $itens = json_decode($d->lista_itens);
 
