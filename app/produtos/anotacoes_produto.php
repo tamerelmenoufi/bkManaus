@@ -168,7 +168,7 @@
                             }
                             ?>
                         </select>
-                        <label class="input-group-text" for="remocao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
+                        <label class="input-group-text w-100" for="remocao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
                     </div>
                 </li>
                 <?php
