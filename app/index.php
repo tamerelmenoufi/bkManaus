@@ -1,5 +1,6 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
+    $idUnico = uniqid(); 
 ?>
 <!doctype html>
 <html lang="en">
@@ -65,6 +66,15 @@
     <script>
         $(function(){
             // Carregando();
+
+            idUnico = localStorage.getItem("idUnico");
+
+            if(!idUnico){
+                idUnico = '<?=$idUnico?>';
+                localStorage.setItem("idUnico", idUnico);
+            }
+
+            $("body").attr("device", idUnico);
 
 
             $(".CorpoApp").css("min-height", $(window).height());
