@@ -105,7 +105,7 @@
         if($acoes->remocao == 'true'){
         ?>
 
-        <div class="card">
+        <div class="card w-100 mb-3">
         <div class="card-header">
             Retirar algum Item?
         </div>
@@ -122,7 +122,7 @@
         if($acoes->inclusao == 'true'){
         ?>
     
-            <div class="card">
+            <div class="card w-100 mb-3">
             <div class="card-header">
                 Incluir algum Item?
             </div>
@@ -139,7 +139,7 @@
         if($acoes->substituicao == 'true'){
         ?>
     
-            <div class="card">
+            <div class="card w-100 mb-3">
             <div class="card-header">
                 Substituir algum Item?
             </div>
