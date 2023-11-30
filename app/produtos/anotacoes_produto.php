@@ -158,8 +158,8 @@
                         <input type="checkbox" class="form-check-input" id="remocao<?=$i->codigo?>">
                         <label class="form-check-label" for="remocao<?=$i->codigo?>"><?=$i->item?></label>
                     </div>
-                    <div class="d-flex align-items-end w-100" style="width:160px;">
-                        <div class="input-group">
+                    <div class="d-flex align-items-end w-100">
+                        <div class="input-group" style="width:160px;">
                             <select class="form-select form-select-sm" id="remocao_valor<?=$i->codigo?>">
                                 <?php
                                 for($j=1;$j<=10;$j++){
