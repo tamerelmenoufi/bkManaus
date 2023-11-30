@@ -81,6 +81,10 @@
 
             $.ajax({
                 url:"home/index.php",
+                type:"POST",
+                data:{
+                    idUnico,
+                },
                 success:function(dados){
                     $(".CorpoApp").html(dados);
                 }
