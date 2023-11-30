@@ -102,8 +102,6 @@
 
         <?php
 
-        echo $d->lista_itens;
-
         $itens = json_decode($d->lista_itens);
         $categorias_itens = json_decode($d->categorias_itens);
 
