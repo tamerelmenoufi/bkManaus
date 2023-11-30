@@ -92,7 +92,7 @@
 </div>
 
 <?php
-    echo $query = "select *, itens->>'$[*].item' as lista_itens from produtos where codigo = '{$_POST['codigo']}'";
+    $query = "select *, itens->>'$[*].item' as lista_itens from produtos where codigo = '{$_POST['codigo']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
@@ -103,13 +103,17 @@
         <h1 class="produto_titulo"><?=$d->produto?></h1>
 
         <?php
+
     echo $d->lista_itens;
 
     $itens = json_decode($d->lista_itens);
 
     print_r($itens);
-    
-        if($acoes->remocao == 'true'){
+
+        if($acoes->remocao == 'true' and $itens){
+
+
+
         ?>
 
         <div class="card w-100 mb-3">
@@ -117,9 +121,15 @@
             Retirar algum Item?
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
+            <?php
+            $q = "select * from itens where codigo in ('".implode("', '", $itens)."')";
+            $r = mysqli_query($con, $q);
+            while($i = mysqli_fetch_object($r)){
+            ?>
+            <li class="list-group-item"><?=$i->item?></li>
+            <?php
+            }
+            ?>
         </ul>
         </div>
 
