@@ -163,7 +163,7 @@
                                 }
                                 ?>
                             </select>
-                            <label class="input-group-text" style="width:100px; text-align:right;" for="remocao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
+                            <label class="input-group-text" style="width:85px; text-align:right;" for="remocao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
                         </div>                        
                     </div>
                 </li>
