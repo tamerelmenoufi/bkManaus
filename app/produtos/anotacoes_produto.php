@@ -104,7 +104,7 @@
         $itens = json_decode($d->lista_itens);
         $categorias_itens = json_decode($d->categorias_itens);
 
-        if($acoes->remocao == 'true' and $itens and $itens != null){
+        if($acoes->remocao == 'true' and $itens and $itens != 'null'){
 
         ?>
 
@@ -133,7 +133,7 @@
         <?php
         }
 
-        if($acoes->inclusao == 'true' and $inclusao and $inclusao != null){
+        if($acoes->inclusao == 'true' and $inclusao and $inclusao != 'null'){
         ?>
     
             <div class="card w-100 mb-3">
@@ -175,7 +175,7 @@
         <?php
         }
 
-        if($acoes->substituicao == 'true' and $categorias_itens and $categorias_itens != null){
+        if($acoes->substituicao == 'true' and $categorias_itens and $categorias_itens != 'null'){
         ?>
     
             <div class="card w-100 mb-3">
