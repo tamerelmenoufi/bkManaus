@@ -2,7 +2,7 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     if($_POST['idUnico']){
-        mysqli_query($con, "replace into vendas_tmp set id_unico = '{$_POST['idUnico']}'")
+        mysqli_query($con, "replace into vendas_tmp set id_unico = '{$_POST['idUnico']}'");
     }
 ?>
 <style>
