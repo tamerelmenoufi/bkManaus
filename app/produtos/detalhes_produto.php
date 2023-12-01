@@ -14,8 +14,10 @@
         unset($data['anotacoes']);
 
         $valor_adicional = 0;
-        foreach($data['inclusao'] as $i => $v){
-            $valor_adicional = $valor_adicional + ($data['inclusao_valor'][$i]*$data['inclusao_quantidade'][$i]);
+        if($data['inclusao']){
+            foreach($data['inclusao'] as $i => $v){
+                $valor_adicional = $valor_adicional + ($data['inclusao_valor'][$i]*$data['inclusao_quantidade'][$i]);
+            }
         }
 
 
