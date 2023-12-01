@@ -34,7 +34,7 @@
 
         $update = json_encode($update, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-        mysqli_query($con, "UPDATE vendas_tmp set detalhes = JSON_SET(detalhes, '$.item{$_POST['codigo']}', JSON_PRETTY('{$update}')) where id_unico = '{$_POST['idUnico']}'");
+        mysqli_query($con, "UPDATE vendas_tmp set detalhes = JSON_SET(detalhes, '$.item{$_POST['codigo']}', JSON_PARSE('{$update}')) where id_unico = '{$_POST['idUnico']}'");
 
   
         
