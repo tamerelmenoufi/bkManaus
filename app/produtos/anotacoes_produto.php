@@ -130,7 +130,6 @@ if($dc->regras->inclusao){
 }
 
 
-print_r($inclusao);
 
         $itens = json_decode($d->lista_itens);
         $categorias_itens = json_decode($d->categorias_itens);
@@ -188,7 +187,7 @@ print_r($inclusao);
                                 <?php
                                 for($j=1;$j<=10;$j++){
                                 ?>
-                                <option value="<?=$j?>" <?=(($inclusao_quantidade[$i->codigo] == $j)?'checked':false)?>><?=$j?></option>
+                                <option value="<?=$j?>" <?=(($inclusao_quantidade[$i->codigo] == $j)?'selected':false)?>><?=$j?></option>
                                 <?php
                                 }
                                 ?>
