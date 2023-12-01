@@ -258,6 +258,7 @@ $(function(){
                 codigo:'<?=$d->codigo?>',
                 quantidade,
                 idUnico,
+                acao:'salvar',
             },
             success:function(dados){
                 console.log(dados);
