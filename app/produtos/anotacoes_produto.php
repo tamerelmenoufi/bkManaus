@@ -117,6 +117,7 @@
 
         <?php
 
+print_r($dc);
 
 if($dc->inclusao){
     foreach($dc->inclusao as $i => $v){
