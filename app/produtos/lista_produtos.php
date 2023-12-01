@@ -133,12 +133,13 @@ $(function(){
 
     $(".produto_painel").click(function(){
         codigo = $(this).attr("codigo");
-
+        idUnico = localStorage.getItem("idUnico");
         $.ajax({
             url:"produtos/detalhes_produto.php",
             type:"POST",
             data:{
-                codigo
+                codigo,
+                idUnico
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);
