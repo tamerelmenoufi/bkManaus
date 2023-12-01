@@ -133,7 +133,7 @@ print_r($dc);
             }
         }
 
-        $anotacoes = $dc->regras->anotacoes;
+        $anotacoes = $dc->anotacoes;
 
 
 
