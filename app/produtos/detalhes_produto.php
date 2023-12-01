@@ -8,15 +8,33 @@
         $data = $_POST;
         unset($data['acao']);
         unset($data['codigo']);
+        unset($data['idUnico']);
+        unset($data['quantidade']);
+        unset($data['valor']);
+
+        $update = [
+            'regras' => $data,
+            'anotacoes' => $_POST['anotacoes'],
+            'adicional' => $valor_adicional,
+            'valor' => $_POST['valor'],
+            'total' => ($valor_adicional + $_POST['valor']),
+            'quantidade' => $_POST['quantidade'],
+            'codigo' => $_POST['codigo']
+        ];
+
+        $update = json_encode($update);
 
         $anota = print_r($data, true);
+
+
+        mysqli_query($con, "INSERT INTO vendas_tmp set detalhes = JSON_SET(detalhes, 'item{$_POST['codigo']}', '{$update}') where id_unico = '{$_POST['idUnico']}'")
 
         
     }
 
     if($_POST['acao'] == 'salvar'){
 
-        
+        $tmp = mysqli_fetch_object(mysqli_query($con, "select detalhes.'$.produto{$_POST['codigo']}' as produto from vendas_tmp where id_unico = '{$_POST['idUnico']}'"));
 
         
     }
