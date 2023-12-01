@@ -123,7 +123,7 @@ if($dc->regras->inclusao){
     foreach($dc->regras->inclusao as $i => $v){
         echo $inclusao[$v] = $v;
         echo "<br>";
-        $qt = $dc->regras->quantidade;
+        $qt = $dc->regras->inclusao_quantidade;
         echo $inclusao_quantidade[$v] = $qt[$i];
         echo "<br>";
     }
