@@ -57,9 +57,9 @@
 
     $dc = json_decode($tmp->produto);
     
-    if($dc['codigo']){
-        $valor_calculado = $dc['total'];
-        $quantidade = $dc['quantidade'];
+    if($dc->codigo){
+        $valor_calculado = $dc->total;
+        $quantidade = $dc->quantidade;
     }else{
         $valor_calculado = $d->valor;
         $quantidade = 1;        
