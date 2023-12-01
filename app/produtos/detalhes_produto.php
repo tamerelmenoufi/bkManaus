@@ -1,14 +1,16 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-    $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));  
-    
+    $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));
+
     if($_POST['acao'] == 'anotacoes'){
 
         $anota = print_r($_POST, true);
 
         
     }
+
+    $tmp = mysqli_fetch_object(mysqli_query($con, "select * from vendas_tmp where id_unico = '{$idUnico}'"));
 
 ?>
 <style>
@@ -99,6 +101,9 @@
     $query = "select * from produtos where codigo = '{$_POST['codigo']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
+
+
+    $valor_calculado = $d->valor;
 ?>
 <div class="home_corpo">
     <?=$anota?>
@@ -118,12 +123,12 @@
 </div>
 <div class="produto_botoes d-flex justify-content-between">
     <div class="d-flex justify-content-between">
-        <i class="fa-solid fa-circle-minus" style="color:red"></i>
-        <div style="margin-top:-8px; text-align:center; width:60px; font-family:UniformBold;">1</div>
-        <i class="fa-solid fa-circle-plus" style="color:green"></i>
+        <i class="fa-solid fa-circle-minus menos" style="color:red"></i>
+        <div class="qt" style="margin-top:-8px; text-align:center; width:60px; font-family:UniformBold;">1</div>
+        <i class="fa-solid fa-circle-plus mais" style="color:green"></i>
     </div>
     <div>
-        <button type="button" class="btn btn-danger" style="font-family:FlameBold; font-size:25px; margin-top:-20px;">R$ <?=number_format($d->valor,2,",",false)?></button>
+        <button type="button" class="btn btn-danger adicionar" vl="<?=?>" valor="<?=$valor_calculado?>" style="font-family:FlameBold; font-size:25px; margin-top:-20px;">R$ <?=number_format($valor_calculado,2,",",false)?></button>
     </div>
 </div>   
 <div class="home_rodape"></div>
@@ -138,6 +143,15 @@ $(function(){
             $(".home_rodape").html(dados);
         }
     });
+
+
+    $(".mais").click(function(){
+        valor = $(".adicionar").attr("valor");
+        qt = $(".qt").text();
+        qt = (qt*1 + 1);
+        valor = valor 
+    })
+
 
     $(".barra_topo").click(function(){
 

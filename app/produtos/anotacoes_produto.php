@@ -271,6 +271,7 @@ $(function(){
         substituicao = [];
         substituicao_valor = [];
         anotacoes = $("#anotacoes").val();
+        idUnico = localStorage.getItem("idUnico");
 
         $(".remocao").each(function(){
             codigo = $(this).attr("codigo");
@@ -312,6 +313,7 @@ $(function(){
                 substituicao,
                 substituicao_valor,
                 anotacoes,
+                idUnico,
                 acao:'anotacoes'
             },
             success:function(dados){
