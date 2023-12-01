@@ -194,9 +194,7 @@ $(function(){
         qt = (qt*1 + 1);
         $(".qt").text(qt);
         total = (valor*qt);
-        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-                
-        valor = valor 
+        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));                
     })
 
 
