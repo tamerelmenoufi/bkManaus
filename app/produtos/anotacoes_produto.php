@@ -100,6 +100,14 @@
 
     $dc = json_decode($tmp->produto);
 
+    if($dc->inclusao){
+        foreach($dc->inclusao as $i => $v){
+            $inclusao[$v] = $v;
+            $qt = $dc->quantidade;
+            $inclusao_quantidade[$v] = $qt[$i];
+        }
+    }
+
     print_r($dc);
 
 ?>
@@ -156,7 +164,7 @@
                 ?>
                 <li class="list-group-item d-flex justify-content-between flex-column">
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input inclusao" valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao<?=$i->codigo?>">
+                        <input type="checkbox" class="form-check-input inclusao" <?=(($inclusao[$i->codigo] == $i->codigo)?'checked':false)?> valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao<?=$i->codigo?>">
                         <label class="form-check-label" for="inclusao<?=$i->codigo?>"><?=$i->item?></label>
                     </div>
                     <div class="d-flex justify-content-end w-100">
@@ -165,7 +173,7 @@
                                 <?php
                                 for($j=1;$j<=10;$j++){
                                 ?>
-                                <option value="<?=$j?>"><?=$j?></option>
+                                <option value="<?=$j?>" <?=(($inclusao_quantidade[$i->codigo] == $j)?'checked':false)?>><?=$j?></option>
                                 <?php
                                 }
                                 ?>
