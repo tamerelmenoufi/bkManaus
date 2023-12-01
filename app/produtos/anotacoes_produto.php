@@ -119,11 +119,11 @@
 
 print_r($dc);
 
-if($dc->inclusao){
-    foreach($dc->inclusao as $i => $v){
+if($dc->regras->inclusao){
+    foreach($dc->regras->inclusao as $i => $v){
         echo $inclusao[$v] = $v;
         echo "<br>";
-        $qt = $dc->quantidade;
+        $qt = $dc->regras->quantidade;
         echo $inclusao_quantidade[$v] = $qt[$i];
         echo "<br>";
     }
