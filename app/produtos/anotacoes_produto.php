@@ -100,15 +100,25 @@
 
     $dc = json_decode($tmp->produto);
 
-    if($dc->inclusao){
-        foreach($dc->inclusao as $i => $v){
+    if($dc->regras->inclusao){
+        foreach($dc->regras->inclusao as $i => $v){
             $inclusao[$v] = $v;
-            $qt = $dc->quantidade;
+            $qt = $dc->regras->inclusao_quantidade;
             $inclusao_quantidade[$v] = $qt[$i];
         }
     }
 
-    
+    if($dc->regras->remocao){
+        foreach($dc->regras->remocao as $i => $v){
+            $remocao[$v] = $v;
+        }
+    }
+
+    $anotacoes = $dc->anotacoes;
+
+
+    $itens = json_decode($d->lista_itens);
+    $categorias_itens = json_decode($d->categorias_itens);    
 
 ?>
 <div class="home_corpo">
@@ -116,29 +126,6 @@
         <h1 class="produto_titulo"><?=$d->produto?></h1>
 
         <?php
-
-print_r($dc);
-
-        if($dc->regras->inclusao){
-            foreach($dc->regras->inclusao as $i => $v){
-                $inclusao[$v] = $v;
-                $qt = $dc->regras->inclusao_quantidade;
-                $inclusao_quantidade[$v] = $qt[$i];
-            }
-        }
-
-        if($dc->regras->remocao){
-            foreach($dc->regras->remocao as $i => $v){
-                $remocao[$v] = $v;
-            }
-        }
-
-        $anotacoes = $dc->anotacoes;
-
-
-
-        $itens = json_decode($d->lista_itens);
-        $categorias_itens = json_decode($d->categorias_itens);
 
         if($acoes->remocao == 'true' and $itens and $itens != 'null'){
 
