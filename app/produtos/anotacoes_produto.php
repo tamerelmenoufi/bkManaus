@@ -117,6 +117,18 @@
 
         <?php
 
+
+if($dc->inclusao){
+    foreach($dc->inclusao as $i => $v){
+        echo $inclusao[$v] = $v;
+        echo "<br>";
+        $qt = $dc->quantidade;
+        echo $inclusao_quantidade[$v] = $qt[$i];
+        echo "<br>";
+    }
+}
+
+
 print_r($inclusao);
 
         $itens = json_decode($d->lista_itens);
