@@ -59,7 +59,7 @@
         $quantidade = $dc->quantidade;
     }else{
         $valor_calculado = $d->valor;
-        $quantidade = 1;        
+        $quantidade = (($_POST['quantidade'])?:1);        
     }
     
 

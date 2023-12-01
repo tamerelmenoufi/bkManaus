@@ -277,6 +277,7 @@ $(function(){
             data:{
                 codigo:'<?=$d->codigo?>',
                 idUnico:'<?=$_POST['idUnico']?>',
+                quantidade:'<?=$_POST['quantidade']?>',
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);
