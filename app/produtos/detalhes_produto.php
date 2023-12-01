@@ -11,15 +11,22 @@
         unset($data['idUnico']);
         unset($data['quantidade']);
         unset($data['valor']);
+        unset($data['anotacoes']);
+
+        $valor_adicional = 0;
+        foreach($data['inclusao'] as $i => $v){
+            $valor_adicional = $valor_adicional + ($data['inclusao_valor']*$data['inclusao_quantidade']);
+        }
+
 
         $update = [
             'regras' => $data,
             'anotacoes' => $_POST['anotacoes'],
-            'adicional' => $valor_adicional,
-            'valor' => $_POST['valor'],
+            'adicional' => ($valor_adicional*1),
+            'valor' => ($_POST['valor']*1),
             'total' => ($valor_adicional + $_POST['valor']),
-            'quantidade' => $_POST['quantidade'],
-            'codigo' => $_POST['codigo']
+            'quantidade' => ($_POST['quantidade']*1),
+            'codigo' => ($_POST['codigo']*1)
         ];
 
         $update = json_encode($update);
