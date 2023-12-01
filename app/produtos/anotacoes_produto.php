@@ -94,6 +94,14 @@
     $query = "select *, itens->>'$[*].item' as lista_itens from produtos where codigo = '{$_POST['codigo']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
+
+    $tmp = mysqli_fetch_object(mysqli_query($con, "select detalhes.'$.produto{$_POST['codigo']}' as produto from vendas_tmp where id_unico = '{$_POST['idUnico']}'"));
+
+
+    $dc = json_decode($tmp->produto);
+
+    print_r($dc);
+
 ?>
 <div class="home_corpo">
     <div class="produto_painel" codigo="<?=$d->codigo?>">

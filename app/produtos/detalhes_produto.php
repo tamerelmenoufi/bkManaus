@@ -214,13 +214,15 @@ $(function(){
     $(".produto_detalhes").click(function(){
 
         quantidade = $(".qt").text();
-
+        idUnico = localStorage.getItem("idUnico");
+        
         $.ajax({
             url:"produtos/anotacoes_produto.php",
             type:"POST",
             data:{
                 codigo:'<?=$d->codigo?>',
                 quantidade,
+                idUnico,
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);
