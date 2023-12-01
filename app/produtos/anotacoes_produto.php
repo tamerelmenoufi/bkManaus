@@ -119,15 +119,19 @@
 
 print_r($dc);
 
-if($dc->regras->inclusao){
-    foreach($dc->regras->inclusao as $i => $v){
-        echo $inclusao[$v] = $v;
-        echo "<br>";
-        $qt = $dc->regras->inclusao_quantidade;
-        echo $inclusao_quantidade[$v] = $qt[$i];
-        echo "<br>";
-    }
-}
+        if($dc->regras->inclusao){
+            foreach($dc->regras->inclusao as $i => $v){
+                $inclusao[$v] = $v;
+                $qt = $dc->regras->inclusao_quantidade;
+                $inclusao_quantidade[$v] = $qt[$i];
+            }
+        }
+
+        if($dc->regras->remocao){
+            foreach($dc->regras->remocao as $i => $v){
+                $remocao[$v] = $v;
+            }
+        }
 
 
 
@@ -150,7 +154,7 @@ if($dc->regras->inclusao){
             ?>
             <li class="list-group-item">
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input remocao" codigo="<?=$i->codigo?>" id="remocao<?=$i->codigo?>">
+                    <input type="checkbox" <?=(($remocao[$i->codigo] == $i->codigo)?'checked':false)?> class="form-check-input remocao" codigo="<?=$i->codigo?>" id="remocao<?=$i->codigo?>">
                     <label class="form-check-label" for="remocao<?=$i->codigo?>"><?=$i->item?></label>
                 </div>
             </li>
