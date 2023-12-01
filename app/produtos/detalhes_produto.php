@@ -28,7 +28,8 @@
             'valor' => ($_POST['valor']*1),
             'total' => ($valor_adicional + $_POST['valor']),
             'quantidade' => ($_POST['quantidade']*1),
-            'codigo' => ($_POST['codigo']*1)
+            'codigo' => ($_POST['codigo']*1),
+            'status' => false,
         ];
 
         $update = json_encode($update, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
