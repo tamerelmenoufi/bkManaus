@@ -32,10 +32,11 @@
             'status' => false,
         ];
 
-        $update = json_encode($update);
+        $update = json_encode($update, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
         mysqli_query($con, "UPDATE vendas_tmp set detalhes = JSON_INSERT(detalhes, '$.item{$_POST['codigo']}', '{$update}') where id_unico = '{$_POST['idUnico']}'");
 
+  
         
     }
 
