@@ -15,7 +15,7 @@
 
         $valor_adicional = 0;
         foreach($data['inclusao'] as $i => $v){
-            $valor_adicional = $valor_adicional + ($data['inclusao_valor']*$data['inclusao_quantidade']);
+            $valor_adicional = $valor_adicional + ($data['inclusao_valor'][$i]*$data['inclusao_quantidade'][$i]);
         }
 
 
