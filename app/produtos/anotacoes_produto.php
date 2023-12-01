@@ -133,6 +133,8 @@ print_r($dc);
             }
         }
 
+        $anotacoes = $dc->regras->anotacoes;
+
 
 
         $itens = json_decode($d->lista_itens);
@@ -248,7 +250,7 @@ print_r($dc);
             <i class="fa-regular fa-message fa-flip-horizontal"></i>
             Anotações do pedido
         </label>
-        <textarea class="form-control" id="anotacoes" rows="3"></textarea>
+        <textarea class="form-control" id="anotacoes" rows="3"><?=$anotacoes?></textarea>
         </div>
 
         <!-- <img src="img/logo.png" class="produto_img" />
