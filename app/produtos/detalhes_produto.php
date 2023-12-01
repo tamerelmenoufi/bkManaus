@@ -54,9 +54,16 @@
 
     $tmp = mysqli_fetch_object(mysqli_query($con, "select detalhes.'$.produto{$d->codigo}' as produto from vendas_tmp where id_unico = '{$idUnico}'"));
 
+    $dc = json_decode($tmp->produto);
     
-
-    $valor_calculado = $d->valor;
+    if($dc->codigo){
+        $valor_calculado = $dc->total;
+        $quantidade = $dc->quantidade;
+    }else{
+        $valor_calculado = $d->valor;
+        $quantidade = 1;        
+    }
+    
 
 ?>
 <style>
@@ -163,7 +170,7 @@
 <div class="produto_botoes d-flex justify-content-between">
     <div class="d-flex justify-content-between">
         <i class="fa-solid fa-circle-minus menos" style="color:red"></i>
-        <div class="qt" style="margin-top:-8px; text-align:center; width:60px; font-family:UniformBold;">1</div>
+        <div class="qt" style="margin-top:-8px; text-align:center; width:60px; font-family:UniformBold;"><?=$quantidade?></div>
         <i class="fa-solid fa-circle-plus mais" style="color:green"></i>
     </div>
     <div>
