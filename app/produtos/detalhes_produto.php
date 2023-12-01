@@ -250,7 +250,7 @@ $(function(){
         idUnico = localStorage.getItem("idUnico");
         
         $.ajax({
-            url:"produtos/anotacoes_produto.php",
+            url:"produtos/detalhes_produto.php",
             type:"POST",
             data:{
                 codigo:'<?=$d->codigo?>',
