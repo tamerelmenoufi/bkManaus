@@ -153,7 +153,7 @@
 
 
 <div class="home_corpo">
-    <?=$dc?>
+    <?=$p?>
     <div class="produto_painel" codigo="<?=$d->codigo?>">
         <h1 class="produto_titulo"><?=$d->produto?></h1>
         <img src="img/logo.png" class="produto_img" />
