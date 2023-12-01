@@ -197,6 +197,15 @@ $(function(){
         $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));                
     })
 
+    $(".menos").click(function(){
+        valor = $(".adicionar").attr("valor");
+        qt = $(".qt").text();
+        qt = (((qt*1 - 1)<1)?(qt*1 - 1):1);
+        $(".qt").text(qt);
+        total = (valor*qt);
+        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));                
+    })
+
 
     $(".barra_topo").click(function(){
 
