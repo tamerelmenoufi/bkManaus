@@ -41,10 +41,12 @@
 
     if($_POST['acao'] == 'salvar'){
 
-        mysqli_query($con, "update vendas_tmp set 
+        echo $q = "update vendas_tmp set 
                                                 detalhes->'$.produto{$_POST['codigo']}.quantidade' = '{$_POST['quantidade']}',
                                                 detalhes->'$.produto{$_POST['codigo']}.status' = 'true'
-                            where id_unico = '{$_POST['idUnico']}'");
+                            where id_unico = '{$_POST['idUnico']}'";
+
+        mysqli_query($con, $q);
 
         exit();
     }
@@ -258,7 +260,7 @@ $(function(){
                 idUnico,
             },
             success:function(dados){
-
+                console.log(dados);
                 $.ajax({
                     url:"produtos/lista_produtos.php",
                     success:function(dados){
