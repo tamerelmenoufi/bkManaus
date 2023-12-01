@@ -5,7 +5,11 @@
 
     if($_POST['acao'] == 'anotacoes'){
 
-        $anota = print_r($_POST, true);
+        $data = $_POST;
+        unset($data['acao']);
+        unset($data['codigo']);
+
+        $anota = print_r($data, true);
 
         
     }
