@@ -52,7 +52,7 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
-    $tmp = mysqli_fetch_object(mysqli_query($con, "select detalhes.'$.produto{$d->codigo}' as produto from vendas_tmp where id_unico = '{$idUnico}'"));
+    $tmp = mysqli_fetch_object(mysqli_query($con, "select detalhes->>'$.item{$d->codigo}' as produto from vendas_tmp where id_unico = '{$idUnico}'"));
 
     $dc = json_decode($tmp->produto);
     
