@@ -41,9 +41,12 @@
 
     if($_POST['acao'] == 'salvar'){
 
-        $tmp = mysqli_fetch_object(mysqli_query($con, "select detalhes.'$.produto{$_POST['codigo']}' as produto from vendas_tmp where id_unico = '{$_POST['idUnico']}'"));
+        mysqli_query($con, "update vendas_tmp set 
+                                                detalhes->'$.produto{$_POST['codigo']}.quantidade' = '{$_POST['quantidade']}',
+                                                detalhes->'$.produto{$_POST['codigo']}.status' = 'true'
+                            where id_unico = '{$_POST['idUnico']}'");
 
-        
+        exit();
     }
 
     
@@ -234,6 +237,37 @@ $(function(){
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);
+            }
+        });           
+
+    })
+
+    $(".adicionar").click(function(){
+
+        Carregando();
+
+        quantidade = $(".qt").text();
+        idUnico = localStorage.getItem("idUnico");
+        
+        $.ajax({
+            url:"produtos/anotacoes_produto.php",
+            type:"POST",
+            data:{
+                codigo:'<?=$d->codigo?>',
+                quantidade,
+                idUnico,
+            },
+            success:function(dados){
+
+                $.ajax({
+                    url:"produtos/lista_produtos.php",
+                    success:function(dados){
+                        $(".CorpoApp").html(dados);
+                        Carregando('none');
+                    }
+                }); 
+
+
             }
         });           
 
