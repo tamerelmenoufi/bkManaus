@@ -306,6 +306,7 @@ $(function(){
             type:"POST",
             data:{
                 codigo:'<?=$d->codigo?>',
+                quantidade:'<?=$_POST['quantidade']?>',
                 remocao,
                 inclusao,
                 inclusao_valor,

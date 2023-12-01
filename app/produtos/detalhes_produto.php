@@ -10,7 +10,23 @@
         
     }
 
-    $tmp = mysqli_fetch_object(mysqli_query($con, "select * from vendas_tmp where id_unico = '{$idUnico}'"));
+    if($_POST['acao'] == 'salvar'){
+
+        
+
+        
+    }
+
+    
+    $query = "select * from produtos where codigo = '{$_POST['codigo']}'";
+    $result = mysqli_query($con, $query);
+    $d = mysqli_fetch_object($result);
+
+    $tmp = mysqli_fetch_object(mysqli_query($con, "select detalhes.'$.produto{$d->codigo}' as produto from vendas_tmp where id_unico = '{$idUnico}'"));
+
+    
+
+    $valor_calculado = $d->valor;
 
 ?>
 <style>
@@ -97,14 +113,7 @@
     <h2><?=$c->categoria?></h2>
 </div>
 
-<?php
-    $query = "select * from produtos where codigo = '{$_POST['codigo']}'";
-    $result = mysqli_query($con, $query);
-    $d = mysqli_fetch_object($result);
 
-
-    $valor_calculado = $d->valor;
-?>
 <div class="home_corpo">
     <?=$anota?>
     <div class="produto_painel" codigo="<?=$d->codigo?>">
@@ -166,11 +175,14 @@ $(function(){
 
     $(".produto_detalhes").click(function(){
 
+        quantidade = $(".qt").text();
+
         $.ajax({
             url:"produtos/anotacoes_produto.php",
             type:"POST",
             data:{
-                codigo:'<?=$d->codigo?>'
+                codigo:'<?=$d->codigo?>',
+                quantidade,
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);
