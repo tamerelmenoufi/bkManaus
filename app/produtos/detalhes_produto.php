@@ -55,7 +55,7 @@
     $p = "select detalhes->>'$.item{$d->codigo}' as produto from vendas_tmp where id_unico = '{$_POST['idUnico']}'";
     $tmp = mysqli_fetch_object(mysqli_query($con, $p));
 
-    $dc = ($tmp->produto);
+    $dc = json_decode($tmp->produto);
     
     if($dc['codigo']){
         $valor_calculado = $dc['total'];
