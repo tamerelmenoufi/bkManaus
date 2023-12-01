@@ -56,7 +56,7 @@
     
     if($dc->codigo){
         $valor_calculado = $dc->total;
-        $quantidade = $dc->quantidade;
+        $quantidade = (($_POST['quantidade'])?:$dc->quantidade);
     }else{
         $valor_calculado = $d->valor;
         $quantidade = (($_POST['quantidade'])?:1);        
