@@ -26,6 +26,7 @@
 
         $anota = print_r($data, true);
 
+        $amostra = "UPDATE vendas_tmp set detalhes = JSON_SET(detalhes, 'item{$_POST['codigo']}', '{$update}') where id_unico = '{$_POST['idUnico']}'";
 
         mysqli_query($con, "UPDATE vendas_tmp set detalhes = JSON_SET(detalhes, 'item{$_POST['codigo']}', '{$update}') where id_unico = '{$_POST['idUnico']}'");
 
