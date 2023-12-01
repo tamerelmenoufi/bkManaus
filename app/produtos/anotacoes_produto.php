@@ -268,7 +268,8 @@ $(function(){
             url:"produtos/detalhes_produto.php",
             type:"POST",
             data:{
-                codigo:'<?=$d->codigo?>'
+                codigo:'<?=$d->codigo?>',
+                idUnico:'<?=$_POST['idUnico']?>',
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);
