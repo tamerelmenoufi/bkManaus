@@ -246,8 +246,8 @@
                         <label class="form-check-label" for="inclusao<?=$i->codigo?>"><?=$i->item?></label>
                     </div> -->
                     <div class="input-group">
-                        <div style="width:40px;">
-                            <select class="form-select form-select-sm inclusao" valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao_quantidade<?=$i->codigo?>">
+                        <div style="width:90px;">
+                            <select class="form-select inclusao" valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao_quantidade<?=$i->codigo?>">
                                 <?php
                                 for($j=0;$j<=10;$j++){
                                 ?>
