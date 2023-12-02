@@ -38,7 +38,8 @@
 
         mysqli_query($con, "UPDATE vendas_tmp set detalhes = JSON_SET(detalhes, '$.item{$_POST['codigo']}', JSON_EXTRACT('{$update}', '$')) where id_unico = '{$_POST['idUnico']}'");
 
-  
+        echo (($valor_adicional + $_POST['valor'])*($_POST['quantidade']*1));
+        exit();
         
     }
 
@@ -451,7 +452,7 @@ $(function(){
             }
         })
 
-        Carregando();
+        // Carregando();
         $.ajax({
             url:"produtos/detalhes_produto.php",
             type:"POST",
@@ -470,8 +471,9 @@ $(function(){
                 acao:'anotacoes'
             },
             success:function(dados){
-                $(".CorpoApp").html(dados);
-                Carregando('none');
+                $(".adicionar").html('R$ ' + dados.toLocaleString('pt-br', {minimumFractionDigits: 2}));  
+                // $(".CorpoApp").html(dados);
+                // Carregando('none');
             }
         });        
 
@@ -501,7 +503,7 @@ $(function(){
                 console.log(dados);
                 $.ajax({
                     url:"produtos/lista_produtos.php",
-                    success:function(dados){
+                    success:function(dados){  
                         $(".CorpoApp").html(dados);
                         Carregando('none');
                     }
