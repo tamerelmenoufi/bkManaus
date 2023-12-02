@@ -484,6 +484,10 @@ $(function(){
         definirDetalhes();
     })
 
+    $("#anotacoes").blur(function(){
+        definirDetalhes();
+    })
+
     $(".adicionar").click(function(){
 
         Carregando();
