@@ -43,8 +43,8 @@
     if($_POST['acao'] == 'salvar'){
 
         echo $q = "update vendas_tmp set detalhes = JSON_SET(detalhes, 
-                                                detalhes->'$.item{$_POST['codigo']}.quantidade', '{$_POST['quantidade']}',
-                                                detalhes->'$.item{$_POST['codigo']}.status' , 'true')
+                                                '$.item{$_POST['codigo']}.quantidade', '{$_POST['quantidade']}',
+                                                '$.item{$_POST['codigo']}.status' , 'true')
                             where id_unico = '{$_POST['idUnico']}'";
 
         mysqli_query($con, $q);
