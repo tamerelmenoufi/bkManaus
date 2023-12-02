@@ -411,6 +411,7 @@ $(function(){
         substituicao_valor = [];
         anotacoes = $("#anotacoes").val();
         idUnico = localStorage.getItem("idUnico");
+        quantidade = $(".qt").text();
 
         $(".remocao").each(function(){
             codigo = $(this).attr("codigo");
@@ -456,8 +457,8 @@ $(function(){
             type:"POST",
             data:{
                 codigo:'<?=$d->codigo?>',
-                quantidade:'<?=$quantidade?>',
                 valor:'<?=$d->valor?>',
+                quantidade,
                 remocao,
                 inclusao,
                 inclusao_valor,
