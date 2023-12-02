@@ -247,17 +247,15 @@
                     </div> -->
                     <?=$i->item?>
                     <div class="input-group">
-                        <div style="width:50px;">
-                            <select class="form-select form-select-sm inclusao" valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao_quantidade<?=$i->codigo?>">
-                                <?php
-                                for($j=0;$j<=10;$j++){
-                                ?>
-                                <option value="<?=$j?>" <?=(($inclusao_quantidade[$i->codigo] == $j)?'selected':false)?>><?=$j?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                        </div>                       
+                        <select class="form-select form-select-sm inclusao" valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao_quantidade<?=$i->codigo?>">
+                            <?php
+                            for($j=0;$j<=10;$j++){
+                            ?>
+                            <option value="<?=$j?>" <?=(($inclusao_quantidade[$i->codigo] == $j)?'selected':false)?>><?=$j?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
                         <label class="input-group-text" style="width:85px; text-align:right;" for="inclusao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
                     </div>
                 </li>
