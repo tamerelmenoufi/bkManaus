@@ -240,25 +240,23 @@
                 $r = mysqli_query($con, $q);
                 while($i = mysqli_fetch_object($r)){
                 ?>
-                <li class="list-group-item d-flex justify-content-between flex-column">
+                <li class="list-group-item">
                     <!-- <div class="form-check">
                         <input type="checkbox" class="form-check-input inclusao" <?=(($inclusao[$i->codigo] == $i->codigo)?'checked':false)?> valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao<?=$i->codigo?>">
                         <label class="form-check-label" for="inclusao<?=$i->codigo?>"><?=$i->item?></label>
                     </div> -->
-                    <div><?=$i->item?></div>
-                    <div class="d-flex justify-content-end w-100">
-                        <div class="input-group" style="width:150px;">
-                            <select class="form-select form-select-sm inclusao" valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao_quantidade<?=$i->codigo?>">
-                                <?php
-                                for($j=1;$j<=10;$j++){
-                                ?>
-                                <option value="<?=$j?>" <?=(($inclusao_quantidade[$i->codigo] == $j)?'selected':false)?>><?=$j?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <label class="input-group-text" style="width:85px; text-align:right;" for="inclusao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
-                        </div>                        
+                    <div class="input-group">
+                        <select class="form-select form-select-sm inclusao" valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao_quantidade<?=$i->codigo?>">
+                            <?php
+                            for($j=0;$j<=10;$j++){
+                            ?>
+                            <option value="<?=$j?>" <?=(($inclusao_quantidade[$i->codigo] == $j)?'selected':false)?>><?=$j?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                        <div class="form-control"><?=$i->item?></div>
+                        <label class="input-group-text" style="width:85px; text-align:right;" for="inclusao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
                     </div>
                 </li>
                 <?php
