@@ -247,7 +247,7 @@
                     </div>
                     <div class="d-flex justify-content-end w-100">
                         <div class="input-group" style="width:150px;">
-                            <select class="form-select form-select-sm" id="inclusao_quantidade<?=$i->codigo?>">
+                            <select class="form-select form-select-sm inclusao" id="inclusao_quantidade<?=$i->codigo?>">
                                 <?php
                                 for($j=1;$j<=10;$j++){
                                 ?>
@@ -399,6 +399,75 @@ $(function(){
             }
         });           
 
+    })
+
+
+    definirDetalhes = () => {
+
+        remocao = [];
+        inclusao = [];
+        inclusao_valor = [];
+        inclusao_quantidade = [];
+        substituicao = [];
+        substituicao_valor = [];
+        anotacoes = $("#anotacoes").val();
+        idUnico = localStorage.getItem("idUnico");
+
+        $(".remocao").each(function(){
+            codigo = $(this).attr("codigo");
+            if($(this).prop("checked") == true){
+                remocao.push(codigo)
+            }
+        })
+
+        $(".inclusao").each(function(){
+            codigo = $(this).attr("codigo");
+            valor = $(this).attr("valor");
+            quantidade = $(`#inclusao_quantidade${codigo}`).val();
+            if($(this).prop("checked") == true){
+                inclusao.push(codigo)
+                inclusao_valor.push(valor);
+                inclusao_quantidade.push(quantidade);
+            }
+        })
+
+        $(".substituicao").each(function(){
+            codigo = $(this).attr("codigo");
+            valor = $(this).attr("valor");
+            if($(this).prop("checked") == true){
+                substituicao.push(codigo)
+                substituicao_valor.push(valor);
+            }
+        })
+
+        Carregando();
+        $.ajax({
+            url:"produtos/detalhes_produto.php",
+            type:"POST",
+            data:{
+                codigo:'<?=$d->codigo?>',
+                quantidade:'<?=$quantidade?>',
+                valor:'<?=$d->valor?>',
+                remocao,
+                inclusao,
+                inclusao_valor,
+                inclusao_quantidade,
+                substituicao,
+                substituicao_valor,
+                anotacoes,
+                idUnico,
+                acao:'anotacoes'
+            },
+            success:function(dados){
+                $(".CorpoApp").html(dados);
+                Carregando('none');
+            }
+        });        
+
+    }
+
+    $(".inclusao").change(function(){
+        definirDetalhes();
     })
 
     $(".adicionar").click(function(){
