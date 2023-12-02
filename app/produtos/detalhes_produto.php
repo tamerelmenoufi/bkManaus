@@ -247,7 +247,7 @@
                     </div> -->
                     <?=$i->item?>
                     <div class="input-group">
-                        <select class="form-select form-select-sm col-2 inclusao" valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao_quantidade<?=$i->codigo?>">
+                        <select class="form-select form-select-sm col-4 inclusao" valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao_quantidade<?=$i->codigo?>">
                             <?php
                             for($j=0;$j<=10;$j++){
                             ?>
@@ -256,7 +256,7 @@
                             }
                             ?>
                         </select>
-                        <label class="input-group-text col-10" style="text-align:right;" for="inclusao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
+                        <label class="input-group-text col-8" style="text-align:right;" for="inclusao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
                     </div>
                 </li>
                 <?php
