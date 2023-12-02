@@ -163,6 +163,7 @@
         position:relative;
         font-family:Uniform;
         width:100%;
+        margin-bottom:20px;
     }
     .produto_detalhes{
         padding:2px;
