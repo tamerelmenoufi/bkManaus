@@ -256,7 +256,7 @@
                             }
                             ?>
                         </select>
-                        <div class="input-group-text col-9" style="text-align:right;" for="inclusao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></div>
+                        <div class="d-flex justify-content-end input-group-text col-9" style="text-align:right;" for="inclusao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></div>
                     </div>
                 </li>
                 <?php
