@@ -64,13 +64,13 @@
 
     $dc = json_decode($tmp->produto);
     
-    if($dc->codigo){
-        $valor_calculado = $dc->total;
-        $quantidade = (($_POST['quantidade'])?:$dc->quantidade);
-    }else{
+    // if($dc->codigo){
+    //     $valor_calculado = $dc->total;
+    //     $quantidade = (($_POST['quantidade'])?:$dc->quantidade);
+    // }else{
         $valor_calculado = $d->valor;
-        $quantidade = (($_POST['quantidade'])?:1);        
-    }
+        $quantidade = (($dc->quantidade)?:1);        
+    // }
     
 
     if($dc->regras->inclusao){
