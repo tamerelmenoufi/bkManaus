@@ -196,9 +196,6 @@
 
 <!-- NOVO -->
 
-
-<h1 class="produto_titulo"><?=$d->produto?></h1>
-
         <?php
 
         if($acoes->remocao == 'true' and $itens and $itens != 'null'){
