@@ -3,6 +3,8 @@
 
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));
 
+    $acoes = json_decode($c->acoes_itens);
+
     if($_POST['acao'] == 'anotacoes'){
 
         $data = $_POST;
@@ -58,6 +60,7 @@
     $d = mysqli_fetch_object($result);
 
     $tmp = mysqli_fetch_object(mysqli_query($con, "select detalhes->>'$.item{$d->codigo}' as produto from vendas_tmp where id_unico = '{$_POST['idUnico']}'"));
+
 
     $dc = json_decode($tmp->produto);
     
