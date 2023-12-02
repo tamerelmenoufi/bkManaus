@@ -70,6 +70,27 @@
     }
     
 
+    if($dc->regras->inclusao){
+        foreach($dc->regras->inclusao as $i => $v){
+            $inclusao[$v] = $v;
+            $qt = $dc->regras->inclusao_quantidade;
+            $inclusao_quantidade[$v] = $qt[$i];
+        }
+    }
+
+    if($dc->regras->remocao){
+        foreach($dc->regras->remocao as $i => $v){
+            $remocao[$v] = $v;
+        }
+    }
+
+    $anotacoes = $dc->anotacoes;
+
+
+    $itens = json_decode($d->lista_itens);
+    $categorias_itens = json_decode($d->categorias_itens);   
+
+
 ?>
 <style>
     .barra_topo{
@@ -168,6 +189,141 @@
             <button type="button" class="btn btn-outline-secondary btn-sm">Anotações</button>
         </div>   
         <div class="produto_descricao"><?=$d->descricao?></div>
+
+
+<!-- NOVO -->
+
+
+<h1 class="produto_titulo"><?=$d->produto?></h1>
+
+        <?php
+
+        if($acoes->remocao == 'true' and $itens and $itens != 'null'){
+
+        ?>
+
+        <div class="card w-100 mb-3">
+        <div class="card-header">
+            Retirar algum Item?
+        </div>
+        <ul class="list-group list-group-flush">
+            <?php
+            $q = "select * from itens where codigo in ('".implode("', '", $itens)."')";
+            $r = mysqli_query($con, $q);
+            while($i = mysqli_fetch_object($r)){
+            ?>
+            <li class="list-group-item">
+                <div class="form-check">
+                    <input type="checkbox" <?=(($remocao[$i->codigo] == $i->codigo)?'checked':false)?> class="form-check-input remocao" codigo="<?=$i->codigo?>" id="remocao<?=$i->codigo?>">
+                    <label class="form-check-label" for="remocao<?=$i->codigo?>"><?=$i->item?></label>
+                </div>
+            </li>
+            <?php
+            }
+            ?>
+        </ul>
+        </div>
+
+        <?php
+        }
+
+        if($acoes->inclusao == 'true' and $categorias_itens and $categorias_itens != 'null'){
+        ?>
+    
+            <div class="card w-100 mb-3">
+            <div class="card-header">
+                Incluir algum Item?
+            </div>
+            <ul class="list-group list-group-flush">
+                <?php
+                $q = "select * from itens where categoria in ('".implode("', '", $categorias_itens)."')";
+                $r = mysqli_query($con, $q);
+                while($i = mysqli_fetch_object($r)){
+                ?>
+                <li class="list-group-item d-flex justify-content-between flex-column">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input inclusao" <?=(($inclusao[$i->codigo] == $i->codigo)?'checked':false)?> valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao<?=$i->codigo?>">
+                        <label class="form-check-label" for="inclusao<?=$i->codigo?>"><?=$i->item?></label>
+                    </div>
+                    <div class="d-flex justify-content-end w-100">
+                        <div class="input-group" style="width:150px;">
+                            <select class="form-select form-select-sm" id="inclusao_quantidade<?=$i->codigo?>">
+                                <?php
+                                for($j=1;$j<=10;$j++){
+                                ?>
+                                <option value="<?=$j?>" <?=(($inclusao_quantidade[$i->codigo] == $j)?'selected':false)?>><?=$j?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                            <label class="input-group-text" style="width:85px; text-align:right;" for="inclusao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
+                        </div>                        
+                    </div>
+                </li>
+                <?php
+                }
+                ?>
+            </ul>
+            </div>
+    
+        <?php
+        }
+
+        if($acoes->substituicao == 'true' and $categorias_itens and $categorias_itens != 'null'){
+        ?>
+    
+            <div class="card w-100 mb-3">
+            <div class="card-header">
+                Substituir algum Item?
+            </div>
+            <ul class="list-group list-group-flush">
+                <?php
+                $q = "select * from itens where categoria in ('".implode("', '", $categorias_itens)."')";
+                $r = mysqli_query($con, $q);
+                while($i = mysqli_fetch_object($r)){
+                ?>
+                <li class="list-group-item d-flex justify-content-between">
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input substituicao" name="substituicao" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>">
+                        <label class="form-check-label" for="substituicao<?=$i->codigo?>"><?=$i->item?></label>
+                    </div>
+                    <div>
+                        R$ <?=number_format($i->valor, 2, ",", false)?>
+                    </div>
+                </li>
+
+                <?php
+                }
+                ?>
+            </ul>
+            </div>
+    
+        <?php
+        }
+
+        ?>
+
+        <div class="mb-3 w-100">
+        <label for="anotacoes" class="form-label">
+            <i class="fa-regular fa-message fa-flip-horizontal"></i>
+            Anotações do pedido
+        </label>
+        <textarea class="form-control" id="anotacoes" rows="3"><?=$anotacoes?></textarea>
+        </div>
+
+
+<!-- NOVO -->
+
+
+
+
+
+
+
+
+
+
+
           
     </div>
 </div>
