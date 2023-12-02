@@ -255,7 +255,7 @@
                             }
                             ?>
                         </select>
-                        <div class="form-control"><?=$i->item?></div>
+                        <div class="form-control w-100"><?=$i->item?></div>
                         <label class="input-group-text" style="width:85px; text-align:right;" for="inclusao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
                     </div>
                 </li>
