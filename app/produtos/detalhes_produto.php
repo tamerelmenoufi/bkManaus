@@ -241,13 +241,14 @@
                 while($i = mysqli_fetch_object($r)){
                 ?>
                 <li class="list-group-item d-flex justify-content-between flex-column">
-                    <div class="form-check">
+                    <!-- <div class="form-check">
                         <input type="checkbox" class="form-check-input inclusao" <?=(($inclusao[$i->codigo] == $i->codigo)?'checked':false)?> valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao<?=$i->codigo?>">
                         <label class="form-check-label" for="inclusao<?=$i->codigo?>"><?=$i->item?></label>
-                    </div>
+                    </div> -->
+                    <div><?=$i->item?></div>
                     <div class="d-flex justify-content-end w-100">
                         <div class="input-group" style="width:150px;">
-                            <select class="form-select form-select-sm inclusao" id="inclusao_quantidade<?=$i->codigo?>">
+                            <select class="form-select form-select-sm inclusao" valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao_quantidade<?=$i->codigo?>">
                                 <?php
                                 for($j=1;$j<=10;$j++){
                                 ?>
@@ -420,14 +421,25 @@ $(function(){
             }
         })
 
+        // $(".inclusao").each(function(){
+        //     codigo = $(this).attr("codigo");
+        //     valor = $(this).attr("valor");
+        //     quantidade = $(`#inclusao_quantidade${codigo}`).val();
+        //     if($(this).prop("checked") == true){
+        //         inclusao.push(codigo)
+        //         inclusao_valor.push(valor);
+        //         inclusao_quantidade.push(quantidade);
+        //     }
+        // })
+
         $(".inclusao").each(function(){
             codigo = $(this).attr("codigo");
             valor = $(this).attr("valor");
-            quantidade = $(`#inclusao_quantidade${codigo}`).val();
-            if($(this).prop("checked") == true){
+            quantidade = $(this).val();
+            if(quantidade > 0){
                 inclusao.push(codigo)
                 inclusao_valor.push(valor);
-                inclusao_quantidade.push(quantidade);
+                inclusao_quantidade.push(quantidade);                
             }
         })
 
