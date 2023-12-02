@@ -53,7 +53,7 @@
     }
 
     
-    $query = "select * from produtos where codigo = '{$_POST['codigo']}'";
+    $query = "select *, itens->>'$[*].item' as lista_itens from produtos where codigo = '{$_POST['codigo']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
