@@ -245,8 +245,9 @@
                         <input type="checkbox" class="form-check-input inclusao" <?=(($inclusao[$i->codigo] == $i->codigo)?'checked':false)?> valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao<?=$i->codigo?>">
                         <label class="form-check-label" for="inclusao<?=$i->codigo?>"><?=$i->item?></label>
                     </div> -->
+                    <?=$i->item?>
                     <div class="input-group">
-                        <div style="width:90px;">
+                        <div style="width:50px;">
                             <select class="form-select inclusao" valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao_quantidade<?=$i->codigo?>">
                                 <?php
                                 for($j=0;$j<=10;$j++){
@@ -256,9 +257,7 @@
                                 }
                                 ?>
                             </select>
-                        </div>
-                        <div class="form-control"><?=$i->item?></div>
-                        
+                        </div>                       
                         <label class="input-group-text" style="width:85px; text-align:right;" for="inclusao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></label>
                     </div>
                 </li>
