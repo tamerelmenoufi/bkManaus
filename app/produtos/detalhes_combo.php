@@ -490,7 +490,8 @@ $(function(){
             codigo = ($(this).attr("codigo"))*1;
             valor = ($(this).attr("valor"))*1;
             quantidade = ($(this).val())*1;
-            if(!combo.produtos[produto]) combo.produtos = [];
+            if(!combo.produtos) {combo.produtos = [];}
+            if(!combo.produtos[produto]) combo.produtos[produto] = [];
             if(!combo.produtos[produto].codigo) combo.produtos[produto].codigo = produto;
             if(!combo.produtos[produto].inclusao) combo.produtos[produto].inclusao = [];
             if(!combo.produtos[produto].inclusao_valor) combo.produtos[produto].inclusao_valor = [];
@@ -506,7 +507,8 @@ $(function(){
             produto = ($(this).attr("produto"))*1;
             codigo = ($(this).attr("codigo"))*1;
             valor = ($(this).attr("valor"))*1;
-            if(!combo.produtos[produto]) combo.produtos = [];
+            if(!combo.produtos) {combo.produtos = [];}
+            if(!combo.produtos[produto]) combo.produtos[produto] = [];
             if(!combo.produtos[produto].codigo) combo.produtos[produto].codigo = produto;
             if(!combo.produtos[produto].substituicao) combo.produtos[produto].substituicao = [];
             if(!combo.produtos[produto].substituicao_valor) combo.produtos[produto].substituicao_valor = [];
