@@ -453,7 +453,7 @@ $(function(){
 
     definirDetalhes = () => {
 
-        produtos = {};
+        combo = {};
         
         remocao = [];
         inclusao = [];
@@ -470,21 +470,18 @@ $(function(){
             produto = ($(this).attr("produto"))*1;
             codigo = ($(this).attr("codigo"))*1;
             acao = $(this).prop("checked")
+            if(!combo.produto) combo.produto = [];
 
-            if(!produtos) produtos = [];
-
-            if(!produtos[produto]) produtos[produto] = {};
+            if(!combo.produto[produto]) combo.produto[produto] = {};
             
-            if(!produtos[produto].codigo) produtos[produto].codigo = `${produto}`;
-
-            if(!produtos[produto].remocao) produtos[produto].remocao = [];
-
+            if(!combo.produto[produto].codigo) combo.produto[produto].codigo = `${produto}`;
+            if(!combo.produto[produto].remocao) combo.produto[produto].remocao = [];
             if(acao == true){
-                produtos[produto].remocao.push(codigo);
+                combo.produto[produto].remocao.push(codigo);
             }
         })
 
-        console.log(produtos);
+        console.log(combo);
 
         return false;
 
