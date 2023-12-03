@@ -462,7 +462,7 @@
                     }
                 })
 
-                itens = JSON.stringify(itens)
+                itens = JSON.stringify(itens,2)
 
                 campos.push({name:'itens', value:itens})
 
