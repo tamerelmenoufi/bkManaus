@@ -514,7 +514,7 @@ $(function(){
         console.log(combo);
         combo = combo.parseJSON()
         // combo = JSON.stringify(combo)
-        console.log(combo);
+        console.log(combo.produto);
         // return false;
 
         // Carregando();
