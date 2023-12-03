@@ -7,6 +7,10 @@
 
     if($_POST['acao'] == 'anotacoes'){
 
+        print_r($_POST);
+
+        exit();
+
         $data = $_POST;
         unset($data['acao']);
         unset($data['codigo']);
@@ -509,7 +513,7 @@ $(function(){
         })
 
         console.log(combo);
-        return false;
+        // return false;
 
         // Carregando();
         $.ajax({
@@ -519,12 +523,13 @@ $(function(){
                 codigo:'<?=$d->codigo?>',
                 valor:'<?=$d->valor?>',
                 quantidade:qt,
-                remocao,
-                inclusao,
-                inclusao_valor,
-                inclusao_quantidade,
-                substituicao,
-                substituicao_valor,
+                regras:combo,
+                // remocao,
+                // inclusao,
+                // inclusao_valor,
+                // inclusao_quantidade,
+                // substituicao,
+                // substituicao_valor,
                 anotacoes,
                 idUnico,
                 acao:'anotacoes'
