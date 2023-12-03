@@ -453,7 +453,7 @@ $(function(){
 
     definirDetalhes = () => {
 
-        remocao = [];
+        remocao = {};
         inclusao = [];
         inclusao_valor = [];
         inclusao_quantidade = [];
