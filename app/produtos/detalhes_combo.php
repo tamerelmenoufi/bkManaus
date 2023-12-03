@@ -257,7 +257,7 @@
 
         <div class="card w-100 mb-3">
         <div class="card-header">
-            Retirar algum Item?
+            Retirar algum Item do <?=$d1->produto?>?
         </div>
         <ul class="list-group list-group-flush">
             <?php
@@ -285,7 +285,7 @@
     
             <div class="card w-100 mb-3">
             <div class="card-header">
-                Incluir algum Item?
+                Incluir algum Item no <?=$d1->produto?>?
             </div>
             <ul class="list-group list-group-flush">
                 <?php
@@ -326,7 +326,7 @@
     
             <div class="card w-100 mb-3">
             <div class="card-header">
-                Substituir algum Item?
+                Substituir <?=$d1->produto?>?
             </div>
             <ul class="list-group list-group-flush">
                 <?php
@@ -369,12 +369,6 @@
         </label>
         <textarea class="form-control" id="anotacoes" rows="3"><?=$anotacoes?></textarea>
         </div>
-
-
-
-
-
-
 
           
     </div>
