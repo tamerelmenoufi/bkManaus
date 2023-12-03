@@ -520,12 +520,33 @@ $(function(){
 
         function convertData(d){
             let formatar = {
-                
-            }
+                codigo : d.codigo,
+                inclusao: d.inclusao.map( v => {
+                    return v
+                }),
+                inclusao_quantidade: d.inclusao_quantidade.map( v => {
+                    return v
+                }),
+                inclusao_valor: d.inclusao_valor.map( v => {
+                    return v
+                }),
+                remocao: d.remocao.map( v => {
+                    return v
+                }),
+                substituicao: d.substituicao.map( v => {
+                    return v
+                })
+                substituicao_valor: d.substituicao_valor.map( v => {
+                    return v
+                })
+            };
+            return JSON.stringify(formatar);
         }
 
 
         console.log(combo)
+
+        convertData(combo.produto)
 
         return
 
