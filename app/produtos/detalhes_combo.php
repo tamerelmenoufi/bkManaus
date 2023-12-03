@@ -478,7 +478,7 @@ $(function(){
             // if(!combo.produto[produto].codigo) combo.produto[produto].codigo = `${produto}`;
             // if(!combo.produto[produto].remocao) combo.produto[produto].remocao = [];
             if(acao == true){
-                combo.produto.produto.remocao.push(codigo);
+                combo.produto.remocao.push(codigo);
             }
         })
 
