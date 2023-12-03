@@ -473,6 +473,10 @@ $(function(){
             }
         })
 
+        console.log(remocao);
+
+        return false;
+
 
 
         $(".inclusao").each(function(){
