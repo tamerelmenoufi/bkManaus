@@ -555,34 +555,20 @@ $(function(){
         // return
 
 
-        campos.push({name:"codigo", value:codigo});
-        campos.push({name:"valor", value:valor});
-        campos.push({name:"quantidade", value:quantidade});
-        campos.push({name:"combo", value:combo});
-        campos.push({name:"anotacoes", value:anotacoes});
-        campos.push({name:"idUnico", value:idUnico});
-        campos.push({name:"acao", value:'anotacoes'});
-
         // Carregando();
         $.ajax({
             url:"produtos/detalhes_combo.php",
             type:"POST",
-            data:campos,
-            // {
-            //     codigo:'<?=$d->codigo?>',
-            //     valor:'<?=$d->valor?>',
-            //     quantidade:qt,
-            //     combo,
-            //     // remocao,
-            //     // inclusao,
-            //     // inclusao_valor,
-            //     // inclusao_quantidade,
-            //     // substituicao,
-            //     // substituicao_valor,
-            //     anotacoes,
-            //     idUnico,
-            //     acao:'anotacoes'
-            // },
+            data:
+            {
+                codigo:'<?=$d->codigo?>',
+                valor:'<?=$d->valor?>',
+                quantidade:qt,
+                combo:campos,
+                anotacoes,
+                idUnico,
+                acao:'anotacoes'
+            },
             success:function(dados){
 
                 console.log(dados)
