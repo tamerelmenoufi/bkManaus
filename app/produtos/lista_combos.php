@@ -144,6 +144,23 @@ $(function(){
         }
     });
 
+    $(".produto_painel").click(function(){
+        codigo = $(this).attr("codigo");
+        idUnico = localStorage.getItem("idUnico");
+        $.ajax({
+            url:"produtos/detalhes_combo.php",
+            type:"POST",
+            data:{
+                codigo,
+                idUnico
+            },
+            success:function(dados){
+                $(".CorpoApp").html(dados);
+            }
+        });        
+
+    })
+
 
 })
 
