@@ -242,7 +242,7 @@
             $acoes = json_decode($d1->acoes_itens);
 
             $itens = json_decode($d1->lista_itens);
-            $categorias_itens = json_decode($d->categorias_itens); 
+            $categorias_itens = json_decode($d1->categorias_itens); 
 
 ?>
 <!-- NOVO -->
