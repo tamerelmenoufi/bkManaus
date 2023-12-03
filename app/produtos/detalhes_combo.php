@@ -466,7 +466,6 @@ $(function(){
         qt = $(".qt").text();
 
         $(".remocao").each(function(){
-            if(!combo[`combo`]) combo[`combo`] = {};
             produto = ($(this).attr("produto"))*1;
             codigo = ($(this).attr("codigo"))*1;
             acao = $(this).prop("checked")
