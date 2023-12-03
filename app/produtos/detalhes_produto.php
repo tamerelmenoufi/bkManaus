@@ -92,7 +92,7 @@
 
 
     $itens = json_decode($d->lista_itens);
-    $categorias_itens = json_decode($c->categorias_itens);   
+    $categorias_itens = $c->categorias_itens;   
 
 
 ?>
@@ -280,7 +280,7 @@
             <ul class="list-group list-group-flush">
                 <?php
                 echo "<p>{$categorias_itens}</p>";
-                echo $q = "select * from itens where categoria in ('".implode("', '", $categorias_itens)."')";
+                echo $q = "select * from itens where categoria in ('".$categorias_itens."')";
                 $r = mysqli_query($con, $q);
                 while($i = mysqli_fetch_object($r)){
                 ?>
