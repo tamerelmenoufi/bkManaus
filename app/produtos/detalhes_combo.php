@@ -192,6 +192,8 @@
         height:20px; */
         font-family:FlameBold; 
         font-size:16px; 
+        text-align:center;
+        width:100%;
         /* display: -webkit-box; 
         -webkit-box-orient: vertical; 
         -webkit-line-clamp: 1; */
