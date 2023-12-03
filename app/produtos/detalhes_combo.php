@@ -15,10 +15,6 @@
         unset($data['valor']);
         unset($data['anotacoes']);
         $data['combo'] = json_decode($data['combo']);   
-        
-        print_r($_POST);
-
-        // echo $data['combo']->remocao[0]->produto;
 
         $valor_adicional = 0;
         if($data['combo']->inclusao){
@@ -44,11 +40,11 @@
             'status' => false,
         ];
 
-        echo $update = json_encode($update, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        $update = json_encode($update, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-        // mysqli_query($con, "UPDATE vendas_tmp set detalhes = JSON_SET(detalhes, '$.item{$_POST['codigo']}', JSON_EXTRACT('{$update}', '$')) where id_unico = '{$_POST['idUnico']}'");
+        mysqli_query($con, "UPDATE vendas_tmp set detalhes = JSON_SET(detalhes, '$.item{$_POST['codigo']}', JSON_EXTRACT('{$update}', '$')) where id_unico = '{$_POST['idUnico']}'");
 
-        // echo (($valor_adicional + $_POST['valor'])); //*($_POST['quantidade']*1));
+        echo (($valor_adicional + $_POST['valor'])); //*($_POST['quantidade']*1));
         exit();
         
     }
