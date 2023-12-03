@@ -270,8 +270,8 @@
             ?>
             <li class="list-group-item">
                 <div class="form-check">
-                    <input type="checkbox" <?=(($remocao[$i->codigo] == $i->codigo)?'checked':false)?> class="form-check-input remocao" produto="<?=$d1->codigo?>" codigo="<?=$i->codigo?>" id="remocao<?=$i->codigo?>">
-                    <label class="form-check-label" for="remocao<?=$i->codigo?>"><?=$i->item?></label>
+                    <input type="checkbox" <?=(($remocao[$i->codigo] == $i->codigo)?'checked':false)?> class="form-check-input remocao" produto="<?=$d1->codigo?>" codigo="<?=$i->codigo?>" id="remocao<?=$i->codigo?>-<?=$d1->codigo?>">
+                    <label class="form-check-label" for="remocao<?=$i->codigo?>-<?=$d1->codigo?>"><?=$i->item?></label>
                 </div>
             </li>
             <?php
@@ -303,7 +303,7 @@
                     </div> -->
                     <?=$i->item?>
                     <div class="input-group">
-                        <select class="form-select form-select-sm col-3 inclusao" valor="<?=$i->valor?>" produto="<?=$d1->codigo?>" codigo="<?=$i->codigo?>" id="inclusao_quantidade<?=$i->codigo?>">
+                        <select class="form-select form-select-sm col-3 inclusao" valor="<?=$i->valor?>" produto="<?=$d1->codigo?>" codigo="<?=$i->codigo?>" id="inclusao_quantidade<?=$i->codigo?>-<?=$d1->codigo?>">
                             <?php
                             for($j=0;$j<=10;$j++){
                             ?>
@@ -312,7 +312,7 @@
                             }
                             ?>
                         </select>
-                        <div class="d-flex justify-content-end input-group-text col-9" style="text-align:right;" for="inclusao_valor<?=$i->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></div>
+                        <div class="d-flex justify-content-end input-group-text col-9" style="text-align:right;" for="inclusao_valor<?=$i->codigo?>-<?=$d1->codigo?>">R$ <?=number_format($i->valor, 2, ",", false)?></div>
                     </div>
                 </li>
                 <?php
@@ -339,8 +339,8 @@
                 ?>
                 <li class="list-group-item d-flex justify-content-between">
                     <div class="form-check">
-                        <input type="radio" class="form-check-input substituicao" name="substituicao" produto="<?=$d1->codigo?>" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>">
-                        <label class="form-check-label" for="substituicao<?=$i->codigo?>"><?=$i->item?></label>
+                        <input type="radio" class="form-check-input substituicao" name="substituicao" produto="<?=$d1->codigo?>" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>-<?=$d1->codigo?>">
+                        <label class="form-check-label" for="substituicao<?=$i->codigo?>-<?=$d1->codigo?>"><?=$i->item?></label>
                     </div>
                     <div>
                         R$ <?=number_format($i->valor, 2, ",", false)?>
