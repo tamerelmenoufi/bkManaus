@@ -510,8 +510,11 @@ $(function(){
                 combo.produto.substituicao_valor.push(valor);
             }
         })
-        console.log(combo);
-        combo = JSON.parse(JSON.stringify(combo))
+
+        regras = [];
+        regras.push("combos", combo);
+        console.log(regras);
+        combo = JSON.stringify(regras)
         console.log(combo);
         // return false;
 
