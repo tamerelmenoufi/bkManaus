@@ -279,8 +279,7 @@
             </div>
             <ul class="list-group list-group-flush">
                 <?php
-                echo "<p>{$categorias_itens}</p>";
-                echo $q = "select * from itens where categoria in ('".$categorias_itens."')";
+                $q = "select * from itens where categoria in ('".$categorias_itens."')";
                 $r = mysqli_query($con, $q);
                 while($i = mysqli_fetch_object($r)){
                 ?>
