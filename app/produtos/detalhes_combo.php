@@ -476,11 +476,12 @@ $(function(){
             produto = ($(this).attr("produto"))*1;
             codigo = ($(this).attr("codigo"))*1;
             acao = $(this).prop("checked")
-            if(!combo.produtos) combo.produtos = [];
-            if(!combo.produtos.codigo) combo.produtos.codigo = produto;
-            if(!combo.produtos.remocao) combo.produtos.remocao = [];
+            if(!combo.produtos) {combo.produtos = [];}
+            if(!combo.produtos[produto]) {combo.produtos[produto] = produto;}
+            if(!combo.produtos[produto].codigo) combo.produtos[produto].codigo = produto;
+            if(!combo.produtos[produto].remocao) combo.produtos[produto].remocao = [];
             if(acao == true){
-                combo.produtos.remocao.push(codigo);
+                // combo.produtos[produto].remocao.push(codigo);
             }
         })
 
