@@ -512,7 +512,7 @@ $(function(){
         })
         console.log(combo);
 
-        combo = JSON.stringify(combo);
+        combo = JSON.stringify(combo.produto);
         console.log(combo);
         // return false;
 
