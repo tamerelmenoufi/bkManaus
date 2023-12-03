@@ -490,15 +490,15 @@ $(function(){
             codigo = ($(this).attr("codigo"))*1;
             valor = ($(this).attr("valor"))*1;
             quantidade = ($(this).val())*1;
-            if(!combo.produtos) combo.produtos = [];
-            if(!combo.produtos.codigo) combo.produtos.codigo = produto;
-            if(!combo.produtos.inclusao) combo.produtos.inclusao = [];
-            if(!combo.produtos.inclusao_valor) combo.produtos.inclusao_valor = [];
-            if(!combo.produtos.inclusao_quantidade) combo.produtos.inclusao_quantidade = [];
+            if(!combo.produtos[produto]) combo.produtos = [];
+            if(!combo.produtos[produto].codigo) combo.produtos[produto].codigo = produto;
+            if(!combo.produtos[produto].inclusao) combo.produtos[produto].inclusao = [];
+            if(!combo.produtos[produto].inclusao_valor) combo.produtos[produto].inclusao_valor = [];
+            if(!combo.produtos[produto].inclusao_quantidade) combo.produtos[produto].inclusao_quantidade = [];
             if(quantidade > 0){
-                combo.produtos.inclusao.push(codigo);
-                combo.produtos.inclusao_valor.push(valor);
-                combo.produtos.inclusao_quantidade.push(quantidade);               
+                combo.produtos[produto].inclusao.push(codigo);
+                combo.produtos[produto].inclusao_valor.push(valor);
+                combo.produtos[produto].inclusao_quantidade.push(quantidade);               
             }
         })
 
@@ -506,13 +506,13 @@ $(function(){
             produto = ($(this).attr("produto"))*1;
             codigo = ($(this).attr("codigo"))*1;
             valor = ($(this).attr("valor"))*1;
-            if(!combo.produtos) combo.produtos = [];
-            if(!combo.produtos.codigo) combo.produtos.codigo = produto;
-            if(!combo.produtos.substituicao) combo.produtos.substituicao = [];
-            if(!combo.produtos.substituicao_valor) combo.produtos.substituicao_valor = [];
+            if(!combo.produtos[produto]) combo.produtos = [];
+            if(!combo.produtos[produto].codigo) combo.produtos[produto].codigo = produto;
+            if(!combo.produtos[produto].substituicao) combo.produtos[produto].substituicao = [];
+            if(!combo.produtos[produto].substituicao_valor) combo.produtos[produto].substituicao_valor = [];
             if($(this).prop("checked") == true){
-                combo.produtos.substituicao.push(codigo);
-                combo.produtos.substituicao_valor.push(valor);
+                combo.produtos[produto].substituicao.push(codigo);
+                combo.produtos[produto].substituicao_valor.push(valor);
             }
         })
 
