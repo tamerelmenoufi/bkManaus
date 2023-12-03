@@ -285,11 +285,11 @@
                 ?>
                 <li class="list-group-item d-flex justify-content-between">
                     <div class="form-check">
-                        <input type="radio" class="form-check-input substituicao" name="substituicao" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>">
+                        <input type="checkbox" class="form-check-input substituicao" name="substituicao" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>">
                         <label class="form-check-label" for="substituicao<?=$i->codigo?>"><?=$i->item?></label>
                     </div>
                     <div>
-                        R$ <?=number_format($i->valor, 2, ",", false)?>
+                        + R$ <?=number_format($i->valor, 2, ",", false)?>
                     </div>
                 </li>
 
@@ -485,6 +485,13 @@ $(function(){
     $(".inclusao, .remocao, .substituicao").change(function(){
         definirDetalhes();
     })
+
+    $(".substituicao").change(function(){
+        obj = $(this);
+        $(".substituicao").prop("checked", false);
+        obj.prop("checked", true);
+        definirDetalhes();
+    })    
 
     $("#anotacoes").blur(function(){
         definirDetalhes();
