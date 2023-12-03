@@ -522,7 +522,7 @@ $(function(){
         campos.push({name:"codigo", value:codigo});
         campos.push({name:"valor", value:valor});
         campos.push({name:"quantidade", value:quantidade});
-        campos.push({name:"combo", value:combo});
+        campos.push({name:"combo", value:JSON.stringify(combo)});
         campos.push({name:"anotacoes", value:anotacoes});
         campos.push({name:"idUnico", value:idUnico});
         campos.push({name:"acao", value:'anotacoes'});
