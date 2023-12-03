@@ -88,6 +88,14 @@
         }
     }
 
+    if($dc->regras->substituicao){
+        foreach($dc->regras->substituicao as $i => $v){
+            $substituicao[$v] = $v;
+        }
+    }
+
+
+
     $anotacoes = $dc->anotacoes;
 
 
@@ -285,7 +293,7 @@
                 ?>
                 <li class="list-group-item d-flex justify-content-between">
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input substituicao" name="substituicao" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>">
+                        <input type="checkbox" <?=(($remocao[$i->codigo] == $i->codigo)?'checked':false)?> class="form-check-input substituicao" name="substituicao" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>">
                         <label class="form-check-label" for="substituicao<?=$i->codigo?>"><?=$i->item?></label>
                     </div>
                     <div>
