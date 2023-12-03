@@ -519,7 +519,7 @@ $(function(){
         // // return false;
 
 
-        console.log(JSON.stringify(combo))
+        console.log(JSON.stringify(combo[0]))
 
         return
 
