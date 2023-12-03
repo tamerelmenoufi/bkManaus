@@ -496,7 +496,7 @@ $(function(){
 
     }
 
-    $(".inclusao, .remocao, .substituicao").change(function(){
+    $(".inclusao, .remocao").change(function(){
         definirDetalhes();
     })
 

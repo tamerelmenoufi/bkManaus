@@ -22,6 +22,11 @@
             }
         }
 
+        if($data['substituicao']){
+            foreach($data['substituicao'] as $i => $v){
+                $valor_adicional = $valor_adicional + ($data['substituicao_valor'][$i]*1);
+            }
+        }
 
         $update = [
             'regras' => $data,
@@ -34,11 +39,11 @@
             'status' => false,
         ];
 
-        $update = json_encode($update, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        echo $update = json_encode($update, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-        mysqli_query($con, "UPDATE vendas_tmp set detalhes = JSON_SET(detalhes, '$.item{$_POST['codigo']}', JSON_EXTRACT('{$update}', '$')) where id_unico = '{$_POST['idUnico']}'");
+        // mysqli_query($con, "UPDATE vendas_tmp set detalhes = JSON_SET(detalhes, '$.item{$_POST['codigo']}', JSON_EXTRACT('{$update}', '$')) where id_unico = '{$_POST['idUnico']}'");
 
-        echo (($valor_adicional + $_POST['valor'])); //*($_POST['quantidade']*1));
+        // echo (($valor_adicional + $_POST['valor'])); //*($_POST['quantidade']*1));
         exit();
         
     }
@@ -265,7 +270,7 @@
             ?>
             <li class="list-group-item">
                 <div class="form-check">
-                    <input type="checkbox" <?=(($remocao[$i->codigo] == $i->codigo)?'checked':false)?> class="form-check-input remocao" codigo="<?=$i->codigo?>" id="remocao<?=$i->codigo?>">
+                    <input type="checkbox" <?=(($remocao[$i->codigo] == $i->codigo)?'checked':false)?> class="form-check-input remocao" produto="<?=$d1->codigo?>" codigo="<?=$i->codigo?>" id="remocao<?=$i->codigo?>">
                     <label class="form-check-label" for="remocao<?=$i->codigo?>"><?=$i->item?></label>
                 </div>
             </li>
@@ -298,7 +303,7 @@
                     </div> -->
                     <?=$i->item?>
                     <div class="input-group">
-                        <select class="form-select form-select-sm col-3 inclusao" valor="<?=$i->valor?>" codigo="<?=$i->codigo?>" id="inclusao_quantidade<?=$i->codigo?>">
+                        <select class="form-select form-select-sm col-3 inclusao" valor="<?=$i->valor?>" produto="<?=$d1->codigo?>" codigo="<?=$i->codigo?>" id="inclusao_quantidade<?=$i->codigo?>">
                             <?php
                             for($j=0;$j<=10;$j++){
                             ?>
@@ -334,7 +339,7 @@
                 ?>
                 <li class="list-group-item d-flex justify-content-between">
                     <div class="form-check">
-                        <input type="radio" class="form-check-input substituicao" name="substituicao" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>">
+                        <input type="radio" class="form-check-input substituicao" name="substituicao" produto="<?=$d1->codigo?>" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>">
                         <label class="form-check-label" for="substituicao<?=$i->codigo?>"><?=$i->item?></label>
                     </div>
                     <div>
@@ -459,40 +464,34 @@ $(function(){
         qt = $(".qt").text();
 
         $(".remocao").each(function(){
+            produto = $(this).attr("produto");
             codigo = $(this).attr("codigo");
             if($(this).prop("checked") == true){
-                remocao.push(codigo)
+                remocao[produto][codigo] = codigo
             }
         })
 
-        // $(".inclusao").each(function(){
-        //     codigo = $(this).attr("codigo");
-        //     valor = $(this).attr("valor");
-        //     quantidade = $(`#inclusao_quantidade${codigo}`).val();
-        //     if($(this).prop("checked") == true){
-        //         inclusao.push(codigo)
-        //         inclusao_valor.push(valor);
-        //         inclusao_quantidade.push(quantidade);
-        //     }
-        // })
+
 
         $(".inclusao").each(function(){
+            produto = $(this).attr("produto");
             codigo = $(this).attr("codigo");
             valor = $(this).attr("valor");
             quantidade = $(this).val();
             if(quantidade > 0){
-                inclusao.push(codigo)
-                inclusao_valor.push(valor);
-                inclusao_quantidade.push(quantidade);                
+                inclusao[produto][codigo] = codigo
+                inclusao_valor[produto][codigo] = valor;
+                inclusao_quantidade[produto][codigo] = quantidade;                
             }
         })
 
         $(".substituicao").each(function(){
+            produto = $(this).attr("produto");
             codigo = $(this).attr("codigo");
             valor = $(this).attr("valor");
             if($(this).prop("checked") == true){
-                substituicao.push(codigo)
-                substituicao_valor.push(valor);
+                substituicao[produto][codigo] = codigo
+                substituicao_valor[produto][codigo] = valor;
             }
         })
 
@@ -515,19 +514,28 @@ $(function(){
                 acao:'anotacoes'
             },
             success:function(dados){
-                valor = (dados*1);
-                $(".adicionar").html('R$ ' + (valor*qt).toLocaleString('pt-br', {minimumFractionDigits: 2}));  
-                $(".adicionar").attr("valor", valor);  
-                // $(".CorpoApp").html(valor);
-                // Carregando('none');
+
+                console.log(dados)
+
+                // valor = (dados*1);
+                // $(".adicionar").html('R$ ' + (valor*qt).toLocaleString('pt-br', {minimumFractionDigits: 2}));  
+                // $(".adicionar").attr("valor", valor);  
             }
         });        
 
     }
 
-    $(".inclusao, .remocao, .substituicao").change(function(){
+    $(".inclusao, .remocao").change(function(){
         definirDetalhes();
     })
+
+    $(".substituicao").change(function(){
+        obj = $(this);
+        acao = obj.prop("checked");
+        $(".substituicao").prop("checked", false);
+        if(acao) obj.prop("checked", true);
+        definirDetalhes();
+    })    
 
     $("#anotacoes").blur(function(){
         definirDetalhes();
