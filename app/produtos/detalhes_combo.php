@@ -462,6 +462,7 @@ $(function(){
 
         campos = [];
         combo = {};
+        produtos = [];
         remocao = [];
         inclusao = [];
         inclusao_valor = [];
@@ -476,11 +477,11 @@ $(function(){
             produto = ($(this).attr("produto"))*1;
             codigo = ($(this).attr("codigo"))*1;
             acao = $(this).prop("checked")
-            if(!combo.produto) combo.produto = [];
-            if(!combo.produto.codigo) combo.produto.codigo = produto;
-            if(!combo.produto.remocao) combo.produto.remocao = [];
+            if(!combo.produtos) combo.produtos = [];
+            if(!combo.produtos.codigo) combo.produtos.codigo = produto;
+            if(!combo.produtos.remocao) combo.produtos.remocao = [];
             if(acao == true){
-                combo.produto.remocao.push(codigo);
+                combo.produtos.remocao.push(codigo);
             }
         })
 
@@ -489,15 +490,15 @@ $(function(){
             codigo = ($(this).attr("codigo"))*1;
             valor = ($(this).attr("valor"))*1;
             quantidade = ($(this).val())*1;
-            if(!combo.produto) combo.produto = [];
-            if(!combo.produto.codigo) combo.produto.codigo = produto;
-            if(!combo.produto.inclusao) combo.produto.inclusao = [];
-            if(!combo.produto.inclusao_valor) combo.produto.inclusao_valor = [];
-            if(!combo.produto.inclusao_quantidade) combo.produto.inclusao_quantidade = [];
+            if(!combo.produtos) combo.produtos = [];
+            if(!combo.produtos.codigo) combo.produtos.codigo = produto;
+            if(!combo.produtos.inclusao) combo.produtos.inclusao = [];
+            if(!combo.produtos.inclusao_valor) combo.produtos.inclusao_valor = [];
+            if(!combo.produtos.inclusao_quantidade) combo.produtos.inclusao_quantidade = [];
             if(quantidade > 0){
-                combo.produto.inclusao.push(codigo);
-                combo.produto.inclusao_valor.push(valor);
-                combo.produto.inclusao_quantidade.push(quantidade);               
+                combo.produtos.inclusao.push(codigo);
+                combo.produtos.inclusao_valor.push(valor);
+                combo.produtos.inclusao_quantidade.push(quantidade);               
             }
         })
 
@@ -505,13 +506,13 @@ $(function(){
             produto = ($(this).attr("produto"))*1;
             codigo = ($(this).attr("codigo"))*1;
             valor = ($(this).attr("valor"))*1;
-            if(!combo.produto) combo.produto = [];
-            if(!combo.produto.codigo) combo.produto.codigo = produto;
-            if(!combo.produto.substituicao) combo.produto.substituicao = [];
-            if(!combo.produto.substituicao_valor) combo.produto.substituicao_valor = [];
+            if(!combo.produtos) combo.produtos = [];
+            if(!combo.produtos.codigo) combo.produtos.codigo = produto;
+            if(!combo.produtos.substituicao) combo.produtos.substituicao = [];
+            if(!combo.produtos.substituicao_valor) combo.produtos.substituicao_valor = [];
             if($(this).prop("checked") == true){
-                combo.produto.substituicao.push(codigo);
-                combo.produto.substituicao_valor.push(valor);
+                combo.produtos.substituicao.push(codigo);
+                combo.produtos.substituicao_valor.push(valor);
             }
         })
 
@@ -550,7 +551,7 @@ $(function(){
 
         console.log(combo)
 
-        combo = convertData(combo)
+        combo = convertData(combo.produtos)
         // console.log(convertData(combo.produto))
 
         // return
