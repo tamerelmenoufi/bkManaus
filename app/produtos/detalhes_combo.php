@@ -468,9 +468,9 @@ $(function(){
             codigo = ($(this).attr("codigo"))*1;
             console.log("Produto:" + produto)
             console.log("Codigo:" + codigo)
-            if(!remocao[1]) remocao[1] = [];
+            if(!remocao[`${produto}`]) remocao[`${produto}`] = [];
             if($(this).prop("checked") == true){
-                remocao[1][1] = codigo;
+                remocao[`${produto}`][`${codigo}`] = codigo;
             }
         })
 
