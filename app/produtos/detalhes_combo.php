@@ -247,8 +247,6 @@
 ?>
 <!-- NOVO -->
 
-            <h3><?=$d1->produto?></h3>
-
         <?php
 
         if($acoes->remocao == 'true' and $itens and $itens != 'null'){
