@@ -16,20 +16,20 @@
         unset($data['anotacoes']);
         $data['combo'] = json_decode($data['combo']);   
         
-        // print_r($data);
+        print_r($_POST);
 
-        echo $data['combo']->remocao[0]->produto;
+        // echo $data['combo']->remocao[0]->produto;
 
         $valor_adicional = 0;
-        if($data->combo['inclusao']){
-            foreach($data->combo['inclusao'] as $i => $v){
-                $valor_adicional = $valor_adicional + ($data->combo['inclusao_valor'][$i]->valor*$data->combo['inclusao_quantidade'][$i]->quantidade);
+        if($data['combo']->inclusao){
+            foreach($data['combo']->inclusao as $i => $v){
+                $valor_adicional = $valor_adicional + ($data['combo']->inclusao_valor[$i]->valor*$data['combo']->inclusao_quantidade[$i]->quantidade);
             }
         }
 
-        if($data->combo['substituicao']){
-            foreach($data->combo['substituicao'] as $i => $v){
-                $valor_adicional = $valor_adicional + ($data->combo['substituicao_valor'][$i]->valor*1);
+        if($data['combo']->substituicao){
+            foreach($data['combo']->substituicao as $i => $v){
+                $valor_adicional = $valor_adicional + ($data['combo']->substituicao_valor[$i]->valor*1);
             }
         }
 
