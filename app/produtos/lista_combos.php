@@ -109,7 +109,7 @@ while($d = mysqli_fetch_object($result)){
         $prd = implode("</div><div>- ", $prd);
     }
 ?>
-    <div class="produto_painel">
+    <div class="produto_painel" codigo = "<?=$d->codigo?>">
         <img src="img/logo.png" />
         <div class="w-100">
             <div class="produto_dados">
