@@ -222,6 +222,17 @@
         <div class="produto_descricao"><?=$d->descricao?></div>
 
 
+
+<?php
+    if($lista_produtos){
+        
+        $cods = implode(", ",$lista_produtos);
+        $q = "select * from produtos where codigo in ($cods)";
+        $r = mysqli_query($con, $q);
+        $prd = [];
+        while($d1 = mysqli_fetch_object($r)){
+
+?>
 <!-- NOVO -->
 
         <?php
@@ -340,8 +351,10 @@
 
 
 <!-- NOVO -->
-
-
+<?php
+        }
+    }
+?>
 
 
 
