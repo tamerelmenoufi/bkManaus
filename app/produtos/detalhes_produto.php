@@ -473,6 +473,7 @@ $(function(){
             },
             success:function(dados){
                 valor = (dados*1);
+                $(".adicionar").attr("valor",valor);
                 $(".adicionar").html('R$ ' + valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));  
                 // $(".CorpoApp").html(dados);
                 // Carregando('none');
