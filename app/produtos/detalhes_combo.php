@@ -547,7 +547,7 @@ $(function(){
         console.log(combo)
 
         combo = convertData(combo.produto)
-        console.log(convertData(combo.produto))
+        // console.log(convertData(combo.produto))
 
         // return
 
