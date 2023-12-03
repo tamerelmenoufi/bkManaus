@@ -471,10 +471,11 @@ $(function(){
             codigo = ($(this).attr("codigo"))*1;
             acao = $(this).prop("checked")
             if(!combo.produto) combo.produto = [];
-            if(!combo.produto.codigo[`${produto}`]) combo.produto.codigo[`${produto}`] = `${produto}`;
-            if(!combo.produto.codigo[`${produto}`].remocao) combo.produto.codigo[`${produto}`].remocao = [];
+
+            if(!combo.produto.codigo[produto]) combo.produto.codigo[`${produto}`] = `${produto}`;
+            if(!combo.produto.codigo[produto].remocao) combo.produto.codigo[`${produto}`].remocao = [];
             if(acao == true){
-                combo.produto.codigo[`${produto}`].remocao.push(codigo);
+                combo.produto.codigo[produto].remocao.push(codigo);
             }
         })
 
