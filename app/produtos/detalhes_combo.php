@@ -466,6 +466,8 @@ $(function(){
         $(".remocao").each(function(){
             produto = $(this).attr("produto");
             codigo = $(this).attr("codigo");
+            console.log("Produto:" + produto)
+            console.log("Codigo:" + codigo)
             if($(this).prop("checked") == true){
                 remocao[produto][codigo] = codigo
             }
