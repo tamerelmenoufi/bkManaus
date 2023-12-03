@@ -474,7 +474,7 @@ $(function(){
             success:function(dados){
                 valor = (dados*1);
                 $(".adicionar").html('R$ ' + (valor*qt).toLocaleString('pt-br', {minimumFractionDigits: 2}));  
-                $(".adicionar").valor("valor", valor*qt);  
+                $(".adicionar").attr("valor", valor);  
                 // $(".CorpoApp").html(valor);
                 // Carregando('none');
             }
