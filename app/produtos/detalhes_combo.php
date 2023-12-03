@@ -374,7 +374,7 @@ $(function(){
     $(".barra_topo").click(function(){
 
         $.ajax({
-            url:"produtos/lista_produtos.php",
+            url:"produtos/lista_combos.php",
             success:function(dados){
                 $(".CorpoApp").html(dados);
             }
@@ -455,7 +455,7 @@ $(function(){
 
         // Carregando();
         $.ajax({
-            url:"produtos/detalhes_produto.php",
+            url:"produtos/detalhes_combo.php",
             type:"POST",
             data:{
                 codigo:'<?=$d->codigo?>',
@@ -498,7 +498,7 @@ $(function(){
         idUnico = localStorage.getItem("idUnico");
         
         $.ajax({
-            url:"produtos/detalhes_produto.php",
+            url:"produtos/detalhes_combo.php",
             type:"POST",
             data:{
                 codigo:'<?=$d->codigo?>',
@@ -509,7 +509,7 @@ $(function(){
             success:function(dados){
                 console.log(dados);
                 $.ajax({
-                    url:"produtos/lista_produtos.php",
+                    url:"produtos/lista_combos.php",
                     success:function(dados){  
                         $(".CorpoApp").html(dados);
                         Carregando('none');
