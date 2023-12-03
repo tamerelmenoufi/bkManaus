@@ -519,6 +519,11 @@ $(function(){
         // // return false;
 
 
+        console.log(JSON.stringify(combo))
+
+        return
+
+
         campos.push({name:"codigo", value:codigo});
         campos.push({name:"valor", value:valor});
         campos.push({name:"quantidade", value:quantidade});
