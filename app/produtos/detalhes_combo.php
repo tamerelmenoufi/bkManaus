@@ -453,7 +453,6 @@ $(function(){
 
     definirDetalhes = () => {
 
-        combo = {};
         remocao = {};
         inclusao = [];
         inclusao_valor = [];
@@ -468,9 +467,9 @@ $(function(){
             produto = ($(this).attr("produto"))*1;
             codigo = ($(this).attr("codigo"))*1;
             acao = $(this).prop("checked")
-            if(!combo.remocao["produto"] && acao == true) combo.remocao["produto"] = {};
+            if(!remocao[`${produto}`] && acao == true) remocao[`${produto}`] = {};
             if(acao == true){
-                combo.remocao.produto = {"codigo":codigo};
+                remocao[`${produto}`][`${codigo}`] = codigo;
             }
         })
 
