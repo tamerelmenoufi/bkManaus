@@ -38,7 +38,7 @@
 
         mysqli_query($con, "UPDATE vendas_tmp set detalhes = JSON_SET(detalhes, '$.item{$_POST['codigo']}', JSON_EXTRACT('{$update}', '$')) where id_unico = '{$_POST['idUnico']}'");
 
-        echo (($valor_adicional + $_POST['valor'])*($_POST['quantidade']*1));
+        echo (($valor_adicional + $_POST['valor'])); //*($_POST['quantidade']*1));
         exit();
         
     }
@@ -473,9 +473,8 @@ $(function(){
             },
             success:function(dados){
                 valor = (dados*1);
-                $(".adicionar").attr("valor",valor);
-                $(".adicionar").html('R$ ' + valor.toLocaleString('pt-br', {minimumFractionDigits: 2}));  
-                // $(".CorpoApp").html(dados);
+                $(".adicionar").html('R$ ' + (valor*qt).toLocaleString('pt-br', {minimumFractionDigits: 2}));  
+                $(".CorpoApp").html(valor);
                 // Carregando('none');
             }
         });        
