@@ -70,7 +70,7 @@
             $prd[] = $d1->produto;
         }
 
-        $prd = implode("</div><div>- ", $prd);
+        $prd = implode(", ", $prd);
     }
 
     $tmp = mysqli_fetch_object(mysqli_query($con, "select detalhes->>'$.item{$d->codigo}' as produto from vendas_tmp where id_unico = '{$_POST['idUnico']}'"));
@@ -186,6 +186,16 @@
         margin-bottom:10px;
         margin-top:10px;
     }
+    .produtos{
+        color:#c45018; 
+        overflow: hidden; 
+        height:20px;
+        font-family:FlameBold; 
+        font-size:16px; 
+        display: -webkit-box; 
+        -webkit-box-orient: vertical; 
+        -webkit-line-clamp: 1;
+    }
 
     
 </style>
@@ -198,7 +208,7 @@
 <div class="home_corpo">
     <div class="produto_painel" codigo="<?=$d->codigo?>">
         <h1 class="produto_titulo"><?=$d->produto?></h1>
-        <div>- <?=$prd?></div>
+        <div class="produtos"><?=$prd?></div>
         <img src="img/logo.png" class="produto_img" />
         <!-- <div class="produto_detalhes d-flex justify-content-between align-items-center w-100">
             <div style="cursor:pointer">
