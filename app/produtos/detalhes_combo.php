@@ -511,8 +511,7 @@ $(function(){
             }
         })
         console.log(combo);
-
-        combo = combo.toString();
+        combo = JSON.stringify(combo)
         console.log(combo);
         // return false;
 
