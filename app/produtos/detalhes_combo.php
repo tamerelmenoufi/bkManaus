@@ -564,7 +564,7 @@ $(function(){
                 codigo:'<?=$d->codigo?>',
                 valor:'<?=$d->valor?>',
                 quantidade:qt,
-                combo:campos,
+                combo,
                 anotacoes,
                 idUnico,
                 acao:'anotacoes'
