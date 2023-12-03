@@ -453,7 +453,7 @@ $(function(){
 
     definirDetalhes = () => {
 
-        remocao = new Array();
+        remocao = [];
         inclusao = [];
         inclusao_valor = [];
         inclusao_quantidade = [];
@@ -464,8 +464,8 @@ $(function(){
         qt = $(".qt").text();
 
         $(".remocao").each(function(){
-            produto = $(this).attr("produto");
-            codigo = $(this).attr("codigo");
+            produto = ($(this).attr("produto"))*1;
+            codigo = ($(this).attr("codigo"))*1;
             console.log("Produto:" + produto)
             console.log("Codigo:" + codigo)
             if($(this).prop("checked") == true){
