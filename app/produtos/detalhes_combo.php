@@ -469,7 +469,7 @@ $(function(){
             acao = $(this).prop("checked")
             if(!remocao[`${produto}`] && acao == true) remocao[`${produto}`] = {};
             if(acao == true){
-                remocao[`${produto}`][`${codigo}`] = codigo;
+                remocao[`${produto}`][`${codigo}`] = {"codigo":codigo};
             }
         })
 
