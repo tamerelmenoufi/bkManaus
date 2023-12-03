@@ -469,7 +469,7 @@ $(function(){
             console.log("Produto:" + produto)
             console.log("Codigo:" + codigo)
             if($(this).prop("checked") == true){
-                remocao[`${produto}`][`${codigo}`] = codigo;
+                remocao[1][1] = codigo;
             }
         })
 
