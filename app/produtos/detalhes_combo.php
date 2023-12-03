@@ -479,7 +479,7 @@ $(function(){
             if(!combo.produtos) {combo.produtos = [];}
             if(!combo.produtos[produto]) {combo.produtos[produto] = produto;}
             if(!combo.produtos[produto].codigo) combo.produtos[produto].codigo = produto;
-            // if(!combo.produtos[produto].remocao) combo.produtos[produto].remocao = [];
+            if(!combo.produtos[produto].remocao) console('sim') //combo.produtos[produto].remocao = [];
             if(acao == true){
                 combo.produtos[produto].remocao.push(codigo);
             }
