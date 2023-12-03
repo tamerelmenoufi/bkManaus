@@ -478,10 +478,10 @@ $(function(){
             acao = $(this).prop("checked")
             if(!combo.produtos) {combo.produtos = [];}
             if(!combo.produtos[produto]) {combo.produtos[produto] = produto;}
-            if(!combo.produtos.codigo) combo.produtos.codigo = produto;
-            if(!combo.produtos.remocao) combo.produtos.remocao = [];
+            if(!combo.produtos[produto].codigo) combo.produtos.codigo = produto;
+            if(!combo.produtos[produto].remocao) combo.produtos.remocao = [];
             if(acao == true){
-                combo.produtos.remocao.push(codigo);
+                combo.produtos[produto].remocao.push(codigo);
             }
         })
 
