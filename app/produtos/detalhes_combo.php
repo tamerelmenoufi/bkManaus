@@ -478,7 +478,7 @@ $(function(){
             codigo = ($(this).attr("codigo"))*1;
             acao = $(this).prop("checked")
             if(!combo.produtos) combo.produtos = [];
-            if(!combo.produtos.codigo) combo.produtos.codigo = produto;
+            // if(!combo.produtos.codigo) combo.produtos.codigo = produto;
             if(!combo.produtos.remocao) combo.produtos.remocao = [];
             if(acao == true){
                 combo.produtos.remocao.push({"produto":produto, "item":codigo});
@@ -491,7 +491,7 @@ $(function(){
             valor = ($(this).attr("valor"))*1;
             quantidade = ($(this).val())*1;
             if(!combo.produtos) combo.produtos = [];
-            if(!combo.produtos.codigo) combo.produtos.codigo = produto;
+            // if(!combo.produtos.codigo) combo.produtos.codigo = produto;
             if(!combo.produtos.inclusao) combo.produtos.inclusao = [];
             if(!combo.produtos.inclusao_valor) combo.produtos.inclusao_valor = [];
             if(!combo.produtos.inclusao_quantidade) combo.produtos.inclusao_quantidade = [];
@@ -507,7 +507,7 @@ $(function(){
             codigo = ($(this).attr("codigo"))*1;
             valor = ($(this).attr("valor"))*1;
             if(!combo.produtos) combo.produtos = [];
-            if(!combo.produtos.codigo) combo.produtos.codigo = produto;
+            // if(!combo.produtos.codigo) combo.produtos.codigo = produto;
             if(!combo.produtos.substituicao) combo.produtos.substituicao = [];
             if(!combo.produtos.substituicao_valor) combo.produtos.substituicao_valor = [];
             if($(this).prop("checked") == true){
