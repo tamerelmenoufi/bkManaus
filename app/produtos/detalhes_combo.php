@@ -535,7 +535,7 @@ $(function(){
                 }),
                 substituicao: d.substituicao.map( v => {
                     return v
-                })
+                }),
                 substituicao_valor: d.substituicao_valor.map( v => {
                     return v
                 })
