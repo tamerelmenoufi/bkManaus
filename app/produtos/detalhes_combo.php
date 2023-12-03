@@ -60,6 +60,19 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
+    $lista_produtos = json_decode($d->cod_prod);
+    if($lista_produtos){
+        $cods = implode(", ",$lista_produtos);
+        $q = "select * from produtos where codigo in ($cods) limit 3";
+        $r = mysqli_query($con, $q);
+        $prd = [];
+        while($d1 = mysqli_fetch_object($r)){
+            $prd[] = $d1->produto;
+        }
+
+        $prd = implode("</div><div>- ", $prd);
+    }
+
     $tmp = mysqli_fetch_object(mysqli_query($con, "select detalhes->>'$.item{$d->codigo}' as produto from vendas_tmp where id_unico = '{$_POST['idUnico']}'"));
 
 
@@ -185,6 +198,7 @@
 <div class="home_corpo">
     <div class="produto_painel" codigo="<?=$d->codigo?>">
         <h1 class="produto_titulo"><?=$d->produto?></h1>
+        <div>- <?=$prd?></div>
         <img src="img/logo.png" class="produto_img" />
         <!-- <div class="produto_detalhes d-flex justify-content-between align-items-center w-100">
             <div style="cursor:pointer">
