@@ -550,7 +550,7 @@ $(function(){
 
         console.log(combo)
 
-        combo = convertData(combo.produto)
+        combo = convertData(combo)
         // console.log(convertData(combo.produto))
 
         // return
