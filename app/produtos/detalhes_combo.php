@@ -7,9 +7,7 @@
 
     if($_POST['acao'] == 'anotacoes'){
 
-        print_r($_POST);
 
-        exit();
 
         $data = $_POST;
         unset($data['acao']);
@@ -18,6 +16,11 @@
         unset($data['quantidade']);
         unset($data['valor']);
         unset($data['anotacoes']);
+        $data['combo'] = json_decode($data['combo']);
+
+        print_r($data);
+
+        exit();        
 
         $valor_adicional = 0;
         if($data['inclusao']){
@@ -540,8 +543,8 @@ $(function(){
                     return v
                 })
             };
-            // return JSON.stringify(formatar);
-            return formatar;
+            return JSON.stringify(formatar);
+            // return formatar;
         }
 
 
