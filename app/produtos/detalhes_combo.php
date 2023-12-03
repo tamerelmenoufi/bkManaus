@@ -458,7 +458,6 @@ $(function(){
     definirDetalhes = () => {
 
         combo = {};
-        
         remocao = [];
         inclusao = [];
         inclusao_valor = [];
@@ -512,6 +511,7 @@ $(function(){
             }
         })
 
+        combo = JSON.stringify(combo);
         console.log(combo);
         // return false;
 
