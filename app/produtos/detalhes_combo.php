@@ -188,13 +188,13 @@
     }
     .produtos{
         color:#c45018; 
-        overflow: hidden; 
-        height:20px;
+        /* overflow: hidden; 
+        height:20px; */
         font-family:FlameBold; 
         font-size:16px; 
-        display: -webkit-box; 
+        /* display: -webkit-box; 
         -webkit-box-orient: vertical; 
-        -webkit-line-clamp: 1;
+        -webkit-line-clamp: 1; */
     }
 
     
