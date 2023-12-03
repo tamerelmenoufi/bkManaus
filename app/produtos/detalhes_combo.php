@@ -14,7 +14,9 @@
         unset($data['quantidade']);
         unset($data['valor']);
         unset($data['anotacoes']);
-        $data['combo'] = json_decode($data['combo']);      
+        $data['combo'] = json_decode($data['combo']);   
+        
+        print_r($data);
 
         $valor_adicional = 0;
         if($data['inclusao']){
