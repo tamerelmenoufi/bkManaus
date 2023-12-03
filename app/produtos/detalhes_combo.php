@@ -234,7 +234,7 @@
 
         $cods = implode(", ",$lista_produtos);
         $qp = "select a.*, a.itens->>'$[*].item' as lista_itens, a.produtos->>'$[*].produto' as cod_prod, a.produtos->>'$[*].quantidade' as qtd_prod, b.acoes_itens from produtos a left join categorias b on a.categoria = b.codigo where a.codigo in ($cods)";
-        $rp = mysqli_query($con, $q);
+        $rp = mysqli_query($con, $qp);
         $prd = [];
         while($d1 = mysqli_fetch_object($rp)){
 
