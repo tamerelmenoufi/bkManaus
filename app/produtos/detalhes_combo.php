@@ -16,7 +16,9 @@
         unset($data['anotacoes']);
         $data['combo'] = json_decode($data['combo']);   
         
-        print_r($data);
+        // print_r($data);
+
+        echo $data['combo']->remocao[0]->produto;
 
         $valor_adicional = 0;
         if($data->combo['inclusao']){
