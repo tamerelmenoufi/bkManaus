@@ -472,12 +472,13 @@ $(function(){
             acao = $(this).prop("checked")
             if(!combo.produto) combo.produto = [];
 
-            if(!combo.produto[produto]) combo.produto[produto] = {};
+            if(!combo.produto.codigo) combo.produto.codigo = produto;
+            if(!combo.produto.remocao) combo.produto.remocao = [];
             
-            if(!combo.produto[produto].codigo) combo.produto[produto].codigo = `${produto}`;
-            if(!combo.produto[produto].remocao) combo.produto[produto].remocao = [];
+            // if(!combo.produto[produto].codigo) combo.produto[produto].codigo = `${produto}`;
+            // if(!combo.produto[produto].remocao) combo.produto[produto].remocao = [];
             if(acao == true){
-                combo.produto[produto].remocao.push(codigo);
+                combo.produto.produto.remocao.push(codigo);
             }
         })
 
