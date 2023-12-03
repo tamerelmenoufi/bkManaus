@@ -518,9 +518,11 @@ $(function(){
         // console.log(teste);
         // // return false;
 
-        combo.each(function(){
-            console.log(JSON.stringify($(this)))
-        })
+        function convertData(d){
+            let formatar = {
+                
+            }
+        }
 
 
         console.log(combo)
