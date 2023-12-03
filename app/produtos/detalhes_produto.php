@@ -502,8 +502,9 @@ $(function(){
 
     $(".substituicao").change(function(){
         obj = $(this);
+        acao = obj.prop("checked");
         $(".substituicao").prop("checked", false);
-        obj.prop("checked", true);
+        if(acao) obj.prop("checked", true);
         definirDetalhes();
     })    
 
