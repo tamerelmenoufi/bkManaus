@@ -63,7 +63,7 @@
     $lista_produtos = json_decode($d->cod_prod);
     if($lista_produtos){
         $cods = implode(", ",$lista_produtos);
-        $q = "select * from produtos where codigo in ($cods) limit 3";
+        $q = "select * from produtos where codigo in ($cods)";
         $r = mysqli_query($con, $q);
         $prd = [];
         while($d1 = mysqli_fetch_object($r)){
