@@ -496,9 +496,9 @@ $(function(){
             if(!combo.produtos.inclusao_valor) combo.produtos.inclusao_valor = [];
             if(!combo.produtos.inclusao_quantidade) combo.produtos.inclusao_quantidade = [];
             if(quantidade > 0){
-                combo.produtos.inclusao.push(codigo);
-                combo.produtos.inclusao_valor.push(valor);
-                combo.produtos.inclusao_quantidade.push(quantidade);               
+                combo.produtos.inclusao.push({"produto":produto, "item":codigo});
+                combo.produtos.inclusao_valor.push({"produto":produto, "valor":valor});
+                combo.produtos.inclusao_quantidade.push({"produto":produto, "quantidade":quantidade});               
             }
         })
 
@@ -511,8 +511,8 @@ $(function(){
             if(!combo.produtos.substituicao) combo.produtos.substituicao = [];
             if(!combo.produtos.substituicao_valor) combo.produtos.substituicao_valor = [];
             if($(this).prop("checked") == true){
-                combo.produtos.substituicao.push(codigo);
-                combo.produtos.substituicao_valor.push(valor);
+                combo.produtos.substituicao.push({"produto":produto, "item":codigo});
+                combo.produtos.substituicao_valor.push({"produto":produto, "valor":valor});
             }
         })
 
