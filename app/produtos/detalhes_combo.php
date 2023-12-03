@@ -523,7 +523,7 @@ $(function(){
                 codigo:'<?=$d->codigo?>',
                 valor:'<?=$d->valor?>',
                 quantidade:qt,
-                regras:combo,
+                combo,
                 // remocao,
                 // inclusao,
                 // inclusao_valor,
