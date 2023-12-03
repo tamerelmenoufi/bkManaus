@@ -518,6 +518,10 @@ $(function(){
         // console.log(teste);
         // // return false;
 
+        combo.each(function(){
+            console.log(JSON.stringify($(this)))
+        })
+
 
         console.log(combo)
 
