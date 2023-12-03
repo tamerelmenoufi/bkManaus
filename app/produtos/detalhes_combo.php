@@ -7,8 +7,6 @@
 
     if($_POST['acao'] == 'anotacoes'){
 
-
-
         $data = $_POST;
         unset($data['acao']);
         unset($data['codigo']);
@@ -16,22 +14,18 @@
         unset($data['quantidade']);
         unset($data['valor']);
         unset($data['anotacoes']);
-        $data['combo'] = json_decode($data['combo']);
-
-        print_r($data);
-
-        exit();        
+        $data['combo'] = json_decode($data['combo']);      
 
         $valor_adicional = 0;
         if($data['inclusao']){
             foreach($data['inclusao'] as $i => $v){
-                $valor_adicional = $valor_adicional + ($data['inclusao_valor'][$i]*$data['inclusao_quantidade'][$i]);
+                $valor_adicional = $valor_adicional + ($data['inclusao_valor'][$i]->valor*$data['inclusao_quantidade'][$i]->quantidade);
             }
         }
 
         if($data['substituicao']){
             foreach($data['substituicao'] as $i => $v){
-                $valor_adicional = $valor_adicional + ($data['substituicao_valor'][$i]*1);
+                $valor_adicional = $valor_adicional + ($data['substituicao_valor'][$i]->valor*1);
             }
         }
 
