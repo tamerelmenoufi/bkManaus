@@ -73,6 +73,10 @@
         $prd = implode(", ", $prd);
     }
 
+
+
+
+
     $tmp = mysqli_fetch_object(mysqli_query($con, "select detalhes->>'$.item{$d->codigo}' as produto from vendas_tmp where id_unico = '{$_POST['idUnico']}'"));
 
 
@@ -225,12 +229,21 @@
 
 <?php
     if($lista_produtos){
-        
+
+    $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));
+
+
         $cods = implode(", ",$lista_produtos);
-        $q = "select * from produtos where codigo in ($cods)";
+        $q = "select a.*, a.itens->>'$[*].item' as lista_itens, a.produtos->>'$[*].produto' as cod_prod, a.produtos->>'$[*].quantidade' as qtd_prod, b.acoes_itens from produtos a left join categorias b on a.categoria = b.codigo where a.codigo in ($cods)";
         $r = mysqli_query($con, $q);
         $prd = [];
         while($d1 = mysqli_fetch_object($r)){
+
+
+            $acoes = json_decode($d1->acoes_itens);
+
+            $itens = json_decode($d1->lista_itens);
+            $categorias_itens = json_decode($d->categorias_itens); 
 
 ?>
 <!-- NOVO -->
@@ -341,15 +354,6 @@
 
         ?>
 
-        <div class="mb-3 w-100">
-        <label for="anotacoes" class="form-label">
-            <i class="fa-regular fa-message fa-flip-horizontal"></i>
-            Anotações do pedido
-        </label>
-        <textarea class="form-control" id="anotacoes" rows="3"><?=$anotacoes?></textarea>
-        </div>
-
-
 <!-- NOVO -->
 <?php
         }
@@ -357,6 +361,13 @@
 ?>
 
 
+        <div class="mb-3 w-100">
+        <label for="anotacoes" class="form-label">
+            <i class="fa-regular fa-message fa-flip-horizontal"></i>
+            Anotações do pedido
+        </label>
+        <textarea class="form-control" id="anotacoes" rows="3"><?=$anotacoes?></textarea>
+        </div>
 
 
 
