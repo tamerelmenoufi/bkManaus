@@ -22,6 +22,12 @@
             }
         }
 
+        if($data['substituicao']){
+            foreach($data['substituicao'] as $i => $v){
+                $valor_adicional = $valor_adicional + ($data['substituicao_valor'][$i]*1);
+            }
+        }
+
 
         $update = [
             'regras' => $data,
