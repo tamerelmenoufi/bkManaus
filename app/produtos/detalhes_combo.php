@@ -479,8 +479,9 @@ $(function(){
             acao = $(this).prop("checked")
             if(!combo.produtos) combo.produtos = [];
             if(!combo.produtos.codigo) combo.produtos.codigo = produto;
+            if(!combo.produtos.remocao) combo.produtos.remocao = {};
             if(acao == true){
-                combo.produtos.remocao = {"produto":produto, "item":codigo};
+                combo.produtos.remocao.push({"produto":produto, "item":codigo});
             }
         })
 
