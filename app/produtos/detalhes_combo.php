@@ -467,7 +467,7 @@ $(function(){
             produto = ($(this).attr("produto"))*1;
             codigo = ($(this).attr("codigo"))*1;
             acao = $(this).prop("checked")
-            if(!remocao[`${produto}`] && acao == true) remocao[`${produto}`] = [];
+            if(!remocao[`${produto}`] && acao == true) remocao[`${produto}`] = {};
             if(acao == true){
                 remocao[`${produto}`][`${codigo}`] = codigo;
             }
