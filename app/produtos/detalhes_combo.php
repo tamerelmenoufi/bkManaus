@@ -511,8 +511,10 @@ $(function(){
             }
         })
 
-
         console.log(combo.produto);
+        // teste = combo.parseJSON()
+        teste = JSON.stringify(combo.produto)
+        console.log(teste);
         // return false;
 
         // Carregando();
