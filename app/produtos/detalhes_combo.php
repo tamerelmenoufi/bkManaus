@@ -540,7 +540,8 @@ $(function(){
                     return v
                 })
             };
-            return JSON.stringify(formatar);
+            // return JSON.stringify(formatar);
+            return formatar;
         }
 
 
