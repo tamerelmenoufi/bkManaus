@@ -38,7 +38,6 @@
         background-color:#fff;
         left:0;
         right:0;
-        border:1px solid red;
     }
 
     .home_rodape{
@@ -54,7 +53,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: row;
-        /* padding:5px; */
+        padding:5px;
         margin-bottom:20px;
     }
     .produto_painel img{
@@ -108,7 +107,7 @@
             <div class="produto_dados">
                 <h4 style="color:#f12a2a"><?=$pd->produto?></h4>
             </div>
-            <div class="produto_dados" editar="<?=$dados->tipo?>" categoria="<?=$pd->categoria?>" codigo="<?=$dados->codigo?>" style="color:#a1a1a1; margin:15px; cursor:pointer;">
+            <div class="produto_dados" editar="<?=$dados->tipo?>" categoria="<?=$pd->categoria?>" codigo="<?=$dados->codigo?>" style="color:#a1a1a1; padding:15px; cursor:pointer;">
                 <i class="fa fa-edit"></i>
                 Editar
             </div>
