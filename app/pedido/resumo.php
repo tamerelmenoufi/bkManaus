@@ -118,7 +118,7 @@
                     <i class="fa-solid fa-circle-plus mais" style="color:green"></i>
                 </div>
                 <div>
-                    <h2 style="color:#f12a2a; font-family:FlameBold; ">
+                    <h2 class="adicionar" valor="<?=$dados->total?>" style="color:#f12a2a; font-family:FlameBold; ">
                         R$ <?=number_format($dados->total,2,",",false)?>
                     </h2>
                 </div>
