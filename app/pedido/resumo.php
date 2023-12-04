@@ -14,6 +14,16 @@
         exit();
     }
 
+    if($_POST['acao'] == 'remove'){
+
+        echo $q = "update vendas_tmp set detalhes = JSON_REMOVE(detalhes, '$.item{$_POST['codigo']}')
+                            where id_unico = '{$_POST['idUnico']}'";
+
+        mysqli_query($con, $q);
+
+        exit();
+    }
+
     $query = "select * from vendas_tmp where id_unico = '{$_POST['idUnico']}'";
 
     $result = mysqli_query($con, $query);
@@ -193,6 +203,22 @@ $(function(){
         }); 
     }
 
+    removeProduto = (cod)=>{
+        idUnico = localStorage.getItem("idUnico");
+        $.ajax({
+            url:`pedido/resumo.php`,
+            type:"POST",
+            data:{
+                codigo:cod,
+                idUnico,
+                acao:'remove'
+            },
+            success:function(dados){
+                console.log(dados);
+            }
+        }); 
+    }
+
 
     $(".mais").click(function(){
         $(this).parent("div").children("i.menos").removeClass("fa-trash-can");
@@ -219,8 +245,8 @@ $(function(){
             $(this).parent("div").children("i.menos").addClass("fa-trash-can");
             $(this).parent("div").children("i.menos").removeClass("fa-circle-minus");
         }else if(qt == 1){
-            console.log('Passou pelo click');
             $(this).parent("div").parent("div").parent("div").parent("div").remove();
+            removeProduto(cod);
             return false;
         }
         qt = (((qt*1 - 1)>1)?(qt*1 - 1):1);
