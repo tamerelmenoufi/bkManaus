@@ -107,9 +107,9 @@
             <div class="produto_dados">
                 <h4 style="color:#f12a2a"><?=$pd->produto?></h4>
             </div>
-            <div class="produto_dados"  style="color:#a1a1a1; margin:15px;">
+            <div class="produto_dados" editar="<?=$dados->produto?>" categoria="<?=$pd->categoria?>" codigo="<?=$dados->codigo?>" style="color:#a1a1a1; margin:15px; cursor:pointer;">
                 <i class="fa fa-edit"></i>
-                Editar <?=$dados->tipo?>
+                Editar
             </div>
             <div class="produto_botoes d-flex justify-content-between">
                 <div class="d-flex justify-content-between">
@@ -157,6 +157,23 @@ $(function(){
             $(".home_rodape").html(dados);
         }
     });
+
+    $(".editar").click(function(){
+        codigo = $(this).attr("codigo");
+        categoria = $(this).attr("categoria");
+        local = $(this).attr("editar");
+        $.ajax({
+            url:`produtos/detalhes_${local}.php`,
+            type:"POST",
+            data:{
+                codigo,
+                categoria
+            },
+            success:function(dados){
+                $(".CorpoApp").html(dados);
+            }
+        });        
+    })
 
 
     $(".mais").click(function(){
