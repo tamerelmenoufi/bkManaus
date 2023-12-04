@@ -117,7 +117,7 @@
                     <div class="qt" style="margin-top:-8px; text-align:center; width:60px; font-family:UniformBold;"><?=$dados->quantidade?></div>
                     <i class="fa-solid fa-circle-plus mais" style="color:green"></i>
                 </div>
-                <div>
+                <div valor>
                     <h2 class="adicionar" valor="<?=$dados->total?>" style="color:#f12a2a; font-family:FlameBold; ">
                         R$ <?=number_format($dados->total,2,",",false)?>
                     </h2>
@@ -160,12 +160,14 @@ $(function(){
 
 
     $(".mais").click(function(){
-        valor = $(".adicionar").attr("valor");
-        qt = $(".qt").text();
+        objValor = $(this).parent("div").parent("div").children("div[valor]").children("h2");
+        objQt = $(this).parent("div").children("div.qt");
+        valor = objValor.attr("valor");
+        qt = objQt.text();
         qt = (qt*1 + 1);
-        $(".qt").text(qt);
+        objQt.text(qt);
         total = (valor*qt);
-        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));                
+        objValor.html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));                
     })
 
     $(".menos").click(function(){
