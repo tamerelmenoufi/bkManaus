@@ -92,7 +92,7 @@
         $valor_calculado = $dc->total;
         $quantidade = $dc->quantidade;
     }else{
-        $valor_calculado = $d->valor;
+        $valor_calculado = CalculaValorCombo($d->codigo);
         $quantidade = 1;        
     }
     
