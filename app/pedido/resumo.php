@@ -106,7 +106,7 @@
             <div class="produto_dados">
                 <h4 style="color:#f12a2a"><?=$dados->codigo?></h4>
             </div>
-            <div class="produto_dados">
+            <div class="produto_dados"  style="color:#a1a1a1; margin:15px;">
                 <i class="fa fa-edit"></i>
                 Editar
             </div>
