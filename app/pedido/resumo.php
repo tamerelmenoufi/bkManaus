@@ -53,9 +53,11 @@
     <h2>Pedido</h2>
 </div>
 <div class="home_corpo">
+    <pre>
 <?php
     print_r($d);
 ?>
+    </pre>
 </div>
 <div class="home_rodape"></div>
 
