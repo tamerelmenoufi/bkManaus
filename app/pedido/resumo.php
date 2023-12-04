@@ -188,7 +188,7 @@ $(function(){
         }              
     })
 
-    $(".excluir").click(function(){
+    $(document).on("click", ".excluir", function(){
         $(this).parent("div").parent("div").remove();
     })
 
