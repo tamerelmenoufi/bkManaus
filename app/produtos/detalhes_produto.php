@@ -1,9 +1,9 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-    $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));
-
-    $acoes = json_decode($c->acoes_itens);
+    if($_POST['categoria']){
+        $_SESSION['categoria'] = $_POST['categoria'];
+    }
 
     if($_POST['acao'] == 'anotacoes'){
 
@@ -66,6 +66,15 @@
     $query = "select *, itens->>'$[*].item' as lista_itens from produtos where codigo = '{$_POST['codigo']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
+
+    $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$d->categoria}'"));
+
+    if($c->codigo){
+        $_SESSION['categoria'] = $c->codigo;
+    }
+
+
+    $acoes = json_decode($c->acoes_itens);
 
     $tmp = mysqli_fetch_object(mysqli_query($con, "select detalhes->>'$.item{$d->codigo}' as produto from vendas_tmp where id_unico = '{$_POST['idUnico']}'"));
 
@@ -390,30 +399,14 @@ $(function(){
 
         $.ajax({
             url:"produtos/lista_produtos.php",
-            success:function(dados){
-                $(".CorpoApp").html(dados);
-            }
-        });        
-
-    })
-
-    $(".produto_detalhes").click(function(){
-
-        quantidade = $(".qt").text();
-        idUnico = localStorage.getItem("idUnico");
-        
-        $.ajax({
-            url:"produtos/anotacoes_produto.php",
-            type:"POST",
+            type:"post",
             data:{
-                codigo:'<?=$d->codigo?>',
-                quantidade,
-                idUnico,
+                categoria:'<?=$d->categoria?>'
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);
             }
-        });           
+        });        
 
     })
 
@@ -474,6 +467,7 @@ $(function(){
             type:"POST",
             data:{
                 codigo:'<?=$d->codigo?>',
+                categoria:'<?=$d->categoria?>',
                 valor:'<?=$d->valor?>',
                 quantidade:qt,
                 remocao,
@@ -525,6 +519,7 @@ $(function(){
             type:"POST",
             data:{
                 codigo:'<?=$d->codigo?>',
+                categoria:'<?=$d->categoria?>',
                 quantidade,
                 idUnico,
                 acao:'salvar',
@@ -533,6 +528,10 @@ $(function(){
                 console.log(dados);
                 $.ajax({
                     url:"produtos/lista_produtos.php",
+                    type:"POST",
+                    data:{
+                        categoria:'<?=$d->categoria?>'
+                    },
                     success:function(dados){  
                         $(".CorpoApp").html(dados);
                         Carregando('none');

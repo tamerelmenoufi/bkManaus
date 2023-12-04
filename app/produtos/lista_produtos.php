@@ -139,6 +139,7 @@ $(function(){
             type:"POST",
             data:{
                 codigo,
+                categoria:'<?=$d->categoria?>',
                 idUnico
             },
             success:function(dados){
