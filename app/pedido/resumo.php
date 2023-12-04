@@ -36,7 +36,8 @@
         bottom:90px;
         overflow:auto;
         background-color:#fff;
-        width:100%;
+        left:0;
+        right:0;
     }
 
     .home_rodape{
