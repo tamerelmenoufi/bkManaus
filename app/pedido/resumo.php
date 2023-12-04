@@ -112,7 +112,7 @@
                 <i class="fa fa-edit"></i>
                 Editar
             </div>
-            <div class="produto_botoes d-flex justify-content-between">
+            <!-- <div class="produto_botoes d-flex justify-content-between">
                 <div class="d-flex justify-content-between">
                     <i class="fa-solid <?=(($dados->quantidade == 1)?'fa-trash-can':'fa-circle-minus')?> menos" style="color:red; margin-left:10px;"></i>
                     <div class="qt" style="margin-top:-8px; text-align:center; width:60px; font-family:UniformBold;"><?=$dados->quantidade?></div>
@@ -123,7 +123,7 @@
                         R$ <?=number_format(($dados->total*$dados->quantidade),2,",",false)?>
                     </h2>
                 </div>
-            </div>   
+            </div>    -->
             <!-- <div class="produto_dados" style="height:60px;">
                 <div><?=$dados->codigo?></div>
             </div>
