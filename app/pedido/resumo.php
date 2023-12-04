@@ -38,6 +38,7 @@
         background-color:#fff;
         left:0;
         right:0;
+        border:1 solid red;
     }
 
     .home_rodape{
@@ -96,7 +97,6 @@
     <h2>Pedido</h2>
 </div>
 <div class="home_corpo">
-<div class="row g-0">
 <?php
     foreach(json_decode($d->detalhes) as $i => $dados){
         // echo "Codigo: ".$dados->codigo."<br>";
@@ -130,7 +130,6 @@
 <?php
     }
 ?>
-</div>
 </div>
 <div class="home_rodape"></div>
 
