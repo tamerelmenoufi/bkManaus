@@ -171,12 +171,14 @@ $(function(){
     })
 
     $(".menos").click(function(){
-        valor = $(".adicionar").attr("valor");
-        qt = $(".qt").text();
+        objValor = $(this).parent("div").parent("div").children("div[valor]").children("h2");
+        objQt = $(this).parent("div").children("div.qt");
+        valor = objValor.attr("valor");
+        qt = objQt.text();
         qt = (((qt*1 - 1)>1)?(qt*1 - 1):1);
-        $(".qt").text(qt);
+        objQt.text(qt);
         total = (valor*qt);
-        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));                
+        objValor.html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));                
     })
 
 })
