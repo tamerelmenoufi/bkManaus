@@ -55,6 +55,11 @@
 <div class="home_corpo">
     <pre>
 <?php
+    foreach($d->detalhes as $i => $dados){
+        echo "Codigo: ".$dados->codigo."<br>";
+    }
+
+
     print_r(json_decode($d->detalhes));
 ?>
     </pre>
