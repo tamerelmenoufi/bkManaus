@@ -87,12 +87,6 @@
         -webkit-line-clamp: 2;
     }
     .produto_botoes{
-        position:absolute;
-        bottom:90px;
-        left:0;
-        right:0;
-        padding:15px;
-        height:60px;
         font-size:30px;
     }
 </style>
