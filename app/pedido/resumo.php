@@ -99,12 +99,13 @@
 <?php
     foreach(json_decode($d->detalhes) as $i => $dados){
         // echo "Codigo: ".$dados->codigo."<br>";
+        $pd = mysqli_fetch_object(mysqli_query($con, "select * from produtos where codigo = '{$dados->codigo}'"));
 ?>
     <div class="produto_painel" codigo="<?=$dados->codigo?>">
         <img src="img/logo.png" />
         <div class="w-100">
             <div class="produto_dados">
-                <h4 style="color:#f12a2a"><?=$dados->codigo?></h4>
+                <h4 style="color:#f12a2a"><?=$pd->produto?></h4>
             </div>
             <div class="produto_dados"  style="color:#a1a1a1; margin:15px;">
                 <i class="fa fa-edit"></i>
