@@ -189,7 +189,7 @@ $(function(){
         objValor.html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2})); 
     })
 
-    $(document).on("click", ".excluir", function(){
+    $(document).off("click").on("click", ".excluir", function(){
         console.log('Passou pelo click');
         // $(this).parent("div").parent("div").remove();
     })
