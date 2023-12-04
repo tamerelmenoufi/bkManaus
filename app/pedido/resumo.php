@@ -103,7 +103,7 @@
             <div class="produto_dados">
                 <h4 style="color:#f12a2a"><?=$dados->codigo?></h4>
             </div>
-            <div class="produto_botoes d-flex justify-content-between">
+            <div class="d-flex justify-content-between">
                 <div class="d-flex justify-content-between">
                     <i class="fa-solid fa-circle-minus menos" style="color:red"></i>
                     <div class="qt" style="margin-top:-8px; text-align:center; width:60px; font-family:UniformBold;"><?=$quantidade?></div>
