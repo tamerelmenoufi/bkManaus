@@ -5,7 +5,7 @@
 
     $result = mysqli_query($con, $query);
 
-    $d = mysqli_fetch_object($resul);
+    $d = mysqli_fetch_object($result);
 
 ?>
 
