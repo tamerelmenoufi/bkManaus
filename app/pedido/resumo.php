@@ -158,7 +158,7 @@ $(function(){
         }
     });
 
-    $(".editar").click(function(){
+    $("div[editar]").click(function(){
         codigo = $(this).attr("codigo");
         categoria = $(this).attr("categoria");
         local = $(this).attr("editar");
