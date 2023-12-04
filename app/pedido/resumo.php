@@ -89,7 +89,7 @@
     }
     .produto_botoes{
         font-size:30px;
-        margin-top:20px;
+        margin-top:30px;
     }
 </style>
 
