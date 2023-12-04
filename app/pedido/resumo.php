@@ -189,6 +189,7 @@ $(function(){
     })
 
     $(document).on("click", ".excluir", function(){
+        console.log('Passou pelo click');
         $(this).parent("div").parent("div").remove();
     })
 
