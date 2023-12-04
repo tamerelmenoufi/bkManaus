@@ -57,7 +57,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
             <i class="fa-solid fa-user"></i>
             <p>Perfil</p>
         </div>
-        <div>
+        <div class="telaPedido">
             <i class="fa-solid fa-bag-shopping"></i>
             <p>Pedido</p>
         </div>        
@@ -84,5 +84,17 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
         });
 
+        $(".telaPedido").click(function(){
+            Carregando();
+
+            $.ajax({
+                url:"pedido/resumo.php",
+                success:function(dados){
+                    Carregando('none');
+                    $(".CorpoApp").html(dados);
+                }
+            })
+
+        });
     })
 </script>
