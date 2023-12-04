@@ -119,7 +119,7 @@
                 </div>
                 <div>
                     <h2 style="color:#f12a2a; font-family:FlameBold; ">
-                        R$ <?=number_format($d->valor,2,",",false)?>
+                        R$ <?=number_format($dados->total,2,",",false)?>
                     </h2>
                 </div>
             </div>   
