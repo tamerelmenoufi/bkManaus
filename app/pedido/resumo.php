@@ -139,11 +139,6 @@
 <?php
     }
 ?>
-    <pre>
-<?php
-    print_r(json_decode($d->detalhes));
-?>
-    </pre>
 </div>
 <div class="home_rodape"></div>
 
