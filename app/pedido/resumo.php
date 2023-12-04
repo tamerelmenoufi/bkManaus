@@ -178,7 +178,7 @@ $(function(){
         objQt = $(this).parent("div").children("div.qt");
         valor = objValor.attr("valor");
         qt = objQt.text();
-        if(qt == 1){
+        if(qt == 2){
             $(this).parent("div").children("i.menos").addClass("fa-trash-can excluir");
             $(this).parent("div").children("i.menos").removeClass("fa-circle-minus");
         }           
