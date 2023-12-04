@@ -160,6 +160,9 @@ $(function(){
 
 
     $(".mais").click(function(){
+        $(this).parent("div").children("i.menos").removeClass("fa-trash-can excluir");
+        $(this).parent("div").children("i.menos").class("fa-circle-minus");
+
         objValor = $(this).parent("div").parent("div").children("div[valor]").children("h2");
         objQt = $(this).parent("div").children("div.qt");
         valor = objValor.attr("valor");
@@ -178,7 +181,15 @@ $(function(){
         qt = (((qt*1 - 1)>1)?(qt*1 - 1):1);
         objQt.text(qt);
         total = (valor*qt);
-        objValor.html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));                
+        objValor.html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2})); 
+        if(qt == 1){
+            $(this).parent("div").children("i.menos").class("fa-trash-can excluir");
+            $(this).parent("div").children("i.menos").removeClass("fa-circle-minus");
+        }              
+    })
+
+    $(".excluir").click(function(){
+        $(this).parent("div").parent("div").remove();
     })
 
 })
