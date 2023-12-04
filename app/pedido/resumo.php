@@ -119,7 +119,7 @@
                 </div>
                 <div valor>
                     <h2 class="adicionar" valor="<?=$dados->total?>" style="color:#f12a2a; font-family:FlameBold; ">
-                        R$ <?=number_format($dados->total,2,",",false)?>
+                        R$ <?=number_format(($dados->total*$dados->quantidade),2,",",false)?>
                     </h2>
                 </div>
             </div>   
