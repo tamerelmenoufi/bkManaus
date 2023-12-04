@@ -183,6 +183,7 @@ $(function(){
             $(this).parent("div").children("i.menos").removeClass("fa-circle-minus");
         }else if(qt == 1){
             console.log('Passou pelo click');
+            $(this).parent("div").parent("div").parent("div").parent("div").remove();
         }
         qt = (((qt*1 - 1)>1)?(qt*1 - 1):1);
         // qt = (qt*1 - 1);
