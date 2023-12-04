@@ -66,6 +66,8 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
+    $valor = CalculaValorCombo($d->codigo);
+
     $lista_produtos = json_decode($d->cod_prod);
     if($lista_produtos){
         $cods = implode(", ",$lista_produtos);
@@ -92,7 +94,7 @@
         $valor_calculado = $dc->total;
         $quantidade = $dc->quantidade;
     }else{
-        $valor_calculado = CalculaValorCombo($d->codigo);
+        $valor_calculado = $valor;
         $quantidade = 1;        
     }
     
@@ -558,7 +560,7 @@ $(function(){
             data:
             {
                 codigo:'<?=$d->codigo?>',
-                valor:'<?=$d->valor?>',
+                valor:'<?=$valor?>',
                 quantidade:qt,
                 combo,
                 anotacoes,
