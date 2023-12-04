@@ -152,6 +152,7 @@ $(function(){
             type:"POST",
             data:{
                 codigo,
+                categoria:'<?=$_SESSION['categoria']?>',
                 idUnico
             },
             success:function(dados){

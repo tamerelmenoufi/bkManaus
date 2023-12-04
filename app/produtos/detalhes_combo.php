@@ -1,6 +1,10 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+    if($_POST['categoria']){
+        $_SESSION['categoria'] = $_POST['categoria'];
+    }
+
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));
 
     $acoes = json_decode($c->acoes_itens);
@@ -14,6 +18,7 @@
         unset($data['quantidade']);
         unset($data['valor']);
         unset($data['anotacoes']);
+        unset($data['categoria']);
         $data['combo'] = json_decode($data['combo']);   
 
         $valor_adicional = 0;
@@ -51,7 +56,7 @@
 
     if($_POST['acao'] == 'salvar'){
 
-        echo $q = "update vendas_tmp set detalhes = JSON_SET(detalhes, 
+        $q = "update vendas_tmp set detalhes = JSON_SET(detalhes, 
                                                 '$.item{$_POST['codigo']}.quantidade', '{$_POST['quantidade']}',
                                                 '$.item{$_POST['codigo']}.status' , 'true')
                             where id_unico = '{$_POST['idUnico']}'";
@@ -428,6 +433,10 @@ $(function(){
 
         $.ajax({
             url:"produtos/lista_combos.php",
+            type:"POST",
+            data:{
+                categoria:'<?=$_SESSION['categoria']?>'
+            },
             success:function(dados){
                 $(".CorpoApp").html(dados);
             }
@@ -445,6 +454,7 @@ $(function(){
             type:"POST",
             data:{
                 codigo:'<?=$d->codigo?>',
+                categoria:'<?=$_SESSION['categoria']?>',
                 quantidade,
                 idUnico,
             },
@@ -561,6 +571,7 @@ $(function(){
             type:"POST",
             data:
             {
+                categoria:'<?=$_SESSION['categoria']?>',
                 codigo:'<?=$d->codigo?>',
                 valor:'<?=$valor?>',
                 quantidade:qt,
@@ -609,6 +620,7 @@ $(function(){
             type:"POST",
             data:{
                 codigo:'<?=$d->codigo?>',
+                categoria:'<?=$_SESSION['categoria']?>',
                 quantidade,
                 idUnico,
                 acao:'salvar',
@@ -617,6 +629,10 @@ $(function(){
                 console.log(dados);
                 $.ajax({
                     url:"produtos/lista_combos.php",
+                    type:"POST",
+                    data:{
+                        categoria:'<?=$_SESSION['categoria']?>'
+                    },
                     success:function(dados){  
                         $(".CorpoApp").html(dados);
                         Carregando('none');
