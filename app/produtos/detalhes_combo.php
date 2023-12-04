@@ -99,17 +99,23 @@
     }
     
 
-    if($dc->regras->inclusao){
-        foreach($dc->regras->inclusao as $i => $v){
-            $inclusao[$v] = $v;
-            $qt = $dc->regras->inclusao_quantidade;
-            $inclusao_quantidade[$v] = $qt[$i];
+    if($dc->regras->combo->inclusao){
+        foreach($dc->regras->combo->inclusao as $i => $v){
+            $inclusao[$v->produto][$v->item] = $v->item;
+            $qt = $dc->regras->combo->inclusao_quantidade;
+            $inclusao_quantidade[$v->produto][$v->item] = $qt[$i]->quantidade;
         }
     }
 
-    if($dc->regras->remocao){
-        foreach($dc->regras->remocao as $i => $v){
-            $remocao[$v] = $v;
+    if($dc->regras->combo->remocao){
+        foreach($dc->regras->combo->remocao as $i => $v){
+            $remocao[$v->produto][$v->item] = $v->item;
+        }
+    }
+
+    if($dc->regras->combo->substituicao){
+        foreach($dc->regras->combo->substituicao as $i => $v){
+            $substituicao[$v->produto][$v->item] = $v->item;
         }
     }
 
@@ -273,7 +279,7 @@
             ?>
             <li class="list-group-item">
                 <div class="form-check">
-                    <input type="checkbox" <?=(($remocao[$i->codigo] == $i->codigo)?'checked':false)?> class="form-check-input remocao" produto="<?=$d1->codigo?>" codigo="<?=$i->codigo?>" id="remocao<?=$i->codigo?>-<?=$d1->codigo?>">
+                    <input type="checkbox" <?=(($remocao[$d1->codigo][$i->codigo] == $i->codigo)?'checked':false)?> class="form-check-input remocao" produto="<?=$d1->codigo?>" codigo="<?=$i->codigo?>" id="remocao<?=$i->codigo?>-<?=$d1->codigo?>">
                     <label class="form-check-label" for="remocao<?=$i->codigo?>-<?=$d1->codigo?>"><?=$i->item?></label>
                 </div>
             </li>
@@ -310,7 +316,7 @@
                             <?php
                             for($j=0;$j<=10;$j++){
                             ?>
-                            <option value="<?=$j?>" <?=(($inclusao_quantidade[$i->codigo] == $j)?'selected':false)?>><?=$j?></option>
+                            <option value="<?=$j?>" <?=(($inclusao_quantidade[$d1->codigo][$i->codigo] == $j)?'selected':false)?>><?=$j?></option>
                             <?php
                             }
                             ?>
@@ -332,21 +338,21 @@
     
             <div class="card w-100 mb-3">
             <div class="card-header">
-                Substituir <?=$d1->produto?>?
+                Substituir algum Item?
             </div>
             <ul class="list-group list-group-flush">
                 <?php
-                $q = "select * from itens where categoria in ('".implode("', '", $categorias_itens)."')";
+                $q = "select * from itens where categoria in ('".$categorias_itens."')";
                 $r = mysqli_query($con, $q);
                 while($i = mysqli_fetch_object($r)){
                 ?>
                 <li class="list-group-item d-flex justify-content-between">
                     <div class="form-check">
-                        <input type="radio" class="form-check-input substituicao" name="substituicao" produto="<?=$d1->codigo?>" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>-<?=$d1->codigo?>">
-                        <label class="form-check-label" for="substituicao<?=$i->codigo?>-<?=$d1->codigo?>"><?=$i->item?></label>
+                        <input type="checkbox" <?=(($substituicao[$d1->codigo][$i->codigo] == $i->codigo)?'checked':false)?> class="form-check-input substituicao" name="substituicao" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>">
+                        <label class="form-check-label" for="substituicao<?=$i->codigo?>"><?=$i->item?></label>
                     </div>
                     <div>
-                        R$ <?=number_format($i->valor, 2, ",", false)?>
+                        + R$ <?=number_format($i->valor, 2, ",", false)?>
                     </div>
                 </li>
 
