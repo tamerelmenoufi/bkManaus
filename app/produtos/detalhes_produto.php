@@ -430,16 +430,6 @@ $(function(){
             }
         })
 
-        // $(".inclusao").each(function(){
-        //     codigo = $(this).attr("codigo");
-        //     valor = $(this).attr("valor");
-        //     quantidade = $(`#inclusao_quantidade${codigo}`).val();
-        //     if($(this).prop("checked") == true){
-        //         inclusao.push(codigo)
-        //         inclusao_valor.push(valor);
-        //         inclusao_quantidade.push(quantidade);
-        //     }
-        // })
 
         $(".inclusao").each(function(){
             codigo = $(this).attr("codigo");

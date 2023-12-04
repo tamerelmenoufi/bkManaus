@@ -527,11 +527,6 @@ $(function(){
             }
         })
 
-        // console.log(combo.produto);
-        // // teste = combo.parseJSON()
-        // teste = JSON.stringify(combo.produto)
-        // console.log(teste);
-        // // return false;
 
         function convertData(d){
             let formatar = {

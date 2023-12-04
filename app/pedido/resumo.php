@@ -1,6 +1,19 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+
+    if($_POST['acao'] == 'salvar'){
+
+        echo $q = "update vendas_tmp set detalhes = JSON_SET(detalhes, 
+                                                '$.item{$_POST['codigo']}.quantidade', '{$_POST['quantidade']}',
+                                                '$.item{$_POST['codigo']}.status' , 'true')
+                            where id_unico = '{$_POST['idUnico']}'";
+
+        mysqli_query($con, $q);
+
+        exit();
+    }
+
     $query = "select * from vendas_tmp where id_unico = '{$_POST['idUnico']}'";
 
     $result = mysqli_query($con, $query);
@@ -163,11 +176,27 @@ $(function(){
         });        
     })
 
+    atualizaDados = (cod, qtd)=>{
+        idUnico = localStorage.getItem("idUnico");
+        $.ajax({
+            url:`pedido/resumo.php`,
+            type:"POST",
+            data:{
+                codigo:cod,
+                quantidade:qtd,
+                idUnico
+            },
+            success:function(dados){
+                console.log(dados);
+            }
+        }); 
+    }
+
 
     $(".mais").click(function(){
         $(this).parent("div").children("i.menos").removeClass("fa-trash-can");
         $(this).parent("div").children("i.menos").addClass("fa-circle-minus");
-
+        cod = $(this).parent("div").parent("div").parent("div").parent("div").attr("codigo");
         objValor = $(this).parent("div").parent("div").children("div[valor]").children("h2");
         objQt = $(this).parent("div").children("div.qt");
         valor = objValor.attr("valor");
@@ -175,10 +204,12 @@ $(function(){
         qt = (qt*1 + 1);
         objQt.text(qt);
         total = (valor*qt);
-        objValor.html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));                
+        objValor.html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));    
+        atualizaDados(cod, qt);         
     })
 
     $(".menos").click(function(){
+        cod = $(this).parent("div").parent("div").parent("div").parent("div").attr("codigo");
         objValor = $(this).parent("div").parent("div").children("div[valor]").children("h2");
         objQt = $(this).parent("div").children("div.qt");
         valor = objValor.attr("valor");
@@ -189,13 +220,14 @@ $(function(){
         }else if(qt == 1){
             console.log('Passou pelo click');
             $(this).parent("div").parent("div").parent("div").parent("div").remove();
+            return false;
         }
         qt = (((qt*1 - 1)>1)?(qt*1 - 1):1);
         // qt = (qt*1 - 1);
         objQt.text(qt);
         total = (valor*qt);
         objValor.html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-     
+        atualizaDados(cod, qt);         
     })
 
 })
