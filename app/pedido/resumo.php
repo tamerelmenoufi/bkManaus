@@ -86,6 +86,15 @@
         -webkit-box-orient: vertical; 
         -webkit-line-clamp: 2;
     }
+    .produto_botoes{
+        position:absolute;
+        bottom:90px;
+        left:0;
+        right:0;
+        padding:15px;
+        height:60px;
+        font-size:30px;
+    }
 </style>
 
 <div class="barra_topo">
@@ -103,7 +112,7 @@
             <div class="produto_dados">
                 <h4 style="color:#f12a2a"><?=$dados->codigo?></h4>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="produto_botoes d-flex justify-content-between">
                 <div class="d-flex justify-content-between">
                     <i class="fa-solid fa-circle-minus menos" style="color:red"></i>
                     <div class="qt" style="margin-top:-8px; text-align:center; width:60px; font-family:UniformBold;"><?=$quantidade?></div>
