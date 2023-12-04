@@ -30,6 +30,7 @@
 
 
         $update = [
+            'tipo' => 'produto',
             'regras' => $data,
             'anotacoes' => $_POST['anotacoes'],
             'adicional' => ($valor_adicional*1),
