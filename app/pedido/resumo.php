@@ -181,7 +181,7 @@ $(function(){
         if(qt == 2){
             $(this).parent("div").children("i.menos").addClass("fa-trash-can excluir");
             $(this).parent("div").children("i.menos").removeClass("fa-circle-minus");
-        }           
+        }
         qt = (((qt*1 - 1)>1)?(qt*1 - 1):1);
         // qt = (qt*1 - 1);
         objQt.text(qt);
