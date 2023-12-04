@@ -113,7 +113,11 @@
                     <i class="fa-solid fa-circle-plus mais" style="color:green"></i>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-danger adicionar" valor="<?=$valor_calculado?>" style="font-family:FlameBold; font-size:25px; margin-top:-20px;">R$ <?=number_format(($valor_calculado*$quantidade),2,",",false)?></button>
+                <h2 style="color:#f12a2a">
+                    <i class="fa-solid fa-circle-play me-3"></i>
+                    R$ <?=number_format($d->valor,2,",",false)?>
+                </h2>
+                    <!-- <button type="button" class="btn btn-danger adicionar" valor="<?=$valor_calculado?>" style="font-family:FlameBold; font-size:25px; margin-top:-20px;">R$ <?=number_format(($valor_calculado*$quantidade),2,",",false)?></button> -->
                 </div>
             </div>   
             <!-- <div class="produto_dados" style="height:60px;">
