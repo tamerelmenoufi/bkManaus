@@ -338,21 +338,21 @@
     
             <div class="card w-100 mb-3">
             <div class="card-header">
-                Substituir algum Item?
+                Substituir <?=$d1->produto?>?
             </div>
             <ul class="list-group list-group-flush">
                 <?php
-                $q = "select * from itens where categoria in ('".$categorias_itens."')";
+                $q = "select * from itens where categoria in ('".implode("', '", $categorias_itens)."')";
                 $r = mysqli_query($con, $q);
                 while($i = mysqli_fetch_object($r)){
                 ?>
                 <li class="list-group-item d-flex justify-content-between">
                     <div class="form-check">
-                        <input type="checkbox" <?=(($substituicao[$d1->codigo][$i->codigo] == $i->codigo)?'checked':false)?> class="form-check-input substituicao" name="substituicao" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>">
-                        <label class="form-check-label" for="substituicao<?=$i->codigo?>"><?=$i->item?></label>
+                        <input type="checkbox" <?=(($substituicao[$d1->codigo][$i->codigo] == $i->codigo)?'checked':false)?> class="form-check-input substituicao" name="substituicao" produto="<?=$d1->codigo?>" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>-<?=$d1->codigo?>">
+                        <label class="form-check-label" for="substituicao<?=$i->codigo?>-<?=$d1->codigo?>"><?=$i->item?></label>
                     </div>
                     <div>
-                        + R$ <?=number_format($i->valor, 2, ",", false)?>
+                        R$ <?=number_format($i->valor, 2, ",", false)?>
                     </div>
                 </li>
 
