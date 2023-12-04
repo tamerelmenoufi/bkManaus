@@ -184,7 +184,8 @@ $(function(){
             data:{
                 codigo:cod,
                 quantidade:qtd,
-                idUnico
+                idUnico,
+                acao:'salvar'
             },
             success:function(dados){
                 console.log(dados);
