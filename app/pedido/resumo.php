@@ -160,7 +160,7 @@ $(function(){
 
 
     $(".mais").click(function(){
-        $(this).parent("div").children("i.menos").removeClass("fa-trash-can excluir");
+        $(this).parent("div").children("i.menos").removeClass("fa-trash-can");
         $(this).parent("div").children("i.menos").addClass("fa-circle-minus");
 
         objValor = $(this).parent("div").parent("div").children("div[valor]").children("h2");
@@ -178,20 +178,18 @@ $(function(){
         objQt = $(this).parent("div").children("div.qt");
         valor = objValor.attr("valor");
         qt = objQt.text();
+        if(qt == 2){
+            $(this).parent("div").children("i.menos").addClass("fa-trash-can");
+            $(this).parent("div").children("i.menos").removeClass("fa-circle-minus");
+        }else if(qt == 1){
+            console.log('Passou pelo click');
+        }
         qt = (((qt*1 - 1)>1)?(qt*1 - 1):1);
         // qt = (qt*1 - 1);
         objQt.text(qt);
         total = (valor*qt);
         objValor.html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-        if(qt == 1){
-            $(this).parent("div").children("i.menos").addClass("fa-trash-can excluir");
-            $(this).parent("div").children("i.menos").removeClass("fa-circle-minus");
-        }        
-    })
-
-    $(".excluir").off("click").on("click", function(){
-        console.log('Passou pelo click');
-        // $(this).parent("div").parent("div").remove();
+     
     })
 
 })
