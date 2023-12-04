@@ -108,16 +108,14 @@
             </div>
             <div class="produto_botoes d-flex justify-content-between">
                 <div class="d-flex justify-content-between">
-                    <i class="fa-solid fa-circle-minus menos" style="color:red"></i>
+                    <i class="fa-solid fa-circle-minus menos" style="color:red; margin-left:10px;"></i>
                     <div class="qt" style="margin-top:-8px; text-align:center; width:60px; font-family:UniformBold;"><?=$quantidade?></div>
                     <i class="fa-solid fa-circle-plus mais" style="color:green"></i>
                 </div>
                 <div>
-                <h2 style="color:#f12a2a">
-                    <i class="fa-solid fa-circle-play me-3"></i>
-                    R$ <?=number_format($d->valor,2,",",false)?>
-                </h2>
-                    <!-- <button type="button" class="btn btn-danger adicionar" valor="<?=$valor_calculado?>" style="font-family:FlameBold; font-size:25px; margin-top:-20px;">R$ <?=number_format(($valor_calculado*$quantidade),2,",",false)?></button> -->
+                    <h2 style="color:#f12a2a; font-family:FlameBold; ">
+                        R$ <?=number_format($d->valor,2,",",false)?>
+                    </h2>
                 </div>
             </div>   
             <!-- <div class="produto_dados" style="height:60px;">
