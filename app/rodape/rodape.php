@@ -86,9 +86,13 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
         $(".telaPedido").click(function(){
             Carregando();
-
+            idUnico = localStorage.getItem("idUnico");
             $.ajax({
                 url:"pedido/resumo.php",
+                type:"POST",
+                data:{
+                    idUnico
+                },
                 success:function(dados){
                     Carregando('none');
                     $(".CorpoApp").html(dados);
