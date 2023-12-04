@@ -162,12 +162,14 @@ $(function(){
         codigo = $(this).attr("codigo");
         categoria = $(this).attr("categoria");
         local = $(this).attr("editar");
+        idUnico = localStorage.getItem("idUnico");
         $.ajax({
             url:`produtos/detalhes_${local}.php`,
             type:"POST",
             data:{
                 codigo,
-                categoria
+                categoria,
+                idUnico
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);
