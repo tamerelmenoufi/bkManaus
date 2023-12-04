@@ -372,8 +372,6 @@
         }
     }
 ?>
-
-
         <div class="mb-3 w-100">
         <label for="anotacoes" class="form-label">
             <i class="fa-regular fa-message fa-flip-horizontal"></i>
@@ -381,8 +379,6 @@
         </label>
         <textarea class="form-control" id="anotacoes" rows="3"><?=$anotacoes?></textarea>
         </div>
-
-          
     </div>
 </div>
 <div class="produto_botoes d-flex justify-content-between">
