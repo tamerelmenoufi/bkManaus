@@ -109,7 +109,7 @@
             </div>
             <div class="produto_dados"  style="color:#a1a1a1; margin:15px;">
                 <i class="fa fa-edit"></i>
-                Editar
+                Editar <?=$dados->tipo?>
             </div>
             <div class="produto_botoes d-flex justify-content-between">
                 <div class="d-flex justify-content-between">
