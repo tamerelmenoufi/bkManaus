@@ -38,7 +38,7 @@
         background-color:#fff;
         left:0;
         right:0;
-        border:1 solid red;
+        border:1px solid red;
     }
 
     .home_rodape{
