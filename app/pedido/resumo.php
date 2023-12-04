@@ -55,7 +55,7 @@
 <div class="home_corpo">
     <pre>
 <?php
-    print_r($d);
+    print_r(json_decode($d->detalhes));
 ?>
     </pre>
 </div>
