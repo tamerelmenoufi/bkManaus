@@ -569,9 +569,9 @@ $(function(){
 
                 console.log(dados)
 
-                // valor = (dados*1);
-                // $(".adicionar").html('R$ ' + (valor*qt).toLocaleString('pt-br', {minimumFractionDigits: 2}));  
-                // $(".adicionar").attr("valor", valor);  
+                valor = (dados*1);
+                $(".adicionar").html('R$ ' + (valor*qt).toLocaleString('pt-br', {minimumFractionDigits: 2}));  
+                $(".adicionar").attr("valor", valor);  
             }
         });        
 
