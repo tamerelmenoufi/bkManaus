@@ -92,7 +92,7 @@
     <h2>Pedido</h2>
 </div>
 <div class="home_corpo">
-    <pre>
+
 <?php
     foreach(json_decode($d->detalhes) as $i => $dados){
         // echo "Codigo: ".$dados->codigo."<br>";
@@ -115,10 +115,12 @@
         </div>
 
     </div>
+    
 <?php
     }
-
-
+?>
+    <pre>
+<?php
     print_r(json_decode($d->detalhes));
 ?>
     </pre>
