@@ -109,7 +109,7 @@
             <div class="produto_botoes d-flex justify-content-between">
                 <div class="d-flex justify-content-between">
                     <i class="fa-solid fa-circle-minus menos" style="color:red; margin-left:10px;"></i>
-                    <div class="qt" style="margin-top:-8px; text-align:center; width:60px; font-family:UniformBold;"><?=$quantidade?></div>
+                    <div class="qt" style="margin-top:-8px; text-align:center; width:60px; font-family:UniformBold;"><?=$dados->quantidade?></div>
                     <i class="fa-solid fa-circle-plus mais" style="color:green"></i>
                 </div>
                 <div>
