@@ -232,7 +232,7 @@ $(function(){
                 idUnico
             },
             success:function(dados){
-                console.log(dados);
+                // console.log(dados);
                 $(".CorpoApp").html(dados);
                 Carregando('none');
             }
