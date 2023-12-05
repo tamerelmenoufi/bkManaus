@@ -110,7 +110,7 @@
         -webkit-line-clamp: 2;
     }
     .produto_botoes{
-        font-size:30px;
+        font-size:20px;
         margin-top:30px;
     }
 </style>
