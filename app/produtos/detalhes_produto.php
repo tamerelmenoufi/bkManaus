@@ -477,13 +477,7 @@ $(function(){
         $(".qt").text(qt);
         total = (valor*qt);
         $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-        <?php
-        if($dc->codigo){
-        ?>
         SalvarDados();
-        <?php
-        }
-        ?>
     })
 
     $(".menos").click(function(){
@@ -493,13 +487,7 @@ $(function(){
         $(".qt").text(qt);
         total = (valor*qt);
         $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2})); 
-        <?php
-        if($dc->codigo){
-        ?>
         SalvarDados();
-        <?php
-        }
-        ?>               
     })
 
 
