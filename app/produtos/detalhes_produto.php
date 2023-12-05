@@ -474,7 +474,7 @@ $(function(){
         total = (valor*qt);
         $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         <?php
-        if($dc->status == true){
+        if($dc->codigo){
         ?>
         SalvarDados();
         <?php
@@ -490,7 +490,7 @@ $(function(){
         total = (valor*qt);
         $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2})); 
         <?php
-        if($dc->status == true){
+        if($dc->codigo){
         ?>
         SalvarDados();
         <?php
