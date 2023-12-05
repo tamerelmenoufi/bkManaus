@@ -96,6 +96,12 @@ $query = "select *, produtos->>'$[*].produto' as cod_prod, produtos->>'$[*].quan
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
 
+    if(is_file("../../src/combos/icon/{$d->icon}")){
+        $icon = "{$urlPainel}src/combos/icon/{$d->icon}";
+    }else{
+        $icon = "img/logo.png";
+    }
+
     $lista_produtos = json_decode($d->cod_prod);
     if($lista_produtos){
         $cods = implode(", ",$lista_produtos);
@@ -110,7 +116,7 @@ while($d = mysqli_fetch_object($result)){
     }
 ?>
     <div class="produto_painel" codigo = "<?=$d->codigo?>">
-        <img src="img/logo.png" />
+        <img src="<?=$icon?>" />
         <div class="w-100">
             <div class="produto_dados">
                 <h4 style="color:#f12a2a"><?=$d->produto?></h4>

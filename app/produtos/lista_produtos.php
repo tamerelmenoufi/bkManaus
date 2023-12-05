@@ -94,9 +94,16 @@
 $query = "select * from produtos where categoria = '{$c->codigo}' and deletado != '1' and situacao = '1'";
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
+
+    if(is_file("../../src/produtos/icon/{$d->icon}")){
+        $icon = "{$urlPainel}src/produtos/icon/{$d->icon}";
+    }else{
+        $icon = "img/logo.png";
+    }
+
 ?>
     <div class="produto_painel" codigo="<?=$d->codigo?>">
-        <img src="img/logo.png" />
+        <img src="<?=$icon?>" />
         <div class="w-100">
             <div class="produto_dados">
                 <h4 style="color:#f12a2a"><?=$d->produto?></h4>
