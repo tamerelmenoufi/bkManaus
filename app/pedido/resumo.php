@@ -124,9 +124,15 @@
         // echo "Codigo: ".$dados->codigo."<br>";
         $pd = mysqli_fetch_object(mysqli_query($con, "select * from produtos where codigo = '{$dados->codigo}'"));
         if($dados->status){
+
+            if(is_file("../src/produtos/icon/{$pd->icon}")){
+                $icon = "{$urlPainel}src/produtos/icon/{$pd->icon}";
+            }else{
+                $icon = "img/logo.png";
+            }
 ?>
     <div class="produto_painel" codigo="<?=$dados->codigo?>">
-        <img src="img/logo.png" />
+        <img src="<?=$icon?>" />
         <div class="w-100">
             <div class="produto_dados">
                 <h4 style="color:#f12a2a"><?=$pd->produto?></h4>
