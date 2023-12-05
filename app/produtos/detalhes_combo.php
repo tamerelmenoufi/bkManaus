@@ -52,24 +52,7 @@
         
     }
 
-    if($_POST['acao'] == 'atualiza'){
-        echo $q = "update vendas_tmp set detalhes = JSON_SET(detalhes, 
-                                                '$.item{$_POST['codigo']}.quantidade', '{$_POST['quantidade']}')
-                            where id_unico = '{$_POST['idUnico']}'";
-        mysqli_query($con, $q);
-        exit();
-    }
-
-    if($_POST['acao'] == 'salvar'){
-        $q = "update vendas_tmp set detalhes = JSON_SET(detalhes, 
-                                                '$.item{$_POST['codigo']}.quantidade', '{$_POST['quantidade']}',
-                                                '$.item{$_POST['codigo']}.status' , 'true')
-                            where id_unico = '{$_POST['idUnico']}'";
-        mysqli_query($con, $q);
-        exit();
-    }
-
-    
+   
     $query = "select *, itens->>'$[*].item' as lista_itens, produtos->>'$[*].produto' as cod_prod, produtos->>'$[*].quantidade' as qtd_prod from produtos where codigo = '{$_POST['codigo']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
@@ -556,27 +539,6 @@ $(function(){
     }
 
 
-    SalvarDados = ()=>{
-        quantidade = $(".qt").text();
-        idUnico = localStorage.getItem("idUnico");
-        $.ajax({
-            url:"produtos/detalhes_combo.php",
-            type:"POST",
-            data:{
-                codigo:'<?=$d->codigo?>',
-                categoria:'<?=$d->categoria?>',
-                quantidade,
-                idUnico,
-                acao:'atualiza',
-            },
-            success:function(dados){
-                console.log(dados);
-            }
-        });             
-    }
-
-
-
     $(".mais").click(function(){
         valor = $(".adicionar").attr("valor");
         qt = $(".qt").text();
@@ -632,40 +594,7 @@ $(function(){
 
     $(".adicionar").click(function(){
 
-        definirDetalhes('salva');
-
-        // Carregando();
-
-        // quantidade = $(".qt").text();
-        // idUnico = localStorage.getItem("idUnico");
-        
-        // $.ajax({
-        //     url:"produtos/detalhes_combo.php",
-        //     type:"POST",
-        //     data:{
-        //         codigo:'<?=$d->codigo?>',
-        //         categoria:'<?=$d->categoria?>',
-        //         quantidade,
-        //         idUnico,
-        //         acao:'salvar',
-        //     },
-        //     success:function(dados){
-        //         console.log(dados);
-        //         $.ajax({
-        //             url:"produtos/lista_combos.php",
-        //             type:"POST",
-        //             data:{
-        //                 categoria:'<?=$d->categoria?>'
-        //             },
-        //             success:function(dados){  
-        //                 $(".CorpoApp").html(dados);
-        //                 Carregando('none');
-        //             }
-        //         }); 
-
-
-        //     }
-        // });           
+        definirDetalhes('salva');         
 
     })
 
