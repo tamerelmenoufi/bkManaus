@@ -72,7 +72,7 @@
 
     .home_valores{
         position: absolute;
-        background-color:#fafa;
+        background-color:#fafafa;
         width:100%;
         bottom:90px;
         height:60px;
