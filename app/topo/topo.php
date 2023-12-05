@@ -11,7 +11,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         height:100px;
         z-index:2;
     }
-    .topo.voltar{
+    .topo > .voltar{
         position:absolute;
         bottom:0;
         left:10px;
