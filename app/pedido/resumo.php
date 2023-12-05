@@ -137,7 +137,7 @@
             <div class="produto_dados">
                 <h4 style="color:#f12a2a"><?=$pd->produto?></h4>
             </div>
-            <div class="produto_dados" editar="<?=$dados->tipo?>" categoria="<?=$pd->categoria?>" codigo="<?=$dados->codigo?>" style="color:#a1a1a1; padding:15px; cursor:pointer;">
+            <div class="produto_dados" editar="<?=$dados->tipo?>" categoria="<?=$pd->categoria?>" codigo="<?=$dados->codigo?>" style="color:#a1a1a1; padding-left:15px; cursor:pointer;">
                 <i class="fa fa-edit"></i>
                 Editar
             </div>
