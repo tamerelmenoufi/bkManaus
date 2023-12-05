@@ -210,16 +210,7 @@
     <div class="produto_painel" codigo="<?=$d->codigo?>">
         <h1 class="produto_titulo"><?=$d->produto?></h1>
         <img src="img/logo.png" class="produto_img" />
-        <!-- <div class="produto_detalhes d-flex justify-content-between align-items-center w-100">
-            <div style="cursor:pointer">
-                <i class="fa-regular fa-message fa-flip-horizontal"></i>
-                Observações aqui
-            </div>
-            <button type="button" class="btn btn-outline-secondary btn-sm">Anotações</button>
-        </div>    -->
         <div class="produto_descricao"><?=$d->descricao?></div>
-
-
 <!-- NOVO -->
 
         <?php
@@ -339,17 +330,10 @@
 
 <!-- NOVO -->
 
+<?php
+echo "Status: ".$dc->status;
+?>
 
-
-
-
-
-
-
-
-
-
-          
     </div>
 </div>
 <div class="produto_botoes d-flex justify-content-between">
@@ -374,42 +358,6 @@ $(function(){
             $(".home_rodape").html(dados);
         }
     });
-
-
-    $(".mais").click(function(){
-        valor = $(".adicionar").attr("valor");
-        qt = $(".qt").text();
-        qt = (qt*1 + 1);
-        $(".qt").text(qt);
-        total = (valor*qt);
-        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));                
-    })
-
-    $(".menos").click(function(){
-        valor = $(".adicionar").attr("valor");
-        qt = $(".qt").text();
-        qt = (((qt*1 - 1)>1)?(qt*1 - 1):1);
-        $(".qt").text(qt);
-        total = (valor*qt);
-        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));                
-    })
-
-
-    $(".barra_topo").click(function(){
-
-        $.ajax({
-            url:"produtos/lista_produtos.php",
-            type:"post",
-            data:{
-                categoria:'<?=$d->categoria?>'
-            },
-            success:function(dados){
-                $(".CorpoApp").html(dados);
-            }
-        });        
-
-    })
-
 
     definirDetalhes = () => {
 
@@ -481,29 +429,11 @@ $(function(){
 
     }
 
-    $(".inclusao, .remocao").change(function(){
-        definirDetalhes();
-    })
 
-    $(".substituicao").change(function(){
-        obj = $(this);
-        acao = obj.prop("checked");
-        $(".substituicao").prop("checked", false);
-        if(acao) obj.prop("checked", true);
-        definirDetalhes();
-    })    
-
-    $("#anotacoes").blur(function(){
-        definirDetalhes();
-    })
-
-    $(".adicionar").click(function(){
-
+    SalvarDados = ()=>{
         Carregando();
-
         quantidade = $(".qt").text();
         idUnico = localStorage.getItem("idUnico");
-        
         $.ajax({
             url:"produtos/detalhes_produto.php",
             type:"POST",
@@ -527,11 +457,65 @@ $(function(){
                         Carregando('none');
                     }
                 }); 
-
-
             }
-        });           
+        });          
+    }
 
+    $(".inclusao, .remocao").change(function(){
+        definirDetalhes();
+    })
+
+    $(".substituicao").change(function(){
+        obj = $(this);
+        acao = obj.prop("checked");
+        $(".substituicao").prop("checked", false);
+        if(acao) obj.prop("checked", true);
+        definirDetalhes();
+    })    
+
+    $("#anotacoes").blur(function(){
+        definirDetalhes();
+    })
+
+
+    $(".mais").click(function(){
+        valor = $(".adicionar").attr("valor");
+        qt = $(".qt").text();
+        qt = (qt*1 + 1);
+        $(".qt").text(qt);
+        total = (valor*qt);
+        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));              
+    })
+
+    $(".menos").click(function(){
+        valor = $(".adicionar").attr("valor");
+        qt = $(".qt").text();
+        qt = (((qt*1 - 1)>1)?(qt*1 - 1):1);
+        $(".qt").text(qt);
+        total = (valor*qt);
+        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));                
+    })
+
+
+    $(".barra_topo").click(function(){
+
+        $.ajax({
+            url:"produtos/lista_produtos.php",
+            type:"post",
+            data:{
+                categoria:'<?=$d->categoria?>'
+            },
+            success:function(dados){
+                $(".CorpoApp").html(dados);
+            }
+        });        
+
+    })
+
+
+
+    $(".adicionar").click(function(){
+        SalvarDados();
     })
 
 })

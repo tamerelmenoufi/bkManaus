@@ -4,7 +4,7 @@
 
     if($_POST['acao'] == 'salvar'){
 
-        echo $q = "update vendas_tmp set detalhes = JSON_SET(detalhes, 
+        $q = "update vendas_tmp set detalhes = JSON_SET(detalhes, 
                                                 '$.item{$_POST['codigo']}.quantidade', '{$_POST['quantidade']}',
                                                 '$.item{$_POST['codigo']}.status' , 'true')
                             where id_unico = '{$_POST['idUnico']}'";
@@ -16,7 +16,7 @@
 
     if($_POST['acao'] == 'remove'){
 
-        echo $q = "update vendas_tmp set detalhes = JSON_REMOVE(detalhes, '$.item{$_POST['codigo']}')
+        $q = "update vendas_tmp set detalhes = JSON_REMOVE(detalhes, '$.item{$_POST['codigo']}')
                             where id_unico = '{$_POST['idUnico']}'";
 
         mysqli_query($con, $q);
@@ -214,7 +214,7 @@ $(function(){
                 acao:'remove'
             },
             success:function(dados){
-                console.log(dados);
+                // console.log(dados);
             }
         }); 
     }
