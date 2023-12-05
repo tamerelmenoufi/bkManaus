@@ -71,11 +71,17 @@
     }
 
     .home_valores{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        padding:5px;
         position: absolute;
         background-color:#fafafa;
         width:100%;
         bottom:90px;
         height:60px;
+        font-family:FlameBold;
     }
 
     .produto_painel{
