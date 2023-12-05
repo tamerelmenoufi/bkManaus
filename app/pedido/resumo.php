@@ -194,6 +194,13 @@ $(function(){
         }
     });
 
+    $.ajax({
+        url:"topo/topo.php",
+        success:function(dados){
+            $(".barra_topo").append(dados);
+        }
+    });
+
     calculaTotal = ()=>{
         totalCompra = 0;
         $(".adicionar").each(function(){
