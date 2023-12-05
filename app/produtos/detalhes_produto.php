@@ -427,7 +427,7 @@ $(function(){
                 substituicao_valor,
                 anotacoes,
                 idUnico,
-                status:((acao)?'true':''),
+                status:<?=(($dc->status)?:"((acao)?'true':'')")?>,
                 acao:'anotacoes'
             },
             success:function(dados){

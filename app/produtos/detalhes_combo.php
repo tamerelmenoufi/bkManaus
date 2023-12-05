@@ -522,7 +522,7 @@ $(function(){
                 combo,
                 anotacoes,
                 idUnico,
-                status:((acoes)?'true':''),
+                status:<?=(($dc->status)?:"((acoes)?'true':'')")?>,
                 acao:'anotacoes'
             },
             success:function(dados){
