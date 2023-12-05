@@ -9,12 +9,12 @@
     $urlPainel = 'https://painel.bkmanaus.com.br/';
 
     if($_POST['historico']){
-        $pagina = $_SERVER["PHP_SELF"];
+        $pagina = str_replace("/bkManaus/app/", false, $_SERVER["PHP_SELF"]);
         $destino = $_POST['historico'];
         $i = ((count($_SESSION['historico']))?(count($_SESSION['historico']) -1):0);
         if($_SESSION['historico'][$i]['local'] != $pagina){
             $j = (($_SESSION['historico'][$i]['local'])?($i+1):0);
-            $_SESSION['historico'][$j]['local'] = str_replace("/bkManaus/app/", false, $pagina);
+            $_SESSION['historico'][$j]['local'] = $pagina;
             $_SESSION['historico'][$j]['destino'] = $_POST['historico'];
         } 
         unset($_POST['historico']);
