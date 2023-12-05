@@ -139,6 +139,7 @@ $(function(){
 
 
     $(".produto_painel").click(function(){
+        Carregando()
         codigo = $(this).attr("codigo");
         idUnico = localStorage.getItem("idUnico");
         $.ajax({
@@ -151,6 +152,7 @@ $(function(){
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);
+                Carregando('none')
             }
         });        
 
