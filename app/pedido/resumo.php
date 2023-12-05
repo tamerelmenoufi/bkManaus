@@ -180,8 +180,6 @@ $(function(){
         categoria = $(this).attr("categoria");
         local = $(this).attr("editar");
         idUnico = localStorage.getItem("idUnico");
-        console.log(local);
-        return;
         $.ajax({
             url:`produtos/detalhes_${local}.php`,
             type:"POST",
@@ -191,8 +189,9 @@ $(function(){
                 idUnico
             },
             success:function(dados){
+                console.log(dados);
                 $(".CorpoApp").html(dados);
-                Carregando();
+                // Carregando();
             }
         });        
     })
