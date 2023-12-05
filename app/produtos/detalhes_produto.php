@@ -71,6 +71,12 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
+    if(is_file("../../src/produtos/icon/{$d->icon}")){
+        $icon = "{$urlPainel}src/produtos/icon/{$pd->icon}";
+    }else{
+        $icon = "img/logo.png";
+    }
+
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$d->categoria}'"));
 
     if($c->codigo){
@@ -213,7 +219,7 @@
 <div class="home_corpo">
     <div class="produto_painel" codigo="<?=$d->codigo?>">
         <h1 class="produto_titulo"><?=$d->produto?></h1>
-        <img src="img/logo.png" class="produto_img" />
+        <img src="<?=$icon?>" class="produto_img" />
         <div class="produto_descricao"><?=$d->descricao?></div>
 <!-- NOVO -->
 

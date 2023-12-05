@@ -73,6 +73,12 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
+    if(is_file("../../src/combos/icon/{$d->icon}")){
+        $icon = "{$urlPainel}src/combos/icon/{$pd->icon}";
+    }else{
+        $icon = "img/logo.png";
+    }
+
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$d->categoria}'"));
 
     if($c->codigo){
@@ -242,18 +248,8 @@
     <div class="produto_painel" codigo="<?=$d->codigo?>">
         <h1 class="produto_titulo"><?=$d->produto?></h1>
         <div class="produtos"><?=$prd?></div>
-        <img src="img/logo.png" class="produto_img" />
-        <!-- <div class="produto_detalhes d-flex justify-content-between align-items-center w-100">
-            <div style="cursor:pointer">
-                <i class="fa-regular fa-message fa-flip-horizontal"></i>
-                Observações aqui
-            </div>
-            <button type="button" class="btn btn-outline-secondary btn-sm">Anotações</button>
-        </div>    -->
+        <img src="<?=$icon?>" class="produto_img" />
         <div class="produto_descricao"><?=$d->descricao?></div>
-
-
-
 <?php
     if($lista_produtos){
 
