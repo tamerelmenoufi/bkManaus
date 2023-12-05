@@ -528,6 +528,7 @@ $(function(){
             success:function(dados){
 
                 console.log(dados)
+                console.log('teste de validacao')
 
                 valor = (dados*1);
                 $(".adicionar").html('R$ ' + (valor*qt).toLocaleString('pt-br', {minimumFractionDigits: 2}));  
@@ -547,7 +548,7 @@ $(function(){
                         }
                     }); 
                 }
-                
+
 
             }
         });        
