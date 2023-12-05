@@ -51,15 +51,20 @@
         
     }
 
-    if($_POST['acao'] == 'salvar'){
+    if($_POST['acao'] == 'atualiza'){
+        echo $q = "update vendas_tmp set detalhes = JSON_SET(detalhes, 
+                                                '$.item{$_POST['codigo']}.quantidade', '{$_POST['quantidade']}')
+                            where id_unico = '{$_POST['idUnico']}'";
+        mysqli_query($con, $q);
+        exit();
+    }
 
+    if($_POST['acao'] == 'salvar'){
         $q = "update vendas_tmp set detalhes = JSON_SET(detalhes, 
                                                 '$.item{$_POST['codigo']}.quantidade', '{$_POST['quantidade']}',
                                                 '$.item{$_POST['codigo']}.status' , 'true')
                             where id_unico = '{$_POST['idUnico']}'";
-
         mysqli_query($con, $q);
-
         exit();
     }
 
@@ -413,62 +418,6 @@ $(function(){
     });
 
 
-    $(".mais").click(function(){
-        valor = $(".adicionar").attr("valor");
-        qt = $(".qt").text();
-        qt = (qt*1 + 1);
-        $(".qt").text(qt);
-        total = (valor*qt);
-        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));                
-    })
-
-    $(".menos").click(function(){
-        valor = $(".adicionar").attr("valor");
-        qt = $(".qt").text();
-        qt = (((qt*1 - 1)>1)?(qt*1 - 1):1);
-        $(".qt").text(qt);
-        total = (valor*qt);
-        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));                
-    })
-
-
-    $(".barra_topo").click(function(){
-
-        $.ajax({
-            url:"produtos/lista_combos.php",
-            type:"POST",
-            data:{
-                categoria:'<?=$d->categoria?>'
-            },
-            success:function(dados){
-                $(".CorpoApp").html(dados);
-            }
-        });        
-
-    })
-
-    $(".produto_detalhes").click(function(){
-
-        quantidade = $(".qt").text();
-        idUnico = localStorage.getItem("idUnico");
-        
-        $.ajax({
-            url:"produtos/anotacoes_produto.php",
-            type:"POST",
-            data:{
-                codigo:'<?=$d->codigo?>',
-                categoria:'<?=$d->categoria?>',
-                quantidade,
-                idUnico,
-            },
-            success:function(dados){
-                $(".CorpoApp").html(dados);
-            }
-        });           
-
-    })
-
-
     definirDetalhes = () => {
 
         campos = [];
@@ -589,6 +538,88 @@ $(function(){
         });        
 
     }
+
+
+    SalvarDados = ()=>{
+        quantidade = $(".qt").text();
+        idUnico = localStorage.getItem("idUnico");
+        $.ajax({
+            url:"produtos/detalhes_combo.php",
+            type:"POST",
+            data:{
+                codigo:'<?=$d->codigo?>',
+                categoria:'<?=$d->categoria?>',
+                quantidade,
+                idUnico,
+                acao:'atualiza',
+            },
+            success:function(dados){
+                console.log(dados);
+            }
+        });             
+    }
+
+
+
+    $(".mais").click(function(){
+        valor = $(".adicionar").attr("valor");
+        qt = $(".qt").text();
+        qt = (qt*1 + 1);
+        $(".qt").text(qt);
+        total = (valor*qt);
+        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));   
+        SalvarDados();
+    })
+
+    $(".menos").click(function(){
+        valor = $(".adicionar").attr("valor");
+        qt = $(".qt").text();
+        qt = (((qt*1 - 1)>1)?(qt*1 - 1):1);
+        $(".qt").text(qt);
+        total = (valor*qt);
+        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2})); 
+        SalvarDados();
+    })
+
+
+    $(".barra_topo").click(function(){
+
+        $.ajax({
+            url:"produtos/lista_combos.php",
+            type:"POST",
+            data:{
+                categoria:'<?=$d->categoria?>'
+            },
+            success:function(dados){
+                $(".CorpoApp").html(dados);
+            }
+        });        
+
+    })
+
+    $(".produto_detalhes").click(function(){
+
+        quantidade = $(".qt").text();
+        idUnico = localStorage.getItem("idUnico");
+        
+        $.ajax({
+            url:"produtos/anotacoes_produto.php",
+            type:"POST",
+            data:{
+                codigo:'<?=$d->codigo?>',
+                categoria:'<?=$d->categoria?>',
+                quantidade,
+                idUnico,
+            },
+            success:function(dados){
+                $(".CorpoApp").html(dados);
+            }
+        });           
+
+    })
+
+
+
 
     $(".inclusao, .remocao").change(function(){
         definirDetalhes();
