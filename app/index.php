@@ -1,6 +1,7 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     $idUnico = uniqid(); 
+    $_POST['historico'] = [];
 ?>
 <!doctype html>
 <html lang="en">
