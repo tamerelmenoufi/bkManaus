@@ -215,21 +215,22 @@ $(function(){
     calculaTotal();
 
     $("div[editar]").click(function(){
-        historico({
-            'local':'localescolhido',
-            'destino':'destinoescolhido'
-        });
+
+        Carregando();
+        
         codigo = $(this).attr("codigo");
         categoria = $(this).attr("categoria");
         local = $(this).attr("editar");
         idUnico = localStorage.getItem("idUnico");
+       
         $.ajax({
             url:`produtos/detalhes_${local}.php`,
             type:"POST",
             data:{
                 codigo,
                 categoria,
-                idUnico
+                idUnico,
+                historico:'.CorpoApp'
             },
             success:function(dados){
                 // console.log(dados);

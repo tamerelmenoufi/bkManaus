@@ -88,11 +88,8 @@
     $(function(){
 
         $(".combo, .categorias").click(function(){
-            historico({
-                'local':'localescolhido',
-                'destino':'destinoescolhido'
-            });
 
+            Carregando();
             local = $(this).attr("local")
             categoria = $(this).attr("codigo")
 
@@ -100,7 +97,8 @@
                 url:local,
                 type:"POST",
                 data:{
-                    categoria
+                    categoria,
+                    historico:'.CorpoApp'
                 },
                 success:function(dados){
                     Carregando('none');

@@ -72,13 +72,14 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     $(function(){
 
         $("img[home]").click(function(){
-            historico({
-                'local':'localescolhido',
-                'destino':'destinoescolhido'
-            });
+            Carregando();
 
             $.ajax({
                 url:"home/index.php",
+                type:"POST",
+                data:{
+                    historico:'.CorpoApp'
+                },
                 success:function(dados){
                     Carregando('none');
                     $(".CorpoApp").html(dados);
@@ -88,16 +89,14 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         });
 
         $(".telaPedido").click(function(){
-            historico({
-                'local':'localescolhido',
-                'destino':'destinoescolhido'
-            });
+            Carregando();
             idUnico = localStorage.getItem("idUnico");
             $.ajax({
                 url:"pedido/resumo.php",
                 type:"POST",
                 data:{
-                    idUnico
+                    idUnico,
+                    historico:'.CorpoApp'
                 },
                 success:function(dados){
                     Carregando('none');

@@ -416,15 +416,13 @@ $(function(){
                 // $(".CorpoApp").html(valor);
                 // Carregando('none');
                 if(acao){
-                    historico({
-                'local':'localescolhido',
-                'destino':'destinoescolhido'
-            })
+                    Carregando();
                     $.ajax({
                         url:"produtos/lista_produtos.php",
                         type:"POST",
                         data:{
-                            categoria:'<?=$d->categoria?>'
+                            categoria:'<?=$d->categoria?>',
+                            historico:'.CorpoApp'
                         },
                         success:function(dados){  
                             $(".CorpoApp").html(dados);

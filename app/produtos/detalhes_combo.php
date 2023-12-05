@@ -516,15 +516,13 @@ $(function(){
                 $(".adicionar").attr("valor", valor);  
 
                 if(acoes){
-                    historico({
-                'local':'localescolhido',
-                'destino':'destinoescolhido'
-            })
+
                     $.ajax({
                         url:"produtos/lista_combos.php",
                         type:"POST",
                         data:{
-                            categoria:'<?=$d->categoria?>'
+                            categoria:'<?=$d->categoria?>',
+                            historico:'.CorpoApp'
                         },
                         success:function(dados){  
                             $(".CorpoApp").html(dados);

@@ -270,10 +270,7 @@ $(function(){
     });
 
     $(".cancelar").click(function(){
-        historico({
-                'local':'localescolhido',
-                'destino':'destinoescolhido'
-            });
+        Carregando();
         $.ajax({
             url:"produtos/detalhes_produto.php",
             type:"POST",
@@ -281,6 +278,7 @@ $(function(){
                 codigo:'<?=$d->codigo?>',
                 idUnico:'<?=$_POST['idUnico']?>',
                 quantidade:'<?=$_POST['quantidade']?>',
+                historico:'.CorpoApp'
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);
@@ -327,11 +325,7 @@ $(function(){
                 substituicao_valor.push(valor);
             }
         })
-
-        historico({
-                'local':'localescolhido',
-                'destino':'destinoescolhido'
-            });
+        Carregando();
         $.ajax({
             url:"produtos/detalhes_produto.php",
             type:"POST",
@@ -347,7 +341,8 @@ $(function(){
                 substituicao_valor,
                 anotacoes,
                 idUnico,
-                acao:'anotacoes'
+                acao:'anotacoes',
+                historico:'.CorpoApp'
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);

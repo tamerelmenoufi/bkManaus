@@ -151,10 +151,7 @@ $(function(){
     });
 
     $(".produto_painel").click(function(){
-        historico({
-                'local':'localescolhido',
-                'destino':'destinoescolhido'
-            })
+        Carregando();
         codigo = $(this).attr("codigo");
         idUnico = localStorage.getItem("idUnico");
         $.ajax({
@@ -163,7 +160,8 @@ $(function(){
             data:{
                 codigo,
                 categoria:'<?=$_SESSION['categoria']?>',
-                idUnico
+                idUnico,
+                historico:'.CorpoApp'
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);
