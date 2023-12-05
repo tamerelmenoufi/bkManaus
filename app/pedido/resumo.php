@@ -123,6 +123,7 @@
     foreach(json_decode($d->detalhes) as $i => $dados){
         // echo "Codigo: ".$dados->codigo."<br>";
         $pd = mysqli_fetch_object(mysqli_query($con, "select * from produtos where codigo = '{$dados->codigo}'"));
+        if($dados->status){
 ?>
     <div class="produto_painel" codigo="<?=$dados->codigo?>">
         <img src="img/logo.png" />
@@ -150,6 +151,7 @@
     </div>
     
 <?php
+        }
     }
 ?>
 </div>
