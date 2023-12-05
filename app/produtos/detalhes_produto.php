@@ -59,7 +59,7 @@
     if(is_file("../../src/produtos/icon/{$d->icon}")){
         $icon = "{$urlPainel}src/produtos/icon/{$d->icon}";
     }else{
-        $icon = "img/logo.png";
+        $icon = "img/imagem_produto.png";
     }
 
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$d->categoria}'"));

@@ -142,7 +142,7 @@
             if(is_file("../../src/{$dados->tipo}s/icon/{$pd->icon}")){
                 $icon = "{$urlPainel}src/{$dados->tipo}s/icon/{$pd->icon}";
             }else{
-                $icon = "img/logo.png";
+                $icon = "img/imagem_produto.png";
             }
 ?>
     <div class="produto_painel" codigo="<?=$dados->codigo?>">

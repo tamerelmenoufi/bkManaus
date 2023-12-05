@@ -99,7 +99,7 @@ while($d = mysqli_fetch_object($result)){
     if(is_file("../../src/combos/icon/{$d->icon}")){
         $icon = "{$urlPainel}src/combos/icon/{$d->icon}";
     }else{
-        $icon = "img/logo.png";
+        $icon = "img/imagem_produto.png";
     }
 
     $lista_produtos = json_decode($d->cod_prod);
