@@ -11,10 +11,17 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         height:100px;
         z-index:2;
     }
+    .topo.voltar{
+        position:absolute;
+        bottom:0;
+        left:10px;
+        color:#000;
+    }
+
     
 </style>
 <div class="topo">
-    
+    <i class="voltar fa-solid fa-arrow-left"></i>
 </div>
 
 <script>
