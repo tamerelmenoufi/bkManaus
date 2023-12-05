@@ -16,6 +16,9 @@
             $j = (($_SESSION['historico'][$i]['local'])?($i+1):0);
             $_SESSION['historico'][$j]['local'] = $pagina;
             $_SESSION['historico'][$j]['destino'] = $_POST['historico'];
-        } 
-        unset($_POST['historico']);
+            unset($_POST['historico']);
+            $_SESSION['historico'][$j]['dados'] = json_encode($_POST);
+        }else{
+            unset($_POST['historico']);
+        }
     }
