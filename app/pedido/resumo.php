@@ -162,7 +162,7 @@
                     <i class="fa-solid fa-circle-plus mais" style="color:green"></i>
                 </div>
                 <div valor>
-                    <h2 class="adicionar" valor="<?=$dados->total?>" style="color:#f12a2a; font-size:18px; padding-right:10px; font-family:FlameBold; ">
+                    <h2 class="adicionar" valor="<?=$dados->total?>" total="<?=($dados->total*$dados->quantidade)?>" style="color:#f12a2a; font-size:18px; padding-right:10px; font-family:FlameBold; ">
                         R$ <?=number_format(($dados->total*$dados->quantidade),2,",",false)?>
                     </h2>
                 </div>
@@ -177,7 +177,7 @@
 </div>
 
 <div class="home_valores">
-    <button type="button" class="btn btn-outline-danger"><span style="padding-right:30px;">Finalizar Compra</span> R$ 124,98</button>
+    <button type="button" class="btn btn-outline-danger"><span style="padding-right:30px;">Finalizar Compra</span> <span class="totalCompra" total=""></span></button>
 </div>
 
 
@@ -193,6 +193,19 @@ $(function(){
             $(".home_rodape").html(dados);
         }
     });
+
+    calculaTotal = ()=>{
+        totalCompra = 0;
+        $(".adicionar").each(function(){
+            total = $(this).attr("total");
+            totalCompra = (totalCompra*1 + total*1);
+        })        
+
+        $(".totalCompra").attr("total", total);
+        $(".totalCompra").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));        
+    }
+
+    calculaTotal();
 
     $("div[editar]").click(function(){
         // Carregando();
@@ -261,7 +274,9 @@ $(function(){
         qt = (qt*1 + 1);
         objQt.text(qt);
         total = (valor*qt);
-        objValor.html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));    
+        objValor.attr("total", total);
+        objValor.html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2})); 
+        calculaTotal();   
         atualizaDados(cod, qt);         
     })
 
@@ -283,7 +298,9 @@ $(function(){
         // qt = (qt*1 - 1);
         objQt.text(qt);
         total = (valor*qt);
+        objValor.attr("total", total);
         objValor.html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+        calculaTotal();
         atualizaDados(cod, qt);         
     })
 
