@@ -72,7 +72,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     $(function(){
 
         $("img[home]").click(function(){
-            Carregando();
+            historico({
+                'local':'localescolhido',
+                'destino':'destinoescolhido'
+            });
 
             $.ajax({
                 url:"home/index.php",
@@ -85,7 +88,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         });
 
         $(".telaPedido").click(function(){
-            Carregando();
+            historico({
+                'local':'localescolhido',
+                'destino':'destinoescolhido'
+            });
             idUnico = localStorage.getItem("idUnico");
             $.ajax({
                 url:"pedido/resumo.php",

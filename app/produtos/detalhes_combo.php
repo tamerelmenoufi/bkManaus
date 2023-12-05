@@ -492,7 +492,10 @@ $(function(){
         // return
 
 
-        // Carregando();
+        // historico({
+                'local':'localescolhido',
+                'destino':'destinoescolhido'
+            });
         $.ajax({
             url:"produtos/detalhes_combo.php",
             type:"POST",
@@ -518,7 +521,10 @@ $(function(){
                 $(".adicionar").attr("valor", valor);  
 
                 if(acoes){
-                    Carregando()
+                    historico({
+                'local':'localescolhido',
+                'destino':'destinoescolhido'
+            })
                     $.ajax({
                         url:"produtos/lista_combos.php",
                         type:"POST",

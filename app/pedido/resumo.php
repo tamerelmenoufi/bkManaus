@@ -215,7 +215,10 @@ $(function(){
     calculaTotal();
 
     $("div[editar]").click(function(){
-        // Carregando();
+        // historico({
+                'local':'localescolhido',
+                'destino':'destinoescolhido'
+            });
         codigo = $(this).attr("codigo");
         categoria = $(this).attr("categoria");
         local = $(this).attr("editar");
@@ -231,7 +234,10 @@ $(function(){
             success:function(dados){
                 console.log(dados);
                 $(".CorpoApp").html(dados);
-                // Carregando();
+                // historico({
+                'local':'localescolhido',
+                'destino':'destinoescolhido'
+            });
             }
         });        
     })

@@ -151,7 +151,10 @@ $(function(){
     });
 
     $(".produto_painel").click(function(){
-        Carregando()
+        historico({
+                'local':'localescolhido',
+                'destino':'destinoescolhido'
+            })
         codigo = $(this).attr("codigo");
         idUnico = localStorage.getItem("idUnico");
         $.ajax({

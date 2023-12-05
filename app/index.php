@@ -65,7 +65,6 @@
 
     <script>
         $(function(){
-            // Carregando();
 
             idUnico = localStorage.getItem("idUnico");
 

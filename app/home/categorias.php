@@ -88,7 +88,10 @@
     $(function(){
 
         $(".combo, .categorias").click(function(){
-            Carregando();
+            historico({
+                'local':'localescolhido',
+                'destino':'destinoescolhido'
+            });
 
             local = $(this).attr("local")
             categoria = $(this).attr("codigo")

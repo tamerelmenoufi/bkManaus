@@ -390,7 +390,10 @@ $(function(){
             }
         })
 
-        // Carregando();
+        // historico({
+                'local':'localescolhido',
+                'destino':'destinoescolhido'
+            });
         $.ajax({
             url:"produtos/detalhes_produto.php",
             type:"POST",
@@ -417,7 +420,10 @@ $(function(){
                 // $(".CorpoApp").html(valor);
                 // Carregando('none');
                 if(acao){
-                    Carregando()
+                    historico({
+                'local':'localescolhido',
+                'destino':'destinoescolhido'
+            })
                     $.ajax({
                         url:"produtos/lista_produtos.php",
                         type:"POST",

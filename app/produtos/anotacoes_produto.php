@@ -270,7 +270,10 @@ $(function(){
     });
 
     $(".cancelar").click(function(){
-        Carregando();
+        historico({
+                'local':'localescolhido',
+                'destino':'destinoescolhido'
+            });
         $.ajax({
             url:"produtos/detalhes_produto.php",
             type:"POST",
@@ -325,7 +328,10 @@ $(function(){
             }
         })
 
-        Carregando();
+        historico({
+                'local':'localescolhido',
+                'destino':'destinoescolhido'
+            });
         $.ajax({
             url:"produtos/detalhes_produto.php",
             type:"POST",
