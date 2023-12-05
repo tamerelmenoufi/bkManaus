@@ -484,7 +484,14 @@ $(function(){
         qt = (qt*1 + 1);
         $(".qt").text(qt);
         total = (valor*qt);
-        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));              
+        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+        <?php
+        if($dc->status == true){
+        ?>
+        SalvarDados();
+        <?php
+        }
+        ?>
     })
 
     $(".menos").click(function(){
@@ -493,7 +500,14 @@ $(function(){
         qt = (((qt*1 - 1)>1)?(qt*1 - 1):1);
         $(".qt").text(qt);
         total = (valor*qt);
-        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));                
+        $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2})); 
+        <?php
+        if($dc->status == true){
+        ?>
+        SalvarDados();
+        <?php
+        }
+        ?>               
     })
 
 
