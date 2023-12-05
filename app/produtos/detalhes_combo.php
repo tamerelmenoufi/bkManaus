@@ -491,11 +491,6 @@ $(function(){
 
         // return
 
-
-        // historico({
-                'local':'localescolhido',
-                'destino':'destinoescolhido'
-            });
         $.ajax({
             url:"produtos/detalhes_combo.php",
             type:"POST",

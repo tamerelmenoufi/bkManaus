@@ -215,10 +215,10 @@ $(function(){
     calculaTotal();
 
     $("div[editar]").click(function(){
-        // historico({
-                'local':'localescolhido',
-                'destino':'destinoescolhido'
-            });
+        historico({
+            'local':'localescolhido',
+            'destino':'destinoescolhido'
+        });
         codigo = $(this).attr("codigo");
         categoria = $(this).attr("categoria");
         local = $(this).attr("editar");
@@ -234,10 +234,7 @@ $(function(){
             success:function(dados){
                 console.log(dados);
                 $(".CorpoApp").html(dados);
-                // historico({
-                'local':'localescolhido',
-                'destino':'destinoescolhido'
-            });
+                Carregando('none');
             }
         });        
     })

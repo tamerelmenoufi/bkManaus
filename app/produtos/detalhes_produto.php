@@ -390,10 +390,6 @@ $(function(){
             }
         })
 
-        // historico({
-                'local':'localescolhido',
-                'destino':'destinoescolhido'
-            });
         $.ajax({
             url:"produtos/detalhes_produto.php",
             type:"POST",
