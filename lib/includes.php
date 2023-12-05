@@ -15,7 +15,7 @@
         if($_SESSION['historico'][$i]['local'] != $pagina){
             $j = (($_SESSION['historico'][$i]['local'])?($i+1):0);
             $_SESSION['historico'][$j]['local'] = $pagina;
-            $_SESSION['historico'][$j]['destino'] = $pagina;
+            $_SESSION['historico'][$j]['destino'] = $_POST['historico'];
         } 
         unset($_POST['historico']);
     }
