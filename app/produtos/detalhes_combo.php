@@ -415,7 +415,7 @@ $(function(){
     });
 
 
-    definirDetalhes = (acao = '') => {
+    definirDetalhes = (acoes = '') => {
 
         campos = [];
         combo = {};
@@ -522,19 +522,19 @@ $(function(){
                 combo,
                 anotacoes,
                 idUnico,
-                status:((acao)?'true':''),
+                status:((acoes)?'true':''),
                 acao:'anotacoes'
             },
             success:function(dados){
 
                 console.log(dados)
-                console.log(acao)
+                console.log(acoes)
 
                 valor = (dados*1);
                 $(".adicionar").html('R$ ' + (valor*qt).toLocaleString('pt-br', {minimumFractionDigits: 2}));  
                 $(".adicionar").attr("valor", valor);  
 
-                if(acao){
+                if(acoes){
                     Carregando()
                     $.ajax({
                         url:"produtos/lista_combos.php",
