@@ -55,7 +55,7 @@
     .home_corpo{
         position: absolute;
         top:100px;
-        bottom:90px;
+        bottom:150px;
         overflow:auto;
         background-color:#fff;
         left:0;
@@ -68,6 +68,14 @@
         width:100%;
         bottom:0;
         height:90px;
+    }
+
+    .home_valores{
+        position: absolute;
+        background-color:#fafa;
+        width:100%;
+        bottom:90px;
+        height:60px;
     }
 
     .produto_painel{
@@ -161,6 +169,10 @@
     }
 ?>
 </div>
+
+<div class="home_valores"></div>
+
+
 <div class="home_rodape"></div>
 
 <script>
