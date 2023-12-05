@@ -175,11 +175,13 @@ $(function(){
     });
 
     $("div[editar]").click(function(){
-        Carregando();
+        // Carregando();
         codigo = $(this).attr("codigo");
         categoria = $(this).attr("categoria");
         local = $(this).attr("editar");
         idUnico = localStorage.getItem("idUnico");
+        console.log(local);
+        return;
         $.ajax({
             url:`produtos/detalhes_${local}.php`,
             type:"POST",
