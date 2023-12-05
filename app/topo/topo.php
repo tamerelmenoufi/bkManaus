@@ -13,8 +13,8 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     }
     .topo > .voltar{
         position:absolute;
-        bottom:0;
-        left:10px;
+        bottom:10px;
+        left:15px;
         color:#000;
         font-size:30px;
     }
