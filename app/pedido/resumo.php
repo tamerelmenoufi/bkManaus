@@ -111,7 +111,7 @@
     }
     .produto_botoes{
         font-size:20px;
-        margin-top:10px;
+        margin-top:15px;
     }
 </style>
 
