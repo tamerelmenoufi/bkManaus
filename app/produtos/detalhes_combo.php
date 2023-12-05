@@ -559,21 +559,6 @@ $(function(){
     })
 
 
-    $(".barra_topo").click(function(){
-
-        $.ajax({
-            url:"produtos/lista_combos.php",
-            type:"POST",
-            data:{
-                categoria:'<?=$d->categoria?>'
-            },
-            success:function(dados){
-                $(".CorpoApp").html(dados);
-            }
-        });        
-
-    })
-
 
     $(".inclusao, .remocao").change(function(){
         definirDetalhes();

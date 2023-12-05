@@ -474,21 +474,6 @@ $(function(){
     })
 
 
-    $(".barra_topo").click(function(){
-
-        $.ajax({
-            url:"produtos/lista_produtos.php",
-            type:"post",
-            data:{
-                categoria:'<?=$d->categoria?>'
-            },
-            success:function(dados){
-                $(".CorpoApp").html(dados);
-            }
-        });        
-
-    })
-
 
 
     $(".adicionar").click(function(){
