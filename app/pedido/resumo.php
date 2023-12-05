@@ -111,7 +111,7 @@
     }
     .produto_botoes{
         font-size:20px;
-        margin-top:30px;
+        margin-top:10px;
     }
 </style>
 
@@ -137,7 +137,7 @@
             <div class="produto_dados">
                 <h4 style="color:#f12a2a"><?=$pd->produto?></h4>
             </div>
-            <div class="produto_dados" editar="<?=$dados->tipo?>" categoria="<?=$pd->categoria?>" codigo="<?=$dados->codigo?>" style="color:#a1a1a1; padding-left:15px; cursor:pointer;">
+            <div class="produto_dados" editar="<?=$dados->tipo?>" categoria="<?=$pd->categoria?>" codigo="<?=$dados->codigo?>" style="color:#a1a1a1; padding-left:15px; margin-top:5px; cursor:pointer;">
                 <i class="fa fa-edit"></i>
                 Editar
             </div>
