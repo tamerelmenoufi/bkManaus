@@ -14,6 +14,7 @@
         unset($data['quantidade']);
         unset($data['valor']);
         unset($data['anotacoes']);
+        unset($data['status']);
 
         $valor_adicional = 0;
         if($data['inclusao']){
@@ -38,7 +39,7 @@
             'total' => ($valor_adicional + $_POST['valor']),
             'quantidade' => ($_POST['quantidade']*1),
             'codigo' => ($_POST['codigo']*1),
-            'status' => false,
+            'status' => $_POST['status'],
         ];
 
         $update = json_encode($update, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
@@ -369,7 +370,7 @@ $(function(){
         }
     });
 
-    definirDetalhes = () => {
+    definirDetalhes = (acao = '') => {
 
         remocao = [];
         inclusao = [];
@@ -426,6 +427,7 @@ $(function(){
                 substituicao_valor,
                 anotacoes,
                 idUnico,
+                status:((acao)?true:false),
                 acao:'anotacoes'
             },
             success:function(dados){
@@ -434,6 +436,20 @@ $(function(){
                 $(".adicionar").attr("valor", valor);  
                 // $(".CorpoApp").html(valor);
                 // Carregando('none');
+                if(acao){
+                    Carregando()
+                    $.ajax({
+                        url:"produtos/lista_produtos.php",
+                        type:"POST",
+                        data:{
+                            categoria:'<?=$d->categoria?>'
+                        },
+                        success:function(dados){  
+                            $(".CorpoApp").html(dados);
+                            Carregando('none');
+                        }
+                    }); 
+                }
             }
         });        
 
@@ -483,7 +499,7 @@ $(function(){
         $(".qt").text(qt);
         total = (valor*qt);
         $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-        SalvarDados();
+        definirDetalhes();
     })
 
     $(".menos").click(function(){
@@ -493,7 +509,7 @@ $(function(){
         $(".qt").text(qt);
         total = (valor*qt);
         $(".adicionar").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2})); 
-        SalvarDados();
+        definirDetalhes();
     })
 
 
@@ -515,34 +531,35 @@ $(function(){
 
 
     $(".adicionar").click(function(){
-        Carregando();
-        quantidade = $(".qt").text();
-        idUnico = localStorage.getItem("idUnico");
-        $.ajax({
-            url:"produtos/detalhes_produto.php",
-            type:"POST",
-            data:{
-                codigo:'<?=$d->codigo?>',
-                categoria:'<?=$d->categoria?>',
-                quantidade,
-                idUnico,
-                acao:'salvar',
-            },
-            success:function(dados){
-                console.log(dados);
-                $.ajax({
-                    url:"produtos/lista_produtos.php",
-                    type:"POST",
-                    data:{
-                        categoria:'<?=$d->categoria?>'
-                    },
-                    success:function(dados){  
-                        $(".CorpoApp").html(dados);
-                        Carregando('none');
-                    }
-                }); 
-            }
-        });  
+        definirDetalhes('salva');
+        // Carregando();
+        // quantidade = $(".qt").text();
+        // idUnico = localStorage.getItem("idUnico");
+        // $.ajax({
+        //     url:"produtos/detalhes_produto.php",
+        //     type:"POST",
+        //     data:{
+        //         codigo:'<?=$d->codigo?>',
+        //         categoria:'<?=$d->categoria?>',
+        //         quantidade,
+        //         idUnico,
+        //         acao:'salvar',
+        //     },
+        //     success:function(dados){
+        //         console.log(dados);
+        //         $.ajax({
+        //             url:"produtos/lista_produtos.php",
+        //             type:"POST",
+        //             data:{
+        //                 categoria:'<?=$d->categoria?>'
+        //             },
+        //             success:function(dados){  
+        //                 $(".CorpoApp").html(dados);
+        //                 Carregando('none');
+        //             }
+        //         }); 
+        //     }
+        // });  
     })
 
 })
