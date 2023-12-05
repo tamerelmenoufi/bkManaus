@@ -630,7 +630,7 @@ $(function(){
 
     $(".adicionar").click(function(){
 
-        definirDetalhes();
+        definirDetalhes('salva');
 
         // Carregando();
 
