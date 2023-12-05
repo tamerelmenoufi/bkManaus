@@ -175,6 +175,7 @@ $(function(){
     });
 
     $("div[editar]").click(function(){
+        Carregando();
         codigo = $(this).attr("codigo");
         categoria = $(this).attr("categoria");
         local = $(this).attr("editar");
@@ -189,6 +190,7 @@ $(function(){
             },
             success:function(dados){
                 $(".CorpoApp").html(dados);
+                Carregando();
             }
         });        
     })
