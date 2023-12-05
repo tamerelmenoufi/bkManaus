@@ -28,6 +28,23 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 <script>
     $(function(){
 
+        $(".voltar").click(function(){
+            $.ajax({
+                url:"lib/voltar.php",
+                dataType:"JSON",
+                success:function(dados){
+                    var data = $.parseJSON(dados.dt);
+                    $.ajax({
+                        url:dados.pg,
+                        type:"POST",
+                        data,
+                        success:function(retorno){
+                            $(`${dados.tg}`).html(retorno);
+                        }
+                    })
+                }
+              })
+        })
         
     })
 </script>
