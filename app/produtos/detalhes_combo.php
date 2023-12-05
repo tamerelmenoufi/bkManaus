@@ -397,6 +397,13 @@ $(function(){
         }
     });
 
+    $.ajax({
+        url:"topo/topo.php",
+        success:function(dados){
+            $(".barra_topo").append(dados);
+        }
+    });
+
 
     definirDetalhes = (acoes = '') => {
 
