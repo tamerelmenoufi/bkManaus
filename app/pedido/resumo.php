@@ -217,7 +217,7 @@ $(function(){
     $("div[editar]").click(function(){
 
         Carregando();
-        
+
         codigo = $(this).attr("codigo");
         categoria = $(this).attr("categoria");
         local = $(this).attr("editar");
@@ -303,6 +303,8 @@ $(function(){
         }else if(qt == 1){
             $(this).parent("div").parent("div").parent("div").parent("div").remove();
             removeProduto(cod);
+            calculaTotal();
+            atualizaDados(cod, qt);
             return false;
         }
         qt = (((qt*1 - 1)>1)?(qt*1 - 1):1);
