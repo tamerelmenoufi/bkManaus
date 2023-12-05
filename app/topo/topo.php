@@ -21,9 +21,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     
 </style>
 <div class="topo">
-    <i class="voltar fa-solid fa-arrow-left"></i>
+    
 </div>
-
+<i class="voltar fa-solid fa-arrow-left"></i>
 <script>
     $(function(){
 
