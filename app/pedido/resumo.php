@@ -170,7 +170,9 @@
 ?>
 </div>
 
-<div class="home_valores"></div>
+<div class="home_valores">
+    <button type="button" class="btn btn-outline-danger">Finalizar a compra R$ 124,98</button>
+</div>
 
 
 <div class="home_rodape"></div>
