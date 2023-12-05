@@ -201,8 +201,8 @@ $(function(){
             totalCompra = (totalCompra*1 + total*1);
         })        
 
-        $(".totalCompra").attr("total", total);
-        $(".totalCompra").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));        
+        $(".totalCompra").attr("total", totalCompra);
+        $(".totalCompra").html('R$ ' + totalCompra.toLocaleString('pt-br', {minimumFractionDigits: 2}));        
     }
 
     calculaTotal();
