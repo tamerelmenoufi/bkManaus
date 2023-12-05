@@ -125,8 +125,8 @@
         $pd = mysqli_fetch_object(mysqli_query($con, "select * from produtos where codigo = '{$dados->codigo}'"));
         if($dados->status){
 
-            if(is_file("../../src/produtos/icon/{$pd->icon}")){
-                $icon = "{$urlPainel}src/produtos/icon/{$pd->icon}";
+            if(is_file("../../src/{$dados->tipo}s/icon/{$pd->icon}")){
+                $icon = "{$urlPainel}src/{$dados->tipo}s/icon/{$pd->icon}";
             }else{
                 $icon = "img/logo.png";
             }
