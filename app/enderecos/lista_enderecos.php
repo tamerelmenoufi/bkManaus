@@ -31,13 +31,26 @@
         $("#cadastro_cep").click(function(){
             cep = $("#cep").val();
             if(!cep || (cep.length == 9 && cep.substring(0,2) == 69)){
-                $.alert('Agora vai dar certo!')
-                $.dialog({
-                    title:"Endereço",
-                    type:"green",
-                    content:"url:enderecos/form.php",
-                    columnClass:'col-12'
-                })
+                idUnico = localStorage.getItem("idUnico");
+                codUsr = localStorage.getItem("codUsr");
+                $.ajax({
+                    url:"enderecos/form.php",
+                    type:"POST",
+                    data:{
+                        idUnico,
+                        codUsr,
+                        cep
+                    },
+                    success:function(dados){
+                        $.dialog({
+                            title:"Endereço",
+                            type:"green",
+                            content:dados,
+                            columnClass:'col-12'
+                        })                        
+                    }
+                });
+
             }else if(cep.substring(0,2) != 69 || cep.length != 9){
                 $.alert({
                     title:"Erro",
