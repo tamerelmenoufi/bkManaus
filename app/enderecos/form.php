@@ -73,7 +73,7 @@
             !uf
             ){
                 $.alert('Favor preencha os campos obrigatório (*)!');
-                retutn false;
+                return false;
             }
 
             idUnico = localStorage.getItem("idUnico");
@@ -110,7 +110,7 @@
                             $(".dados_enderecos").html(dados);
                         }
                     }) 
-                    
+
                 }
             });
 
