@@ -20,20 +20,32 @@ print_r($d);
 <div class="row g-0 p-2">
     <div class="card p-2">
         <div class="mb-1">
-            <label for="nome" class="form-label">Nome Completo</label>
-            <input type="text" class="form-control formDados" autocomplete="off" value="<?=$d->nome?>" id="nome">
+            <label class="form-label">CEP</label>
+            <div class="form-control is-valid" ><?=$d->cep?></div>
         </div>
         <div class="mb-1">
-            <label for="cpf" class="form-label">CPF</label>
-            <input type="text" class="form-control formDados" autocomplete="off" value="<?=$d->cpf?>" id="cpf">
+            <label for="localidade" class="form-label">Logradouro</label>
+            <input type="text" class="form-control <?=(($d->localidade)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->localidade?>" id="localidade">
         </div>
         <div class="mb-1">
-            <label class="form-label">Telefone</label>
-            <div class="form-control is-valid" ><?=$d->telefone?></div>
+            <label for="numero" class="form-label">Número</label>
+            <input type="text" class="form-control <?=(($d->numero)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->numero?>" id="numero">
         </div>
         <div>
-            <label for="email" class="form-label">E-mail</label>
-            <input type="email" class="form-control formDados" autocomplete="off" value="<?=$d->email?>" id="email">
+            <label for="complemento" class="form-label">Complemento</label>
+            <input type="text" class="form-control <?=(($d->complemento)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->complemento?>" id="complemento">
+        </div>  
+        <div>
+            <label for="ponto_referencia" class="form-label">Ponto de Referência</label>
+            <input type="text" class="form-control <?=(($d->ponto_referencia)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->ponto_referencia?>" id="ponto_referencia">
         </div>        
+        <div>
+            <label for="bairro" class="form-label">Bairro</label>
+            <input type="text" class="form-control <?=(($d->bairro)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->bairro?>" id="bairro">
+        </div>  
+        <div>
+            <label for="localidade" class="form-label">Localidade</label>
+            <input type="text" class="form-control <?=(($d->localidade)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->localidade?>" id="localidade">
+        </div>  
     </div>
 </div>
