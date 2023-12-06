@@ -53,15 +53,15 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 <div class="rodape">
     <div class="d-flex justify-content-between align-items-center rodape_area">
         <img home src="img/logo.png" />
-        <div>
+        <div navegacao="usuarios/perfil.php">
             <i class="fa-solid fa-user"></i>
             <p>Perfil</p>
         </div>
-        <div class="telaPedido">
+        <div navegacao="pedido/resumo.php" class="telaPedido">
             <i class="fa-solid fa-bag-shopping"></i>
             <p>Pedido</p>
         </div>        
-        <div>
+        <div navegacao="pedido/resumo.php">
             <i class="fa-solid fa-circle-dollar-to-slot"></i>
             <p>Pagar</p>
         </div>        
@@ -88,8 +88,9 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
         });
 
-        $(".telaPedido").click(function(){
+        $("div[navegacao]").click(function(){
             Carregando();
+            url = $(this).attr("vavegacao");
             idUnico = localStorage.getItem("idUnico");
             $.ajax({
                 url:"pedido/resumo.php",
