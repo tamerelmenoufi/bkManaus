@@ -16,7 +16,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         margin:10px;
         margin-top:20px;
         margin-bottom:20px;
-        padding-right:30px;
+        padding-right:15px;
         border-radius:40px;
         background-color:#b60710;
         left:0;
