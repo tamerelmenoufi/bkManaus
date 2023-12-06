@@ -11,12 +11,12 @@
     }
 
     if($_POST['telefone']){
-        echo $q = "SELECT * from usuarios WHERE telefone = '{$_POST['telefone']}'";
+        $q = "SELECT * from clientes WHERE telefone = '{$_POST['telefone']}'";
         $c = mysqli_fetch_object(mysqli_query($con, $q));
         if($c->codigo){
             $_SESSION['codUsr'] = $c->codigo;
         }else{
-            mysqli_query($con, "INSERT INTO usuarios set telefone = '{$_POST['telefone']}'");
+            mysqli_query($con, "INSERT INTO clientes set telefone = '{$_POST['telefone']}'");
             $_SESSION['codUsr'] = mysqli_insert_id($con);
         }
     }
