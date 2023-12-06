@@ -95,20 +95,6 @@
             $.ajax({
                 url:"enderecos/form.php",
                 type:"POST",
-                dataType:"JSON",
-                data:{
-                    idUnico,
-                    codUsr,
-                    cep,
-                    logradouro,
-                    numero,
-                    complemento,
-                    ponto_referencia,
-                    bairro,
-                    localidade,
-                    uf,
-                    acao:'salvar'
-                },
                 success:function(dados){
 
                     console.log('passagem do salvar')
