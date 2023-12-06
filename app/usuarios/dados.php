@@ -17,7 +17,7 @@
             'idUnico' => $_SESSION['idUnico'],
             'codUsr' => $_SESSION['codUsr'],
         ];
-        echo json_decode($retorno);
+        echo json_encode($retorno);
         exit();
     }
 
