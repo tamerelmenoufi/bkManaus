@@ -15,7 +15,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     .rodape_area{
         position:absolute;
         margin:0px;
-        margin-top:0px;
+        margin-top:10px;
         margin-bottom:10px;
         padding-right:20px;
         border-radius:40px;
