@@ -41,7 +41,7 @@
             <label for="bairro" class="form-label">Bairro</label>
             <input type="text" class="form-control <?=(($d->bairro)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->bairro?>" id="bairro">
         </div>  
-        <div class="mb-1">
+        <div class="mb-2">
             <label for="localidade" class="form-label">Localidade</label>
             <input type="text" class="form-control <?=(($d->localidade)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->localidade?>" id="localidade" uf="AM">
         </div> 
