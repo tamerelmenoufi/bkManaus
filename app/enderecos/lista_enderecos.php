@@ -35,7 +35,7 @@
 
                 $.alert('Agora vai dar certo!')
 
-            }else if(cep.substring(0,2) == 69 || cep.length != 9){
+            }else if(cep.substring(0,2) != 69 || cep.length != 9){
                 $.alert({
                     title:"Erro",
                     content:"CEP inválido ou fora da área de atendimento",
