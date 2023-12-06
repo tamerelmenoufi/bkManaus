@@ -9,7 +9,7 @@
     .home_corpo{
         position: absolute;
         top:0;
-        bottom:70px;
+        bottom:80px;
         overflow:auto;
         background-color:#fff;
         width:100%;
@@ -20,7 +20,7 @@
         background-color:#fff;
         width:100%;
         bottom:0;
-        height:70px;
+        height:80px;
     }
 </style>
 
