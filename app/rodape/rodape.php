@@ -106,11 +106,13 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
             Carregando();
             url = $(this).attr("navegacao");
             idUnico = localStorage.getItem("idUnico");
+            codUsr = localStorage.getItem("codUsr");
             $.ajax({
                 url,
                 type:"POST",
                 data:{
                     idUnico,
+                    codUsr,
                     historico:'.CorpoApp'
                 },
                 success:function(dados){

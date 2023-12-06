@@ -1,6 +1,14 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+    if($_POST['codUsr']){
+        $_SESSION['codUsr'] = $_POST['codUsr'];
+    }
+
+    $query = "select * from clientes where codigo = '{$_SESSION['codUsr']}'";
+    $result = mysqli_query($con, $query);
+    $d = mysqli_fetch_object($result);
+
 ?>
 <style>
     .barra_topo{
@@ -45,9 +53,7 @@
 </div>
 
 
-<div class="home_corpo">
-
-</div>   
+<div class="home_corpo"></div>   
 <div class="home_rodape"></div>
 
 <script>
@@ -67,6 +73,22 @@ $(function(){
             $(".barra_topo").append(dados);
         }
     });
+
+    idUnico = localStorage.getItem("idUnico");
+    codUsr = localStorage.getItem("codUsr");
+
+    $.ajax({
+        url:"usuarios/principal.php",
+        type:"POST",
+        data:{
+            idUnico,
+            codUsr
+        },
+        success:function(dados){
+            $(".home_corpo").append(dados);
+        }
+    });    
+
     //Novos testes
 
 })
