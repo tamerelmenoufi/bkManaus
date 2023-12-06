@@ -104,12 +104,9 @@ $.confirm({
             e.preventDefault();
             jc.$$formSubmit.trigger('click'); // reference the button and click it
         });
-    },
-    contentLoaded: function(data, status, xhr){
-        //Enquanto carrega
-    },
-    onContentReady: function(){
         $(".name").mask("9999")
+    }
+        
     }
 });
 
