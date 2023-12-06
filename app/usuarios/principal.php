@@ -83,21 +83,21 @@ $.confirm({
                 if(!codigoValida){
                     $.alert({
                         type:"red",
-                        Title:"Erro",
+                        title:"Erro",
                         content:'Digite o código enviado!'
                     });
                     return false;
                 }else if(codigoValida.length != 4){
                     $.alert({
                         type:"red",
-                        Title:"Erro",
+                        title:"Erro",
                         content:'O Código deve ser de 4 dígitos!'
                     });
                     return false;
                 }else if(codigoValida != dados.codigo){
                     $.alert({
                         type:"red",
-                        Title:"Erro",
+                        title:"Erro",
                         content:'O Código informado não confere!'
                     });
                     return false;
