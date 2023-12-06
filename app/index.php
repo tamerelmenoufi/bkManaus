@@ -81,6 +81,27 @@
 
             $(".CorpoApp").css("min-height", $(window).height());
 
+            <?php
+            if(count($_SESSION['historico'])){
+            ?>
+            $.ajax({
+                url:"lib/refresh.php",
+                dataType:"JSON",
+                success:function(dados){
+                    var data = $.parseJSON(dados.dt);
+                    $.ajax({
+                        url:dados.pg,
+                        type:"POST",
+                        data,
+                        success:function(retorno){
+                            $(`${dados.tg}`).html(retorno);
+                        }
+                    })
+                }
+              })
+            <?php
+            }else{
+            ?>
             $.ajax({
                 url:"home/index.php",
                 type:"POST",
@@ -90,7 +111,11 @@
                 success:function(dados){
                     $(".CorpoApp").html(dados);
                 }
-            });
+            });            
+            <?php
+            }
+            ?>
+
         })
 
 
