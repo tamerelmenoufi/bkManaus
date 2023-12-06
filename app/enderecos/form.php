@@ -29,23 +29,23 @@
             <label for="numero" class="form-label">Número</label>
             <input type="text" class="form-control <?=(($d->numero)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->numero?>" id="numero">
         </div>
-        <div>
+        <div class="mb-1">
             <label for="complemento" class="form-label">Complemento</label>
             <input type="text" class="form-control <?=(($d->complemento)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->complemento?>" id="complemento">
         </div>  
-        <div>
+        <div class="mb-1">
             <label for="ponto_referencia" class="form-label">Ponto de Referência</label>
             <input type="text" class="form-control <?=(($d->ponto_referencia)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->ponto_referencia?>" id="ponto_referencia">
         </div>        
-        <div>
+        <div class="mb-1">
             <label for="bairro" class="form-label">Bairro</label>
             <input type="text" class="form-control <?=(($d->bairro)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->bairro?>" id="bairro">
         </div>  
-        <div>
+        <div class="mb-1">
             <label for="localidade" class="form-label">Localidade</label>
             <input type="text" class="form-control <?=(($d->localidade)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->localidade?>" id="localidade" uf="AM">
         </div> 
-        <div>
-            <button type="button" class="btn btn-danger w-100">Salvar Endereço</button>
+        <div class="mb-1">
+            <button type="button" class="btn btn-outline-danger w-100">Salvar Endereço</button>
         </div>
 </div>
