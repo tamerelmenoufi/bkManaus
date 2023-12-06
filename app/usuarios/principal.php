@@ -25,15 +25,15 @@
     //Se o usuário não possui cadastro no app
     if(!$d->codigo){
 ?>
-<div class="row g-0 p-3">
-    <div class="col">
-        <div class="mb-3">
-            <label for="telefone" class="form-label">Telefone</label>
-            <input type="text" inputmode="numeric" class="form-control" id="telefone" aria-describedby="telefoneAjuda">
-            <div id="telefoneAjuda" class="form-text">Digite o seu número Telefone/WhatsApp identificação!</div>
+    <div class="row g-0 p-3">
+        <div class="col">
+            <div class="mb-3">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input type="text" inputmode="numeric" class="form-control" id="telefone" aria-describedby="telefoneAjuda">
+                <div id="telefoneAjuda" class="form-text">Digite o seu número Telefone/WhatsApp identificação!</div>
+            </div>
         </div>
     </div>
-</div>
 <?php
     }
 ?>
@@ -43,6 +43,7 @@
 
 $(function(){
 
+    $("#telefone").mask("(99) 99999-9999");
 
 
 })
