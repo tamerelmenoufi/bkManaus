@@ -8,6 +8,13 @@
         $_SESSION['codUsr'] = $_POST['codUsr'];
     }
 
+    if($_POST['acao'] == 'salvar'){
+        echo json_decode([
+            "status" => true
+        ]);
+        exit();
+    }
+
     if($_POST['cep']){
         $cep = str_replace('-',false,$_POST['cep']);
         $d = ConsultaCEP($cep);
@@ -53,6 +60,7 @@
 
 <script>
     $(function(){
+
         $(".salvar_endereco").click(function(){
             cep = $("#cep").val();
             logradouro = $("#logradouro").val();
