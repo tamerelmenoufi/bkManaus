@@ -16,7 +16,7 @@
 
 ?>
 
-
+<div class="row g-0">
         <div class="mb-1">
             <label class="form-label">CEP</label>
             <div class="form-control is-valid" ><?=$d->cep?></div>
@@ -46,3 +46,4 @@
             <input type="text" class="form-control <?=(($d->localidade)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->localidade?>" id="localidade" uf="AM">
         </div>  
  
+</div>
