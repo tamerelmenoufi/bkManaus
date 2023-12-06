@@ -39,7 +39,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         cursor:pointer;
     }
     .rodape_area i{
-        font-size:20px;
+        font-size:25px;
         color:#ffdb37;
         margin:0;
         padding:0;
