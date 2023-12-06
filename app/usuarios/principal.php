@@ -97,6 +97,7 @@ $.confirm({
         },
     },
     onContentReady: function () {
+
         // bind to events
         var jc = this;
         this.$content.find('form').on('submit', function (e) {
@@ -104,10 +105,10 @@ $.confirm({
             e.preventDefault();
             jc.$$formSubmit.trigger('click'); // reference the button and click it
         });
-        $(".name").mask("9999")
+
+        $(".codigoValida").mask("9999");
     }
         
-    }
 });
 
 
