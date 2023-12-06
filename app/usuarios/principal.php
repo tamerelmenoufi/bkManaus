@@ -45,11 +45,87 @@ $(function(){
 
     $("#telefone").mask("(99) 99999-9999");
     $("#telefone").keyup(function(){
-        valor = $(this).val();
-        if(valor.length == 15){
-            $.alert('completou os 15')
+        telefone = $(this).val();
+        if(telefone.length == 15){
+            idUnico = localStorage.getItem("idUnico");
+            $.ajax({
+                url:"usuarios/telefone_validar.php",
+                type:"POST",
+                dataType:"JSON",
+                data:{
+                    telefone:telefone,
+                    idUnico
+                },
+                success:function(dados){
+                    if(dados.status == 'novo'){
+
+
+
+//////////////////////////////////////////////////////////////////////
+
+
+$.confirm({
+    title: `Validar ${telefone}` ,
+    content: '' +
+    '<form action="" class="FormValidarTelefone">' +
+    '<div class="form-group">' +
+    '<label>Digite o código enviado para você (Mensagem WhatsApp ou SMS)</label>' +
+    '<input type="text" inputmode="numeric" placeholder="* * * *" mask="9999" class="name form-control" required />' +
+    '</div>' +
+    '</form>',
+    buttons: {
+        formSubmit: {
+            text: 'Submit',
+            btnClass: 'btn-blue',
+            action: function () {
+                var name = this.$content.find('.name').val();
+                if(!name){
+                    $.alert('provide a valid name');
+                    return false;
+                }
+                $.alert('Your name is ' + name);
+            }
+        },
+        cancel: function () {
+            //close
+        },
+    },
+    onContentReady: function () {
+        // bind to events
+        var jc = this;
+        this.$content.find('form').on('submit', function (e) {
+            // if the user submits the form by pressing enter in the field.
+            e.preventDefault();
+            jc.$$formSubmit.trigger('click'); // reference the button and click it
+        });
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////
+
+
+
+
+                    }
+                }
+            });
+
+
         }
     })
+
+
+
 
 
 })
