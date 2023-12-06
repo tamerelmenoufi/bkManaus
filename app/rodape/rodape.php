@@ -93,7 +93,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
             url = $(this).attr("vavegacao");
             idUnico = localStorage.getItem("idUnico");
             $.ajax({
-                url:"pedido/resumo.php",
+                url,
                 type:"POST",
                 data:{
                     idUnico,
