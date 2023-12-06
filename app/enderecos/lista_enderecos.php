@@ -23,3 +23,24 @@
   </div>
     </div>
 </div>
+
+
+<script>
+    $(function(){
+        $("#cep").mask("99999-999");
+        $("#cadastro_cep").click(function(){
+            cep = $("#cep").val();
+            if(!cep || cep.length == 9){
+
+                $.alert('Agora vai dar certo!')
+
+            }else if(cep.substring(0,2) == 69 || cep.length != 9){
+                $.alert({
+                    title:"Erro",
+                    content:"CEP inválido ou fora da área de atendimento",
+                    type:"red"
+                })
+            }
+        })
+    })
+</script>
