@@ -70,7 +70,7 @@ $.confirm({
     '<form action="" class="FormValidarTelefone">' +
     '<div class="form-group">' +
     '<label>Digite o código enviado para você (Mensagem WhatsApp ou SMS)</label>' +
-    '<input type="text" inputmode="numeric" placeholder="* * * *" data-mask="9999" class="name form-control" required />' +
+    '<input type="text" inputmode="numeric" placeholder="* * * *" data-mask="9999" class="codigoValida form-control" required />' +
     '</div>' +
     '</form>',
     buttons: {
@@ -78,9 +78,12 @@ $.confirm({
             text: 'Submit',
             btnClass: 'btn-blue',
             action: function () {
-                var name = this.$content.find('.name').val();
-                if(!name){
-                    $.alert('provide a valid name');
+                var codigoValida = this.$content.find('.codigoValida').val();
+                if(!codigoValida){
+                    $.alert('Digite o código enviado!');
+                    return false;
+                }else if(codigoValida.length != 4){
+                    $.alert('O Código deve ser de 4 dígitos!');
                     return false;
                 }
                 $.alert('Your name is ' + name);
@@ -100,7 +103,7 @@ $.confirm({
         });
     },
     contentLoaded: function(data, status, xhr){
-        
+        //Enquanto carrega
     },
     onContentReady: function(){
         $(".name").mask("9999")
