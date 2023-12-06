@@ -2,9 +2,10 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     $idUnico = uniqid();
 
-    // $_SESSION['historico'] = [];
-    // $_SESSION['historico'][0]['local'] = 'home/index.php';
-    // $_SESSION['historico'][0]['destino'] = '.CorpoApp';
+     
+$_SESSION['historico'] = [];
+    $_SESSION['historico'][0]['local'] = 'home/index.php';
+    $_SESSION['historico'][0]['destino'] = '.CorpoApp';
 ?>
 <!doctype html>
 <html lang="en">
