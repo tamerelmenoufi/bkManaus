@@ -89,7 +89,7 @@
                 dataType:"JSON",
                 success:function(dados){
                     var data = $.parseJSON(dados.dt);
-                    console.log(data);
+                    console.log(dados);
                     $.ajax({
                         url:dados.pg,
                         type:"POST",
