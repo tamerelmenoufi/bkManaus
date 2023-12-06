@@ -25,7 +25,7 @@
     //Se o usuário não possui cadastro no app
     if(!$d->codigo){
 ?>
-<div class="row g-0">
+<div class="row g-0 p-3">
     <div class="col">
         <div class="mb-3">
             <label for="telefone" class="form-label">Telefone</label>
