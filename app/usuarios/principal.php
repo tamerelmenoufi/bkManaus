@@ -100,10 +100,10 @@ $.confirm({
         });
     },
     contentLoaded: function(data, status, xhr){
-        self.setContentAppend('<div>Content loaded!</div>');
+        
     },
     onContentReady: function(){
-        this.setContentAppend('<div>Content ready!</div>');
+        $(".name").mask("9999")
     }
 });
 
