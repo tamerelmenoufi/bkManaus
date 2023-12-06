@@ -68,9 +68,10 @@ $.confirm({
     title: `Validar ${telefone}` ,
     content: '' +
     '<form action="" class="FormValidarTelefone">' +
-    '<div class="form-group">' +
-    '<label>Digite o código enviado para você (Mensagem WhatsApp ou SMS)</label>' +
-    '<input type="text" inputmode="numeric" placeholder="* * * *" data-mask="9999" class="codigoValida form-control" required />' +
+    '<div class="mb-3">' +
+    '<label for="codigoValidar" class="form-label">Telefone</label>' +
+     '<input type="email" class="form-control" id="codigoValidar" aria-describedby="validarMensagem">' +
+    '<div id="validarMensagem" class="form-text">Digite o código enviado para você (Mensagem WhatsApp ou SMS)</div>' +
     '</div>' +
     '</form>',
     buttons: {
@@ -92,8 +93,12 @@ $.confirm({
                 $.alert('Your name is ' + codigoValida);
             }
         },
-        cancel: function () {
-            //close
+        cancel: {
+            text: 'Cancelar',
+            btnClass: 'btn-warning',
+            action: function () {
+
+            }
         },
     },
     onContentReady: function () {
