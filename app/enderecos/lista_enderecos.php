@@ -42,7 +42,7 @@
                         cep
                     },
                     success:function(dados){
-                        $.dialog({
+                        JanelaForm = $.dialog({
                             title:"Endereço",
                             type:"green",
                             content:dados,
