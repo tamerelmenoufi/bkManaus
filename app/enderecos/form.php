@@ -121,6 +121,7 @@
                             acao:'salvar'
                         },
                         success:function(dados){
+                            console.log('agora aqui')
                             $.alert('Endereço salvo com sucesso!');  
                             JanelaForm.close();
                             $(".dados_enderecos").html(dados);
