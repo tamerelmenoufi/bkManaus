@@ -89,7 +89,7 @@
                 dataType:"JSON",
                 success:function(dados){
                     var data = $.parseJSON(dados.dt);
-                    console.log('sessao');
+                    console.log(data);
                     $.ajax({
                         url:dados.pg,
                         type:"POST",
@@ -110,7 +110,6 @@
                     idUnico,
                 },
                 success:function(dados){
-                    console.log('novo');
                     $(".CorpoApp").html(dados);
                 }
             });            
