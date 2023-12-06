@@ -116,8 +116,20 @@
         })
 
 
+        idUnico = localStorage.getItem("idUnico");
+        codUsr = localStorage.getItem("codUsr");
 
-
+        $.ajax({
+            url:"enderecos/dados_enderecos.php",
+            type:"POST",
+            data:{
+                codUsr,
+                idUnico
+            },
+            success:function(dados){
+                $(".dados_enderecos").html(dados);
+            }
+        })  
 
     })
 </script>

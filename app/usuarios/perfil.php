@@ -55,6 +55,7 @@
 
 <div class="home_corpo">
     <div class="dados_pessoais"></div>
+    <div class="dados_enderecos"></div>
 </div>   
 <div class="home_rodape"></div>
 
