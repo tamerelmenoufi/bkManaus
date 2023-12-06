@@ -55,19 +55,19 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 <div class="rodape">
     <div class="d-flex justify-content-between align-items-center rodape_area">
         <img home src="img/logo.png" />
-        <div navegacao="usuarios/perfil.php">
-            <i class="fa-solid fa-user"></i>
-            <p>Perfil</p>
+        <div navegacao="home/index.php">
+            <i class="fa-solid fa-house"></i>
+            <p>Home</p>
         </div>
 
-        <div navegacao="pedido/resumo.php" class="telaPedido">
+        <div navegacao="usuarios/perfil.php" class="telaPedido">
             <i class="fa-solid fa-bag-shopping"></i>
-            <p>Pedido</p>
+            <p>Perfil</p>
         </div>
         
-        <div navegacao="pedido/resumo.php" class="telaPedido">
-            <i class="fa-solid fa-bag-shopping"></i>
-            <p>Pedido</p>
+        <div class="telaPedido">
+            <i class="fa-solid fa-burger"></i>
+            <p>Menu</p>
         </div>
         
         <div navegacao="pedido/resumo.php" class="telaPedido">
