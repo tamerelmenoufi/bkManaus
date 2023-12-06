@@ -24,8 +24,8 @@ print_r($d);
             <div class="form-control is-valid" ><?=$d->cep?></div>
         </div>
         <div class="mb-1">
-            <label for="localidade" class="form-label">Logradouro</label>
-            <input type="text" class="form-control <?=(($d->localidade)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->localidade?>" id="localidade">
+            <label for="logradouro" class="form-label">Logradouro</label>
+            <input type="text" class="form-control <?=(($d->logradouro)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->logradouro?>" id="logradouro">
         </div>
         <div class="mb-1">
             <label for="numero" class="form-label">Número</label>
@@ -45,7 +45,8 @@ print_r($d);
         </div>  
         <div>
             <label for="localidade" class="form-label">Localidade</label>
-            <input type="text" class="form-control <?=(($d->localidade)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->localidade?>" id="localidade">
+            <input type="text" class="form-control <?=(($d->localidade)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->localidade?>" id="localidade" uf="AM">
         </div>  
+ 
     </div>
 </div>
