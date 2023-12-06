@@ -86,18 +86,29 @@
         }
 
         $(".formDados").change(function(){
+            $(this).addClass("is-invalid")
+            $(this).removeClass("is-valid")
+        })
+
+        $(".formDados").blur(function(){
             campo = $(this).attr("id");
             valor = $(this).val();
             console.log(campo)
             console.log(valor)
             if(campo == 'nome'){
                 ExecutaAtualizacao(campo, valor);
+                $(this).removeClass("is-invalid")
+                $(this).addClass("is-valid")
             }else if(campo == 'cpf'){
                 if(valor.length == 14){
                     ExecutaAtualizacao(campo, valor);
+                    $(this).removeClass("is-invalid")
+                    $(this).addClass("is-valid")
                 }
             }else if(campo == 'email'){
                 ExecutaAtualizacao(campo, valor);
+                $(this).removeClass("is-invalid")
+                $(this).addClass("is-valid")
             }
         })
 
