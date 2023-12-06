@@ -85,7 +85,7 @@ $(function(){
             codUsr
         },
         success:function(dados){
-            $(".home_corpo").append(dados);
+            $(".home_corpo").html(dados);
         }
     });    
 

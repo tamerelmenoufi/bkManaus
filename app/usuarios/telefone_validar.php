@@ -1,1 +1,1 @@
-{"status":"novo", "codigo":"1122"}
+{"status":"success", "codigo":"1122"}

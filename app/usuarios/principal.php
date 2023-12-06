@@ -46,6 +46,7 @@ $(function(){
     $("#telefone").mask("(99) 99999-9999");
     $("#telefone").keyup(function(){
         telefone = $(this).val();
+        $(this).val("");
         if(telefone.length == 15){
             idUnico = localStorage.getItem("idUnico");
             $.ajax({
@@ -53,85 +54,88 @@ $(function(){
                 type:"POST",
                 dataType:"JSON",
                 data:{
-                    telefone:telefone,
+                    telefone,
                     idUnico
                 },
                 success:function(dados){
-                    if(dados.status == 'novo'){
-
-
+                    if(dados.status == 'success'){
 
 //////////////////////////////////////////////////////////////////////
 
 
-$.confirm({
-    title: `Validar ${telefone}` ,
-    content: '' +
-    '<form action="" class="FormValidarTelefone">' +
-    '<div class="mb-3">' +
-    '<label for="codigoValida" class="form-label">Telefone</label>' +
-     '<input type="text" inputmode="numeric" class="form-control codigoValida" id="codigoValida" aria-describedby="validarMensagem">' +
-    '<div id="validarMensagem" class="form-text">Digite o código enviado para você (Mensagem WhatsApp ou SMS)</div>' +
-    '</div>' +
-    '</form>',
-    buttons: {
-        formSubmit: {
-            text: 'Validar',
-            btnClass: 'btn-danger',
-            action: function () {
-                var codigoValida = this.$content.find('.codigoValida').val();
-                if(!codigoValida){
-                    $.alert({
-                        type:"red",
-                        title:"Erro",
-                        content:'Digite o código enviado!'
-                    });
-                    return false;
-                }else if(codigoValida.length != 4){
-                    $.alert({
-                        type:"red",
-                        title:"Erro",
-                        content:'O Código deve ser de 4 dígitos!'
-                    });
-                    return false;
-                }else if(codigoValida != dados.codigo){
-                    $.alert({
-                        type:"red",
-                        title:"Erro",
-                        content:'O Código informado não confere!'
-                    });
-                    return false;
-                }
-                $.alert('Your name is ' + codigoValida);
-            }
-        },
-        cancel: {
-            text: 'Cancelar',
-            btnClass: 'btn-warning',
-            action: function () {
+                        $.confirm({
+                            title: `Validar ${telefone}` ,
+                            content: '' +
+                            '<form action="" class="FormValidarTelefone">' +
+                            '<div class="mb-3">' +
+                            '<label for="codigoValida" class="form-label">Telefone</label>' +
+                            '<input type="text" inputmode="numeric" class="form-control codigoValida" id="codigoValida" aria-describedby="validarMensagem">' +
+                            '<div id="validarMensagem" class="form-text">Digite o código enviado para você (Mensagem WhatsApp ou SMS)</div>' +
+                            '</div>' +
+                            '</form>',
+                            buttons: {
+                                formSubmit: {
+                                    text: 'Validar',
+                                    btnClass: 'btn-danger',
+                                    action: function () {
+                                        var codigoValida = this.$content.find('.codigoValida').val();
+                                        if(!codigoValida){
+                                            $.alert({
+                                                type:"red",
+                                                title:"Erro",
+                                                content:'Digite o código enviado!'
+                                            });
+                                            return false;
+                                        }else if(codigoValida.length != 4){
+                                            $.alert({
+                                                type:"red",
+                                                title:"Erro",
+                                                content:'O Código deve ser de 4 dígitos!'
+                                            });
+                                            return false;
+                                        }else if(codigoValida != dados.codigo){
+                                            $.alert({
+                                                type:"red",
+                                                title:"Erro",
+                                                content:'O Código informado não confere!'
+                                            });
+                                            return false;
+                                        }
+                                        $.ajax({
+                                            url:"usuarios/dados.php",
+                                            type:"POST",
+                                            data:{
+                                                telefone,
+                                                idUnico
+                                            },
+                                            success:function(dados){
+                                                $(".home_corpo").html(dados);
+                                            }
+                                        });
+                                    }
+                                },
+                                cancel: {
+                                    text: 'Cancelar',
+                                    btnClass: 'btn-warning',
+                                    action: function () {
 
-            }
-        },
-    },
-    onContentReady: function () {
+                                    }
+                                },
+                            },
+                            onContentReady: function () {
 
-        // bind to events
-        var jc = this;
-        this.$content.find('form').on('submit', function (e) {
-            // if the user submits the form by pressing enter in the field.
-            e.preventDefault();
-            jc.$$formSubmit.trigger('click'); // reference the button and click it
-        });
+                                // bind to events
+                                var jc = this;
+                                this.$content.find('form').on('submit', function (e) {
+                                    // if the user submits the form by pressing enter in the field.
+                                    e.preventDefault();
+                                    jc.$$formSubmit.trigger('click'); // reference the button and click it
+                                });
 
-        $(".codigoValida").mask("9999");
-    }
-        
-});
-
-
-
-
-
+                                $(".codigoValida").mask("9999");
+                            }
+                                
+                        });
 
 /////////////////////////////////////////////////////////////////////
 
