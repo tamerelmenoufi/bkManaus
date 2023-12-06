@@ -8,7 +8,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         bottom:0;
         width:100%;
         background-color:#fff;
-        height:90px;
+        height:80px;
         z-index:1;
         border:solid 1px red;
     }
