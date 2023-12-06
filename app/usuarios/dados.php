@@ -29,3 +29,14 @@
     ////////////////
 
 ?>
+
+<script>
+    $(function(){
+
+        localStorage.setItem("codUsr", '<?=$_SESSION['codUsr']?>');
+
+        
+
+
+    })
+</script>

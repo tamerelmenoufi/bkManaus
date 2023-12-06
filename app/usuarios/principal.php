@@ -11,9 +11,6 @@
     $query = "select * from clientes where codigo = '{$_SESSION['codUsr']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
-
-
-
 ?>
 <style>
 
@@ -42,7 +39,10 @@
 <script>
 
 $(function(){
-
+<?php
+    //Se o usuário não possui cadastro no app
+    if(!$d->codigo){
+?>
     $("#telefone").mask("(99) 99999-9999");
     $("#telefone").keyup(function(){
         telefone = $(this).val();
@@ -59,10 +59,6 @@ $(function(){
                 },
                 success:function(dados){
                     if(dados.status == 'success'){
-
-//////////////////////////////////////////////////////////////////////
-
-
                         $.confirm({
                             title: `Validar ${telefone}` ,
                             content: '' +
@@ -136,12 +132,6 @@ $(function(){
                             }
                                 
                         });
-
-/////////////////////////////////////////////////////////////////////
-
-
-
-
                     }
                 }
             });
@@ -149,9 +139,27 @@ $(function(){
 
         }
     })
+<?php
+    }else{
+?>
+    idUnico = localStorage.getItem("idUnico");
+    codUsr = localStorage.getItem("codUsr");
 
+    $.ajax({
+        url:"usuarios/dados.php",
+        type:"POST",
+        data:{
+            idUnico,
+            codUsr
+        },
+        success:function(dados){
+            $(".dados_pessoais").html(dados);
+        }
+    });
 
-
+<?php
+    }
+?>
 
 
 })
