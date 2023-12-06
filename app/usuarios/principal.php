@@ -75,8 +75,8 @@ $.confirm({
     '</form>',
     buttons: {
         formSubmit: {
-            text: 'Submit',
-            btnClass: 'btn-blue',
+            text: 'Validar',
+            btnClass: 'btn-danger',
             action: function () {
                 var codigoValida = this.$content.find('.codigoValida').val();
                 if(!codigoValida){
