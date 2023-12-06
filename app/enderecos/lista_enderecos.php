@@ -31,7 +31,7 @@
         $("#cadastro_cep").click(function(){
             cep = $("#cep").val();
             console.log(cep.substring(0,2))
-            if(!cep || cep.length == 9){
+            if(!cep || (cep.length == 9 && cep.substring(0,2) != 69)){
 
                 $.alert('Agora vai dar certo!')
 
