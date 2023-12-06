@@ -44,6 +44,12 @@
 $(function(){
 
     $("#telefone").mask("(99) 99999-9999");
+    $("#telefone").keyup(function(){
+        valor = $(this).val();
+        if(valor.length == 15){
+            $.alert('completou os 15')
+        }
+    })
 
 
 })
