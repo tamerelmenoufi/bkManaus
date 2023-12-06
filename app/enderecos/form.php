@@ -106,6 +106,20 @@
                             codUsr,
                             idUnico
                         },
+                        dataType:"JSON",
+                        data:{
+                            idUnico,
+                            codUsr,
+                            cep,
+                            logradouro,
+                            numero,
+                            complemento,
+                            ponto_referencia,
+                            bairro,
+                            localidade,
+                            uf,
+                            acao:'salvar'
+                        },
                         success:function(dados){
                             $.alert('Endereço salvo com sucesso!');  
                             JanelaForm.close();
