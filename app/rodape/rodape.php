@@ -19,10 +19,10 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         padding-right:20px;
         border-radius:20px;
         background-color:#b60710;
-        left:0;
+        left:2px;
         right:5px;
         top:0;
-        bottom:0;
+        bottom:5px;
         z-index:10;
     }
     .rodape_area img{
