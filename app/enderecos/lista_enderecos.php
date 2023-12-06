@@ -30,6 +30,7 @@
         $("#cep").mask("99999-999");
         $("#cadastro_cep").click(function(){
             cep = $("#cep").val();
+            console.log(cep.substring(0,2))
             if(!cep || cep.length == 9){
 
                 $.alert('Agora vai dar certo!')
