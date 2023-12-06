@@ -70,7 +70,7 @@ $.confirm({
     '<form action="" class="FormValidarTelefone">' +
     '<div class="form-group">' +
     '<label>Digite o código enviado para você (Mensagem WhatsApp ou SMS)</label>' +
-    '<input type="text" inputmode="numeric" placeholder="* * * *" class="name form-control" required />' +
+    '<input type="text" inputmode="numeric" placeholder="* * * *" data-mask="9999" class="name form-control" required />' +
     '</div>' +
     '</form>',
     buttons: {
