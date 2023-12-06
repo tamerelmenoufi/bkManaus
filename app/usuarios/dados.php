@@ -11,7 +11,7 @@
     }
 
     if($_SPOT['acao'] == 'atualizar'){
-        mysqli_query($con, "update clientes set {$_POST['campo']} = '{$_POST['valor']}'");
+        mysqli_query($con, "update clientes set {$_POST['campo']} = '{$_POST['valor']}' where codigo = '{$_POST['codigo']}'");
         $retorno = [
             'status' => 'success',
             'idUnico' => $_SESSION['idUnico'],
@@ -45,11 +45,11 @@
     <div class="col">
         <div class="mb-3">
             <label for="nome" class="form-label">Nome Completo</label>
-            <input type="text" class="form-control formDados" id="nome">
+            <input type="text" class="form-control formDados" value="<?=$d->nome?>" id="nome">
         </div>
         <div class="mb-3">
             <label for="cpf" class="form-label">CPF</label>
-            <input type="text" class="form-control formDados" id="cpf">
+            <input type="text" class="form-control formDados" value="<?=$d->cpf?>" id="cpf">
         </div>
         <div class="mb-3">
             <label class="form-label">Telefone</label>
@@ -57,7 +57,7 @@
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">E-mail</label>
-            <input type="email" class="form-control formDados" id="email">
+            <input type="email" class="form-control formDados" value="<?=$d->email?>" id="email">
         </div>        
     </div>
 </div>
@@ -76,6 +76,7 @@
                 data:{
                     campo,
                     valor,
+                    codigo:'<?=$d->codigo?>',
                     acao:'atualizar'
                 },
                 success:function(dados){
