@@ -59,10 +59,22 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
             <i class="fa-solid fa-user"></i>
             <p>Perfil</p>
         </div>
+
+        <div navegacao="pedido/resumo.php" class="telaPedido">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <p>Pedido</p>
+        </div>
+        
+        <div navegacao="pedido/resumo.php" class="telaPedido">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <p>Pedido</p>
+        </div>
+        
         <div navegacao="pedido/resumo.php" class="telaPedido">
             <i class="fa-solid fa-bag-shopping"></i>
             <p>Pedido</p>
         </div>        
+
         <div navegacao="pedido/resumo.php">
             <i class="fa-solid fa-circle-dollar-to-slot"></i>
             <p>Pagar</p>
