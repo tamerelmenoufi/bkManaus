@@ -85,8 +85,11 @@ $.confirm({
                 }else if(codigoValida.length != 4){
                     $.alert('O Código deve ser de 4 dígitos!');
                     return false;
+                }else if(codigoValida != dados.codigo){
+                    $.alert('O Código informado não confere!');
+                    return false;
                 }
-                $.alert('Your name is ' + name);
+                $.alert('Your name is ' + codigoValida);
             }
         },
         cancel: function () {
