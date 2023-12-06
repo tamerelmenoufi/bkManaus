@@ -20,7 +20,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         border-radius:20px;
         background-color:#b60710;
         left:0;
-        right:0;
+        right:5px;
         top:0;
         bottom:0;
         z-index:10;
