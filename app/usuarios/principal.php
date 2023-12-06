@@ -70,7 +70,7 @@ $.confirm({
     '<form action="" class="FormValidarTelefone">' +
     '<div class="mb-3">' +
     '<label for="codigoValidar" class="form-label">Telefone</label>' +
-     '<input type="email" class="form-control codigoValidar" id="codigoValidar" aria-describedby="validarMensagem">' +
+     '<input type="text" inputmode="numeric" class="form-control codigoValidar" id="codigoValidar" aria-describedby="validarMensagem">' +
     '<div id="validarMensagem" class="form-text">Digite o código enviado para você (Mensagem WhatsApp ou SMS)</div>' +
     '</div>' +
     '</form>',
