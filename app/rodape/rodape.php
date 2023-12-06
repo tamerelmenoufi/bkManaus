@@ -8,7 +8,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         bottom:0;
         width:100%;
         background-color:#fff;
-        height:70px;
+        height:90px;
         z-index:1;
     }
     .rodape_area{
