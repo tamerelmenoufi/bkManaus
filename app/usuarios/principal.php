@@ -98,6 +98,12 @@ $.confirm({
             e.preventDefault();
             jc.$$formSubmit.trigger('click'); // reference the button and click it
         });
+    },
+    contentLoaded: function(data, status, xhr){
+        self.setContentAppend('<div>Content loaded!</div>');
+    },
+    onContentReady: function(){
+        this.setContentAppend('<div>Content ready!</div>');
     }
 });
 
