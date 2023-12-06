@@ -11,7 +11,8 @@
     }
 
     if($_POST['telefone']){
-        $c = mysqli_fetch_object(mysqli_query($con, "SELECT * from usuarios WHERE telefone = '{$_POST['telefone']}'"));
+        $q = "SELECT * from usuarios WHERE telefone = '{$_POST['telefone']}'";
+        $c = mysqli_fetch_object(mysqli_query($con, $q));
         if($c->codigo){
             $_SESSION['codUsr'] = $c->codigo;
         }else{
