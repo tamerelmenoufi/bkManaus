@@ -95,7 +95,6 @@
             $.ajax({
                 url:"enderecos/form.php",
                 type:"POST",
-                dataType:"JSON",
                 data:{
                     idUnico,
                     codUsr,
