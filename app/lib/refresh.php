@@ -6,6 +6,7 @@
     $r['pg'] = $_SESSION['historico'][$i]['local'];
     $r['tg'] = $_SESSION['historico'][$i]['destino'];
     $r['dt'] = $_SESSION['historico'][$i]['dados'];
+    $r['i'] = $i;
 
     echo json_encode($r);
 
