@@ -30,11 +30,14 @@
         $("#cep").mask("99999-999");
         $("#cadastro_cep").click(function(){
             cep = $("#cep").val();
-            console.log(cep.substring(0,2))
             if(!cep || (cep.length == 9 && cep.substring(0,2) == 69)){
-
                 $.alert('Agora vai dar certo!')
-
+                $.dialog({
+                    title:"Endereço",
+                    type:"green",
+                    content:"url:enderecos/form.php",
+                    columnClass:'col-12'
+                })
             }else if(cep.substring(0,2) != 69 || cep.length != 9){
                 $.alert({
                     title:"Erro",
