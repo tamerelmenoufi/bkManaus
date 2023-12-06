@@ -7,6 +7,14 @@
     if($_POST['codUsr']){
         $_SESSION['codUsr'] = $_POST['codUsr'];
     }
+
+    if($_POST['cep']){
+        $cep = str_replace('-',false,$_POST['cep']);
+        $d = ConsultaCEP($cep);
+    }
+
+print_r($d);
+
 ?>
 
 <div class="row g-0 p-2">

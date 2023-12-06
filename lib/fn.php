@@ -99,4 +99,24 @@
           mysqli_query($con, "update produtos set valor = '{$total}' where codigo = '{$d->codigo}'");
         }
         return $total;
-      }
+    }
+
+    function ConsultaCEP($cep){
+        global $con;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://viacep.com.br/ws/{$cep}/json/");
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        "accept: application/json",
+        "Content-Type: application/json",
+        ));
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $d);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        return $dados = json_decode($response);
+        
+    }
