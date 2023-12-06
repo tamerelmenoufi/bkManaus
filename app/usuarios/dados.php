@@ -120,7 +120,7 @@
         codUsr = localStorage.getItem("codUsr");
 
         $.ajax({
-            url:"enderecos/dados_enderecos.php",
+            url:"enderecos/lista_enderecos.php",
             type:"POST",
             data:{
                 codUsr,
