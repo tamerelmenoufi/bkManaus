@@ -81,13 +81,22 @@ $.confirm({
             action: function () {
                 var codigoValida = this.$content.find('.codigoValida').val();
                 if(!codigoValida){
-                    $.alert('Digite o código enviado!');
+                    $.alert({
+                        type:"red",
+                        content:'Digite o código enviado!'
+                    });
                     return false;
                 }else if(codigoValida.length != 4){
-                    $.alert('O Código deve ser de 4 dígitos!');
+                    $.alert({
+                        type:"red",
+                        content:'O Código deve ser de 4 dígitos!'
+                    });
                     return false;
                 }else if(codigoValida != dados.codigo){
-                    $.alert('O Código informado não confere!');
+                    $.alert({
+                        type:"red",
+                        content:'O Código informado não confere!'
+                    });
                     return false;
                 }
                 $.alert('Your name is ' + codigoValida);
