@@ -55,7 +55,7 @@
     .home_corpo{
         position: absolute;
         top:100px;
-        bottom:150px;
+        bottom:160px;
         overflow:auto;
         background-color:#fff;
         left:0;
@@ -67,7 +67,7 @@
         background-color:#fff;
         width:100%;
         bottom:0;
-        height:90px;
+        height:80px;
     }
 
     .home_valores{
@@ -79,7 +79,7 @@
         position: absolute;
         background-color:#fafafa;
         width:100%;
-        bottom:90px;
+        bottom:80px;
         height:60px;
         font-family:FlameBold;
     }

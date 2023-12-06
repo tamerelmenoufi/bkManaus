@@ -23,7 +23,7 @@
     .home_corpo{
         position: absolute;
         top:100px;
-        bottom:150px;
+        bottom:80px;
         overflow:auto;
         background-color:#fff;
         width:100%;
@@ -34,7 +34,7 @@
         background-color:#fff;
         width:100%;
         bottom:0;
-        height:90px;
+        height:80px;
     }
 
 
