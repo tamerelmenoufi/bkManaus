@@ -41,7 +41,7 @@
 
 ?>
 
-<div class="row g-0 p-1">
+<div class="row g-0 p-2">
     <div class="card p-1">
         <div class="mb-3">
             <label for="nome" class="form-label">Nome Completo</label>
