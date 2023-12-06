@@ -9,7 +9,7 @@
     }
 
     if($_POST['acao'] == 'salvar'){
-        echo json_decode([
+        echo json_encode([
             "status" => true
         ]);
         exit();
@@ -95,6 +95,7 @@
             $.ajax({
                 url:"enderecos/form.php",
                 type:"POST",
+                dataType:"JSON",
                 data:{
                     idUnico,
                     codUsr,
@@ -110,7 +111,7 @@
                 },
                 success:function(dados){
 
-                    console.log('passagem do salvar')
+                    console.log(dados)
                     
                     $.ajax({
                         url:"enderecos/lista_enderecos.php",
