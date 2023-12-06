@@ -20,7 +20,7 @@
         background-color:#fff;
         width:100%;
         bottom:0;
-        height:90px;
+        height:80px;
     }
 </style>
 
