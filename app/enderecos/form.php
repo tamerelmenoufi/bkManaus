@@ -88,6 +88,8 @@
                 return false;
             }
 
+            console.log('antes do salvar')
+
             idUnico = localStorage.getItem("idUnico");
             codUsr = localStorage.getItem("codUsr");
             $.ajax({
@@ -108,6 +110,8 @@
                     acao:'salvar'
                 },
                 success:function(dados){
+
+                    console.log('passagem do salvar')
                     
                     $.ajax({
                         url:"enderecos/lista_enderecos.php",
@@ -123,6 +127,9 @@
                         }
                     }) 
 
+                },
+                error:function(){
+                    console.log('No erro')
                 }
             });
 
