@@ -41,7 +41,7 @@
 </style>
 
 <div class="barra_topo">
-    <h2><?=$c->categoria?></h2>
+    <h2>Perfil</h2>
 </div>
 
 
