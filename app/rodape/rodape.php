@@ -10,6 +10,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         background-color:#fff;
         height:90px;
         z-index:1;
+        border:solid 1px red;
     }
     .rodape_area{
         position:absolute;
