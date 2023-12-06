@@ -42,7 +42,7 @@
 ?>
 
 <div class="row g-0 p-3">
-    <div class="col">
+    <div class="card">
         <div class="mb-3">
             <label for="nome" class="form-label">Nome Completo</label>
             <input type="text" class="form-control formDados" autocomplete="off" value="<?=$d->nome?>" id="nome">
