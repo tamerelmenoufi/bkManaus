@@ -3,7 +3,7 @@
     $idUnico = uniqid();
 
      
-$_SESSION['historico'] = [];
+    $_SESSION['historico'] = [];
     $_SESSION['historico'][0]['local'] = 'home/index.php';
     $_SESSION['historico'][0]['destino'] = '.CorpoApp';
 ?>
