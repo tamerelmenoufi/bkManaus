@@ -13,7 +13,6 @@
         $d = ConsultaCEP($cep);
     }
 
-print_r($d);
 
 ?>
 
