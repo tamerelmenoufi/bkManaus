@@ -85,7 +85,7 @@
             })            
         }
 
-        $(".formDados").keyDown(function(){
+        $(".formDados").keydown(function(){
             $(this).addClass("is-invalid")
             $(this).removeClass("is-valid")
         })
