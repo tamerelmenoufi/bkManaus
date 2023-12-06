@@ -87,7 +87,8 @@
         $(".formDados").change(function(){
             campo = $(this).attr("id");
             valor = $(this).val();
-            console.log('dados para visualizar')
+            console.log(campo)
+            console.log(valor)
             if(campo == 'nome'){
                 ExecutaAtualizacao(campo, valor);
             }else if(campo == 'cpf'){
