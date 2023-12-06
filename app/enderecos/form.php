@@ -25,8 +25,8 @@
 
 <div class="row g-0 mb-3 p-2">
         <div class="mb-1">
-            <label class="form-label">CEP*</label>
-            <div class="form-control is-valid" ><?=$d->cep?></div>
+            <label for="cep" class="form-label">CEP*</label>
+            <input type="text" class="form-control <?=(($d->cep)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->cep?>" id="cep">
         </div>
         <div class="mb-1">
             <label for="logradouro" class="form-label">Logradouro*</label>
@@ -95,6 +95,20 @@
             $.ajax({
                 url:"enderecos/form.php",
                 type:"POST",
+                dataType:"JSON",
+                data:{
+                    idUnico,
+                    codUsr,
+                    cep,
+                    logradouro,
+                    numero,
+                    complemento,
+                    ponto_referencia,
+                    bairro,
+                    localidade,
+                    uf,
+                    acao:'salvar'
+                },
                 success:function(dados){
 
                     console.log('passagem do salvar')
@@ -105,20 +119,6 @@
                         data:{
                             codUsr,
                             idUnico
-                        },
-                        dataType:"JSON",
-                        data:{
-                            idUnico,
-                            codUsr,
-                            cep,
-                            logradouro,
-                            numero,
-                            complemento,
-                            ponto_referencia,
-                            bairro,
-                            localidade,
-                            uf,
-                            acao:'salvar'
                         },
                         success:function(dados){
                             console.log('agora aqui')
