@@ -90,7 +90,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
         $("div[navegacao]").click(function(){
             Carregando();
-            url = $(this).attr("vavegacao");
+            url = $(this).attr("navegacao");
             idUnico = localStorage.getItem("idUnico");
             $.ajax({
                 url,
