@@ -36,7 +36,7 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
-    echo $_SESSION['codUsr'] = $d->codigo;
+    $_SESSION['codUsr'] = $d->codigo;
     ////////////////
 
 ?>
@@ -87,6 +87,7 @@
         $(".formDados").change(function(){
             campo = $(this).attr("id");
             valor = $(this).val();
+            console.log('dados para visualizar')
             if(campo == 'nome'){
                 ExecutaAtualizacao(campo, valor);
             }else if(campo == 'cpf'){
