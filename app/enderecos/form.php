@@ -72,7 +72,11 @@
             !localidade ||
             !uf
             ){
-                $.alert('Favor preencha os campos obrigatório (*)!');
+                $.alert({
+                    content:'Preencha os campos obrigatório (*)!',
+                    title:"Erro",
+                    type:"red"
+                });
                 return false;
             }
 
