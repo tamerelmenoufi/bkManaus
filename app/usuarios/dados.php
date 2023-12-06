@@ -25,5 +25,6 @@
     $d = mysqli_fetch_object($result);
 
     $_SESSION['codUsr'] = $d->codigo;
+    ////////////////
 
 ?>
