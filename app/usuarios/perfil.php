@@ -53,7 +53,9 @@
 </div>
 
 
-<div class="home_corpo"></div>   
+<div class="home_corpo">
+    <div class="dados_pessoais"></div>
+</div>   
 <div class="home_rodape"></div>
 
 <script>
@@ -85,7 +87,7 @@ $(function(){
             codUsr
         },
         success:function(dados){
-            $(".home_corpo").html(dados);
+            $(".dados_pessoais").html(dados);
         }
     });    
 

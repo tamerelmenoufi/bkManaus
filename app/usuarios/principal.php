@@ -46,8 +46,8 @@ $(function(){
     $("#telefone").mask("(99) 99999-9999");
     $("#telefone").keyup(function(){
         telefone = $(this).val();
-        $(this).val("");
         if(telefone.length == 15){
+            $(this).val("");
             idUnico = localStorage.getItem("idUnico");
             $.ajax({
                 url:"usuarios/telefone_validar.php",
@@ -109,7 +109,7 @@ $(function(){
                                                 idUnico
                                             },
                                             success:function(dados){
-                                                $(".home_corpo").html(dados);
+                                                $(".dados_pessoais").html(dados);
                                             }
                                         });
                                     }
