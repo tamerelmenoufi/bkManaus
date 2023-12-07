@@ -24,6 +24,7 @@
         text-overflow: ellipsis;
         color:#333;
         font-size:14px;
+        cursor:pointer;
     }
 </style>
 <div class="row g-0 p-2 mt-3">
@@ -36,7 +37,7 @@
         while($c = mysqli_fetch_object($result)){
         ?>
         <div class="d-flex justify-content-between">
-            <div class="enderecoLabel">
+            <div class="enderecoLabel" codigo="<?=$c->codigo?>">
                 <i class="fa-solid fa-location-dot"></i>
                 <?="{$c->logradouro}, {$c->numero}, {$c->bairro}"?>
             </div>
@@ -95,6 +96,36 @@
                     console.log('erro')
                 }
             });
+        })
+
+        $(".enderecoLabel").click(function(){
+            cod = $(this).attr("codigo");
+
+            idUnico = localStorage.getItem("idUnico");
+            codUsr = localStorage.getItem("codUsr");
+            $.ajax({
+                url:"enderecos/form.php",
+                type:"POST",
+                data:{
+                    idUnico,
+                    codUsr,
+                    codigo
+                },
+                success:function(dados){
+                    $(".dados_enderecos").html(dados);                       
+                }
+            });
+
+            if(!cep || (cep.length == 9 && cep.substring(0,2) == 69)){
+                
+
+            }else if(cep.substring(0,2) != 69 || cep.length != 9){
+                $.alert({
+                    title:"Erro",
+                    content:"CEP inválido ou fora da área de atendimento",
+                    type:"red"
+                })
+            }
         })
 
 

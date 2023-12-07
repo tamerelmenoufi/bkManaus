@@ -40,6 +40,12 @@
         }
     }
 
+    if($_POST['çodigo']){
+        $query = "select * from enderecos where codigo = '{$_POST['codigo']}'";
+        $result = mysqli_query($con, $query);
+        $d = mysqli_fetch_object($result);
+    }
+
 
 ?>
 
@@ -73,6 +79,13 @@
             <label for="localidade" class="form-label">Cidade*</label>
             <input type="text" class="form-control <?=(($d->localidade)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->localidade?>" id="localidade">
             <input type="hidden" value="AM" id="uf">
+            <?php
+            if($d->codigo){
+            ?>
+            <input type="hidden" value="<?=$d->codigo?>" id="codigo">
+            <?php
+            }
+            ?>
         </div> 
         <div class="mb-1">
             <button type="button" class="btn btn-outline-success w-100 salvar_endereco">Salvar Endereço</button>
@@ -169,6 +182,13 @@
             bairro = $("#bairro").val();
             localidade = $("#localidade").val();
             uf = $("#uf").val();
+            <?php
+            if($d->codigo){
+            ?>
+            codigo = $("#codigo").val();
+            <?php
+            }
+            ?>
 
             if(cep.length > 0 && (cep.length != 9 || cep.substring(0,2) != 69)){
                 $.alert({
@@ -215,6 +235,13 @@
                     bairro,
                     localidade,
                     uf,
+                    <?php
+                    if($d->codigo){
+                    ?>
+                    codigo,
+                    <?php
+                    }
+                    ?>
                     acao:'salvar'
                 },
                 success:function(dados){
