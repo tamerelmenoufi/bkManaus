@@ -77,7 +77,7 @@
 <script>
     $(function(){
 
-        $(".salvar_endereco").click(function(){
+        $(".cancelar_endereco").click(function(){
 
             Carregando();
             idUnico = localStorage.getItem("idUnico");
