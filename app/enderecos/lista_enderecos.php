@@ -14,6 +14,10 @@
         exit();
     }
 
+    if($_POST['excluir']){
+        mysqli_query($con, "delete from enderecos where codigo = '{$_POST['excluir']}'");
+    }    
+
 
 ?>
 <style>

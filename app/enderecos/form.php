@@ -93,6 +93,15 @@
         <div class="mb-1">
             <button type="button" class="btn btn-outline-danger w-100 cancelar_endereco">Cancelar</button>
         </div>
+        <?php
+        if($d->codigo){
+        ?>
+        <div class="mb-1">
+            <button type="button" class="btn btn-outline-warning w-100 excluir_endereco">Excluir</button>
+        </div>
+        <?php
+        }
+        ?>
 </div>
 
 <script>
@@ -170,6 +179,40 @@
                     Carregando('none');
                 }
             }) 
+        })
+
+
+        $(".cancelar_endereco").click(function(){
+            $.confirm({
+                title:"Excluir Endereço",
+                content:"Deseja realmente excluir o endereço?",
+                buttons:{
+                    'Sim':function(){
+                        Carregando();
+                        idUnico = localStorage.getItem("idUnico");
+                        codUsr = localStorage.getItem("codUsr");
+
+                        $.ajax({
+                            url:"enderecos/lista_enderecos.php",
+                            type:"POST",
+                            data:{
+                                codUsr,
+                                idUnico,
+                                excluir:'<?=$d->codigo?>'
+                            },
+                            success:function(dados){
+                                $(".dados_enderecos").html(dados);
+                                Carregando('none');
+                            }
+                        }) 
+                    },
+                    'Não':function(){
+
+                    }
+                }
+            })
+
+
         })
         
 
