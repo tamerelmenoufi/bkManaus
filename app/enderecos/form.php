@@ -9,6 +9,17 @@
     }
 
     if($_POST['acao'] == 'salvar'){
+
+        $data = $_POST;
+        unset($data['idUnico']);
+        unset($data['codUsr']);
+        unset($data['acao']);
+        $campos = [];
+        foreach($data as $i => $v){
+            $campos[] = "{$i} = '{$v}'";
+        }
+        mysqli_query($con, "replace into enderecos set ".implode(", ",$campos));
+        
         echo json_encode([
             "status" => true
         ]);
