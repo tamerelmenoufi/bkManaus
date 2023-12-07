@@ -92,7 +92,7 @@ $(function(){
                 codUsr
             },
             success:function(dados){
-                $(`${local}`).html(dados);
+                $(`.${local}`).html(dados);
             }
         });        
     }
