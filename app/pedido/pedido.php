@@ -33,7 +33,7 @@
 <div class="row g-0 p-2 mt-3">
     <div class="card p-2">
         <h4 class="w-100 text-center">Resumo do Pedido</h4>
-        <div class="d-flex justify-content-between">
+        
             
                 <?php
 
@@ -42,6 +42,7 @@
                         $pd = mysqli_fetch_object(mysqli_query($con, "select * from produtos where codigo = '{$dados->codigo}'"));
                         if($dados->status){
                 ?>
+            <div class="d-flex justify-content-between">    
                 <div class="enderecoLabel" codigo="<?=$c->codigo?>">
                     <i class="fa-solid fa-location-dot"></i>
                 <?php
@@ -56,13 +57,14 @@
                         <input class="form-check-input padrao" type="radio" name="padrao" role="switch" value="<?=$c->codigo?>" <?=(($c->padrao == '1')?'checked':false)?> id="flexSwitchCheckDefault<?=$c->codigo?>">
                     </div>
                 </div>
+            </div>    
             <?php
 
                         }
                         echo " Total: ". $total."<br>";
                     }
             ?>
-        </div>
+        
     </div>
 </div>
 
