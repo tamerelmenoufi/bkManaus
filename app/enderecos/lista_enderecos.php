@@ -35,7 +35,7 @@
                 <?="{$c->logradouro}, {$c->numero}, {$c->bairro}"?>
             </div>
             <div class="d-flex justify-content-between">
-            <span style="padding-right:10px; color:#a1a1a1; font-size:14px;">Padrão</span>
+            <span style="padding-right:5px; color:#a1a1a1; font-size:14px;">Padrão</span>
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault<?=$c->codigo?>">
             </div>
