@@ -476,7 +476,7 @@ $(function(){
                 inclusao_valor: d?.inclusao_valor.map( v => {
                     return v
                 }),
-                remocao: d?.remocao.?map( v => {
+                remocao: d?.remocao.map( v => {
                     return v
                 }),
                 substituicao: d?.substituicao.map( v => {
