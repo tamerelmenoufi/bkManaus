@@ -42,13 +42,13 @@
                         if($dados->status){
                 ?>
             <div class="d-flex justify-content-between">    
-                <div class="enderecoLabel w-50" codigo="<?=$c->codigo?>">
+                <div class="enderecoLabel w-70" codigo="<?=$c->codigo?>">
                     <i class="fa-solid fa-location-dot"></i>
                     <?=$dados->quantidade?> x <?=$pd->produto?>
                 </div> 
-                <div class="d-flex justify-content-between w-50">
+                <div class="d-flex justify-content-between">
                     <!-- <div>R$ <?=number_format($dados->total,2,',',false)?></div> -->
-                    <div>R$ <?=number_format($dados->total*$dados->quantidade,2,',',false)?></div>
+                    <div class="w-100 text-end">R$ <?=number_format($dados->total*$dados->quantidade,2,',',false)?></div>
                 </div>
             </div>    
             <?php
