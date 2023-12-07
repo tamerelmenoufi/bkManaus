@@ -75,7 +75,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
             <p>Pedido</p>
         </div>        
 
-        <div navegacao="pedido/resumo.php">
+        <div navegacao="pedido/pagar.php">
             <i class="fa-solid fa-circle-dollar-to-slot"></i>
             <p>Pagar</p>
         </div>        
