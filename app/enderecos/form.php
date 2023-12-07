@@ -216,7 +216,7 @@
                 return false;
             }
 
-            console.log('antes do salvar')
+            Carregando();
 
             idUnico = localStorage.getItem("idUnico");
             codUsr = localStorage.getItem("codUsr");
@@ -245,8 +245,6 @@
                     acao:'salvar'
                 },
                 success:function(dados){
-
-                    console.log(dados)
                     
                     $.ajax({
                         url:"enderecos/lista_enderecos.php",
@@ -256,10 +254,9 @@
                             idUnico
                         },
                         success:function(dados){
-                            console.log('agora aqui')
                             $.alert('Endereço salvo com sucesso!');  
-                            // JanelaForm.close();
                             $(".dados_enderecos").html(dados);
+                            Carregando('none');
                         }
                     }) 
 
