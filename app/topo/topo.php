@@ -30,6 +30,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     $(function(){
 
         $(".voltar").click(function(){
+            Carregando();
             $.ajax({
                 url:"lib/voltar.php",
                 dataType:"JSON",
@@ -41,6 +42,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
                         data,
                         success:function(retorno){
                             $(`${dados.tg}`).html(retorno);
+                            Carregando('none');
                         }
                     })
                 }
