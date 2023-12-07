@@ -182,7 +182,7 @@
         })
 
 
-        $(".cancelar_endereco").click(function(){
+        $(".excluir_endereco").click(function(){
             $.confirm({
                 title:"Excluir Endereço",
                 content:"Deseja realmente excluir o endereço?",
