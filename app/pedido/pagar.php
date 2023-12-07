@@ -56,7 +56,7 @@
 <div class="home_corpo">
     <div class="dados_pedido" local="pedido/pedido.php"></div>
     <div class="dados_pessoais" local="pedido/cliente.php"></div>
-    <div class="dados_enderecos" local="pedido/endereco.php"></div>
+    <div class="dados_enderecos" local="pedido/enderecos.php"></div>
     <div class="dados_pagamento" local="pedido/pagamento.php"></div>
 </div>   
 <div class="home_rodape"></div>
