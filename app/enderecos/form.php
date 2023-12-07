@@ -19,6 +19,10 @@
             $campos[] = "{$i} = '{$v}'";
         }
         $campos[] = "cliente = '{$_POST['codUsr']}'";
+        $campos[] = "padrao = '1'";
+
+        mysqli_query($con, "update enderecos set padrao = '0' where cliente = '{$_POST['codUsr']}'");
+
         mysqli_query($con, "replace into enderecos set ".implode(", ",$campos));
         
         echo json_encode([
