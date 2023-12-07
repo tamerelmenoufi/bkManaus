@@ -16,6 +16,8 @@
         width: 100%;
         overflow: hidden; /* "overflow" value must be different from "visible" */
         text-overflow: ellipsis;
+        color:#a1a1a1;
+        font-size:12px;
     }
 </style>
 <div class="row g-0 p-2 mt-3">
