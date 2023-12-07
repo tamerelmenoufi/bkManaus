@@ -10,7 +10,14 @@
 
 
 ?>
-
+<style>
+    .enderecoLabel{
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden; /* "overflow" value must be different from "visible" */
+        text-overflow: ellipsis;
+    }
+</style>
 <div class="row g-0 p-2 mt-3">
     <div class="card p-2">
         <h4 class="w-100 text-center">Endereços</h4>
@@ -20,7 +27,16 @@
         $result = mysqli_query($con, $query);
         while($c = mysqli_fetch_object($result)){
         ?>
-        <p><?="{$c->logradouro}, {$c->numero}, {$c->bairro}"?></p>
+        <div class="d-flex justify-content-between">
+            <div class="enderecoLabel">
+                <i class="fa-solid fa-location-dot"></i>
+                <?="{$c->logradouro}, {$c->numero}, {$c->bairro}"?>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault<?=$c->codigo?>">
+            </div>
+        </div>
+        <p></p>
         <?php
         }
         ?>
