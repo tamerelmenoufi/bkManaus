@@ -36,6 +36,7 @@
 ?>
 
 <div class="row g-0 mb-3 p-2">
+        <h4 class="w-100 text-center">Endereços</h4>
         <div class="mb-1">
             <label for="cep" class="form-label">CEP*</label>
             <input type="text" class="form-control <?=(($d->cep)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->cep?>" id="cep">
@@ -135,7 +136,7 @@
                         success:function(dados){
                             console.log('agora aqui')
                             $.alert('Endereço salvo com sucesso!');  
-                            JanelaForm.close();
+                            // JanelaForm.close();
                             $(".dados_enderecos").html(dados);
                         }
                     }) 

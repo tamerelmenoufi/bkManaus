@@ -47,7 +47,6 @@
             </div>
             </div>
         </div>
-        <p></p>
         <?php
         }
         ?>
@@ -113,12 +112,13 @@
                         cep
                     },
                     success:function(dados){
-                        JanelaForm = $.dialog({
-                            title:"Endereço",
-                            type:"green",
-                            content:dados,
-                            columnClass:'col-12'
-                        })                        
+                        $(".dados_enderecos").html(dados);
+                        // JanelaForm = $.dialog({
+                        //     title:"Endereço",
+                        //     type:"green",
+                        //     content:dados,
+                        //     columnClass:'col-12'
+                        // })                        
                     }
                 });
 
