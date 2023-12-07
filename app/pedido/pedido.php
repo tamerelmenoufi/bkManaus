@@ -56,8 +56,8 @@
 
                         }
                     }
-                    echo " Total: ". $total."<br>";
             ?>
+            <div class="w-100 text-end">R$ <?=number_format($total,2,',',false)?></div>
         
     </div>
 </div>
