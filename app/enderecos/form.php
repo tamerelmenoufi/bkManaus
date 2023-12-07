@@ -104,6 +104,21 @@
                     content:"CEP inválido ou fora da área de atendimento",
                     type:"red"
                 })
+            }else{
+                idUnico = localStorage.getItem("idUnico");
+                codUsr = localStorage.getItem("codUsr");
+                $.ajax({
+                    url:"enderecos/form.php",
+                    type:"POST",
+                    data:{
+                        idUnico,
+                        codUsr,
+                        cep
+                    },
+                    success:function(dados){
+                        $(".dados_enderecos").html(dados);                     
+                    }
+                });
             }
         })
 
