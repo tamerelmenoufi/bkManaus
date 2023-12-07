@@ -98,7 +98,11 @@ $(function(){
     }
 
 
-    
+    $("div[local]").each(function(){
+        tela = $(this).attr("local");
+        local = $(this).attr("class");
+        AbrirTelas(tela, local);
+    })
     
 
     //Novos testes
