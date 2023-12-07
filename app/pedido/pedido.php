@@ -21,7 +21,6 @@
 <style>
     .enderecoLabel{
         white-space: nowrap;
-        width: 100%;
         overflow: hidden; /* "overflow" value must be different from "visible" */
         text-overflow: ellipsis;
         color:#333;
@@ -43,7 +42,7 @@
                         if($dados->status){
                 ?>
             <div class="d-flex justify-content-between">    
-                <div class="enderecoLabel" codigo="<?=$c->codigo?>">
+                <div class="enderecoLabel w-50" codigo="<?=$c->codigo?>">
                     <i class="fa-solid fa-location-dot"></i>
                 <?php
                             echo $pd->produto;
