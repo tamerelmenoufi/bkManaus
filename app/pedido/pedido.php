@@ -44,19 +44,15 @@
             <div class="d-flex justify-content-between">    
                 <div class="enderecoLabel w-50" codigo="<?=$c->codigo?>">
                     <i class="fa-solid fa-location-dot"></i>
-                <?php
-                            echo $pd->produto;
-                            $total = ($total + ($dados->total*$dados->quantidade));
-
-                ?>
+                    <?=$dados->quantidade?> x <?=$pd->produto?>
                 </div> 
                 <div class="d-flex justify-content-between w-50">
-                    <div>R$ <?=number_format($dados->total,2,',',false)?></div>
-                    <div> x <?=$dados->quantidade?></div>
+                    <!-- <div>R$ <?=number_format($dados->total,2,',',false)?></div> -->
                     <div>R$ <?=number_format($dados->total*$dados->quantidade,2,',',false)?></div>
                 </div>
             </div>    
             <?php
+                $total = ($total + ($dados->total*$dados->quantidade));
 
                         }
                     }
