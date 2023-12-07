@@ -65,7 +65,7 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
             <p>Perfil</p>
         </div>
         
-        <div class="telaPedido">
+        <div navegacao="home/index.php" class="telaPedido">
             <i class="fa-solid fa-burger"></i>
             <p>Menu</p>
         </div>
