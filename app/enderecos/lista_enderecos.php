@@ -14,6 +14,17 @@
 <div class="row g-0 p-2 mt-3">
     <div class="card p-2">
         <h4 class="w-100 text-center">Endereços</h4>
+
+        <?php
+        $query = "select * from enderecos where cliente = '{$_SESSION['codUsr']}'";
+        $result = mysqli_query($con, $query);
+        while($c = mysqli_fetch_object($result)){
+        ?>
+        <p><?="{$c->logrcadouro}, {$c->numero}, {$c->bairro}"?></p>
+        <?php
+        }
+        ?>
+
         <label for="cep" class="form-label">Cadstro de endereço</label>
         <div class="input-group">
             <input type="text" class="form-control" autocomplete="off" id="cep" inputmode="numeric" placeholder="XXXXX-XXX" aria-label="Digite o CEP" aria-describedby="cadastro_cep">
