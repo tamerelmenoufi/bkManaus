@@ -20,7 +20,7 @@
         $result = mysqli_query($con, $query);
         while($c = mysqli_fetch_object($result)){
         ?>
-        <p><?="{$c->logrcadouro}, {$c->numero}, {$c->bairro}"?></p>
+        <p><?="{$c->logradouro}, {$c->numero}, {$c->bairro}"?></p>
         <?php
         }
         ?>
