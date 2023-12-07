@@ -87,7 +87,7 @@
                 success:function(dados){
                     console.log(dados)
                 },
-                error:funciton(){
+                error:function(){
                     console.log('erro')
                 }
             });
