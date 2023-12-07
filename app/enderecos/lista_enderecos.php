@@ -11,7 +11,6 @@
     if($_POST['acao'] == 'padrao'){
         mysqli_query($con, "update enderecos set padrao = '0' where cliente = '{$_SESSION['codUsr']}'");
         mysqli_query($con, "update enderecos set padrao = '1' where codigo = '{$_POST['cod']}'");
-        echo "update enderecos set padrao = '1' where codigo = '{$_POST['cod']}'";
         exit();
     }
 
@@ -85,7 +84,13 @@
                     acao:'padrao'
                 },
                 success:function(dados){
-                    console.log(dados)
+                    $(".barra_topo").html("<h2>Perfil</h2>");
+                    $.ajax({
+                        url:"topo/topo.php",
+                        success:function(dados){
+                            $(".barra_topo").append(dados);
+                        }
+                    });
                 },
                 error:function(){
                     console.log('erro')
