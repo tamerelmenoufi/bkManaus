@@ -35,8 +35,8 @@
                 <?="{$c->logradouro}, {$c->numero}, {$c->bairro}"?>
             </div>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault<?=$c->codigo?>">
                 <span>Padrão</span>
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault<?=$c->codigo?>">
             </div>
         </div>
         <p></p>
