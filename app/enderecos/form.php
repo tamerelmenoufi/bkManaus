@@ -30,6 +30,10 @@
     if($_POST['cep']){
         $cep = str_replace('-',false,$_POST['cep']);
         $d = ConsultaCEP($cep);
+        if($_POST['retorno']){
+            echo json_encode($d);
+            exit();
+        }
     }
 
 
@@ -110,13 +114,22 @@
                 $.ajax({
                     url:"enderecos/form.php",
                     type:"POST",
+                    dataType:"JSON",
                     data:{
                         idUnico,
                         codUsr,
-                        cep
+                        cep,
+                        retorno:1
                     },
                     success:function(dados){
-                        $(".dados_enderecos").html(dados);                     
+                        // $(".dados_enderecos").html(dados);   
+                        
+                        cep = $("#cep").val(dados.cep);
+                        logradouro = $("#logradouro").val(dados.logradouro);
+                        complemento = $("#complemento").val();
+                        bairro = $("#bairro").val(dados.bairro);
+                        localidade = $("#localidade").val(dados.localidade);
+
                     }
                 });
             }
