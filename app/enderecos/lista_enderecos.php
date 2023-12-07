@@ -37,7 +37,7 @@
             <div class="d-flex justify-content-between">
             <span style="padding-right:5px; padding-left:5px; color:#a1a1a1; font-size:14px;">Padrão</span>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault<?=$c->codigo?>">
+                <input class="form-check-input" type="radio" name="padrao" role="switch" id="flexSwitchCheckDefault<?=$c->codigo?>">
             </div>
             </div>
         </div>
