@@ -8,6 +8,12 @@
         $_SESSION['codUsr'] = $_POST['codUsr'];
     }
 
+    if($_POST['acao'] == 'padrao'){
+        mysqli_query($con, "update enderecos set padrao = '0' where cliente = '{$_SESSION['codUsr']}'");
+        mysqli_query($con, "update enderecos set padrao = '1' where codigo = '{$_POST['cod']}'");
+        exit();
+    }
+
 
 ?>
 <style>
@@ -65,6 +71,22 @@
             cod = $(this).val();
             $(".padraoRotulo").css("display","none");
             $(this).parent("div").parent("div").children("span").css("display","block");
+
+            idUnico = localStorage.getItem("idUnico");
+            codUsr = localStorage.getItem("codUsr");
+            $.ajax({
+                url:"enderecos/lista_enderecos.php",
+                type:"POST",
+                data:{
+                    idUnico,
+                    codUsr,
+                    cod,
+                    acao:'padrao'
+                },
+                success:function(dados){
+                       
+                }
+            });
         })
 
 
