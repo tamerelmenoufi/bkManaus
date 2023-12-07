@@ -11,7 +11,7 @@
     if($_POST['acao'] == 'padrao'){
         mysqli_query($con, "update enderecos set padrao = '0' where cliente = '{$_SESSION['codUsr']}'");
         mysqli_query($con, "update enderecos set padrao = '1' where codigo = '{$_POST['cod']}'");
-        echo "ok";
+        echo "update enderecos set padrao = '1' where codigo = '{$_POST['cod']}'";
         exit();
     }
 
