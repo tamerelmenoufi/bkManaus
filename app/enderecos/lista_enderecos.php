@@ -99,7 +99,7 @@
         })
 
         $(".enderecoLabel").click(function(){
-            cod = $(this).attr("codigo");
+            codigo = $(this).attr("codigo");
 
             idUnico = localStorage.getItem("idUnico");
             codUsr = localStorage.getItem("codUsr");
@@ -115,17 +115,6 @@
                     $(".dados_enderecos").html(dados);                       
                 }
             });
-
-            if(!cep || (cep.length == 9 && cep.substring(0,2) == 69)){
-                
-
-            }else if(cep.substring(0,2) != 69 || cep.length != 9){
-                $.alert({
-                    title:"Erro",
-                    content:"CEP inválido ou fora da área de atendimento",
-                    type:"red"
-                })
-            }
         })
 
 
