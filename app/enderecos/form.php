@@ -98,7 +98,7 @@
 
             // }else 
             
-            if(cep.substring(0,2) != 69 || cep.length != 9){
+            if( cep.length > 0 && (cep.substring(0,2) != 69 || cep.length != 9)){
                 $.alert({
                     title:"Erro",
                     content:"CEP inválido ou fora da área de atendimento",
