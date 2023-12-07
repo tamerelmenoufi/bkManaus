@@ -34,9 +34,11 @@
                 <i class="fa-solid fa-location-dot"></i>
                 <?="{$c->logradouro}, {$c->numero}, {$c->bairro}"?>
             </div>
+            <div class="d-flex justify-content-between">
+            <span>Padrão</span>
             <div class="form-check form-switch">
-                <span>Padrão</span>
                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault<?=$c->codigo?>">
+            </div>
             </div>
         </div>
         <p></p>
