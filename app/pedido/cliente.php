@@ -29,7 +29,7 @@
     }
 </style>
 
-<div class="row g-0 p-2 mt-3">
+<div class="row g-0 p-2 mt-1">
     <div class="card p-2">
         <h4 class="w-100 text-center">Dados do Cliente</h4>
 
