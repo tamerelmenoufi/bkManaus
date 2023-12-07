@@ -51,9 +51,9 @@
                 ?>
                 </div> 
                 <div class="d-flex justify-content-between w-50">
-                    <div><?=$dados->total?></div>
+                    <div>R$ <?=number_format($dados->total,2,',',false)?></div>
                     <div> x <?=$dados->quantidade?></div>
-                    <div><?=($dados->total*$dados->quantidade)?></div>
+                    <div>R$ <?=number_format($dados->total*$dados->quantidade,2,',',false)?></div>
                 </div>
             </div>    
             <?php
