@@ -35,9 +35,9 @@
                 <?="{$c->logradouro}, {$c->numero}, {$c->bairro}"?>
             </div>
             <div class="d-flex justify-content-between">
-            <span style="padding-right:5px; padding-left:5px; color:#a1a1a1; font-size:14px;">Padrão</span>
+            <span class="padraoRotulo" style="padding-right:5px; padding-left:5px; color:#a1a1a1; font-size:14px;">Padrão</span>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="radio" name="padrao" role="switch" id="flexSwitchCheckDefault<?=$c->codigo?>">
+                <input class="form-check-input padrao" type="radio" name="padrao" role="switch" id="flexSwitchCheckDefault<?=$c->codigo?>">
             </div>
             </div>
         </div>
@@ -60,6 +60,14 @@
 <script>
     $(function(){
         $("#cep").mask("99999-999");
+
+        $(".padrao").change(function(){
+            cod = $(this).val();
+            $(".padraoRotulo").css("display","none");
+            $(this).parent("div").parent("div").children("span").css("display","block");
+        })
+
+
         $("#cadastro_cep").click(function(){
             cep = $("#cep").val();
             if(!cep || (cep.length == 9 && cep.substring(0,2) == 69)){
