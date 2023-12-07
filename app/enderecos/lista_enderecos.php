@@ -100,9 +100,9 @@
 
         $(".enderecoLabel").click(function(){
             codigo = $(this).attr("codigo");
-
             idUnico = localStorage.getItem("idUnico");
             codUsr = localStorage.getItem("codUsr");
+            Carregando();
             $.ajax({
                 url:"enderecos/form.php",
                 type:"POST",
@@ -112,7 +112,8 @@
                     codigo
                 },
                 success:function(dados){
-                    $(".dados_enderecos").html(dados);                       
+                    $(".dados_enderecos").html(dados);
+                    Carregando('none');
                 }
             });
         })
