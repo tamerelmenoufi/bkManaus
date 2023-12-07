@@ -136,6 +136,15 @@
             localidade = $("#localidade").val();
             uf = $("#uf").val();
 
+            if(!cep || (cep.length == 9 && cep.substring(0,2) == 69)){
+                $.alert({
+                    title:"Erro",
+                    content:"CEP inválido ou fora da área de atendimento",
+                    type:"red"
+                })
+                return false;
+            }
+
             if(
             !cep ||
             !logradouro ||
