@@ -50,9 +50,9 @@
 
                 ?>
                 </div> 
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between w-50">
                     <div><?=$dados->total?></div>
-                    <div><?=$dados->quantidade?></div>
+                    <div> x <?=$dados->quantidade?></div>
                     <div><?=($dados->total*$dados->quantidade)?></div>
                 </div>
             </div>    
