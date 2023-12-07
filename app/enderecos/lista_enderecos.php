@@ -24,7 +24,7 @@
         <?php
         }
         ?>
-
+        <hr>
         <label for="cep" class="form-label">Cadstro de endereço</label>
         <div class="input-group">
             <input type="text" class="form-control" autocomplete="off" id="cep" inputmode="numeric" placeholder="XXXXX-XXX" aria-label="Digite o CEP" aria-describedby="cadastro_cep">
