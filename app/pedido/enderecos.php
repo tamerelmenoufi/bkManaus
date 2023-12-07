@@ -57,5 +57,36 @@
     $(function(){
 
 
+        $(".padrao").change(function(){
+            cod = $(this).val();
+            $(".padraoRotulo").css("display","none");
+            $(this).parent("div").parent("div").children("span").css("display","block");
+
+            idUnico = localStorage.getItem("idUnico");
+            codUsr = localStorage.getItem("codUsr");
+            $.ajax({
+                url:"enderecos/lista_enderecos.php",
+                type:"POST",
+                data:{
+                    idUnico,
+                    codUsr,
+                    cod,
+                    acao:'padrao'
+                },
+                success:function(dados){
+                    $(".barra_topo").html("<h2>Pagar</h2>");
+                    $.ajax({
+                        url:"topo/topo.php",
+                        success:function(dados){
+                            $(".barra_topo").append(dados);
+                        }
+                    });
+                },
+                error:function(){
+                    console.log('erro')
+                }
+            });
+        })
+
     })
 </script>
