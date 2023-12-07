@@ -153,7 +153,7 @@
             localidade = $("#localidade").val();
             uf = $("#uf").val();
 
-            if(cep.length != 9 || cep.substring(0,2) != 69){
+            if(cep.length > 0 && (cep.length != 9 || cep.substring(0,2) != 69)){
                 $.alert({
                     title:"Erro",
                     content:"CEP inválido ou fora da área de atendimento",
