@@ -40,7 +40,7 @@
         }
     }
 
-    if($_POST['çodigo']){
+    if($_POST['codigo']){
         $query = "select * from enderecos where codigo = '{$_POST['codigo']}'";
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
