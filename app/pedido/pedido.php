@@ -46,16 +46,15 @@
                 <div class="enderecoLabel" codigo="<?=$c->codigo?>">
                     <i class="fa-solid fa-location-dot"></i>
                 <?php
-                            echo $pd->produto." - ". $dados->total ."x".$dados->quantidade." = ".($dados->total*$dados->quantidade)."<br>";
+                            echo $pd->produto;
                             $total = ($total + ($dados->total*$dados->quantidade));
 
                 ?>
                 </div> 
                 <div class="d-flex justify-content-between">
-                    <span class="padraoRotulo" style="padding-right:5px; padding-left:5px; color:#a1a1a1; font-size:14px; display:<?=(($c->padrao == '1')?'block':'none')?>">Padrão</span>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input padrao" type="radio" name="padrao" role="switch" value="<?=$c->codigo?>" <?=(($c->padrao == '1')?'checked':false)?> id="flexSwitchCheckDefault<?=$c->codigo?>">
-                    </div>
+                    <div><?=$dados->total?></div>
+                    <div><?=$dados->quantidade?></div>
+                    <div><?=($dados->total*$dados->quantidade)?></div>
                 </div>
             </div>    
             <?php
