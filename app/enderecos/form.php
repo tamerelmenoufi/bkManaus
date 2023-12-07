@@ -78,6 +78,27 @@
     $(function(){
 
         $(".salvar_endereco").click(function(){
+
+            Carregando();
+            idUnico = localStorage.getItem("idUnico");
+            codUsr = localStorage.getItem("codUsr");
+
+            $.ajax({
+                url:"enderecos/lista_enderecos.php",
+                type:"POST",
+                data:{
+                    codUsr,
+                    idUnico
+                },
+                success:function(dados){
+                    $(".dados_enderecos").html(dados);
+                    Carregando('none');
+                }
+            }) 
+        })
+        
+
+        $(".salvar_endereco").click(function(){
             cep = $("#cep").val();
             logradouro = $("#logradouro").val();
             numero = $("#numero").val();
