@@ -80,23 +80,25 @@
         $("#cep").mask("99999-999");
         $("#cep").blur(function(){
             cep = $(this).val();
-            if(!cep || (cep.length == 9 && cep.substring(0,2) == 69)){
-                idUnico = localStorage.getItem("idUnico");
-                codUsr = localStorage.getItem("codUsr");
-                $.ajax({
-                    url:"enderecos/form.php",
-                    type:"POST",
-                    data:{
-                        idUnico,
-                        codUsr,
-                        cep
-                    },
-                    success:function(dados){
-                        $(".dados_enderecos").html(dados);                     
-                    }
-                });
+            // if(!cep || (cep.length == 9 && cep.substring(0,2) == 69)){
+            //     idUnico = localStorage.getItem("idUnico");
+            //     codUsr = localStorage.getItem("codUsr");
+            //     $.ajax({
+            //         url:"enderecos/form.php",
+            //         type:"POST",
+            //         data:{
+            //             idUnico,
+            //             codUsr,
+            //             cep
+            //         },
+            //         success:function(dados){
+            //             $(".dados_enderecos").html(dados);                     
+            //         }
+            //     });
 
-            }else if(cep.substring(0,2) != 69 || cep.length != 9){
+            // }else 
+            
+            if(cep.substring(0,2) != 69 || cep.length != 9){
                 $.alert({
                     title:"Erro",
                     content:"CEP inválido ou fora da área de atendimento",
