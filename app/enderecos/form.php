@@ -18,6 +18,7 @@
         foreach($data as $i => $v){
             $campos[] = "{$i} = '{$v}'";
         }
+        $campos[] = "cliente = '{$_POST['codUsr']}'";
         mysqli_query($con, "replace into enderecos set ".implode(", ",$campos));
         
         echo json_encode([
