@@ -61,8 +61,8 @@
             <?php
 
                         }
-                        echo " Total: ". $total."<br>";
                     }
+                    echo " Total: ". $total."<br>";
             ?>
         
     </div>
