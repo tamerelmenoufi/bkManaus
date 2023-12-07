@@ -180,7 +180,7 @@
             }
 
             if(
-            !cep ||
+            // !cep ||
             !logradouro ||
             !numero ||
             !ponto_referencia ||
