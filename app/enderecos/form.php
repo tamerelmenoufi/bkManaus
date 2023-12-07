@@ -69,6 +69,9 @@
         <div class="mb-1">
             <button type="button" class="btn btn-outline-success w-100 salvar_endereco">Salvar Endereço</button>
         </div>
+        <div class="mb-1">
+            <button type="button" class="btn btn-outline-danger w-100 cancelar_endereco">Cancelar</button>
+        </div>
 </div>
 
 <script>
