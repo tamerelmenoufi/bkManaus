@@ -78,8 +78,8 @@
     $(function(){
 
         $("#cep").mask("99999-999");
-        $("#cadastro_cep").blur(function(){
-            cep = $("#cep").val();
+        $("#cep").blur(function(){
+            cep = $(this).val();
             if(!cep || (cep.length == 9 && cep.substring(0,2) == 69)){
                 idUnico = localStorage.getItem("idUnico");
                 codUsr = localStorage.getItem("codUsr");
