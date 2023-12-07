@@ -86,6 +86,9 @@
                 },
                 success:function(dados){
                     console.log(dados)
+                },
+                error:funciton(){
+                    console.log('erro')
                 }
             });
         })
