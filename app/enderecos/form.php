@@ -65,7 +65,7 @@
         </div>
         <div class="mb-1">
             <label for="complemento" class="form-label">Complemento</label>
-            <input type="text" class="form-control" autocomplete="off" <?=(($d->ponto_referencia)?'is-valid':false)?>" value="<?=$d->complemento?>" id="complemento">
+            <input type="text" class="form-control <?=(($d->ponto_referencia)?'is-valid':false)?>" autocomplete="off" value="<?=$d->complemento?>" id="complemento">
         </div>  
         <div class="mb-1">
             <label for="ponto_referencia" class="form-label">Ponto de Referência*</label>
