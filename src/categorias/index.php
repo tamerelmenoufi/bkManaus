@@ -68,7 +68,9 @@
                       >
                         Editar
                       </button>
-
+                      <?php
+                      if($d->tipo == 'prd'){
+                      ?>
                       <button
                         class="btn btn-warning"
                         produtos
@@ -76,6 +78,9 @@
                       >
                         Produtos
                       </button>
+                      <?php
+                      }
+                      ?>                      
                     </td>
                   </tr>
                   <?php
