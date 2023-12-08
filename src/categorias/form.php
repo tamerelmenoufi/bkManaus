@@ -124,6 +124,9 @@
                     />
                 </div>
 
+                <?php
+                if($d->tipo == 'prd'){
+                ?>
 
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input acoes_itens" <?=(($acoes_itens->inclusao == 'true')?"checked":false)?> id="inclusao">
@@ -153,8 +156,8 @@
                 </div>
                 <?php
                 }
+                }
                 ?>
-
                 <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
                         <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
