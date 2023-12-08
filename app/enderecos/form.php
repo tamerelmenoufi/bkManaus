@@ -186,6 +186,7 @@
             $.confirm({
                 title:"Excluir Endereço",
                 content:"Deseja realmente excluir o endereço?",
+                type:"red",
                 buttons:{
                     'Sim':function(){
                         Carregando();
