@@ -177,7 +177,7 @@
 </div>
 
 <div class="home_valores">
-    <button type="button" class="btn btn-outline-danger"><span style="padding-right:30px;">Finalizar Compra</span> <span class="totalCompra" total=""></span></button>
+    <button type="button" class="btn btn-outline-danger pagar"><span style="padding-right:30px;">Finalizar Compra</span> <span class="totalCompra" total=""></span></button>
 </div>
 
 
@@ -316,6 +316,23 @@ $(function(){
         calculaTotal();
         atualizaDados(cod, qt);         
     })
+
+
+    $(".pagar").click(function(){
+        Carregando();
+        $.ajax({
+            url:"pedido/pagar.php",
+            type:"POST",
+            data:{
+                historico:'.CorpoApp'
+            },
+            success:function(dados){
+                Carregando('none');
+                $(".CorpoApp").html(dados);
+            }
+        })
+
+    });
 
 })
 
