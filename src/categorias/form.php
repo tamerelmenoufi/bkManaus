@@ -107,7 +107,7 @@
                 <?php
                 if(is_file("icon/{$d->icon}")){
                 ?>
-                <center><img src="src/categorias/icon/<?=$d->icon?>" style="margin: 20px;" /></center>
+                <center><img src="src/categorias/icon/<?=$d->icon?>" class="img-fluid" /></center>
                 <?php
                 }
                 ?>
