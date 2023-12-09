@@ -69,7 +69,7 @@
     }
 
     ?>
-        <div class="d-flex justify-content-center align-items-center combo" style="background-image:url(<?=$icon?>); background-size:cover" codigo="8" local="produtos/lista_combos.php">
+        <div class="d-flex justify-content-center align-items-center combo" style="background-image:url(<?=$icon?>); height:108px; background-size:cover" codigo="8" local="produtos/lista_combos.php">
             <!-- <span><?=$d->categoria?></span>
             <img src="img/logo.png" alt=""> -->
         </div>
