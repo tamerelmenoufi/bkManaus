@@ -96,7 +96,7 @@
                     <label for="categoria">Categoria*</label>
                 </div>
 
-                <label for="file_<?= $md5 ?>">Imagem da categoria deve ser nas dimensões (270px Largura X 240px Altura) *</label>
+                <label for="file_<?= $md5 ?>">Imagem da categoria deve ser nas dimensões (250px Largura X 108px Altura) *</label>
                 <?php
                 if(is_file("icon/{$d->icon}")){
                 ?>
@@ -110,8 +110,8 @@
                         class="form-control" 
                         id="file_<?= $md5 ?>" 
                         accept="image/*"
-                        w="270"
-                        h="240"
+                        w="250"
+                        h="108"
                     >
                     <label class="input-group-text" for="file_<?= $md5 ?>">Selecionar</label>
                     <input
