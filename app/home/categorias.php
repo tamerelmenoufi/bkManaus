@@ -29,15 +29,13 @@
 
     .categorias{
         margin:5px;
-        background-image:url(img/bg_botao.png);
         background-size:cover;
         border-radius:20px;
         height:90px;
         cursor:pointer;
     }
     .categorias img{
-        margin:5px;
-        height:80px;
+        width:100%;
     }
     .categorias span{
         margin:10px;
@@ -78,8 +76,8 @@
     ?>
     <div class="col-6">
         <div class="d-flex justify-content-start align-items-center categorias" codigo="<?=$d->codigo?>" local="produtos/lista_produtos.php">
-            <img src="img/logo.png" alt="">
-            <span><?=$d->categoria?></span>
+            <img src="<?=$icon?>" alt="">
+            <!-- <span><?=$d->categoria?></span> -->
         </div>
     </div>
     <?php
