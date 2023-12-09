@@ -35,7 +35,6 @@
         background-image:url(img/bg_botao.png);
         background-size:cover;
         border-radius:20px;
-        height:90px;
         cursor:pointer;
     }
     .categorias img{
@@ -68,7 +67,7 @@
     }
 
     ?>
-        <div class="d-flex justify-content-center align-items-center combo" style="background-image:url(<?=$icon?>); height:108px; background-size:cover" codigo="8" local="produtos/lista_combos.php">
+        <div class="d-flex justify-content-center align-items-center combo" style="background-image:url(<?=$icon?>);" codigo="8" local="produtos/lista_combos.php">
             <!-- <span><?=$d->categoria?></span> -->
             <img src="<?=$icon?>" class="img-fluid" alt="">
         </div>
