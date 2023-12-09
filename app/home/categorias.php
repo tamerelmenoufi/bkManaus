@@ -4,15 +4,12 @@
 <style>
     .combo{
         margin:5px;
-        background-image:url(img/bg_botao_combo.png);
         background-size:cover;
         border-radius:20px;
-        height:90px;
         cursor:pointer;
     }
     .combo img{
-        margin:5px;
-        height:80px;
+        width:100%;
     }
     .combo span{
         margin:10px;
@@ -35,10 +32,12 @@
         background-image:url(img/bg_botao.png);
         background-size:cover;
         border-radius:20px;
+        height:90px;
         cursor:pointer;
     }
     .categorias img{
-        width:100%;
+        margin:5px;
+        height:80px;
     }
     .categorias span{
         margin:10px;
@@ -69,7 +68,7 @@
     ?>
         <div class="d-flex justify-content-center align-items-center combo" style="background-image:url(<?=$icon?>);" codigo="8" local="produtos/lista_combos.php">
             <!-- <span><?=$d->categoria?></span> -->
-            <img src="<?=$icon?>" class="img-fluid" alt="">
+            <img src="<?=$icon?>" alt="">
         </div>
     </div>
     <?php
