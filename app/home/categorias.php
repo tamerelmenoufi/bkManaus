@@ -61,10 +61,17 @@
     $query = "select * from categorias where codigo = 8";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
+
+    if(is_file("../../src/combos/icon/{$d->icon}")){
+        $icon = "{$urlPainel}src/combos/icon/{$d->icon}";
+    }else{
+        $icon = "img/imagem_produto.png";
+    }
+
     ?>
-        <div class="d-flex justify-content-center align-items-center combo" codigo="8" local="produtos/lista_combos.php">
-            <span><?=$d->categoria?></span>
-            <img src="img/logo.png" alt="">
+        <div class="d-flex justify-content-center align-items-center combo" style="background-image:url(<?=$icon?>); background-size:cover" codigo="8" local="produtos/lista_combos.php">
+            <!-- <span><?=$d->categoria?></span>
+            <img src="img/logo.png" alt=""> -->
         </div>
     </div>
     <?php
