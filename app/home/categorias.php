@@ -62,8 +62,8 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
-    if(is_file("../../src/combos/icon/{$d->icon}")){
-        $icon = "{$urlPainel}src/combos/icon/{$d->icon}";
+    if(is_file("../../src/categorias/icon/{$d->icon}")){
+        $icon = "{$urlPainel}src/categorias/icon/{$d->icon}";
     }else{
         $icon = "img/imagem_produto.png";
     }
