@@ -77,6 +77,13 @@
     $acoes_itens = json_decode($d->acoes_itens);
     $categorias_itens = json_decode($d->categorias_itens);
 
+    if($d->codigo == 8){
+        $w = 600;
+        $h = 228;
+    }else{
+        $w = 250;
+        $h = 108;
+    }
 
 ?>
 <style>
@@ -96,7 +103,7 @@
                     <label for="categoria">Categoria*</label>
                 </div>
 
-                <label for="file_<?= $md5 ?>">Imagem da categoria deve ser nas dimensões (250px Largura X 108px Altura) *</label>
+                <label for="file_<?= $md5 ?>">Imagem da categoria deve ser nas dimensões (<?=$w?>px Largura X <?=$h?>px Altura) *</label>
                 <?php
                 if(is_file("icon/{$d->icon}")){
                 ?>
@@ -110,8 +117,8 @@
                         class="form-control" 
                         id="file_<?= $md5 ?>" 
                         accept="image/*"
-                        w="250"
-                        h="108"
+                        w="<?=$w?>"
+                        h="<?=$h?>"
                     >
                     <label class="input-group-text" for="file_<?= $md5 ?>">Selecionar</label>
                     <input
