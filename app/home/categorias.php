@@ -66,7 +66,7 @@
     }
 
     ?>
-        <div class="d-flex justify-content-center align-items-center combo" style="background-image:url(<?=$icon?>);" codigo="8" local="produtos/lista_combos.php">
+        <div class="d-flex justify-content-center align-items-center combo" codigo="8" local="produtos/lista_combos.php">
             <!-- <span><?=$d->categoria?></span> -->
             <img src="<?=$icon?>" alt="">
         </div>
