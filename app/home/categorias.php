@@ -39,8 +39,7 @@
         cursor:pointer;
     }
     .categorias img{
-        margin:5px;
-        height:80px;
+        width:100%;
     }
     .categorias span{
         margin:10px;
