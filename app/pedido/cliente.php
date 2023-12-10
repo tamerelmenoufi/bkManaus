@@ -58,6 +58,15 @@
 <script>
     $(function(){
 
+        nome = '<?=$d->nome?>';
+        cpf = '<?=$d->cpf?>';
+        telefone = '<?=$d->telefone?>';
+
+        if(!nome || !cpf || !telefone){
+            $(".dados_enderecos").remove()
+            $(".dados_pagamento").remove()
+        }
+
 
     })
 </script>
