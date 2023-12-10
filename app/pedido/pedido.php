@@ -55,7 +55,7 @@
                         }
                     }
             ?>
-            <div class="w-100 text-end" total="<?=number_format($total,2,',',false)?>"><b>TOTAL R$ <?=number_format($total,2,',',false)?></b></div>
+            <div class="w-100 text-end" total="R$ <?=number_format($total,2,',',false)?>"><b>TOTAL R$ <?=number_format($total,2,',',false)?></b></div>
         
     </div>
 </div>
