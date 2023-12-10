@@ -32,6 +32,11 @@
 <div class="slider">
     <div class="slider-for">
 
+        <?php
+        $query = "select * from produtos where promocao = '1' and situacao = '1' and deletado != '1'";
+        $result = mysqli_query($con, $query);
+        while($d = mysqli_fetch_object($result)){
+        ?>
         <div style="position:relative; background:orange;">
             <img src="img/transparente.png" style="width:100%; position:relative;" />
             <div style="position:absolute; left:0, right:0; bottom:30px; top:70px; z-index:10">
@@ -42,26 +47,9 @@
                 </div>
             </div>
         </div>
-        <div style="position:relative; background:red;">
-            <img src="img/transparente.png" style="width:100%; position:relative;" />
-            <div style="position:absolute; left:0, right:0; bottom:30px; top:70px; z-index:10">
-                <div class="row">
-                    <div class="col-12"><center><img src="img/banner.png?<?=$md5?>" style="width:70%;" /></center></div>
-                    <div class="col-6" style="color:#fff; font-size:25px; text-align:right; font-family:FlameBold;">Combo<p>R$</p></div>
-                    <div class="col-6" style="font-size:70px; color:#fff; font-family:FlameBold;">49<span style="font-size:25px; color:#fff; font-family:FlameBold;">99</span></div>
-                </div>
-            </div>
-        </div>
-        <div style="position:relative; background:black;">
-            <img src="img/transparente.png" style="width:100%; position:relative;" />
-            <div style="position:absolute; left:0, right:0; bottom:30px; top:70px; z-index:10">
-                <div class="row">
-                    <div class="col-12"><center><img src="img/banner.png?<?=$md5?>" style="width:70%;" /></center></div>
-                    <div class="col-6" style="color:#fff; font-size:25px; text-align:right; font-family:FlameBold;">Combo<p>R$</p></div>
-                    <div class="col-6" style="font-size:70px; color:#fff; font-family:FlameBold;">49<span style="font-size:25px; color:#fff; font-family:FlameBold;">99</span></div>
-                </div>
-            </div>
-        </div>
+        <?php
+        }
+        ?>
 
     </div>
     <div class="d-flex justify-content-center barra_banner">
