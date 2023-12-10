@@ -43,6 +43,7 @@
                 $capa = "{$urlPainel}src/".(($d->categoria == 8)?'categorias':'produtos')."/icon/{$d->capa}";
             }else{
                 $icon = "img/transparente.png";
+                $capa = "img/transparente.png";
             }
 
         ?>
