@@ -36,7 +36,7 @@
                 $cep = $c->cep;
                 $numero = $c->numero;
                 $ponto_referencia = $c->ponto_referencia;
-                $$bairro = $c->bairro;
+                $bairro = $c->bairro;
                 $localidade = $c->localidade;
                 $uf = $c->uf;
             }
