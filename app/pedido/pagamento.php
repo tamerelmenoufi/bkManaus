@@ -61,12 +61,16 @@
 
             <div class="d-flex justify-content-between">    
                 <div class="enderecoLabel w-100 text-center">
-                    <i class="fa-brands fa-pix"></i>
-                    PIX
+                    <button class="btn btn-success">
+                        <i class="fa-regular fa-pix"></i>
+                        PIX                        
+                    </button>
                 </div>
                 <div class="enderecoLabel w-100 text-center">
-                    <i class="fa-regular fa-credit-card"></i>
-                    Crédito
+                    <button class="btn btn-success">
+                        <i class="fa-regular fa-credit-card"></i>
+                        Crédito                        
+                    </button>
                 </div>
             </div>
 
