@@ -50,6 +50,16 @@
                 </div> 
             </div>  
 
+            <div class="d-flex justify-content-between mt-3">    
+                <div class="enderecoLabel w-100 text-center">
+                    Para concluir a sua compra, necessário completar o seu cadastro.
+                    <button class="btn btn-danger w-100">
+                        <i class="fa-solid fa-user-pen"></i>
+                        Atualizar Cadastro aqui!       
+                    </button>
+                </div>            
+            </div>            
+
         
     </div>
 </div>
