@@ -36,7 +36,7 @@
             <img src="img/transparente.png" style="width:100%; position:relative;" />
             <div style="position:absolute; left:0, right:0; bottom:30px; top:30px; border:solid 1px #000; z-index:10">
                 <div class="row">
-                    <div class="col-12"><img src="img/banner.png" style="width:100%;" /></div>
+                    <div class="col-12"><img src="img/banner.png?<?=$md5?>" style="width:100%;" /></div>
                     <div class="col-6" style="color:#fff; font-size:12px;">Combo</div>
                     <div class="col-6" style="font-size:20px; color:#fff">R$ 49<span style="font-size:14; color:#fff">99</span></div>
                 </div>
