@@ -46,6 +46,10 @@
                 $capa = "img/transparente.png";
             }
 
+            $vl = explode(".", $d->valor_promocao);
+
+
+
         ?>
         <div style="position:relative; background:orange;">
             <img src="<?=$capa?>" style="width:100%; position:relative;" />
@@ -54,7 +58,7 @@
                 <div class="d-flex justify-content-center" style="color:#fff; font-size:23px; text-align:right; font-family:FlameBold; margin-top:0px;"><?=$d->produto?></div>
                 <div class="d-flex justify-content-center align-items-end">
                     <div style="color:#fff; font-size:25px; text-align:right; font-family:FlameBold; padding:20px;">R$</div>
-                    <div class="d-flex justify-content-center align-items-start" style="font-size:70px; color:#fff; font-family:FlameBold; margin-top:-25px;">49<p style="font-size:25px; color:#fff; font-family:FlameBold; padding-top:20px;">99</p></div>
+                    <div class="d-flex justify-content-center align-items-start" style="font-size:70px; color:#fff; font-family:FlameBold; margin-top:-25px;"><?=$vl[0]?><p style="font-size:25px; color:#fff; font-family:FlameBold; padding-top:20px;"><?=$vl[1]?></p></div>
                 </div>
             </div>
         </div>
