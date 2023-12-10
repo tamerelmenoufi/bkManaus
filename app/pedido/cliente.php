@@ -50,7 +50,7 @@
                 </div> 
             </div>  
 
-            <div class="d-flex justify-content-between mt-3 atualizar" style="display:none">    
+            <div class="d-flex justify-content-between mt-3 atualizar" style="display:none!important">    
                 <div class="w-100 text-center">
                     Para concluir a sua compra, necessário completar o seu cadastro.
                     <button class="btn btn-danger w-100">
