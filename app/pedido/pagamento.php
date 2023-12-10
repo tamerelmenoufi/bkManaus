@@ -62,7 +62,7 @@
             <div class="d-flex justify-content-between mt-3">    
                 <div class="enderecoLabel w-100 text-center pe-2">
                     <button class="btn btn-success w-100">
-                        <i class="fa-regular fa-pix"></i>
+                        <i class="fa-brands fa-pix"></i>
                         PIX                        
                     </button>
                 </div>
