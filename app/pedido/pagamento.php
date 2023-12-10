@@ -51,7 +51,7 @@
                 <span class="valores" taxa_entraga>R$ 12,00</span> 
             </div>
             <div class="d-flex justify-content-between">    
-                <div class="enderecoLabel w-100" >
+                <div class="enderecoLabel w-100">
                     <i class="fa-solid fa-location-dot"></i>
                     Total a Pagar
                 </div>
