@@ -34,7 +34,7 @@
 
         <div style="position:relative; background:red;">
             <img src="img/transparente.png" style="width:100%;" />
-            <div class="position:absolute; left:0, right:0; bottom:0; height:auto; border:solid 1px #000">
+            <div class="position:absolute; left:0, right:0; bottom:30px; top:30px; border:solid 1px #000">
                 <div class="col-12"><img src="img/banner.png" style="width:100%;" /></div>
                 <div class="col-6" style=" color:#fff; font-size:12px;">Combo</div>
                 <div class="col-6" style="font-size:20px; color:#fff">R$ 49<span style="font-size:14; color:#fff">99</span></div>
