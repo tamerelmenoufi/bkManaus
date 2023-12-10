@@ -37,8 +37,8 @@
             <div style="position:absolute; left:0, right:0; bottom:30px; top:30px; z-index:10">
                 <div class="row">
                     <div class="col-12 text-center"><img src="img/banner.png?<?=$md5?>" style="width:90%;" /></div>
-                    <div class="col-6" style="color:#fff; font-size:14px; text-align:right;">Combo</div>
-                    <div class="col-6" style="font-size:50px; color:#fff">49<span style="font-size:20px; color:#fff;">99</span></div>
+                    <div class="col-6" style="color:#fff; font-size:16px; text-align:right; font-family:FlameBold;">Combo</div>
+                    <div class="col-6" style="font-size:50px; color:#fff; font-family:FlameBold;">49<span style="font-size:20px; color:#fff; font-family:FlameBold;">99</span></div>
                 </div>
             </div>
         </div>
