@@ -43,7 +43,7 @@
                 <div class="d-flex justify-content-center"><img src="img/banner.png?<?=$md5?>" style="width:70%;" /></div>
                 <div class="d-flex justify-content-center" style="color:#fff; font-size:25px; text-align:right; font-family:FlameBold; margin-top:-20px;"><?=$d->produto?></div>
                 <div class="d-flex justify-content-center align-items-end">
-                    <div style="color:#fff; font-size:25px; text-align:right; font-family:FlameBold;">R$</div>
+                    <div style="color:#fff; font-size:25px; text-align:right; font-family:FlameBold; padding-bottom:20px;">R$</div>
                     <div class="d-flex justify-content-center align-items-start" style="font-size:70px; color:#fff; font-family:FlameBold; margin-top:-25px;">49<p style="font-size:25px; color:#fff; font-family:FlameBold; padding-top:20px;">99</p></div>
                 </div>
             </div>
