@@ -98,10 +98,10 @@ $(function(){
     }
 
 
-    $("div[local]").each(function(){
+    $("div[local]").each( async function(){
         tela = $(this).attr("local");
         local = $(this).attr("class");
-        AbrirTelas(tela, local);
+        await AbrirTelas(tela, local);
     })
     
 
