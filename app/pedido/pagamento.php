@@ -74,6 +74,9 @@
         $r = mysqli_query($con, $q);
         $vlopc = 0;
         if(mysqli_num_rows($r)){
+
+            $e = mysqli_fetch_object(mysqli_query($con, "select * from enderecos where cliente = '{$_SESSION['codUsr']}' and padrao = '1'"));
+
         while($v = mysqli_fetch_object($r)){
 
             echo $json = "{
@@ -84,13 +87,13 @@
                     {
                     \"orderRoute\": 111{$_SESSION['AppVenda']},
                     \"address\": {
-                        \"street\": \"{$c->logradouro}\",
-                        \"number\": \"{$c->numero}\",
-                        \"complement\": \"{$c->complemento}\",
-                        \"neighborhood\": \"{$c->bairro}\",
+                        \"street\": \"{$e->logradouro}\",
+                        \"number\": \"{$e->numero}\",
+                        \"complement\": \"{$e->complemento}\",
+                        \"neighborhood\": \"{$e->bairro}\",
                         \"city\": \"Manaus\",
                         \"state\": \"AM\",
-                        \"zipCode\": \"".str_replace(array(' ','-'), false, $c->cep)."\"
+                        \"zipCode\": \"".str_replace(array(' ','-'), false, $e->cep)."\"
                     },
                     \"onlinePayment\": true
                     }
@@ -117,7 +120,7 @@
             valor="<?=$valores->deliveryFee?>"
             class="opcLoja list-group-item d-flex justify-content-between align-items-center">
             <small><?=$v->nome?></small>
-            <span class="badge badge-pill">
+            <span class="badge">
                 <small>R$ <?=number_format($valores->deliveryFee,2,'.',false)?></small>
             </span>
 
