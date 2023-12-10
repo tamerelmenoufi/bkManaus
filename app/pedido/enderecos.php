@@ -64,6 +64,43 @@
 <script>
     $(function(){
 
+        cep = '<?=$d->cep?>';
+        numero = '<?=$d->numero?>';
+        ponto_referencia = '<?=$d->ponto_referencia?>';
+        bairro = '<?=$d->bairro?>';
+        localidade = '<?=$d->localidade?>';
+        uf = '<?=$d->uf?>';
+
+
+
+        if(!cep || !numero || !ponto_referencia || !bairro || !localidade || !uf){
+            // $(".dados_enderecos").remove()
+            $(".dados_pagamento").remove()
+            $(".atualizar").css("display","block");
+        }
+
+        $(".atualizar").click(function(){
+
+            Carregando();
+            url = $(this).attr("navegacao");
+            idUnico = localStorage.getItem("idUnico");
+            codUsr = localStorage.getItem("codUsr");
+            $.ajax({
+                url:"usuarios/perfil.php",
+                type:"POST",
+                data:{
+                    idUnico,
+                    codUsr,
+                    historico:'.CorpoApp'
+                },
+                success:function(dados){
+                    Carregando('none');
+                    $(".CorpoApp").html(dados);
+                }
+            })
+
+        });
+
 
         $(".padrao").change(function(){
             cod = $(this).val();
@@ -97,34 +134,7 @@
         })
 
 
-        if(!nome || !cpf || !telefone){
-            // $(".dados_enderecos").remove()
-            $(".dados_pagamento").remove()
 
-            $(".atualizar").css("display","block");
-        }
-
-        $(".atualizar").click(function(){
-
-            Carregando();
-            url = $(this).attr("navegacao");
-            idUnico = localStorage.getItem("idUnico");
-            codUsr = localStorage.getItem("codUsr");
-            $.ajax({
-                url:"usuarios/perfil.php",
-                type:"POST",
-                data:{
-                    idUnico,
-                    codUsr,
-                    historico:'.CorpoApp'
-                },
-                success:function(dados){
-                    Carregando('none');
-                    $(".CorpoApp").html(dados);
-                }
-            })
-
-        });
 
     })
 </script>
