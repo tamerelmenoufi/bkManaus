@@ -59,15 +59,15 @@
             </div>
             
 
-            <div class="d-flex justify-content-between">    
+            <div class="d-flex justify-content-between mt-3">    
                 <div class="enderecoLabel w-100 text-center">
-                    <button class="btn btn-success">
+                    <button class="btn btn-success w-100">
                         <i class="fa-regular fa-pix"></i>
                         PIX                        
                     </button>
                 </div>
                 <div class="enderecoLabel w-100 text-center">
-                    <button class="btn btn-success">
+                    <button class="btn btn-success w-100">
                         <i class="fa-regular fa-credit-card"></i>
                         Crédito                        
                     </button>
