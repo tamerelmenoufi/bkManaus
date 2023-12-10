@@ -40,16 +40,67 @@
                 $localidade = $c->localidade;
                 $uf = $c->uf;
             }
-
-
         ?>
+
+
+<!-- -------------------------------------------------------------------- -->
+
+<?php
+        $mottu = new mottu;
+        $q = "select * from lojas where mottu > 0 /*situacao = '1' and deletado != '1'*/";
+        $r = mysqli_query($con, $q);
+        $vlopc = 0;
+        if(mysqli_num_rows($r)){
+
+            while($v = mysqli_fetch_object($r)){
+
+                $json = "{
+                    \"previewDeliveryTime\": true,
+                    \"sortByBestRoute\": false,
+
+                    \"deliveries\": [
+                        {
+                        \"orderRoute\": 111{$_SESSION['AppVenda']},
+                        \"address\": {
+                            \"street\": \"{$c->logradouro}\",
+                            \"number\": \"{$c->numero}\",
+                            \"complement\": \"{$c->complemento}\",
+                            \"neighborhood\": \"{$c->bairro}\",
+                            \"city\": \"Manaus\",
+                            \"state\": \"AM\",
+                            \"zipCode\": \"".str_replace(array(' ','-'), false, $c->cep)."\"
+                        },
+                        \"onlinePayment\": true
+                        }
+                    ]
+                    }";
+
+                $valores = json_decode($mottu->calculaFrete($json, $v->mottu));
+
+                if($valores->deliveryFee > 1){
+                    if($valores->deliveryFee <= $vlopc || $vlopc == 0) {
+                        $vlopc = $valores->deliveryFee;
+                        $unidade = $v->nome;
+                    }
+                }
+            }
+    ?>
+
+    <?php
+        }
+    ?>
+
+<!-- ------------------------------------------------------------------------- -->
+
+
+
         <div class="d-flex justify-content-between">
             <div class="enderecoLabel" codigo="<?=$c->codigo?>">
                 <i class="fa-solid fa-location-dot"></i>
                 <?="{$c->logradouro}, {$c->numero}, {$c->bairro}"?>
             </div>
             <div class="d-flex justify-content-between">
-            <span class="padraoRotulo" style="padding-right:5px; padding-left:5px; color:#a1a1a1; font-size:14px; white-space:nowrap; display:<?=(($c->padrao == '1')?'block':'none')?>" valor_taxa="12.50">R$ 12,50</span>
+            <span class="padraoRotulo" style="padding-right:5px; padding-left:5px; color:#a1a1a1; font-size:14px; white-space:nowrap; display:<?=(($c->padrao == '1')?'block':'none')?>" valor_taxa="<?=$vlopc?>">R$ <?=number_format($vlopc,2,',',false)?></span>
             <div class="form-check form-switch">
                 <input class="form-check-input padrao" type="radio" name="padrao" role="switch" value="<?=$c->codigo?>" <?=(($c->padrao == '1')?'checked':false)?> id="flexSwitchCheckDefault<?=$c->codigo?>">
             </div>

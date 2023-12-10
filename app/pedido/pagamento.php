@@ -44,77 +44,23 @@
                 <span class="valores" total></span> 
             </div>  
 
-<!-- -------------------------------------------------------------------- -->
 
-<?php
-        $mottu = new mottu;
-        $q = "select * from lojas where mottu > 0 /*situacao = '1' and deletado != '1'*/";
-        $r = mysqli_query($con, $q);
-        $vlopc = 0;
-        if(mysqli_num_rows($r)){
-
-            $e = mysqli_fetch_object(mysqli_query($con, "select * from enderecos where cliente = '{$_SESSION['codUsr']}' and padrao = '1'"));
-
-            while($v = mysqli_fetch_object($r)){
-
-                $json = "{
-                    \"previewDeliveryTime\": true,
-                    \"sortByBestRoute\": false,
-
-                    \"deliveries\": [
-                        {
-                        \"orderRoute\": 111{$_SESSION['AppVenda']},
-                        \"address\": {
-                            \"street\": \"{$e->logradouro}\",
-                            \"number\": \"{$e->numero}\",
-                            \"complement\": \"{$e->complemento}\",
-                            \"neighborhood\": \"{$e->bairro}\",
-                            \"city\": \"Manaus\",
-                            \"state\": \"AM\",
-                            \"zipCode\": \"".str_replace(array(' ','-'), false, $e->cep)."\"
-                        },
-                        \"onlinePayment\": true
-                        }
-                    ]
-                    }";
-
-                $valores = json_decode($mottu->calculaFrete($json, $v->mottu));
-
-                if($valores->deliveryFee > 1){
-                    if($valores->deliveryFee <= $vlopc || $vlopc == 0) {
-                        $vlopc = $valores->deliveryFee;
-                        $unidade = $v->nome;
-                    }
-                }
-            }
-    ?>
             <div class="d-flex justify-content-between">    
                 <div class="enderecoLabel w-100" >
                     <i class="fa-solid fa-location-dot"></i>
                     Taxa de Entrega
                 </div>
-                <span class="valores" taxa_entraga>R$ <?=number_format($vlopc,2,',',false)?></span> 
+                <span class="valores" taxa_entraga></span> 
             </div>
-    <?php
-        }
-    ?>
-
-<!-- ------------------------------------------------------------------------- -->
-
-
-
 
             <div class="d-flex justify-content-between">    
                 <div class="enderecoLabel w-100">
                     <i class="fa-solid fa-location-dot"></i>
                     Total a Pagar
                 </div>
-                <span class="valores" pagar>R$ 69,90</span> 
+                <span class="valores" pagar></span> 
             </div>
 
-
-
-            
 
             <div class="d-flex justify-content-between mt-3">    
                 <div class="enderecoLabel w-100 text-center pe-2">
