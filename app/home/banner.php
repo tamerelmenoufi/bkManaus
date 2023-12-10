@@ -32,7 +32,12 @@
 <div class="slider">
     <div class="slider-for">
         <div style="position:relative; background:red;">
-            <img src="img/transparente.png" style="width:100%;" />
+        <div class="row">
+            <div class="col-12"><img src="img/transparente.png" style="width:100%;" /></div>
+            <div class="col-6" style=" color:#fff; font-size:12px;">Combo</div>
+            <div class="col-6" style="font-size:20px; color:#fff">R$ 49<span style="font-size:14; color:#fff">99</span></div>
+        </div>
+            
         </div>
         
         <div style="position:relative; background:orange;">
