@@ -32,7 +32,7 @@
 <div class="slider">
     <div class="slider-for">
         <div style="position:relative; border:solid 1px blue">
-            <img src="img/trasparente.png" style="width:100%;" />
+            <img src="img/transparente.png" style="width:100%;" />
         </div>
         
     </div>
