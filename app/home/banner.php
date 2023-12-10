@@ -89,7 +89,7 @@ $(function(){
         autoplaySpeed: 5000,
 
 
-        dots: true,
+        // dots: true,
         infinite: true,
         speed: 500,
         adaptiveHeight: true
