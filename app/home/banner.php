@@ -33,7 +33,7 @@
     <div class="slider-for">
 
         <div style="position:relative; background:red;">
-            <img src="img/transparente.png" style="width:100%;" />
+            <img src="img/transparente.png" style="width:100%; position:relative;" />
             <div class="position:absolute; left:0, right:0; bottom:30px; top:30px; border:solid 1px #000; z-index:10">
                 <div class="row">
                     <div class="col-12"><img src="img/banner.png" style="width:100%;" /></div>
