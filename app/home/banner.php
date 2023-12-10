@@ -49,7 +49,7 @@
         ?>
         <div style="position:relative; background:orange;">
             <img src="<?=$capa?>" style="width:100%; position:relative;" />
-            <div style="position:absolute; left:0, right:0; bottom:30px; top:70px; z-index:10; width:100%; border:1px solid green;">
+            <div style="position:absolute; left:0, right:0; bottom:30px; top:50px; z-index:10; width:100%; border:1px solid green;">
                 <div class="d-flex justify-content-center" style=" border:1px solid green;"><img src="<?=$icon?>" style="width:70%;" /></div>
                 <div class="d-flex justify-content-center" style="color:#fff; font-size:23px; text-align:right; font-family:FlameBold; margin-top:-20px;"><?=$d->produto?></div>
                 <div class="d-flex justify-content-center align-items-end">
