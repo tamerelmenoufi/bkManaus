@@ -67,8 +67,8 @@
 <script>
     $(function(){
 
-        total = $("div[total]").attr("total");
-        taxa = $("span[valor_taxa]").attr("valor_taxa");
+        total = ($("div[total]").attr("total"))*1;
+        taxa = ($("span[valor_taxa]").attr("valor_taxa"))*1;
         pagar = (total*1+taxa*1);
 
         $("span[total]").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
