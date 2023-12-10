@@ -25,7 +25,7 @@
 
 <div class="row g-0 p-2">
     <div class="card p-2">
-        <h4 class="w-100 text-center">Dados do Cliente</h4>
+        <h4 class="w-100 text-center">Endereço(s) para entrega</h4>
 
         <?php
         $query = "select * from enderecos where cliente = '{$_SESSION['codUsr']}' order by codigo desc";
@@ -38,6 +38,7 @@
                 <?="{$c->logradouro}, {$c->numero}, {$c->bairro}"?>
             </div>
             <div class="d-flex justify-content-between">
+            <span style="padding-right:5px; padding-left:5px; color:#a1a1a1; font-size:14px;">R$ 12,50</span>
             <span class="padraoRotulo" style="padding-right:5px; padding-left:5px; color:#a1a1a1; font-size:14px; display:<?=(($c->padrao == '1')?'block':'none')?>">Padrão</span>
             <div class="form-check form-switch">
                 <input class="form-check-input padrao" type="radio" name="padrao" role="switch" value="<?=$c->codigo?>" <?=(($c->padrao == '1')?'checked':false)?> id="flexSwitchCheckDefault<?=$c->codigo?>">
