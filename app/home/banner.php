@@ -38,8 +38,8 @@
         while($d = mysqli_fetch_object($result)){
 
 
-            if(is_file("../../src/".(($d->categoria == 8)?'categorias':'produtos')."/icon/{$d->icon}")){
-                $icon = "{$urlPainel}src/".(($d->categoria == 8)?'categorias':'produtos')."/icon/{$d->icon}";
+            if(is_file("../../src/".(($d->categoria == 8)?'categorias':'produtos')."/icon/{$d->capa}")){
+                $icon = "{$urlPainel}src/".(($d->categoria == 8)?'categorias':'produtos')."/icon/{$d->capa}";
             }else{
                 $icon = "img/transparente.png";
             }
