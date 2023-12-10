@@ -66,7 +66,7 @@
 
 
 
-<div id="<?=$md5?>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+<div id="<?=$md5?>" class="collapseXXX" aria-labelledby="headingOne" data-parent="#accordion">
     <ul class="list-group">
     <?php
         $mottu = new mottu;
