@@ -83,26 +83,62 @@ $(function(){
     codUsr = localStorage.getItem("codUsr");
 
 
-    AbrirTelas = (tela, local)=>{
-        $.ajax({
-            url:tela,
-            type:"POST",
-            data:{
-                idUnico,
-                codUsr
-            },
-            success:function(dados){
-                $(`.${local}`).html(dados);
-            }
-        });        
-    }
+
+    $.ajax({
+        url:"pedido/pedido.php",
+        type:"POST",
+        data:{
+            idUnico,
+            codUsr
+        },
+        success:function(dados){
+            $(`.dados_pedido`).html(dados);
 
 
-    $("div[local]").each( async function(){
-        tela = $(this).attr("local");
-        local = $(this).attr("class");
-        await AbrirTelas(tela, local);
-    })
+            $.ajax({
+                url:"pedido/cliente.php",
+                type:"POST",
+                data:{
+                    idUnico,
+                    codUsr
+                },
+                success:function(dados){
+                    $(`.dados_pessoais`).html(dados);
+
+
+                    $.ajax({
+                        url:"pedido/enderecos.php",
+                        type:"POST",
+                        data:{
+                            idUnico,
+                            codUsr
+                        },
+                        success:function(dados){
+                            $(`.dados_enderecos`).html(dados);
+
+
+                            $.ajax({
+                                url:"pedido/pagamento.php",
+                                type:"POST",
+                                data:{
+                                    idUnico,
+                                    codUsr
+                                },
+                                success:function(dados){
+                                    $(`.dados_pagamento`).html(dados);
+                                }
+                            });  
+                        }
+                    });  
+
+
+                }
+            });  
+
+
+
+        }
+    });        
     
 
     //Novos testes
