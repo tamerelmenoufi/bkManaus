@@ -190,6 +190,13 @@
                             $(".barra_topo").append(dados);
                         }
                     });
+                    $.ajax({
+                        url:"pedido/pagamento.php",
+                        success:function(dados){
+                            $(".dados_pagamento").html(dados);
+                        }
+                    });
+
                 },
                 error:function(){
                     console.log('erro')
