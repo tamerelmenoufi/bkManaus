@@ -19,8 +19,8 @@
     }
     .barra_banner{
         position: absolute;
-        margin-top:-40px;
-        height:40px;
+        margin-top:-30px;
+        height:30px;
         width:100%;
     }
     .barra_banner div{
