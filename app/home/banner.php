@@ -31,10 +31,10 @@
 
 <div class="slider">
     <div class="slider-for">
-        <img src="img/banner.png" />
-        <img src="img/banner.png" />
-        <img src="img/banner.png" />
-        <img src="img/banner.png" />
+        <img src="img/promocoes.png" />
+        <img src="img/promocoes.png" />
+        <img src="img/promocoes.png" />
+        <img src="img/promocoes.png" />
     <!-- <div style="background-image:url(img/banner.png); background-size:contain;"></div> -->
     </div>
     <div class="d-flex justify-content-center barra_banner">
