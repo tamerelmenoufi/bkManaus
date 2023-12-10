@@ -36,9 +36,17 @@
         $query = "select * from produtos where promocao = '1' and situacao = '1' and deletado != '1'";
         $result = mysqli_query($con, $query);
         while($d = mysqli_fetch_object($result)){
+
+
+            if(is_file("../../src/".(($d->categoria == 8)?'categorias':'produtos')."/icon/{$d->icon}")){
+                $icon = "{$urlPainel}src/".(($d->categoria == 8)?'categorias':'produtos')."/icon/{$d->icon}";
+            }else{
+                $icon = "img/transparente.png";
+            }
+
         ?>
         <div style="position:relative; background:orange;">
-            <img src="img/transparente.png" style="width:100%; position:relative;" />
+            <img src="<?=$icon?>" style="width:100%; position:relative;" />
             <div style="position:absolute; left:0, right:0; bottom:30px; top:70px; z-index:10">
                 <div class="d-flex justify-content-center"><img src="img/banner.png?<?=$md5?>" style="width:70%;" /></div>
                 <div class="d-flex justify-content-center" style="color:#fff; font-size:23px; text-align:right; font-family:FlameBold; margin-top:-20px;"><?=$d->produto?></div>
