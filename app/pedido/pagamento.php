@@ -59,7 +59,17 @@
             </div>
             
 
-        
+            <div class="d-flex justify-content-between">    
+                <div class="enderecoLabel w-100 text-center">
+                    <i class="fa-brands fa-pix"></i>
+                    PIX
+                </div>
+                <div class="enderecoLabel w-100 text-center">
+                    <i class="fa-regular fa-credit-card"></i>
+                    Crédito
+                </div>
+            </div>
+
     </div>
 </div>
 
