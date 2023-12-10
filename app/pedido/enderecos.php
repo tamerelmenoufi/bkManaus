@@ -172,6 +172,7 @@
             $(this).parent("div").parent("div").children("span").addClass("ativo");
 
             $(".dados_pagamento").html('');
+            Carregando();
             idUnico = localStorage.getItem("idUnico");
             codUsr = localStorage.getItem("codUsr");
             $.ajax({
@@ -195,6 +196,7 @@
                         url:"pedido/pagamento.php",
                         success:function(dados){
                             $(".dados_pagamento").html(dados);
+                            Carregando('none');
                         }
                     });
 
