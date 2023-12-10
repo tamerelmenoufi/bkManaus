@@ -37,11 +37,10 @@
         $result = mysqli_query($con, $query);
         while($d = mysqli_fetch_object($result)){
 
-            $cam = (($d->categoria == 8)?"../../src/categorias/icon/{$d->capa}":"../../src/produtos/icon/{$d->capa}");
 
-            if(is_file($cam)){
-                $icon = "{$urlPainel}src/".(($d->categoria == 8)?'categorias':'produtos')."/icon/{$d->icon}";
-                $capa = "{$urlPainel}src/".(($d->categoria == 8)?'categorias':'produtos')."/icon/{$d->capa}";
+            if(is_file("../../src/".(($d->categoria == 8)?'combos':'produtos')."/icon/{$d->capa}")){
+                $icon = "{$urlPainel}src/".(($d->categoria == 8)?'combos':'produtos')."/icon/{$d->icon}";
+                $capa = "{$urlPainel}src/".(($d->categoria == 8)?'combos':'produtos')."/icon/{$d->capa}";
             }else{
                 $icon = "img/transparente.png";
                 $capa = "img/transparente.png";
