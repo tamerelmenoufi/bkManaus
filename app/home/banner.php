@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="col-12 text-center"><img src="img/banner.png?<?=$md5?>" style="width:90%;" /></div>
                     <div class="col-6" style="color:#fff; font-size:14px; text-align:right;">Combo</div>
-                    <div class="col-6" style="font-size:50px; color:#fff">R$ 49<span style="font-size:14; color:#fff; padding-bottom:25px;">99</span></div>
+                    <div class="col-6" style="font-size:40px; color:#fff">49<span style="font-size:14; color:#fff; padding-bottom:25px;">99</span></div>
                 </div>
             </div>
         </div>
