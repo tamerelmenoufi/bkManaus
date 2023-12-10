@@ -27,6 +27,9 @@
         font-size:14px;
         cursor:pointer;
     }
+    .valores{
+        white-space: nowrap;
+    }
 </style>
 
 <div class="row g-0 p-2">
@@ -38,21 +41,21 @@
                     <i class="fa-solid fa-location-dot"></i>
                     Total da compra
                 </div>
-                <span total></span> 
+                <span class="valores" total></span> 
             </div>  
             <div class="d-flex justify-content-between">    
                 <div class="enderecoLabel w-100" >
                     <i class="fa-solid fa-location-dot"></i>
                     Taxa de Entrega
                 </div>
-                <span taxa_entraga>R$ 12,00</span> 
+                <span class="valores" taxa_entraga>R$ 12,00</span> 
             </div>
             <div class="d-flex justify-content-between">    
                 <div class="enderecoLabel w-100" >
                     <i class="fa-solid fa-location-dot"></i>
                     Total a Pagar
                 </div>
-                <span pagar>R$ 69,90,00</span> 
+                <span class="valores" pagar>R$ 69,90</span> 
             </div>
             
 
