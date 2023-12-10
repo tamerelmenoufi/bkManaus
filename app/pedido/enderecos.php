@@ -38,7 +38,7 @@
                 <?="{$c->logradouro}, {$c->numero}, {$c->bairro}"?>
             </div>
             <div class="d-flex justify-content-between">
-            <span class="padraoRotulo" style="padding-right:5px; padding-left:5px; color:#a1a1a1; font-size:14px; white-space:nowrap; display:<?=(($c->padrao == '1')?'block':'none')?>">R$ 12,50</span>
+            <span class="padraoRotulo" style="padding-right:5px; padding-left:5px; color:#a1a1a1; font-size:14px; white-space:nowrap; display:<?=(($c->padrao == '1')?'block':'none')?>" valor_taxa="12.50">R$ 12,50</span>
             <div class="form-check form-switch">
                 <input class="form-check-input padrao" type="radio" name="padrao" role="switch" value="<?=$c->codigo?>" <?=(($c->padrao == '1')?'checked':false)?> id="flexSwitchCheckDefault<?=$c->codigo?>">
             </div>
