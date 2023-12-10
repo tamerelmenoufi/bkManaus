@@ -31,10 +31,18 @@
 
 <div class="slider">
     <div class="slider-for">
-        <div style="position:relative; border:solid 1px blue">
+        <div style="position:relative; background:red;">
             <img src="img/transparente.png" style="width:100%;" />
         </div>
         
+        <div style="position:relative; background:orange;">
+            <img src="img/transparente.png" style="width:100%;" />
+        </div>
+
+        <div style="position:relative; background:green;">
+            <img src="img/transparente.png" style="width:100%;" />
+        </div>
+
     </div>
     <div class="d-flex justify-content-center barra_banner">
         <div></div>
