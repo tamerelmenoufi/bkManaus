@@ -31,6 +31,17 @@
         $query = "select * from enderecos where cliente = '{$_SESSION['codUsr']}' order by codigo desc";
         $result = mysqli_query($con, $query);
         while($c = mysqli_fetch_object($result)){
+
+            if($c->padrao == '1'){
+                $cep = $c->cep;
+                $numero = $c->numero;
+                $ponto_referencia = $c->ponto_referencia;
+                $$bairro = $c->bairro;
+                $localidade = $c->localidade;
+                $uf = $c->uf;
+            }
+
+
         ?>
         <div class="d-flex justify-content-between">
             <div class="enderecoLabel" codigo="<?=$c->codigo?>">
@@ -64,12 +75,12 @@
 <script>
     $(function(){
 
-        cep = '<?=$d->cep?>';
-        numero = '<?=$d->numero?>';
-        ponto_referencia = '<?=$d->ponto_referencia?>';
-        bairro = '<?=$d->bairro?>';
-        localidade = '<?=$d->localidade?>';
-        uf = '<?=$d->uf?>';
+        cep = '<?=$cep?>';
+        numero = '<?=$numero?>';
+        ponto_referencia = '<?=$ponto_referencia?>';
+        bairro = '<?=$bairro?>';
+        localidade = '<?=$localidade?>';
+        uf = '<?=$uf?>';
 
 
 
