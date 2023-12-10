@@ -84,15 +84,9 @@ $(function(){
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
-        fade: true,
+        fade: false,
         autoplay: true,
         autoplaySpeed: 5000,
-
-
-        // dots: true,
-        infinite: true,
-        speed: 500,
-        adaptiveHeight: true
     });
 
 })
