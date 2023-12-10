@@ -43,13 +43,67 @@
                 </div>
                 <span class="valores" total></span> 
             </div>  
+
+<!-- -------------------------------------------------------------------- -->
+
+<?php
+        $mottu = new mottu;
+        $q = "select * from lojas where mottu > 0 /*situacao = '1' and deletado != '1'*/";
+        $r = mysqli_query($con, $q);
+        $vlopc = 0;
+        if(mysqli_num_rows($r)){
+
+            $e = mysqli_fetch_object(mysqli_query($con, "select * from enderecos where cliente = '{$_SESSION['codUsr']}' and padrao = '1'"));
+
+            while($v = mysqli_fetch_object($r)){
+
+                $json = "{
+                    \"previewDeliveryTime\": true,
+                    \"sortByBestRoute\": false,
+
+                    \"deliveries\": [
+                        {
+                        \"orderRoute\": 111{$_SESSION['AppVenda']},
+                        \"address\": {
+                            \"street\": \"{$e->logradouro}\",
+                            \"number\": \"{$e->numero}\",
+                            \"complement\": \"{$e->complemento}\",
+                            \"neighborhood\": \"{$e->bairro}\",
+                            \"city\": \"Manaus\",
+                            \"state\": \"AM\",
+                            \"zipCode\": \"".str_replace(array(' ','-'), false, $e->cep)."\"
+                        },
+                        \"onlinePayment\": true
+                        }
+                    ]
+                    }";
+
+                $valores = json_decode($mottu->calculaFrete($json, $v->mottu));
+
+                if($valores->deliveryFee > 1){
+                    if($valores->deliveryFee <= $vlopc || $vlopc == 0) {
+                        $vlopc = $valores->deliveryFee;
+                        $unidade = $v->nome;
+                    }
+                }
+            }
+    ?>
             <div class="d-flex justify-content-between">    
                 <div class="enderecoLabel w-100" >
                     <i class="fa-solid fa-location-dot"></i>
                     Taxa de Entrega
                 </div>
-                <span class="valores" taxa_entraga>R$ 12,00</span> 
+                <span class="valores" taxa_entraga>R$ <?=number_format($vlopc,2,',',false)?></span> 
             </div>
+    <?php
+        }
+    ?>
+
+<!-- ------------------------------------------------------------------------- -->
+
+
+
+
             <div class="d-flex justify-content-between">    
                 <div class="enderecoLabel w-100">
                     <i class="fa-solid fa-location-dot"></i>
@@ -59,89 +113,7 @@
             </div>
 
 
-<!-- -------------------------------------------------------------------- -->
 
-
-
-
-
-
-<div id="<?=$md5?>" class="collapseXXX" aria-labelledby="headingOne" data-parent="#accordion">
-    <ul class="list-group">
-    <?php
-        $mottu = new mottu;
-        $q = "select * from lojas where mottu > 0 /*situacao = '1' and deletado != '1'*/";
-        $r = mysqli_query($con, $q);
-        $vlopc = 0;
-        if(mysqli_num_rows($r)){
-
-            $e = mysqli_fetch_object(mysqli_query($con, "select * from enderecos where cliente = '{$_SESSION['codUsr']}' and padrao = '1'"));
-
-        while($v = mysqli_fetch_object($r)){
-
-            echo $json = "{
-                \"previewDeliveryTime\": true,
-                \"sortByBestRoute\": false,
-
-                \"deliveries\": [
-                    {
-                    \"orderRoute\": 111{$_SESSION['AppVenda']},
-                    \"address\": {
-                        \"street\": \"{$e->logradouro}\",
-                        \"number\": \"{$e->numero}\",
-                        \"complement\": \"{$e->complemento}\",
-                        \"neighborhood\": \"{$e->bairro}\",
-                        \"city\": \"Manaus\",
-                        \"state\": \"AM\",
-                        \"zipCode\": \"".str_replace(array(' ','-'), false, $e->cep)."\"
-                    },
-                    \"onlinePayment\": true
-                    }
-                ]
-                }";
-
-            $valores = json_decode($mottu->calculaFrete($json, $v->mottu));
-
-            var_dump($valores);
-            if($valores->deliveryFee > 1 or 1 == 1){
-
-            if($valores->deliveryFee <= $vlopc || $vlopc == 0) {
-                $vlopc = $valores->deliveryFee;
-                $opc = $v->codigo; //Opção mais barata
-                // $opc = $d->loja; //Opção de preferência do cliente
-
-            }
-
-    ?>
-        <li
-            opc="<?=$v->codigo?>"
-            LjId="<?=$v->id?>"
-            endereco="<?=$v->endereco?>"
-            valor="<?=$valores->deliveryFee?>"
-            class="opcLoja list-group-item d-flex justify-content-between align-items-center">
-            <small><?=$v->nome?></small>
-            <span class="badge">
-                <small>R$ <?=number_format($valores->deliveryFee,2,'.',false)?></small>
-            </span>
-
-        </li>
-    <?php
-            }
-        }
-        }
-    ?>
-    </ul>
-</div>
-
-
-
-
-
-
-
-
-
-<!-- ------------------------------------------------------------------------- -->
             
 
             <div class="d-flex justify-content-between mt-3">    
