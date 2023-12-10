@@ -83,7 +83,7 @@ $(function(){
     codUsr = localStorage.getItem("codUsr");
 
 
-
+    Carregando();
     $.ajax({
         url:"pedido/pedido.php",
         type:"POST",
@@ -126,6 +126,7 @@ $(function(){
                                 },
                                 success:function(dados){
                                     $(`.dados_pagamento`).html(dados);
+                                    Carregando('none');
                                 }
                             });  
                         }
