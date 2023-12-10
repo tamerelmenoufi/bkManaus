@@ -64,7 +64,7 @@
 <script>
     $(function(){
 
-        $("span").html($("div[total]").attr("total"))
+        $("span[total]").html($("div[total]").attr("total"))
 
 
     })
