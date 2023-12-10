@@ -48,7 +48,15 @@
         }
         ?>
 
-        
+        <div class="d-flex justify-content-between mt-3 atualizar" style="display:none!important">    
+            <div class="w-100 text-center">
+                Para concluir a sua compra, necessário completar o seu cadastro.
+                <button class="btn btn-danger w-100">
+                    <i class="fa-solid fa-user-pen"></i>
+                    Atualizar Cadastro aqui!       
+                </button>
+            </div>            
+        </div>   
     </div>
 </div>
 
@@ -87,6 +95,36 @@
                 }
             });
         })
+
+
+        if(!nome || !cpf || !telefone){
+            // $(".dados_enderecos").remove()
+            $(".dados_pagamento").remove()
+
+            $(".atualizar").css("display","block");
+        }
+
+        $(".atualizar").click(function(){
+
+            Carregando();
+            url = $(this).attr("navegacao");
+            idUnico = localStorage.getItem("idUnico");
+            codUsr = localStorage.getItem("codUsr");
+            $.ajax({
+                url:"usuarios/perfil.php",
+                type:"POST",
+                data:{
+                    idUnico,
+                    codUsr,
+                    historico:'.CorpoApp'
+                },
+                success:function(dados){
+                    Carregando('none');
+                    $(".CorpoApp").html(dados);
+                }
+            })
+
+        });
 
     })
 </script>
