@@ -57,6 +57,90 @@
                 </div>
                 <span class="valores" pagar>R$ 69,90</span> 
             </div>
+
+
+<!-- -------------------------------------------------------------------- -->
+
+
+
+
+
+
+<div id="<?=(($StatusApp == 'a' and !$promocao_taxa_zero)?'collapseOneXXX':false)?>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+    <ul class="list-group">
+    <?php
+        $mottu = new mottu;
+        // list($lat, $lng) = explode(",", $coordenadas);
+        // $q = "select * from lojas where situacao = '1' and online='1' and deletado != '1' and (time(NOW()) between hora_ini and hora_fim)";
+        $q = "select * from lojas /*where situacao = '1' and deletado != '1'*/";
+        $r = mysqli_query($con, $q);
+        $vlopc = 0;
+        if(mysqli_num_rows($r)){
+        while($v = mysqli_fetch_object($r)){
+
+            $json = "{
+                \"previewDeliveryTime\": true,
+                \"sortByBestRoute\": false,
+
+                \"deliveries\": [
+                    {
+                    \"orderRoute\": 111{$_SESSION['AppVenda']},
+                    \"address\": {
+                        \"street\": \"{$c->logradouro}\",
+                        \"number\": \"{$c->numero}\",
+                        \"complement\": \"{$c->complemento}\",
+                        \"neighborhood\": \"{$c->bairro}\",
+                        \"city\": \"Manaus\",
+                        \"state\": \"AM\",
+                        \"zipCode\": \"".str_replace(array(' ','-'), false, $c->cep)."\"
+                    },
+                    \"onlinePayment\": true
+                    }
+                ]
+                }";
+
+            $valores = json_decode($mottu->calculaFrete($json, $v->mottu));
+
+            // var_dump($v);
+            if($valores->deliveryFee > 1 or 1 == 1){
+
+            if($valores->deliveryFee <= $vlopc || $vlopc == 0) {
+                $vlopc = $valores->deliveryFee;
+                $opc = $v->codigo; //Opção mais barata
+                // $opc = $d->loja; //Opção de preferência do cliente
+
+            }
+
+    ?>
+        <li
+            opc="<?=$v->codigo?>"
+            LjId="<?=$v->id?>"
+            endereco="<?=$v->endereco?>"
+            valor="<?=$valores->deliveryFee?>"
+            class="opcLoja list-group-item d-flex justify-content-between align-items-center">
+            <small><?=$v->nome?></small>
+            <span class="badge badge-pill">
+                <small>R$ <?=number_format($valores->deliveryFee,2,'.',false)?></small>
+            </span>
+
+        </li>
+    <?php
+            }
+        }
+        }
+    ?>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ------------------------------------------------------------------------- -->
             
 
             <div class="d-flex justify-content-between mt-3">    
