@@ -70,7 +70,7 @@
     <ul class="list-group">
     <?php
         $mottu = new mottu;
-        $q = "select * from lojas /*where situacao = '1' and deletado != '1'*/";
+        $q = "select * from lojas where mottu > 0 /*situacao = '1' and deletado != '1'*/";
         $r = mysqli_query($con, $q);
         $vlopc = 0;
         if(mysqli_num_rows($r)){
