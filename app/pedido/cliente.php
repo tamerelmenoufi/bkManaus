@@ -79,6 +79,27 @@
             $(".atualizar").css("display","block");
         }
 
+        $(".atualizar").click(function(){
+
+            Carregando();
+            url = $(this).attr("navegacao");
+            idUnico = localStorage.getItem("idUnico");
+            codUsr = localStorage.getItem("codUsr");
+            $.ajax({
+                url:"usuarios/perfil.php",
+                type:"POST",
+                data:{
+                    idUnico,
+                    codUsr,
+                    historico:'.CorpoApp'
+                },
+                success:function(dados){
+                    Carregando('none');
+                    $(".CorpoApp").html(dados);
+                }
+            })
+
+        });
 
     })
 </script>
