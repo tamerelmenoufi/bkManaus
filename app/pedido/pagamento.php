@@ -76,7 +76,7 @@
         if(mysqli_num_rows($r)){
         while($v = mysqli_fetch_object($r)){
 
-            $json = "{
+            echo $json = "{
                 \"previewDeliveryTime\": true,
                 \"sortByBestRoute\": false,
 
@@ -99,7 +99,7 @@
 
             $valores = json_decode($mottu->calculaFrete($json, $v->mottu));
 
-            // var_dump($v);
+            var_dump($valores);
             if($valores->deliveryFee > 1 or 1 == 1){
 
             if($valores->deliveryFee <= $vlopc || $vlopc == 0) {
