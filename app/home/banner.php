@@ -34,7 +34,7 @@
 
         <div style="position:relative; background:orange;">
             <img src="img/transparente.png" style="width:100%; position:relative;" />
-            <div style="position:absolute; left:0, right:0; bottom:30px; top:30px; z-index:10">
+            <div style="position:absolute; left:0, right:0; bottom:30px; top:50px; z-index:10">
                 <div class="row">
                     <div class="col-12"><center><img src="img/banner.png?<?=$md5?>" style="width:70%;" /></center></div>
                     <div class="col-6" style="color:#fff; font-size:25px; text-align:right; font-family:FlameBold;">Combo<p>R$</p></div>
