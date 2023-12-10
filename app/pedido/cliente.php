@@ -50,7 +50,7 @@
                 </div> 
             </div>  
 
-            <div class="d-flex justify-content-between mt-3">    
+            <div class="d-flex justify-content-between mt-3 atualizar" style="display:none">    
                 <div class="w-100 text-center">
                     Para concluir a sua compra, necessário completar o seu cadastro.
                     <button class="btn btn-danger w-100">
@@ -75,6 +75,8 @@
         if(!nome || !cpf || !telefone){
             $(".dados_enderecos").remove()
             $(".dados_pagamento").remove()
+
+            $(".atualizar").css("display","block");
         }
 
 
