@@ -43,7 +43,7 @@ $(function(){
     //Se o usuário não possui cadastro no app
     if(!$d->codigo){
 ?>
-    $(".desconectar").parent("div").remove();
+    $(".desconectar").css("display","none");
     $("#telefone").mask("(99) 99999-9999");
     $("#telefone").keyup(function(){
         telefone = $(this).val();

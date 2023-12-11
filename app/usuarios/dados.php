@@ -67,6 +67,8 @@
 <script>
     $(function(){
 
+        $(".desconectar").css("display","block");
+
         $("#cpf").mask("999.999.999-99");
 
         localStorage.setItem("codUsr", '<?=$_SESSION['codUsr']?>');
