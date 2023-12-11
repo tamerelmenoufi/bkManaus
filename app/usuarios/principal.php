@@ -62,6 +62,7 @@ $(function(){
                     if(dados.status == 'success'){
                         $.confirm({
                             title: `Validar ${telefone}` ,
+                            columnClass:'col-12',
                             content: '' +
                             '<form action="" class="FormValidarTelefone">' +
                             '<div class="mb-3">' +
