@@ -206,7 +206,13 @@ $(function(){
         $(".adicionar").each(function(){
             total = $(this).attr("total");
             totalCompra = (totalCompra*1 + total*1);
-        })        
+        })     
+        
+        if((totalCompra*1) == 0){
+            $(".home_corpo").html("<h3 class='w-100 text-center' style='margin-top:200px;'>Sem Pedidos!</h3><p class='w-100 text-center'>Ainda não existe nenhum produto em sua cesta de comrpas.</p>")
+            $(".home_valores").remove();
+            return;
+        }
 
         $(".totalCompra").attr("total", totalCompra);
         $(".totalCompra").html('R$ ' + totalCompra.toLocaleString('pt-br', {minimumFractionDigits: 2}));        
