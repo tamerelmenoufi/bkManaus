@@ -42,7 +42,7 @@
             <div class="d-flex justify-content-between">    
                 <div class="enderecoLabel w-50" >
                     <i class="fa-solid fa-location-dot"></i>
-                    <?=$d->cpf?>
+                    <?=substr($d->cpf,0,3).".***.***-".substr($d->cpf,-2)?>
                 </div> 
                 <div class="enderecoLabel w-50" >
                     <i class="fa-solid fa-location-dot"></i>
