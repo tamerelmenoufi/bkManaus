@@ -103,7 +103,7 @@ $(function(){
             buttons:{
                 confirm:{
                     text:"Sim",
-                    btnClass:'btn-danger'
+                    btnClass:'btn-danger',
                     action:function(){
                         localStorage.removeItem("codUsr");
                         window.location.href='/';
