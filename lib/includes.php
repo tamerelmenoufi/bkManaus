@@ -3,6 +3,7 @@
     include("/appinc/connect.php");
     include("fn.php");
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/vendor/mottu/classes.php");
+    include("AppWapp.php");
     $con = AppConnect('bk_manaus');
     $conApi = AppConnect('information_schema');
     $md5 = md5(date("YmdHis"));
