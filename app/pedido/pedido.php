@@ -16,6 +16,8 @@
 
     $d = mysqli_fetch_object($result);
 
+    $total = 0;
+
 ?>
 
 <style>
@@ -63,6 +65,14 @@
 
 <script>
     $(function(){
+
+        total = <?=$total?>;
+        if((total*1) == 0){
+            $(".dados_pedido").html("<h3 class='w-100 text-center' style='margin-top:200px;'>Sem Pedidos!</h3><p class='w-100 text-center'>Ainda não existe nenhum produto em sua cesta de comrpas.</p>")
+            $(".dados_pessoais").remove();
+            $(".dados_enderecos").remove();
+            $(".dados_pagamento").remove();
+        }
 
 
     })
