@@ -14,4 +14,4 @@
 
     $result = EnviarWapp($_POST['telefone'],"BK Manaus informe: Seu código de acesso é *{$cod}*");
 
-echo "{\"status\":\"success\", \"codigo\":\"{$cod}\"}";
+    echo "{\"status\":\"success\", \"codigo\":\"{$cod}\"}";
