@@ -46,6 +46,7 @@
                 </div> 
                 <div class="enderecoLabel w-50" >
                     <i class="fa-solid fa-location-dot"></i>
+                    <?=substr($d->telefone,0,4)." *****".substr($d->telefone,-4)?>
                     <?=$d->telefone?>
                 </div> 
             </div>  
