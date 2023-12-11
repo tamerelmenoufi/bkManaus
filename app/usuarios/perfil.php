@@ -106,7 +106,7 @@ $(function(){
                     btnClass:'btn-danger',
                     action:function(){
                         localStorage.removeItem("codUsr");
-                        window.location.href='/';
+                        window.location.href='./';
                     }
                 },
                 cancel:{
