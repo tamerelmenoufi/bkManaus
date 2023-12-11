@@ -16,7 +16,11 @@
 
     if($_POST['excluir']){
         mysqli_query($con, "delete from enderecos where codigo = '{$_POST['excluir']}'");
-    }    
+        $e = mysqli_fetch_object(mysqli_query($con, "select * from enderecos where cliente = '{$_SESSION['codUsr']}' order by padrao desc, codigo desc limit 1"));
+        if($e->codigo > 0 and $e->padrao != '1'){
+            mysqli_query($con, "update enderecos set padrao = '1' where codigo = '{$e->codigo}'");
+        }
+    }   
 
 
 ?>
