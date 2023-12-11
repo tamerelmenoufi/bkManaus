@@ -81,21 +81,24 @@ $(function(){
                                             $.alert({
                                                 type:"red",
                                                 title:"Erro",
-                                                content:'Digite o código enviado!'
+                                                content:'Digite o código enviado!',
+                                                columnClass:'col-12',
                                             });
                                             return false;
                                         }else if(codigoValida.length != 4){
                                             $.alert({
                                                 type:"red",
                                                 title:"Erro",
-                                                content:'O Código deve ser de 4 dígitos!'
+                                                content:'O Código deve ser de 4 dígitos!',
+                                                columnClass:'col-12',
                                             });
                                             return false;
                                         }else if(codigoValida != dados.codigo){
                                             $.alert({
                                                 type:"red",
                                                 title:"Erro",
-                                                content:'O Código informado não confere!'
+                                                content:'O Código informado não confere!',
+                                                columnClass:'col-12',
                                             });
                                             return false;
                                         }
