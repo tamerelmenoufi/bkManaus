@@ -95,7 +95,29 @@ $(function(){
         }
     });    
 
-    //Novos testes
+    $(".desconectar").click(function(){
+        $.confirm({
+            title:"Desconcetar",
+            type:"red",
+            content:"Deseja realmente desconectar do Aplicativo?",
+            buttons:{
+                confirm:{
+                    text:"Sim",
+                    btnClass:'btn-danger'
+                    action:function(){
+
+                    }
+                },
+                cancel:{
+                    text:'Não',
+                    btnClass:'btn-warning',
+                    action:function(){
+                        
+                    }
+                }
+            }
+        })
+    })
 
 })
 
