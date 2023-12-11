@@ -56,8 +56,8 @@
 <div class="home_corpo">
     <div class="dados_pessoais"></div>
     <div class="dados_enderecos"></div>
-    <div class="mb-1">
-        <button type="button" class="btn btn-outline-warning w-100 desconectar">Desconectar</button>
+    <div class="m-3">
+        <button type="button" class="btn btn-outline-danger w-100 desconectar">Desconectar</button>
     </div>
 </div>   
 <div class="home_rodape"></div>
