@@ -116,7 +116,8 @@ $(function(){
 
                     }
                 }
-            }
+            },
+            columnClass:'col-12'
         })
     })
 
