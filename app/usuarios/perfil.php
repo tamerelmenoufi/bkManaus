@@ -105,14 +105,15 @@ $(function(){
                     text:"Sim",
                     btnClass:'btn-danger'
                     action:function(){
-
+                        localStorage.removeItem("codUsr");
+                        window.location.href='/';
                     }
                 },
                 cancel:{
                     text:'Não',
                     btnClass:'btn-warning',
                     action:function(){
-                        
+
                     }
                 }
             }
