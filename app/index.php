@@ -1,6 +1,7 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     $idUnico = uniqid();
+    if($_GET['s']) $_SESSION = [];
     // $_SESSION['historico'] = [];
     // $_SESSION['historico'][0]['local'] = 'home/index.php';
     // $_SESSION['historico'][0]['destino'] = '.CorpoApp';
