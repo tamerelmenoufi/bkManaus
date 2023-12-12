@@ -68,8 +68,8 @@
 
     $pos =  strripos($d->Cnome, " ");
 
-    print_r($v);
-    exit();
+    // print_r($v);
+    // exit();
 
 ?>
 <style>
