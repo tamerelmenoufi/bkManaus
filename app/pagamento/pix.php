@@ -138,15 +138,15 @@
                                     }
                                     }
                                 }';
-                                echo $retorno = $PIX->Transacao($json);
-                                echo "<hr>";
+                                $retorno = $PIX->Transacao($json);
+                                // echo "<hr>";
                                 $operadora_retorno = $retorno;
 
                                 $dados = json_decode($retorno);
 
 
-                                print_r($dados);
-                                exit();
+                                // print_r($dados);
+                                // exit();
                                 $operadora_id = $dados->id;
                                 $forma_pagamento = $dados->payment_method_id;
                                 $operadora_situacao = $dados->status;
