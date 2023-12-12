@@ -2,7 +2,6 @@
     session_start();
     include("/appinc/connect.php");
     include("fn.php");
-    include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/vendor/mottu/classes.php");
     include("AppWapp.php");
     // include "vendor/rede/classes.php";
     include "vendor/mercado_pago/classes.php";
