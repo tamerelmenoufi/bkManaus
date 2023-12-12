@@ -105,7 +105,7 @@
             codVenda = localStorage.getItem("codVenda");
             Carregando();
             $.ajax({
-                url:"pedido/pix.php",
+                url:"pagamento/pix.php",
                 type:"POST",
                 data:{
                     pagamento,
