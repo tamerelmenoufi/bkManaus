@@ -226,7 +226,7 @@
 <script>
     $(function(){
 
-        codVenda = 3;
+        codVenda = '<?=$codigo?>';
         if(codVenda){
             localStorage.setItem("codVenda", codVenda);
         }
