@@ -114,7 +114,9 @@
                                 $PIX = new MercadoPago;
                                 // "transaction_amount": '.$d->total.',
                                 // "transaction_amount": 2.11,
-                                $retorno = $PIX->Transacao('{
+
+
+                                $json = '{
                                     "transaction_amount": '.$v->valor_total.',
                                     "description": "Pedido '.$pedido.' - Venda BKManaus (Delivery)",
                                     "payment_method_id": "pix",
@@ -135,11 +137,16 @@
                                         "federal_unit": "AM"
                                     }
                                     }
-                                }');
-
+                                }';
+                                echo $retorno = $PIX->Transacao($json);
+                                echo "<hr>";
                                 $operadora_retorno = $retorno;
+
                                 $dados = json_decode($retorno);
 
+
+                                print_r($dados);
+                                exit();
                                 $operadora_id = $dados->id;
                                 $forma_pagamento = $dados->payment_method_id;
                                 $operadora_situacao = $dados->status;
