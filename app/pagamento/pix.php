@@ -89,7 +89,7 @@
                 $dados = json_decode($retorno);
 
                 if( $v->operadora_id and
-                    $d->pagamento == 'pix' and
+                    $v->pagamento == 'pix' and
                     $v->valor_total == $dados->transaction_amount
                     ){
 
