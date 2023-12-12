@@ -2,9 +2,6 @@
 
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-
-    print_r($_POST);
-
     if($_POST){
         $lista = [];
         foreach($_POST as $i => $v){
@@ -90,6 +87,8 @@
                 $retorno = $PIX->ObterPagamento($v->operadora_id); //////////////
                 $operadora_retorno = $retorno;
                 $dados = json_decode($retorno);
+
+                print_r($dados);
 
                 if( $v->operadora_id and
                     $v->pagamento == 'pix' and
