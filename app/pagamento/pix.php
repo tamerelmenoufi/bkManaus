@@ -7,7 +7,7 @@
         foreach($_POST as $i => $v){
             $lista[] = "{$i}:'$v'";
         }
-        $listaPost = implode(', '$lista);
+        $listaPost = implode(', ', $lista);
     }
     
 
