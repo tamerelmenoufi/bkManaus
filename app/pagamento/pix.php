@@ -18,7 +18,7 @@
         $_SESSION['codUsr'] = $_POST['codUsr'];
     }
 
-    if($_POST['pagamento']){
+    if($_POST['pagamento'] and !$_POST['codVenda']){
 
         $query = "select
                         a.*,
