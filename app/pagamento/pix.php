@@ -9,6 +9,10 @@
         $_SESSION['codUsr'] = $_POST['codUsr'];
     }
 
+    print_r($_POST);
+
+    exit();
+
 
     if($_POST['pagamento']){
 
