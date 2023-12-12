@@ -2,17 +2,21 @@
 
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+    if($_POST){
+        $lista = [];
+        foreach($_POST as $i => $v){
+            $lista[] = "{$i}:'$v'";
+        }
+        $listaPost = implode(', '$lista);
+    }
+    
+
     if($_POST['idUnico']){
         $_SESSION['idUnico'] = $_POST['idUnico'];
     }
     if($_POST['codUsr']){
         $_SESSION['codUsr'] = $_POST['codUsr'];
     }
-
-    // print_r($_POST);
-
-    
-
 
     if($_POST['pagamento']){
 
@@ -53,7 +57,6 @@
                                                     valor_total = '{$_POST['valor_total']}',
                                                     situacao = 'pendente'
                     ";
-        // exit();
         mysqli_query($con, $q);
         $codigo = mysqli_insert_id($con);
         $_SESSION['codVenda'] = $codigo;
@@ -62,14 +65,10 @@
         $_SESSION['codVenda'] = $_POST['codVenda'];
     }
 
-
     $v = mysqli_fetch_object(mysqli_query($con, "select *, pix_detalhes->>'$.id' as operadora_id from vendas where codigo = '{$_SESSION['codVenda']}'"));
-
 
     $pos =  strripos($d->Cnome, " ");
 
-    // print_r($v);
-    // exit();
 
 ?>
 <style>
@@ -94,9 +93,6 @@
                     $v->valor_total == $dados->transaction_amount
                     ){
 
-                    // echo "<pre>";
-                    // print_r($dados);
-                    // echo "</pre>";
                     $operadora_id = $dados->id;
 
 
@@ -112,7 +108,6 @@
                     $PIX = new MercadoPago;
                     // "transaction_amount": '.$d->total.',
                     // "transaction_amount": 2.11,
-
 
                     $json = '{
                         "transaction_amount": '.$v->valor_total.',
@@ -137,14 +132,9 @@
                         }
                     }';
                     $retorno = $PIX->Transacao($json);
-                    // echo "<hr>";
                     $operadora_retorno = $retorno;
-
                     $dados = json_decode($retorno);
 
-
-                    // print_r($dados);
-                    // exit();
                     $operadora_id = $dados->id;
                     $forma_pagamento = $dados->payment_method_id;
                     $operadora_situacao = $dados->status;
@@ -219,7 +209,7 @@
         <div>
             <img src="data:image/png;base64,<?=$qrcode_img?>" style="width:100%">
             <!-- <img src="img/qrteste.png" style="width:100%"> -->
-            <div class="status_pagamento"></div>
+            <div class="status_pagamento"><?=$dados->status?></div>
         </div>
         Total a Pagar:
         <h1>R$ <?=number_format($v->valor_total,2,'.',false)?></h1>
@@ -245,6 +235,20 @@
             obj.addClass('btn-success');
             obj.children("span").text("Código PIX Copiado!");
         });
+
+        setTimeout(() => {
+            $.ajax({
+                url:"pagamento/pix.php",
+                type:"POST",
+                data:{
+                    <?=$listaPost?>                    
+                },
+                success:function(dados){
+                    $(".dados_pagamento").html(dados);
+                    Carregando('none');
+                }
+            });
+        }, 5000);
 
 
     })
