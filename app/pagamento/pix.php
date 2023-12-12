@@ -71,7 +71,7 @@
     $pos =  strripos($d->Cnome, " ");
 
 
-    print_r($v);
+    // print_r($v);
 ?>
 <style>
  
