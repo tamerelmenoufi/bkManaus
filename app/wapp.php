@@ -31,7 +31,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); // Skip SSL Verification
 curl_setopt($ch, CURLOPT_POST, 1);
 $post = array(
-    'api_token' => "cehsUsTLkMgHyOg079WCrSmLiuopNbjx",
+    'api_token' => "",
     'phone' => "+201116680996",
     // 'file' => '@' .realpath('\"DIRETÓRIO DO ARQUIVO\"'),
     'message' => "Enviando a mensagem para validação da API de teste conforme as especificações - fase 2."
