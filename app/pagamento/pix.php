@@ -198,13 +198,22 @@
                                     // //////////////////////API DELIVERY////////////////////////////
 
 
+                                    echo "update vendas set
+                                                                pagamento = 'pix',
+                                                                pix_detalhes = '{$retorno}',
+                                                                delivery = 'mottu',
+                                                                delivery_detalhes = '{$retorno1}'
+                                                                ".(($api_delivery or $d->retirada_local == '1')?", situacao = 'pago'":false)."
+                                                        where codigo = '{$v->codigo}'
+                                                ";
+                                    
                                     mysqli_query($con, "update vendas set
                                                                 pagamento = 'pix',
                                                                 pix_detalhes = '{$retorno}',
                                                                 delivery = 'mottu',
                                                                 delivery_detalhes = '{$retorno1}'
                                                                 ".(($api_delivery or $d->retirada_local == '1')?", situacao = 'pago'":false)."
-                                                        where codigo = '{$d->codigo}'
+                                                        where codigo = '{$v->codigo}'
                                                 ");
 
                                 }
