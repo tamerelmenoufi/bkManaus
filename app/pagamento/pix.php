@@ -35,12 +35,11 @@
                     left join clientes b on a.cliente = b.codigo
                     left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
                     where a.id_unico = '{$_SESSION['idUnico']}'";
-                    
+
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
 
-
-        mysqli_query($con, "insert into vendas set 
+        echo $q = "insert into vendas set 
                                                     device = '{$d->id_unico}',
                                                     cliente = '{$d->cliente}',
                                                     endereco = '{$d->endereco}',
@@ -51,9 +50,11 @@
                                                     valor_compra = '{$_POST['valor_compra']}',
                                                     valor_entrega = '{$_POST['valor_entrega']}',
                                                     valor_desconto = '{$_POST['valor_desconto']}',
-                                                    valor_total = '{$_POST['valor_desconto']}',
+                                                    valor_total = '{$_POST['valor_total']}',
                                                     situacao = 'pendente'
-                    ");
+                    ";
+        exit();
+        mysqli_query($con, $q);
         $codigo = mysqli_insert_id($con);
         $_SESSION['codVenda'] = $codigo;
 
