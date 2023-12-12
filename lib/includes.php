@@ -1,6 +1,7 @@
 <?php
     session_start();
     include("/appinc/connect.php");
+    include "confBk.php";
     include("fn.php");
     include("AppWapp.php");
     // include "vendor/rede/classes.php";
