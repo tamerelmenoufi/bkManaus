@@ -103,101 +103,101 @@
 
                 }else{
 
-                    //AQUI É A GERAÇÃO DA COBRANÇA PIX
+                    // //AQUI É A GERAÇÃO DA COBRANÇA PIX
 
-                    $PIX = new MercadoPago;
-                    // "transaction_amount": '.$d->total.',
-                    // "transaction_amount": 2.11,
+                    // $PIX = new MercadoPago;
+                    // // "transaction_amount": '.$d->total.',
+                    // // "transaction_amount": 2.11,
 
-                    $json = '{
-                        "transaction_amount": '.$v->valor_total.',
-                        "description": "Pedido '.$pedido.' - Venda BKManaus (Delivery)",
-                        "payment_method_id": "pix",
-                        "payer": {
-                        "email": "'.$d->Cemail.'",
-                        "first_name": "'.substr($d->Cnome, 0, ($pos-1)).'",
-                        "last_name": "'.substr($d->Cnome, $pos, strlen($d->Cnome)).'",
-                        "identification": {
-                            "type": "CPF",
-                            "number": "'.str_replace(array('.','-'),false,$d->Ccpf).'"
-                        },
-                        "address": {
-                            "zip_code": "'.str_replace(array('.','-'),false,$d->Ccep).'",
-                            "street_name": "'.$d->Clogradouro.'",
-                            "street_number": "'.$d->Cnumero.'",
-                            "neighborhood": "'.$d->Cbairro.'",
-                            "city": "Manaus",
-                            "federal_unit": "AM"
-                        }
-                        }
-                    }';
-                    $retorno = $PIX->Transacao($json);
-                    $operadora_retorno = $retorno;
-                    $dados = json_decode($retorno);
+                    // $json = '{
+                    //     "transaction_amount": '.$v->valor_total.',
+                    //     "description": "Pedido '.$pedido.' - Venda BKManaus (Delivery)",
+                    //     "payment_method_id": "pix",
+                    //     "payer": {
+                    //     "email": "'.$d->Cemail.'",
+                    //     "first_name": "'.substr($d->Cnome, 0, ($pos-1)).'",
+                    //     "last_name": "'.substr($d->Cnome, $pos, strlen($d->Cnome)).'",
+                    //     "identification": {
+                    //         "type": "CPF",
+                    //         "number": "'.str_replace(array('.','-'),false,$d->Ccpf).'"
+                    //     },
+                    //     "address": {
+                    //         "zip_code": "'.str_replace(array('.','-'),false,$d->Ccep).'",
+                    //         "street_name": "'.$d->Clogradouro.'",
+                    //         "street_number": "'.$d->Cnumero.'",
+                    //         "neighborhood": "'.$d->Cbairro.'",
+                    //         "city": "Manaus",
+                    //         "federal_unit": "AM"
+                    //     }
+                    //     }
+                    // }';
+                    // $retorno = $PIX->Transacao($json);
+                    // $operadora_retorno = $retorno;
+                    // $dados = json_decode($retorno);
 
-                    $operadora_id = $dados->id;
-                    $forma_pagamento = $dados->payment_method_id;
-                    $operadora_situacao = $dados->status;
-                    $qrcode = $dados->point_of_interaction->transaction_data->qr_code;
-                    $qrcode_img = $dados->point_of_interaction->transaction_data->qr_code_base64;
-                    $api_delivery = false;
+                    // $operadora_id = $dados->id;
+                    // $forma_pagamento = $dados->payment_method_id;
+                    // $operadora_situacao = $dados->status;
+                    // $qrcode = $dados->point_of_interaction->transaction_data->qr_code;
+                    // $qrcode_img = $dados->point_of_interaction->transaction_data->qr_code_base64;
+                    // $api_delivery = false;
 
-                    if($operadora_id){
+                    // if($operadora_id){
 
-                        // //////////////////////API DELIVERY////////////////////////////
-                        // if($dados->status == 'approved' and $d->retirada_local != '1'){
-                        //     $json = '{
-                        //         "code": "'.$v->codigo.'",
-                        //         "fullCode": "bk-'.$v->codigo.'",
-                        //         "preparationTime": 0,
-                        //         "previewDeliveryTime": false,
-                        //         "sortByBestRoute": false,
-                        //         "deliveries": [
-                        //           {
-                        //             "code": "'.$v->codigo.'",
-                        //             "confirmation": {
-                        //               "mottu": true
-                        //             },
-                        //             "name": "'.$d->Cnome.'",
-                        //             "phone": "'.trim(str_replace(array(' ','-','(',')'), false, $d->Ctelefone)).'",
-                        //             "observation": "'.$d->Ccomplemento.'",
-                        //             "address": {
-                        //               "street": "'.$d->Clogradouro.'",
-                        //               "number": "'.$d->Cnumero.'",
-                        //               "complement": "'.$d->Cponto_referencia.'",
-                        //               "neighborhood": "'.$d->Cbairro.'",
-                        //               "city": "Manaus",
-                        //               "state": "AM",
-                        //               "zipCode": "'.trim(str_replace(array(' ','-'), false, $d->Ccep)).'"
-                        //             },
-                        //             "onlinePayment": true,
-                        //             "productValue": '.$v->valor_total.'
-                        //           }
-                        //         ]
-                        //       }';
+                    //     // //////////////////////API DELIVERY////////////////////////////
+                    //     // if($dados->status == 'approved' and $d->retirada_local != '1'){
+                    //     //     $json = '{
+                    //     //         "code": "'.$v->codigo.'",
+                    //     //         "fullCode": "bk-'.$v->codigo.'",
+                    //     //         "preparationTime": 0,
+                    //     //         "previewDeliveryTime": false,
+                    //     //         "sortByBestRoute": false,
+                    //     //         "deliveries": [
+                    //     //           {
+                    //     //             "code": "'.$v->codigo.'",
+                    //     //             "confirmation": {
+                    //     //               "mottu": true
+                    //     //             },
+                    //     //             "name": "'.$d->Cnome.'",
+                    //     //             "phone": "'.trim(str_replace(array(' ','-','(',')'), false, $d->Ctelefone)).'",
+                    //     //             "observation": "'.$d->Ccomplemento.'",
+                    //     //             "address": {
+                    //     //               "street": "'.$d->Clogradouro.'",
+                    //     //               "number": "'.$d->Cnumero.'",
+                    //     //               "complement": "'.$d->Cponto_referencia.'",
+                    //     //               "neighborhood": "'.$d->Cbairro.'",
+                    //     //               "city": "Manaus",
+                    //     //               "state": "AM",
+                    //     //               "zipCode": "'.trim(str_replace(array(' ','-'), false, $d->Ccep)).'"
+                    //     //             },
+                    //     //             "onlinePayment": true,
+                    //     //             "productValue": '.$v->valor_total.'
+                    //     //           }
+                    //     //         ]
+                    //     //       }';
 
-                        //     $mottu = new mottu;
+                    //     //     $mottu = new mottu;
 
-                        //     $retorno1 = $mottu->NovoPedido($json, $d->id_mottu);
-                        //     $retorno = json_decode($retorno1);
+                    //     //     $retorno1 = $mottu->NovoPedido($json, $d->id_mottu);
+                    //     //     $retorno = json_decode($retorno1);
 
-                        //     $api_delivery = $retorno->id;
-                        // }
-                        // //////////////////////API DELIVERY////////////////////////////
+                    //     //     $api_delivery = $retorno->id;
+                    //     // }
+                    //     // //////////////////////API DELIVERY////////////////////////////
 
 
-                        $q = "update vendas set
-                                                    pagamento = 'pix',
-                                                    pix_detalhes = '".(($retorno)?:'{}')."',
-                                                    delivery = 'mottu',
-                                                    delivery_detalhes = '".(($retorno1)?:'{}')."'
-                                                    ".(($api_delivery or $d->retirada_local == '1')?", situacao = 'pago'":false)."
-                                            where codigo = '{$v->codigo}'
-                                    ";
+                    //     $q = "update vendas set
+                    //                                 pagamento = 'pix',
+                    //                                 pix_detalhes = '".(($retorno)?:'{}')."',
+                    //                                 delivery = 'mottu',
+                    //                                 delivery_detalhes = '".(($retorno1)?:'{}')."'
+                    //                                 ".(($api_delivery or $d->retirada_local == '1')?", situacao = 'pago'":false)."
+                    //                         where codigo = '{$v->codigo}'
+                    //                 ";
                         
-                        mysqli_query($con, $q);
+                    //     mysqli_query($con, $q);
 
-                    }
+                    // }
                 }
 
                 // $qrcode = '12e44a26-e3b4-445f-a799-1199df32fa1e';
