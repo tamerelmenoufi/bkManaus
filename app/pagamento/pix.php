@@ -16,7 +16,7 @@
 
     if($_POST['pagamento']){
 
-        echo $query = "select
+        $query = "select
                         a.*,
                         b.nome as Cnome,
                         b.cpf as Ccpf,
@@ -35,7 +35,7 @@
                     left join clientes b on a.cliente = b.codigo
                     left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
                     where a.id_unico = '{$_SESSION['idUnico']}'";
-exit();
+                    
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
 
