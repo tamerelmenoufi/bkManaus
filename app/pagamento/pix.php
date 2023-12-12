@@ -36,7 +36,6 @@
         $d = mysqli_fetch_object($result);
 
 
-
         mysqli_query($con, "insert into vendas set 
                                                     device = '{$d->id_unico}',
                                                     cliente = '{$d->cliente}',
@@ -45,10 +44,10 @@
                                                     pagamento = '{$_POST['pagamento']}',
                                                     data = NOW(),
                                                     cupom = '{$_POST['cupom']}',
-                                                    valor_compra = '<?=$_POST['valor_compra']?>',
-                                                    valor_entrega = '<?=$_POST['valor_entrega']?>',
-                                                    valor_desconto = '<?=$_POST['valor_desconto']?>',
-                                                    valor_total = '<?=$_POST['valor_desconto']?>',
+                                                    valor_compra = '{$_POST['valor_compra']}',
+                                                    valor_entrega = '{$_POST['valor_entrega']}',
+                                                    valor_desconto = '{$_POST['valor_desconto']}',
+                                                    valor_total = '{$_POST['valor_desconto']}',
                                                     situacao = 'pendente'
                     ");
         $codigo = mysqli_insert_id($con);
