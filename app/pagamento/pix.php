@@ -52,7 +52,7 @@
     }
 
 
-    $v = mysqli_fetch_object(mysqli_query($con, "select * from vendas where codigo = '{$_SESSION['codVenda']}'"));
+    $v = mysqli_fetch_object(mysqli_query($con, "select *, pix_detalhes->>'$.id' as operadora_id from vendas where codigo = '{$_SESSION['codVenda']}'"));
 
 
     $pos =  strripos($d->Cnome, " ");
@@ -73,12 +73,12 @@
 
 
                             $PIX = new MercadoPago;
-                            $retorno = $PIX->ObterPagamento($d->operadora_id); //////////////
+                            $retorno = $PIX->ObterPagamento($v->operadora_id); //////////////
                             $operadora_retorno = $retorno;
                             $dados = json_decode($retorno);
 
-                            if( $d->operadora_id and
-                                $d->operadora == 'mercadopago' and
+                            if( $v->operadora_id and
+                                $d->pagamento == 'pix' and
                                 $v->valor_total == $dados->transaction_amount
                                 ){
 
@@ -135,46 +135,46 @@
 
                                 if($operadora_id){
 
-                                    if($dados->status == 'approved' and $d->retirada_local != '1'){
-                                        $json = '{
-                                            "code": "'.$v->codigo.'",
-                                            "fullCode": "bk-'.$v->codigo.'",
-                                            "preparationTime": 0,
-                                            "previewDeliveryTime": false,
-                                            "sortByBestRoute": false,
-                                            "deliveries": [
-                                              {
-                                                "code": "'.$v->codigo.'",
-                                                "confirmation": {
-                                                  "mottu": true
-                                                },
-                                                "name": "'.$d->Cnome.'",
-                                                "phone": "'.trim(str_replace(array(' ','-','(',')'), false, $d->Ctelefone)).'",
-                                                "observation": "'.$d->Ccomplemento.'",
-                                                "address": {
-                                                  "street": "'.$d->Clogradouro.'",
-                                                  "number": "'.$d->Cnumero.'",
-                                                  "complement": "'.$d->Cponto_referencia.'",
-                                                  "neighborhood": "'.$d->Cbairro.'",
-                                                  "city": "Manaus",
-                                                  "state": "AM",
-                                                  "zipCode": "'.trim(str_replace(array(' ','-'), false, $d->Ccep)).'"
-                                                },
-                                                "onlinePayment": true,
-                                                "productValue": '.$v->valor_total.'
-                                              }
-                                            ]
-                                          }';
+                                    // //////////////////////API DELIVERY////////////////////////////
+                                    // if($dados->status == 'approved' and $d->retirada_local != '1'){
+                                    //     $json = '{
+                                    //         "code": "'.$v->codigo.'",
+                                    //         "fullCode": "bk-'.$v->codigo.'",
+                                    //         "preparationTime": 0,
+                                    //         "previewDeliveryTime": false,
+                                    //         "sortByBestRoute": false,
+                                    //         "deliveries": [
+                                    //           {
+                                    //             "code": "'.$v->codigo.'",
+                                    //             "confirmation": {
+                                    //               "mottu": true
+                                    //             },
+                                    //             "name": "'.$d->Cnome.'",
+                                    //             "phone": "'.trim(str_replace(array(' ','-','(',')'), false, $d->Ctelefone)).'",
+                                    //             "observation": "'.$d->Ccomplemento.'",
+                                    //             "address": {
+                                    //               "street": "'.$d->Clogradouro.'",
+                                    //               "number": "'.$d->Cnumero.'",
+                                    //               "complement": "'.$d->Cponto_referencia.'",
+                                    //               "neighborhood": "'.$d->Cbairro.'",
+                                    //               "city": "Manaus",
+                                    //               "state": "AM",
+                                    //               "zipCode": "'.trim(str_replace(array(' ','-'), false, $d->Ccep)).'"
+                                    //             },
+                                    //             "onlinePayment": true,
+                                    //             "productValue": '.$v->valor_total.'
+                                    //           }
+                                    //         ]
+                                    //       }';
 
-                                        $mottu = new mottu;
+                                    //     $mottu = new mottu;
 
-                                        $retorno1 = $mottu->NovoPedido($json, $d->id_mottu);
-                                        $retorno = json_decode($retorno1);
+                                    //     $retorno1 = $mottu->NovoPedido($json, $d->id_mottu);
+                                    //     $retorno = json_decode($retorno1);
 
-                                        $api_delivery = $retorno->id;
-                                    }
-
-                                    //////////////////////API DELIVERY////////////////////////////
+                                    //     $api_delivery = $retorno->id;
+                                    // }
+                                    // //////////////////////API DELIVERY////////////////////////////
 
 
                                     mysqli_query($con, "update vendas set
