@@ -65,7 +65,6 @@
         $_SESSION['codVenda'] = $_POST['codVenda'];
     }
 
-    echo "select *, pix_detalhes->>'$.id' as operadora_id from vendas where codigo = '{$_SESSION['codVenda']}'";
     $v = mysqli_fetch_object(mysqli_query($con, "select *, pix_detalhes->>'$.id' as operadora_id from vendas where codigo = '{$_SESSION['codVenda']}'"));
 
     $pos =  strripos($d->Cnome, " ");
