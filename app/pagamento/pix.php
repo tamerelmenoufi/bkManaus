@@ -90,7 +90,7 @@
                 $operadora_retorno = $retorno;
                 $dados = json_decode($retorno);
 
-                print_r($dados);
+                // print_r($dados);
 
                 if( $v->operadora_id and
                     $v->pagamento == 'pix' and
