@@ -209,7 +209,7 @@
         <div>
             <img src="data:image/png;base64,<?=$qrcode_img?>" style="width:100%">
             <!-- <img src="img/qrteste.png" style="width:100%"> -->
-            <div class="status_pagamento"><?=$dados->status?> - <?=(date("H:i:s"))?></div>
+            <div class="status_pagamento"><?=$dados->status?> - <?=(date("H:i:s"))?><br><?=$operadora_id?></div>
         </div>
         Total a Pagar:
         <h1>R$ <?=number_format($v->valor_total,2,'.',false)?></h1>
