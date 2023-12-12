@@ -39,7 +39,7 @@
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
 
-        echo $q = "insert into vendas set 
+        $q = "insert into vendas set 
                                                     device = '{$d->id_unico}',
                                                     cliente = '{$d->cliente}',
                                                     endereco = '{$d->endereco}',
@@ -53,7 +53,7 @@
                                                     valor_total = '{$_POST['valor_total']}',
                                                     situacao = 'pendente'
                     ";
-        exit();
+        // exit();
         mysqli_query($con, $q);
         $codigo = mysqli_insert_id($con);
         $_SESSION['codVenda'] = $codigo;
@@ -67,6 +67,9 @@
 
 
     $pos =  strripos($d->Cnome, " ");
+
+    print_r($v);
+    exit();
 
 ?>
 <style>
