@@ -2,6 +2,13 @@
 
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+    if($_POST['idUnico']){
+        $_SESSION['idUnico'] = $_POST['idUnico'];
+    }
+    if($_POST['codUsr']){
+        $_SESSION['codUsr'] = $_POST['codUsr'];
+    }
+
 
     if($_POST['pagamento']){
 
@@ -37,7 +44,7 @@
                                                     detalhes = '{$d->detalhes}', 
                                                     pagamento = '{$_POST['pagamento']}',
                                                     data = NOW(),
-                                                    data = '{$_POST['cupom']}',
+                                                    cupom = '{$_POST['cupom']}',
                                                     valor_compra = '<?=$_POST['valor_compra']?>',
                                                     valor_entrega = '<?=$_POST['valor_entrega']?>',
                                                     valor_desconto = '<?=$_POST['valor_desconto']?>',

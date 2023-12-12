@@ -64,7 +64,7 @@
 
             <div class="d-flex justify-content-between mt-3">    
                 <div class="enderecoLabel w-100 text-center pe-2">
-                    <button class="btn btn-success w-100">
+                    <button class="btn btn-success w-100" pagamento="pix">
                         <i class="fa-brands fa-pix"></i>
                         PIX                        
                     </button>
@@ -91,6 +91,39 @@
         $("span[total]").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         $("span[taxa_entraga]").html('R$ ' + taxa.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         $("span[pagar]").html('R$ ' + pagar.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+
+        $("button[pagamento]").click(function(){
+            pagamento = $(this).attr("pagamento");
+            cupom = 0;
+            valor_compra = 0;
+            valor_entrega = 0;
+            valor_desconto = 0;
+            valor_total = pagar;
+
+            idUnico = localStorage.getItem("idUnico");
+            codUsr = localStorage.getItem("codUsr");
+            codVenda = localStorage.getItem("codVenda");
+            Carregando();
+            $.ajax({
+                url:"pedido/pagamento.php",
+                type:"POST",
+                data:{
+                    pagamento,
+                    cupom,
+                    valor_compra,
+                    valor_entrega,
+                    valor_desconto,
+                    valor_total,
+                    idUnico,
+                    codUsr,
+                    codVenda,                    
+                },
+                success:function(dados){
+                    $(".dados_pagamento").html(dados);
+                    Carregando('none');
+                }
+            });
+        })
 
 
     })
