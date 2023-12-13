@@ -67,7 +67,7 @@ $pdAtiva = $_SESSION['historico'][$i]['local'];
 
         <div navegacao="usuarios/perfil.php" class="telaPedido">
             <i class="fa-solid fa-user" <?=(($pdAtiva == 'usuarios/perfil.php')?'style="color:#ffdb37;"':false)?>></i>
-            <p <?=(($pdAtiva == 'home/index.php')?'style="color:#ffdb37;"':false)?>>Perfil</p>
+            <p <?=(($pdAtiva == 'usuarios/perfil.php')?'style="color:#ffdb37;"':false)?>>Perfil</p>
         </div>
         
         <div navegacao="home/index.php" class="telaPedido">
@@ -77,12 +77,12 @@ $pdAtiva = $_SESSION['historico'][$i]['local'];
         
         <div navegacao="pedido/resumo.php" class="telaPedido">
             <i class="fa-solid fa-bag-shopping" <?=(($pdAtiva == 'pedido/resumo.php')?'style="color:#ffdb37;"':false)?>></i>
-            <p <?=(($pdAtiva == 'home/index.php')?'style="color:#ffdb37;"':false)?>>Pedido</p>
+            <p <?=(($pdAtiva == 'pedido/resumo.php')?'style="color:#ffdb37;"':false)?>>Pedido</p>
         </div>        
 
         <div navegacao="pedido/pagar.php">
             <i class="fa-solid fa-circle-dollar-to-slot" <?=(($pdAtiva == 'pedido/pagar.php')?'style="color:#ffdb37;"':false)?>></i>
-            <p <?=(($pdAtiva == 'home/index.php')?'style="color:#ffdb37;"':false)?>>Pagar</p>
+            <p <?=(($pdAtiva == 'pedido/pagar.php')?'style="color:#ffdb37;"':false)?>>Pagar</p>
         </div>        
     </div>
 </div>
