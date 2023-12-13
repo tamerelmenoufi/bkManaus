@@ -1,5 +1,18 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
+
+if($_POST['idUnico']){
+    $_SESSION['idUnico'] = $_POST['idUnico'];
+}
+
+if($_POST['codUsr']){
+    $_SESSION['codUsr'] = $_POST['codUsr'];
+}
+
+$query = "select * from clientes where codigo = '{$_SESSION['codUsr']}'";
+$result = mysqli_query($con, $query);
+$c = mysqli_fetch_object($query);
+
 ?>
 
 <style>
@@ -20,10 +33,21 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
         color:#c45018;
         cursor:pointer;
     }
+    .topo > .dados{
+        position:absolute;
+        bottom:5px;
+        left:10px;
+        right:10px;
+        font-size:14px;
+        color:#c45018;
+        cursor:pointer;
+        text-align:center;
+    }
 
     
 </style>
 <div class="topo">
+    <p class="<?=$c->nome?>"></p>
     <i class="voltar fa-solid fa-arrow-left"></i>
 </div>
 <script>
