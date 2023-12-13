@@ -28,9 +28,8 @@ $c = mysqli_fetch_object($result);
         position:absolute;
         bottom:10px;
         left:15px;
-        color:#000;
         font-size:30px;
-        color:#c45018;
+        color:#670600;
         cursor:pointer;
     }
     .topo > .dados{
@@ -40,7 +39,7 @@ $c = mysqli_fetch_object($result);
         right:10px;
         font-size:14px;
         font-family:verdana;
-        color:#c45018;
+        color:#670600;
         cursor:pointer;
         text-align:center;
     }

@@ -21,7 +21,7 @@
         width:100%;
         height:100px;
         background-color:#ffc63a;
-        color:#c45018;
+        color:#670600;
         border-bottom-right-radius:40px;
         border-bottom-left-radius:40px;
         font-family:FlameBold;
