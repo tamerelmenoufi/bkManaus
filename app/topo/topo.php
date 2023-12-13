@@ -35,7 +35,7 @@ $c = mysqli_fetch_object($result);
     }
     .topo > .dados{
         position:absolute;
-        bottom:5px;
+        top:5px;
         left:10px;
         right:10px;
         font-size:14px;
