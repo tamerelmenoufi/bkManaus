@@ -11,7 +11,7 @@ if($_POST['codUsr']){
 
 $query = "select * from clientes where codigo = '{$_SESSION['codUsr']}'";
 $result = mysqli_query($con, $query);
-$c = mysqli_fetch_object($query);
+$c = mysqli_fetch_object($result);
 
 ?>
 
