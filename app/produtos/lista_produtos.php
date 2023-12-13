@@ -75,7 +75,6 @@
         direction: ltr;
     }
     .produto_dados div{
-        color:#670600; 
         overflow: hidden; 
         font-family:FlameBold; 
         font-size:16px; 
@@ -102,23 +101,22 @@ while($d = mysqli_fetch_object($result)){
     }
 
 ?>
-    <div class="produto_painel" codigo="<?=$d->codigo?>">
+    <div class="produto_painel" codigo="<?=$d->codigo?>" style="background-color:<?=(($d->promocao == '1')?'#bd0100':'trasparent')?>">
         <img src="<?=$icon?>" />
         <div class="w-100">
             <div class="produto_dados">
-                <h4 style="color:#f12a2a"><?=$d->produto?></h4>
+                <h4 style="color:<?=(($d->promocao == '1')?'#ffd800':'#600f0b')?>"><?=$d->produto?></h4>
             </div>
             <div class="produto_dados" style="height:60px;">
-                <div><?=$d->descricao?></div>
+                <div style="color:<?=(($d->promocao == '1')?'#000000':'#ffffff')?>"><?=$d->descricao?></div>
             </div>
             <div class="produto_dados">
-                <h2 style="color:#f12a2a">
+                <h2 style="color:<?=(($d->promocao == '1')?'#f53a33':'#600f0b')?>">
                     <i class="fa-solid fa-circle-play me-3"></i>
                     R$ <?=number_format($d->valor,2,",",false)?>
                 </h2>
             </div>            
         </div>
-
     </div>
 <?php
 }
