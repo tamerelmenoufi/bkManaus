@@ -44,7 +44,7 @@
 
 <div class="row g-0 p-2">
     <div class="card p-2">
-        <h4 class="w-100 text-center">Dados Pessoais</h4>
+        <h4 class="w-100 text-center">DADOS PESSOAIS</h4>
         <div class="mb-1">
             <label for="nome" class="form-label">Nome Completo</label>
             <input type="text" class="form-control formDados" autocomplete="off" value="<?=$d->nome?>" id="nome">
