@@ -20,8 +20,8 @@
         top:0;
         width:100%;
         height:100px;
-        background-color:#ffc63a;
-        color:#670600;
+        background-color:#0a7817;
+        color:#f9de37;
         border-bottom-right-radius:40px;
         border-bottom-left-radius:40px;
         font-family:FlameBold;
