@@ -26,7 +26,7 @@
         border-bottom-left-radius:40px;
         font-family:FlameBold;
     }
-    .barra_topo > .voltar{
+    .topo > .voltar{
         color:#f9de37;
     }
 
