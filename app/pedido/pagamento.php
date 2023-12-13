@@ -34,7 +34,7 @@
 
 <div class="row g-0 p-2">
     <div class="card p-2">
-        <h4 class="w-100 text-center">Pagamento</h4>
+        <h4 class="w-100 text-center">PAGAMENTO</h4>
 
             <div class="d-flex justify-content-between">    
                 <div class="enderecoLabel w-100" >
