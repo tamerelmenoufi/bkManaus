@@ -27,7 +27,7 @@
         font-family:FlameBold;
     }
     .topo > .voltar{
-        color:#f9de37;
+        color:#f9de37!important;
     }
 
     .home_corpo{
