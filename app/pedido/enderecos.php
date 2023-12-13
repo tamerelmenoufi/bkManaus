@@ -25,7 +25,7 @@
 
 <div class="row g-0 p-2">
     <div class="card p-2">
-        <h4 class="w-100 text-center">ENDEREÇO(S) PARA ENTREGA</h4>
+        <h4 class="w-100 text-center">ENDEREÇO PARA ENTREGA</h4>
 
         <?php
         $query = "select * from enderecos where cliente = '{$_SESSION['codUsr']}' order by codigo desc";
