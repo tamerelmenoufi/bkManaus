@@ -119,9 +119,9 @@ while($d = mysqli_fetch_object($result)){
                 <div style="color:<?=(($d->promocao == '1')?'#ffffff':'#000000')?>"><?=$d->descricao?></div>
             </div>
             <div class="produto_dados">
-                <div class="promocao">DE R$ <?=number_format($d->valor,2,",",false)?></div>
                 <h2 style="color:<?=(($d->promocao == '1')?'#fbdb00':'#f4352b')?>">
                     <i class="fa-solid fa-circle-play me-3"></i>
+                    <div class="promocao">DE R$ <?=number_format($d->valor,2,",",false)?></div>
                     <span style="color:#fff; font-size:12px;"><?=(($d->promocao == '1')?'POR ':false)?></span>R$ <?=number_format($d->valor,2,",",false)?>
                 </h2>
             </div>            
