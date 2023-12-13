@@ -343,6 +343,9 @@ echo "Status: ".$dc->status;
 
 $(function(){
 
+    idUnico = localStorage.getItem("idUnico");
+    codUsr = localStorage.getItem("codUsr");
+
     $.ajax({
         url:"rodape/rodape.php",
         success:function(dados){
@@ -352,6 +355,11 @@ $(function(){
 
     $.ajax({
         url:"topo/topo.php",
+        type:"POST",
+        data:{
+            idUnico,
+            codUsr
+        },  
         success:function(dados){
             $(".barra_topo").append(dados);
         }

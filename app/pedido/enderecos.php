@@ -188,6 +188,11 @@
                     $(".barra_topo").html("<h2>Pagar</h2>");
                     $.ajax({
                         url:"topo/topo.php",
+                        type:"POST",
+                        data:{
+                            idUnico,
+                            codUsr
+                        },  
                         success:function(dados){
                             $(".barra_topo").append(dados);
                         }

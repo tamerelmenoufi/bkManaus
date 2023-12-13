@@ -196,6 +196,11 @@ $(function(){
 
     $.ajax({
         url:"topo/topo.php",
+        type:"POST",
+        data:{
+            idUnico,
+            codUsr
+        },  
         success:function(dados){
             $(".barra_topo").append(dados);
         }
