@@ -122,7 +122,7 @@ while($d = mysqli_fetch_object($result)){
                 <div class="promocao">DE R$ <?=number_format($d->valor,2,",",false)?></div>
                 <div class="d-flex justify-content-between w-100" style="color:<?=(($d->promocao == '1')?'#fbdb00':'#f4352b')?>;">
                     <div style=" margin-top:5px;"><h2 class="produto_dados"><span style="color:#fff; font-size:12px;"><?=(($d->promocao == '1')?'POR ':false)?></span>R$ <?=number_format($d->valor,2,",",false)?></h2></div>
-                    <div><h2><i class="fa-solid fa-circle-play me-3"></i></h2></div>
+                    <h2><i class="fa-solid fa-circle-play me-3"></i></h2>
                 </div>
             </div>            
         </div>
