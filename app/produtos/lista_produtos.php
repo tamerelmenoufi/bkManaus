@@ -105,13 +105,13 @@ while($d = mysqli_fetch_object($result)){
         <img src="<?=$icon?>" />
         <div class="w-100">
             <div class="produto_dados">
-                <h4 style="color:<?=(($d->promocao == '1')?'#ffd800':'#600f0b')?>"><?=$d->produto?></h4>
+                <h4 style="color:<?=(($d->promocao == '1')?'#fbdb00':'#600f0b')?>"><?=$d->produto?></h4>
             </div>
             <div class="produto_dados" style="height:60px;">
                 <div style="color:<?=(($d->promocao == '1')?'#ffffff':'#000000')?>"><?=$d->descricao?></div>
             </div>
             <div class="produto_dados">
-                <h2 style="color:<?=(($d->promocao == '1')?'#f53a33':'#600f0b')?>">
+                <h2 style="color:<?=(($d->promocao == '1')?'#fbdb00':'#f4352b')?>">
                     <i class="fa-solid fa-circle-play me-3"></i>
                     R$ <?=number_format($d->valor,2,",",false)?>
                 </h2>
