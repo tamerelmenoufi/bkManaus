@@ -1,5 +1,10 @@
 <?php
 include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
+
+$i = ((count($_SESSION['historico']))?(count($_SESSION['historico']) - 1):0);
+    
+$pdAtiva = $_SESSION['historico'][$i]['local'];
+
 ?>
 
 <style>
@@ -56,27 +61,27 @@ include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     <div class="d-flex justify-content-between align-items-center rodape_area">
         <img home src="img/logo.png" />
         <div navegacao="home/index.php">
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-house" <?=(($pdAtiva == 'home/index.php')?'style="color:#fff;"':false)?>></i>
             <p>Home</p>
         </div>
 
         <div navegacao="usuarios/perfil.php" class="telaPedido">
-            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-user" <?=(($pdAtiva == 'usuarios/perfil.php')?'style="color:#fff;"':false)?>></i>
             <p>Perfil</p>
         </div>
         
         <div navegacao="home/index.php" class="telaPedido">
-            <i class="fa-solid fa-burger"></i>
+            <i class="fa-solid fa-burger" <?=(($pdAtiva == 'home/index.php')?'style="color:#fff;"':false)?>></i>
             <p>Menu</p>
         </div>
         
         <div navegacao="pedido/resumo.php" class="telaPedido">
-            <i class="fa-solid fa-bag-shopping"></i>
+            <i class="fa-solid fa-bag-shopping" <?=(($pdAtiva == 'pedido/resumo.php')?'style="color:#fff;"':false)?>></i>
             <p>Pedido</p>
         </div>        
 
         <div navegacao="pedido/pagar.php">
-            <i class="fa-solid fa-circle-dollar-to-slot"></i>
+            <i class="fa-solid fa-circle-dollar-to-slot" <?=(($pdAtiva == 'pedido/pagar.php')?'style="color:#fff;"':false)?>></i>
             <p>Pagar</p>
         </div>        
     </div>
