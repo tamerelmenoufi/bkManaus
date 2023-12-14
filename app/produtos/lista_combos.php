@@ -121,7 +121,7 @@ while($d = mysqli_fetch_object($result)){
         $prd = implode("</div><div>- ", $prd);
     }
 ?>
-    <div class="produto_painel" codigo = "<?=$d->codigo?>">
+    <div class="produto_painel" codigo = "<?=$d->codigo?>" style="background-color:<?=(($d->promocao == '1')?'#bd0100':'trasparent')?>">
         <img src="<?=$icon?>" />
         <div class="w-100">
             <div class="produto_dados">
@@ -145,6 +145,7 @@ while($d = mysqli_fetch_object($result)){
             </div>         
         </div>
     </div>
+
 <?php
 }
 ?>
