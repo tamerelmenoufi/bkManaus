@@ -49,17 +49,18 @@
         justify-content: center;
         align-items: center;
         flex-direction: row;
-        padding:5px;
+        margin:5px;
+        border-radius:15px;
         margin-bottom:20px;
     }
     .produto_painel img{
-        height:140px;
+        height:135px;
         margin:5px;
     }
     .produto_dados{
         position:relative;
         width:100%;
-        height:30px;
+        height:40px;
     }
     .produto_dados h4, .produto_dados h2{
         position:absolute;
@@ -75,14 +76,19 @@
         direction: ltr;
     }
     .produto_dados div{
-        color:#670600; 
         overflow: hidden; 
-        height:20px;
         font-family:FlameBold; 
         font-size:16px; 
         display: -webkit-box; 
         -webkit-box-orient: vertical; 
-        -webkit-line-clamp: 1;
+        -webkit-line-clamp: 2;
+    }
+    .promocao{
+        position:absolute;
+        top:-15px;
+        left:0px;
+        font-family:UniformLight;
+        color:#fff;
     }
 </style>
 
@@ -119,19 +125,25 @@ while($d = mysqli_fetch_object($result)){
         <img src="<?=$icon?>" />
         <div class="w-100">
             <div class="produto_dados">
-                <h4 style="color:#f12a2a"><?=$d->produto?></h4>
+                <h4 style="color:<?=(($d->promocao == '1')?'#fbdb00':'#600f0b')?>"><?=$d->produto?></h4>
             </div>
             <div class="produto_dados" style="height:70px;">
-                <div>- <?=$prd?></div>
+                <div style="color:<?=(($d->promocao == '1')?'#ffffff':'#000000')?>">- <?=$prd?></div>
             </div>
-            <div class="produto_dados">
+            <!-- <div class="produto_dados">
                 <h2 style="color:#f12a2a">
                     <i class="fa-solid fa-circle-play me-3"></i>
                     R$ <?=number_format(CalculaValorCombo($d->codigo),2,",",false)?>
                 </h2>
-            </div>            
+            </div>     -->
+            <div class="produto_dados">
+                <div class="promocao">DE R$ <?=number_format($d->valor,2,",",false)?></div>
+                <div class="d-flex justify-content-between w-100" style="color:<?=(($d->promocao == '1')?'#fbdb00':'#f4352b')?>;">
+                    <div><h2 class="produto_dados" style="margin-top:2px;"><span style="color:#fbdb00; font-size:12px;"><?=(($d->promocao == '1')?'POR ':false)?></span>R$ <?=number_format((($d->promocao == '1')?$d->valor_promocao:CalculaValorCombo($d->codigo)),2,",",false)?></h2></div>
+                    <i class="fa-solid fa-circle-play me-3" style="font-size:25px;"></i>
+                </div>
+            </div>         
         </div>
-
     </div>
 <?php
 }
