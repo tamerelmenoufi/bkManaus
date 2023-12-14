@@ -52,6 +52,11 @@
         color:#f6e13a;
     }
 
+    .topo > .voltar{
+        color:#f6e13a!important;
+    }
+
+
     .home_corpo{
         position: absolute;
         top:100px;
