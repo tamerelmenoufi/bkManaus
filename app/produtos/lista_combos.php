@@ -98,7 +98,7 @@
 
 <div class="home_corpo">
 <?php
-$query = "select *, produtos->>'$[*].produto' as cod_prod, produtos->>'$[*].quantidade' as qtd_prod from produtos where categoria = '{$c->codigo}' and deletado != '1' and situacao = '1'";
+$query = "select *, produtos->>'$[*].produto' as cod_prod, produtos->>'$[*].quantidade' as qtd_prod from produtos where categoria = '{$c->codigo}' and deletado != '1' and situacao = '1' order by promocao desc";
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
 
