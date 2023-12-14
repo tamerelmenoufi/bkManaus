@@ -127,7 +127,7 @@ while($d = mysqli_fetch_object($result)){
             <div class="produto_dados">
                 <h4 style="color:<?=(($d->promocao == '1')?'#fbdb00':'#600f0b')?>"><?=$d->produto?></h4>
             </div>
-            <div class="produto_dados" style="height:70px;">
+            <div class="produto_dados" style="height:90px;">
                 <div style="color:<?=(($d->promocao == '1')?'#ffffff':'#000000')?>">- <?=$prd?></div>
             </div>
             <!-- <div class="produto_dados">
