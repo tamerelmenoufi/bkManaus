@@ -79,12 +79,11 @@
         overflow: hidden; 
         font-family:FlameBold; 
         font-size:16px; 
-        display: -webkit-box;
+        display: inline-block;
         white-space: nowrap;
+        overflow: hidden;
         text-overflow: ellipsis;
         direction: ltr;
-        -webkit-box-orient: vertical; 
-        -webkit-line-clamp: 1;
     }
     .promocao{
         position:absolute;
