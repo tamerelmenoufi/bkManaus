@@ -98,7 +98,7 @@
 
 <div class="home_corpo">
 <?php
-$query = "select * from produtos where categoria = '{$c->codigo}' and deletado != '1' and situacao = '1'";
+$query = "select * from produtos where categoria = '{$c->codigo}' and deletado != '1' and situacao = '1' order by promocao desc";
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
 
