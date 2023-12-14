@@ -60,7 +60,7 @@
     .produto_dados{
         position:relative;
         width:100%;
-        height:30px;
+        height:40px;
     }
     .produto_dados h4, .produto_dados h2{
         position:absolute;
