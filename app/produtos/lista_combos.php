@@ -79,9 +79,9 @@
         overflow: hidden; 
         font-family:FlameBold; 
         font-size:16px; 
-        display: inline-block;
-        white-space: nowrap;
-        overflow: hidden;
+        display: -webkit-box; 
+        -webkit-box-orient: vertical; 
+        -webkit-line-clamp: 1;
         text-overflow: ellipsis;
         direction: ltr;
     }
