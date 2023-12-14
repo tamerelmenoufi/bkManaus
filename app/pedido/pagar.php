@@ -30,6 +30,10 @@
         color:#f9de37!important;
     }
 
+    .topo > .dados{
+        color:#fff!important;
+    }
+
     .home_corpo{
         position: absolute;
         top:100px;
