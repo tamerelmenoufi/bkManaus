@@ -80,7 +80,7 @@
         $valor_calculado = $dc->total;
         $quantidade = $dc->quantidade;
     }else{
-        $valor_calculado = $d->valor;
+        $valor_calculado = (($d->promocao)?$d->valor_promocao:$d->valor);
         $quantidade = 1;        
     }
     
