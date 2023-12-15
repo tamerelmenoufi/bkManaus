@@ -243,10 +243,12 @@
         });
 
         setTimeout(() => {
+            codVenda = localStorage.getItem("codVenda");
             $.ajax({
                 url:"pagamento/pix.php",
                 type:"POST",
                 data:{
+                    codVenda,
                     <?=$listaPost?>                    
                 },
                 success:function(dados){
