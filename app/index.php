@@ -77,6 +77,7 @@
         }        
         .popupPalco{
             position:absolute;
+            padding:10px;
             padding-top:40px;
             right:8px;
             left:8px;
