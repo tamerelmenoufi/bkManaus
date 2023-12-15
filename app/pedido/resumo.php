@@ -219,7 +219,12 @@ $(function(){
         })     
         
         if((totalCompra*1) == 0){
-            $(".home_corpo").html("<h3 class='w-100 text-center' style='margin-top:200px;'>Sem Pedidos!</h3><p class='w-100 text-center'>Ainda não existe nenhum produto em sua cesta de comrpas.</p>")
+            $.ajax({
+                url:"pedido/pedidos_historico.php",
+                success:function(dados){
+                    $(".home_corpo").html(dados);
+                }
+            });
             $(".home_valores").remove();
             return;
         }
