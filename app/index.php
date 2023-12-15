@@ -73,6 +73,7 @@
             font-size:25px;
             color:#000;
             cursor:pointer;
+            z-index:2
         }        
         .popupPalco{
             position:absolute;
@@ -81,7 +82,9 @@
             left:8px;
             top:10px;
             bottom:10px;
-            color:#fff;
+            background:#fff;
+            border-radius:10px;
+            z-index:1
         }
     </Style>
   </head>
