@@ -192,6 +192,9 @@
 
 $(function(){
 
+    idUnico = localStorage.getItem("idUnico");
+    codUsr = localStorage.getItem("codUsr");
+
     $.ajax({
         url:"rodape/rodape.php",
         success:function(dados){

@@ -129,14 +129,14 @@
                     $(".popupArea").css('display','flex');
                     Carregando('none');
                     $.ajax({
-                        url:"pedido/pagamento.php",
+                        url:"pedido/resumo.php",
                         type:"POST",
                         data:{
                             idUnico,
                             codUsr
                         },
                         success:function(dados){
-                            $(`.dados_pagamento`).html(dados);
+                            $(`.CorpoApp`).html(dados);
                         }
                     });  
                 }
