@@ -7,7 +7,7 @@
 
 <div class="row g-0 p-2">
     
-    <div class="card p-2">
+    <div class="card p-2 me-3">
         <h4 class="w-100 text-center">PEDIDOS PENDENTES</h4>
 
             <div class="d-flex justify-content-between">    
