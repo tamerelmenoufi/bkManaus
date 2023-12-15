@@ -2,7 +2,7 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
 
-    if(1 == 1){
+    if(1 == 2){
 ?>
 
 <div class="row g-0 p-2">
