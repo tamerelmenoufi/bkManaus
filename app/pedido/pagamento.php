@@ -119,7 +119,9 @@
                     codVenda,                    
                 },
                 success:function(dados){
-                    $(".dados_pagamento").html(dados);
+                    // $(".dados_pagamento").html(dados);
+                    $(".popupArea > div").html(dados);
+                    $(".popupArea").css('display','flex');
                     Carregando('none');
                 }
             });

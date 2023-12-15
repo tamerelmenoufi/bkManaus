@@ -33,6 +33,7 @@
         .area{
             position:relative;
         }
+
         .Carregando{
             position:absolute;
             left:0;
@@ -50,6 +51,38 @@
             color:#fff;
             font-size: 70px;
         }
+
+
+        .popupArea{
+            position:absolute;
+            left:0;
+            bottom:0;
+            right:0;
+            top:0;
+            background-color:rgb(0,0,0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display:none;
+            z-index: 9988;
+        }
+        .popupArea i{
+            position:absolute;
+            right:20px;
+            top:20px;
+            font-size:20px;
+            color:#000;
+            cursor:pointer;
+        }        
+        .popupArea div{
+            position:absolute;
+            padding-top:40px;
+            right:8px;
+            left:8px;
+            top:10px;
+            bottom:10px;
+            color:#fff;
+        }
     </Style>
   </head>
   <body translate="no">
@@ -62,7 +95,13 @@
         <div class="col area" style="background-color:#fff;">
             <div class="Carregando">
                 <div><i class="fa-solid fa-rotate fa-pulse"></i></div>
-            </div>    
+            </div>
+
+            <div class="popupArea">
+                <i class="fa-solid fa-xmark"></i>
+                <div></div>
+            </div>            
+            
             <div class="CorpoApp area"></div>             
         </div>
         <div class="col-4 d-none d-md-block area"></div>
@@ -86,6 +125,12 @@
 
 
             $(".CorpoApp").css("min-height", $(window).height());
+
+
+            $(".popupArea > i").click(function(){
+                $(".popupArea > div").html('');
+                $(".popupArea").css("display","none");
+            })
 
             <?php
             if(count($_SESSION['historico'])){
