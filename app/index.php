@@ -68,9 +68,9 @@
         }
         .popupArea i{
             position:absolute;
-            right:20px;
+            right:30px;
             top:20px;
-            font-size:20px;
+            font-size:25px;
             color:#000;
             cursor:pointer;
         }        
@@ -127,8 +127,8 @@
             $(".CorpoApp").css("min-height", $(window).height());
 
 
-            $(".popupArea.popupFecha").click(function(){
-                $(".popupArea.popupPalco").html('');
+            $(".popupFecha").click(function(){
+                $(".popupPalco").html('');
                 $(".popupArea").css("display","none");
             })
 

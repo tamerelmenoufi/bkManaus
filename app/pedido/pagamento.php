@@ -120,7 +120,7 @@
                 },
                 success:function(dados){
                     // $(".dados_pagamento").html(dados);
-                    $(".popupArea.popupPalco").html(dados);
+                    $(".popupPalco").html(dados);
                     $(".popupArea").css('display','flex');
                     Carregando('none');
                 }
