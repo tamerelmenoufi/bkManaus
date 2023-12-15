@@ -103,6 +103,10 @@
             idUnico = localStorage.getItem("idUnico");
             codUsr = localStorage.getItem("codUsr");
             codVenda = localStorage.getItem("codVenda");
+
+            alert(codVenda);
+
+            return false;
             
             Carregando();
             $.ajax({
