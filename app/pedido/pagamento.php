@@ -104,9 +104,9 @@
             codUsr = localStorage.getItem("codUsr");
             codVenda = localStorage.getItem("codVenda");
 
-            alert(codVenda);
+            // alert(codVenda);
 
-            return false;
+            // return false;
             
             Carregando();
             $.ajax({
