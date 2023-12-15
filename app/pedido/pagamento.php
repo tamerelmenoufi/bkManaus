@@ -120,10 +120,20 @@
                     codVenda,                    
                 },
                 success:function(dados){
-                    // $(".dados_pagamento").html(dados);
                     $(".popupPalco").html(dados);
                     $(".popupArea").css('display','flex');
                     Carregando('none');
+                    $.ajax({
+                        url:"pedido/pagamento.php",
+                        type:"POST",
+                        data:{
+                            idUnico,
+                            codUsr
+                        },
+                        success:function(dados){
+                            $(`.dados_pagamento`).html(dados);
+                        }
+                    });  
                 }
             });
         })
