@@ -102,7 +102,7 @@
 
             idUnico = localStorage.getItem("idUnico");
             codUsr = localStorage.getItem("codUsr");
-            codVenda = localStorage.getItem("codVenda");
+            // codVenda = localStorage.getItem("codVenda");
 
             // alert(codVenda);
 
@@ -121,7 +121,7 @@
                     valor_total,
                     idUnico,
                     codUsr,
-                    codVenda,                    
+                    // codVenda,                    
                 },
                 success:function(dados){
                     $(".popupPalco").html(dados);
