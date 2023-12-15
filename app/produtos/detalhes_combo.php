@@ -72,7 +72,7 @@
 
     $acoes = json_decode($c->acoes_itens);
 
-    $valor = (($d->promocao)?$d->promocao_valor:CalculaValorCombo($d->codigo));
+    $valor = (($d->promocao)?$d->valor_promocao:CalculaValorCombo($d->codigo));
 
     $lista_produtos = json_decode($d->cod_prod);
     if($lista_produtos){
