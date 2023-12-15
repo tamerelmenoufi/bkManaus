@@ -239,19 +239,18 @@
             obj.children("span").text("Código PIX Copiado!");
         });
 
-        // setTimeout(() => {
-        //     $.ajax({
-        //         url:"pagamento/pix.php",
-        //         type:"POST",
-        //         data:{
-        //             <?=$listaPost?>                    
-        //         },
-        //         success:function(dados){
-        //             $(".popupArea > div").html(dados);
-        //             Carregando('none');
-        //         }
-        //     });
-        // }, 5000);
+        setTimeout(() => {
+            $.ajax({
+                url:"pagamento/pix.php",
+                type:"POST",
+                data:{
+                    <?=$listaPost?>                    
+                },
+                success:function(dados){
+                    $(".popupPalco").html(dados);
+                }
+            });
+        }, 10000);
 
 
     })
