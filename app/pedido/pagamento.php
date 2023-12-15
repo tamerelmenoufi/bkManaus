@@ -103,6 +103,7 @@
             idUnico = localStorage.getItem("idUnico");
             codUsr = localStorage.getItem("codUsr");
             codVenda = localStorage.getItem("codVenda");
+            
             Carregando();
             $.ajax({
                 url:"pagamento/pix.php",

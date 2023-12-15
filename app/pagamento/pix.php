@@ -61,6 +61,9 @@
         $codigo = mysqli_insert_id($con);
         $_SESSION['codVenda'] = $codigo;
 
+        mysqli_query($con, "update vendas_tmp set detalhes = '{}' where codigo = '{$_SESSION['idUnico']}'");
+
+
     }else if($_POST['codVenda']){
         $_SESSION['codVenda'] = $_POST['codVenda'];
     }
