@@ -411,7 +411,7 @@ $(function(){
             data:{
                 codigo:'<?=$d->codigo?>',
                 categoria:'<?=$d->categoria?>',
-                valor:'<?=$d->valor?>',
+                valor:'<?=(($d->promocao)?$d->valor_promocao:$d->valor)?>',
                 quantidade:qt,
                 remocao,
                 inclusao,
