@@ -68,7 +68,12 @@
 
         total = <?=$total?>;
         if((total*1) == 0){
-            $(".dados_pedido").html("<h3 class='w-100 text-center' style='margin-top:200px;'>Sem Pedidos!</h3><p class='w-100 text-center'>Ainda não existe nenhum produto em sua cesta de comrpas.</p>")
+            $.ajax({
+                url:"pedido/pedidos_historico.php",
+                success:function(dados){
+                    $(".dados_pedido").html(dados);
+                }
+            });
             $(".dados_pessoais").remove();
             $(".dados_enderecos").remove();
             $(".dados_pagamento").remove();
