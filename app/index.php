@@ -98,8 +98,8 @@
             </div>
 
             <div class="popupArea">
-                <i class="fa-solid fa-xmark"></i>
-                <div></div>
+                <i class="fa-solid fa-xmark popupFecha"></i>
+                <div class="popupPalco"></div>
             </div>            
             
             <div class="CorpoApp area"></div>             
@@ -127,8 +127,8 @@
             $(".CorpoApp").css("min-height", $(window).height());
 
 
-            $(".popupArea > i").click(function(){
-                $(".popupArea > div").html('');
+            $(".popupArea.popupFecha").click(function(){
+                $(".popupArea.popupPalco").html('');
                 $(".popupArea").css("display","none");
             })
 
