@@ -66,7 +66,7 @@
             display:none;
             z-index: 9988;
         }
-        .popupArea i{
+        .popupFecha{
             position:absolute;
             right:30px;
             top:20px;
@@ -74,7 +74,7 @@
             color:#000;
             cursor:pointer;
         }        
-        .popupArea div{
+        .popupPalco{
             position:absolute;
             padding-top:40px;
             right:8px;
