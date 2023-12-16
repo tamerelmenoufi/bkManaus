@@ -93,51 +93,13 @@
                     }
             ?>
             <div class="w-100 text-end" total="<?=$total?>"><b>TOTAL R$ <?=number_format($total,2,',',false)?></b></div>
+            <div class="w-100 text-end" total="<?=$total?>"><b>TOTAL R$ <?=number_format($total,2,',',false)?></b></div>
+            <div class="w-100 text-end" total="<?=$total?>"><b>TOTAL R$ <?=number_format($total,2,',',false)?></b></div>
         
     </div>
 </div>
 
 
-<?php
-    foreach(json_decode($d->detalhes) as $i => $dados){
-        $pd = mysqli_fetch_object(mysqli_query($con, "select * from produtos where codigo = '{$dados->codigo}'"));
-        if($dados->status){
-
-            if(is_file("../../src/{$dados->tipo}s/icon/{$pd->icon}")){
-                $icon = "{$urlPainel}src/{$dados->tipo}s/icon/{$pd->icon}";
-            }else{
-                $icon = "img/imagem_produto.png";
-            }
-?>
-    <div class="produto_painel" codigo="<?=$dados->codigo?>">
-        <img src="<?=$icon?>" />
-        <div class="w-100">
-            <div class="produto_dados">
-                <h4 style="color:#f12a2a"><?=$pd->produto?></h4>
-            </div>
-            <div class="produto_dados" editar="<?=$dados->tipo?>" categoria="<?=$pd->categoria?>" codigo="<?=$dados->codigo?>" style="color:#a1a1a1; padding-left:15px; margin-top:5px; cursor:pointer;">
-                <i class="fa fa-edit"></i>
-                Editar
-            </div>
-            <div class="produto_botoes d-flex justify-content-between">
-                <div class="d-flex justify-content-between">
-                    <i class="fa-solid <?=(($dados->quantidade == 1)?'fa-trash-can':'fa-circle-minus')?> menos" style="color:red; margin-left:10px;"></i>
-                    <div class="qt" style="margin-top:-8px; text-align:center; width:30px; font-family:UniformBold;"><?=$dados->quantidade?></div>
-                    <i class="fa-solid fa-circle-plus mais" style="color:green"></i>
-                </div>
-                <div valor>
-                    <h2 class="adicionar" valor="<?=$dados->total?>" total="<?=($dados->total*$dados->quantidade)?>" style="color:#f12a2a; font-size:18px; padding-right:10px; font-family:FlameBold; ">
-                        R$ <?=number_format(($dados->total*$dados->quantidade),2,",",false)?>
-                    </h2>
-                </div>
-            </div>   
-        </div>
-    </div>
-    
-<?php
-        }
-    }
-?>
 
 <script>
 
