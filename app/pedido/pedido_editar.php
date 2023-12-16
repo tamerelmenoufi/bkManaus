@@ -92,10 +92,10 @@
                         }
                     }
             ?>
-            <div class="w-100 text-end" total="<?=$total?>"><b>TOTAL R$ <?=number_format($total,2,',',false)?></b></div>
-            <div class="w-100 text-end" total="<?=$total?>"><b>TOTAL R$ <?=number_format($total,2,',',false)?></b></div>
-            <div class="w-100 text-end" total="<?=$total?>"><b>TOTAL R$ <?=number_format($total,2,',',false)?></b></div>
-        
+            <div class="w-100 text-end">Compra R$ <?=number_format($d->valor_compra,2,',',false)?></div>
+            <div class="w-100 text-end">Entrega R$ <?=number_format($d->valor_entrega,2,',',false)?></div>
+            <div class="w-100 text-end">Desconto R$ <?=number_format($d->valor_desconto,2,',',false)?></div>
+            <div class="w-100 text-end"><b>TOTAL R$ <?=number_format($d->valor_total,2,',',false)?></b></div>
     </div>
 </div>
 
