@@ -142,13 +142,9 @@
                     <i class="fa-solid fa-receipt"></i> pedido
                 </button>
                 <div>
-                    <button type="button" class="btn btn-success me-2"
+                    <button type="button" class="btn btn-outline-secondary" disabled
                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                        <i class="fa-brands fa-pix"></i> PIX
-                    </button>
-                    <button type="button" class="btn btn-success"
-                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                        <i class="fa-regular fa-credit-card"></i> Crédito
+                        <i class="fa-solid fa-clipboard-question"></i> <?=$d->situacao?>
                     </button>
                 </div>
             </div>
