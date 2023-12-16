@@ -35,11 +35,33 @@
             <h6>Pedido <?=$d->codigo?></h6>
             <div class="d-flex justify-content-between">    
                 <div class="pedidosLabel w-100" >
-                    <i class="fa-solid fa-location-dot"></i>
+                    <i class="fa-solid fa-dollar-sign"></i>
                     Valor do Pedido
                 </div>
-                <button type="button" class="btn btn-outline-danger valores" disabled style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">$R 250,00</button>
+                <button type="button" class="btn btn-outline-danger valores" disabled style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">$R <?=number_format($d->valor_compra,2,',',false)?></button>
             </div> 
+            <div class="d-flex justify-content-between">    
+                <div class="pedidosLabel w-100" >
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    Taxa de Enterga
+                </div>
+                <button type="button" class="btn btn-outline-danger valores" disabled style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">$R <?=number_format($d->valor_entrega,2,',',false)?></button>
+            </div> 
+            <div class="d-flex justify-content-between">    
+                <div class="pedidosLabel w-100" >
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    Desconto Cupom
+                </div>
+                <button type="button" class="btn btn-outline-danger valores" disabled style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">$R <?=number_format($d->valor_desconto,2,',',false)?></button>
+            </div>
+            <div class="d-flex justify-content-between">    
+                <div class="pedidosLabel w-100" >
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    Total
+                </div>
+                <button type="button" class="btn btn-outline-danger valores" disabled style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">$R <?=number_format($d->valor_total,2,',',false)?></button>
+            </div>
+
 
 <?php
         }
