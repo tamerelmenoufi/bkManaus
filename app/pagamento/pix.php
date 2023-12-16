@@ -237,7 +237,7 @@
         });
 
         Tempo = setTimeout(() => {
-            alert('teste');
+            
             $.ajax({
                 url:"pagamento/pix.php",
                 type:"POST",
