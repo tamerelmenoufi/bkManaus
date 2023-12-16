@@ -236,7 +236,7 @@
             obj.children("span").text("Código PIX Copiado!");
         });
 
-        setTimeout(() => {
+        Tempo = setTimeout(() => {
             $.ajax({
                 url:"pagamento/pix.php",
                 type:"POST",

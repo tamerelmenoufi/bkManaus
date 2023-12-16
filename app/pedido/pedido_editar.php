@@ -111,6 +111,8 @@
 
 $(function(){
 
+    Tempo = false;
+
     idUnico = localStorage.getItem("idUnico");
     codUsr = localStorage.getItem("codUsr");
 
