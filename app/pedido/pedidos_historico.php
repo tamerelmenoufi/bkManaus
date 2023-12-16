@@ -34,7 +34,7 @@
     if($q){
 ?>
     <div class="card p-2 mb-3">
-        <h4 class="w-100 text-center">PEDIDOS PENDENTES</h4>
+        <h6 class="w-100 text-center">PEDIDOS PENDENTES</h6>
 <?php
         while($d = mysqli_fetch_object($result)){
 ?>
@@ -102,7 +102,7 @@
     if($q){
 ?>
     <div class="card p-2 mb-3">
-        <h4 class="w-100 text-center">HISTÓRICO DE PEDIDOS</h4>
+        <h6 class="w-100 text-center">HISTÓRICO DE PEDIDOS</h6>
 <?php
         while($d = mysqli_fetch_object($result)){
 ?>
