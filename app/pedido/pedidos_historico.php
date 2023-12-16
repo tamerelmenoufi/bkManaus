@@ -172,7 +172,7 @@
     $(function(){
 
         $(".home_valores").remove();
-        $(".home_corpo").css("bottom","160px");
+        $(".home_corpo").css("bottom","80px");
 
         $("button[pix]").click(function(){
 
