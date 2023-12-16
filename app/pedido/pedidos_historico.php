@@ -39,7 +39,7 @@
         while($d = mysqli_fetch_object($result)){
 ?>
             <hr>
-            <h6>Pedido <?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?></h6>
+            <h6>Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?></h6>
             <div class="d-flex justify-content-between">    
                 <div class="pedidosLabel w-100" >
                     <i class="fa-solid fa-dollar-sign"></i>
@@ -107,7 +107,7 @@
         while($d = mysqli_fetch_object($result)){
 ?>
             <hr>
-            <h6>Pedido <?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?></h6>
+            <h6>Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?></h6>
             <div class="d-flex justify-content-between">    
                 <div class="pedidosLabel w-100" >
                     <i class="fa-solid fa-dollar-sign"></i>
