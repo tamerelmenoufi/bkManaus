@@ -69,7 +69,7 @@
                 <div class="valores"><b>$R <?=number_format($d->valor_total,2,',',false)?></b></div>
             </div>
             <div class="d-flex justify-content-between mt-2">    
-                <button type="button" class="btn btn-danger"
+                <button type="button" class="btn btn-danger" pedido="<?=$d->codigo?>"
                         style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                     <i class="fa-solid fa-receipt"></i> pedido
                 </button>
@@ -137,7 +137,7 @@
                 <div class="valores"><b>$R <?=number_format($d->valor_total,2,',',false)?></b></div>
             </div>
             <div class="d-flex justify-content-between mt-2">    
-                <button type="button" class="btn btn-danger"
+                <button type="button" class="btn btn-danger" pedido="<?=$d->codigo?>"
                         style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                     <i class="fa-solid fa-receipt"></i> pedido
                 </button>
@@ -173,6 +173,41 @@
 
         $(".home_valores").remove();
         $(".home_corpo").css("bottom","80px");
+
+        $("button[pedido]").click(function(){
+
+            codVenda = $(this).attr("pedido");
+            idUnico = localStorage.getItem("idUnico");
+            codUsr = localStorage.getItem("codUsr");
+
+            Carregando();
+            $.ajax({
+                url:"pedido/pedido_editar.php",
+                type:"POST",
+                data:{
+                    idUnico,
+                    codUsr,
+                    codVenda,                    
+                },
+                success:function(dados){
+                    $(".popupPalco").html(dados);
+                    $(".popupArea").css('display','flex');
+                    Carregando('none');
+                    // $.ajax({
+                    //     url:"pedido/resumo.php",
+                    //     type:"POST",
+                    //     data:{
+                    //         idUnico,
+                    //         codUsr
+                    //     },
+                    //     success:function(dados){
+                    //         $(`.CorpoApp`).html(dados);
+                    //     }
+                    // });  
+                }
+            });
+        })
+
 
         $("button[pix]").click(function(){
 
