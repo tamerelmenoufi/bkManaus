@@ -21,14 +21,14 @@
         $operadora_retorno = $retorno;
         $dados = json_decode($retorno);
 
-        // echo "<pre>".print_r($dados)."</pre>";
+        echo "<pre>".$dados->ststus."</pre>";
 
         echo $q = "update vendas set
             pagamento = 'pix',
             pix_detalhes = '".(($retornoX)?:'{}')."',
             situacao = '".SituacaoPIX($dados->ststus)."'
             where codigo = '{$v->codigo}'
-        ";
+        <br>";
 
         //mysqli_query($con, $q);
 
