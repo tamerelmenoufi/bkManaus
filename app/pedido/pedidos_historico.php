@@ -15,6 +15,12 @@
         white-space: nowrap;
         font-size:12px;
     }
+    .mais{
+        color:blue;
+    }
+    .menos{
+        color:red;
+    }
 </style>
 <div class="row g-0 p-2">
 
@@ -46,21 +52,21 @@
                     <i class="fa-solid fa-dollar-sign"></i>
                     Taxa de Enterga
                 </div>
-                <div class="valores">$R <?=number_format($d->valor_entrega,2,',',false)?></div>
+                <div class="valores"><span class="mais">+</span> $R <?=number_format($d->valor_entrega,2,',',false)?></div>
             </div> 
             <div class="d-flex justify-content-between">    
                 <div class="pedidosLabel w-100" >
                     <i class="fa-solid fa-dollar-sign"></i>
                     Desconto Cupom
                 </div>
-                <div class="valores">$R <?=number_format($d->valor_desconto,2,',',false)?></div>
+                <div class="valores"><span class="menos">-</span> $R <?=number_format($d->valor_desconto,2,',',false)?></div>
             </div>
             <div class="d-flex justify-content-between">    
                 <div class="pedidosLabel w-100" >
                     <i class="fa-solid fa-dollar-sign"></i>
                     Total
                 </div>
-                <div class="valores">$R <?=number_format($d->valor_total,2,',',false)?></div>
+                <div class="valores"><b>$R <?=number_format($d->valor_total,2,',',false)?></b></div>
             </div>
 
             <hr>
