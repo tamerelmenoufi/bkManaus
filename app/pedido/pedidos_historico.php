@@ -13,6 +13,7 @@
     }
     .valores{
         white-space: nowrap;
+        font-size:12px;
     }
 </style>
 <div class="row g-0 p-2">
@@ -59,7 +60,7 @@
                     <i class="fa-solid fa-dollar-sign"></i>
                     Total
                 </div>
-                <button type="button" class="btn btn-outline-danger valores" disabled style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">$R <?=number_format($d->valor_total,2,',',false)?></button>
+                <div class="valores">$R <?=number_format($d->valor_total,2,',',false)?></div>
             </div>
 
             <hr>
