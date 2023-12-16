@@ -211,7 +211,7 @@
         })
 
 
-        $(documento).off().on("click", "button[pix]", function(){
+        $("button[pix]").off('click').on('click',function(){
 
             codVenda = $(this).attr("pix");
             idUnico = localStorage.getItem("idUnico");
