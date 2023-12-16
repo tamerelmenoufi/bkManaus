@@ -26,7 +26,7 @@
         echo $q = "update vendas set
             pagamento = 'pix',
             pix_detalhes = '".(($retornoX)?:'{}')."',
-            situacao = '".SituacaoPIX($dados->ststus)."'
+            situacao = '".SituacaoPIX($dados->status)."'
             where codigo = '{$v->codigo}'
         <br>";
 
