@@ -20,48 +20,13 @@
 
 
 <style>
-    .produto_painel{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        padding:5px;
-        margin-bottom:20px;
-    }
-    .produto_painel img{
-        height:120px;
-        margin:5px;
-    }
-    .produto_dados{
-        position:relative;
-        width:100%;
-        height:30px;
-    }
-    .produto_dados h4, .produto_dados h2{
-        position:absolute;
-        left:0;
-        right:0;
-        padding:0;
-        margin:0;
-        font-family:FlameBold;
-        display: inline-block;
+    .enderecoLabel{
         white-space: nowrap;
-        overflow: hidden;
+        overflow: hidden; /* "overflow" value must be different from "visible" */
         text-overflow: ellipsis;
-        direction: ltr;
-    }
-    .produto_dados div{
-        color:#670600; 
-        overflow: hidden; 
-        font-family:FlameBold; 
-        font-size:16px; 
-        display: -webkit-box; 
-        -webkit-box-orient: vertical; 
-        -webkit-line-clamp: 2;
-    }
-    .produto_botoes{
-        font-size:20px;
-        margin-top:15px;
+        color:#333;
+        font-size:14px;
+        cursor:pointer;
     }
 </style>
 
