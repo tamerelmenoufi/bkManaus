@@ -12,7 +12,6 @@
         $_SESSION['codVenda'] = $_POST['codVenda'];
     }
 
-
     $query = "select * from vendas where codigo = '{$_SESSION['codVenda']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
