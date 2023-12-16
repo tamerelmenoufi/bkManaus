@@ -69,6 +69,20 @@
                 </div>
                 <div class="valores"><b>$R <?=number_format($d->valor_total,2,',',false)?></b></div>
             </div>
+            <div class="d-flex justify-content-between">    
+                <button type="button" class="btn btn-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                Ver pedido
+                </button>
+                <button type="button" class="btn btn-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                Pagar PIX
+                </button>
+                <button type="button" class="btn btn-primary"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                Pagar Crédito
+                </button>
+            </div>
 <?php
         }
 ?>
