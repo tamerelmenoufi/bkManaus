@@ -26,7 +26,7 @@
                     <i class="fa-solid fa-location-dot"></i>
                     Valor do Pedido
                 </div>
-                <button type="button" class="btn btn-outline-danger" style="200px;">$R 250,00</button>
+                <button type="button" class="btn btn-outline-danger" style="width:200px;">$R 250,00</button>
             </div> 
 
 <?php
