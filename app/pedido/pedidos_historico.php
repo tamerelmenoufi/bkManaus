@@ -8,7 +8,7 @@
         overflow: hidden; /* "overflow" value must be different from "visible" */
         text-overflow: ellipsis;
         color:#333;
-        font-size:14px;
+        font-size:12px;
         cursor:pointer;
     }
     .valores{
@@ -38,7 +38,7 @@
                     <i class="fa-solid fa-location-dot"></i>
                     Valor do Pedido
                 </div>
-                <button type="button" class="btn btn-outline-danger valores" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">$R 250,00</button>
+                <button type="button" class="btn btn-outline-danger valores" disabled style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">$R 250,00</button>
             </div> 
 
 <?php
