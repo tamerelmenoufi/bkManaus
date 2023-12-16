@@ -21,7 +21,7 @@
         $operadora_retorno = $retorno;
         $dados = json_decode($retorno);
 
-        echo "<pre>".$dados->ststus."</pre>";
+        echo "<pre>".$dados->status."</pre>";
 
         echo $q = "update vendas set
             pagamento = 'pix',
