@@ -74,14 +74,16 @@
                         style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                     <i class="fa-solid fa-receipt"></i> pedido
                 </button>
-                <button type="button" class="btn btn-primary"
-                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                    <i class="fa-brands fa-pix"></i> PIX
-                </button>
-                <button type="button" class="btn btn-primary"
-                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                    <i class="fa-regular fa-credit-card"></i> Crédito
-                </button>
+                <div>
+                    <button type="button" class="btn btn-primary me-2"
+                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                        <i class="fa-brands fa-pix"></i> PIX
+                    </button>
+                    <button type="button" class="btn btn-primary"
+                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                        <i class="fa-regular fa-credit-card"></i> Crédito
+                    </button>
+                </div>
             </div>
 <?php
         }
