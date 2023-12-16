@@ -176,7 +176,7 @@
 
         $("button[pedido]").click(function(){
 
-            alert('teste');
+            
 
             codVenda = $(this).attr("pedido");
             idUnico = localStorage.getItem("idUnico");
