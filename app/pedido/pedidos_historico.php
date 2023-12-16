@@ -20,13 +20,13 @@
 <?php
         while($d = mysqli_fetch_object($result)){
 ?>
-            <h5>Pedido <?=$d->codigo?></h5>
+            <h6>Pedido <?=$d->codigo?></h6>
             <div class="d-flex justify-content-between">    
                 <div class="enderecoLabel w-100" >
                     <i class="fa-solid fa-location-dot"></i>
                     Valor do Pedido
                 </div>
-                <button type="button" class="btn btn-outline-danger">$R 250,00</button>
+                <button type="button" class="btn btn-outline-danger" style="200px;">$R 250,00</button>
             </div> 
 
 <?php
