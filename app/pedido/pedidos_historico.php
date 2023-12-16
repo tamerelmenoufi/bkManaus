@@ -52,14 +52,14 @@
                     <i class="fa-solid fa-dollar-sign"></i>
                     Taxa de Enterga
                 </div>
-                <div class="valores"><span class="mais">+</span> $R <?=number_format($d->valor_entrega,2,',',false)?></div>
+                <div class="valores"><i class="fa-solid fa-plus mais"></i> $R <?=number_format($d->valor_entrega,2,',',false)?></div>
             </div> 
             <div class="d-flex justify-content-between">    
                 <div class="pedidosLabel w-100" >
                     <i class="fa-solid fa-dollar-sign"></i>
                     Desconto Cupom
                 </div>
-                <div class="valores"><span class="menos">-</span> $R <?=number_format($d->valor_desconto,2,',',false)?></div>
+                <div class="valores"><i class="fa-solid fa-minus menos"></i> $R <?=number_format($d->valor_desconto,2,',',false)?></div>
             </div>
             <div class="d-flex justify-content-between">    
                 <div class="pedidosLabel w-100" >
