@@ -62,7 +62,7 @@
                 <button type="button" class="btn btn-outline-danger valores" disabled style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">$R <?=number_format($d->valor_total,2,',',false)?></button>
             </div>
 
-
+            <hr>
 <?php
         }
 ?>
