@@ -41,9 +41,9 @@
     $query = "select * from vendas where device = '{$_SESSION['idUnico']}' and situacao != 'pendente' order by situacao ";
     $result = mysqli_query($con, $query);
 
-    $q = mysqli_num_rows($result);
+    $q1 = mysqli_num_rows($result);
 
-    if($q){
+    if($q1){
 ?>
     <div class="card p-2 mb-3">
         <h4 class="w-100 text-center">PEDIDOS PENDENTES</h4>
@@ -70,6 +70,7 @@
 </div>
 
 <?php
+    $q = ($q + $q1);
     if(!$q){
 ?>
 <h3 class='w-100 text-center' style='margin-top:200px;'>Sem Pedidos!</h3><p class='w-100 text-center'>Ainda não existe nenhum produto em sua cesta de comrpas.</p>
