@@ -93,6 +93,7 @@
         $("span[pagar]").html('R$ ' + pagar.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
         $("button[pagamento]").click(function(){
+            
             pagamento = $(this).attr("pagamento");
 
             total = ($("div[total]").attr("total"))*1;

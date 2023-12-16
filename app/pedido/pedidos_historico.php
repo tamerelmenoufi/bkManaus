@@ -171,6 +171,8 @@
 <script>
     $(function(){
 
+        $(".home_valores").remove();
+
 
         $("button[pix]").click(function(){
 
