@@ -10,7 +10,7 @@
         return $opc[$e];
     }
 
-    $query = "select * from vendas where situacao = 'pendente'";
+    $query = "select *, pix_detalhes->>'$.id' as operadora_id from vendas where situacao = 'pendente'";
     $result = mysqli_query($con, $query);
     while($v = mysqli_fetch_object($result)){
 
