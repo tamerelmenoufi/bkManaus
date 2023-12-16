@@ -94,9 +94,15 @@
 
         $("button[pagamento]").click(function(){
             pagamento = $(this).attr("pagamento");
+
+            total = ($("div[total]").attr("total"))*1;
+            taxa = ($("span[valor_taxa].ativo").attr("valor_taxa"))*1;
+            pagar = (total*1+taxa*1);
+            
             cupom = 0;
-            valor_compra = 0;
-            valor_entrega = 0;
+            valor_cupom = 0;
+            valor_compra = total;
+            valor_entrega = taxa;
             valor_desconto = 0;
             valor_total = pagar;
 
@@ -116,6 +122,7 @@
                 data:{
                     pagamento,
                     cupom,
+                    valor_cupom,
                     valor_compra,
                     valor_entrega,
                     valor_desconto,
