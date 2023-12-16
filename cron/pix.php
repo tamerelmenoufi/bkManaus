@@ -21,9 +21,9 @@
         $operadora_retorno = $retorno;
         $dados = json_decode($retorno);
 
+        echo "<pre>".$dados."</pre>";
 
-
-        echo $q = "update vendas set
+        $q = "update vendas set
             pagamento = 'pix',
             pix_detalhes = '".(($retorno)?:'{}')."',
             situacao = '".SituacaoPIX($dados->ststus)."'
