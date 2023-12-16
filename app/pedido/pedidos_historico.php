@@ -74,7 +74,7 @@
                     <i class="fa-solid fa-receipt"></i> pedido
                 </button>
                 <div>
-                    <button type="button" class="btn btn-success me-2"
+                    <button type="button" class="btn btn-success me-2" pix="<?=$d->codigo?>"
                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                         <i class="fa-brands fa-pix"></i> PIX
                     </button>
@@ -166,3 +166,47 @@
 <?php
     }
 ?>
+
+
+<script>
+    $(function(){
+
+
+        $("button[pix]").click(function(){
+
+            codVenda = $(this).attr("pix");
+            idUnico = localStorage.getItem("idUnico");
+            codUsr = localStorage.getItem("codUsr");
+            localStorage.removeItem("codVenda");
+
+            Carregando();
+            $.ajax({
+                url:"pagamento/pix.php",
+                type:"POST",
+                data:{
+                    idUnico,
+                    codUsr,
+                    codVenda,                    
+                },
+                success:function(dados){
+                    $(".popupPalco").html(dados);
+                    $(".popupArea").css('display','flex');
+                    Carregando('none');
+                    // $.ajax({
+                    //     url:"pedido/resumo.php",
+                    //     type:"POST",
+                    //     data:{
+                    //         idUnico,
+                    //         codUsr
+                    //     },
+                    //     success:function(dados){
+                    //         $(`.CorpoApp`).html(dados);
+                    //     }
+                    // });  
+                }
+            });
+        })
+
+
+    })
+</script>

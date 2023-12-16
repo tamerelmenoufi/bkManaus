@@ -86,7 +86,6 @@
 
                 $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
 
-
                 $PIX = new MercadoPago;
                 $retorno = $PIX->ObterPagamento($v->operadora_id); //////////////
                 $operadora_retorno = $retorno;
@@ -228,11 +227,6 @@
 <script>
     $(function(){
 
-        codVenda = '<?=$codigo?>';
-        if(codVenda){
-            localStorage.setItem("codVenda", codVenda);
-        }
-
         $("button[copiar]").click(function(){
             obj = $(this);
             texto = $(this).attr("copiar");
@@ -243,12 +237,11 @@
         });
 
         setTimeout(() => {
-            codVenda = localStorage.getItem("codVenda");
             $.ajax({
                 url:"pagamento/pix.php",
                 type:"POST",
                 data:{
-                    codVenda,
+                    <?=(($codigo)?"codVenda:'{$codigo}',":false)?>
                     <?=$listaPost?>                    
                 },
                 success:function(dados){
@@ -256,7 +249,6 @@
                 }
             });
         }, 10000);
-
 
     })
 </script>
