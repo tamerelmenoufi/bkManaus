@@ -251,5 +251,11 @@
             });
         }, 10000);
 
+        $(".popupFecha").click(function(){
+            clearTimeout(Tempo);
+            console.log('close')
+        })
+        
+
     })
 </script>
