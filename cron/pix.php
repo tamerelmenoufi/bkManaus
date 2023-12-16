@@ -4,8 +4,8 @@
     function SituacaoPIX($e){
         $opc = [
             'approved' => 'pago',
-            'pandding' => 'pendente',
-            'canceled' => 'cancelado'
+            'pending' => 'pendente',
+            'cancelled' => 'cancelado'
         ];
         return $opc[$e];
     }
