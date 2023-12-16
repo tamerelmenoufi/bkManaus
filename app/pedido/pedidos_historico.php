@@ -24,7 +24,6 @@
 </style>
 <div class="row g-0 p-2">
 
-
 <?php
 
     $query = "select * from vendas where (device = '{$_SESSION['idUnico']}' or cliente = '{$_SESSION['codUsr']}') and situacao = 'pendente'";
@@ -98,23 +97,61 @@
     $query = "select * from vendas where device = '{$_SESSION['idUnico']}' and situacao != 'pendente' order by situacao ";
     $result = mysqli_query($con, $query);
 
-    $q1 = mysqli_num_rows($result);
+    $q = mysqli_num_rows($result);
 
-    if($q1){
+    if($q){
 ?>
     <div class="card p-2 mb-3">
-        <h4 class="w-100 text-center">PEDIDOS PENDENTES</h4>
+        <h4 class="w-100 text-center">HISTÓRICO DE PEDIDOS</h4>
 <?php
         while($d = mysqli_fetch_object($result)){
 ?>
-
+            <hr>
+            <h6>Pedido <?=$d->codigo?></h6>
             <div class="d-flex justify-content-between">    
-                <div class="enderecoLabel w-100" >
-                    <i class="fa-solid fa-location-dot"></i>
-                    <?=$d->nome?>
-                </div> 
+                <div class="pedidosLabel w-100" >
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    Valor do Pedido
+                </div>
+                <div class="valores">$R <?=number_format($d->valor_compra,2,',',false)?></div>
             </div> 
-
+            <div class="d-flex justify-content-between">    
+                <div class="pedidosLabel w-100" >
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    Taxa de Enterga
+                </div>
+                <div class="valores"><i class="fa-solid fa-plus mais"></i> $R <?=number_format($d->valor_entrega,2,',',false)?></div>
+            </div> 
+            <div class="d-flex justify-content-between">    
+                <div class="pedidosLabel w-100" >
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    Desconto Cupom
+                </div>
+                <div class="valores"><i class="fa-solid fa-minus menos"></i> $R <?=number_format($d->valor_desconto,2,',',false)?></div>
+            </div>
+            <div class="d-flex justify-content-between">    
+                <div class="pedidosLabel w-100" >
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    Total
+                </div>
+                <div class="valores"><b>$R <?=number_format($d->valor_total,2,',',false)?></b></div>
+            </div>
+            <div class="d-flex justify-content-between mt-2">    
+                <button type="button" class="btn btn-danger"
+                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                    <i class="fa-solid fa-receipt"></i> pedido
+                </button>
+                <div>
+                    <button type="button" class="btn btn-success me-2"
+                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                        <i class="fa-brands fa-pix"></i> PIX
+                    </button>
+                    <button type="button" class="btn btn-success"
+                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                        <i class="fa-regular fa-credit-card"></i> Crédito
+                    </button>
+                </div>
+            </div>
 <?php
         }
 ?>
@@ -122,7 +159,6 @@
 <?php
     }
 ?>
-
 
 </div>
 
