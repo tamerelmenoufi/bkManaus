@@ -70,16 +70,16 @@
                 <div class="valores"><b>$R <?=number_format($d->valor_total,2,',',false)?></b></div>
             </div>
             <div class="d-flex justify-content-between mt-2">    
-                <button type="button" class="btn btn-primary"
+                <button type="button" class="btn btn-danger"
                         style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                     <i class="fa-solid fa-receipt"></i> pedido
                 </button>
                 <div>
-                    <button type="button" class="btn btn-primary me-2"
+                    <button type="button" class="btn btn-success me-2"
                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                         <i class="fa-brands fa-pix"></i> PIX
                     </button>
-                    <button type="button" class="btn btn-primary"
+                    <button type="button" class="btn btn-success"
                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                         <i class="fa-regular fa-credit-card"></i> Crédito
                     </button>
