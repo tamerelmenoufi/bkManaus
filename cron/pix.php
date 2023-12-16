@@ -25,7 +25,7 @@
 
         $q = "update vendas set
             pagamento = 'pix',
-            pix_detalhes = '".(($retorno)?:'{}')."',
+            pix_detalhes = '".(($retornoX)?:'{}')."',
             situacao = '".SituacaoPIX($dados->ststus)."'
             where codigo = '{$v->codigo}'
         ";
