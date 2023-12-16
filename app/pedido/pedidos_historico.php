@@ -39,6 +39,7 @@
 <?php
         while($d = mysqli_fetch_object($result)){
 ?>
+            <hr>
             <h6>Pedido <?=$d->codigo?></h6>
             <div class="d-flex justify-content-between">    
                 <div class="pedidosLabel w-100" >
@@ -68,8 +69,6 @@
                 </div>
                 <div class="valores"><b>$R <?=number_format($d->valor_total,2,',',false)?></b></div>
             </div>
-
-            <hr>
 <?php
         }
 ?>
