@@ -2,7 +2,19 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
 ?>
-
+<style>
+    .pedidosLabel{
+        white-space: nowrap;
+        overflow: hidden; /* "overflow" value must be different from "visible" */
+        text-overflow: ellipsis;
+        color:#333;
+        font-size:14px;
+        cursor:pointer;
+    }
+    .valores{
+        white-space: nowrap;
+    }
+</style>
 <div class="row g-0 p-2">
 
 
@@ -22,11 +34,11 @@
 ?>
             <h6>Pedido <?=$d->codigo?></h6>
             <div class="d-flex justify-content-between">    
-                <div class="enderecoLabel w-100" >
+                <div class="pedidosLabel w-100" >
                     <i class="fa-solid fa-location-dot"></i>
                     Valor do Pedido
                 </div>
-                <button type="button" class="btn btn-outline-danger" style="width:200px;">$R 250,00</button>
+                <button type="button" class="btn btn-outline-danger valores" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">$R 250,00</button>
             </div> 
 
 <?php
