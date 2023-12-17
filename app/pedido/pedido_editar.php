@@ -33,7 +33,7 @@
 
 <div class="row g-0 p-2 mt-3">
     <div class="card p-2">
-        <h4 class="w-100 text-center">RESUMO DO PEDIDO</h4>
+        <h6 class="w-100 text-center">RESUMO DO PEDIDO</h6>
                 <?php
 
                     foreach(json_decode($d->detalhes) as $i => $dados){
