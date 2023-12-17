@@ -46,7 +46,7 @@
                     <i class="fa-solid fa-location-dot"></i>
                     <?=$dados->quantidade?> x <?=$pd->produto?>
                 </div> 
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between enderecoLabel">
                     <!-- <div>R$ <?=number_format($dados->total,2,',',false)?></div> -->
                     <div class="w-100 text-end">R$ <?=number_format($dados->total*$dados->quantidade,2,',',false)?></div>
                 </div>
@@ -57,10 +57,10 @@
                         }
                     }
             ?>
-            <div class="w-100 text-end">Compra R$ <?=number_format($d->valor_compra,2,',',false)?></div>
-            <div class="w-100 text-end">Entrega R$ <?=number_format($d->valor_entrega,2,',',false)?></div>
-            <div class="w-100 text-end">Desconto R$ <?=number_format($d->valor_desconto,2,',',false)?></div>
-            <div class="w-100 text-end"><b>TOTAL R$ <?=number_format($d->valor_total,2,',',false)?></b></div>
+            <div class="w-100 text-end enderecoLabel">Compra R$ <?=number_format($d->valor_compra,2,',',false)?></div>
+            <div class="w-100 text-end enderecoLabel">Entrega R$ <?=number_format($d->valor_entrega,2,',',false)?></div>
+            <div class="w-100 text-end enderecoLabel">Desconto R$ <?=number_format($d->valor_desconto,2,',',false)?></div>
+            <div class="w-100 text-end enderecoLabel"><b>TOTAL R$ <?=number_format($d->valor_total,2,',',false)?></b></div>
     </div>
 </div>
 
