@@ -57,7 +57,7 @@
                         }
                     }
             ?>
-            <div class="w-100 text-end enderecoLabel">Compra R$ <?=number_format($d->valor_compra,2,',',false)?></div>
+            <div class="w-100 text-end enderecoLabel mt-3">Compra R$ <?=number_format($d->valor_compra,2,',',false)?></div>
             <div class="w-100 text-end enderecoLabel">Entrega R$ <?=number_format($d->valor_entrega,2,',',false)?></div>
             <div class="w-100 text-end enderecoLabel">Desconto R$ <?=number_format($d->valor_desconto,2,',',false)?></div>
             <div class="w-100 text-end enderecoLabel"><b>TOTAL R$ <?=number_format($d->valor_total,2,',',false)?></b></div>
