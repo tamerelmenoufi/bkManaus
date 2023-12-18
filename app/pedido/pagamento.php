@@ -115,40 +115,64 @@
             // alert(codVenda);
 
             // return false;
-            
-            Carregando();
-            $.ajax({
-                url:"pagamento/pix.php",
-                type:"POST",
-                data:{
-                    pagamento,
-                    cupom,
-                    valor_cupom,
-                    valor_compra,
-                    valor_entrega,
-                    valor_desconto,
-                    valor_total,
-                    idUnico,
-                    codUsr,
-                    // codVenda,                    
-                },
-                success:function(dados){
-                    $(".popupPalco").html(dados);
-                    $(".popupArea").css('display','flex');
-                    Carregando('none');
-                    $.ajax({
-                        url:"pedido/resumo.php",
-                        type:"POST",
-                        data:{
-                            idUnico,
-                            codUsr
-                        },
-                        success:function(dados){
-                            $(`.CorpoApp`).html(dados);
+
+            $.confirm({
+                title:"Confirmação de pagamento",
+                content:"Esta operação finaliza a sua compra e gera a cobrança.<br>Deseja prosseguir?",
+                buttons:{
+                    sim:{
+                        text:'Sim',
+                        btnClass:'btn btn-success',
+                        action:function(){
+                            
+                            Carregando();
+                            $.ajax({
+                                url:`pagamento/${pagamento}.php`,
+                                type:"POST",
+                                data:{
+                                    pagamento,
+                                    cupom,
+                                    valor_cupom,
+                                    valor_compra,
+                                    valor_entrega,
+                                    valor_desconto,
+                                    valor_total,
+                                    idUnico,
+                                    codUsr,
+                                    // codVenda,                    
+                                },
+                                success:function(dados){
+                                    $(".popupPalco").html(dados);
+                                    $(".popupArea").css('display','flex');
+                                    Carregando('none');
+                                    $.ajax({
+                                        url:"pedido/resumo.php",
+                                        type:"POST",
+                                        data:{
+                                            idUnico,
+                                            codUsr
+                                        },
+                                        success:function(dados){
+                                            $(`.CorpoApp`).html(dados);
+                                        }
+                                    });  
+                                }
+                            });
+
+
                         }
-                    });  
+                    },
+                    nao:{
+                        text:'Não',
+                        btnClass:'btn btn-warning',
+                        action:function(){
+                            
+                        }
+                    }
                 }
-            });
+            })
+            
+            
         })
 
 
