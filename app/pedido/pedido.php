@@ -101,6 +101,7 @@
         }
 
         $("div[pendentes]").click(function(){
+            Carregando();
             $(this).attr("class","");
             $.ajax({
                 url:"pedido/pedidos_historico.php",
@@ -110,6 +111,7 @@
                 },
                 success:function(dados){
                     $("div[pendentes]").html(dados);
+                    Carregando('none');
                 }
             });
         })
