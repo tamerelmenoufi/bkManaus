@@ -46,7 +46,7 @@
     <?php
     if($pendente){
     ?>
-    <div class="alert alert-danger text-center" role="alert">
+    <div pendentes class="alert alert-danger text-center" role="alert">
     <b>Atenção!</b><br>Você possui pedidos pendentes, clique aqui para listar.
     </div>
     <?php
@@ -99,6 +99,20 @@
             $(".dados_enderecos").remove();
             $(".dados_pagamento").remove();
         }
+
+        $("div[pendentes]").click(function(){
+            $(this).attr("class","");
+            $.ajax({
+                url:"pedido/pedidos_historico.php",
+                type:"POST",
+                data:{
+                    novoPedido:1
+                },
+                success:function(dados){
+                    $("div[pendentes]").html(dados);
+                }
+            });
+        })
 
 
     })
