@@ -43,9 +43,15 @@
 
 <div class="row g-0 p-2 mt-3">
 
+    <?php
+    if($pendente){
+    ?>
     <div class="alert alert-danger text-center" role="alert">
     <b>Atenção!</b><br>Você possui pedidos pendentes, clique aqui para listar.
     </div>
+    <?php
+    }
+    ?>
 
     <div class="card p-2">
         <h4 class="w-100 text-center">RESUMO DO PEDIDO</h4>
