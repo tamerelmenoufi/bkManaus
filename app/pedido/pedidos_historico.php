@@ -93,7 +93,8 @@
 
 
 
-
+if(!$_POST['novoPedido']){
+    
     $query = "select * from vendas where (device = '{$_SESSION['idUnico']}' or cliente = '{$_SESSION['codUsr']}') and situacao != 'pendente' order by situacao ";
     $result = mysqli_query($con, $query);
 
@@ -165,6 +166,7 @@
 <h3 class='w-100 text-center' style='margin-top:200px;'>Sem Pedidos!</h3><p class='w-100 text-center'>Ainda não existe nenhum produto em sua cesta de comrpas.</p>
 <?php
     }
+}
 ?>
 
 
