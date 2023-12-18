@@ -10,7 +10,7 @@
         $where = " where codigo = '{$_SESSION['codUsr']}'";
     }
 
-    $query = "select * from vendas_tmp where id_unico = '{$_POST['idUnico']}'";
+    $query = "select * from vendas_tmp where id_unico = '{$_SESSION['idUnico']}'";
 
     $result = mysqli_query($con, $query);
 
@@ -31,7 +31,22 @@
     }
 </style>
 
+
+<?php
+
+    $query = "select * form vendas where device = '{$_SESSION['idUnico']}' and cliente = '{$_SESSION['codUsr']}'";
+    $result = mysqli_query($con, $query);
+    $pendente = mysqli_num_rows($result);
+
+?>
+
+
 <div class="row g-0 p-2 mt-3">
+
+    <div class="alert alert-danger text-center" role="alert">
+    <b>Atenção!</b> Você possui pedidos pendentes, clique aqui e consulte os pedidos.
+    </div>
+
     <div class="card p-2">
         <h4 class="w-100 text-center">RESUMO DO PEDIDO</h4>
                 <?php
