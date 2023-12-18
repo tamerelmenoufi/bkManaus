@@ -34,7 +34,7 @@
 
 <?php
 
-    $query = "select * form vendas where device = '{$_SESSION['idUnico']}' and cliente = '{$_SESSION['codUsr']}'";
+    $query = "select * from vendas where device = '{$_SESSION['idUnico']}' and cliente = '{$_SESSION['codUsr']}'";
     $result = mysqli_query($con, $query);
     $pendente = mysqli_num_rows($result);
 
@@ -44,7 +44,7 @@
 <div class="row g-0 p-2 mt-3">
 
     <div class="alert alert-danger text-center" role="alert">
-    <b>Atenção!</b> Você possui pedidos pendentes, clique aqui e consulte os pedidos.
+    <b>Atenção!</b><br>Você possui pedidos pendentes, clique aqui para listar.
     </div>
 
     <div class="card p-2">
