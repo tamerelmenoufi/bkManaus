@@ -25,8 +25,7 @@
                     c.ponto_referencia as Eponto_referencia,
                     c.bairro as Ebairro,
                     c.localidade as Elocalidade,
-                    c.uf as Euf,
-                    '12345' as id_mottu
+                    c.uf as Euf
 
                 from vendas a
 
@@ -78,7 +77,7 @@
 
             //     $mottu = new mottu;
 
-            //     $retorno1 = $mottu->NovoPedido($json, $v->id_mottu);
+            //     $retorno1 = $mottu->NovoPedido($json, $v->delivery_id);
             //     $retorno1 = json_decode($retorno1);
 
             //     $api_delivery = $retorno1->id;
