@@ -34,7 +34,7 @@
 
 <?php
 
-    echo $query = "select * from vendas where device = '{$_SESSION['idUnico']}' and cliente = '{$_SESSION['codUsr']}'";
+    $query = "select * from vendas where device = '{$_SESSION['idUnico']}' and cliente = '{$_SESSION['codUsr']}' and situacao = 'pendente'";
     $result = mysqli_query($con, $query);
     $pendente = mysqli_num_rows($result);
 
