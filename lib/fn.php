@@ -120,3 +120,12 @@
         return $dados = json_decode($response);
         
     }
+
+    function SituacaoPIX($e){
+        $opc = [
+            'approved' => 'pago',
+            'pending' => 'pendente',
+            'cancelled' => 'cancelado'
+        ];
+        return (($opc[$e])?:$e);
+    }

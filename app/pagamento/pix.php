@@ -101,7 +101,6 @@
 
                     $operadora_id = $dados->id;
 
-
                     $forma_pagamento = $dados->payment_method_id;
                     $operadora_situacao = $dados->status;
                     $qrcode = $dados->point_of_interaction->transaction_data->qr_code;
@@ -151,7 +150,7 @@
                     if($operadora_id){
 
                         // //////////////////////API DELIVERY////////////////////////////
-                        // if($dados->status == 'approved' and $d->retirada_local != '1'){
+                        if($dados->status == 'approved'){
                         //     $json = '{
                         //         "code": "'.$v->codigo.'",
                         //         "fullCode": "bk-'.$v->codigo.'",
@@ -184,30 +183,33 @@
 
                         //     $mottu = new mottu;
 
-                        //     $retorno1 = $mottu->NovoPedido($json, $d->id_mottu);
-                        //     $retorno = json_decode($retorno1);
+                        //     $retorno1 = $mottu->NovoPedido($json, $v->delivery_id);
+                        //     $retorno1 = json_decode($retorno1);
 
-                        //     $api_delivery = $retorno->id;
-                        // }
+                        //     $api_delivery = $retorno1->id;
+                                       
+                    
+                        }
                         // //////////////////////API DELIVERY////////////////////////////
-
-
-                        $q = "update vendas set
-                                                    pagamento = 'pix',
-                                                    pix_detalhes = '".(($retorno)?:'{}')."',
-                                                    delivery = 'mottu',
-                                                    delivery_detalhes = '".(($retorno1)?:'{}')."'
-                                                    ".(($api_delivery or $d->retirada_local == '1')?", situacao = 'pago'":false)."
-                                            where codigo = '{$v->codigo}'
-                                    ";
-                        
-                        mysqli_query($con, $q);
 
                     }
                 }
 
                 // $qrcode = '12e44a26-e3b4-445f-a799-1199df32fa1e';
                 // $operadora_id = 23997683882;
+
+
+                $q = "update vendas set
+                    pagamento = 'pix',
+                    pix_detalhes = '".(($retorno)?:'{}')."',
+                    delivery = '".(($retorno1)?'mottu':'')."',
+                    delivery_detalhes = '".(($retorno1)?:'{}')."',
+                    situacao = '".SituacaoPIX($dados->status)."'
+                where codigo = '{$v->codigo}'
+                ";
+
+                mysqli_query($con, $q);     
+
 
             ?>
             Utilize o QrCode para pagar a sua conta ou copie o códio PIX abaixo.
@@ -256,7 +258,16 @@
             clearTimeout(Tempo);
             console.log('close')
         })
-        
+
+
+        <?php
+        if($dados->status == 'approved'){
+        ?>
+        clearTimeout(Tempo);
+        window.location.href='./';
+        <?php
+        }
+        ?>
 
     })
 </script>

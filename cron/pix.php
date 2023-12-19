@@ -1,15 +1,6 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-    function SituacaoPIX($e){
-        $opc = [
-            'approved' => 'pago',
-            'pending' => 'pendente',
-            'cancelled' => 'cancelado'
-        ];
-        return (($opc[$e])?:$e);
-    }
-
     $query = "select 
                     a.*, 
                     a.pix_detalhes->>'$.id' as operadora_id,
