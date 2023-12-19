@@ -10,7 +10,30 @@
         return (($opc[$e])?:$e);
     }
 
-    $query = "select *, pix_detalhes->>'$.id' as operadora_id from vendas where situacao = 'pendente'";
+    $query = "select 
+                    a.*, 
+                    a.pix_detalhes->>'$.id' as operadora_id,
+                    b.nome as Cnome,
+                    b.cpf as Ccpf,
+                    b.telefone as Ctelefone,
+                    b.email as Cemail,
+                    c.codigo as endereco,
+                    c.cep as Ecep,
+                    c.logradouro as Elogradouro,
+                    c.numero as Enumero,
+                    c.complemento as Ecomplemento,
+                    c.ponto_referencia as Eponto_referencia,
+                    c.bairro as Ebairro,
+                    c.localidade as Elocalidade,
+                    c.uf as Euf,
+                    '12345' as id_mottu
+
+                from vendas a
+
+                left join clientes b on a.cliente = b.codigo
+                left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')                
+                
+                where a.situacao = 'pendente'";
     $result = mysqli_query($con, $query);
     while($v = mysqli_fetch_object($result)){
 
@@ -19,12 +42,63 @@
         $operadora_retorno = $retorno;
         $dados = json_decode($retorno);
 
-        $q = "update vendas set
-            pagamento = 'pix',
-            pix_detalhes = '".(($retorno)?:'{}')."',
-            situacao = '".SituacaoPIX($dados->status)."'
-            where codigo = '{$v->codigo}'";
+        if($dados->status == 'approved'){
+            
+            // //////////////////////API DELIVERY////////////////////////////
+            // if($dados->status == 'approved'){
+            //     $json = '{
+            //         "code": "'.$v->codigo.'",
+            //         "fullCode": "bk-'.$v->codigo.'",
+            //         "preparationTime": 0,
+            //         "previewDeliveryTime": false,
+            //         "sortByBestRoute": false,
+            //         "deliveries": [
+            //           {
+            //             "code": "'.$v->codigo.'",
+            //             "confirmation": {
+            //               "mottu": true
+            //             },
+            //             "name": "'.$v->Cnome.'",
+            //             "phone": "'.trim(str_replace(array(' ','-','(',')'), false, $v->Ctelefone)).'",
+            //             "observation": "'.$v->Ccomplemento.'",
+            //             "address": {
+            //               "street": "'.$v->Clogradouro.'",
+            //               "number": "'.$v->Cnumero.'",
+            //               "complement": "'.$v->Cponto_referencia.'",
+            //               "neighborhood": "'.$v->Cbairro.'",
+            //               "city": "Manaus",
+            //               "state": "AM",
+            //               "zipCode": "'.trim(str_replace(array(' ','-'), false, $v->Ccep)).'"
+            //             },
+            //             "onlinePayment": true,
+            //             "productValue": '.$v->valor_total.'
+            //           }
+            //         ]
+            //       }';
 
+            //     $mottu = new mottu;
+
+            //     $retorno1 = $mottu->NovoPedido($json, $v->id_mottu);
+            //     $retorno1 = json_decode($retorno1);
+
+            //     $api_delivery = $retorno1->id;
+            // }
+            // //////////////////////API DELIVERY////////////////////////////
+
+
+
+
+        }
+
+        $q = "update vendas set
+                                    pagamento = 'pix',
+                                    pix_detalhes = '".(($retorno)?:'{}')."',
+                                    delivery = 'mottu',
+                                    delivery_detalhes = '".(($retorno1)?:'{}')."',
+                                    situacao = '".SituacaoPIX($dados->status)."'
+                            where codigo = '{$v->codigo}'
+                    ";
+        
         mysqli_query($con, $q);
 
     }

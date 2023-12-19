@@ -86,6 +86,7 @@
 
         total = ($("div[total]").attr("total"))*1;
         taxa = ($("span[valor_taxa].ativo").attr("valor_taxa"))*1;
+        codTaxa = ($("span[codigo_taxa].ativo").attr("codigo_taxa"));
         pagar = (total*1+taxa*1);
 
         $("span[total]").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
@@ -98,12 +99,14 @@
 
             total = ($("div[total]").attr("total"))*1;
             taxa = ($("span[valor_taxa].ativo").attr("valor_taxa"))*1;
+            codTaxa = ($("span[codigo_taxa].ativo").attr("codigo_taxa"));
             pagar = (total*1+taxa*1);
             
             cupom = 0;
             valor_cupom = 0;
             valor_compra = total;
             valor_entrega = taxa;
+            codigo_entrega = codTaxa;
             valor_desconto = 0;
             valor_total = pagar;
 
@@ -135,6 +138,7 @@
                                     valor_cupom,
                                     valor_compra,
                                     valor_entrega,
+                                    codigo_entrega,
                                     valor_desconto,
                                     valor_total,
                                     idUnico,

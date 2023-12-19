@@ -50,6 +50,7 @@
                                                     detalhes = '{$d->detalhes}', 
                                                     pagamento = '{$_POST['pagamento']}',
                                                     data = NOW(),
+                                                    delivery_id = '{$_POST['codigo_entrega']}',
                                                     cupom = '{$_POST['cupom']}',
                                                     valor_compra = '{$_POST['valor_compra']}',
                                                     valor_entrega = '{$_POST['valor_entrega']}',
