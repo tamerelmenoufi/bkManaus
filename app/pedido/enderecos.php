@@ -79,7 +79,8 @@
 
                 if($valores->deliveryFee > 1){
                     if($valores->deliveryFee <= $vlopc || $vlopc == 0) {
-                        $vlopc = $valores->deliveryFee;
+                        // $vlopc = $valores->deliveryFee;
+                        $vlopc = 0.1;
                         $codTaxa = $v->mottu;
                         $unidade = $v->nome;
                     }
