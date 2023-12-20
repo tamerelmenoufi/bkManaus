@@ -54,7 +54,7 @@
                 echo "Quantidade:".$v->quantidade."<br>";
                 // echo "Categoria:".$v->categoria."<br>";
                 echo "Status:".$v->status."<br>";
-                echo "Adicional:".$v->adicional."<br>";
+                echo "Adicional:".$v->adicional."<br><hr>";
 
 
                 if($v->tipo == 'produto'){
@@ -82,7 +82,7 @@
                         $qt = $v->regras->combo->inclusao_quantidade;
                         $vl = $v->regras->combo->inclusao_valor;
                         echo "{$qt[$i1]->quantidade} / {$qt[$i1]->produto} x Inclusão {$v1->item} / {$v1->produto} - {$vl[$i1]->valor} / {$vl[$i1]->produto} = ".($vl[$i1]->valor * $qt[$i1]->quantidade)."<br>";
-                        // echo "{$i1} x {$v1}<br>";
+                        
                     }
                     
                 }
