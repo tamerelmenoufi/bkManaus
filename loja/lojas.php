@@ -119,6 +119,9 @@
                                     }else{
                                         console.log('erro!')
                                     }
+                                },
+                                error:function(){
+                                    console.log('erro no acesso')
                                 }
                             })
 
