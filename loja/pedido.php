@@ -72,7 +72,18 @@
                     }
                 }else if($v->tipo == 'combo'){
 
+                    echo "Remoção:<br>";
+                    foreach($v->regras->combo->remocao as $i1 => $v1){
+                        echo "Remocao: {$v1}<br>";
+                    }
 
+                    echo "<hr>Inclusão:<br>";
+                    foreach($v->regras->combo->inclusao as $i1 => $v1){
+                        $qt = $v->regras->inclusao_quantidade;
+                        $vl = $v->regras->inclusao_valor;
+                        echo "{$qt[$i1]} x Inclusão {$v1} - {$vl[$i1]} = ".($vl[$i1] * $qt[$i1])."<br>";
+                        // echo "{$i1} x {$v1}<br>";
+                    }
                     
                 }
 
