@@ -69,11 +69,7 @@
                                 <br>
                                 <?=$d->nome?>                            
                             </div>
-                            <div>
-                                Entrega: <?=$d->entrega?>
-                                <br>
-                                Retorno: <?=$d->retorno?>
-                            </div>                        
+                      
                         </div>
                     </li>
                 <?php
