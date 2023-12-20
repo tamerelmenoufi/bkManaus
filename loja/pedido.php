@@ -59,7 +59,7 @@
 
                 echo "Remoção:<br>";
                 foreach($v->regras->remocao as $i1 => $v1){
-                    echo "Remocao: {$i1}<br>";
+                    echo "Remocao: {$v1}<br>";
                 }
 
                 echo "<hr>Inclusão:<br>";
