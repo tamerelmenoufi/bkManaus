@@ -316,8 +316,6 @@
                             $r = mysqli_query($con, $q);
                             $produto = false;
                             while($s = mysqli_fetch_object($r)){
-                                $lista2[] = $s->item;
-
                                 if($s->produto != $produto){
                                     echo "<div><b>Subistituir {$s->produto}</b></div>";
                                     $produto = $s->produto;
