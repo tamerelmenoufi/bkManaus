@@ -64,7 +64,7 @@
                         Valor Unitário
                     </div>
                     <div>
-                        <?="{$v->valor}"?>
+                        <?=number_format($v->valor,2,',',false)?>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between">
@@ -72,7 +72,15 @@
                         Valor Adicional
                     </div>
                     <div>
-                        <?="{$v->adicional}"?>
+                        <?=number_format($v->adicional,2,',',false)?>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        Valor por Produto
+                    </div>
+                    <div>
+                        <b><?=number_format($v->total,2,',',false)?></b>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between">
@@ -80,7 +88,7 @@
                         Valor Total
                     </div>
                     <div>
-                        <b><?="{$v->total}"?></b>
+                        <b><?=number_format($v->total*$v->quantidade,2,',',false)?></b>
                     </div>
                 </div>
         <?php
