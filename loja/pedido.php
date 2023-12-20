@@ -95,6 +95,10 @@
                         <b><?=number_format($v->total*$v->quantidade,2,',',false)?></b>
                     </div>
                 </div>
+
+
+
+
         <?php
                 // echo "{$v->quantidade} X {$P->produto}<br>";
                 // echo "Valor unitário {$v->valor}<br>";
@@ -115,12 +119,21 @@
                 if($v->tipo == 'produto'){
                     
                     if($v->regras->remocao){
-                        echo "Remover do :<br>";
                         $q = "select * from itens where codigo in (".implode(",", $v->regras->remocao).")";
                         $r = mysqli_query($con, $q);
+                        $lista = [];
                         while($s = mysqli_fetch_object($r)){
-                            echo "{$s->item}<br>";
+                            $lista[] = "{$s->item}";
                         }
+
+            ?>
+                <div class="alert alert-dark" role="alert">
+                    <b>Remover de <?=$P->produto?></b>
+                    <p><?=implode(", ", $lista)?></p>
+                </div>
+            <?php
+                        // echo "Remover do :<br>";
+
                         // foreach($v->regras->remocao as $i1 => $v1){
                         //     echo "Remocao: {$v1}<br>";
                         // }
