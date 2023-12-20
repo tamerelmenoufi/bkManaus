@@ -128,8 +128,8 @@
 
             ?>
                 <div class="alert alert-dark dados" role="alert">
-                    <b>Remover de <?=$P->produto?></b>
-                    <p><?=implode(", ", $lista)?></p>
+                    <b>Remover de <?=$P->produto?></b><br>
+                    <?=implode(", ", $lista)?>
                 </div>
             <?php
                         // echo "Remover do :<br>";
