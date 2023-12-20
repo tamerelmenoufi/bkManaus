@@ -120,6 +120,8 @@
         $("li[pedido]").click(function(){
             pedido = $(this).attr("pedido");
             loja = localStorage.getItem("loja");
+            console.log(pedido)
+            console.log(loja)
             Carregando();
             $.ajax({
                 url:"pedido.php",
@@ -128,9 +130,9 @@
                     pedido,
                     loja
                 },
-                success:function(){
+                success:function(dados){
                     Carregando();
-                    $(".popupPalco").html('');
+                    $(".popupPalco").html(dados);
                     $(".popupArea").css("display","block");
                 },
                 error:function(){
