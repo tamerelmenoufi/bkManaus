@@ -60,7 +60,7 @@
 
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        <b><?="{$v->quantidade} X {$P->produto}"?></b>
+                        <b><?="{$v->quantidade} X ".(($v->tipo == 'combo')?'Combo ':false)."{$P->produto}"?></b>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between dados">
