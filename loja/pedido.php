@@ -116,7 +116,15 @@
                 // echo "Adicional:".$v->adicional."<br><hr>";
 
 
+
                 if($v->tipo == 'produto'){
+
+                    if($v->regras->remocao or $v->regras->inclusao or $v->regras->substituicao){
+            ?>
+                <div class="alert alert-dark dados" role="alert">
+            <?php
+                    }
+
                     
                     if($v->regras->remocao){
                         $q = "select * from itens where codigo in (".implode(",", $v->regras->remocao).")";
@@ -127,7 +135,7 @@
                         }
 
             ?>
-                        <div class="alert alert-dark dados" role="alert">
+                        
                             <b>Remover de <?=$P->produto?></b><br>
                             <?=implode(", ", $lista)?>
                         </div>
@@ -140,7 +148,7 @@
                     }
 
                     if($v->regras->inclusao){
-                        echo "<b>Incluir em {$P->produto}</b><br>";
+                        echo "<b>Incluir em {$P->produto}</b>";
                         $q = "select * from itens where codigo in (".implode(",", $v->regras->inclusao).")";
                         $r = mysqli_query($con, $q);
                         $qt = $v->regras->inclusao_quantidade;
@@ -193,6 +201,13 @@
                         //     echo "Substituição {$v1} - {$vl[$i1]} <br>";
                         //     // echo "{$i1} x {$v1}<br>";
                         // }
+                    }
+
+
+                    if($v->regras->remocao or $v->regras->inclusao or $v->regras->substituicao){
+                        ?>
+                            </div>
+                        <?php
                     }
 
                 }else if($v->tipo == 'combo'){
