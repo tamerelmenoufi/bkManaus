@@ -38,7 +38,7 @@
 <div class="home_corpo">
     <div class="row g-0">
         <div class="col">
-            <div class="alert alert-warning" role="alert">
+            <div class="alert alert-warning m-3" role="alert">
             Selecione uma das lojas para acessar as comandas de pedidos.
             </div>
         </div>
