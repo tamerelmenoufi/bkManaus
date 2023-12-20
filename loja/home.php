@@ -54,7 +54,7 @@
 </div>
 
 <div class="home_corpo">
-    <div class="row g-0">
+    <div class="row g-0 m-3">
 
             <ul class="list-group">
                 <?php
