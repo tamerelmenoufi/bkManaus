@@ -295,12 +295,12 @@
                     }
 
                     if($v->regras->combo->substituicao){
-                        echo "<hr>Substituição:<br>";
-                        foreach($v->regras->combo->substituicao as $i1 => $v1){
-                            $vl = $v->regras->combo->substituicao_valor;
-                            echo "Substituição {$v1->item} / {$v1->produto} - {$vl[$i1]->valor} / {$vl[$i1]->produto}<br>";
+                        // echo "<hr>Substituição:<br>";
+                        // foreach($v->regras->combo->substituicao as $i1 => $v1){
+                        //     $vl = $v->regras->combo->substituicao_valor;
+                        //     echo "Substituição {$v1->item} / {$v1->produto} - {$vl[$i1]->valor} / {$vl[$i1]->produto}<br>";
                             
-                        }      
+                        // }      
                         
                         
 
@@ -312,7 +312,7 @@
                         }     
                         foreach($lista as $i1 => $v1){
                             $arr = array_keys($v1);
-                            echo $q = "select *, (select produto from produtos where codigo = '{$i1}') as produto from itens where codigo in (".implode(",", $arr).")";
+                            $q = "select *, (select produto from produtos where codigo = '{$i1}') as produto from itens where codigo in (".implode(",", $arr).")";
                             $r = mysqli_query($con, $q);
                             $produto = false;
                             while($s = mysqli_fetch_object($r)){
