@@ -74,7 +74,7 @@
 
                     echo "Remoção:<br>";
                     foreach($v->regras->combo->remocao as $i1 => $v1){
-                        echo "Remocao: {$v1}<br>";
+                        echo "Remocao: {$v1->item} - {$v1->produto}<br>";
                     }
 
                     echo "<hr>Inclusão:<br>";
