@@ -131,7 +131,7 @@
                     loja
                 },
                 success:function(dados){
-                    Carregando();
+                    Carregando('none');
                     $(".popupPalco").html(dados);
                     $(".popupArea").css("display","block");
                 },
