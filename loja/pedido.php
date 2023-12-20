@@ -16,6 +16,10 @@
     .popupPalco{
         overflow:auto;
     }
+    li[pedido], .dados{
+        cursor:pointer;
+        font-size:12px;
+    }
 </style>
 
 <div class="row g-0 m-3">
@@ -27,7 +31,7 @@
         while($d = mysqli_fetch_object($result)){
         ?>
             <li class="list-group-item" pedido="<?=$d->codigo?>">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between dados">
                     <div>
                         Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?>
                         <br>
@@ -54,12 +58,12 @@
                 echo "<br><br>";
         ?>
 
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between dados">
                     <div>
                         <b><?="{$v->quantidade} X {$P->produto}"?></b>
                     </div>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between dados">
                     <div>
                         Valor Unitário
                     </div>
@@ -67,7 +71,7 @@
                         <?=number_format($v->valor,2,',',false)?>
                     </div>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between dados">
                     <div>
                         Valor Adicional
                     </div>
@@ -75,7 +79,7 @@
                         <?=number_format($v->adicional,2,',',false)?>
                     </div>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between dados">
                     <div>
                         Valor por Produto
                     </div>
@@ -83,7 +87,7 @@
                         <b><?=number_format($v->total,2,',',false)?></b>
                     </div>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between dados">
                     <div>
                         Valor Total
                     </div>
