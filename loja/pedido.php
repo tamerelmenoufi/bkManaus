@@ -223,10 +223,26 @@
                 }else if($v->tipo == 'combo'){
 
                     if($v->regras->combo->remocao){
-                        echo "Remoção:<br>";
+
+                        $lista = [];
                         foreach($v->regras->combo->remocao as $i1 => $v1){
-                            echo "Remocao: {$v1->item} - {$v1->produto}<br>";
-                        }                        
+                            $lista[$v1->produto][] = $v1->item;
+                            // echo "Remocao: {$v1->item} - {$v1->produto}<br>";
+                        }     
+                        foreach($lista as $i1 => $v1){
+                            $q = "select *, (select produto from produtos where codigo = '{$i1}') as produto from itens where codigo in (".implode(",", $v1).")";
+                            $r = mysqli_query($con, $q);
+                            $lista2 = [];
+                            while($s = mysqli_fetch_object($r)){
+                                $lista2[] = $s->item;
+                                $produto = $s->produto;
+                            }
+                        ?>
+                            <div><b>Remover de <?=$produto?></b></div>
+                            <?=implode(", ", $lista2)?><br>
+                        <?php
+                        }
+                   
                     }
 
                     if($v->regras->combo->inclusao){
