@@ -39,6 +39,9 @@
                 </div>
             </li>
         <?php
+
+            echo $d->detalhes;
+
         }
         ?>
     </ul>
