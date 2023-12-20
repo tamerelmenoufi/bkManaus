@@ -78,7 +78,7 @@
                         $qt = $v->regras->inclusao_quantidade;
                         $vl = $v->regras->inclusao_valor;                        
                         while($s = mysqli_fetch_object($r)){
-                            $pnt = array_search($s->codigo, $v->regras->inclusao)
+                            $pnt = array_search($s->codigo, $v->regras->inclusao);
                             echo "{$qt[$pnt]} x $s->item - {$vl[$pnt]} = ".($vl[$pnt] * $qt[$pnt])."<br>";
 
                         }
