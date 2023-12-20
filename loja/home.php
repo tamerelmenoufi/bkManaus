@@ -74,7 +74,31 @@
 
 <script>
     $(function(){
-        
+        $(".fechar").click(function(){
+            $.confirm({
+                title:"Desconectar",
+                content:"Deseja realmente desconectar do sistema?",
+                type:'red',
+                columnClass:'col-12',
+                buttons:{
+                    sim:{
+                        text:"Sim",
+                        btnClass:'btn btn-danger',
+                        action:function(){
+                            localStorage.removeItem("loja");
+                            window.location.href='./';
+                        }
+                    },
+                    nao:{
+                        text:"Não",
+                        btnClass:'btn btn-warning',
+                        action:function(){
+                            
+                        }
+                    }
+                }
+            })
+        })
     })
 </script>
 
