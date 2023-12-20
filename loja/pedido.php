@@ -45,12 +45,17 @@
             $pedido = json_decode($d->detalhes);
 
             foreach($pedido as $i => $v){
+
+                $q = "select * from produtos where codigo ='{$v->codigo}'";
+                $r = mysqli_query($con, $q);
+                $s = mysqli_fetch_object($r);
+
                 print_r($v);
                 echo "<br><br>";
                 echo "Tipo:".$v->tipo."<br>";
                 echo "Total:".$v->total."<br>";
                 echo "Valor:".$v->valor."<br>";
-                echo "Codigo:".$v->codigo."<br>";
+                echo "Produto:".$s->produto."<br>";
                 echo "Quantidade:".$v->quantidade."<br>";
                 // echo "Categoria:".$v->categoria."<br>";
                 echo "Status:".$v->status."<br>";
@@ -102,13 +107,13 @@
                             echo "$s->item - {$vl[$pnt]}<br>";
 
                         }
-                        echo "-------------------------------------------------------------------------------<br>";
+                        // echo "-------------------------------------------------------------------------------<br>";
 
-                        foreach($v->regras->substituicao as $i1 => $v1){
-                            $vl = $v->regras->substituicao_valor;
-                            echo "Substituição {$v1} - {$vl[$i1]} <br>";
-                            // echo "{$i1} x {$v1}<br>";
-                        }
+                        // foreach($v->regras->substituicao as $i1 => $v1){
+                        //     $vl = $v->regras->substituicao_valor;
+                        //     echo "Substituição {$v1} - {$vl[$i1]} <br>";
+                        //     // echo "{$i1} x {$v1}<br>";
+                        // }
                     }
 
                 }else if($v->tipo == 'combo'){
