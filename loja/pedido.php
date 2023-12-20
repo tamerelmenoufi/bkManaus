@@ -251,8 +251,47 @@
                             $qt = $v->regras->combo->inclusao_quantidade;
                             $vl = $v->regras->combo->inclusao_valor;
                             echo "{$qt[$i1]->quantidade} / {$qt[$i1]->produto} x Inclusão {$v1->item} / {$v1->produto} - {$vl[$i1]->valor} / {$vl[$i1]->produto} = ".($vl[$i1]->valor * $qt[$i1]->quantidade)."<br>";
-                            
-                        }                        
+                        }
+
+
+                        $lista = [];
+                        foreach($v->regras->combo->inclusao as $i1 => $v1){
+                            $qt = $v->regras->combo->inclusao_quantidade;
+                            $vl = $v->regras->combo->inclusao_valor;
+                            $lista[$v1->produto][$v1->item]['quantidade'] = $qt[$i1]->quantidade;
+                            $lista[$v1->produto][$v1->item]['valor'] = $vl[$i1]->valor;
+                        }     
+                        foreach($lista as $i1 => $v1){
+                            $arr = array_keys($v1);
+                            $q = "select *, (select produto from produtos where codigo = '{$i1}') as produto from itens where codigo in (".implode(",", $arr).")";
+                            $r = mysqli_query($con, $q);
+                            $produto = false;
+                            while($s = mysqli_fetch_object($r)){
+                                $lista2[] = $s->item;
+
+                                if($s->produto != $produto){
+                                    echo "<div>{$s->produto}</div>";
+                                    $produto = $s->produto;
+                                }
+                        ?>
+                            <div class="d-flex justify-content-between dados">
+                                <div>
+                                    <?="{$lista[$i1][$s->codigo]['quantidade']} x $s->item"?>
+                                </div>
+                                <div>
+                                    <b><?=number_format($lista[$i1][$s->codigo]['valor'],2,',',false)?></b>
+                                </div>
+                                <div>
+                                    <b><?=number_format($lista[$i1][$s->codigo]['valor'] * $lista[$i1][$s->codigo]['quantidade'],2,',',false)?></b>
+                                </div>
+                                
+                            </div>
+                        <?php
+                            }
+                        }
+
+
+
                     }
 
                     if($v->regras->combo->substituicao){
