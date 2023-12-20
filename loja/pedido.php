@@ -312,7 +312,7 @@
                         }     
                         foreach($lista as $i1 => $v1){
                             $arr = array_keys($v1);
-                            $q = "select *, (select produto from produtos where codigo = '{$i1}') as produto from itens where codigo in (".implode(",", $arr).")";
+                            echo $q = "select *, (select produto from produtos where codigo = '{$i1}') as produto from itens where codigo in (".implode(",", $arr).")";
                             $r = mysqli_query($con, $q);
                             $produto = false;
                             while($s = mysqli_fetch_object($r)){
