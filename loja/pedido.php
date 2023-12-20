@@ -87,18 +87,32 @@
 
                 }else if($v->tipo == 'combo'){
 
-                    echo "Remoção:<br>";
-                    foreach($v->regras->combo->remocao as $i1 => $v1){
-                        echo "Remocao: {$v1->item} - {$v1->produto}<br>";
+                    if($v->regras->combo->remocao){
+                        echo "Remoção:<br>";
+                        foreach($v->regras->combo->remocao as $i1 => $v1){
+                            echo "Remocao: {$v1->item} - {$v1->produto}<br>";
+                        }                        
                     }
 
-                    echo "<hr>Inclusão:<br>";
-                    foreach($v->regras->combo->inclusao as $i1 => $v1){
-                        $qt = $v->regras->combo->inclusao_quantidade;
-                        $vl = $v->regras->combo->inclusao_valor;
-                        echo "{$qt[$i1]->quantidade} / {$qt[$i1]->produto} x Inclusão {$v1->item} / {$v1->produto} - {$vl[$i1]->valor} / {$vl[$i1]->produto} = ".($vl[$i1]->valor * $qt[$i1]->quantidade)."<br>";
-                        
+                    if($v->regras->combo->inclusao){
+                        echo "<hr>Inclusão:<br>";
+                        foreach($v->regras->combo->inclusao as $i1 => $v1){
+                            $qt = $v->regras->combo->inclusao_quantidade;
+                            $vl = $v->regras->combo->inclusao_valor;
+                            echo "{$qt[$i1]->quantidade} / {$qt[$i1]->produto} x Inclusão {$v1->item} / {$v1->produto} - {$vl[$i1]->valor} / {$vl[$i1]->produto} = ".($vl[$i1]->valor * $qt[$i1]->quantidade)."<br>";
+                            
+                        }                        
                     }
+
+                    if($v->regras->combo->substituicao){
+                        echo "<hr>Substituição:<br>";
+                        foreach($v->regras->combo->substituicao as $i1 => $v1){
+                            $vl = $v->regras->combo->substituicao_valor;
+                            echo "Substituição {$v1->item} / {$v1->produto} - {$vl[$i1]->valor} / {$vl[$i1]->produto}<br>";
+                            
+                        }                        
+                    }
+ 
                     
                 }
 
