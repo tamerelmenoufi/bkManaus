@@ -116,9 +116,15 @@
                                 },
                                 success:function(dados){
                                     if(dados.status == true){
-                                        console.log('sucesso!')
+                                        localStorage.setItem("loja", dados.loja);
+                                        window.location.href="./";
                                     }else{
-                                        console.log('erro!')
+                                        $.alert({
+                                            title:"Erro",
+                                            content:"Dados incorretos!",
+                                            columnCalss:'col-12',
+                                            type:'red'
+                                        })
                                     }
                                 },
                                 error:function(){
