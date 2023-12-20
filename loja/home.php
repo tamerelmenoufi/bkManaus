@@ -49,7 +49,7 @@
 
             <ul class="list-group m-3">
                 <?php
-                $query = "select * from vendas where mottu = '{$d->delivery_id}' and situacao = 'pago' order by data desc";
+                echo $query = "select * from vendas where mottu = '{$d->delivery_id}' and situacao = 'pago' order by data desc";
                 $result = mysqli_query($con, $query);
                 while($d = mysqli_fetch_object($result)){
                 ?>
