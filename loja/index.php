@@ -149,7 +149,6 @@
          
         })
 
-
         //Jconfirm
         jconfirm.defaults = {
             typeAnimated: true,

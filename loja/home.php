@@ -58,11 +58,15 @@
 
             <ul class="list-group m-3">
                 <?php
-                $query = "select * from vendas where delivery_id = '{$l->mottu}' and situacao = 'pago' order by data desc";
+                $query = "select a.*, b.nome from vendas a left join clientes b on a.cliente = b.codigo where a.delivery_id = '{$l->mottu}' and a.situacao = 'pago' order by a.data desc";
                 $result = mysqli_query($con, $query);
                 while($d = mysqli_fetch_object($result)){
                 ?>
-                    <li class="list-group-item" pedido="<?=$d->codigo?>"><?=$d->codigo?></li>
+                    <li class="list-group-item" pedido="<?=$d->codigo?>">
+                        Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?>
+                        <br>
+                        <?=$d->nome?>
+                    </li>
                 <?php
                 }
                 ?>
