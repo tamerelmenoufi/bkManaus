@@ -136,7 +136,7 @@
 
             ?>
                         
-                            <br><b>Remover de <?=$P->produto?></b><br>
+                            <div><b>Remover de <?=$P->produto?></b></div>
                             <?=implode(", ", $lista)?><br>
 
             <?php
@@ -148,7 +148,7 @@
                     }
 
                     if($v->regras->inclusao){
-                        echo "<br><b>Incluir em {$P->produto}</b>";
+                        echo "<div><b>Incluir em {$P->produto}</b></div>";
                         $q = "select * from itens where codigo in (".implode(",", $v->regras->inclusao).")";
                         $r = mysqli_query($con, $q);
                         $qt = $v->regras->inclusao_quantidade;
@@ -184,7 +184,7 @@
                     }
 
                     if($v->regras->substituicao){
-                        echo "<br><b>Substituir {$P->produto}</b>";
+                        echo "<div><b>Substituir {$P->produto}</b></div>";
 
                         $q = "select * from itens where codigo in (".implode(",", $v->regras->substituicao).")";
                         $r = mysqli_query($con, $q);
