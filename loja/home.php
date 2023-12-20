@@ -8,7 +8,7 @@
 
     $query = "select * from lojas where codigo = '{$_SESSION['bkLoja']}'";
     $result = mysqli_query($con, $query);
-    $d = mysqli_fetch_object($result);
+    $l = mysqli_fetch_object($result);
 
 ?>
 <style>
@@ -41,7 +41,7 @@
     }
 </style>
 <div class="barra_topo">
-    <h2><?=$nome?></h2>
+    <h2><?=$l->nome?></h2>
 </div>
 
 <div class="home_corpo">
@@ -49,7 +49,7 @@
 
             <ul class="list-group m-3">
                 <?php
-                echo $query = "select * from vendas where delivery_id = '{$d->mottu}' and situacao = 'pago' order by data desc";
+                $query = "select * from vendas where delivery_id = '{$l->mottu}' and situacao = 'pago' order by data desc";
                 $result = mysqli_query($con, $query);
                 while($d = mysqli_fetch_object($result)){
                 ?>
