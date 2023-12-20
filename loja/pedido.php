@@ -46,9 +46,34 @@
 
             foreach($pedido as $i => $v){
                 print_r($v);
-            }
+                echo "<br><br>";
+                echo "Tipo:".$v->tipo."<br>";
+                echo "Total:".$v->total."<br>";
+                echo "Valor:".$v->valor."<br>";
+                echo "Codigo:".$v->codigo."<br>";
+                echo "Quantidade:".$v->quantidade."<br>";
+                echo "Categoria:".$v->categoria."<br>";
+                echo "Status:".$v->status."<br>";
 
-            echo $d->detalhes;
+                echo "Adicional:".$v->adicional."<br>";
+
+                echo "Remoção:<br>";
+                foreach($v->regras->remocao as $i1 => $v1){
+                    echo "Remocao: {$v1[$i1]}<br>";
+                }
+
+                echo "<hr>Inclusão:<br>";
+                foreach($v->regras->inclusao as $i1 => $v1){
+                    $qt = $v->regras->inclusao_quantidade;
+                    $vl = $v->regras->inclusao_valor;
+                    echo "{$qt[$i1]} x Inclusão {$v1[$i1]} - {$vl[$i1]} = ".($vl[$i1] * $qt[$i1])."<br>";
+                }
+
+
+                echo "<hr>Anotações:".$v->anotacoes."<br>";
+
+
+            }
 
         }
         ?>
