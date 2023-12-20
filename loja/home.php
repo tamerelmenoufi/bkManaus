@@ -119,9 +119,23 @@
 
         $("li[pedido]").click(function(){
             pedido = $(this).attr("pedido");
-            $(".popupPalco").html('');
-            $(".popupArea").css("display","block");
+            loja = localStorage.getItem("loja");
+            Carregando();
+            $.ajax({
+                url:"pedido.php",
+                type:"POST",
+                data:{
+                    pedido,
+                    loja
+                },
+                success:function(){
+                    Carregando();
+                    $(".popupPalco").html('');
+                    $(".popupArea").css("display","block");
+                }
+            });
         })
+        
     })
 </script>
 
