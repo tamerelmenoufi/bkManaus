@@ -52,11 +52,42 @@
 
                 print_r($v);
                 echo "<br><br>";
+        ?>
 
-                echo "{$v->quantidade} X {$P->produto}<br>";
-                echo "Valor unitário {$v->valor}<br>";
-                echo "Valor Adicional {$v->adicional}<br>";
-                echo "Valor Total {$v->total}<br>";
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <b><?="{$v->quantidade} X {$P->produto}"?></b>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        Valor Unitário
+                    </div>
+                    <div>
+                        <?="{$v->valor}"?>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        Valor Adicional
+                    </div>
+                    <div>
+                        <?="{$v->adicional}"?>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        Valor Total
+                    </div>
+                    <div>
+                        <b><?="{$v->total}"?></b>
+                    </div>
+                </div>
+        <?php
+                // echo "{$v->quantidade} X {$P->produto}<br>";
+                // echo "Valor unitário {$v->valor}<br>";
+                // echo "Valor Adicional {$v->adicional}<br>";
+                // echo "Valor Total {$v->total}<br>";
 
 
                 // echo "Tipo:".$v->tipo."<br>";
