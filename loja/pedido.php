@@ -70,7 +70,7 @@
                 }
 
 
-                echo "<hr>Anotações:".$v->anotacoes."<br>";
+                echo "<hr>Anotações:".$v->anotacoes."<br><br><br>";
 
 
             }
