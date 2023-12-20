@@ -300,13 +300,48 @@
                             $vl = $v->regras->combo->substituicao_valor;
                             echo "Substituição {$v1->item} / {$v1->produto} - {$vl[$i1]->valor} / {$vl[$i1]->produto}<br>";
                             
-                        }                        
+                        }      
+                        
+                        
+
+
+                        $lista = [];
+                        foreach($v->regras->combo->substituicao as $i1 => $v1){
+                            $vl = $v->regras->combo->substituicao_valor;
+                            $lista[$v1->produto][$v1->item]['valor'] = $vl[$i1]->valor;
+                        }     
+                        foreach($lista as $i1 => $v1){
+                            $arr = array_keys($v1);
+                            $q = "select *, (select produto from produtos where codigo = '{$i1}') as produto from itens where codigo in (".implode(",", $arr).")";
+                            $r = mysqli_query($con, $q);
+                            $produto = false;
+                            while($s = mysqli_fetch_object($r)){
+                                $lista2[] = $s->item;
+
+                                if($s->produto != $produto){
+                                    echo "<div><b>Subistituir {$s->produto}</b></div>";
+                                    $produto = $s->produto;
+                                }
+                        ?>
+                            <div class="d-flex justify-content-between dados">
+                                <div>
+                                    <?="{$s->item}"?>
+                                </div>
+                                <div>
+                                    <b><?=number_format($lista[$i1][$s->codigo]['valor'],2,',',false)?></b>
+                                </div>
+                            </div>
+                        <?php
+                            }
+                        }
+
+
                     }
  
                     
                 }
 
-                echo "<p>".$v->anotacoes."</p>";
+                echo "<p><b>".$v->anotacoes."</b></p>";
 
                 if(
                     $v->regras->remocao or 
