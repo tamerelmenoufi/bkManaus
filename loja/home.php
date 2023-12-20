@@ -39,8 +39,17 @@
         left:0;
         right:0;
     }
+    .fechar{
+        color:#fff;
+        font-size:14px;
+        cursor:pointer;
+        position:absolute;
+        right:20px;
+        top:15px;
+    }
 </style>
 <div class="barra_topo">
+    <span class="fechar"><i class="fa-solid fa-right-from-bracket"></i> Sair</span>
     <h2><?=$l->nome?></h2>
 </div>
 
