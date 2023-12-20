@@ -66,7 +66,7 @@
                 foreach($v->regras->inclusao as $i1 => $v1){
                     $qt = $v->regras->inclusao_quantidade;
                     $vl = $v->regras->inclusao_valor;
-                    echo "{$qt[$i1]} x Inclusão {$v1[$i1]} - {$vl[$i1]} = ".($vl[$i1] * $qt[$i1])."<br>";
+                    echo "{$qt[$i1]} x Inclusão {$v1} - {$vl[$i1]} = ".($vl[$i1] * $qt[$i1])."<br>";
                 }
 
 
