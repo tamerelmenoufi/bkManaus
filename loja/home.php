@@ -120,7 +120,7 @@
         $("li[pedido]").click(function(){
             pedido = $(this).attr("pedido");
             $(".popupPalco").html('');
-            $(".popupArea").css("display","none");
+            $(".popupArea").css("display","block");
         })
     })
 </script>
