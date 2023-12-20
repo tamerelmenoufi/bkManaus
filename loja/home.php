@@ -115,6 +115,13 @@
                 }
             })
         })
+
+
+        $("li[pedido]").click(function(){
+            pedido = $(this).attr("pedido");
+            $(".popupPalco").html('');
+            $(".popupArea").css("display","none");
+        })
     })
 </script>
 
