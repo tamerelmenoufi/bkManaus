@@ -60,14 +60,29 @@
                 if($v->tipo == 'produto'){
                     
                     if($v->regras->remocao){
-                        echo "Remoção:<br>";    
-                        foreach($v->regras->remocao as $i1 => $v1){
-                            echo "Remocao: {$v1}<br>";
+                        echo "Remoção:<br>";
+                        $q = "select * from itens where codigo in (".implode(",", $v->regras->remocao).")";
+                        $r = mysqli_query($con, $q);
+                        while($s = mysqli_fetch_object($r)){
+                            echo "{$s->item}<br>";
                         }
+                        // foreach($v->regras->remocao as $i1 => $v1){
+                        //     echo "Remocao: {$v1}<br>";
+                        // }
                     }
 
                     if($v->regras->inclusao){
                         echo "<hr>Inclusão:<br>";
+                        $q = "select * from itens where codigo in (".implode(",", $v->regras->inclusao).")";
+                        $r = mysqli_query($con, $q);
+                        $qt = $v->regras->inclusao_quantidade;
+                        $vl = $v->regras->inclusao_valor;                        
+                        while($s = mysqli_fetch_object($r)){
+                            $pnt = array_search($s->codigo, $v->regras->inclusao)
+                            echo "{$qt[$pnt]} x $s->item - {$vl[$pnt]} = ".($vl[$pnt] * $qt[$pnt])."<br>";
+
+                        }
+                        echo "-------------------------------------------------------------------------------";
                         foreach($v->regras->inclusao as $i1 => $v1){
                             $qt = $v->regras->inclusao_quantidade;
                             $vl = $v->regras->inclusao_valor;
