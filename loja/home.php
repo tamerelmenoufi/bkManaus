@@ -56,7 +56,7 @@
 <div class="home_corpo">
     <div class="row g-0">
 
-            <ul class="list-group m-3">
+            <ul class="list-group">
                 <?php
                 $query = "select a.*, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where a.delivery_id = '{$l->mottu}' and a.situacao = 'pago' order by a.data desc";
                 $result = mysqli_query($con, $query);
