@@ -85,6 +85,7 @@
             bottom:10px;
             background:#fff;
             border-radius:10px;
+            overflow:auto;
             z-index:1
         }
     </Style>
