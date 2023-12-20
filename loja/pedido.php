@@ -127,7 +127,7 @@
                         }
 
             ?>
-                <div class="alert alert-dark" role="alert">
+                <div class="alert alert-dark dados" role="alert">
                     <b>Remover de <?=$P->produto?></b>
                     <p><?=implode(", ", $lista)?></p>
                 </div>
