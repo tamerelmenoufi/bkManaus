@@ -1,0 +1,55 @@
+<?php
+    include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
+
+?>
+<style>
+    .barra_topo{
+        position:absolute;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+        top:0;
+        width:100%;
+        height:100px;
+        background-color:#f4000a;
+        color:#670600;
+        border-bottom-right-radius:40px;
+        border-bottom-left-radius:40px;
+        font-family:FlameBold;
+    }
+    .barra_topo h2{
+        color:#f6e13a;
+    }
+    .home_corpo{
+        position: absolute;
+        top:100px;
+        bottom:0px;
+        overflow:auto;
+        background-color:#fff;
+        left:0;
+        right:0;
+    }
+</style>
+<div class="barra_topo">
+    <h2>Lojas</h2>
+</div>
+
+<div class="home_corpo">
+    <div class="row g-0">
+        <div class="col">
+            <div class="alert alert-warning" role="alert">
+            Selecione uma das lojas para acessar as comandas de pedidos.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function(){
+
+    })
+</script>
+
+  </body>
+</html>
