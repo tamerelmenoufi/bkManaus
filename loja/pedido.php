@@ -40,6 +40,12 @@
             </li>
         <?php
 
+            $pedido = json_decode($d->detalhes);
+
+            foreach($pedido as $i => $v){
+                print_r($v);
+            }
+
             echo $d->detalhes;
 
         }
