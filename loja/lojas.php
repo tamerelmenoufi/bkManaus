@@ -1,6 +1,25 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+
+    if($_POST['loja']){
+        $query = "select * from lojas where codigo = '{$_POST['loja']}' and senha = '{$_POST['senha']}'";
+        $result = mysqli_query($con, $query);
+        $d = mysqli_fetch_object($result);
+        if($d->codigo){
+            $retorno = [
+                'status' => true,
+                'loja' => $d->codigo
+            ];
+        }else{
+            $retorno = [
+                'status' => false,
+                'loja' => false
+            ];            
+        }
+        exit();
+    }
+
 ?>
 <style>
     .barra_topo{
@@ -49,7 +68,7 @@
                 $result = mysqli_query($con, $query);
                 while($d = mysqli_fetch_object($result)){
                 ?>
-                    <li class="list-group-item"><?=$d->nome?></li>
+                    <li class="list-group-item" loja="<?=$d->codigo?>"><?=$d->nome?></li>
                 <?php
                 }
                 ?>
@@ -61,7 +80,68 @@
 
 <script>
     $(function(){
+        $("li[loja]").click(function(){
+            loja = $(this).attr("loja");
 
+
+
+            $.confirm({
+                title: 'Senha de Acesso',
+                content: '' +
+                '<form action="" class="formName">' +
+                '<div class="form-group">' +
+                '<label>Digite seu código de acesso</label>' +
+                '<input type="text" placeholder="Código de acesso" class="senha form-control" required />' +
+                '</div>' +
+                '</form>',
+                buttons: {
+                    formSubmit: {
+                        text: 'Submit',
+                        btnClass: 'btn-blue',
+                        action: function () {
+                            var senha = this.$content.find('.senha').val();
+                            if(!senha){
+                                $.alert('Favor informe seu código de acesso!');
+                                return false;
+                            }
+                            
+                            $.ajax({
+                                url:"lojas.php",
+                                type:"POST",
+                                dataType:"JSON",
+                                data:{
+                                    loja,
+                                    senha
+                                },
+                                success:function(dados){
+                                    if(dados.status == true){
+                                        console.log('sucesso!')
+                                    }else{
+                                        console.log('erro!')
+                                    }
+                                }
+                            })
+
+                        }
+                    },
+                    cancel: function () {
+                        //close
+                    },
+                },
+                onContentReady: function () {
+                    // bind to events
+                    var jc = this;
+                    this.$content.find('form').on('submit', function (e) {
+                        // if the user submits the form by pressing enter in the field.
+                        e.preventDefault();
+                        jc.$$formSubmit.trigger('click'); // reference the button and click it
+                    });
+                }
+            });
+
+
+
+        })
     })
 </script>
 
