@@ -132,10 +132,13 @@
                     Carregando();
                     $(".popupPalco").html('');
                     $(".popupArea").css("display","block");
+                },
+                error:function(){
+                    console.log('erro');
                 }
             });
         })
-        
+
     })
 </script>
 
