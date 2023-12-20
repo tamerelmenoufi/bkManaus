@@ -137,7 +137,7 @@
             ?>
                         
                             <b>Remover de <?=$P->produto?></b><br>
-                            <?=implode(", ", $lista)?>
+                            <?=implode(", ", $lista)?><br>
 
             <?php
                         // echo "Remover do :<br>";
