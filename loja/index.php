@@ -115,7 +115,7 @@
                 Carregando();
                 $("body").attr("loja", loja);
                 $.ajax({
-                    url:"loja/home.php",
+                    url:"home.php",
                     type:"POST",
                     data:{
                         loja,
@@ -129,7 +129,7 @@
             }else{
                 Carregando();
                 $.ajax({
-                    url:"loja/lojas.php",
+                    url:"lojas.php",
                     success:function(dados){
                         Carregando('none');
                         $(".CorpoApp").html(dados);
