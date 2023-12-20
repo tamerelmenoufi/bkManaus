@@ -41,6 +41,20 @@
             <div class="alert alert-warning m-3" role="alert">
             Selecione uma das lojas para acessar as comandas de pedidos.
             </div>
+
+
+            <ul class="list-group m-3">
+                <?php
+                $query = "select * from lojas where situacao = '1' and deletado != '1' order by nome";
+                $result = mysqli_query($con, $query);
+                while($d = mysqli_fetch_object($result)){
+                ?>
+                    <li class="list-group-item"><?=$d->nome?></li>
+                <?php
+                }
+                ?>
+            </ul>
+
         </div>
     </div>
 </div>
