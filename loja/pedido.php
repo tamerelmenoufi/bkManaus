@@ -116,14 +116,21 @@
                 // echo "Adicional:".$v->adicional."<br><hr>";
 
 
-
-                if($v->tipo == 'produto'){
-
-                    if($v->regras->remocao or $v->regras->inclusao or $v->regras->substituicao){
+                if(
+                    $v->regras->remocao or 
+                    $v->regras->inclusao or 
+                    $v->regras->substituicao or
+                    $v->regras->combo->remocao or
+                    $v->regras->combo->inclusa or 
+                    $v->regras->combo->substituicao
+                ){
             ?>
                 <div class="alert alert-dark dados" role="alert">
             <?php
-                    }
+                }
+
+                if($v->tipo == 'produto'){
+
 
                     
                     if($v->regras->remocao){
@@ -191,7 +198,7 @@
                         $vl = $v->regras->substituicao_valor;                        
                         while($s = mysqli_fetch_object($r)){
                             $pnt = array_search($s->codigo, $v->regras->substituicao);
-                            echo "$s->item - {$vl[$pnt]}<br>";
+                            // echo "$s->item - {$vl[$pnt]}<br>";
                 ?>
                             <div class="d-flex justify-content-between dados">
                                 <div>
@@ -212,12 +219,6 @@
                         // }
                     }
 
-
-                    if($v->regras->remocao or $v->regras->inclusao or $v->regras->substituicao){
-                        ?>
-                            </div>
-                        <?php
-                    }
 
                 }else if($v->tipo == 'combo'){
 
@@ -250,8 +251,20 @@
                     
                 }
 
-                echo "<hr>Anotações:".$v->anotacoes."<br><br><br>";
+                echo "<p>".$v->anotacoes."</p>";
 
+                if(
+                    $v->regras->remocao or 
+                    $v->regras->inclusao or 
+                    $v->regras->substituicao or
+                    $v->regras->combo->remocao or
+                    $v->regras->combo->inclusa or 
+                    $v->regras->combo->substituicao
+            ){
+                ?>
+                    </div>
+                <?php
+            }
 
             }
 
