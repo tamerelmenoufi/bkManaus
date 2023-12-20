@@ -48,24 +48,31 @@
 
                 $q = "select * from produtos where codigo ='{$v->codigo}'";
                 $r = mysqli_query($con, $q);
-                $s = mysqli_fetch_object($r);
+                $P = mysqli_fetch_object($r);
 
                 print_r($v);
                 echo "<br><br>";
-                echo "Tipo:".$v->tipo."<br>";
-                echo "Total:".$v->total."<br>";
-                echo "Valor:".$v->valor."<br>";
-                echo "Produto:".$s->produto."<br>";
-                echo "Quantidade:".$v->quantidade."<br>";
-                // echo "Categoria:".$v->categoria."<br>";
-                echo "Status:".$v->status."<br>";
-                echo "Adicional:".$v->adicional."<br><hr>";
+
+                echo "{$v->quantidade} X {$P->produto}<br>";
+                echo "Valor unitário {$v->valor}<br>";
+                echo "Valor Adicional {$v->adicional}<br>";
+                echo "Valor Total {$v->total}<br>";
+
+
+                // echo "Tipo:".$v->tipo."<br>";
+                // echo "Total:".$v->total."<br>";
+                // echo "Valor:".$v->valor."<br>";
+                // echo "Produto:".$s->produto."<br>";
+                // echo "Quantidade:".$v->quantidade."<br>";
+                // // echo "Categoria:".$v->categoria."<br>";
+                // echo "Status:".$v->status."<br>";
+                // echo "Adicional:".$v->adicional."<br><hr>";
 
 
                 if($v->tipo == 'produto'){
                     
                     if($v->regras->remocao){
-                        echo "Remoção:<br>";
+                        echo "Remover do :<br>";
                         $q = "select * from itens where codigo in (".implode(",", $v->regras->remocao).")";
                         $r = mysqli_query($con, $q);
                         while($s = mysqli_fetch_object($r)){
