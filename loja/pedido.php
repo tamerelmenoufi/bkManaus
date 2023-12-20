@@ -52,7 +52,7 @@
                 echo "Valor:".$v->valor."<br>";
                 echo "Codigo:".$v->codigo."<br>";
                 echo "Quantidade:".$v->quantidade."<br>";
-                echo "Categoria:".$v->categoria."<br>";
+                // echo "Categoria:".$v->categoria."<br>";
                 echo "Status:".$v->status."<br>";
 
                 echo "Adicional:".$v->adicional."<br>";
