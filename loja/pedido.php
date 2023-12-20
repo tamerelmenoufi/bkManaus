@@ -13,7 +13,9 @@
 
 ?>
 <style>
-
+    .popupPalco{
+        overflow:auto;
+    }
 </style>
 
 <div class="row g-0 m-3">
