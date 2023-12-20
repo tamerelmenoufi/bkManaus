@@ -79,9 +79,9 @@
 
                     echo "<hr>Inclusão:<br>";
                     foreach($v->regras->combo->inclusao as $i1 => $v1){
-                        $qt = $v->regras->inclusao_quantidade;
-                        $vl = $v->regras->inclusao_valor;
-                        echo "{$qt[$i1]} x Inclusão {$v1} - {$vl[$i1]} = ".($vl[$i1] * $qt[$i1])."<br>";
+                        $qt = $v->regras->combo->inclusao_quantidade;
+                        $vl = $v->regras->combo->inclusao_valor;
+                        echo "{$qt[$i1]->quantidade} / {$qt[$i1]->produto} x Inclusão {$v1->item} / {$v1->produto} - {$vl[$i1]->valor} / {$vl[$i1]->produto} = ".($vl[$i1]->valor * $qt[$i1]->quantidade)."<br>";
                         // echo "{$i1} x {$v1}<br>";
                     }
                     
