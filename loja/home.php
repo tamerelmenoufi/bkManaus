@@ -62,18 +62,19 @@
                 $result = mysqli_query($con, $query);
                 while($d = mysqli_fetch_object($result)){
                 ?>
-                    <li class="list-group-item d-flex justify-content-between" pedido="<?=$d->codigo?>">
-                        <div>
-                            Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?>
-                            <br>
-                            <?=$d->nome?>                            
+                    <li class="list-group-item" pedido="<?=$d->codigo?>">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?>
+                                <br>
+                                <?=$d->nome?>                            
+                            </div>
+                            <div>
+                                Entrega: <?=$d->entrega?>
+                                <br>
+                                Retorno: <?=$d->retorno?>
+                            </div>                        
                         </div>
-                        <div>
-                            Entrega: <?=$d->entrega?>
-                            <br>
-                            Retorno: <?=$d->retorno?>
-                        </div>
-
                     </li>
                 <?php
                 }
