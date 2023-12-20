@@ -148,7 +148,7 @@
                     }
 
                     if($v->regras->inclusao){
-                        echo "<b>Incluir em {$P->produto}</b>";
+                        echo "<p><b>Incluir em {$P->produto}</b></p>";
                         $q = "select * from itens where codigo in (".implode(",", $v->regras->inclusao).")";
                         $r = mysqli_query($con, $q);
                         $qt = $v->regras->inclusao_quantidade;
@@ -184,7 +184,7 @@
                     }
 
                     if($v->regras->substituicao){
-                        echo "<hr>Substituição:<br>";
+                        echo "<p><b>Substituir {$P->produto}</b></p>";
 
                         $q = "select * from itens where codigo in (".implode(",", $v->regras->substituicao).")";
                         $r = mysqli_query($con, $q);
@@ -192,7 +192,16 @@
                         while($s = mysqli_fetch_object($r)){
                             $pnt = array_search($s->codigo, $v->regras->substituicao);
                             echo "$s->item - {$vl[$pnt]}<br>";
-
+                ?>
+                            <div class="d-flex justify-content-between dados">
+                                <div>
+                                    <?="{$s->item}"?>
+                                </div>
+                                <div>
+                                    <b><?=number_format($vl[$pnt],2,',',false)?></b>
+                                </div>                                
+                            </div>
+                <?php
                         }
                         // echo "-------------------------------------------------------------------------------<br>";
 
