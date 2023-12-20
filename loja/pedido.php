@@ -127,10 +127,10 @@
                         }
 
             ?>
-                <div class="alert alert-dark dados" role="alert">
-                    <b>Remover de <?=$P->produto?></b><br>
-                    <?=implode(", ", $lista)?>
-                </div>
+                        <div class="alert alert-dark dados" role="alert">
+                            <b>Remover de <?=$P->produto?></b><br>
+                            <?=implode(", ", $lista)?>
+                        </div>
             <?php
                         // echo "Remover do :<br>";
 
@@ -140,16 +140,32 @@
                     }
 
                     if($v->regras->inclusao){
-                        echo "<hr>Inclusão:<br>";
+                        echo "<b>Incluir em {$P->produto}</b><br>";
                         $q = "select * from itens where codigo in (".implode(",", $v->regras->inclusao).")";
                         $r = mysqli_query($con, $q);
                         $qt = $v->regras->inclusao_quantidade;
-                        $vl = $v->regras->inclusao_valor;                        
+                        $vl = $v->regras->inclusao_valor;                      
                         while($s = mysqli_fetch_object($r)){
                             $pnt = array_search($s->codigo, $v->regras->inclusao);
-                            echo "{$qt[$pnt]} x $s->item - {$vl[$pnt]} = ".($vl[$pnt] * $qt[$pnt])."<br>";
+                            // echo "{$qt[$pnt]} x $s->item - {$vl[$pnt]} = ".($vl[$pnt] * $qt[$pnt])."<br>";
+                ?>
+                            <div class="d-flex justify-content-between dados">
+                                <div>
+                                    <?="{$qt[$pnt]} x $s->item"?>
+                                </div>
+                                <div>
+                                    <b><?=number_format($vl[$pnt],2,',',false)?></b>
+                                </div>
+                                <div>
+                                    <b><?=number_format($vl[$pnt] * $qt[$pnt],2,',',false)?></b>
+                                </div>
+                                
+                            </div>
+                <?php
 
                         }
+
+
                         // echo "-------------------------------------------------------------------------------";
                         // foreach($v->regras->inclusao as $i1 => $v1){
                         //     $qt = $v->regras->inclusao_quantidade;
