@@ -77,10 +77,10 @@
                     }
 
                     if($v->regras->substituicao){
-                        echo "<hr>Inclusão:<br>";
+                        echo "<hr>Substituição:<br>";
                         foreach($v->regras->substituicao as $i1 => $v1){
                             $vl = $v->regras->substituicao_valor;
-                            echo "{$qt[$i1]} x Substituição {$v1} - {$vl[$i1]} = ".($vl[$i1] * $qt[$i1])."<br>";
+                            echo "Substituição {$v1} - {$vl[$i1]} <br>";
                             // echo "{$i1} x {$v1}<br>";
                         }
                     }
