@@ -54,8 +54,8 @@
                 $r = mysqli_query($con, $q);
                 $P = mysqli_fetch_object($r);
 
-                print_r($v);
-                echo "<br><br>";
+                // print_r($v);
+                // echo "<br><br>";
         ?>
 
                 <div class="d-flex justify-content-between dados">
