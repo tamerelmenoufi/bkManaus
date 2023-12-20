@@ -82,17 +82,28 @@
                             echo "{$qt[$pnt]} x $s->item - {$vl[$pnt]} = ".($vl[$pnt] * $qt[$pnt])."<br>";
 
                         }
-                        echo "-------------------------------------------------------------------------------";
-                        foreach($v->regras->inclusao as $i1 => $v1){
-                            $qt = $v->regras->inclusao_quantidade;
-                            $vl = $v->regras->inclusao_valor;
-                            echo "{$qt[$i1]} x Inclusão {$v1} - {$vl[$i1]} = ".($vl[$i1] * $qt[$i1])."<br>";
-                            // echo "{$i1} x {$v1}<br>";
-                        }
+                        // echo "-------------------------------------------------------------------------------";
+                        // foreach($v->regras->inclusao as $i1 => $v1){
+                        //     $qt = $v->regras->inclusao_quantidade;
+                        //     $vl = $v->regras->inclusao_valor;
+                        //     echo "{$qt[$i1]} x Inclusão {$v1} - {$vl[$i1]} = ".($vl[$i1] * $qt[$i1])."<br>";
+                        //     // echo "{$i1} x {$v1}<br>";
+                        // }
                     }
 
                     if($v->regras->substituicao){
                         echo "<hr>Substituição:<br>";
+
+                        $q = "select * from produtos where codigo in (".implode(",", $v->regras->substituicao).")";
+                        $r = mysqli_query($con, $q);
+                        $vl = $v->regras->substituicao_valor;                        
+                        while($s = mysqli_fetch_object($r)){
+                            $pnt = array_search($s->codigo, $v->regras->substituicao);
+                            echo "$s->produto - {$vl[$pnt]}<br>";
+
+                        }
+                        echo "-------------------------------------------------------------------------------<br>";
+
                         foreach($v->regras->substituicao as $i1 => $v1){
                             $vl = $v->regras->substituicao_valor;
                             echo "Substituição {$v1} - {$vl[$i1]} <br>";
