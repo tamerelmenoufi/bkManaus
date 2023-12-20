@@ -17,6 +17,7 @@
                 'loja' => false
             ];            
         }
+        echo json_encode($retorno);
         exit();
     }
 
@@ -108,7 +109,7 @@
                             $.ajax({
                                 url:"lojas.php",
                                 type:"POST",
-                                typeData:"JSON",
+                                dataType:"JSON",
                                 data:{
                                     loja,
                                     senha
