@@ -108,7 +108,7 @@
                             $.ajax({
                                 url:"lojas.php",
                                 type:"POST",
-                                dataType:"JSON",
+                                typeData:"JSON",
                                 data:{
                                     loja,
                                     senha
