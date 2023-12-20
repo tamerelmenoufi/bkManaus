@@ -47,6 +47,10 @@
         right:20px;
         top:15px;
     }
+    li[pedido]{
+        cursor:pointer;
+        font-size:12px;
+    }
 </style>
 <div class="barra_topo">
     <span class="fechar"><i class="fa-solid fa-right-from-bracket"></i> Sair</span>
@@ -56,32 +60,31 @@
 <div class="home_corpo">
     <div class="row g-0 m-3">
 
-            <ul class="list-group">
-                <?php
-                $query = "select a.*, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where a.delivery_id = '{$l->mottu}' and a.situacao = 'pago' order by a.data desc";
-                $result = mysqli_query($con, $query);
-                while($d = mysqli_fetch_object($result)){
-                ?>
-                    <li class="list-group-item" pedido="<?=$d->codigo?>">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?>
-                                <br>
-                                <?=$d->nome?>
-                            </div>
-                            <div>
-                                Entrega: <?=$d->entrega?>
-                                <br>
-                                Retorno: <?=$d->retorno?>
-                            </div>
+        <ul class="list-group">
+            <?php
+            $query = "select a.*, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where a.delivery_id = '{$l->mottu}' and a.situacao = 'pago' order by a.data desc";
+            $result = mysqli_query($con, $query);
+            while($d = mysqli_fetch_object($result)){
+            ?>
+                <li class="list-group-item" pedido="<?=$d->codigo?>">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?>
+                            <br>
+                            <?=$d->nome?>
                         </div>
-                    </li>
-                <?php
-                }
-                ?>
-            </ul>
+                        <div>
+                            Entrega: <?=$d->entrega?>
+                            <br>
+                            Retorno: <?=$d->retorno?>
+                        </div>
+                    </div>
+                </li>
+            <?php
+            }
+            ?>
+        </ul>
 
-        </div>
     </div>
 </div>
 
