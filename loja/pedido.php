@@ -94,12 +94,12 @@
                     if($v->regras->substituicao){
                         echo "<hr>Substituição:<br>";
 
-                        $q = "select * from produtos where codigo in (".implode(",", $v->regras->substituicao).")";
+                        $q = "select * from itens where codigo in (".implode(",", $v->regras->substituicao).")";
                         $r = mysqli_query($con, $q);
                         $vl = $v->regras->substituicao_valor;                        
                         while($s = mysqli_fetch_object($r)){
                             $pnt = array_search($s->codigo, $v->regras->substituicao);
-                            echo "$s->produto - {$vl[$pnt]}<br>";
+                            echo "$s->item - {$vl[$pnt]}<br>";
 
                         }
                         echo "-------------------------------------------------------------------------------<br>";
