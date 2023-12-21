@@ -340,7 +340,7 @@
                     
                 }
 
-                echo "<p><b>".$v->anotacoes."</b></p>";
+                echo "<p class='mt-1'><b>".$v->anotacoes."</b></p>";
 
                 if(
                     $v->regras->remocao or 
