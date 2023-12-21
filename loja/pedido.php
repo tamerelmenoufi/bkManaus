@@ -126,7 +126,7 @@
                     $v->regras->combo->substituicao
                 ){
             ?>
-                <div class="alert alert-dark dados" role="alert">
+                <div class="alert alert-dark dados mt-3" role="alert">
             <?php
                 }
 
