@@ -49,7 +49,7 @@
                         Valor da Compra
                     </div>
                     <div>
-                        <?=number_format($d->valor_compra,2,',',false)?>
+                        R$ <?=number_format($d->valor_compra,2,',',false)?>
                     </div>
                 </div>
 
@@ -58,7 +58,7 @@
                         Valor da Entrega
                     </div>
                     <div>
-                        <?=number_format($d->valor_entrega,2,',',false)?>
+                        R$ <?=number_format($d->valor_entrega,2,',',false)?>
                     </div>
                 </div>
 
@@ -67,7 +67,7 @@
                         Valor de Desconto
                     </div>
                     <div>
-                        <?=number_format($d->valor_desconto,2,',',false)?>
+                        R$ <?=number_format($d->valor_desconto,2,',',false)?>
                     </div>
                 </div>
 
@@ -76,7 +76,7 @@
                         Valor Total
                     </div>
                     <div>
-                        <?=number_format($d->valor_total,2,',',false)?>
+                        R$ <?=number_format($d->valor_total,2,',',false)?>
                     </div>
                 </div>
             </li>
