@@ -339,9 +339,9 @@
  
                     
                 }
-
-                echo "<p class='mt-1'><b><i class='fa-solid fa-comment fa-flip-horizontal' style='color:orange'></i> ".$v->anotacoes."</b></p>";
-
+                if($v->anotacoes){
+                    echo "<p class='mt-1'><b><i class='fa-solid fa-comment fa-flip-horizontal' style='color:orange'></i> ".$v->anotacoes."</b></p>";
+                }
                 if(
                     $v->regras->remocao or 
                     $v->regras->inclusao or 
