@@ -57,6 +57,7 @@
                 // print_r($v);
                 // echo "<br><br>";
         ?>
+            <li class="list-group-item" pedido="<?=$d->codigo?>">
 
                 <div class="d-flex justify-content-between dados">
                     <div>
@@ -353,7 +354,9 @@
                     </div>
                 <?php
             }
-
+            ?>
+            </li>
+            <?php
             }
 
         }
