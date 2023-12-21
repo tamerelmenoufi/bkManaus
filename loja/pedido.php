@@ -239,7 +239,7 @@
                                 $produto = $s->produto;
                             }
                         ?>
-                            <div><b>Remover de <?=$produto?></b></div>
+                            <div class='mt-1'><b><i class="fa-solid fa-circle-minus" style="color:red"></i> Remover de <?=$produto?></b></div>
                             <?=implode(", ", $lista2)?><br>
                         <?php
                         }
@@ -271,7 +271,7 @@
                                 $lista2[] = $s->item;
 
                                 if($s->produto != $produto){
-                                    echo "<div><b>Incluir em {$s->produto}</b></div>";
+                                    echo "<div class='mt-1'><b><i class='fa-solid fa-circle-plus' style='color:green'></i> Incluir em {$s->produto}</b></div>";
                                     $produto = $s->produto;
                                 }
                         ?>
@@ -318,7 +318,7 @@
                             $produto = false;
                             while($s = mysqli_fetch_object($r)){
                                 if($s->produto != $produto){
-                                    echo "<div><b>Subistituir {$s->produto}</b></div>";
+                                    echo "<div class='mt-1'><b><i class='fa-solid fa-repeat' style='color:blue'></i> Substituir {$s->produto}</b></div>";
                                     $produto = $s->produto;
                                 }
                         ?>
