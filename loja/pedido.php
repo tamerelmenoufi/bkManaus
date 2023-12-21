@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-between dados">
+                <div class="d-flex justify-content-between dados mt-2">
                     <div>
                         Valor da Compra
                     </div>
@@ -76,7 +76,7 @@
                         Valor Total
                     </div>
                     <div>
-                        R$ <?=number_format($d->valor_total,2,',',false)?>
+                        <b>R$ <?=number_format($d->valor_total,2,',',false)?></b>
                     </div>
                 </div>
             </li>
