@@ -100,7 +100,7 @@
                         <b><?="{$v->quantidade} X ".(($v->tipo == 'combo')?'Combo ':false)."{$P->produto}"?></b>
                     </div>
                 </div>
-                <div class="d-flex justify-content-between dados">
+                <!-- <div class="d-flex justify-content-between dados">
                     <div>
                         Valor Unitário
                     </div>
@@ -131,7 +131,7 @@
                     <div>
                         <b><?=number_format($v->total*$v->quantidade,2,',',false)?></b>
                     </div>
-                </div>
+                </div> -->
 
 
 
