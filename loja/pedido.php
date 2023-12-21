@@ -43,6 +43,42 @@
                         Retorno: <?=$d->retorno?>
                     </div>
                 </div>
+
+                <div class="d-flex justify-content-between dados">
+                    <div>
+                        Valor da Compra
+                    </div>
+                    <div>
+                        <?=number_format($v->valor_compra,2,',',false)?>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between dados">
+                    <div>
+                        Valor da Entrega
+                    </div>
+                    <div>
+                        <?=number_format($v->valor_entrega,2,',',false)?>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between dados">
+                    <div>
+                        Valor de Desconto
+                    </div>
+                    <div>
+                        <?=number_format($v->valor_desconto,2,',',false)?>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between dados">
+                    <div>
+                        Valor Total
+                    </div>
+                    <div>
+                        <?=number_format($v->valor_total,2,',',false)?>
+                    </div>
+                </div>
             </li>
         <?php
 
