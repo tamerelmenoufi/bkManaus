@@ -169,13 +169,13 @@
                                 <div>
                                     <?="{$qt[$pnt]} x $s->item"?>
                                 </div>
-                                <div>
+                                <!-- <div>
                                     <b><?=number_format($vl[$pnt],2,',',false)?></b>
                                 </div>
-                                <!-- <div>
+                                <div>
                                     <b><?=number_format($vl[$pnt] * $qt[$pnt],2,',',false)?></b>
-                                </div> -->
-                                
+                                </div>
+                                 -->
                             </div>
                 <?php
 
@@ -279,10 +279,10 @@
                                 <div>
                                     <?="{$lista[$i1][$s->codigo]['quantidade']} x $s->item"?>
                                 </div>
-                                <div>
+                                <!-- <div>
                                     <b><?=number_format($lista[$i1][$s->codigo]['valor'],2,',',false)?></b>
                                 </div>
-                                <!-- <div>
+                                <div>
                                     <b><?=number_format($lista[$i1][$s->codigo]['valor'] * $lista[$i1][$s->codigo]['quantidade'],2,',',false)?></b>
                                 </div> -->
                                 
