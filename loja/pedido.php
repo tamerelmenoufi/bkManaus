@@ -150,7 +150,7 @@
                 
             </li>
 
-            <button type="button" class="btn btn-outline-danger btn-sm finalizar">Finalizar Pedido</button>
+            
 
         <?php
 
@@ -468,7 +468,7 @@
             }
         ?>
     </ul>
-
+    <button type="button" class="btn btn-outline-danger btn-sm finalizar">Finalizar Pedido</button>
 </div>
 
 <script>
@@ -478,6 +478,7 @@
             $.confirm({
                 title:"Finalizar Pedido",
                 content:"Esta opção muda a situação do pedido como entregue ao cliente.<br>Deseja realmente finalizar o pedido?",
+                columnClass:'col-12',
                 buttons:{
                     sim:{
                         text:'Sim',
