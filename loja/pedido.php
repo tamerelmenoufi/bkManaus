@@ -110,13 +110,16 @@
                 ?>
 
                 <div class="d-flex justify-content-between dados">
-                    <div class='col p-3'>
+                    <div class='col p-3 text-center'>
+                        Produção
                         <hr>
                     </div>
-                    <div class='col p-3'>
+                    <div class='col p-3 text-center'>
+                        Entrega
                         <hr>
                     </div>
-                    <div class='col p-3'>
+                    <div class='col p-3 text-center'>
+                        Entregue
                         <hr>
                     </div>
                 </div>
