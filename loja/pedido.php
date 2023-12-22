@@ -63,8 +63,9 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-between dados">
-                    <div>
-                        <i class="fa-solid fa-location-dot"></i> <?=$d->endereco?>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div class="w-100">
+                         <?=$d->endereco?>
                     </div>
                 </div>
                 
