@@ -92,7 +92,7 @@
                         Entregador
                     </div>
                     <div>
-                        <b><?=$delivery->deliveryMan->nome?></b>
+                        <b><?=$delivery->deliveryMan->name?></b>
                     </div>
                 </div>
 
