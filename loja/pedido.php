@@ -149,6 +149,9 @@
                 </div>
                 
             </li>
+
+            <button type="button" class="btn btn-outline-danger btn-sm finalizar">Finalizar Pedido</button>
+
         <?php
 
             
@@ -471,7 +474,41 @@
 <script>
     $(function(){
         
+        $(".finalizar").click(function(){
+            $.confirm({
+                title:"Finalizar Pedido",
+                content:"Esta opção muda a situação do pedido como entregue ao cliente.<br>Deseja realmente finalizar o pedido?",
+                buttons:{
+                    sim:{
+                        text:'Sim',
+                        btnClass:'btn btn-danger',
+                        action:function(){
+                            Carregando();
+                            $.ajax({
+                                url:"pedido.php",
+                                type:"POST",
+                                success:function(dados){
+                                    Carregando('none');
+                                    $(".popupPalco").html(dados);
+                                },
+                                error:function(){
+                                    console.log('erro');
+                                }
+                            });
+                        }
+                    },
+                    nao:{
+                        text:'Não',
+                        btnClass:'btn btn-warning',
+                        action:function(){
+                            
+                        }
+                    }
+                }
+            })
 
+
+        })
     })
 </script>
 
