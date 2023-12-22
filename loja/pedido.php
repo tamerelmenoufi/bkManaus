@@ -33,6 +33,7 @@
 
             if($d->producao == 'pendente'){
                 mysqli_query($con, "update vendas set producao = 'producao' where codigo = '{$d->codigo}'");
+                $d->producao = 'producao';
             }
             
             $pedido = json_decode($d->detalhes);
