@@ -472,7 +472,13 @@
             }
         ?>
     </ul>
+    <?php
+    if($d->producao != 'entregue'){
+    ?>
     <button type="button" class="btn btn-outline-danger btn-sm finalizar">Finalizar Pedido</button>
+    <?php
+    }
+    ?>
 </div>
 
 <script>
