@@ -29,8 +29,12 @@
         $query = "select a.*, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where a.codigo = '{$_SESSION['pedido']}'";
         $result = mysqli_query($con, $query);
         while($d = mysqli_fetch_object($result)){
+            
+            $pedido = json_decode($d->detalhes);
+            $delivery = json_decode($d->delivery_detalhes);
         ?>
             <li class="list-group-item" pedido="<?=$d->codigo?>">
+
                 <div class="d-flex justify-content-between dados">
                     <div>
                         Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?>
@@ -79,10 +83,22 @@
                         <b>R$ <?=number_format($d->valor_total,2,',',false)?></b>
                     </div>
                 </div>
+
+
+                <div class="d-flex justify-content-between dados">
+                    <div>
+                        Entregador
+                    </div>
+                    <div>
+                        <b><?=$delivery->deliveryMan->nome?></b>
+                    </div>
+                </div>
+
+                
             </li>
         <?php
 
-            $pedido = json_decode($d->detalhes);
+            
 
             foreach($pedido as $i => $v){
 
