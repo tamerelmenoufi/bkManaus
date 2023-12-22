@@ -116,12 +116,12 @@
                         <hr style="border:solid 5px; color:green;">
                     </div>
                     <div class='col p-3 text-center'>
-                        <h5><i class="fa-solid fa-mortar-pestle"></i></h5>
+                        <h5><i class="fa-solid fa-person-biking"></i></h5>
                         Entrega
                         <hr style="border:solid 5px; color:#ccc;">
                     </div>
                     <div class='col p-3 text-center'>
-                        <h5><i class="fa-solid fa-mortar-pestle"></i></h5>
+                        <h5><i class="fa-solid fa-people-roof"></i></h5>
                         Entregue
                         <hr style="border:solid 5px; color:#ccc;">
                     </div>
