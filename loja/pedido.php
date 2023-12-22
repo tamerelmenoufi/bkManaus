@@ -26,9 +26,14 @@
 
     <ul class="list-group">
         <?php
+
         $query = "select a.*, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where a.codigo = '{$_SESSION['pedido']}'";
         $result = mysqli_query($con, $query);
-        while($d = mysqli_fetch_object($result)){
+        $d = mysqli_fetch_object($result);
+
+            if($d->producao == 'pendente'){
+                mysqli_query($con, "update vendas set producao = 'producao' where codigo = '{$d->codigo}'");
+            }
             
             $pedido = json_decode($d->detalhes);
             $delivery = json_decode($d->delivery_detalhes);
@@ -442,8 +447,6 @@
             </li>
             <?php
             }
-
-        }
         ?>
     </ul>
 
