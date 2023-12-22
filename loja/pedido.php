@@ -33,7 +33,6 @@
             $pedido = json_decode($d->detalhes);
             $delivery = json_decode($d->delivery_detalhes);
 
-            print_r($delivery->deliveryMan->name);
         ?>
             <li class="list-group-item" pedido="<?=$d->codigo?>">
 
@@ -86,16 +85,20 @@
                     </div>
                 </div>
 
-
+                <?php
+                if($delivery->deliveryMan->name){
+                ?>
                 <div class="d-flex justify-content-between dados">
                     <div>
                         Entregador
                     </div>
                     <div>
-                        <b><?=$delivery->deliveryMan->name?></b>
+                        <?=$delivery->deliveryMan->name?>
                     </div>
                 </div>
-
+                <?php
+                }
+                ?>
                 
             </li>
         <?php
