@@ -68,7 +68,7 @@
 
         <ul class="list-group">
             <?php
-            $query = "select a.*, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where a.delivery_id = '{$l->mottu}' and a.situacao = 'pago' order by a.data desc";
+            $query = "select a.*, if(a.producao = 'pendente',0,1) as ordem, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where a.delivery_id = '{$l->mottu}' and a.situacao = 'pago' order by ordem asc, a.data desc";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
             ?>
