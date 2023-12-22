@@ -88,12 +88,21 @@
                 <?php
                 if($delivery->deliveryMan->name){
                 ?>
+                <h6>Dados de Entrega</h6>
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        Entregador
+                        Nome
                     </div>
                     <div>
                         <?=$delivery->deliveryMan->name?>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between dados">
+                    <div>
+                        Telefone
+                    </div>
+                    <div>
+                        <?="({$delivery->deliveryMan->ddd}) {$delivery->deliveryMan->phone}"?>
                     </div>
                 </div>
                 <?php
