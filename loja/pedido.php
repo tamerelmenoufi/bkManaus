@@ -112,7 +112,7 @@
                 <div class="d-flex justify-content-between dados">
                     <div class='col p-3 text-center'>
                         Produção
-                        <hr style="border:solid 10px; color:green;">
+                        <hr style="border:solid 5px; color:green;">
                     </div>
                     <div class='col p-3 text-center'>
                         Entrega
