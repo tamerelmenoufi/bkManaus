@@ -113,12 +113,12 @@
                     <div class='col p-3 text-center'>
                         <h5><i class="fa-solid fa-mortar-pestle"></i></h5>
                         Produção
-                        <hr style="border:solid 5px; color:<?=(($d->producao == 'producao')?'green':'#ccc')?>;">
+                        <hr style="border:solid 5px; color:<?=(($d->producao == 'producao' or $d->producao == 'entrega' or $d->producao == 'entregue')?'green':'#ccc')?>;">
                     </div>
                     <div class='col p-3 text-center'>
                         <h5><i class="fa-solid fa-person-biking"></i></h5>
                         Entrega
-                        <hr style="border:solid 5px; color:<?=(($d->producao == 'entrega')?'green':'#ccc')?>;">
+                        <hr style="border:solid 5px; color:<?=(($d->producao == 'entrega' or $d->producao == 'entregue')?'green':'#ccc')?>;">
                     </div>
                     <div class='col p-3 text-center'>
                         <h5><i class="fa-solid fa-people-roof"></i></h5>
