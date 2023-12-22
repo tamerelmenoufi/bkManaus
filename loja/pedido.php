@@ -27,7 +27,7 @@
     <ul class="list-group">
         <?php
 
-        $query = "select a.*, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where a.codigo = '{$_SESSION['pedido']}'";
+        $query = "select a.*, b.nome, b.telefone, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where a.codigo = '{$_SESSION['pedido']}'";
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
 
@@ -54,6 +54,15 @@
                         Retorno: <?=$d->retorno?>
                     </div>
                 </div>
+                <div class="d-flex justify-content-between dados">
+                    <div>
+                        <i class="fa-solid fa-dollar-sign"></i> Telefone
+                    </div>
+                    <div>
+                        <?=$d->telefone?>
+                    </div>
+                </div>
+                
 
                 <div class="d-flex justify-content-between dados mt-2">
                     <div>
