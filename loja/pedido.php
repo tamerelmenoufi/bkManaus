@@ -116,11 +116,11 @@
                     </div>
                     <div class='col p-3 text-center'>
                         Entrega
-                        <hr style="border:solid 5px; color:#eee;">
+                        <hr style="border:solid 5px; color:#ccc;">
                     </div>
                     <div class='col p-3 text-center'>
                         Entregue
-                        <hr style="border:solid 5px; color:#eee;">
+                        <hr style="border:solid 5px; color:#ccc;">
                     </div>
                 </div>
                 
