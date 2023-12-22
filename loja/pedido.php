@@ -108,6 +108,18 @@
                 <?php
                 }
                 ?>
+
+                <div class="d-flex justify-content-between dados">
+                    <div>
+                        <hr>
+                    </div>
+                    <div>
+                        <hr>
+                    </div>
+                    <div>
+                        <hr>
+                    </div>
+                </div>
                 
             </li>
         <?php
