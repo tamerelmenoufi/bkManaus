@@ -38,9 +38,9 @@
 
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?>
+                        <i class="fa-solid fa-receipt"></i> Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?>
                         <br>
-                        <?=$d->nome?>
+                        <i class="fa-solid fa-user"></i> <?=$d->nome?>
                     </div>
                     <div>
                         Entrega: <?=$d->entrega?>
@@ -51,7 +51,7 @@
 
                 <div class="d-flex justify-content-between dados mt-2">
                     <div>
-                        Valor da Compra
+                        <i class="fa-solid fa-dollar-sign"></i> Valor da Compra
                     </div>
                     <div>
                         R$ <?=number_format($d->valor_compra,2,',',false)?>
@@ -60,7 +60,7 @@
 
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        Valor da Entrega
+                        <i class="fa-solid fa-dollar-sign"></i> Valor da Entrega
                     </div>
                     <div>
                         R$ <?=number_format($d->valor_entrega,2,',',false)?>
@@ -69,7 +69,7 @@
 
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        Valor de Desconto
+                        <i class="fa-solid fa-dollar-sign"></i> Valor de Desconto
                     </div>
                     <div>
                         R$ <?=number_format($d->valor_desconto,2,',',false)?>
@@ -78,7 +78,7 @@
 
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        Valor Total
+                        <i class="fa-solid fa-dollar-sign"></i> Valor Total
                     </div>
                     <div>
                         <b>R$ <?=number_format($d->valor_total,2,',',false)?></b>
@@ -91,7 +91,7 @@
                 <div class="mt-2"><b><i class="fa-solid fa-motorcycle"></i> Dados de Entrega</b></div>
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        Nome
+                        <i class="fa-solid fa-person-biking"></i> Nome
                     </div>
                     <div>
                         <?=$delivery->deliveryMan->name?>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        Telefone
+                        <i class="fa-solid fa-mobile-screen-button"></i> Telefone
                     </div>
                     <div>
                         <?="({$delivery->deliveryMan->ddd}) {$delivery->deliveryMan->phone}"?>
