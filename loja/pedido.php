@@ -10,6 +10,10 @@
         $_SESSION['pedido'] = $_POST['pedido'];
     }
 
+    if($_POST['acao'] == 'finalizar'){
+        mysqli_query($con, "update vendas set producao = 'entregue' where codigo = '{$_POST['pedido']}'");
+    }
+
 
 ?>
 <style>
@@ -488,6 +492,10 @@
                             $.ajax({
                                 url:"pedido.php",
                                 type:"POST",
+                                data:{
+                                    acao:'finalizar',
+                                    pedido:'<?=$d->codigo?>',
+                                },
                                 success:function(dados){
                                     Carregando('none');
                                     $(".popupPalco").html(dados);
