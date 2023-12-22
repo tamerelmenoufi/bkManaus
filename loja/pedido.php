@@ -88,7 +88,7 @@
                 <?php
                 if($delivery->deliveryMan->name){
                 ?>
-                <h6>Dados de Entrega</h6>
+                <div class="mt-2"><b><i class="fa-solid fa-motorcycle"></i> Dados de Entrega</b></div>
                 <div class="d-flex justify-content-between dados">
                     <div>
                         Nome
