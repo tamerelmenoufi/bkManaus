@@ -33,7 +33,7 @@
             $pedido = json_decode($d->detalhes);
             $delivery = json_decode($d->delivery_detalhes);
 
-            print_r($delivery->deliveryMan);
+            print_r($delivery->deliveryMan->name);
         ?>
             <li class="list-group-item" pedido="<?=$d->codigo?>">
 
