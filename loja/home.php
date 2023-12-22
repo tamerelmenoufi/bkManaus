@@ -157,9 +157,9 @@
             }); 
         }, 10000);
 
-        $(".popupFecha").click(function(){
-            clearTimeout(atualizacao);
-        })
+        // $(".popupFecha").click(function(){
+        //     clearTimeout(atualizacao);
+        // })
 
     })
 </script>
