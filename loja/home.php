@@ -51,6 +51,12 @@
         cursor:pointer;
         font-size:12px;
     }
+    .bg-secondary-subtle{
+        background-color:#e2e3e5;
+    }
+    .bg-success-subtle{
+        background-color:#d1e7dd;
+    }
 </style>
 <div class="barra_topo">
     <span class="fechar"><i class="fa-solid fa-right-from-bracket"></i> Sair</span>
