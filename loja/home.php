@@ -122,7 +122,6 @@
             })
         })
 
-
         $("li[pedido]").click(function(){
             pedido = $(this).attr("pedido");
             loja = localStorage.getItem("loja");
@@ -143,6 +142,23 @@
                     console.log('erro');
                 }
             });
+        })
+
+        atualizacao = setTimeout(() => {
+            $.ajax({
+                url:"home.php",
+                type:"POST",
+                data:{
+                    loja,
+                },
+                success:function(dados){
+                    $(".CorpoApp").html(dados);
+                }
+            }); 
+        }, 10000);
+
+        $(".popupFecha").click(function(){
+            clearTimeout(atualizacao);
         })
 
     })
