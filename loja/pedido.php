@@ -60,10 +60,7 @@
                 </div>
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        <i class="fa-solid fa-mobile-screen-button"></i> Telefone
-                    </div>
-                    <div>
-                        <?=$d->telefone?>
+                        <i class="fa-solid fa-mobile-screen-button"></i> <?=$d->telefone?>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between dados">
