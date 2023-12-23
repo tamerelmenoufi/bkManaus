@@ -70,10 +70,10 @@ $pdAtiva = $_SESSION['historico'][$i]['local'];
             <p <?=(($pdAtiva == 'usuarios/perfil.php')?'style="color:#ffdb37;"':false)?>>Perfil</p>
         </div>
         
-        <div navegacao="home/index.php" class="telaPedido">
+        <!-- <div navegacao="home/index.php" class="telaPedido">
             <i class="fa-solid fa-burger" <?=(($pdAtiva == 'home/index.php')?'style="color:#ffdb37;"':false)?>></i>
             <p <?=(($pdAtiva == 'home/index.php')?'style="color:#ffdb37;"':false)?>>Menu</p>
-        </div>
+        </div> -->
         
         <div navegacao="pedido/resumo.php" class="telaPedido">
             <i class="fa-solid fa-bag-shopping" <?=(($pdAtiva == 'pedido/resumo.php')?'style="color:#ffdb37;"':false)?>></i>
