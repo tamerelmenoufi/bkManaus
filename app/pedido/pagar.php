@@ -106,12 +106,6 @@ $(function(){
         },
         success:function(dados){
             $(`.dados_pedido`).html(dados);
-            total = $("body").attr("total");
-            if(total == 0){
-                Carregando('none');
-                return false;
-            }
-
             $.ajax({
                 url:"pedido/cliente.php",
                 type:"POST",

@@ -90,7 +90,6 @@
     $(function(){
 
         total = <?=$total?>;
-        $("body").attr("total", total);
         if((total*1) == 0){
             $.ajax({
                 url:"pedido/pedidos_historico.php",
