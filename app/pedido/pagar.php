@@ -108,8 +108,8 @@ $(function(){
             $(`.dados_pedido`).html(dados);
             total = $("body").attr("total");
             if(total == 0){
-                return false;
                 Carregando('none');
+                return false;
             }
 
             $.ajax({
