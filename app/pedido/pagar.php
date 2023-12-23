@@ -106,7 +106,10 @@ $(function(){
         },
         success:function(dados){
             $(`.dados_pedido`).html(dados);
-
+            total = $("body").attr("total");
+            if(total == 0){
+                return false;
+            }
 
             $.ajax({
                 url:"pedido/cliente.php",
