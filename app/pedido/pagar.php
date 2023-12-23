@@ -109,6 +109,7 @@ $(function(){
             total = $("body").attr("total");
             if(total == 0){
                 return false;
+                Carregando('none');
             }
 
             $.ajax({
