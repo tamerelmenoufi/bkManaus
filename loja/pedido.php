@@ -110,7 +110,7 @@
                 <?php
                 if($delivery->deliveryMan->name){
                 ?>
-                <div class="mt-2"><b><i class="fa-solid fa-motorcycle"></i> Dados de Entrega</b></div>
+                <div class="mt-2 mb-2"><b><i class="fa-solid fa-motorcycle"></i> Dados de Entrega</b></div>
                 <div class="d-flex justify-content-between dados">
                     <div>
                         <i class="fa-solid fa-person-biking"></i> Nome
@@ -130,7 +130,9 @@
                 <?php
                 }else{
                 ?>
+                <div class="mt-2 mb-2">
                 SELECIONAR O ENTREGADOR
+                </div>
                 <?php
                 }
                 ?>
