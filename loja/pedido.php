@@ -131,7 +131,12 @@
                 }else{
                 ?>
                 <div class="mt-2 mb-2 text-center">
-                SELECIONAR O ENTREGADOR
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between">
+                            Tamer Mohamed Elmenoufi
+                            <span>(92) 99188-6570</span>
+                        </li>
+                    </ul>
                 </div>
                 <?php
                 }
