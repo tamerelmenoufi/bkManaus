@@ -128,6 +128,10 @@
                     </div>
                 </div>
                 <?php
+                }else{
+                ?>
+                SELECIONAR O ENTREGADOR
+                <?php
                 }
                 ?>
 
