@@ -215,6 +215,9 @@
                         $q = "select * from entregadores where situacao = '1' and deletado != '1' order by nome";
                         $r = mysqli_query($con, $q);
                         while($e = mysqli_fetch_object($r)){
+                            $fone = trim(str_replace(['-','(',')',' '],false,$e->telefone));
+                            $ddd = substr($fone, 0,2);
+                            $telefone = substr($fone, 2);
                         ?>
                         <li 
                             class="list-group-item d-flex justify-content-between"
