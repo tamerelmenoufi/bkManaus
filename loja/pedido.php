@@ -130,7 +130,7 @@
                 <?php
                 }else{
                 ?>
-                <div class="mt-2 mb-2">
+                <div class="mt-2 mb-2 text-center">
                 SELECIONAR O ENTREGADOR
                 </div>
                 <?php
