@@ -2,6 +2,84 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
 
+    $json_modelo = '
+    
+    {
+        "id": 6361224,
+        "code": "",
+        "events": [
+            {
+                "id": 1,
+                "latitude": null,
+                "createdAt": "'.date("Y-m-d H:i:s").'",
+                "longitude": null,
+                "deliveryMan": {
+                    "name": "DOUGLAS NUNES LEONARDO",
+                    "phone": "991933888"
+                },
+                "description": "",
+                "requestedBy": {
+                    "name": "DOUGLAS NUNES LEONARDO",
+                    "phone": "991933888"
+                }
+            }
+        ],
+        "origin": "loja",
+        "storeId": 813416,
+        "fullCode": null,
+        "createdAt": "'.date("Y-m-d H:i:s").'",
+        "situation": null,
+        "deliveries": [
+            {
+                "id": null,
+                "code": "",
+                "name": "",
+                "phone": "",
+                "address": {
+                    "city": "",
+                    "state": "",
+                    "number": "",
+                    "street": "",
+                    "zipCode": "",
+                    "latitude": null,
+                    "longitude": null,
+                    "complement": "",
+                    "neighborhood": ""
+                },
+                "distance": null,
+                "fullCode": null,
+                "situation": null,
+                "orderRoute": 1,
+                "dropoffCode": "",
+                "observation": "",
+                "deliveryCode": "",
+                "productValue": 0,
+                "onlinePayment": true
+            }
+        ],
+        "pickupCode": "0235",
+        "returnCode": "4378",
+        "deliveryFee": 19.5,
+        "deliveryMan": {
+            "id": 632890,
+            "ddd": "92",
+            "name": "DOUGLAS NUNES LEONARDO",
+            "email": "",
+            "phone": "991933888",
+            "document": "",
+            "latitude": null,
+            "longitude": null,
+            "profileId": 0
+        },
+        "totalDistance": null,
+        "expectedPickup": null,
+        "preparationTime": 0,
+        "expectedDelivery": null
+    }
+    
+    ';
+
+
     if($_POST['loja']){
         $_SESSION['bkLoja'] = $_POST['loja'];
     }
@@ -133,10 +211,24 @@
                 <div class="mt-2 mb-2 text-center">
                     <h5>Selecione o Entregador</h5>
                     <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between">
-                            Tamer Mohamed Elmenoufi
-                            <span>(92) 99188-6570</span>
+                        <?php
+                        $q = "select * from entregadores where situacao = '1' and deletado != '1' order by nome";
+                        $r = mysqli_query($con, $q);
+                        while($e = mysqli_fetch_object($r)){
+                        ?>
+                        <li 
+                            class="list-group-item d-flex justify-content-between"
+                            entrga_id="<?=$e->codigo?>"
+                            entrga_nome="<?=$e->nome?>"
+                            entrga_ddd="<?=$ddd?>"
+                            entrga_telefone="<?=$telefone?>"
+                        >
+                            <?=$e->nome?>
+                            <span><?=$e->telefone?></span>
                         </li>
+                        <?php
+                        }
+                        ?>
                     </ul>
                 </div>
                 <?php
