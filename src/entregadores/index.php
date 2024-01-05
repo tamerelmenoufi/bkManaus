@@ -129,7 +129,7 @@
                     <td>
 
                     <div class="form-check form-switch">
-                      <input class="form-check-input situacao" type="checkbox" <?=(($d->codigo == 1)?'disabled':false)?> <?=(($d->situacao)?'checked':false)?> usuario="<?=$d->codigo?>">
+                      <input class="form-check-input situacao" type="checkbox" <?=(($d->situacao)?'checked':false)?> usuario="<?=$d->codigo?>">
                     </div>
 
                     </td>
@@ -144,15 +144,11 @@
                       >
                         Editar
                       </button>
-                      <?php
-                      if($d->codigo != 1){
-                      ?>
+
                       <button class="btn btn-danger" delete="<?=$d->codigo?>">
                         Excluir
                       </button>
-                      <?php
-                      }
-                      ?>
+
                     </td>
                   </tr>
                   <?php
