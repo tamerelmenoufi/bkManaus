@@ -103,7 +103,7 @@
         font-size:12px;
     }
     li[entrga_id]:hover > div > i{
-        color:red
+        color:#000
     }
 </style>
 
@@ -141,7 +141,7 @@
                 </div>
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        <i class="fa-solid fa-mobile-screen-button"></i> <?=$d->telefone?>
+                        <i class="fa-solid fa-mobile-screen-button" style="color:#fff"></i> <?=$d->telefone?>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between dados">
