@@ -232,12 +232,16 @@
                         <?="({$delivery->deliveryMan->ddd}) {$delivery->deliveryMan->phone}"?>
                     </div>
                 </div>
+                <?php
+                if($d->producao != 'entregue'){
+                ?>
                 <div class="d-flex justify-content-end mt-1 mb-3">
                     <div class="text-danger trocar_entregador">
                         <i class="fa-solid fa-rotate"></i> Trocar o enregador
                     </div>
                 </div>
                 <?php
+                }
                 }else{
                 ?>
                 <div class="mt-2 mb-2 text-center">
