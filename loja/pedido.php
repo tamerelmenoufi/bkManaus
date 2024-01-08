@@ -603,11 +603,27 @@
             entrega_ddd = $(this).attr("entrega_ddd");
             entrega_telefone = $(this).attr("entrega_telefone");
 
-            $.alert({
+            $.confirm({
                 title:"Definir Entregador",
-                content:`Você acaba de selecionar ${entrega_nome} para realizar a entrega.<br>Confirma a ação?`,
+                content:`Você acaba de selecionar <b>${entrega_nome}</b> para realizar a entrega.<br>Confirma a ação?`,
                 columnClass:"col-12",
-                type:"blue"
+                type:"blue",
+                buttons:{
+                    'SIM':{
+                        text:"Sim",
+                        btnClass:"btn btn-primary",
+                        action:function(){
+
+                        }
+                    },
+                    'NÃO':{
+                        text:"Não",
+                        btnClass:"btn btn-danger",
+                        action:function(){
+
+                        }
+                    },
+                }
             })
 
         });
