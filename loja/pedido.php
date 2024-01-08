@@ -226,7 +226,10 @@
                             entrga_ddd="<?=$ddd?>"
                             entrga_telefone="<?=$telefone?>"
                         >
-                            <?=$e->nome?>
+                            <div>
+                                <i class="fa-solid fa-check"></i>
+                                <?=$e->nome?>
+                            </div>
                             <span><?=$e->telefone?></span>
                         </li>
                         <?php
