@@ -224,9 +224,9 @@
                         <?="({$delivery->deliveryMan->ddd}) {$delivery->deliveryMan->phone}"?>
                     </div>
                 </div>
-                <div class="d-flex justify-content-end">
-                    <div>
-                        Excluir
+                <div class="d-flex justify-content-end mt-1 mb-3">
+                    <div class="text-red trocar_entregador">
+                        Trocar o enregador
                     </div>
                 </div>
                 <?php
