@@ -1,83 +1,95 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+    if($_POST['entregador']){
 
-    $json_modelo = '
-    
-    {
-        "id": 6361224,
-        "code": "",
-        "events": [
-            {
-                "id": 1,
-                "latitude": null,
-                "createdAt": "'.date("Y-m-d H:i:s").'",
-                "longitude": null,
-                "deliveryMan": {
-                    "name": "DOUGLAS NUNES LEONARDO",
-                    "phone": "991933888"
-                },
-                "description": "",
-                "requestedBy": {
-                    "name": "DOUGLAS NUNES LEONARDO",
-                    "phone": "991933888"
-                }
-            }
-        ],
-        "origin": "loja",
-        "storeId": 813416,
-        "fullCode": null,
-        "createdAt": "'.date("Y-m-d H:i:s").'",
-        "situation": null,
-        "deliveries": [
-            {
-                "id": null,
-                "code": "",
-                "name": "",
-                "phone": "",
-                "address": {
-                    "city": "",
-                    "state": "",
-                    "number": "",
-                    "street": "",
-                    "zipCode": "",
+
+        $entrega_id = $_POST['entrega_id'];
+        $entrega_nome = $_POST['entrega_nome'];
+        $entrega_ddd = $_POST['entrega_ddd'];
+        $entrega_telefone = $_POST['entrega_telefone'];
+
+        $json_modelo = '
+        
+        {
+            "id": '.$entrega_id.',
+            "code": "",
+            "events": [
+                {
+                    "id": 1,
                     "latitude": null,
+                    "createdAt": "'.date("Y-m-d H:i:s").'",
                     "longitude": null,
-                    "complement": "",
-                    "neighborhood": ""
-                },
-                "distance": null,
-                "fullCode": null,
-                "situation": null,
-                "orderRoute": 1,
-                "dropoffCode": "",
-                "observation": "",
-                "deliveryCode": "",
-                "productValue": 0,
-                "onlinePayment": true
-            }
-        ],
-        "pickupCode": "0235",
-        "returnCode": "4378",
-        "deliveryFee": 19.5,
-        "deliveryMan": {
-            "id": 632890,
-            "ddd": "92",
-            "name": "DOUGLAS NUNES LEONARDO",
-            "email": "",
-            "phone": "991933888",
-            "document": "",
-            "latitude": null,
-            "longitude": null,
-            "profileId": 0
-        },
-        "totalDistance": null,
-        "expectedPickup": null,
-        "preparationTime": 0,
-        "expectedDelivery": null
+                    "deliveryMan": {
+                        "name": "'.$entrega_nome.'",
+                        "phone": "'.$entrega_telefone.'"
+                    },
+                    "description": "",
+                    "requestedBy": {
+                        "name": "'.$entrega_nome.'",
+                        "phone": "'.$entrega_telefone.'"
+                    }
+                }
+            ],
+            "origin": "loja",
+            "storeId": '.$entrega_id.',
+            "fullCode": null,
+            "createdAt": "'.date("Y-m-d H:i:s").'",
+            "situation": null,
+            "deliveries": [
+                {
+                    "id": null,
+                    "code": "",
+                    "name": "",
+                    "phone": "",
+                    "address": {
+                        "city": "",
+                        "state": "",
+                        "number": "",
+                        "street": "",
+                        "zipCode": "",
+                        "latitude": null,
+                        "longitude": null,
+                        "complement": "",
+                        "neighborhood": ""
+                    },
+                    "distance": null,
+                    "fullCode": null,
+                    "situation": null,
+                    "orderRoute": 1,
+                    "dropoffCode": "",
+                    "observation": "",
+                    "deliveryCode": "",
+                    "productValue": 0,
+                    "onlinePayment": true
+                }
+            ],
+            "pickupCode": "1111",
+            "returnCode": "2222",
+            "deliveryFee": 0,
+            "deliveryMan": {
+                "id": '.$entrega_id.',
+                "ddd": "'.$entrega_ddd.'",
+                "name": "'.$entrega_nome.'",
+                "email": "",
+                "phone": "'.$entrega_telefone.'",
+                "document": "",
+                "latitude": null,
+                "longitude": null,
+                "profileId": 0
+            },
+            "totalDistance": null,
+            "expectedPickup": null,
+            "preparationTime": 0,
+            "expectedDelivery": null
+        }
+        
+        ';
+
+        mysqli_query($con, "update vendas set delivery_id = '{$entrega_id}', delivery_detalhes = '{$json_modelo}' where codigo = '{$_POST['pedido']}'");
+
+
     }
-    
-    ';
 
 
     if($_POST['loja']){
@@ -613,6 +625,22 @@
                         text:"Sim",
                         btnClass:"btn btn-primary",
                         action:function(){
+                            Carregando();
+                            $.ajax({
+                                url:"pedido.php",
+                                type:"POST",
+                                data:{
+                                    entrega_id,
+                                    entrega_nome,
+                                    entrega_ddd,
+                                    entrega_telefone,
+                                    acao:'entregador'
+                                },
+                                success:function(dados){
+                                    $(".popupPalco").html(dados);
+                                    Carregando('none');
+                                }
+                            });
 
                         }
                     },
