@@ -224,6 +224,11 @@
                         <?="({$delivery->deliveryMan->ddd}) {$delivery->deliveryMan->phone}"?>
                     </div>
                 </div>
+                <div class="d-flex justify-content-end">
+                    <div>
+                        Excluir
+                    </div>
+                </div>
                 <?php
                 }else{
                 ?>
