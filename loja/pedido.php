@@ -141,7 +141,7 @@
                 </div>
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        <i class="fa-solid fa-mobile-screen-button" style="color:#ffffff!important"></i> <?=$d->telefone?>
+                        <i class="fa-solid fa-mobile-screen-button"></i> <?=$d->telefone?>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between dados">
@@ -230,7 +230,7 @@
                             entrga_telefone="<?=$telefone?>"
                         >
                             <div>
-                                <i class="fa-solid fa-check"></i>
+                                <i class="fa-solid fa-check" style="color:#ffffff"></i>
                                 <?=$e->nome?>
                             </div>
                             <span><?=$e->telefone?></span>
