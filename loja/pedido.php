@@ -12,7 +12,7 @@
         $json_modelo = '
         
         {
-            "id": '.$entrega_id.',
+            "id": '.$_SESSION['pedido'].',
             "code": "",
             "events": [
                 {
@@ -32,7 +32,7 @@
                 }
             ],
             "origin": "loja",
-            "storeId": '.$entrega_id.',
+            "storeId": '.$_SESSION['pedido'].',
             "fullCode": null,
             "createdAt": "'.date("Y-m-d H:i:s").'",
             "situation": null,
@@ -86,9 +86,7 @@
         
         ';
         
-        $_SESSION['pedido'] = $entrega_id;
-
-        echo $q = "update vendas set delivery_id = '{$entrega_id}', delivery_detalhes = '{$json_modelo}' where codigo = '{$_SESSION['pedido']}'";
+        $q = "update vendas set delivery_id = '{$_SESSION['pedido']}', delivery_detalhes = '{$json_modelo}' where codigo = '{$_SESSION['pedido']}'";
 
         mysqli_query($con, $q);
 
