@@ -85,9 +85,10 @@
         }
         
         ';
+        
+        $_SESSION['pedido'] = $entrega_id;
 
-        mysqli_query($con, "update vendas set delivery_id = '{$entrega_id}', delivery_detalhes = '{$json_modelo}' where codigo = '{$_POST['pedido']}'");
-
+        mysqli_query($con, "update vendas set delivery_id = '{$entrega_id}', delivery_detalhes = '{$json_modelo}' where codigo = '{$_SESSION['pedido']}'");
 
     }
 
