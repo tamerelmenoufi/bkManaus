@@ -92,6 +92,14 @@
 
     }
 
+    if($_POST['acao'] == 'trocar_entregador'){
+        
+        $q = "update vendas set delivery_id = '', delivery_detalhes = '{}' where codigo = '{$_SESSION['pedido']}'";
+
+        mysqli_query($con, $q);
+
+    }
+
 
     if($_POST['loja']){
         $_SESSION['bkLoja'] = $_POST['loja'];
@@ -615,6 +623,45 @@
 <script>
     $(function(){
 
+        $(".trocar_entregador").click(function(){
+
+            $.confirm({
+                title:"Trocar Entregador",
+                content:`Você confirma a ação de troca de entregador?`,
+                columnClass:"col-12",
+                type:"red",
+                buttons:{
+                    'SIM':{
+                        text:"Sim",
+                        btnClass:"btn btn-danger",
+                        action:function(){
+                            Carregando();
+                            $.ajax({
+                                url:"pedido.php",
+                                type:"POST",
+                                data:{
+                                    acao:'trocar_entregador'
+                                },
+                                success:function(dados){
+                                    $(".popupPalco").html(dados);
+                                    Carregando('none');
+                                }
+                            });
+
+                        }
+                    },
+                    'NÃO':{
+                        text:"Não",
+                        btnClass:"btn btn-primary",
+                        action:function(){
+
+                        }
+                    },
+                }
+            })
+
+        });
+
         $("li[entrega_id]").click(function(){
             entrega_id = $(this).attr("entrega_id");
             entrega_nome = $(this).attr("entrega_nome");
@@ -661,7 +708,7 @@
             })
 
         });
-        
+
         $(".finalizar").click(function(){
             $.confirm({
                 title:"Finalizar Pedido",
