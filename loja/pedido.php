@@ -102,6 +102,9 @@
         cursor:pointer;
         font-size:12px;
     }
+    li[entrga_id]:hover > div > i{
+        color:red
+    }
 </style>
 
 <div class="row g-0 m-3">
