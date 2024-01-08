@@ -102,10 +102,10 @@
         cursor:pointer;
         font-size:12px;
     }
-    li[entrga_id] > div > i{
+    li[entrega_id] > div > i{
         color:#fff;
     }
-    li[entrga_id]:hover > div > i{
+    li[entrega_id]:hover > div > i{
         color:#000;
     }
 </style>
@@ -227,10 +227,10 @@
                         ?>
                         <li 
                             class="list-group-item d-flex justify-content-between"
-                            entrga_id="<?=$e->codigo?>"
-                            entrga_nome="<?=$e->nome?>"
-                            entrga_ddd="<?=$ddd?>"
-                            entrga_telefone="<?=$telefone?>"
+                            entrega_id="<?=$e->codigo?>"
+                            entrega_nome="<?=$e->nome?>"
+                            entrega_ddd="<?=$ddd?>"
+                            entrega_telefone="<?=$telefone?>"
                         >
                             <div>
                                 <i class="fa-solid fa-check"></i>
@@ -596,6 +596,21 @@
 
 <script>
     $(function(){
+
+        $("li[entrega_id]").click(function(){
+            entrega_id = $(this).attr("entrega_id");
+            entrega_nome = $(this).attr("entrega_nome");
+            entrega_ddd = $(this).attr("entrega_ddd");
+            entrega_telefone = $(this).attr("entrega_telefone");
+
+            $.alert({
+                title:"Definir Entregador",
+                content:`Você acaba de selecionar ${entrega_nome} para realizar a entrega.<br>Confirma a ação?`,
+                columnClass:"col-12",
+                type:"blue"
+            })
+
+        });
         
         $(".finalizar").click(function(){
             $.confirm({
