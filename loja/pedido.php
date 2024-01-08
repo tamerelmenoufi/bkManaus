@@ -225,8 +225,8 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end mt-1 mb-3">
-                    <div class="text-red trocar_entregador">
-                        Trocar o enregador
+                    <div class="text-danger trocar_entregador">
+                        <i class="fa-solid fa-rotate"></i> Trocar o enregador
                     </div>
                 </div>
                 <?php
