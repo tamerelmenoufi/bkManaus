@@ -230,7 +230,7 @@
                             entrga_telefone="<?=$telefone?>"
                         >
                             <div>
-                                <i class="fa-solid fa-check" style="color:#ffffff"></i>
+                                <i class="fa-solid fa-check"></i>
                                 <?=$e->nome?>
                             </div>
                             <span><?=$e->telefone?></span>
