@@ -612,7 +612,7 @@
         ?>
     </ul>
     <?php
-    if($d->producao != 'entregue'){
+    if($d->producao == 'entrega'){
     ?>
     <button type="button" class="btn btn-outline-danger btn-sm finalizar">Finalizar Pedido</button>
     <?php
