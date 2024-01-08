@@ -102,8 +102,11 @@
         cursor:pointer;
         font-size:12px;
     }
+    li[entrga_id] > div > i{
+        color:#fff;
+    }
     li[entrga_id]:hover > div > i{
-        color:red;
+        color:#000;
     }
 </style>
 
