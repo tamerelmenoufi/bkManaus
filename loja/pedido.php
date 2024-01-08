@@ -1,7 +1,7 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-    if($_POST['entregador']){
+    if($_POST['acao'] == 'entregador'){
 
 
         $entrega_id = $_POST['entrega_id'];
