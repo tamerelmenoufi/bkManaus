@@ -103,7 +103,7 @@
         font-size:12px;
     }
     li[entrga_id]:hover > div > i{
-        color:#000;
+        color:black;
     }
 </style>
 
