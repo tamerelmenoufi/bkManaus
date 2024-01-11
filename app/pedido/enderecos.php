@@ -105,15 +105,18 @@
                 // echo "</pre>";
                 // echo "<hr>";
 
+                echo $local->routes[0]->legs[0]->distance;
+                echo "<hr>";
 
-                if($local->status == 'OK'){
-                    if($local->routes[0]->legs[0]->distance <= $vlopc || $vlopc == 0) {
-                        $vlopc = $local->routes[0]->legs[0]->distance;
-                        // $vlopc = 0.1;
-                        $codTaxa = $v->mottu;
-                        $unidade = $v->nome;
-                    }
-                }
+
+                // if($local->status == 'OK'){
+                //     if($local->routes[0]->legs[0]->distance <= $vlopc || $vlopc == 0) {
+                //         $vlopc = $local->routes[0]->legs[0]->distance;
+                //         // $vlopc = 0.1;
+                //         $codTaxa = $v->mottu;
+                //         $unidade = $v->nome;
+                //     }
+                // }
                 ////////// SOLUÇÃO PRÓPRIA ////////////////////////////
 
             }
