@@ -28,7 +28,7 @@
         <h4 class="w-100 text-center">ENDEREÇO PARA ENTREGA</h4>
 
         <?php
-        echo $query = "select * from enderecos where cliente = '{$_SESSION['codUsr']}' order by codigo desc";
+        $query = "select * from enderecos where cliente = '{$_SESSION['codUsr']}' order by codigo desc";
         $result = mysqli_query($con, $query);
         while($c = mysqli_fetch_object($result)){
 
@@ -102,7 +102,6 @@
 
                 if($local->status == 'OK'){
                     $vl = $local->routes[0]->legs[0]->distance->value;
-                    // echo " : {$v->nome}<hr>";
                     $vl = number_format($vl/1000,1,"-",false);
                     list($int, $dec) = explode("-", $vl);
                     $vl = ($int + (($dec > 0)?1:0) + 7); 
