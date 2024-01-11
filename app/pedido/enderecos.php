@@ -99,10 +99,21 @@
                 $local = file_get_contents("https://maps.googleapis.com/maps/api/directions/json?destination={$coo}&origin={$v->coordenadas}&key=AIzaSyBSnblPMOwEdteX5UPYXf7XUtJYcbypx6w");
 
                 $local = json_decode($local);
-                echo "<pre>";
-                print_r($local);
-                echo "</pre>";
-                echo "<hr>";
+
+                // echo "<pre>";
+                // print_r($local);
+                // echo "</pre>";
+                // echo "<hr>";
+
+
+                if($local->status == 'OK'){
+                    if($local->routes[0]->legs[0]->distance <= $vlopc || $vlopc == 0) {
+                        $vlopc = $local->routes[0]->legs[0]->distance;
+                        // $vlopc = 0.1;
+                        $codTaxa = $v->mottu;
+                        $unidade = $v->nome;
+                    }
+                }
                 ////////// SOLUÇÃO PRÓPRIA ////////////////////////////
 
             }
