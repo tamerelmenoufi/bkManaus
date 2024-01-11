@@ -107,7 +107,11 @@
 
                 $x = $local->routes;
                 $x = $x[0];
-                print_r( $x);
+                $x = $x->legs;
+                $x = $x[0];
+                $x = $x->distance;
+
+                echo ( $x);
                 echo "<hr>";
 
 
