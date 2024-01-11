@@ -263,74 +263,74 @@
 
             geocoder<?=$md5?>.geocode({ 'address': `${logradouro}, ${numero}, ${bairro}, ${localidade}, Manaus, Amazonas, Brasil`, 'region': 'BR' }, (results, status) => {
 
-            if (status == google.maps.GeocoderStatus.OK) {
-                
-                if (results[0] && !coordenadas<?=$md5?>) {
+                if (status == google.maps.GeocoderStatus.OK) {
 
-                    var latitude<?=$md5?> = results[0].geometry.location.lat();
-                    var longitude<?=$md5?> = results[0].geometry.location.lng();
+                    if (results[0] && !coordenadas<?=$md5?>) {
 
-                    // var location<?=$md5?> = new google.maps.LatLng(latitude<?=$md5?>, longitude<?=$md5?>);
-                    // marker<?=$md5?>.setPosition(location<?=$md5?>);
-                    // map<?=$md5?>.setCenter(location<?=$md5?>);
-                    // map<?=$md5?>.setZoom(18);
+                        var latitude<?=$md5?> = results[0].geometry.location.lat();
+                        var longitude<?=$md5?> = results[0].geometry.location.lng();
 
-                    coordenadas = `${latitude<?=$md5?>},${longitude<?=$md5?>}`;
+                        // var location<?=$md5?> = new google.maps.LatLng(latitude<?=$md5?>, longitude<?=$md5?>);
+                        // marker<?=$md5?>.setPosition(location<?=$md5?>);
+                        // map<?=$md5?>.setCenter(location<?=$md5?>);
+                        // map<?=$md5?>.setZoom(18);
 
-                    Carregando();
+                        coordenadas = `${latitude<?=$md5?>},${longitude<?=$md5?>}`;
 
-                    idUnico = localStorage.getItem("idUnico");
-                    codUsr = localStorage.getItem("codUsr");
-                    $.ajax({
-                        url:"enderecos/form.php",
-                        type:"POST",
-                        dataType:"JSON",
-                        data:{
-                            idUnico,
-                            codUsr,
-                            cep,
-                            logradouro,
-                            numero,
-                            complemento,
-                            ponto_referencia,
-                            bairro,
-                            localidade,
-                            uf,
-                            coordenadas,
-                            <?php
-                            if($d->codigo){
-                            ?>
-                            codigo,
-                            <?php
-                            }
-                            ?>
-                            acao:'salvar'
-                        },
-                        success:function(dados){
-                            
-                            $.ajax({
-                                url:"enderecos/lista_enderecos.php",
-                                type:"POST",
-                                data:{
-                                    codUsr,
-                                    idUnico
-                                },
-                                success:function(dados){
-                                    $.alert('Endereço salvo com sucesso!');  
-                                    $(".dados_enderecos").html(dados);
-                                    Carregando('none');
+                        Carregando();
+
+                        idUnico = localStorage.getItem("idUnico");
+                        codUsr = localStorage.getItem("codUsr");
+                        $.ajax({
+                            url:"enderecos/form.php",
+                            type:"POST",
+                            dataType:"JSON",
+                            data:{
+                                idUnico,
+                                codUsr,
+                                cep,
+                                logradouro,
+                                numero,
+                                complemento,
+                                ponto_referencia,
+                                bairro,
+                                localidade,
+                                uf,
+                                coordenadas,
+                                <?php
+                                if($d->codigo){
+                                ?>
+                                codigo,
+                                <?php
                                 }
-                            }) 
+                                ?>
+                                acao:'salvar'
+                            },
+                            success:function(dados){
+                                
+                                $.ajax({
+                                    url:"enderecos/lista_enderecos.php",
+                                    type:"POST",
+                                    data:{
+                                        codUsr,
+                                        idUnico
+                                    },
+                                    success:function(dados){
+                                        $.alert('Endereço salvo com sucesso!');  
+                                        $(".dados_enderecos").html(dados);
+                                        Carregando('none');
+                                    }
+                                }) 
 
-                        },
-                        error:function(){
-                            console.log('No erro')
-                        }
-                    });
+                            },
+                            error:function(){
+                                console.log('No erro')
+                            }
+                        });
 
+                    }
                 }
-            }
-
+            })
 
         })
     })
