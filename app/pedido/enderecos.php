@@ -100,12 +100,12 @@
 
                 $local = json_decode($local);
 
-                echo "<pre>";
-                print_r($local);
-                echo "</pre>";
-                echo "<hr>";
+                // echo "<pre>";
+                // print_r($local);
+                // echo "</pre>";
+                // echo "<hr>";
 
-                echo $local->routes[0];
+                echo $local->routes;
                 echo "<hr>";
 
 
