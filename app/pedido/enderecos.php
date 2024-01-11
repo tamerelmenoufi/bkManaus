@@ -39,7 +39,7 @@
                 $bairro = $c->bairro;
                 $localidade = $c->localidade;
                 $uf = $c->uf;
-                $coo = $c->coordenadas;
+                echo $coo = $c->coordenadas;
             }
         ?>
 
