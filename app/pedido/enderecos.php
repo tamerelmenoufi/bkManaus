@@ -105,7 +105,7 @@
                 // echo "</pre>";
                 // echo "<hr>";
 
-                echo $local->routes[0]->legs[0]->distance;
+                echo $local->routes[0];
                 echo "<hr>";
 
 
