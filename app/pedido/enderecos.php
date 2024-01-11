@@ -107,7 +107,7 @@
 
                 $x = $local->routes;
                 $x = $x[0];
-                echo $x;
+                print_r( $x);
                 echo "<hr>";
 
 
