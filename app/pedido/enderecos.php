@@ -96,11 +96,11 @@
                 ////////// SOLUÇÃO PRÓPRIA ////////////////////////////
                 
 
-                $local = file_get_contents("https://maps.googleapis.com/maps/api/directions/json?destination={$coo}&origin={$v->coordenadas}&key=AIzaSyBSnblPMOwEdteX5UPYXf7XUtJYcbypx6w");
+                $local = file_get_contents("https://maps.googleapis.com/maps/api/directions/json?destination={$c->coordenadas}&origin={$v->coordenadas}&key=AIzaSyBSnblPMOwEdteX5UPYXf7XUtJYcbypx6w");
 
                 $local = json_decode($local);
 
-                echo $local->status."<br>".$local->routes[0]->legs[0]->distance->value."<br>".$v->coordenadas."<br><hr>";
+                // echo $local->status."<br>".$local->routes[0]->legs[0]->distance->value."<br>".$v->coordenadas."<br><hr>";
 
                 if($local->status == 'OK'){
 
