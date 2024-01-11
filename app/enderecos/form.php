@@ -14,6 +14,7 @@
         unset($data['idUnico']);
         unset($data['codUsr']);
         unset($data['acao']);
+        unset($data['codigo']);
         $campos = [];
         foreach($data as $i => $v){
             $campos[] = "{$i} = '{$v}'";
@@ -24,10 +25,14 @@
             $campos[] = "distancia = '{}'";
         }
         
-
         mysqli_query($con, "update enderecos set padrao = '0' where cliente = '{$_POST['codUsr']}'");
 
-        mysqli_query($con, "replace into enderecos set ".implode(", ",$campos));
+        if($_POST['codigo']){
+            mysqli_query($con, "update enderecos set ".implode(", ",$campos))." where codigo = '{$_POST['codigo']}'";
+        }else{
+            mysqli_query($con, "insert into enderecos set ".implode(", ",$campos));
+        }
+        
         
         echo json_encode([
             "status" => true
