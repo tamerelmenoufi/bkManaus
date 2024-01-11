@@ -100,7 +100,7 @@
 
                 $local = json_decode($local);
 
-                echo $local->status."<br>".$local->routes[0]->legs[0]->distance->value."<br>";
+                echo $local->status."<br>".$local->routes[0]->legs[0]->distance->value."<br>".$v->coordenadas."<br><hr>";
 
                 if($local->status == 'OK'){
 
