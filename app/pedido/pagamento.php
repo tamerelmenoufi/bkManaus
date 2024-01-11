@@ -70,7 +70,7 @@
                     </button>
                 </div>
                 <div class="enderecoLabel w-100 text-center ps-2">
-                    <button class="btn btn-success w-100">
+                    <button class="btn btn-success w-100" pagamento="credito">
                         <i class="fa-regular fa-credit-card"></i>
                         Crédito                        
                     </button>
