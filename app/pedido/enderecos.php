@@ -111,7 +111,7 @@
                 $x = $x[0];
                 $x = $x->distance;
 
-                echo ( $x);
+                print ( $x);
                 echo "<hr>";
 
 
