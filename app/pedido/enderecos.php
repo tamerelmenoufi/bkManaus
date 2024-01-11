@@ -100,6 +100,8 @@
 
                 $local = json_decode($local);
 
+                echo $local->status."<br>";
+
                 if($local->status == 'OK'){
 
                     
