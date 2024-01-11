@@ -104,8 +104,7 @@
 
                     
 
-                    echo $vl = $local->routes[0]->legs[0]->distance->value;
-                    echo " : $v->nome<hr>";
+                    $vl = $local->routes[0]->legs[0]->distance->value;
                     $vl = number_format($vl/1000,1,"-",false);
                     list($int, $dec) = explode("-", $vl);
                     $vl = ($int + (($dec > 0)?1:0) + 7); 
