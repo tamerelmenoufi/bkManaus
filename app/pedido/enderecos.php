@@ -28,7 +28,7 @@
         <h4 class="w-100 text-center">ENDEREÇO PARA ENTREGA</h4>
 
         <?php
-        $query = "select * from enderecos where cliente = '{$_SESSION['codUsr']}' order by codigo desc";
+        $query = "select * from enderecos where cliente = '{$_SESSION['codUsr']}' order by padrao desc";
         $result = mysqli_query($con, $query);
         while($c = mysqli_fetch_object($result)){
 
@@ -47,7 +47,7 @@
 <!-- -------------------------------------------------------------------- -->
 
 <?php
-        $mottu = new mottu;
+        // $mottu = new mottu;
         $q = "select * from lojas where mottu > 0 /*situacao = '1' and deletado != '1'*/";
         $r = mysqli_query($con, $q);
         $vlopc = 0;
