@@ -105,7 +105,9 @@
                 // echo "</pre>";
                 // echo "<hr>";
 
-                echo ($local->routes)[0];
+                $x = $local->routes;
+                $x = $x[0];
+                echo $x;
                 echo "<hr>";
 
 
