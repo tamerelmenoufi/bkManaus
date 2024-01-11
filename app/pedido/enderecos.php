@@ -100,24 +100,13 @@
 
                 $local = json_decode($local);
 
-                // echo "<pre>";
-                // print_r($local);
-                // echo "</pre>";
-                // echo "<hr>";
-
-                // $x = $local->routes;
-                // $x = $x[0];
-                // $x = $x->legs;
-                // $x = $x[0];
-                // $x = $x->distance;
-
-                // print_r ( $x);
-                // echo "<hr>";
-
-
                 if($local->status == 'OK'){
-                    if($local->routes[0]->legs[0]->distance->value <= $vlopc || $vlopc == 0) {
-                        $vlopc = $local->routes[0]->legs[0]->distance->value;
+                    $vl = $local->routes[0]->legs[0]->distance->value;
+                    $vl = number_format($vl/1000,1,"-",false);
+                    list($int, $dec) = explode("-", $vl);
+                    $vl = ($int + (($dec > 0)?1:0) + 6.99); 
+                    if($vl <= $vlopc || $vlopc == 0) {
+                        $vlopc = $vl;
                         // $vlopc = 0.1;
                         $codTaxa = $v->mottu;
                         $unidade = $v->nome;
