@@ -99,9 +99,10 @@
                 $local = file_get_contents("https://maps.googleapis.com/maps/api/directions/json?destination={$coo}&origin={$v->coordenadas}&key=AIzaSyBSnblPMOwEdteX5UPYXf7XUtJYcbypx6w");
 
                 $local = json_decode($local);
-
+                echo "<pre>";
                 print_r($local);
-
+                echo "</pre>";
+                echo "<hr>";
                 ////////// SOLUÇÃO PRÓPRIA ////////////////////////////
 
             }
