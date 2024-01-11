@@ -28,15 +28,14 @@
         mysqli_query($con, "update enderecos set padrao = '0' where cliente = '{$_POST['codUsr']}'");
 
         if($_POST['codigo']){
-            $q = "update enderecos set ".implode(", ",$campos))." where codigo = '{$_POST['codigo']}'";
-            mysqli_query($con, "update enderecos set ".implode(", ",$campos))." where codigo = '{$_POST['codigo']}'";
+            mysqli_query($con, "update enderecos set ".implode(", ",$campos)." where codigo = '{$_POST['codigo']}'");
         }else{
             mysqli_query($con, "insert into enderecos set ".implode(", ",$campos));
         }
         
         
         echo json_encode([
-            "status" => $q
+            "status" => true
         ]);
         exit();
     }
