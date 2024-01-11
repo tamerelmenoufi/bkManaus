@@ -21,9 +21,9 @@
         }
         $campos[] = "cliente = '{$_POST['codUsr']}'";
         $campos[] = "padrao = '1'";
-        if(!$_POST['codigo']){
-            $campos[] = "distancias = '{}'";
-        }
+        // if(!$_POST['codigo']){
+        $campos[] = "distancias = '{}'";
+        // }
         
         mysqli_query($con, "update enderecos set padrao = '0' where cliente = '{$_POST['codUsr']}'");
 
