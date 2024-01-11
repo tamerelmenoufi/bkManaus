@@ -39,6 +39,7 @@
                 $bairro = $c->bairro;
                 $localidade = $c->localidade;
                 $uf = $c->uf;
+                $coo = $c->coordenadas;
             }
         ?>
 
@@ -54,37 +55,55 @@
 
             while($v = mysqli_fetch_object($r)){
 
-                $json = "{
-                    \"previewDeliveryTime\": true,
-                    \"sortByBestRoute\": false,
+                ////////// SOLUÇÃO MOTTU ////////////////////////////
 
-                    \"deliveries\": [
-                        {
-                        \"orderRoute\": 111{$_SESSION['AppVenda']},
-                        \"address\": {
-                            \"street\": \"{$c->logradouro}\",
-                            \"number\": \"{$c->numero}\",
-                            \"complement\": \"{$c->complemento}\",
-                            \"neighborhood\": \"{$c->bairro}\",
-                            \"city\": \"Manaus\",
-                            \"state\": \"AM\",
-                            \"zipCode\": \"".str_replace(array(' ','-'), false, $c->cep)."\"
-                        },
-                        \"onlinePayment\": true
-                        }
-                    ]
-                    }";
+                // $json = "{
+                //     \"previewDeliveryTime\": true,
+                //     \"sortByBestRoute\": false,
 
-                $valores = json_decode($mottu->calculaFrete($json, $v->mottu));
+                //     \"deliveries\": [
+                //         {
+                //         \"orderRoute\": 111{$_SESSION['AppVenda']},
+                //         \"address\": {
+                //             \"street\": \"{$c->logradouro}\",
+                //             \"number\": \"{$c->numero}\",
+                //             \"complement\": \"{$c->complemento}\",
+                //             \"neighborhood\": \"{$c->bairro}\",
+                //             \"city\": \"Manaus\",
+                //             \"state\": \"AM\",
+                //             \"zipCode\": \"".str_replace(array(' ','-'), false, $c->cep)."\"
+                //         },
+                //         \"onlinePayment\": true
+                //         }
+                //     ]
+                //     }";
 
-                if($valores->deliveryFee > 1){
-                    if($valores->deliveryFee <= $vlopc || $vlopc == 0) {
-                        // $vlopc = $valores->deliveryFee;
-                        $vlopc = 0.1;
-                        $codTaxa = $v->mottu;
-                        $unidade = $v->nome;
-                    }
-                }
+                // $valores = json_decode($mottu->calculaFrete($json, $v->mottu));
+
+                // if($valores->deliveryFee > 1){
+                //     if($valores->deliveryFee <= $vlopc || $vlopc == 0) {
+                //         // $vlopc = $valores->deliveryFee;
+                //         $vlopc = 0.1;
+                //         $codTaxa = $v->mottu;
+                //         $unidade = $v->nome;
+                //     }
+                // }
+
+                ////////// SOLUÇÃO MOTTU ////////////////////////////
+
+
+
+                ////////// SOLUÇÃO PRÓPRIA ////////////////////////////
+                
+
+                $local = file_get_contents("https://maps.googleapis.com/maps/api/directions/json?destination={$coo}&origin={$v->coordenadas}&key=AIzaSyBSnblPMOwEdteX5UPYXf7XUtJYcbypx6w");
+
+                $local = json_decode($local);
+
+                print_r($local);
+
+                ////////// SOLUÇÃO PRÓPRIA ////////////////////////////
+
             }
     ?>
 
