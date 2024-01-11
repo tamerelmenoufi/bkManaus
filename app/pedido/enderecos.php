@@ -105,24 +105,24 @@
                 // echo "</pre>";
                 // echo "<hr>";
 
-                $x = $local->routes;
-                $x = $x[0];
-                $x = $x->legs;
-                $x = $x[0];
-                $x = $x->distance;
+                // $x = $local->routes;
+                // $x = $x[0];
+                // $x = $x->legs;
+                // $x = $x[0];
+                // $x = $x->distance;
 
-                print_r ( $x);
-                echo "<hr>";
+                // print_r ( $x);
+                // echo "<hr>";
 
 
-                // if($local->status == 'OK'){
-                //     if($local->routes[0]->legs[0]->distance <= $vlopc || $vlopc == 0) {
-                //         $vlopc = $local->routes[0]->legs[0]->distance;
-                //         // $vlopc = 0.1;
-                //         $codTaxa = $v->mottu;
-                //         $unidade = $v->nome;
-                //     }
-                // }
+                if($local->status == 'OK'){
+                    if($local->routes[0]->legs[0]->distance->value <= $vlopc || $vlopc == 0) {
+                        $vlopc = $local->routes[0]->legs[0]->distance->value;
+                        // $vlopc = 0.1;
+                        $codTaxa = $v->mottu;
+                        $unidade = $v->nome;
+                    }
+                }
                 ////////// SOLUÇÃO PRÓPRIA ////////////////////////////
 
             }
