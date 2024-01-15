@@ -340,7 +340,7 @@
         <?php
         }
 
-        if($acoes->substituicao == 'true' and $categorias_itens and $categorias_itens != 'null' and $itens_troca != 'null'){
+        if($acoes->substituicao == 'true' and $categorias_itens and $categorias_itens != 'null'){
         ?>
     
             <div class="card w-100 mb-3">
@@ -349,7 +349,7 @@
             </div>
             <ul class="list-group list-group-flush">
                 <?php
-                $q = "select * from itens where situacao = '1' and deletado != '1' and categoria in ('".implode("', '", $categorias_itens)."') and codigo in ('".implode("', '",$itens_troca)."')";
+                $q = "select * from itens where categoria in ('".implode("', '", $categorias_itens)."')";
                 $r = mysqli_query($con, $q);
                 while($i = mysqli_fetch_object($r)){
                 ?>
