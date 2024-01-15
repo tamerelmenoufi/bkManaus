@@ -220,7 +220,7 @@
         </div>
         <ul class="list-group list-group-flush">
             <?php
-            $q = "select * from itens situacao = '1' and deletado != '1' and where codigo in ('".implode("', '", $itens)."')";
+            $q = "select * from itens where situacao = '1' and deletado != '1' and codigo in ('".implode("', '", $itens)."')";
             $r = mysqli_query($con, $q);
             while($i = mysqli_fetch_object($r)){
             ?>
@@ -248,7 +248,7 @@
             </div>
             <ul class="list-group list-group-flush">
                 <?php
-                $q = "select * from itens situacao = '1' and deletado != '1' and where categoria in ('".$categorias_itens."')";
+                $q = "select * from itens where situacao = '1' and deletado != '1' and categoria in ('".$categorias_itens."')";
                 $r = mysqli_query($con, $q);
                 while($i = mysqli_fetch_object($r)){
                 ?>
