@@ -53,7 +53,12 @@
     }
 
    
-    $query = "select *, itens->>'$[*].item' as lista_itens, produtos->>'$[*].produto' as cod_prod, produtos->>'$[*].quantidade' as qtd_prod from produtos where codigo = '{$_POST['codigo']}'";
+    $query = "select *,
+                        itens->>'$[*].item' as lista_itens, 
+                        itens_add->>'$[*].item' as lista_add, 
+                        itens_troca->>'$[*].item' as lista_troca, 
+                        
+                        produtos->>'$[*].produto' as cod_prod, produtos->>'$[*].quantidade' as qtd_prod from produtos where codigo = '{$_POST['codigo']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
@@ -126,6 +131,8 @@
 
 
     $itens = json_decode($d->lista_itens);
+    $itens_add = json_decode($d->lista_add);
+    $itens_troca = json_decode($d->lista_troca);
     $categorias_itens = json_decode($d->categorias_itens);   
 
 
@@ -240,7 +247,12 @@
         
 
         $cods = implode(", ",$lista_produtos);
-        $qp = "select a.*, a.itens->>'$[*].item' as lista_itens, a.produtos->>'$[*].produto' as cod_prod, a.produtos->>'$[*].quantidade' as qtd_prod, b.acoes_itens from produtos a left join categorias b on a.categoria = b.codigo where a.codigo in ($cods)";
+        $qp = "select a.*, 
+                            a.itens->>'$[*].item' as lista_itens, 
+                            a.itens_add->>'$[*].item' as lista_add, 
+                            a.itens_troca->>'$[*].item' as lista_troca, 
+                            
+                            a.produtos->>'$[*].produto' as cod_prod, a.produtos->>'$[*].quantidade' as qtd_prod, b.acoes_itens from produtos a left join categorias b on a.categoria = b.codigo where a.codigo in ($cods)";
         $rp = mysqli_query($con, $qp);
         $prd = [];
         while($d1 = mysqli_fetch_object($rp)){
@@ -249,6 +261,8 @@
             $acoes = json_decode($d1->acoes_itens);
 
             $itens = json_decode($d1->lista_itens);
+            $itens_add = json_decode($d1->lista_add);
+            $itens_troca = json_decode($d1->lista_troca);
             $categorias_itens = json_decode($d1->categorias_itens); 
 
 ?>
@@ -285,7 +299,7 @@
         <?php
         }
 
-        if($acoes->inclusao == 'true' and $categorias_itens and $categorias_itens != 'null'){
+        if($acoes->inclusao == 'true' and $categorias_itens and $categorias_itens != 'null' and $itens_add != 'null'){
         ?>
     
             <div class="card w-100 mb-3">
@@ -294,7 +308,7 @@
             </div>
             <ul class="list-group list-group-flush">
                 <?php
-                $q = "select * from itens where situacao = '1' and deletado != '1' and categoria in ('".implode("', '", $categorias_itens)."')";
+                $q = "select * from itens where situacao = '1' and deletado != '1' and categoria in ('".implode("', '", $categorias_itens)."') and codigo in ('".implode("', '", $itens_add)."')";
                 $r = mysqli_query($con, $q);
                 while($i = mysqli_fetch_object($r)){
                 ?>
@@ -326,7 +340,7 @@
         <?php
         }
 
-        if($acoes->substituicao == 'true' and $categorias_itens and $categorias_itens != 'null'){
+        if($acoes->substituicao == 'true' and $categorias_itens and $categorias_itens != 'null' and $itens_troca != 'null'){
         ?>
     
             <div class="card w-100 mb-3">
@@ -335,7 +349,7 @@
             </div>
             <ul class="list-group list-group-flush">
                 <?php
-                $q = "select * from itens where categoria in ('".implode("', '", $categorias_itens)."')";
+                $q = "select * from itens where situacao = '1' and deletado != '1' and categoria in ('".implode("', '", $categorias_itens)."') and codigo in ('".implode("', '",$itens_troca)."')";
                 $r = mysqli_query($con, $q);
                 while($i = mysqli_fetch_object($r)){
                 ?>
