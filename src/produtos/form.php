@@ -245,6 +245,51 @@
                 </div>
 
 
+                <div class="accordion mb-3" id="accordionExample2">
+                    <?php
+                    $q = "select * from categorias_itens where situacao = '1' and deletado != '1' and codigo in(".(($c->categorias_itens and $remocao == 'true')?$c->categorias_itens:0).") and deletado != '1'";
+                    $r = mysqli_query($con, $q);
+                    while($d1 = mysqli_fetch_object($r)){
+                    ?>
+            
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#itens_add<?=$d1->codigo?>" aria-expanded="false" aria-controls="itens<?=$d1->codigo?>">
+                            <?=$d1->categoria?> Adicionais
+                        </button>
+                        </h2>
+                        <div id="itens_add<?=$d1->codigo?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+                            <div class="accordion-body">
+                                <ul class="list-group">
+                                <?php
+                                    
+                                    $q2 = "select * from itens where categoria = '{$d1->codigo}' and situacao = '1' and deletado != '1'";
+                                    $r2 = mysqli_query($con, $q2);
+                                    while($d2 = mysqli_fetch_object($r2)){
+                                ?>
+                                    <li class="d-flex justify-content-start list-group-item list-group-item-action" >
+                                        <input class="form-check-input me-1 opcao_add" codigo="<?=$d2->codigo?>" type="checkbox" <?=(($itens_add[$d2->codigo])?'checked':false)?> value="<?=$d2->codigo?>"  id="acao_add<?=$d2->codigo?>">
+                                            <label class="form-check-label w-100" for="acao_add<?=$d2->codigo?>">
+                                                <div class="d-flex justify-content-between">
+                                                    <span class="text-break"><?=$d2->item?></span>
+                                                </div>
+                                            </label> 
+                                    </li>
+                                <?php
+
+                                    }
+
+                                ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>    
+                    <?php
+                    }
+                    ?>
+                </div>
+
+
 
                 <div class="card mb-3" style="background-color:#eee">
                     <div class="card-header">
@@ -461,10 +506,22 @@
                         itens.push({'item':item, 'quantidade':quantidade});                            
                     }
                 })
-
                 itens = JSON.stringify(itens)
-
                 campos.push({name:'itens', value:itens})
+
+                itens = [];
+                $("input.opcao_add").each(function(){
+                    if($(this).prop("checked") == true){
+                        item = $(this).attr("codigo");
+                        itens.push({'item':item});                            
+                    }
+                })
+                itens = JSON.stringify(itens)
+                campos.push({name:'itens_add', value:itens})
+
+
+
+
 
                 if($("#promocao").prop("checked") == true){
                     campos.push({name:'promocao', value:'1'})                           
