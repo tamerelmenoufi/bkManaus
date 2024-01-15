@@ -127,7 +127,7 @@
     }
     if($dados_add){
         foreach($dados_add as $p => $q){
-            $itens_add[$q->item_add] = $q->item_add;
+            $itens_add[$q->item] = $q->item;
         }        
     }
 
