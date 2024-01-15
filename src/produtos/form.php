@@ -308,7 +308,7 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#itens_troca<?=$d1->codigo?>" aria-expanded="false" aria-controls="itens_troca<?=$d1->codigo?>">
-                            <?=$d1->categoria?> TROCA
+                            SUBSTITUIÇÃO
                         </button>
                         </h2>
                         <div id="itens_troca<?=$d1->codigo?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample3">
