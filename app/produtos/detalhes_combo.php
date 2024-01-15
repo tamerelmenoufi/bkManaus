@@ -270,7 +270,7 @@
 
         <?php
 
-        if($acoes->remocao == 'true' and $itens and $itens != 'null'){
+        if($acoes->remocao == 'true' and $itens and $itens != 'null' and !$itens){
 
         ?>
 
@@ -299,7 +299,7 @@
         <?php
         }
 
-        if($acoes->inclusao == 'true' and $categorias_itens and $categorias_itens != 'null' and $itens_add != 'null'){
+        if($acoes->inclusao == 'true' and $categorias_itens and $categorias_itens != 'null' and $itens_add != 'null' and !$itens_add){
         ?>
     
             <div class="card w-100 mb-3">
@@ -340,7 +340,7 @@
         <?php
         }
 
-        if($acoes->substituicao == 'true' and $categorias_itens and $itens_troca != 'null'){
+        if($acoes->substituicao == 'true' and $categorias_itens and $itens_troca != 'null' and !$itens_troca){
         ?>
     
             <div class="card w-100 mb-3">
