@@ -11,6 +11,7 @@
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));
     $acoes_itens = json_decode($c->acoes_itens);
     $remocao = $acoes_itens->remocao;
+    $substituicao = $acoes_itens->substituicao;
 
 
     if($_POST['acao'] == 'salvar'){
@@ -299,7 +300,7 @@
 
                 <div class="accordion mb-3" id="accordionExample3">
                     <?php
-                    $q = "select * from categorias where situacao = '1' and deletado != '1' and codigo in(".(($c->categorias_troca and $troca == 'true')?$c->categorias_troca:0).")";
+                    $q = "select * from categorias where situacao = '1' and deletado != '1' and codigo in(".(($c->categorias_troca and $substituicao == 'true')?$c->categorias_troca:0).")";
                     $r = mysqli_query($con, $q);
                     while($d1 = mysqli_fetch_object($r)){
                     ?>
