@@ -117,9 +117,11 @@
 
     $dados = json_decode($d->itens);
     $dados_add = json_decode($d->itens_add);
+    $dados_troca = json_decode($d->itens_troca);
 
     $itens = [];
     $itens_add = [];
+    $itens_troca = [];
 
     if($dados){
         foreach($dados as $p => $q){
@@ -129,6 +131,11 @@
     if($dados_add){
         foreach($dados_add as $p => $q){
             $itens_add[$q->item] = $q->item;
+        }        
+    }
+    if($dados_troca){
+        foreach($dados_troca as $p => $q){
+            $itens_troca[$q->item] = $q->item;
         }        
     }
 
@@ -573,6 +580,17 @@
                 })
                 itens = JSON.stringify(itens)
                 campos.push({name:'itens_add', value:itens})
+
+
+                itens = [];
+                $("input.opcao_troca").each(function(){
+                    if($(this).prop("checked") == true){
+                        item = $(this).attr("codigo");
+                        itens.push({'item':item});                            
+                    }
+                })
+                itens = JSON.stringify(itens)
+                campos.push({name:'itens_troca', value:itens})
 
 
 
