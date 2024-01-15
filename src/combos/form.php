@@ -167,7 +167,7 @@
 
                 <div class="accordion mb-3" id="accordionExample">
                     <?php
-                    $q = "select * from categorias where tipo = 'prd' and deletado != '1'";
+                    $q = "select * from categorias where tipo = 'prd' and situacao = '1' and deletado != '1'";
                     $r = mysqli_query($con, $q);
                     while($d1 = mysqli_fetch_object($r)){
                     ?>
@@ -183,7 +183,7 @@
                                 <ul class="list-group">
                                 <?php
                                     
-                                    $q2 = "select * from produtos where categoria = '{$d1->codigo}' and deletado != '1'";
+                                    $q2 = "select * from produtos where categoria = '{$d1->codigo}' and situacao = '1' and deletado != '1'";
                                     $r2 = mysqli_query($con, $q2);
                                     while($d2 = mysqli_fetch_object($r2)){
                                 ?>
