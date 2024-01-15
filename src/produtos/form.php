@@ -262,7 +262,7 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#itens_add<?=$d1->codigo?>" aria-expanded="false" aria-controls="itens<?=$d1->codigo?>">
-                            <?=$d1->categoria?> Adicionais
+                            <?=$d1->categoria?> ADICIONAIS
                         </button>
                         </h2>
                         <div id="itens_add<?=$d1->codigo?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
