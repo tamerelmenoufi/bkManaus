@@ -349,7 +349,7 @@
             </div>
             <ul class="list-group list-group-flush">
                 <?php
-                $q = "select * from itens where categoria in ('".implode("', '", $categorias_itens)."')";
+                $q = "select * from itens where categoria in ('".implode("', '", $categorias_itens)."') and situacao = '1' and deletado != '1'";
                 $r = mysqli_query($con, $q);
                 while($i = mysqli_fetch_object($r)){
                 ?>
