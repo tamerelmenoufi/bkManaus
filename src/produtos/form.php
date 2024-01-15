@@ -115,12 +115,19 @@
     $d = mysqli_fetch_object($result);
 
     $dados = json_decode($d->itens);
+    $dados_add = json_decode($d->itens_add);
 
     $itens = [];
+    $itens_add = [];
 
     if($dados){
         foreach($dados as $p => $q){
             $itens[$q->item] = $q->quantidade;
+        }        
+    }
+    if($dados_add){
+        foreach($dados_add as $p => $q){
+            $itens_add[$q->item_add] = $q->item_add;
         }        
     }
 
