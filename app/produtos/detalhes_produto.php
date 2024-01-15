@@ -321,10 +321,6 @@
 
 <!-- NOVO -->
 
-<?php
-echo "Status: ".$dc->status;
-?>
-
     </div>
 </div>
 <div class="produto_botoes d-flex justify-content-between">
