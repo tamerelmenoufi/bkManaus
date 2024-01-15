@@ -188,7 +188,7 @@
         $("#Pagar").click(function(){
 
             kind = 'credit';
-            reference = '<?=$_SESSION['AppVenda']?>';
+            reference = '<?=$_SESSION['idUnico']?>';
             amount = '<?=$_POST['valor_total']?>';
             cardholderName = $("#cartao_nome").val();
             cardNumber = $("#cartao_numero").val();
