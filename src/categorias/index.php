@@ -94,7 +94,7 @@
 
             <div class="d-block d-md-none d-lg-none d-xl-none d-xxl-none">
             <?php
-              $query = "select * from categorias where deletado != '1' order by categoria asc";
+              $query = "select * from categorias where deletado != '1' /*and tipo = 'prd'*/ order by tipo desc, ordem asc";
               $result = sisLog($query);
               
               while($d = mysqli_fetch_object($result)){
