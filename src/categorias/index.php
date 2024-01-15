@@ -130,6 +130,9 @@
                   </button>
                 </div>
                 <div class="col-6 p-2">
+                  <?php
+                  if($d->tipo == 'prd'){
+                  ?>
                   <button
                     class="btn btn-warning w-100"
                     produtos
@@ -137,6 +140,9 @@
                   >
                     Produtos
                   </button>
+                  <?php
+                  }
+                  ?>
                 </div>
               </div>
             </div>
