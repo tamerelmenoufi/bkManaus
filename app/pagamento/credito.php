@@ -2,6 +2,24 @@
 
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+    if($_POST['acao'] == 'pagar'){
+        $retorno = [
+            'status' => 'Approved',
+            'msg' => 'Seu pagamento foi realizado com sucesso!'
+        ];
+        echo json_encode($retorno);
+        exit();
+    }
+
+    if($_POST){
+        $lista = [];
+        foreach($_POST as $i => $v){
+            $lista[] = "{$i}:'$v'";
+        }
+        $listaPost = implode(', ', $lista);
+    }
+    
+
     if($_POST['idUnico']){
         $_SESSION['idUnico'] = $_POST['idUnico'];
     }
@@ -9,13 +27,57 @@
         $_SESSION['codUsr'] = $_POST['codUsr'];
     }
 
+    if($_POST['pagamento']){
 
-    if($_POST['acao'] == 'pagar'){
+        $query = "select
+                        a.*,
+                        b.nome as Cnome,
+                        b.cpf as Ccpf,
+                        b.telefone as Ctelefone,
+                        b.email as Cemail,
+                        c.codigo as endereco,
+                        c.cep as Ecep,
+                        c.logradouro as Elogradouro,
+                        c.numero as Enumero,
+                        c.complemento as Ecomplemento,
+                        c.ponto_referencia as Eponto_referencia,
+                        c.bairro as Ebairro,
+                        c.localidade as Elocalidade,
+                        c.uf as Euf
+                    from vendas_tmp a 
+                    left join clientes b on a.cliente = b.codigo
+                    left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
+                    where a.id_unico = '{$_SESSION['idUnico']}'";
+
+        $result = mysqli_query($con, $query);
+        $d = mysqli_fetch_object($result);
+
+        // $q = "insert into vendas set 
+        //                                             device = '{$d->id_unico}',
+        //                                             cliente = '{$d->cliente}',
+        //                                             endereco = '{$d->endereco}',
+        //                                             detalhes = '{$d->detalhes}', 
+        //                                             pagamento = '{$_POST['pagamento']}',
+        //                                             data = NOW(),
+        //                                             delivery_id = '{$_POST['codigo_entrega']}',
+        //                                             cupom = '{$_POST['cupom']}',
+        //                                             valor_compra = '{$_POST['valor_compra']}',
+        //                                             valor_entrega = '{$_POST['valor_entrega']}',
+        //                                             valor_desconto = '{$_POST['valor_desconto']}',
+        //                                             valor_total = '{$_POST['valor_total']}',
+        //                                             situacao = 'pendente'
+        //             ";
+        // mysqli_query($con, $q);
+        // $codigo = mysqli_insert_id($con);
+        // $_SESSION['codVenda'] = $codigo;
+
+        // mysqli_query($con, "update vendas_tmp set detalhes = '{}' where id_unico = '{$_SESSION['idUnico']}'");
 
 
-        exit();
     }
 
+
+    // print_r($v);
 
 ?>
 <style>
@@ -103,7 +165,7 @@
                 </div>
                 <button class="btn btn-secondary btn-block btn-lg" id="Pagar" hom="1" tentativas="<?=$d->tentativas_pagamento?>" loja="<?=$d->id_loja?>">
                     <i class="fa fa-calculator" aria-hidden="true"></i>
-                    PAGAR R$ <?=number_format($d->total, 2, ',','.')?>
+                    PAGAR R$ <?=number_format($_POST['valor_total'], 2, ',','.')?>
                 </button>
 
                 <div class="alertas animate__animated animate__fadeIn animate__infinite animate__slower">
@@ -127,23 +189,23 @@
 
             kind = 'credit';
             reference = '<?=$_SESSION['AppVenda']?>';
-            amount = '<?=$d->total?>';
+            amount = '<?=$_POST['valor_total']?>';
             cardholderName = $("#cartao_nome").val();
             cardNumber = $("#cartao_numero").val();
             expirationMonth = $("#cartao_validade_mes").val();
             expirationYear = $("#cartao_validade_ano").val();
             securityCode = $("#cartao_ccv").val();
-            tentativas = $(this).attr("tentativas");
-            loja = $(this).attr("loja");
-            captcha = '<?=$_POST['captcha']?>';
+            // tentativas = $(this).attr("tentativas");
+            loja = '<?=$_POST['codigo_entrega']?>';
+            // captcha = '<?=$_POST['captcha']?>';
 
-            homologacao = $(this).attr("hom");
+            // homologacao = $(this).attr("hom");
 
-            if(tentativas == 0){
-                msg = '<div style="color:red"><center><h2><i class="fa-solid fa-ban"></i></h2>Você passou de três tentativas de pagamento com cartão de crédito. Favor selecionar outra forma de pagamento!</center></div>';
-                $.alert(msg);
-                return false;
-            }
+            // if(tentativas == 0){
+            //     msg = '<div style="color:red"><center><h2><i class="fa-solid fa-ban"></i></h2>Você passou de três tentativas de pagamento com cartão de crédito. Favor selecionar outra forma de pagamento!</center></div>';
+            //     $.alert(msg);
+            //     return false;
+            // }
 
             if(
                     !kind
@@ -161,7 +223,7 @@
             }
             Carregando();
             $.ajax({
-                url:"src/produtos/pagar_credito.php",
+                url:"pagamento/credito.php",
                 type:"POST",
                 data:{
                     kind,
@@ -173,7 +235,7 @@
                     expirationYear,
                     securityCode,
                     loja,
-                    captcha,
+                    // captcha,
                     // hom:homologacao,
                     acao:'pagar'
                 },
@@ -181,27 +243,16 @@
                     Carregando('none');
                     let retorno = JSON.parse(dados);
                     $.alert(retorno.msg);
-                    tentativa = (tentativas*1-1);
-                    $("#Pagar").attr("tentativas", tentativa);
-                    $(".alertas").css("display","block");
-                    $("span[tentativa]").html(tentativa);
+                    // tentativa = (tentativas*1-1);
+                    // $("#Pagar").attr("tentativas", tentativa);
+                    // $(".alertas").css("display","block");
+                    // $("span[tentativa]").html(tentativa);
                     if (retorno.status == 'Approved') {
-                        window.localStorage.removeItem('AppVenda');
-                        window.localStorage.removeItem('AppPedido');
-                        window.localStorage.removeItem('AppCarrinho');
+                        // window.localStorage.removeItem('AppVenda');
+                        // window.localStorage.removeItem('AppPedido');
+                        // window.localStorage.removeItem('AppCarrinho');
 
-                        $.ajax({
-                            url:"componentes/ms_popup_100.php",
-                            type:"POST",
-                            data:{
-                                local:`src/cliente/pedidos.php`,
-                            },
-                            success:function(dados){
-                                $.alert('Pagamento Confirmado.<br>Seu pedido está sendo preparado!');
-                                PageClose(2);
-                                $(".ms_corpo").append(dados);
-                            }
-                        });
+                        window.location.href='./';
 
                     }
 
