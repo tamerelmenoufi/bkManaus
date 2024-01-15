@@ -300,7 +300,7 @@
 
                 <div class="accordion mb-3" id="accordionExample3">
                     <?php
-                    echo $q = "select * from categorias where situacao = '1' and deletado != '1' and codigo in(".(($substituicao == 'true')?$c->categorias:0).")";
+                    echo $q = "select * from categorias where situacao = '1' and deletado != '1' and codigo in(".(($substituicao == 'true')?$c->codigo:0).")";
                     $r = mysqli_query($con, $q);
                     while($d1 = mysqli_fetch_object($r)){
                     ?>
