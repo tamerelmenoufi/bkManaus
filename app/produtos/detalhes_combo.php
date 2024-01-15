@@ -349,15 +349,14 @@
             </div>
             <ul class="list-group list-group-flush">
                 <?php
-                echo $itens_troca;
-                echo $q = "select * from produtos where categoria in ('".implode("', '", $categorias_itens)."') and situacao = '1' and deletado != '1' and codigo in ('".implode("', '", $itens_troca)."')";
+                $q = "select * from produtos where categoria in ('".implode("', '", $categorias_itens)."') and situacao = '1' and deletado != '1' and codigo in ('".implode("', '", $itens_troca)."')";
                 $r = mysqli_query($con, $q);
                 while($i = mysqli_fetch_object($r)){
                 ?>
                 <li class="list-group-item d-flex justify-content-between">
                     <div class="form-check">
                         <input type="checkbox" <?=(($substituicao[$d1->codigo][$i->codigo] == $i->codigo)?'checked':false)?> class="form-check-input substituicao" name="substituicao" produto="<?=$d1->codigo?>" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>-<?=$d1->codigo?>">
-                        <label class="form-check-label" for="substituicao<?=$i->codigo?>-<?=$d1->codigo?>"><?=$i->item?></label>
+                        <label class="form-check-label" for="substituicao<?=$i->codigo?>-<?=$d1->codigo?>"><?=$i->produto?></label>
                     </div>
                     <div>
                         R$ <?=number_format($i->valor, 2, ",", false)?>
