@@ -449,7 +449,7 @@
                     if($v->regras->substituicao){
                         echo "<div class='mt-1'><b><i class='fa-solid fa-repeat' style='color:blue'></i> Substituir {$P->produto}</b></div>";
 
-                        $q = "select * from itens where codigo in (".implode(",", $v->regras->substituicao).")";
+                        $q = "select * from produtos where codigo in (".implode(",", $v->regras->substituicao).")";
                         $r = mysqli_query($con, $q);
                         $vl = $v->regras->substituicao_valor;                        
                         while($s = mysqli_fetch_object($r)){
@@ -458,7 +458,7 @@
                 ?>
                             <div class="d-flex justify-content-between dados">
                                 <div>
-                                    <?="{$s->item}"?>
+                                    <?="{$s->produto}"?>
                                 </div>
                                 <!-- <div>
                                     <b><?=number_format($vl[$pnt],2,',',false)?></b>
