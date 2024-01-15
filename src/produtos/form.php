@@ -297,6 +297,51 @@
                 </div>
 
 
+                <div class="accordion mb-3" id="accordionExample3">
+                    <?php
+                    $q = "select * from categorias where situacao = '1' and deletado != '1' and codigo in(".(($c->categorias_troca and $troca == 'true')?$c->categorias_troca:0).")";
+                    $r = mysqli_query($con, $q);
+                    while($d1 = mysqli_fetch_object($r)){
+                    ?>
+            
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#itens_troca<?=$d1->codigo?>" aria-expanded="false" aria-controls="itens_troca<?=$d1->codigo?>">
+                            <?=$d1->categoria?> TROCA
+                        </button>
+                        </h2>
+                        <div id="itens_troca<?=$d1->codigo?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample3">
+                            <div class="accordion-body">
+                                <ul class="list-group">
+                                <?php
+                                    
+                                    $q2 = "select * from produtos where categoria = '{$d1->codigo}' and situacao = '1' and deletado != '1'";
+                                    $r2 = mysqli_query($con, $q2);
+                                    while($d2 = mysqli_fetch_object($r2)){
+                                ?>
+                                    <li class="d-flex justify-content-start list-group-item list-group-item-action" >
+                                        <input class="form-check-input me-1 opcao_troca" codigo="<?=$d2->codigo?>" type="checkbox" <?=(($itens_troca[$d2->codigo])?'checked':false)?> value="<?=$d2->codigo?>"  id="acao_troca<?=$d2->codigo?>">
+                                            <label class="form-check-label w-100" for="acao_troca<?=$d2->codigo?>">
+                                                <div class="d-flex justify-content-between">
+                                                    <span class="text-break"><?=$d2->produto?></span>
+                                                </div>
+                                            </label> 
+                                    </li>
+                                <?php
+
+                                    }
+
+                                ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>    
+                    <?php
+                    }
+                    ?>
+                </div>
+
+
 
                 <div class="card mb-3" style="background-color:#eee">
                     <div class="card-header">
@@ -343,6 +388,8 @@
                         </div>
                     </div>
                 </div>
+
+
 
 
 
