@@ -44,19 +44,20 @@
         $d = mysqli_fetch_object($result);
 
         $q = "insert into vendas set 
-                                                    device = '{$d->id_unico}',
-                                                    cliente = '{$d->cliente}',
-                                                    endereco = '{$d->endereco}',
-                                                    detalhes = '{$d->detalhes}', 
-                                                    pagamento = '{$_POST['pagamento']}',
-                                                    data = NOW(),
-                                                    delivery_id = '{$_POST['codigo_entrega']}',
-                                                    cupom = '{$_POST['cupom']}',
-                                                    valor_compra = '{$_POST['valor_compra']}',
-                                                    valor_entrega = '{$_POST['valor_entrega']}',
-                                                    valor_desconto = '{$_POST['valor_desconto']}',
-                                                    valor_total = '{$_POST['valor_total']}',
-                                                    situacao = 'pendente'
+                                    device = '{$d->id_unico}',
+                                    loja = '{$_POST['loja']}',
+                                    cliente = '{$d->cliente}',
+                                    endereco = '{$d->endereco}',
+                                    detalhes = '{$d->detalhes}', 
+                                    pagamento = '{$_POST['pagamento']}',
+                                    data = NOW(),
+                                    delivery_id = '{$_POST['codigo_entrega']}',
+                                    cupom = '{$_POST['cupom']}',
+                                    valor_compra = '{$_POST['valor_compra']}',
+                                    valor_entrega = '{$_POST['valor_entrega']}',
+                                    valor_desconto = '{$_POST['valor_desconto']}',
+                                    valor_total = '{$_POST['valor_total']}',
+                                    situacao = 'pendente'
                     ";
         mysqli_query($con, $q);
         $codigo = mysqli_insert_id($con);

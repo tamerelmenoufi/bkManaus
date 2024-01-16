@@ -9,9 +9,24 @@
 
         require "{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/vendor/rede/Consulta.php";
 
+        file_put_contents('cartao.txt', $retorno);
+
+        if($r->authorization->status == 'Approved'){
+            $c = explode("-", $_POST['reference']);
+            $q = "update vendas set
+                                    pagamento = 'credito',
+                                    cartao_detalhes = '".(($retorno)?:'{}')."',
+                                    delivery = '',
+                                    delivery_detalhes = '{}',
+                                    situacao = 'pago'
+                                where codigo = '{$c['1']}'
+            ";
+
+            mysqli_query($con, $q);             
+        }
+
         $retorno = [
-            'status' => 'Approved',
-            'msg' => 'Seu pagamento foi realizado com sucesso!'
+            'status' => $r->authorization->status
         ];
         echo json_encode($retorno);
         exit();
@@ -33,7 +48,7 @@
         $_SESSION['codUsr'] = $_POST['codUsr'];
     }
 
-    if($_POST['pagamento']){
+    if($_POST['pagamento'] and !$_POST['codVenda']){
 
         $query = "select
                         a.*,
@@ -58,27 +73,26 @@
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
 
-        // $q = "insert into vendas set 
-        //                                             device = '{$d->id_unico}',
-        //                                             cliente = '{$d->cliente}',
-        //                                             endereco = '{$d->endereco}',
-        //                                             detalhes = '{$d->detalhes}', 
-        //                                             pagamento = '{$_POST['pagamento']}',
-        //                                             data = NOW(),
-        //                                             delivery_id = '{$_POST['codigo_entrega']}',
-        //                                             cupom = '{$_POST['cupom']}',
-        //                                             valor_compra = '{$_POST['valor_compra']}',
-        //                                             valor_entrega = '{$_POST['valor_entrega']}',
-        //                                             valor_desconto = '{$_POST['valor_desconto']}',
-        //                                             valor_total = '{$_POST['valor_total']}',
-        //                                             situacao = 'pendente'
-        //             ";
-        // mysqli_query($con, $q);
-        // $codigo = mysqli_insert_id($con);
-        // $_SESSION['codVenda'] = $codigo;
+        $q = "insert into vendas set 
+                                    device = '{$d->id_unico}',
+                                    loja = '{$_POST['loja']}',
+                                    cliente = '{$d->cliente}',
+                                    endereco = '{$d->endereco}',
+                                    detalhes = '{$d->detalhes}', 
+                                    pagamento = '{$_POST['pagamento']}',
+                                    data = NOW(),
+                                    delivery_id = '{$_POST['codigo_entrega']}',
+                                    cupom = '{$_POST['cupom']}',
+                                    valor_compra = '{$_POST['valor_compra']}',
+                                    valor_entrega = '{$_POST['valor_entrega']}',
+                                    valor_desconto = '{$_POST['valor_desconto']}',
+                                    valor_total = '{$_POST['valor_total']}',
+                                    situacao = 'pendente'
+                    ";
+        mysqli_query($con, $q);
+        $_POST['codVenda'] = mysqli_insert_id($con);
 
         // mysqli_query($con, "update vendas_tmp set detalhes = '{}' where id_unico = '{$_SESSION['idUnico']}'");
-
 
     }
 
@@ -194,7 +208,7 @@
         $("#Pagar").click(function(){
 
             kind = 'credit';
-            reference = '<?=date("YmdHis").$_SESSION['idUnicoXX']?>';
+            reference = '<?="{$_POST['codVenda']}-".date("His")?>';
             amount = '<?=number_format($_POST['valor_total'],2,".",false)?>';
             cardholderName = $("#cartao_nome").val();
             cardNumber = $("#cartao_numero").val();
@@ -202,7 +216,7 @@
             expirationYear = $("#cartao_validade_ano").val();
             securityCode = $("#cartao_ccv").val();
             // tentativas = $(this).attr("tentativas");
-            loja = '<?=$_POST['codigo_entrega']?>';
+            // loja = '<?=$_POST['codigo_entrega']?>';
             // captcha = '<?=$_POST['captcha']?>';
 
             // homologacao = $(this).attr("hom");
@@ -240,7 +254,7 @@
                     expirationMonth,
                     expirationYear,
                     securityCode,
-                    loja,
+                    // loja,
                     // captcha,
                     // hom:homologacao,
                     acao:'pagar'
@@ -248,20 +262,37 @@
                 success:function(dados){
                     Carregando('none');
                     let retorno = JSON.parse(dados);
-                    $.alert(retorno.msg);
-                    // tentativa = (tentativas*1-1);
-                    // $("#Pagar").attr("tentativas", tentativa);
-                    // $(".alertas").css("display","block");
-                    // $("span[tentativa]").html(tentativa);
                     if (retorno.status == 'Approved') {
-                        // window.localStorage.removeItem('AppVenda');
-                        // window.localStorage.removeItem('AppPedido');
-                        // window.localStorage.removeItem('AppCarrinho');
-
-                        window.location.href='./';
-
+                        $.alert({
+                            content:'Seu pagamento foi realizado com sucesso!',
+                            title:"Mensagem de Aprovação",
+                            type:"green",
+                            buttons:{
+                                'ok':{
+                                    text:"ok",
+                                    btnClass:'btn btn-success',
+                                    action:function(){
+                                        window.location.href='./';
+                                    }
+                                }
+                            }
+                        });
+                    }else{
+                        $.alert({
+                            content:'Ocorreu um erro na tentativa de seu pagamento!',
+                            title:"Mensagem de Recusão",
+                            type:"red",
+                            buttons:{
+                                'ok':{
+                                    text:"ok",
+                                    btnClass:'btn btn-danger',
+                                    action:function(){
+                                        window.location.href='./';
+                                    }
+                                }
+                            }
+                        });
                     }
-
                 }
             });
 
