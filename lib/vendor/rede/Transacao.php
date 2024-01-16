@@ -6,7 +6,7 @@
     $rede = new Rede;
     $retorno = $rede->Transacao('{
         "capture": '.(($_POST['capture'])?:'true').',
-        "kind": "'.(($_POST['kind'])?:'credit').'",
+        "kind": "'.(($_POST['kind'])?:'credit').'", 
         "reference": "'.$_POST['reference'].'",
         "amount": '.$amount.',
         '.(($_POST['installments'])?'"installments": '.$_POST['installments'].',':false).'
@@ -21,3 +21,5 @@
         "distributorAffiliation": '.(($_POST['distributorAffiliation'])?:'0').'
         '.(($_POST['brandTid'])?'", brandTid": '.$_POST['brandTid'].',':false).'
     }');
+
+    file_put_contents('cartao.txt', $retorno );
