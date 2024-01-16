@@ -55,7 +55,7 @@
     $query = "select *,
                         itens->>'$[*].item' as lista_itens,
                         itens_add->>'$[*].item' as lista_add, 
-                        itens_troca->>'$[*].item' as lista_troca, 
+                        itens_troca->>'$[*].item' as lista_troca
                      from produtos where codigo = '{$_POST['codigo']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
