@@ -7,6 +7,10 @@
 
         require "{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/vendor/rede/Transacao.php";
 
+        require "{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/vendor/rede/Consulta.php";
+
+
+
         $retorno = [
             'status' => 'Approved',
             'msg' => 'Seu pagamento foi realizado com sucesso!'
@@ -193,7 +197,7 @@
 
             kind = 'credit';
             reference = '<?=$_SESSION['idUnico']?>';
-            amount = '<?=$_POST['valor_total']?>';
+            amount = '<?=number_format($_POST['valor_total'],2,".",false)?>';
             cardholderName = $("#cartao_nome").val();
             cardNumber = $("#cartao_numero").val();
             expirationMonth = $("#cartao_validade_mes").val();

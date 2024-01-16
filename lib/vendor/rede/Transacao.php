@@ -21,5 +21,3 @@
         "distributorAffiliation": '.(($_POST['distributorAffiliation'])?:'0').'
         '.(($_POST['brandTid'])?'", brandTid": '.$_POST['brandTid'].',':false).'
     }');
-
-    file_put_contents('cartao.txt', $retorno );
