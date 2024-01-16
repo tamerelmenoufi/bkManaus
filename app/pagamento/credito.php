@@ -92,7 +92,7 @@
         mysqli_query($con, $q);
         $_POST['codVenda'] = mysqli_insert_id($con);
 
-        // mysqli_query($con, "update vendas_tmp set detalhes = '{}' where id_unico = '{$_SESSION['idUnico']}'");
+        mysqli_query($con, "update vendas_tmp set detalhes = '{}' where id_unico = '{$_SESSION['idUnico']}'");
 
     }
 
