@@ -9,8 +9,6 @@
 
         require "{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/vendor/rede/Consulta.php";
 
-
-
         $retorno = [
             'status' => 'Approved',
             'msg' => 'Seu pagamento foi realizado com sucesso!'

@@ -5,7 +5,7 @@
 
         public $Ambiente = 'producao'; //homologacao ou producao
 
-        public function Autenticacao($opc){
+        public function Autenticacao(){
             global $cBk;
             return base64_encode($cBk['rede'][$this->Ambiente]['PV'].":".$cBk['rede'][$this->Ambiente]['TOKEN']);
         }
