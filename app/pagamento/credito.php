@@ -196,7 +196,7 @@
         $("#Pagar").click(function(){
 
             kind = 'credit';
-            reference = '<?=$_SESSION['idUnico']?>';
+            reference = '<?=date("YmdHis").$_SESSION['idUnicoXX']?>';
             amount = '<?=number_format($_POST['valor_total'],2,".",false)?>';
             cardholderName = $("#cartao_nome").val();
             cardNumber = $("#cartao_numero").val();
