@@ -3,6 +3,10 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     if($_POST['acao'] == 'pagar'){
+
+
+        require "{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/vendor/rede/Transacao.php";
+
         $retorno = [
             'status' => 'Approved',
             'msg' => 'Seu pagamento foi realizado com sucesso!'
