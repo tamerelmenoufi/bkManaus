@@ -111,6 +111,8 @@
 
 
     $itens = json_decode($d->lista_itens);
+    $itens_add = json_decode($d->lista_add);
+    $itens_troca = json_decode($d->lista_troca);
     $categorias_itens = $c->categorias_itens;   
 
 
@@ -210,7 +212,7 @@
 
         <?php
 
-        if($acoes->remocao == 'true' and $itens and $itens != 'null'){
+        if($acoes->remocao == 'true' and $itens and $itens != 'null' and $itens){
 
         ?>
 
@@ -239,7 +241,7 @@
         <?php
         }
 
-        if($acoes->inclusao == 'true' and $categorias_itens and $categorias_itens != 'null'){
+        if($acoes->inclusao == 'true' and $categorias_itens and $categorias_itens != 'null' and $itens_add != 'null' and $itens_add){
         ?>
     
             <div class="card w-100 mb-3">
@@ -248,7 +250,7 @@
             </div>
             <ul class="list-group list-group-flush">
                 <?php
-                $q = "select * from itens where situacao = '1' and deletado != '1' and categoria in ('".$categorias_itens."')";
+                $q = "select * from itens where situacao = '1' and deletado != '1' and categoria in ('".$categorias_itens."') and codigo in ('".implode("', '", $itens_add)."')";
                 $r = mysqli_query($con, $q);
                 while($i = mysqli_fetch_object($r)){
                 ?>
@@ -276,7 +278,7 @@
         <?php
         }
 
-        if($acoes->substituicao == 'true' and $categorias_itens and $categorias_itens != 'null'){
+        if($acoes->substituicao == 'true' and $categorias_itens and $categorias_itens != 'null' and $itens_troca != 'null' and $itens_troca){
         ?>
     
             <div class="card w-100 mb-3">
@@ -285,14 +287,14 @@
             </div>
             <ul class="list-group list-group-flush">
                 <?php
-                $q = "select * from itens where categoria in ('".$categorias_itens."')";
+                $q = "select * from produtos where categoria in ('".implode("', '", $categorias_itens)."') and situacao = '1' and deletado != '1' and codigo in ('".implode("', '", $itens_troca)."')";
                 $r = mysqli_query($con, $q);
                 while($i = mysqli_fetch_object($r)){
                 ?>
                 <li class="list-group-item d-flex justify-content-between">
                     <div class="form-check">
                         <input type="checkbox" <?=(($substituicao[$i->codigo] == $i->codigo)?'checked':false)?> class="form-check-input substituicao" name="substituicao" codigo="<?=$i->codigo?>" valor="<?=$i->valor?>" id="substituicao<?=$i->codigo?>">
-                        <label class="form-check-label" for="substituicao<?=$i->codigo?>"><?=$i->item?></label>
+                        <label class="form-check-label" for="substituicao<?=$i->codigo?>"><?=$i->produto?></label>
                     </div>
                     <div>
                         + R$ <?=number_format($i->valor, 2, ",", false)?>
