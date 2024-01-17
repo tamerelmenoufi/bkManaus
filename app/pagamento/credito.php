@@ -11,7 +11,7 @@
 
         file_put_contents('cartao.txt', $retorno);
 
-        if($r->authorization->status == 'Approved'){
+        if($retorno->authorization->status == 'Approved'){
             $c = explode("-", $_POST['reference']);
             $q = "update vendas set
                                     pagamento = 'credito',
@@ -26,7 +26,7 @@
         }
 
         $retorno = [
-            'status' => $r->authorization->status
+            'status' => $retorno->authorization->status
         ];
         echo json_encode($retorno);
         exit();

@@ -78,7 +78,7 @@
                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                         <i class="fa-brands fa-pix"></i> PIX
                     </button>
-                    <button type="button" class="btn btn-success"
+                    <button type="button" class="btn btn-success" credito="<?=$d->codigo?>" valor_total="<?=$d->valor_total?>"
                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                         <i class="fa-regular fa-credit-card"></i> Crédito
                     </button>
@@ -178,8 +178,7 @@ if(!$_POST['novoPedido']){
 
         $("button[pedido]").click(function(){
 
-            
-
+        
             codVenda = $(this).attr("pedido");
             idUnico = localStorage.getItem("idUnico");
             codUsr = localStorage.getItem("codUsr");
@@ -228,6 +227,43 @@ if(!$_POST['novoPedido']){
                     idUnico,
                     codUsr,
                     codVenda,                    
+                },
+                success:function(dados){
+                    $(".popupPalco").html(dados);
+                    $(".popupArea").css('display','flex');
+                    Carregando('none');
+                    // $.ajax({
+                    //     url:"pedido/resumo.php",
+                    //     type:"POST",
+                    //     data:{
+                    //         idUnico,
+                    //         codUsr
+                    //     },
+                    //     success:function(dados){
+                    //         $(`.CorpoApp`).html(dados);
+                    //     }
+                    // });  
+                }
+            });
+        })
+
+        $("button[credito]").off('click').on('click',function(){
+
+            codVenda = $(this).attr("credito");
+            valor_total = $(this).attr("valor_total");
+            idUnico = localStorage.getItem("idUnico");
+            codUsr = localStorage.getItem("codUsr");
+            localStorage.removeItem("codVenda");
+
+            Carregando();
+            $.ajax({
+                url:"pagamento/credito.php",
+                type:"POST",
+                data:{
+                    idUnico,
+                    codUsr,
+                    codVenda,
+                    valor_total                  
                 },
                 success:function(dados){
                     $(".popupPalco").html(dados);
