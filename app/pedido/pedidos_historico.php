@@ -26,7 +26,7 @@
 
 <?php
 
-    $query = "select * from vendas where (device = '{$_SESSION['idUnico']}' or cliente = '{$_SESSION['codUsr']}') and situacao = 'pendente'";
+    $query = "select *, pix_detalhes->>'$.id' as operadora_id from vendas where (device = '{$_SESSION['idUnico']}' or cliente = '{$_SESSION['codUsr']}') and situacao = 'pendente'";
     $result = mysqli_query($con, $query);
 
     $q = mysqli_num_rows($result);
@@ -74,7 +74,7 @@
                     <i class="fa-solid fa-receipt"></i> pedido
                 </button>
                 <div>
-                    <button type="button" class="btn btn-success me-2" pix="<?=$d->codigo?>"
+                    <button type="button" class="btn btn-success me-2" pix="<?=$d->codigo?>" pagamento="<?=$d->operadora_id?>"
                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                         <i class="fa-brands fa-pix"></i> PIX
                     </button>
@@ -215,6 +215,7 @@ if(!$_POST['novoPedido']){
         $("button[pix]").off('click').on('click',function(){
 
             codVenda = $(this).attr("pix");
+            pagamento = $(this).attr("pagamento");
             idUnico = localStorage.getItem("idUnico");
             codUsr = localStorage.getItem("codUsr");
             localStorage.removeItem("codVenda");
@@ -226,7 +227,8 @@ if(!$_POST['novoPedido']){
                 data:{
                     idUnico,
                     codUsr,
-                    codVenda,                    
+                    codVenda,     
+                    pagamento               
                 },
                 success:function(dados){
                     $(".popupPalco").html(dados);
