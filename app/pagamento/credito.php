@@ -15,18 +15,28 @@
 
         if($retorno->authorization->status == 'Approved'){
             $c = explode("-", $_POST['reference']);
+
+            //Se tiver pagamento pix pendente executar o script de cancelamento aqui 
+            $q = "select pix_detalhes->>'$.id' as operadora_id from vendas where codigo = '{$c[0]}'";
+            $r = mysqli_query($con, $q);
+            $v = mysqli_fetch_object($r);
+            $delivery_detalhes = false;
+            if($v->operadora_id){
+                $PIX = new MercadoPago;
+                $delivery_detalhes = $PIX->CancelarPagamento($v->operadora_id); //////////////              
+            }
+
             $q = "update vendas set
                                     pagamento = 'credito',
                                     cartao_detalhes = '".(($retorno)?:'{}')."',
                                     delivery = '',
-                                    delivery_detalhes = '{}',
+                                    ".(($delivery_detalhes)?"delivery_detalhes = '{}',":false)."
                                     situacao = 'pago'
                                 where codigo = '{$c[0]}'
             ";
 
             mysqli_query($con, $q);  
-            
-            //Se tiver pagamento pix pendente executar o script de cancelamento aqui 
+
         }
 
         $retorno = [
