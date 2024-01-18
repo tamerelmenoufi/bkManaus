@@ -19,10 +19,13 @@
                                     delivery = '',
                                     delivery_detalhes = '{}',
                                     situacao = 'pago'
-                                where codigo = '{$c['1']}'
+                                where codigo = '{$c[0]}'
             ";
 
-            mysqli_query($con, $q);             
+            mysqli_query($con, $q);  
+            
+            //Se tiver pagamento pix pendente executar o script de cancelamento aqui 
+
         }
 
         $retorno = [
