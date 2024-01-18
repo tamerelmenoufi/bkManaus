@@ -11,6 +11,8 @@
 
         file_put_contents('cartao.txt', $retorno);
 
+        $retorno = json_decode($retorno);
+
         if($retorno->authorization->status == 'Approved'){
             $c = explode("-", $_POST['reference']);
             $q = "update vendas set
@@ -25,7 +27,6 @@
             mysqli_query($con, $q);  
             
             //Se tiver pagamento pix pendente executar o script de cancelamento aqui 
-
         }
 
         $retorno = [
