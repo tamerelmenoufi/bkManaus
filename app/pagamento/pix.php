@@ -70,9 +70,27 @@
         $_SESSION['codVenda'] = $_POST['codVenda'];
     }
 
-    $v = mysqli_fetch_object(mysqli_query($con, "select *, pix_detalhes->>'$.id' as operadora_id from vendas where codigo = '{$_SESSION['codVenda']}'"));
+    $v = mysqli_fetch_object(mysqli_query($con, "select  a.*,
+                                                    a.pix_detalhes->>'$.id' as operadora_id, 
+                                                    b.nome as Cnome,
+                                                    b.cpf as Ccpf,
+                                                    b.telefone as Ctelefone,
+                                                    b.email as Cemail,
+                                                    c.codigo as endereco,
+                                                    c.cep as Ecep,
+                                                    c.logradouro as Elogradouro,
+                                                    c.numero as Enumero,
+                                                    c.complemento as Ecomplemento,
+                                                    c.ponto_referencia as Eponto_referencia,
+                                                    c.bairro as Ebairro,
+                                                    c.localidade as Elocalidade,
+                                                    c.uf as Euf
+                                                from vendas a 
+                                                left join clientes b on a.cliente = b.codigo
+                                                left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
+                                                where a.codigo = '{$_SESSION['codVenda']}'"));
 
-    $pos =  strripos($d->Cnome, " ");
+    $pos =  strripos($v->Cnome, " ");
 
 
     // print_r($v);
@@ -120,18 +138,18 @@
                         "description": "Pedido '.$pedido.' - Venda BKManaus (Delivery)",
                         "payment_method_id": "pix",
                         "payer": {
-                        "email": "'.$d->Cemail.'",
-                        "first_name": "'.substr($d->Cnome, 0, ($pos-1)).'",
-                        "last_name": "'.substr($d->Cnome, $pos, strlen($d->Cnome)).'",
+                        "email": "'.$v->Cemail.'",
+                        "first_name": "'.substr($v->Cnome, 0, ($pos-1)).'",
+                        "last_name": "'.substr($v->Cnome, $pos, strlen($v->Cnome)).'",
                         "identification": {
                             "type": "CPF",
-                            "number": "'.str_replace(array('.','-'),false,$d->Ccpf).'"
+                            "number": "'.str_replace(array('.','-'),false,$v->Ccpf).'"
                         },
                         "address": {
-                            "zip_code": "'.str_replace(array('.','-'),false,$d->Ccep).'",
-                            "street_name": "'.$d->Clogradouro.'",
-                            "street_number": "'.$d->Cnumero.'",
-                            "neighborhood": "'.$d->Cbairro.'",
+                            "zip_code": "'.str_replace(array('.','-'),false,$v->Ccep).'",
+                            "street_name": "'.$v->Clogradouro.'",
+                            "street_number": "'.$v->Cnumero.'",
+                            "neighborhood": "'.$v->Cbairro.'",
                             "city": "Manaus",
                             "federal_unit": "AM"
                         }
