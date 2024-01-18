@@ -10,7 +10,7 @@
         require "{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/vendor/rede/Consulta.php";
 
         file_put_contents('cartao.txt', $retorno);
-
+        $cartao_detalhes = $retorno;
         $retorno = json_decode($retorno);
 
         if($retorno->authorization->status == 'Approved'){
@@ -28,7 +28,7 @@
 
             $q = "update vendas set
                                     pagamento = 'credito',
-                                    cartao_detalhes = '".(($retorno)?:'{}')."',
+                                    cartao_detalhes = '".(($cartao_detalhes)?:'{}')."',
                                     delivery = '',
                                     ".(($delivery_detalhes)?"delivery_detalhes = '{}',":false)."
                                     situacao = 'pago'
