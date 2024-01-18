@@ -104,8 +104,6 @@
 
                 if($local->status == 'OK'){
 
-                    
-
                     $vl = $local->routes[0]->legs[0]->distance->value;
                     $vl = number_format($vl/1000,1,"-",false);
                     list($int, $dec) = explode("-", $vl);
