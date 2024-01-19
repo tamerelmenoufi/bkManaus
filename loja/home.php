@@ -109,7 +109,7 @@
                     </div>
                     <div class="d-flex justify-content-between dados">
                         <div>
-                            <i class="fa-solid fa-mobile-screen-button"></i> Status
+                            <i class="fa-solid fa-motorcycle"></i> Status
                         </div>
                         <div>
                             <?=strtoupper($d->producao)?>
