@@ -145,7 +145,7 @@
                 }
 
                 Carregando();
-
+                
                 $.ajax({
                     url:"entregadores/form.php",
                     type:"POST",
@@ -154,9 +154,13 @@
                     data: campos,
                     success:function(dados){
                         // if(dados.status){
+                            loja = localStorage.getItem("loja");
                             $.ajax({
                                 url:"entregadores/index.php",
                                 type:"POST",
+                                data:{
+                                    loja
+                                },
                                 success:function(dados){
                                     $(".popupPalco").html(dados);
                                 }
@@ -173,9 +177,13 @@
             });
 
             $(".voltar").click(function(){
+                loja = localStorage.getItem("loja");
                 $.ajax({
                     url:"entregadores/index.php",
                     type:"POST",
+                    data:{
+                        loja
+                    },
                     success:function(dados){
                         $(".popupPalco").html(dados);
                     }
