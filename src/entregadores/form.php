@@ -13,14 +13,21 @@
         foreach ($data as $name => $value) {
             $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
         }
+        $attr[] = "deletado = '0'";
 
 
         $attr = implode(', ', $attr);
+
+        $existe = mysqli_fetch_object(mysqli_query($con, "select * from entregadores where cpf = '{$_POST['cpf']}'"));
 
         if($_POST['codigo']){
             $query = "update entregadores set {$attr} where codigo = '{$_POST['codigo']}'";
             sisLog($query);
             $cod = $_POST['codigo'];
+        }else if($existe->codigo){
+            $query = "update entregadores set {$attr} where codigo = '{$existe->codigo}'";
+            sisLog($query);
+            $cod = $_POST['codigo'];            
         }else{
             $query = "insert into entregadores set data_cadastro = NOW(), {$attr}";
             sisLog($query);

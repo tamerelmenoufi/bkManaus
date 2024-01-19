@@ -12,7 +12,7 @@
         foreach ($data as $name => $value) {
             $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
         }
-
+        $attr[] = "deletado = '0'";
 
         $attr = implode(', ', $attr);
 
