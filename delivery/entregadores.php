@@ -24,7 +24,7 @@
         }else{
             $retorno = [
                 'status' => false,
-                'loja' => false
+                'loja' => false,
                 'entregador' => false,
                 'senha' => false
             ];            
