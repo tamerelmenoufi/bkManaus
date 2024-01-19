@@ -71,6 +71,8 @@
             $query = "select a.*, if(a.producao = 'pendente',0,1) as ordem, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' order by ordem asc, a.data desc";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
+
+            $delivery = json_decode($d->delivery_detalhes);
             ?>
                 <li class="list-group-item <?=(($d->producao == 'pendente')?'bg-secondary-subtle':'bg-success-subtle')?>" pedido="<?=$d->codigo?>">
                     <div class="d-flex justify-content-between">
@@ -85,6 +87,29 @@
                             Retorno: <?=$d->retorno?>
                         </div>
                     </div>
+                    <?php
+                    if($delivery->deliveryMan->name){
+                    ?>
+                    <div class="mt-2 mb-2"><b><i class="fa-solid fa-motorcycle"></i> Dados de Entrega</b></div>
+                    <div class="d-flex justify-content-between dados">
+                        <div>
+                            <i class="fa-solid fa-person-biking"></i> Nome
+                        </div>
+                        <div>
+                            <?=$delivery->deliveryMan->name?>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between dados">
+                        <div>
+                            <i class="fa-solid fa-mobile-screen-button"></i> Telefone
+                        </div>
+                        <div>
+                            <?="({$delivery->deliveryMan->ddd}) {$delivery->deliveryMan->phone}"?>
+                        </div>
+                    </div>
+                    <?php
+                    }
+                    ?>
                 </li>
             <?php
             }
