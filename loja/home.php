@@ -36,7 +36,6 @@
         bottom:55px;
         overflow:auto;
         background-color:#fff;
-        border:solid 1px red;
         left:0;
         right:0;
     }
