@@ -74,6 +74,7 @@
 
                 <div class="form-floating mb-3">
                     <select name="loja" class="form-control" id="loja">
+                        <option value="">:: selecione ::</option>
                         <?php
                         $q = "select * from lojas where situacao = '1' and deletado != '1' order by nome";
                         $r = mysqli_query($con, $q);
