@@ -73,6 +73,21 @@
                 </div>
 
                 <div class="form-floating mb-3">
+                    <select name="loja" class="form-control" id="loja">
+                        <?php
+                        $q = "select * from lojas where situacao = '1' and deletado != '1' order by nome";
+                        $r = mysqli_query($con, $q);
+                        while($s = mysqli_fetch_object($r)){
+                        ?>
+                        <option value="1" <?=(($d->loja == $s->codigo)?'selected':false)?>><?=$s->nome?></option>
+                        <?php
+                        }
+                        ?>                        
+                    </select>
+                    <label for="loja">Loja</label>
+                </div>
+
+                <div class="form-floating mb-3">
                     <select name="situacao" class="form-control" id="situacao">
                         <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
                         <option value="0" <?=(($d->situacao == '0')?'selected':false)?>>Bloqueado</option>
