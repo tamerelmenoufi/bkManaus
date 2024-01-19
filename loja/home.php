@@ -184,7 +184,7 @@
             loja = localStorage.getItem("loja");
             Carregando();
             $.ajax({
-                url:"entregadores.php",
+                url:"entregadores/index.php",
                 type:"POST",
                 data:{
                     loja
