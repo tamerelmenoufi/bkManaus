@@ -33,7 +33,7 @@
     .home_corpo{
         position: absolute;
         top:100px;
-        bottom:50px;
+        bottom:55px;
         overflow:auto;
         background-color:#fff;
         border:solid 1px red;
