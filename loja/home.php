@@ -90,7 +90,12 @@
                     <?php
                     if($delivery->deliveryMan->name){
                     ?>
-                    <div class="mt-2 mb-2"><b><i class="fa-solid fa-motorcycle"></i> Dados de Entrega</b></div>
+                    <div class="d-flex justify-content-between mt-2 mb-2">
+                        <div><b><i class="fa-solid fa-motorcycle"></i> Dados de Entrega</b></div>
+                        <div>
+                            <?=strtoupper($d->producao)?>
+                        </div>
+                    </div>
                     <div class="d-flex justify-content-between dados">
                         <div>
                             <i class="fa-solid fa-person-biking"></i> Nome
@@ -107,14 +112,14 @@
                             <?="({$delivery->deliveryMan->ddd}) {$delivery->deliveryMan->phone}"?>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between dados">
+                    <!-- <div class="d-flex justify-content-between dados">
                         <div>
                             <i class="fa-solid fa-motorcycle"></i> Status
                         </div>
                         <div>
                             <?=strtoupper($d->producao)?>
                         </div>
-                    </div>
+                    </div> -->
                     
                     <?php
                     }
