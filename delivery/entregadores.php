@@ -86,7 +86,12 @@
     <div class="row g-0">
         <div class="col">
             <div class="alert alert-warning m-3" role="alert">
-                Digite o CPF para logar no sistema
+                <div class="mb-3">
+                    <label for="cpf" class="form-label">CPF</label>
+                    <input type="text" class="form-control" id="cpf">
+                    <div class="form-text">Digite seu CPF para liberar o acesso</div>
+                </div>
+                <button entregador type="button" class="btn btn-primary">Ativar</button>
             </div>
 
 
@@ -102,6 +107,9 @@
 
 <script>
     $(function(){
+
+        $("#cpf").mask("999.999.999-99");
+
         $("button[entregador]").click(function(){
             cpf = $("#cpf").val();
             loja = $("#loja").val();
