@@ -125,7 +125,7 @@
 
             loja = localStorage.getItem("loja");
             entregador = localStorage.getItem("entregador");
- $.alert(entregador)
+
             if(entregador){
 
                 $.ajax({
@@ -137,7 +137,7 @@
                         acao:"verificar"
                     },
                     success:function(dados){
-                       
+                        $.alert(dados.status)
 
                         if(dados.status == true){
                             Carregando();
