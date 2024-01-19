@@ -101,6 +101,7 @@
                             <div class="row">
                                 <div class="col">
                                     <div style="display:flex; justify-content:end">
+                                        <button type="button" class="btn btn-warning btn-ms me-3">Voltar</button>
                                         <button type="submit" class="btn btn-success btn-ms">Salvar</button>
                                         <input type="hidden" id="codigo" value="<?=$_POST['cod']?>" />
                                     </div>
