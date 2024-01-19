@@ -33,9 +33,10 @@
     .home_corpo{
         position: absolute;
         top:100px;
-        bottom:0px;
+        bottom:40px;
         overflow:auto;
         background-color:#fff;
+        border:solid 1px red;
         left:0;
         right:0;
     }
@@ -127,10 +128,8 @@
         </ul>
 
     </div>
-
-
-    <button class="btn btn-primary entregadores"><i class="fa-solid fa-person-biking"></i> Entregadores</button>
 </div>
+<button class="btn btn-primary entregadores"><i class="fa-solid fa-person-biking"></i> Entregadores</button>
 
 <script>
     $(function(){
