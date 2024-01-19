@@ -19,7 +19,7 @@
                 'status' => true,
                 'entregador' => $d->codigo,
                 'senha' => $cod,
-                'loja' => $_POST['loja']
+                'loja' => "1".$_POST['loja']
             ];
         }else{
             $retorno = [
