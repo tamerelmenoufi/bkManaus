@@ -180,6 +180,26 @@
             });
         })
 
+        $(".entregadores").click(function(){
+            loja = localStorage.getItem("loja");
+            Carregando();
+            $.ajax({
+                url:"entregadores.php",
+                type:"POST",
+                data:{
+                    loja
+                },
+                success:function(dados){
+                    Carregando('none');
+                    $(".popupPalco").html(dados);
+                    $(".popupArea").css("display","block");
+                },
+                error:function(){
+                    console.log('erro');
+                }
+            });
+        })
+
         atualizacao = setTimeout(() => {
             $.ajax({
                 url:"home.php",
