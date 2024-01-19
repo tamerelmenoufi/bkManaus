@@ -93,7 +93,7 @@
                     <div class="d-flex justify-content-between mt-2 mb-2">
                         <div><b><i class="fa-solid fa-motorcycle"></i> Dados de Entrega</b></div>
                         <div>
-                            <?=strtoupper($d->producao)?>
+                            <b><?=strtoupper($d->producao)?></b>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between dados">
@@ -111,16 +111,7 @@
                         <div>
                             <?="({$delivery->deliveryMan->ddd}) {$delivery->deliveryMan->phone}"?>
                         </div>
-                    </div>
-                    <!-- <div class="d-flex justify-content-between dados">
-                        <div>
-                            <i class="fa-solid fa-motorcycle"></i> Status
-                        </div>
-                        <div>
-                            <?=strtoupper($d->producao)?>
-                        </div>
-                    </div> -->
-                    
+                    </div>                    
                     <?php
                     }
                     ?>
