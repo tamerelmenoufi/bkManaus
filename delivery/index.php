@@ -1,7 +1,7 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-    if($_POST['verificar']){
+    if($_POST['acao'] == 'verificar'){
 
         $query = "select * from entregadores where codigo = '{$_POST['entregador']}' and situacao = '1' and deletado != '1'";
         $result = mysqli_query($con,$query);
