@@ -152,6 +152,7 @@
                                 }
                             });   
                         }else{
+                            $.alert('Erro')
                             localStorage.removeItem("loja");
                             localStorage.removeItem("entregador");
                         }
