@@ -158,8 +158,13 @@
         Carregando('none');
 
         $("button[novoCadastro]").click(function(){
+            loja = localStorage.getItem("loja");
             $.ajax({
                 url:"entregadores/form.php",
+                type:"POST",
+                data:{
+                  loja
+                },
                 success:function(dados){
                   $(".popupPalco").html(dados);
                 }
@@ -171,12 +176,15 @@
         $("button[filtro]").click(function(){
           filtro = $(this).attr("filtro");
           campo = $("input[campoBusca]").val();
+          loja = localStorage.getItem("loja");
+
           $.ajax({
               url:"entregadores/index.php",
               type:"POST",
               data:{
                   filtro,
-                  campo
+                  campo,
+                  loja
               },
               success:function(dados){
                 $(".popupPalco").html(dados);
@@ -187,11 +195,13 @@
 
         $("button[edit]").click(function(){
             cod = $(this).attr("edit");
+            loja = localStorage.getItem("loja");
             $.ajax({
                 url:"entregadores/form.php",
                 type:"POST",
                 data:{
-                  cod
+                  cod,
+                  loja
                 },
                 success:function(dados){
                   $(".popupPalco").html(dados);
@@ -203,6 +213,8 @@
 
         $("button[delete]").click(function(){
             deletar = $(this).attr("delete");
+            loja = localStorage.getItem("loja");
+
             $.confirm({
                 content:"Deseja realmente excluir o cadastro ?",
                 title:false,
@@ -212,7 +224,8 @@
                             url:"entregadores/index.php",
                             type:"POST",
                             data:{
-                                delete:deletar
+                                delete:deletar,
+                                loja
                             },
                             success:function(dados){
                               $(".popupPalco").html(dados);
@@ -231,6 +244,7 @@
         $(".situacao").change(function(){
 
             situacao = $(this).attr("usuario");
+            loja = localStorage.getItem("loja");
             opc = false;
 
             if($(this).prop("checked") == true){
@@ -245,7 +259,8 @@
                 type:"POST",
                 data:{
                     situacao,
-                    opc
+                    opc,
+                    loja
                 },
                 success:function(dados){
                     // $("#paginaHome").html(dados);
