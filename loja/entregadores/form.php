@@ -71,7 +71,7 @@
                                         <label for="email">E-mail</label>
                                     </div>
 
-                                    <div class="form-floating mb-3">
+                                    <!-- <div class="form-floating mb-3">
                                         <select name="loja" class="form-control" id="loja">
                                             <option value="">:: selecione ::</option>
                                             <?php
@@ -85,7 +85,7 @@
                                             ?>                        
                                         </select>
                                         <label for="loja">Loja</label>
-                                    </div>
+                                    </div> -->
 
                                     <div class="form-floating mb-3">
                                         <select name="situacao" class="form-control" id="situacao">
@@ -104,6 +104,7 @@
                                         <button type="button" class="btn btn-warning btn-ms me-3 voltar">Voltar</button>
                                         <button type="submit" class="btn btn-success btn-ms">Salvar</button>
                                         <input type="hidden" id="codigo" value="<?=$_POST['cod']?>" />
+                                        <input type="hidden" name="loja" value="<?=$_POST['loja']?>" />
                                     </div>
                                 </div>
                             </div>
