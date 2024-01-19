@@ -137,7 +137,7 @@
                         acao:"verificar"
                     },
                     success:function(dados){
-                        $.alert(dados.status)
+                        $.alert('dados.status')
 
                         if(dados.status == true){
                             Carregando();
