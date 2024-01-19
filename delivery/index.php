@@ -125,7 +125,7 @@
 
             loja = localStorage.getItem("loja");
             entregador = localStorage.getItem("entregador");
- $.alert('Erro')
+ $.alert(entregador)
             if(entregador){
 
                 $.ajax({
