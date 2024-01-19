@@ -22,7 +22,7 @@
 
     if($_SESSION['usuarioBusca']){
       $cpf = str_replace( '.', '', str_replace('-', '', $_SESSION['usuarioBusca']));
-      $where = " and nome like '%{$_SESSION['usuarioBusca']}%' or REPLACE( REPLACE( cpf, '.', '' ), '-', '' ) = '{$cpf}' ";
+      $where = " and a.nome like '%{$_SESSION['usuarioBusca']}%' or REPLACE( REPLACE( a.cpf, '.', '' ), '-', '' ) = '{$cpf}' or b.nome like '%{$_SESSION['usuarioBusca']}%'";
     }
 
 
@@ -111,13 +111,14 @@
                     <th scope="col">Nome</th>
                     <th scope="col">CPF</th>
                     <th scope="col">Telefone</th>
+                    <th scope="col">Loja</th>
                     <th scope="col">Situação</th>
                     <th scope="col">Ações</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                    $query = "select * from entregadores where deletado != '1' {$where} order by nome asc";
+                    $query = "select a.*, b.nome as loja_nome from entregadores a left join lojas b on a.loja = b.codigo where a.deletado != '1' {$where} order by a.nome asc";
                     $result = sisLog($query);
                     
                     while($d = mysqli_fetch_object($result)){
@@ -126,6 +127,7 @@
                     <td class="w-100"><?=$d->nome?></td>
                     <td><?=$d->cpf?></td>
                     <td><?=$d->telefone?></td>
+                    <td><?=$d->loja_nome?></td>
                     <td>
 
                     <div class="form-check form-switch">
