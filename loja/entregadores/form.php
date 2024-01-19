@@ -1,7 +1,6 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-
     if($_POST['acao'] == 'salvar'){
 
         $data = $_POST;
@@ -42,73 +41,78 @@
     $result = sisLog($query);
     $d = mysqli_fetch_object($result);
 ?>
-<style>
-    .Titulo<?=$md5?>{
-        position:absolute;
-        left:60px;
-        top:8px;
-        z-index:0;
-    }
-</style>
-<h4 class="Titulo<?=$md5?>">Cadastro do Usuário</h4>
-    <form id="form-<?= $md5 ?>">
-        <div class="row">
-            <div class="col">
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome completo" value="<?=$d->nome?>">
-                    <label for="nome">Nome*</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF" value="<?=$d->cpf?>">
-                    <label for="cpf">CPF*</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="telefone" id="telefone" class="form-control" placeholder="Telefone" value="<?=$d->telefone?>">
-                    <label for="telefone">Telefone</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <input type="text" name="email" id="email" class="form-control" placeholder="E-mail" value="<?=$d->email?>">
-                    <label for="email">E-mail</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <select name="loja" class="form-control" id="loja">
-                        <option value="">:: selecione ::</option>
-                        <?php
-                        $q = "select * from lojas where situacao = '1' and deletado != '1' order by nome";
-                        $r = mysqli_query($con, $q);
-                        while($s = mysqli_fetch_object($r)){
-                        ?>
-                        <option value="<?=$s->codigo?>" <?=(($d->loja == $s->codigo)?'selected':false)?>><?=$s->nome?></option>
-                        <?php
-                        }
-                        ?>                        
-                    </select>
-                    <label for="loja">Loja</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <select name="situacao" class="form-control" id="situacao">
-                        <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
-                        <option value="0" <?=(($d->situacao == '0')?'selected':false)?>>Bloqueado</option>
-                    </select>
-                    <label for="email">Situação</label>
-                </div>
-
-            </div>
-        </div>
+<div class="col">
+    <div class="m-3">
 
         <div class="row">
             <div class="col">
-                <div style="display:flex; justify-content:end">
-                    <button type="submit" class="btn btn-success btn-ms">Salvar</button>
-                    <input type="hidden" id="codigo" value="<?=$_POST['cod']?>" />
+                <div class="card">
+                    <h5 class="card-header">Cadastro do Entregador</h5>
+                    <div class="card-body">
+            
+                        <form id="form-<?= $md5 ?>">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome completo" value="<?=$d->nome?>">
+                                        <label for="nome">Nome*</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF" value="<?=$d->cpf?>">
+                                        <label for="cpf">CPF*</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="text" name="telefone" id="telefone" class="form-control" placeholder="Telefone" value="<?=$d->telefone?>">
+                                        <label for="telefone">Telefone</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input type="text" name="email" id="email" class="form-control" placeholder="E-mail" value="<?=$d->email?>">
+                                        <label for="email">E-mail</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <select name="loja" class="form-control" id="loja">
+                                            <option value="">:: selecione ::</option>
+                                            <?php
+                                            $q = "select * from lojas where situacao = '1' and deletado != '1' order by nome";
+                                            $r = mysqli_query($con, $q);
+                                            while($s = mysqli_fetch_object($r)){
+                                            ?>
+                                            <option value="<?=$s->codigo?>" <?=(($d->loja == $s->codigo)?'selected':false)?>><?=$s->nome?></option>
+                                            <?php
+                                            }
+                                            ?>                        
+                                        </select>
+                                        <label for="loja">Loja</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <select name="situacao" class="form-control" id="situacao">
+                                            <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Liberado</option>
+                                            <option value="0" <?=(($d->situacao == '0')?'selected':false)?>>Bloqueado</option>
+                                        </select>
+                                        <label for="email">Situação</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div style="display:flex; justify-content:end">
+                                        <button type="submit" class="btn btn-success btn-ms">Salvar</button>
+                                        <input type="hidden" id="codigo" value="<?=$_POST['cod']?>" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </form>
-
+    </div>
+</div>
     <script>
         $(function(){
             Carregando('none');
@@ -141,7 +145,7 @@
                 Carregando();
 
                 $.ajax({
-                    url:"src/entregadores/form.php",
+                    url:"entregadores/form.php",
                     type:"POST",
                     typeData:"JSON",
                     mimeType: 'multipart/form-data',
@@ -149,13 +153,10 @@
                     success:function(dados){
                         // if(dados.status){
                             $.ajax({
-                                url:"src/entregadores/index.php",
+                                url:"entregadores/index.php",
                                 type:"POST",
                                 success:function(dados){
-                                    $("#paginaHome").html(dados);
-                                    let myOffCanvas = document.getElementById('offcanvasDireita');
-                                    let openedCanvas = bootstrap.Offcanvas.getInstance(myOffCanvas);
-                                    openedCanvas.hide();
+                                    $(".popupPalco").html(dados);
                                 }
                             });
                         // }
