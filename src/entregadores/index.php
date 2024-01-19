@@ -13,7 +13,6 @@
       exit();
     }
 
-
     if($_POST['filtro'] == 'filtrar'){
       $_SESSION['usuarioBusca'] = $_POST['campo'];
     }elseif($_POST['filtro']){
