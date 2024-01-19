@@ -243,7 +243,7 @@
 
         $(".situacao").change(function(){
 
-            situacao = $(this).attr("usuario");
+            situacao = $(this).attr("situacao");
             loja = localStorage.getItem("loja");
             opc = false;
 
