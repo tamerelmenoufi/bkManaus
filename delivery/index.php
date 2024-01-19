@@ -7,11 +7,11 @@
         $result = mysqli_query($con,$query);
         if(mysqli_num_rows($result)){
             $retorno = [
-                'status' => true
+                'status' => $query
             ];
         }else{
             $retorno = [
-                'status' => false
+                'status' => $query
             ];
         }
         echo json_encode($retorno);
