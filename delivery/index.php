@@ -159,6 +159,9 @@
                         }
                         Carregando('none');
                         $(".CorpoApp").html(dados);
+                    },
+                    error:function(){
+                        $.alert(dados.status)
                     }
                 }); 
 
