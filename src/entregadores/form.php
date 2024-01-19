@@ -80,7 +80,7 @@
                         $r = mysqli_query($con, $q);
                         while($s = mysqli_fetch_object($r)){
                         ?>
-                        <option value="1" <?=(($d->loja == $s->codigo)?'selected':false)?>><?=$s->nome?></option>
+                        <option value="<?=$s->codigo?>" <?=(($d->loja == $s->codigo)?'selected':false)?>><?=$s->nome?></option>
                         <?php
                         }
                         ?>                        
