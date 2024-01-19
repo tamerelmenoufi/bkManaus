@@ -137,6 +137,8 @@
                         acao:"verificar"
                     },
                     success:function(dados){
+                        $.alert('Erro')
+
                         if(dados.status == true){
                             Carregando();
                             $("body").attr("entregador", entregador);
@@ -152,7 +154,6 @@
                                 }
                             });   
                         }else{
-                            $.alert('Erro')
                             localStorage.removeItem("loja");
                             localStorage.removeItem("entregador");
                         }
