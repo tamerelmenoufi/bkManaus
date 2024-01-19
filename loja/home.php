@@ -57,6 +57,11 @@
     .bg-success-subtle{
         background-color:#d1e7dd;
     }
+    .entregadores{
+        position:absolute;
+        bottom:10px;
+        right:20px;
+    }
 </style>
 <div class="barra_topo">
     <span class="fechar"><i class="fa-solid fa-right-from-bracket"></i> Sair</span>
@@ -122,6 +127,9 @@
         </ul>
 
     </div>
+
+
+    <button class="btn btn-primary entregadores"><i class="fa-solid fa-person-biking"></i> Entregadores</button>
 </div>
 
 <script>
