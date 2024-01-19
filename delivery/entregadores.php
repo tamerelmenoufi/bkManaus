@@ -14,7 +14,7 @@
 
             $cod = $d1.$d2.$d3.$d4;
 
-            EnviarWapp($_POST['telefone'],"BK Manaus informe: Seu código de acesso é *{$cod}*");
+            EnviarWapp($d->telefone,"BK Manaus informe: Seu código de acesso é *{$cod}*");
             $retorno = [
                 'status' => true,
                 'entregador' => $d->codigo,
