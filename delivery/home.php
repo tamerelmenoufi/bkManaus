@@ -144,6 +144,7 @@
                         btnClass:'btn btn-danger',
                         action:function(){
                             localStorage.removeItem("loja");
+                            localStorage.removeItem("entregador");
                             window.location.href='./';
                         }
                     },
