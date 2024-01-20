@@ -644,7 +644,8 @@
                                 url:"pedido.php",
                                 type:"POST",
                                 data:{
-                                    acao:'trocar_entregador'
+                                    acao:'trocar_entregador',
+                                    loja:'<?=$_POST['loja']?>'
                                 },
                                 success:function(dados){
                                     $(".popupPalco").html(dados);
