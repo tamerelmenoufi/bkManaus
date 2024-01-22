@@ -524,9 +524,24 @@
                                     acao:'recusar_entrega'
                                 },
                                 success:function(dados){
-                                    $(".popupPalco").html('');
-                                    $(".popupArea").css("display","none");
-                                    Carregando('none');
+
+                                    loja = localStorage.getItem("loja");
+                                    entregador = localStorage.getItem("entregador");
+                                    $.ajax({
+                                        url:"home.php",
+                                        type:"POST",
+                                        data:{
+                                            entregador,
+                                            loja,
+                                        },
+                                        success:function(dados){
+                                            $(".popupPalco").html('');
+                                            $(".popupArea").css("display","none");
+                                            $(".CorpoApp").html(dados);
+                                            Carregando('none');
+                                        }
+                                    });  
+                                    
                                 }
                             });
 
