@@ -159,7 +159,7 @@
         Carregando('none');
 console.log($(".CorpoApp").height())
 
-        $(".card-body").css("height", $(".CorpoApp").height())
+        $(".card-body").css("height", ($(".CorpoApp").height() - 100))
 
         $("button[novoCadastro]").click(function(){
             loja = localStorage.getItem("loja");
