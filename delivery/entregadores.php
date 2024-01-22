@@ -97,7 +97,18 @@
 
             <ul class="list-group m-3">
                 <li class="list-group-item">
-                    Nome do entregador e a loja
+                    <select id="loja">
+                    <option value="">:: Selecione a Loja ::</option>
+                    <?php
+                    $q = "select * from lojas where situacao = '1' and deletado != '1' order by nome";
+                    $r = mysqli_query($con, $q);
+                    while($s = mysqli_fetch_object($r)){
+                    ?>
+                    <option value="<?=$s->codigo?>"><?=$s->nome?></option>
+                    <?php
+                    }
+                    ?>
+                    </select>
                 </li>
             </ul>
 
@@ -114,6 +125,21 @@
             cpf = $("#cpf").val();
             loja = $("#loja").val();
 
+            if(cpf){
+                if(!validarCPF(cpf)){
+                    $.alert('Confira o CPF, o informado é inválido!');
+                    return;
+                }
+            }
+            if(!cpf){
+                $.alert('Informe o número do CPF!');
+                return;
+            }
+            if(!loja){
+                $.alert('Selecione a loja!');
+                return;
+            }
+            
             $.ajax({
                 url:"entregadores.php",
                 type:"POST",
