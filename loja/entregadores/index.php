@@ -53,7 +53,7 @@
             <h5 class="card-header">Lista de Entregadores</h5>
             <div class="card-body">
             
-            <div style="position:absolute; left:0; right:0; bottom:0; top:0; borde:solid 1px red; overflow-y:auto">
+            <div style="position:relative; width:100%; height:100%">
               <div class="d-flex justify-content-between mb-3">
 
                   <div class="row">
