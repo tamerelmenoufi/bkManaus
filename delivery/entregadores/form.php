@@ -159,7 +159,7 @@
                     data: campos,
                     success:function(dados){
                         // if(dados.status){
-                            loja = localStorage.getItem("loja");
+                            loja = localStorage.getItem("Dloja");
                             $.ajax({
                                 url:"entregadores/index.php",
                                 type:"POST",
@@ -182,7 +182,7 @@
             });
 
             $(".voltar").click(function(){
-                loja = localStorage.getItem("loja");
+                loja = localStorage.getItem("Dloja");
                 $.ajax({
                     url:"entregadores/index.php",
                     type:"POST",

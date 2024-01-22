@@ -193,8 +193,8 @@
                                             },
                                             success:function(dados){
                                                 if(dados.status == true){
-                                                    localStorage.setItem("loja", dadosLoja);
-                                                    localStorage.setItem("entregador", dadosEntregador);
+                                                    localStorage.setItem("Dloja", dadosLoja);
+                                                    localStorage.setItem("Dentregador", dadosEntregador);
                                                     window.location.href="./";
                                                 }else{
                                                     $.alert('Erro na autenticação');

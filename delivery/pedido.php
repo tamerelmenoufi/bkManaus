@@ -3,7 +3,7 @@
 
     if($_POST['acao'] == 'recusar_entrega'){
         
-        $q = "update vendas set producao = 'producao', delivery_id = '', delivery_detalhes = '{}' where codigo = '{$_SESSION['pedido']}'";
+        $q = "update vendas set producao = 'producao', delivery_id = '', delivery_detalhes = '{}' where codigo = '{$_SESSION['Dpedido']}'";
 
         mysqli_query($con, $q);
 
@@ -11,11 +11,11 @@
 
 
     if($_POST['loja']){
-        $_SESSION['bkLoja'] = $_POST['loja'];
+        $_SESSION['DbkLoja'] = $_POST['loja'];
     }
 
     if($_POST['pedido']){
-        $_SESSION['pedido'] = $_POST['pedido'];
+        $_SESSION['Dpedido'] = $_POST['pedido'];
     }
 
     if($_POST['acao'] == 'finalizar'){
@@ -45,7 +45,7 @@
     <ul class="list-group">
         <?php
 
-        $query = "select a.*, b.nome, b.telefone, concat(c.logradouro,', ',c.numero,', ',c.bairro,' (',c.ponto_referencia,')') as endereco, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo left join enderecos c on (a.cliente = c.cliente and c.padrao = '1') where a.codigo = '{$_SESSION['pedido']}'";
+        $query = "select a.*, b.nome, b.telefone, concat(c.logradouro,', ',c.numero,', ',c.bairro,' (',c.ponto_referencia,')') as endereco, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo left join enderecos c on (a.cliente = c.cliente and c.padrao = '1') where a.codigo = '{$_SESSION['Dpedido']}'";
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
 
@@ -525,8 +525,8 @@
                                 },
                                 success:function(dados){
 
-                                    loja = localStorage.getItem("loja");
-                                    entregador = localStorage.getItem("entregador");
+                                    loja = localStorage.getItem("Dloja");
+                                    entregador = localStorage.getItem("Dentregador");
                                     $.ajax({
                                         url:"home.php",
                                         type:"POST",

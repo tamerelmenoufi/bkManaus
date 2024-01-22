@@ -158,7 +158,7 @@
         Carregando('none');
 
         $("button[novoCadastro]").click(function(){
-            loja = localStorage.getItem("loja");
+            loja = localStorage.getItem("Dloja");
             $.ajax({
                 url:"entregadores/form.php",
                 type:"POST",
@@ -176,7 +176,7 @@
         $("button[filtro]").click(function(){
           filtro = $(this).attr("filtro");
           campo = $("input[campoBusca]").val();
-          loja = localStorage.getItem("loja");
+          loja = localStorage.getItem("Dloja");
 
           $.ajax({
               url:"entregadores/index.php",
@@ -195,7 +195,7 @@
 
         $("button[edit]").click(function(){
             cod = $(this).attr("edit");
-            loja = localStorage.getItem("loja");
+            loja = localStorage.getItem("Dloja");
             $.ajax({
                 url:"entregadores/form.php",
                 type:"POST",
@@ -213,7 +213,7 @@
 
         $("button[delete]").click(function(){
             deletar = $(this).attr("delete");
-            loja = localStorage.getItem("loja");
+            loja = localStorage.getItem("Dloja");
 
             $.confirm({
                 content:"Deseja realmente excluir o cadastro ?",
@@ -244,7 +244,7 @@
         $(".situacao").change(function(){
 
             situacao = $(this).attr("situacao");
-            loja = localStorage.getItem("loja");
+            loja = localStorage.getItem("Dloja");
             opc = false;
 
             if($(this).prop("checked") == true){

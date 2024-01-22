@@ -3,14 +3,14 @@
 
 
     if($_POST['entregador']){
-        $_SESSION['bkEntregador'] = $_POST['entregador'];
+        $_SESSION['DbkEntregador'] = $_POST['entregador'];
     }
     if($_POST['loja']){
-        $_SESSION['bkLoja'] = $_POST['loja'];
+        $_SESSION['DbkLoja'] = $_POST['loja'];
     }
     
 
-    $query = "select * from entregadores where codigo = '{$_SESSION['bkEntregador']}'";
+    $query = "select * from entregadores where codigo = '{$_SESSION['DbkEntregador']}'";
     $result = mysqli_query($con, $query);
     $e = mysqli_fetch_object($result);
 
@@ -95,7 +95,7 @@
                     from vendas a 
                     left join clientes b on a.cliente = b.codigo 
                     left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
-                    where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['bkLoja']}' and delivery_detalhes->>'$.deliveryMan.id' = '{$_SESSION['bkEntregador']}' order by ordem asc, a.data desc";
+                    where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['DbkLoja']}' and delivery_detalhes->>'$.deliveryMan.id' = '{$_SESSION['DbkEntregador']}' order by ordem asc, a.data desc";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
 
@@ -156,8 +156,8 @@
                         text:"Sim",
                         btnClass:'btn btn-danger',
                         action:function(){
-                            localStorage.removeItem("loja");
-                            localStorage.removeItem("entregador");
+                            localStorage.removeItem("Dloja");
+                            localStorage.removeItem("Dentregador");
                             window.location.href='./';
                         }
                     },
@@ -174,8 +174,8 @@
 
         $("li[pedido]").click(function(){
             pedido = $(this).attr("pedido");
-            loja = localStorage.getItem("loja");
-            entregador = localStorage.getItem("entregador");
+            loja = localStorage.getItem("Dloja");
+            entregador = localStorage.getItem("Dentregador");
             Carregando();
             $.ajax({
                 url:"pedido.php",
@@ -197,8 +197,8 @@
         })
 
         $(".entregadores").click(function(){
-            loja = localStorage.getItem("loja");
-            entregador = localStorage.getItem("entregador");
+            loja = localStorage.getItem("Dloja");
+            entregador = localStorage.getItem("Dentregador");
             Carregando();
             $.ajax({
                 url:"entregadores/index.php",
@@ -219,8 +219,8 @@
         })
 
         atualizacao = setTimeout(() => {
-            loja = localStorage.getItem("loja");
-            entregador = localStorage.getItem("entregador");
+            loja = localStorage.getItem("Dloja");
+            entregador = localStorage.getItem("Dentregador");
             $.ajax({
                 url:"home.php",
                 type:"POST",

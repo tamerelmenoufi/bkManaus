@@ -123,8 +123,8 @@
     <script>
         $(function(){
 
-            loja = localStorage.getItem("loja");
-            entregador = localStorage.getItem("entregador");
+            loja = localStorage.getItem("Dloja");
+            entregador = localStorage.getItem("Dentregador");
 
             if(entregador){
                 Carregando();
@@ -157,8 +157,8 @@
                             });
                             
                         }else{
-                            localStorage.removeItem("loja");
-                            localStorage.removeItem("entregador");
+                            localStorage.removeItem("Dloja");
+                            localStorage.removeItem("Dentregador");
                             Carregando('none');
                         }
                         // $(".CorpoApp").html(dados);
@@ -171,8 +171,8 @@
 
             }else{
                 Carregando();
-                localStorage.removeItem("loja");
-                localStorage.removeItem("entregador");
+                localStorage.removeItem("Dloja");
+                localStorage.removeItem("Dentregador");
                 $.ajax({
                     url:"entregadores.php",
                     success:function(dados){
