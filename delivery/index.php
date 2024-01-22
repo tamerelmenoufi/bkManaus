@@ -138,8 +138,6 @@
                     },
                     success:function(dados){
 
-                        corpo = dados;
-
                         if(dados.status == true){
                             
                             $("body").attr("entregador", entregador);
