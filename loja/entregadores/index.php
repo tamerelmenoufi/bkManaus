@@ -51,9 +51,9 @@
         <div class="col">
           <div class="card">
             <h5 class="card-header">Lista de Entregadores</h5>
-            <div class="card-body" style="position:absolute; left:0; right:0; bottom:0; top:0; borde:solid 1px red; overflow-y:auto">
+            <div class="card-body">
             
-              <div class="d-flex justify-content-between mb-3">
+              <div class="d-flex justify-content-between mb-3" style="position:absolute; left:0; right:0; bottom:0; top:0; borde:solid 1px red; overflow-y:auto">
 
                   <div class="row">
                     <div class="col-12 mb-2">
