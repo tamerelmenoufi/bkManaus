@@ -672,6 +672,8 @@
             entrega_nome = $(this).attr("entrega_nome");
             entrega_ddd = $(this).attr("entrega_ddd");
             entrega_telefone = $(this).attr("entrega_telefone");
+            loja = '<?=$_POST['loja']?>';
+
 
             $.confirm({
                 title:"Definir Entregador",
@@ -692,6 +694,7 @@
                                     entrega_nome,
                                     entrega_ddd,
                                     entrega_telefone,
+                                    loja,
                                     acao:'entregador'
                                 },
                                 success:function(dados){
