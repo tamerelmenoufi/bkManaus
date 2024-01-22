@@ -77,7 +77,25 @@
 
         <ul class="list-group">
             <?php
-            echo $query = "select a.*, if(a.producao = 'pendente',0,1) as ordem, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['bkLoja']}' and delivery_detalhes->>'$.deliveryMan.id' = '{$_SESSION['bkEntregador']}' order by ordem asc, a.data desc";
+            $query = "select 
+                            a.*, 
+                            if(a.producao = 'pendente',0,1) as ordem, 
+                            b.nome, 
+                            a.delivery_detalhes->>'$.pickupCode' as entrega, 
+                            a.delivery_detalhes->>'$.returnCode' as retorno,
+                            c.codigo as endereco,
+                            c.cep as Ecep,
+                            c.logradouro as Elogradouro,
+                            c.numero as Enumero,
+                            c.complemento as Ecomplemento,
+                            c.ponto_referencia as Eponto_referencia,
+                            c.bairro as Ebairro,
+                            c.localidade as Elocalidade,
+                            c.uf as Euf
+                    from vendas a 
+                    left join clientes b on a.cliente = b.codigo 
+                    left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
+                    where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['bkLoja']}' and delivery_detalhes->>'$.deliveryMan.id' = '{$_SESSION['bkEntregador']}' order by ordem asc, a.data desc";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
 
@@ -100,17 +118,17 @@
                     if($delivery->deliveryMan->name){
                     ?>
                     <div class="d-flex justify-content-between mt-2 mb-2">
-                        <div><b><i class="fa-solid fa-motorcycle"></i> Dados de Entrega</b></div>
+                        <div><b><i class="fa-solid fa-motorcycle"></i> Dados da Entrega</b></div>
                         <div>
                             <b><?=strtoupper($d->producao)?></b>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between dados">
                         <div>
-                            <i class="fa-solid fa-person-biking"></i> Nome
+                            <i class="fa-solid fa-person-biking"></i> Endereço
                         </div>
                         <div>
-                            <?=$delivery->deliveryMan->name?>
+                            <?=$d->Elogradouro?>, <?=$d->Enumero.(($d->Ecomplemento)?", {$d->Ecomplemento}":false).(($d->Eponto_referencia)?" ({$d->Eponto_referencia})":false)?>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between dados">
@@ -132,7 +150,6 @@
 
     </div>
 </div>
-<button class="btn btn-primary entregadores"><i class="fa-solid fa-person-biking"></i> Entregadores</button>
 
 <script>
     $(function(){
