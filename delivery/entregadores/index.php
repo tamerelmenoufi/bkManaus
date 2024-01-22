@@ -21,7 +21,7 @@
 
     if($_SESSION['usuarioBusca']){
       $cpf = str_replace( '.', '', str_replace('-', '', $_SESSION['usuarioBusca']));
-      $where = " and a.nome like '%{$_SESSION['usuarioBusca']}%' or REPLACE( REPLACE( a.cpf, '.', '' ), '-', '' ) = '{$cpf}' or b.nome like '%{$_SESSION['usuarioBusca']}%'";
+      $where = " and nome like '%".trim($_SESSION['usuarioBusca'])."%' or REPLACE( REPLACE( cpf, '.', '' ), '-', '' ) = '".trim($_SESSION['usuarioBusca'])."' or REPLACE( REPLACE( telefone, ' ', '' ), '-', '' ) = '".trim($_SESSION['usuarioBusca'])."'";
     }
 
 
@@ -83,7 +83,7 @@
 
 
             <?php
-                  echo $query = "select * from entregadores where deletado != '1' and loja = '{$_POST['loja']}' {$where} order by nome asc";
+                  echo $query = "select a from entregadores a where deletado != '1' and loja = '{$_POST['loja']}' {$where} order by nome asc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
