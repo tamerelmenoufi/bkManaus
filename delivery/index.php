@@ -127,7 +127,7 @@
             entregador = localStorage.getItem("entregador");
 
             if(entregador){
-
+                Carregando();
                 $.ajax({
                     url:"index.php",
                     type:"POST",
@@ -138,8 +138,10 @@
                     },
                     success:function(dados){
 
+                        corpo = dados;
+
                         if(dados.status == true){
-                            Carregando();
+                            
                             $("body").attr("entregador", entregador);
                             $.ajax({
                                 url:"home.php",
@@ -156,12 +158,13 @@
                         }else{
                             localStorage.removeItem("loja");
                             localStorage.removeItem("entregador");
+                            Carregando('none');
                         }
-                        Carregando('none');
-                        $(".CorpoApp").html(dados);
+                        // $(".CorpoApp").html(dados);
                     },
                     error:function(){
                         $.alert(dados.status)
+                        Carregando('none');
                     }
                 }); 
 
