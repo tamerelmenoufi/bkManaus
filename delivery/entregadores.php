@@ -92,6 +92,7 @@
                     <div class="form-text">Digite seu CPF para liberar o acesso</div>
                 </div>
                 <div class="mb-3">
+                    <label for="loja" class="form-label">Loja</label>
                     <select id="loja" class="form-select">
                         <option value="">:: Selecione a Loja ::</option>
                         <?php
@@ -104,7 +105,6 @@
                         }
                         ?>
                     </select>
-                    <label for="loja" class="form-label">Loja</label>
                 </div>                
                 <button entregador type="button" class="btn btn-primary">Ativar</button>
             </div>
