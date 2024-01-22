@@ -54,7 +54,7 @@
             <div class="card-body">
             
             <div style="position:absolute; left:0; right:0; bottom:0; top:0; borde:solid 1px red; overflow-y:auto">
-              <div class="d-flex justify-content-between mb-3" style="position:absolute; left:0; right:0; bottom:0; top:0; borde:solid 1px red; overflow-y:auto">
+              <div class="d-flex justify-content-between mb-3">
 
                   <div class="row">
                     <div class="col-12 mb-2">
