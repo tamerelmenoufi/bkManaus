@@ -15,7 +15,7 @@
     $e = mysqli_fetch_object($result);
 
     if($e->situacao == '0'){
-        header("location:./");
+        echo "<script>window.location.href='./'</script>";
         exit();
     }
 
