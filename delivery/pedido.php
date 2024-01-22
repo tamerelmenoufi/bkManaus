@@ -1,98 +1,7 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-    if($_POST['acao'] == 'entregador'){
-
-
-        $entrega_id = $_POST['entrega_id'];
-        $entrega_nome = $_POST['entrega_nome'];
-        $entrega_ddd = $_POST['entrega_ddd'];
-        $entrega_telefone = $_POST['entrega_telefone'];
-
-        $json_modelo = '
-        
-        {
-            "id": '.$_SESSION['pedido'].',
-            "code": "",
-            "events": [
-                {
-                    "id": 1,
-                    "latitude": null,
-                    "createdAt": "'.date("Y-m-d H:i:s").'",
-                    "longitude": null,
-                    "deliveryMan": {
-                        "name": "'.$entrega_nome.'",
-                        "phone": "'.$entrega_telefone.'"
-                    },
-                    "description": "",
-                    "requestedBy": {
-                        "name": "'.$entrega_nome.'",
-                        "phone": "'.$entrega_telefone.'"
-                    }
-                }
-            ],
-            "origin": "loja",
-            "storeId": '.$_SESSION['pedido'].',
-            "fullCode": null,
-            "createdAt": "'.date("Y-m-d H:i:s").'",
-            "situation": null,
-            "deliveries": [
-                {
-                    "id": null,
-                    "code": "",
-                    "name": "",
-                    "phone": "",
-                    "address": {
-                        "city": "",
-                        "state": "",
-                        "number": "",
-                        "street": "",
-                        "zipCode": "",
-                        "latitude": null,
-                        "longitude": null,
-                        "complement": "",
-                        "neighborhood": ""
-                    },
-                    "distance": null,
-                    "fullCode": null,
-                    "situation": null,
-                    "orderRoute": 1,
-                    "dropoffCode": "",
-                    "observation": "",
-                    "deliveryCode": "",
-                    "productValue": 0,
-                    "onlinePayment": true
-                }
-            ],
-            "pickupCode": "1111",
-            "returnCode": "2222",
-            "deliveryFee": 0,
-            "deliveryMan": {
-                "id": '.$entrega_id.',
-                "ddd": "'.$entrega_ddd.'",
-                "name": "'.$entrega_nome.'",
-                "email": "",
-                "phone": "'.$entrega_telefone.'",
-                "document": "",
-                "latitude": null,
-                "longitude": null,
-                "profileId": 0
-            },
-            "totalDistance": null,
-            "expectedPickup": null,
-            "preparationTime": 0,
-            "expectedDelivery": null
-        }
-        
-        ';
-        
-        $q = "update vendas set producao = 'entrega', delivery_id = '{$_SESSION['pedido']}', delivery_detalhes = '{$json_modelo}' where codigo = '{$_SESSION['pedido']}'";
-
-        mysqli_query($con, $q);
-
-    }
-
-    if($_POST['acao'] == 'trocar_entregador'){
+    if($_POST['acao'] == 'recusar_entrega'){
         
         $q = "update vendas set producao = 'producao', delivery_id = '', delivery_detalhes = '{}' where codigo = '{$_SESSION['pedido']}'";
 
@@ -236,44 +145,12 @@
                 if($d->producao != 'entregue'){
                 ?>
                 <div class="d-flex justify-content-end mt-1 mb-3">
-                    <div class="text-danger trocar_entregador">
-                        <i class="fa-solid fa-rotate"></i> Trocar o enregador
+                    <div class="text-danger recusar_entrega">
+                        <i class="fa-solid fa-user-xmark"></i> Quero recusar a entrega
                     </div>
                 </div>
                 <?php
                 }
-                }else{
-                ?>
-                <div class="mt-2 mb-2 text-center">
-                    <h5>Selecione o Entregador</h5>
-                    <ul class="list-group">
-                        <?php
-                        $q = "select * from entregadores where situacao = '1' and deletado != '1' and loja = '{$_POST['loja']}' order by nome";
-                        $r = mysqli_query($con, $q);
-                        while($e = mysqli_fetch_object($r)){
-                            $fone = trim(str_replace(['-','(',')',' '],false,$e->telefone));
-                            $ddd = substr($fone, 0,2);
-                            $telefone = substr($fone, 2);
-                        ?>
-                        <li 
-                            class="list-group-item d-flex justify-content-between"
-                            entrega_id="<?=$e->codigo?>"
-                            entrega_nome="<?=$e->nome?>"
-                            entrega_ddd="<?=$ddd?>"
-                            entrega_telefone="<?=$telefone?>"
-                        >
-                            <div>
-                                <i class="fa-solid fa-check"></i>
-                                <?=$e->nome?>
-                            </div>
-                            <span><?=$e->telefone?></span>
-                        </li>
-                        <?php
-                        }
-                        ?>
-                    </ul>
-                </div>
-                <?php
                 }
                 ?>
 
@@ -627,11 +504,11 @@
 <script>
     $(function(){
 
-        $(".trocar_entregador").click(function(){
+        $(".recusar_entrega").click(function(){
 
             $.confirm({
-                title:"Trocar Entregador",
-                content:`Você confirma a ação de troca de entregador?`,
+                title:"Recusar Entrega",
+                content:`Você deseja mesmo recusar a entrega?`,
                 columnClass:"col-12",
                 type:"red",
                 buttons:{
@@ -644,10 +521,11 @@
                                 url:"pedido.php",
                                 type:"POST",
                                 data:{
-                                    acao:'trocar_entregador'
+                                    acao:'recusar_entrega'
                                 },
                                 success:function(dados){
-                                    $(".popupPalco").html(dados);
+                                    $(".popupPalco").html('');
+                                    $(".popupArea").css("display","none");
                                     Carregando('none');
                                 }
                             });
