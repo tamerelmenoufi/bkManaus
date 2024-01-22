@@ -221,7 +221,7 @@
                         });                        
 
                     }else{
-                        $.alert("Ocorreu algum problema no seu acesso:<br><br>1. Dados não cadastrados no sistema<br>ou usuário logado em outro equipamento.<br>Favor entre em contato com a gerência de sua loja.");
+                        $.alert("Ocorreu algum problema no seu acesso:<br><br>1. Dados não cadastrados no sistema<br>2. Ou usuário logado em outro equipamento.<br><br>Favor entre em contato com a gerência de sua loja.");
                     }
 
                 }
