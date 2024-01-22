@@ -154,7 +154,8 @@
                                     Carregando('none');
                                     $(".CorpoApp").html(dados);
                                 }
-                            });   
+                            });
+                            
                         }else{
                             localStorage.removeItem("loja");
                             localStorage.removeItem("entregador");
