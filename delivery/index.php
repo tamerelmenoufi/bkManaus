@@ -157,6 +157,7 @@
                         }else{
                             localStorage.removeItem("Dloja");
                             localStorage.removeItem("Dentregador");
+                            window.location.href='./';
                             Carregando('none');
                         }
                         // $(".CorpoApp").html(dados);
