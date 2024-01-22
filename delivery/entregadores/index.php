@@ -83,7 +83,7 @@
 
 
             <?php
-                  $query = "select * from entregadores where deletado != '1' and loja = '{$_POST['loja']}' {$where} order by nome asc";
+                  echo $query = "select * from entregadores where deletado != '1' and loja = '{$_POST['loja']}' {$where} order by nome asc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
