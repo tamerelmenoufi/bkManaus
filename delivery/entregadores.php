@@ -3,7 +3,7 @@
 
 
     if($_POST['acao'] == 'consultar'){
-        $query = "select * from entregadores where cpf = '{$_POST['cpf']}' and deletado != '1' and situacao != '1'";
+        $query = "select * from entregadores where cpf = '{$_POST['cpf']}' and deletado != '1' and situacao = '1'";
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
         if($d->codigo){

@@ -3,7 +3,7 @@
 
     if($_POST['acao'] == 'verificar'){
 
-        $query = "select * from entregadores where codigo = '{$_POST['entregador']}' and situacao != '1' and deletado != '1'";
+        $query = "select * from entregadores where codigo = '{$_POST['entregador']}' and situacao = '1' and deletado != '1'";
         $result = mysqli_query($con,$query);
         if(mysqli_num_rows($result)){
             $retorno = [
