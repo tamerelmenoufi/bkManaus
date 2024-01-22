@@ -97,7 +97,7 @@
 
             <ul class="list-group m-3">
                 <li class="list-group-item">
-                    <select id="loja">
+                    <select id="loja" class="select-controle">
                     <option value="">:: Selecione a Loja ::</option>
                     <?php
                     $q = "select * from lojas where situacao = '1' and deletado != '1' order by nome";
