@@ -43,115 +43,116 @@
     color:#a1a1a1;
   }
 </style>
-<div class="col">
-  <div class="m-3">
+<div style="position:fixed; left:0; right:0; bottom:0, top:0; overflow-y:auto">
+  <div class="col">
+    <div class="m-3">
 
-    <div class="row">
-      <div class="col">
-        <div class="card">
-          <h5 class="card-header">Lista de Entregadores</h5>
-          <div class="card-body">
-           
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <h5 class="card-header">Lista de Entregadores</h5>
+            <div class="card-body">
+            
 
-            <div class="d-flex justify-content-between mb-3">
+              <div class="d-flex justify-content-between mb-3">
 
-                <div class="row">
-                  <div class="col-12 mb-2">
-                    <div class="input-group">
-                      <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
-                      <input campoBusca type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
-                    </div>
-                  </div>
-                  <div class="col-12 mb-2">
-                    <button filtro="filtrar" class="btn btn-outline-secondary w-100" type="button">Buscar</button>
-                  </div>
-                  <div class="col-12 mb-2">
-                    <button filtro="limpar" class="btn btn-outline-danger w-100" type="button">limpar</button>
-                  </div>
-                  <div class="col-12 mb-2">
-                    <button
-                        novoCadastro
-                        class="btn btn-success btn-sm w-100"
-                        data-bs-toggle="offcanvas"
-                        href="#offcanvasDireita"
-                        role="button"
-                        aria-controls="offcanvasDireita"
-                    >Novo</button>                      
-                  </div>
-                </div>
-            </div>
-
-
-            <?php
-                  $query = "select * from entregadores where deletado != '1' and loja = '{$_POST['loja']}' {$where} order by nome asc";
-                  $result = sisLog($query);
-                  
-                  while($d = mysqli_fetch_object($result)){
-                ?>
-                <div class="card mb-3 p-3">
-                    <div class="row">
-                      <div class="col-12 d-flex justify-content-end">
-                        <div class="form-check form-switch">
-                          <input class="form-check-input situacao" type="checkbox" <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
-                          Situação
-                        </div>
+                  <div class="row">
+                    <div class="col-12 mb-2">
+                      <div class="input-group">
+                        <label class="input-group-text" for="inputGroupFile01">Buscar por </label>
+                        <input campoBusca type="text" class="form-control" value="<?=$_SESSION['usuarioBusca']?>" aria-label="Digite a informação para a busca">
                       </div>
                     </div>
-
-                    <div class="row">
-                      <div class="col-12">
-                        <label class="label">Nome</label>
-                        <div><?=$d->nome?></div>
-                      </div>
+                    <div class="col-12 mb-2">
+                      <button filtro="filtrar" class="btn btn-outline-secondary w-100" type="button">Buscar</button>
                     </div>
-
-                    <div class="row">
-                      <div class="col-12">
-                      <label class="label">CPF</label>
-                       <div><?=$d->cpf?></div>
-                      </div>
+                    <div class="col-12 mb-2">
+                      <button filtro="limpar" class="btn btn-outline-danger w-100" type="button">limpar</button>
                     </div>
-
-                    <div class="row">
-                      <div class="col-12">
-                      <label class="label">Telefone</label>
-                       <div><?=$d->telefone?></div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-6 p-2">
-                        <button
-                          class="btn btn-primary w-100"
-                          edit="<?=$d->codigo?>"
+                    <div class="col-12 mb-2">
+                      <button
+                          novoCadastro
+                          class="btn btn-success btn-sm w-100"
                           data-bs-toggle="offcanvas"
                           href="#offcanvasDireita"
                           role="button"
                           aria-controls="offcanvasDireita"
-                        >
-                          Editar
-                        </button>
-                      </div>
-                      <div class="col-6 p-2">
-                        <button class="btn btn-danger w-100" delete="<?=$d->codigo?>">
-                          Excluir
-                        </button>
-                      </div>
+                      >Novo</button>                      
                     </div>
                   </div>
-                <?php
-                  }
-                ?>
+              </div>
 
 
+              <?php
+                    $query = "select * from entregadores where deletado != '1' and loja = '{$_POST['loja']}' {$where} order by nome asc";
+                    $result = sisLog($query);
+                    
+                    while($d = mysqli_fetch_object($result)){
+                  ?>
+                  <div class="card mb-3 p-3">
+                      <div class="row">
+                        <div class="col-12 d-flex justify-content-end">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input situacao" type="checkbox" <?=(($d->situacao)?'checked':false)?> situacao="<?=$d->codigo?>">
+                            Situação
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-12">
+                          <label class="label">Nome</label>
+                          <div><?=$d->nome?></div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-12">
+                        <label class="label">CPF</label>
+                        <div><?=$d->cpf?></div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-12">
+                        <label class="label">Telefone</label>
+                        <div><?=$d->telefone?></div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-6 p-2">
+                          <button
+                            class="btn btn-primary w-100"
+                            edit="<?=$d->codigo?>"
+                            data-bs-toggle="offcanvas"
+                            href="#offcanvasDireita"
+                            role="button"
+                            aria-controls="offcanvasDireita"
+                          >
+                            Editar
+                          </button>
+                        </div>
+                        <div class="col-6 p-2">
+                          <button class="btn btn-danger w-100" delete="<?=$d->codigo?>">
+                            Excluir
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  <?php
+                    }
+                  ?>
+
+
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </div>
-
 
 <script>
     $(function(){
