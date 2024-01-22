@@ -113,7 +113,7 @@ if(!$_POST['novoPedido']){
                     <h6>Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?></h6>
                 </div>
                 <div class="valores">
-                    <b>STATUS</b>
+                    <b><?=strtoupper($d->producao)?></b>
                 </div>
             </div> 
             <div class="d-flex justify-content-between">    
