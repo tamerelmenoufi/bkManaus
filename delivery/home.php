@@ -125,7 +125,7 @@
                     </div>
                     <div class="d-flex justify-content-between dados">
                         <div>
-                            <i class="fa-solid fa-person-biking"></i> Endereço
+                            <i class="fa-solid fa-person-biking"></i>
                         </div>
                         <div>
                             <?=$d->Elogradouro?>, <?=$d->Enumero.(($d->Ecomplemento)?", {$d->Ecomplemento}":false).(($d->Eponto_referencia)?" ({$d->Eponto_referencia})":false)?>
