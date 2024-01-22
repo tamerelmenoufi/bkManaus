@@ -127,7 +127,7 @@
                         <div>
                             <i class="fa-solid fa-person-biking"></i>
                         </div>
-                        <div>
+                        <div class="ms-1">
                             <?=$d->Elogradouro?>, <?=$d->Enumero.(($d->Ecomplemento)?", {$d->Ecomplemento}":false).(($d->Eponto_referencia)?" ({$d->Eponto_referencia})":false)?>
                         </div>
                     </div>
