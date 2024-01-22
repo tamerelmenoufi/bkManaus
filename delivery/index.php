@@ -146,6 +146,7 @@
                                 type:"POST",
                                 data:{
                                     entregador,
+                                    loja,
                                 },
                                 success:function(dados){
                                     Carregando('none');

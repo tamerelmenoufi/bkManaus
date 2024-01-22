@@ -5,6 +5,10 @@
     if($_POST['entregador']){
         $_SESSION['bkEntregador'] = $_POST['entregador'];
     }
+    if($_POST['loja']){
+        $_SESSION['bkLoja'] = $_POST['loja'];
+    }
+    
 
     $query = "select * from entregadores where codigo = '{$_SESSION['bkEntregador']}'";
     $result = mysqli_query($con, $query);
@@ -162,13 +166,15 @@
         $("li[pedido]").click(function(){
             pedido = $(this).attr("pedido");
             loja = localStorage.getItem("loja");
+            entregador = localStorage.getItem("entregador");
             Carregando();
             $.ajax({
                 url:"pedido.php",
                 type:"POST",
                 data:{
                     pedido,
-                    loja
+                    loja,
+                    entregador
                 },
                 success:function(dados){
                     Carregando('none');
@@ -183,12 +189,14 @@
 
         $(".entregadores").click(function(){
             loja = localStorage.getItem("loja");
+            entregador = localStorage.getItem("entregador");
             Carregando();
             $.ajax({
                 url:"entregadores/index.php",
                 type:"POST",
                 data:{
-                    loja
+                    loja,
+                    entregador
                 },
                 success:function(dados){
                     Carregando('none');
@@ -202,11 +210,14 @@
         })
 
         atualizacao = setTimeout(() => {
+            loja = localStorage.getItem("loja");
+            entregador = localStorage.getItem("entregador");
             $.ajax({
                 url:"home.php",
                 type:"POST",
                 data:{
                     loja,
+                    entregador,
                 },
                 success:function(dados){
                     $(".CorpoApp").html(dados);
