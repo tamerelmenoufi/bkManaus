@@ -130,15 +130,7 @@
                         <div class="ms-1">
                             <?=$d->Elogradouro?>, <?=$d->Enumero.(($d->Ecomplemento)?", {$d->Ecomplemento}":false).(($d->Eponto_referencia)?" ({$d->Eponto_referencia})":false)?>
                         </div>
-                    </div>
-                    <div class="d-flex justify-content-between dados">
-                        <div>
-                            <i class="fa-solid fa-mobile-screen-button"></i> Telefone
-                        </div>
-                        <div>
-                            <?="({$delivery->deliveryMan->ddd}) {$delivery->deliveryMan->phone}"?>
-                        </div>
-                    </div>                    
+                    </div>                  
                     <?php
                     }
                     ?>
