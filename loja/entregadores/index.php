@@ -51,9 +51,9 @@
         <div class="col">
           <div class="card">
             <h5 class="card-header">Lista de Entregadores</h5>
-            <div class="card-body">
+            <div class="card-body" style="position:relative;">
             
-            <div class="altura" style="position:absolute; width:100%; border:solid 1px red">
+            <div class="" style="position:relative; width:100%; border:solid 1px red">
               <div class="d-flex justify-content-between mb-3">
 
                   <div class="row">
@@ -157,8 +157,9 @@
 <script>
     $(function(){
         Carregando('none');
+console.log($(".CorpoApp").height())
 
-        $(".altura").css("height", $(window).height());
+        $(".card-body").css("height", $(".CorpoApp").height())
 
         $("button[novoCadastro]").click(function(){
             loja = localStorage.getItem("loja");
