@@ -91,27 +91,23 @@
                     <input type="text" class="form-control" id="cpf">
                     <div class="form-text">Digite seu CPF para liberar o acesso</div>
                 </div>
+                <div class="mb-3">
+                    <select id="loja" class="form-select">
+                        <option value="">:: Selecione a Loja ::</option>
+                        <?php
+                        $q = "select * from lojas where situacao = '1' and deletado != '1' order by nome";
+                        $r = mysqli_query($con, $q);
+                        while($s = mysqli_fetch_object($r)){
+                        ?>
+                        <option value="<?=$s->codigo?>"><?=$s->nome?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                    <label for="loja" class="form-label">Loja</label>
+                </div>                
                 <button entregador type="button" class="btn btn-primary">Ativar</button>
             </div>
-
-
-            <ul class="list-group m-3">
-                <li class="list-group-item">
-                    <select id="loja" class="form-select">
-                    <option value="">:: Selecione a Loja ::</option>
-                    <?php
-                    $q = "select * from lojas where situacao = '1' and deletado != '1' order by nome";
-                    $r = mysqli_query($con, $q);
-                    while($s = mysqli_fetch_object($r)){
-                    ?>
-                    <option value="<?=$s->codigo?>"><?=$s->nome?></option>
-                    <?php
-                    }
-                    ?>
-                    </select>
-                </li>
-            </ul>
-
         </div>
     </div>
 </div>
