@@ -158,7 +158,7 @@
     $(function(){
         Carregando('none');
 
-        $(".altura").css("min-height", $(window).height());
+        $(".altura").css("height", $(window).height());
 
         $("button[novoCadastro]").click(function(){
             loja = localStorage.getItem("loja");
