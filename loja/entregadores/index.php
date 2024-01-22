@@ -53,7 +53,7 @@
             <h5 class="card-header">Lista de Entregadores</h5>
             <div class="card-body">
             
-            <div style="position:relative; width:100%; height:100%; border:solid 1px red">
+            <div class="altura" style="position:relative; width:100%; border:solid 1px red">
               <div class="d-flex justify-content-between mb-3">
 
                   <div class="row">
@@ -157,6 +157,8 @@
 <script>
     $(function(){
         Carregando('none');
+
+        $(".altura").css("min-height", $(window).height());
 
         $("button[novoCadastro]").click(function(){
             loja = localStorage.getItem("loja");
