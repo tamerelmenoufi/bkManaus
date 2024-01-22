@@ -20,8 +20,8 @@
     }
 
     if($_SESSION['usuarioBusca']){
-      $cpf = str_replace( '.', '', str_replace('-', '', $_SESSION['usuarioBusca']));
-      $where = " and a.nome like '%{$_SESSION['usuarioBusca']}%' or REPLACE( REPLACE( a.cpf, '.', '' ), '-', '' ) = '{$cpf}' or b.nome like '%{$_SESSION['usuarioBusca']}%'";
+      $busca = str_replace( '.', '', str_replace('-', '', $_SESSION['usuarioBusca']));
+      $where = " and nome like '%{$busca}%' or REPLACE( REPLACE( cpf, '.', '' ), '-', '' ) = '{$busca}' or REPLACE( REPLACE( telefone, '.', '' ), '-', '' ) = '{$busca}'";
     }
 
 
