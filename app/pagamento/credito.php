@@ -47,6 +47,9 @@
             $mensagem = "*BK Manaus Informa* - Pedido *#{$pedido}* autorizado, aguardando início de produção.";
             EnviarWapp($v->Ltelefone,$mensagem);
 
+            $mensagem = "Gerencie pelo painel da loja acessando {$urlLoja}";
+            EnviarWapp($v->Ltelefone,$mensagem);
+
         }
 
         $retorno = [
