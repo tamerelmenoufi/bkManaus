@@ -2,10 +2,41 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     if($_POST['acao'] == 'recusar_entrega'){
-        
-        $q = "update vendas set producao = 'producao', delivery_id = '', delivery_detalhes = '{}' where codigo = '{$_SESSION['Dpedido']}'";
 
+        $v = mysqli_fetch_object(mysqli_query($con, "select a.*,
+                a.pix_detalhes->>'$.id' as operadora_id,
+                a.delivery_detalhes->>'$.deliveryMan.name' as Dnome,
+                concat(a.delivery_detalhes->>'$.deliveryMan.ddd',a.delivery_detalhes->>'$.deliveryMan.phone') as Dtelefone,
+                b.nome as Cnome,
+                b.cpf as Ccpf,
+                b.telefone as Ctelefone,
+                b.email as Cemail,
+                c.codigo as endereco,
+                c.cep as Ecep,
+                c.logradouro as Elogradouro,
+                c.numero as Enumero,
+                c.complemento as Ecomplemento,
+                c.ponto_referencia as Eponto_referencia,
+                c.bairro as Ebairro,
+                c.localidade as Elocalidade,
+                c.uf as Euf,
+                d.telefone as Ltelefone,
+                d.nome as Lnome
+            from vendas a 
+            left join clientes b on a.cliente = b.codigo
+            left join lojas d on a.loja = d.codigo
+            left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
+            where a.codigo = '{$_SESSION['Dpedido']}'"));
+
+        $q = "update vendas set producao = 'producao', delivery_id = '', delivery_detalhes = '{}' where codigo = '{$_SESSION['Dpedido']}'";
         mysqli_query($con, $q);
+
+        $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
+        $mensagem = "*BK Manaus Informa* - Estamos buscando um novo entregador para agilizar a entrega do pedido *#{$pedido}*.";
+        EnviarWapp($d->Ctelefone,$mensagem);
+
+        $mensagem = "*BK Manaus Informa* - O entregador {$v->Dnome} recusou a entrega do pedido *#{$pedido}*. Favor redefinir o entregador pelo linque {$urlLoja}.";
+        EnviarWapp($d->Ctelefone,$mensagem);
 
     }
 
@@ -19,7 +50,39 @@
     }
 
     if($_POST['acao'] == 'finalizar'){
+
         mysqli_query($con, "update vendas set producao = 'entregue' where codigo = '{$_POST['pedido']}'");
+
+        $v = mysqli_fetch_object(mysqli_query($con, "select a.*,
+                a.pix_detalhes->>'$.id' as operadora_id,
+                a.delivery_detalhes->>'$.deliveryMan.name' as Dnome,
+                concat(a.delivery_detalhes->>'$.deliveryMan.ddd',a.delivery_detalhes->>'$.deliveryMan.phone') as Dtelefone,
+                b.nome as Cnome,
+                b.cpf as Ccpf,
+                b.telefone as Ctelefone,
+                b.email as Cemail,
+                c.codigo as endereco,
+                c.cep as Ecep,
+                c.logradouro as Elogradouro,
+                c.numero as Enumero,
+                c.complemento as Ecomplemento,
+                c.ponto_referencia as Eponto_referencia,
+                c.bairro as Ebairro,
+                c.localidade as Elocalidade,
+                c.uf as Euf,
+                d.telefone as Ltelefone,
+                d.nome as Lnome
+            from vendas a 
+            left join clientes b on a.cliente = b.codigo
+            left join lojas d on a.loja = d.codigo
+            left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
+            where a.codigo = '{$_POST['pedido']}'"));
+
+        $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
+        $mensagem = "*BK Manaus Informa* - O pedido *#{$pedido}*, foi confirmado como entregue.";
+        
+        EnviarWapp($d->Ctelefone,$mensagem);
+        EnviarWapp($d->Ltelefone,$mensagem);
     }
 
 

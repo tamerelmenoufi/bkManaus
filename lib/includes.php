@@ -13,6 +13,8 @@
 
     $urlPainel = 'https://painel.bkmanaus.com.br/';
     $urlApp = 'https://painel.bkmanaus.com.br/app/';
+    $urlEntregador = 'https://painel.bkmanaus.com.br/delivery/';
+    $urlLoja = 'https://painel.bkmanaus.com.br/loja/';
 
     if($_POST['historico']){
         $pagina = str_replace("/bkManaus/app/", false, $_SERVER["PHP_SELF"]);

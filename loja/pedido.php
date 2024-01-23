@@ -3,7 +3,6 @@
 
     if($_POST['acao'] == 'entregador'){
 
-
         $entrega_id = $_POST['entrega_id'];
         $entrega_nome = $_POST['entrega_nome'];
         $entrega_ddd = $_POST['entrega_ddd'];
@@ -89,15 +88,80 @@
         $q = "update vendas set producao = 'entrega', delivery_id = '{$_SESSION['pedido']}', delivery_detalhes = '{$json_modelo}' where codigo = '{$_SESSION['pedido']}'";
         mysqli_query($con, $q);
 
+        $v = mysqli_fetch_object(mysqli_query($con, "select a.*,
+                                                        a.pix_detalhes->>'$.id' as operadora_id,
+                                                        a.delivery_detalhes->>'$.deliveryMan.name' as Dnome,
+                                                        concat(a.delivery_detalhes->>'$.deliveryMan.ddd',a.delivery_detalhes->>'$.deliveryMan.phone') as Dtelefone,
+                                                        b.nome as Cnome,
+                                                        b.cpf as Ccpf,
+                                                        b.telefone as Ctelefone,
+                                                        b.email as Cemail,
+                                                        c.codigo as endereco,
+                                                        c.cep as Ecep,
+                                                        c.logradouro as Elogradouro,
+                                                        c.numero as Enumero,
+                                                        c.complemento as Ecomplemento,
+                                                        c.ponto_referencia as Eponto_referencia,
+                                                        c.bairro as Ebairro,
+                                                        c.localidade as Elocalidade,
+                                                        c.uf as Euf,
+                                                        d.telefone as Ltelefone,
+                                                        d.nome as Lnome
+                                                    from vendas a 
+                                                    left join clientes b on a.cliente = b.codigo
+                                                    left join lojas d on a.loja = d.codigo
+                                                    left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
+                                                    where a.codigo = '{$_SESSION['pedido']}'"));
 
+        $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
+        $mensagem = "*BK Manaus Informa* - O entregador ({$entrega_nome} - {$entrega_telefone}) está se preparando para levar o pedido *#{$pedido}* ao seu destino.";
+        EnviarWapp($d->Ctelefone,$mensagem);
 
+        $mensagem = "*BK Manaus Informa* - Olá {$entrega_nome}. Você foi selecionado para a entrega do pedido *#{$pedido}* da loja {$Lnome} para {$v->Cnome} no endereço *{$v->Elogradouro} {$v->Enumero} {$v->Ebairro} {$v->complemento} {$v->ponto_referencia}*. Favor comparecer ao balcão de retirada na loja.";
+        EnviarWapp($entrega_ddd.$entrega_telefone,$mensagem);
+
+        $mensagem = "Confirme o recebimento e atualize o andamento da entrega do pedido na plataforma no linque {$urlEntregador}.";
+        EnviarWapp($entrega_ddd.$entrega_telefone,$mensagem);
+
+        
     }
 
     if($_POST['acao'] == 'trocar_entregador'){
-        
-        $q = "update vendas set producao = 'producao', delivery_id = '', delivery_detalhes = '{}' where codigo = '{$_SESSION['pedido']}'";
 
+        $q = "update vendas set producao = 'producao', delivery_id = '', delivery_detalhes = '{}' where codigo = '{$_SESSION['pedido']}'";
         mysqli_query($con, $q);
+
+        $v = mysqli_fetch_object(mysqli_query($con, "select a.*,
+                                                        a.pix_detalhes->>'$.id' as operadora_id,
+                                                        a.delivery_detalhes->>'$.deliveryMan.name' as Dnome,
+                                                        concat(a.delivery_detalhes->>'$.deliveryMan.ddd',a.delivery_detalhes->>'$.deliveryMan.phone') as Dtelefone,
+                                                        b.nome as Cnome,
+                                                        b.cpf as Ccpf,
+                                                        b.telefone as Ctelefone,
+                                                        b.email as Cemail,
+                                                        c.codigo as endereco,
+                                                        c.cep as Ecep,
+                                                        c.logradouro as Elogradouro,
+                                                        c.numero as Enumero,
+                                                        c.complemento as Ecomplemento,
+                                                        c.ponto_referencia as Eponto_referencia,
+                                                        c.bairro as Ebairro,
+                                                        c.localidade as Elocalidade,
+                                                        c.uf as Euf,
+                                                        d.telefone as Ltelefone,
+                                                        d.nome as Lnome
+                                                    from vendas a 
+                                                    left join clientes b on a.cliente = b.codigo
+                                                    left join lojas d on a.loja = d.codigo
+                                                    left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
+                                                    where a.codigo = '{$_SESSION['pedido']}'"));
+        
+        $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
+        $mensagem = "*BK Manaus Informa* - Estamos buscando um novo entregador para agilizar a entrega do pedido *#{$pedido}*.";
+        EnviarWapp($d->Ctelefone,$mensagem);
+
+        $mensagem = "*BK Manaus Informa* - Você foi desvinculado da entrega do pedido *#{$pedido}*.";
+        EnviarWapp($d->Dtelefone,$mensagem);
 
     }
 
@@ -111,7 +175,39 @@
     }
 
     if($_POST['acao'] == 'finalizar'){
+
         mysqli_query($con, "update vendas set producao = 'entregue' where codigo = '{$_POST['pedido']}'");
+
+        $v = mysqli_fetch_object(mysqli_query($con, "select a.*,
+                a.pix_detalhes->>'$.id' as operadora_id,
+                a.delivery_detalhes->>'$.deliveryMan.name' as Dnome,
+                concat(a.delivery_detalhes->>'$.deliveryMan.ddd',a.delivery_detalhes->>'$.deliveryMan.phone') as Dtelefone,
+                b.nome as Cnome,
+                b.cpf as Ccpf,
+                b.telefone as Ctelefone,
+                b.email as Cemail,
+                c.codigo as endereco,
+                c.cep as Ecep,
+                c.logradouro as Elogradouro,
+                c.numero as Enumero,
+                c.complemento as Ecomplemento,
+                c.ponto_referencia as Eponto_referencia,
+                c.bairro as Ebairro,
+                c.localidade as Elocalidade,
+                c.uf as Euf,
+                d.telefone as Ltelefone,
+                d.nome as Lnome
+            from vendas a 
+            left join clientes b on a.cliente = b.codigo
+            left join lojas d on a.loja = d.codigo
+            left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
+            where a.codigo = '{$_POST['pedido']}'"));
+
+        $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
+        $mensagem = "*BK Manaus Informa* - O pedido *#{$pedido}*, foi confirmado como entregue.";
+        EnviarWapp($d->Ctelefone,$mensagem);
+        EnviarWapp($d->Dtelefone,$mensagem);
+
     }
 
 
@@ -149,9 +245,9 @@
                 mysqli_query($con, "update vendas set producao = 'producao' where codigo = '{$d->codigo}'");
                 $d->producao = 'producao';
 
-                $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
-                $mensagem = "*BK Manaus Informa* - O pagamento do pedido *#{$pedido}* foi confirmado por PIX. Pedido enviado para a loja e está em produção.";
-                EnviarWapp($v->Ctelefone,$mensagem);
+                $pedido = str_pad($d->codigo, 6, "0", STR_PAD_LEFT);
+                $mensagem = "*BK Manaus Informa* - O pedido *#{$pedido}* foi recebido pela loja e está sendo preparado.";
+                EnviarWapp($d->telefone,$mensagem);
 
             }
             
