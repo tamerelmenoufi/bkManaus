@@ -70,25 +70,27 @@
         $_SESSION['codVenda'] = $_POST['codVenda'];
     }
 
-    $v = mysqli_fetch_object(mysqli_query($con, "select  a.*,
-                                                    a.pix_detalhes->>'$.id' as operadora_id, 
-                                                    b.nome as Cnome,
-                                                    b.cpf as Ccpf,
-                                                    b.telefone as Ctelefone,
-                                                    b.email as Cemail,
-                                                    c.codigo as endereco,
-                                                    c.cep as Ecep,
-                                                    c.logradouro as Elogradouro,
-                                                    c.numero as Enumero,
-                                                    c.complemento as Ecomplemento,
-                                                    c.ponto_referencia as Eponto_referencia,
-                                                    c.bairro as Ebairro,
-                                                    c.localidade as Elocalidade,
-                                                    c.uf as Euf
-                                                from vendas a 
-                                                left join clientes b on a.cliente = b.codigo
-                                                left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
-                                                where a.codigo = '{$_SESSION['codVenda']}'"));
+    $v = mysqli_fetch_object(mysqli_query($con, "select a.*,
+                                                        a.pix_detalhes->>'$.id' as operadora_id, 
+                                                        b.nome as Cnome,
+                                                        b.cpf as Ccpf,
+                                                        b.telefone as Ctelefone,
+                                                        b.email as Cemail,
+                                                        c.codigo as endereco,
+                                                        c.cep as Ecep,
+                                                        c.logradouro as Elogradouro,
+                                                        c.numero as Enumero,
+                                                        c.complemento as Ecomplemento,
+                                                        c.ponto_referencia as Eponto_referencia,
+                                                        c.bairro as Ebairro,
+                                                        c.localidade as Elocalidade,
+                                                        c.uf as Euf,
+                                                        d.telefone as Ltelefone
+                                                    from vendas a 
+                                                    left join clientes b on a.cliente = b.codigo
+                                                    left join lojas d on a.loja = d.codigo
+                                                    left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
+                                                    where a.codigo = '{$_SESSION['codVenda']}'"));
 
     $pos =  strripos($v->Cnome, " ");
 
@@ -168,6 +170,17 @@
 
                     if($operadora_id){
 
+                        $mensagem = "*BK Manaus Informa* - Sua solicitação de pagamento para do pedido *#{$pedido}* com PIX foi registrada. Aguardando confirmação.";
+                        EnviarWapp($v->Ctelefone,$mensagem);
+
+                        $mensagem = "Para sua comodidade, eniaremos o código da chave PIX para o seu pagamento. Copie a chave e utilize o por pix (chave aleatória) no seu banco.";
+                        EnviarWapp($v->Ctelefone,$mensagem);
+
+                        $mensagem = $qrcode;
+                        EnviarWapp($v->Ctelefone,$mensagem);
+
+                        
+                        
                         // //////////////////////API DELIVERY////////////////////////////
                         if($dados->status == 'approved'){
                         //     $json = '{
@@ -227,7 +240,18 @@
                 where codigo = '{$v->codigo}'
                 ";
 
-                mysqli_query($con, $q);     
+                mysqli_query($con, $q);  
+                
+                if($dados->status == 'approved'){
+                    $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
+                    $mensagem = "*BK Manaus Informa* - O pagamento do pedido *#{$pedido}* foi confirmado por PIX. Pedido enviado para a loja e está em produção.";
+                    EnviarWapp($v->Ctelefone,$mensagem);
+                    $mensagem = "Vou te informar o andamento por aqui, mas você pode acompanhar seu pedido *#{$pedido}* também pelo linque {$urlApp}.";
+                    EnviarWapp($v->Ctelefone,$mensagem);
+
+                    $mensagem = "*BK Manaus Informa* - Pedido *#{$pedido}* autorizado, aguardando início de produção.";
+                    EnviarWapp($v->Ltelefone,$mensagem);
+                }
 
 
             ?>

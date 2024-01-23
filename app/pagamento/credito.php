@@ -4,7 +4,6 @@
 
     if($_POST['acao'] == 'pagar'){
 
-
         require "{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/vendor/rede/Transacao.php";
 
         require "{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/vendor/rede/Consulta.php";
@@ -17,7 +16,7 @@
             $c = explode("-", $_POST['reference']);
 
             //Se tiver pagamento pix pendente executar o script de cancelamento aqui 
-            $q = "select pix_detalhes->>'$.id' as operadora_id from vendas where codigo = '{$c[0]}'";
+            $q = "select a.pix_detalhes->>'$.id' as operadora_id, b.telefone as Ctelefone, c.telefone as Ltelefone from vendas a left join clientes b on a.cliente = b.codigo left join lojas c on a.loja = c.codigo where a.codigo = '{$c[0]}'";
             $r = mysqli_query($con, $q);
             $v = mysqli_fetch_object($r);
             
@@ -37,6 +36,16 @@
                 $q = "update vendas set delivery_detalhes = '{$delivery_detalhes}' where codigo = '{$c[0]}'";
                 mysqli_query($con, $q); 
             }
+
+
+            $pedido = str_pad($c[0], 6, "0", STR_PAD_LEFT);
+            $mensagem = "*BK Manaus Informa* - O pagamento do pedido *#{$pedido}* foi confirmado por Cartão de Crédito. Pedido enviado para a loja e está em produção.";
+            EnviarWapp($v->Ctelefone,$mensagem);
+            $mensagem = "Vou te informar o andamento por aqui, mas você pode acompanhar seu pedido *#{$pedido}* também pelo linque {$urlApp}.";
+            EnviarWapp($v->Ctelefone,$mensagem);
+
+            $mensagem = "*BK Manaus Informa* - Pedido *#{$pedido}* autorizado, aguardando início de produção.";
+            EnviarWapp($v->Ltelefone,$mensagem);
 
         }
 
@@ -108,6 +117,9 @@
         $_POST['codVenda'] = mysqli_insert_id($con);
 
         mysqli_query($con, "update vendas_tmp set detalhes = '{}' where id_unico = '{$_SESSION['idUnico']}'");
+        $pedido = str_pad($_POST['codVenda'], 6, "0", STR_PAD_LEFT);
+        $mensagem = "*BK Manaus Informa* - Sua solicitação de pagamento para do pedido *#{$pedido}* com cartão de crédito foi registrada. Aguardando confirmação.";
+        EnviarWapp($d->Ctelefone,$mensagem);
 
     }
 

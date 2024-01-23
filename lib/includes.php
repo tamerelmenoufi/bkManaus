@@ -12,6 +12,7 @@
     $md5 = md5(date("YmdHis"));
 
     $urlPainel = 'https://painel.bkmanaus.com.br/';
+    $urlApp = 'https://painel.bkmanaus.com.br/app/';
 
     if($_POST['historico']){
         $pagina = str_replace("/bkManaus/app/", false, $_SERVER["PHP_SELF"]);

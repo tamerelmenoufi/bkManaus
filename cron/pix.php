@@ -16,14 +16,15 @@
                     c.ponto_referencia as Eponto_referencia,
                     c.bairro as Ebairro,
                     c.localidade as Elocalidade,
-                    c.uf as Euf
-
+                    c.uf as Euf,
+                    d.telefone as Ltelefone
                 from vendas a
 
                 left join clientes b on a.cliente = b.codigo
+                left join lojas d on a.loja = d.codigo
                 left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')                
-                
-                where a.situacao = 'pendente'";
+            where a.situacao = 'pendente'";
+
     $result = mysqli_query($con, $query);
     while($v = mysqli_fetch_object($result)){
 
@@ -75,6 +76,14 @@
             // }
             // //////////////////////API DELIVERY////////////////////////////
 
+            $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
+            $mensagem = "*BK Manaus Informa* - O pagamento do pedido *#{$pedido}* foi confirmado por PIX. Pedido enviado para a loja e está em produção.";
+            EnviarWapp($v->Ctelefone,$mensagem);
+            $mensagem = "Vou te informar o andamento por aqui, mas você pode acompanhar seu pedido *#{$pedido}* também pelo linque {$urlApp}.";
+            EnviarWapp($v->Ctelefone,$mensagem);
+
+            $mensagem = "*BK Manaus Informa* - Pedido *#{$pedido}* autorizado, aguardando início de produção.";
+            EnviarWapp($v->Ltelefone,$mensagem);
 
         }
 
