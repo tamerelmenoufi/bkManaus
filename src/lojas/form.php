@@ -128,34 +128,64 @@
                     }
                 }
 
-                Carregando();
+                endereco = $("#endereco").val();
+                if(!endereco){
+                    $.alert('Favor informe o endereço completo da loja no campo correspondente!');
+                    return;                    
+                }
 
-                $.ajax({
-                    url:"src/lojas/form.php",
-                    type:"POST",
-                    typeData:"JSON",
-                    mimeType: 'multipart/form-data',
-                    data: campos,
-                    success:function(dados){
-                        // if(dados.status){
+
+                geocoder<?=$md5?> = new google.maps.Geocoder();
+                geocoder<?=$md5?>.geocode({ 'address': `${endereco}, Manaus, Amazonas, Brasil`, 'region': 'BR' }, (results, status) => {
+
+                    if (status == google.maps.GeocoderStatus.OK) {
+
+                        if (results[0]) {
+
+                            var latitude<?=$md5?> = results[0].geometry.location.lat();
+                            var longitude<?=$md5?> = results[0].geometry.location.lng();
+
+                            coordenadas = `${latitude<?=$md5?>},${longitude<?=$md5?>}`;
+                            campos.push({name: 'coordenadas', value: coordenadas});
+
+                            Carregando();
+
                             $.ajax({
-                                url:"src/lojas/index.php",
+                                url:"src/lojas/form.php",
                                 type:"POST",
+                                typeData:"JSON",
+                                mimeType: 'multipart/form-data',
+                                data: campos,
                                 success:function(dados){
-                                    $("#paginaHome").html(dados);
-                                    let myOffCanvas = document.getElementById('offcanvasDireita');
-                                    let openedCanvas = bootstrap.Offcanvas.getInstance(myOffCanvas);
-                                    openedCanvas.hide();
+                                    // if(dados.status){
+                                        $.ajax({
+                                            url:"src/lojas/index.php",
+                                            type:"POST",
+                                            success:function(dados){
+                                                $("#paginaHome").html(dados);
+                                                let myOffCanvas = document.getElementById('offcanvasDireita');
+                                                let openedCanvas = bootstrap.Offcanvas.getInstance(myOffCanvas);
+                                                openedCanvas.hide();
+                                            }
+                                        });
+                                    // }
+                                },
+                                error:function(erro){
+
+                                    // $.alert('Ocorreu um erro!' + erro.toString());
+                                    //dados de teste
                                 }
                             });
-                        // }
-                    },
-                    error:function(erro){
 
-                        // $.alert('Ocorreu um erro!' + erro.toString());
-                        //dados de teste
+                            
+
+                        }
                     }
-                });
+                })
+
+
+
+                
 
             });
 
