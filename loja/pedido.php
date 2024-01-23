@@ -87,8 +87,9 @@
         ';
         
         $q = "update vendas set producao = 'entrega', delivery_id = '{$_SESSION['pedido']}', delivery_detalhes = '{$json_modelo}' where codigo = '{$_SESSION['pedido']}'";
-
         mysqli_query($con, $q);
+
+
 
     }
 
@@ -136,13 +137,22 @@
     <ul class="list-group">
         <?php
 
-        $query = "select a.*, b.nome, b.telefone, concat(c.logradouro,', ',c.numero,', ',c.bairro,' (',c.ponto_referencia,')') as endereco, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo left join enderecos c on (a.cliente = c.cliente and c.padrao = '1') where a.codigo = '{$_SESSION['pedido']}'";
+        $query = "select a.*, b.nome, b.telefone, d.telefone as Ltelefone, concat(c.logradouro,', ',c.numero,', ',c.bairro,' (',c.ponto_referencia,')') as endereco, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo left join enderecos c on (a.cliente = c.cliente and c.padrao = '1') left join lojas d on a.loja = d.codigo  where a.codigo = '{$_SESSION['pedido']}'";
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
+
+        $Ctelefone = $d->telefone;
+        $Ltelefone = $d->Ltelefone;
+        $pedido = str_pad($d->codigo, 6, "0", STR_PAD_LEFT);
 
             if($d->producao == 'pendente'){
                 mysqli_query($con, "update vendas set producao = 'producao' where codigo = '{$d->codigo}'");
                 $d->producao = 'producao';
+
+                $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
+                $mensagem = "*BK Manaus Informa* - O pagamento do pedido *#{$pedido}* foi confirmado por PIX. Pedido enviado para a loja e está em produção.";
+                EnviarWapp($v->Ctelefone,$mensagem);
+
             }
             
             $pedido = json_decode($d->detalhes);
