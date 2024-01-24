@@ -53,7 +53,7 @@ $c = mysqli_fetch_object($result);
             echo $c->nome;
         }
         if($c->logradouro and $c->numero and $c->bairro){
-            echo "<br>{$c->logradouro}, {$c->numero}, {$c->bairro}"
+            echo "<br>{$c->logradouro}, {$c->numero}, {$c->bairro}";
         }
         ?>
     </p>
