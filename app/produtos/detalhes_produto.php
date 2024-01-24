@@ -443,6 +443,7 @@ $(function(){
                         },
                         success:function(dados){  
                             $(".CorpoApp").html(dados);
+                            $.alert('Produto Adicionado na lista!');
                             Carregando('none');
                         }
                     }); 
