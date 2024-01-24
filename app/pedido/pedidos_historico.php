@@ -95,7 +95,7 @@
 
 if(!$_POST['novoPedido']){
     
-    $query = "select * from vendas where (device = '{$_SESSION['idUnico']}' or cliente = '{$_SESSION['codUsr']}') and situacao != 'pendente' order by situacao ";
+    $query = "select * from vendas where (device = '{$_SESSION['idUnico']}' or cliente = '{$_SESSION['codUsr']}') and situacao != 'pendente' order by codigo desc ";
     $result = mysqli_query($con, $query);
 
     $q = mysqli_num_rows($result);
