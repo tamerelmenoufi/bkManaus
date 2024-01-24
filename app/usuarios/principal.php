@@ -48,6 +48,7 @@ $(function(){
     $("#telefone").keyup(function(){
         telefone = $(this).val();
         if(telefone.length == 15){
+            Carregando();
             $(this).val("");
             idUnico = localStorage.getItem("idUnico");
             $.ajax({
@@ -60,6 +61,7 @@ $(function(){
                 },
                 success:function(dados){
                     if(dados.status == 'success'){
+                        Carregando('none');
                         $.confirm({
                             title: `Validar ${telefone}` ,
                             columnClass:'col-12',
@@ -102,6 +104,7 @@ $(function(){
                                             });
                                             return false;
                                         }
+                                        Carregando();
                                         $.ajax({
                                             url:"usuarios/dados.php",
                                             type:"POST",
@@ -110,6 +113,7 @@ $(function(){
                                                 idUnico
                                             },
                                             success:function(dados){
+                                                Carregando('none');
                                                 $(".dados_pessoais").html(dados);
                                             }
                                         });
