@@ -36,7 +36,7 @@
         EnviarWapp($v->Ctelefone,$mensagem);
 
         $mensagem = "*BK Manaus Informa* - O entregador {$v->Dnome} recusou a entrega do pedido *#{$pedido}*. Favor redefinir o entregador pelo linque {$urlLoja}.";
-        EnviarWapp($v->Ctelefone,$mensagem);
+        EnviarWapp($v->Ltelefone,$mensagem);
 
     }
 
