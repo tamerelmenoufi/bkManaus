@@ -115,9 +115,9 @@
 
         $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
         $mensagem = "*BK Manaus Informa* - O entregador ({$entrega_nome} - {$entrega_telefone}) está se preparando para levar o pedido *#{$pedido}* ao seu destino.";
-        EnviarWapp($d->Ctelefone,$mensagem);
+        EnviarWapp($v->Ctelefone,$mensagem);
 
-        $mensagem = "*BK Manaus Informa* - Olá {$entrega_nome}. Você foi selecionado para a entrega do pedido *#{$pedido}* da loja {$Lnome} para {$v->Cnome} no endereço *{$v->Elogradouro} {$v->Enumero} {$v->Ebairro} {$v->complemento} {$v->ponto_referencia}*. Favor comparecer ao balcão de retirada na loja.";
+        $mensagem = "*BK Manaus Informa* - Olá {$entrega_nome}. Você foi selecionado para a entrega do pedido *#{$pedido}* da loja {$v->Lnome} para {$v->Cnome} no endereço *{$v->Elogradouro} {$v->Enumero} {$v->Ebairro} {$v->complemento} {$v->ponto_referencia}*. Favor comparecer ao balcão de retirada na loja.";
         EnviarWapp($entrega_ddd.$entrega_telefone,$mensagem);
 
         $mensagem = "Confirme o recebimento e atualize o andamento da entrega do pedido na plataforma no linque {$urlEntregador}.";
@@ -158,10 +158,10 @@
         
         $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
         $mensagem = "*BK Manaus Informa* - Estamos buscando um novo entregador para agilizar a entrega do pedido *#{$pedido}*.";
-        EnviarWapp($d->Ctelefone,$mensagem);
+        EnviarWapp($v->Ctelefone,$mensagem);
 
         $mensagem = "*BK Manaus Informa* - Você foi desvinculado da entrega do pedido *#{$pedido}*.";
-        EnviarWapp($d->Dtelefone,$mensagem);
+        EnviarWapp($v->Dtelefone,$mensagem);
 
     }
 
@@ -205,8 +205,8 @@
 
         $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
         $mensagem = "*BK Manaus Informa* - O pedido *#{$pedido}*, foi confirmado como entregue.";
-        EnviarWapp($d->Ctelefone,$mensagem);
-        EnviarWapp($d->Dtelefone,$mensagem);
+        EnviarWapp($v->Ctelefone,$mensagem);
+        EnviarWapp($v->Dtelefone,$mensagem);
 
     }
 

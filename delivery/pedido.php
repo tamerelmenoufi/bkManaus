@@ -33,10 +33,10 @@
 
         $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
         $mensagem = "*BK Manaus Informa* - Estamos buscando um novo entregador para agilizar a entrega do pedido *#{$pedido}*.";
-        EnviarWapp($d->Ctelefone,$mensagem);
+        EnviarWapp($v->Ctelefone,$mensagem);
 
         $mensagem = "*BK Manaus Informa* - O entregador {$v->Dnome} recusou a entrega do pedido *#{$pedido}*. Favor redefinir o entregador pelo linque {$urlLoja}.";
-        EnviarWapp($d->Ctelefone,$mensagem);
+        EnviarWapp($v->Ctelefone,$mensagem);
 
     }
 
@@ -81,8 +81,8 @@
         $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
         $mensagem = "*BK Manaus Informa* - O pedido *#{$pedido}*, foi confirmado como entregue.";
         
-        EnviarWapp($d->Ctelefone,$mensagem);
-        EnviarWapp($d->Ltelefone,$mensagem);
+        EnviarWapp($v->Ctelefone,$mensagem);
+        EnviarWapp($v->Ltelefone,$mensagem);
     }
 
 
