@@ -62,9 +62,10 @@ $pdAtiva = $_SESSION['historico'][$i]['local'];
     .itens_produtos_add{
         position:absolute;
         width:10px;
-        height:20px;
-        background:red;
-        color:#fff;
+        height:10px;
+        border-radius:100%;
+        background:yellow;
+        color:#333;
         font-size:6px;
         text-align:center;
         top:-5px;
