@@ -70,6 +70,7 @@ $pdAtiva = $_SESSION['historico'][$i]['local'];
         text-align:center;
         top:5px;
         right:0px;
+        display:none;
     }
 </style>
 <div class="rodape">
