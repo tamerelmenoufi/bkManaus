@@ -93,7 +93,7 @@ $pdAtiva = $_SESSION['historico'][$i]['local'];
         <div navegacao="pedido/resumo.php" class="telaPedido">
             <i class="fa-solid fa-bag-shopping" <?=(($pdAtiva == 'pedido/resumo.php')?'style="color:#ffdb37;"':false)?>></i>
             <p <?=(($pdAtiva == 'pedido/resumo.php')?'style="color:#ffdb37;"':false)?>>Pedido</p>
-            <span class="itens_produtos_add">2</span>
+            <span class="itens_produtos_add">28</span>
         </div>        
 
         <div navegacao="pedido/pagar.php">
