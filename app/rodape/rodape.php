@@ -56,6 +56,9 @@ $pdAtiva = $_SESSION['historico'][$i]['local'];
         margin:0;
         padding:0;
     }
+    .telaPedido{
+        position:relative;
+    }
     .itens_produtos_add{
         position:absolute;
         width:10px;
