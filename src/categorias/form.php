@@ -77,7 +77,7 @@
     $acoes_itens = json_decode($d->acoes_itens);
     $categorias_itens = json_decode($d->categorias_itens);
 
-    if($d->codigo == 8){
+    if($d->codigo == 89999999999999){
         $w = 600;
         $h = 228;
     }else{
