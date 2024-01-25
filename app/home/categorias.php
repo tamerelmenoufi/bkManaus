@@ -50,7 +50,7 @@
     }
 </style>
 <div class="row g-0">
-    <div class="col-12">
+    <div class="col-6">
     <?php
     $query = "select * from categorias where codigo = 8";
     $result = mysqli_query($con, $query);
@@ -61,12 +61,19 @@
     }else{
         $icon = "img/imagem_produto.png";
     }
-
+    /*
     ?>
         <div class="d-flex justify-content-center align-items-center combo" codigo="8" local="produtos/lista_combos.php">
             <!-- <span><?=$d->categoria?></span> -->
             <img src="<?=$icon?>" alt="">
         </div>
+    <?php
+    //*/
+    ?>
+        <div class="d-flex justify-content-start align-items-center combo" codigo="<?=$d->codigo?>" local="produtos/lista_combos.php">
+            <img src="<?=$icon?>" alt="">
+            <!-- <span><?=$d->categoria?></span> -->
+        </div>    
     </div>
     <?php
     $query = "select * from categorias where tipo = 'prd' and deletado != '1' and situacao = '1' order by ordem";
