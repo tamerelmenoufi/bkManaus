@@ -56,6 +56,17 @@ $pdAtiva = $_SESSION['historico'][$i]['local'];
         margin:0;
         padding:0;
     }
+    .itens_produtos_add{
+        position:absolute;
+        width:10px;
+        height:20px;
+        background:red;
+        color:#fff;
+        font-size:6px;
+        text-align:center;
+        top:-5px;
+        right:-5px;
+    }
 </style>
 <div class="rodape">
     <div class="d-flex justify-content-between align-items-center rodape_area">
@@ -78,6 +89,7 @@ $pdAtiva = $_SESSION['historico'][$i]['local'];
         <div navegacao="pedido/resumo.php" class="telaPedido">
             <i class="fa-solid fa-bag-shopping" <?=(($pdAtiva == 'pedido/resumo.php')?'style="color:#ffdb37;"':false)?>></i>
             <p <?=(($pdAtiva == 'pedido/resumo.php')?'style="color:#ffdb37;"':false)?>>Pedido</p>
+            <span class="itens_produtos_add">2</span>
         </div>        
 
         <div navegacao="pedido/pagar.php">
