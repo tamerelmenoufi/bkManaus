@@ -72,6 +72,21 @@
         height:135px;
         margin:5px;
     }
+
+    .combos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        margin:5px;
+        border-radius:15px;
+        margin-bottom:20px;
+    }
+    .combos img{
+        height:135px;
+        margin:5px;
+    }
+    
     .produto_dados{
         position:relative;
         width:100%;
@@ -141,7 +156,7 @@ while($d = mysqli_fetch_object($result)){
         $prd = implode("</div><div style='color:".(($d->promocao == '1')?'#ffffff':'#000000')."';>- ", $prd);
     }
 ?>
-    <div class="produto_painel" codigo = "<?=$d->codigo?>" style="background-color:<?=(($d->promocao == '1')?'#bd0100':'trasparent')?>">
+    <div class="combos" codigo = "<?=$d->codigo?>" style="background-color:<?=(($d->promocao == '1')?'#bd0100':'trasparent')?>">
         <img src="<?=$icon?>" />
         <div class="w-100">
             <div class="produto_dados">
@@ -268,6 +283,28 @@ $(function(){
             data:{
                 codigo,
                 categoria:'<?=$d->categoria?>',
+                idUnico,
+                historico:'.CorpoApp'
+            },
+            success:function(dados){
+                $(".CorpoApp").html(dados);
+                Carregando('none')
+            }
+        });        
+
+    })
+
+
+    $(".combos").click(function(){
+        Carregando();
+        codigo = $(this).attr("codigo");
+        idUnico = localStorage.getItem("idUnico");
+        $.ajax({
+            url:"produtos/detalhes_combo.php",
+            type:"POST",
+            data:{
+                codigo,
+                categoria:'8',
                 idUnico,
                 historico:'.CorpoApp'
             },
