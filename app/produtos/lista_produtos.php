@@ -131,7 +131,7 @@
 
 
 <?php
-
+////////////////////////////////////////INICIO DOS COMBOS//////////////////////////////
 if($combos){
 $query = "select *, produtos->>'$[*].produto' as cod_prod, produtos->>'$[*].quantidade' as qtd_prod from produtos where codigo in(".implode(",",$combos).") order by promocao desc";
 $result = mysqli_query($con, $query);
@@ -179,35 +179,10 @@ while($d = mysqli_fetch_object($result)){
 <?php
 }
 }
-////////////////////////////////////////FIM DOS COMBOS
-?>
+////////////////////////////////////////FIM DOS COMBOS//////////////////////////////
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php
-
-print_r($combos);
-
-// echo $lp;
-// echo "<br>";
-// echo $lc;
+//////////////// INICIO DOS PRODUTOS INDIVIDUAIS/////////////////////////////////////
 
 $query = "select * from produtos where categoria = '{$c->codigo}' and deletado != '1' and situacao = '1' order by promocao desc";
 $result = mysqli_query($con, $query);
@@ -240,6 +215,7 @@ while($d = mysqli_fetch_object($result)){
     </div>
 <?php
 }
+////////////////////////////////////////FIM DOS PRODUTOS INDIVIDUAIS//////////////////////////////
 ?>
 </div>
 <div class="home_rodape"></div>
