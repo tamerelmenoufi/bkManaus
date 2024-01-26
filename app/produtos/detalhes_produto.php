@@ -336,7 +336,7 @@
         <i class="fa-solid fa-circle-plus mais" style="color:green"></i>
     </div>
     <div class="d-flex justify-content-end">
-        <span><i class="fa-solid fa-bag-shopping"></i> Adicionar </span>
+        <span style="font-size:12px;"><i class="fa-solid fa-bag-shopping"></i> Adicionar </span>
         <button type="button" class="btn btn-danger adicionar" valor="<?=$valor_calculado?>" style="font-family:FlameBold; font-size:25px; margin-top:-20px;">R$ <?=number_format(($valor_calculado*$quantidade),2,",",false)?></button>
     </div>
 </div>   
