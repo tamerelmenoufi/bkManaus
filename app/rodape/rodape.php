@@ -77,6 +77,7 @@ $qt_pedidos = count(json_decode($v->detalhes));
     }
 </style>
 <div class="rodape">
+    <?=var_dump(json_decode($v->detalhes))?>
     <div class="d-flex justify-content-between align-items-center rodape_area">
         <img home src="img/logo.png" />
         <div navegacao="home/index.php">
