@@ -10,7 +10,7 @@
     
 
     $lp = "select codigo from produtos where categorias = '{$_SESSION['categoria']}' and deletado != '1' and situacao = '1'";
-    $lpr = mysqli_query($con, $pc);
+    $lpr = mysqli_query($con, $lp);
     $combos = [];
     while($lpd = mysqli_fetch_object($lpr)){
         $lc = "select codigo from produtos where categoria = '8' and deletado != '1' and situacao = '1' and produtos->>'$[*].produto' like '\"{$lpd->codigo}\"'";
@@ -22,6 +22,7 @@
 
 
 ?>
+
 <style>
     .barra_topo{
         position:absolute;
