@@ -226,14 +226,15 @@ $(function(){
                 url:"pedido/pedidos_historico.php",
                 success:function(dados){
                     $(".home_corpo").html(dados);
+                    $.ajax({
+                        url:"rodape/rodape.php",
+                        success:function(dados){
+                            $(".home_rodape").html(dados);
+                        }
+                    });                    
                 }
             });
-            $.ajax({
-                url:"rodape/rodape.php",
-                success:function(dados){
-                    $(".home_rodape").html(dados);
-                }
-            });
+
             $(".home_valores").remove();
             return;
         }
