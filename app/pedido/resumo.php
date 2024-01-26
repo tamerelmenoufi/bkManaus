@@ -225,14 +225,7 @@ $(function(){
             $.ajax({
                 url:"pedido/pedidos_historico.php",
                 success:function(dados){
-                    $(".home_corpo").html(dados);
-                    $.ajax({
-                        url:"rodape/rodape.php",
-                        success:function(dados){
-                            $(".home_rodape").html(dados);
-                            alert('update')
-                        }
-                    });                    
+                    $(".home_corpo").html(dados);                   
                 }
             });
 
@@ -285,6 +278,12 @@ $(function(){
             },
             success:function(dados){
                 console.log(dados);
+                $.ajax({
+                    url:"rodape/rodape.php",
+                    success:function(dados){
+                        $(".home_rodape").html(dados);
+                    }
+                }); 
             }
         }); 
     }
@@ -301,6 +300,12 @@ $(function(){
             },
             success:function(dados){
                 // console.log(dados);
+                $.ajax({
+                    url:"rodape/rodape.php",
+                    success:function(dados){
+                        $(".home_rodape").html(dados);
+                    }
+                }); 
             }
         }); 
     }
@@ -337,6 +342,14 @@ $(function(){
             removeProduto(cod);
             calculaTotal();
             atualizaDados(cod, qt);
+
+            $.ajax({
+                url:"rodape/rodape.php",
+                success:function(dados){
+                    $(".home_rodape").html(dados);
+                }
+            }); 
+
             return false;
         }
         qt = (((qt*1 - 1)>1)?(qt*1 - 1):1);
