@@ -116,6 +116,10 @@
 
 print_r($combos);
 
+echo $lp;
+echo "<br>";
+echo $lc;
+
 $query = "select * from produtos where categoria = '{$c->codigo}' and deletado != '1' and situacao = '1' order by promocao desc";
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
