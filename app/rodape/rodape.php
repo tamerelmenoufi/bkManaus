@@ -5,6 +5,9 @@ $i = ((count($_SESSION['historico']))?(count($_SESSION['historico']) - 1):0);
     
 $pdAtiva = $_SESSION['historico'][$i]['local'];
 
+$v = mysqli_fetch_object(mysqli_query($con, "select * from vendas_tmp where id_unico = '{$_SESSION['idUnico']}'"));
+$qt_pedidos = count(json_decode($v->detalhes));
+
 ?>
 
 <style>
@@ -70,7 +73,7 @@ $pdAtiva = $_SESSION['historico'][$i]['local'];
         text-align:center;
         top:5px;
         right:0px;
-        display:none;
+        display:block;
     }
 </style>
 <div class="rodape">
@@ -94,7 +97,7 @@ $pdAtiva = $_SESSION['historico'][$i]['local'];
         <div navegacao="pedido/resumo.php" class="telaPedido">
             <i class="fa-solid fa-bag-shopping" <?=(($pdAtiva == 'pedido/resumo.php')?'style="color:#ffdb37;"':false)?>></i>
             <p <?=(($pdAtiva == 'pedido/resumo.php')?'style="color:#ffdb37;"':false)?>>Pedido</p>
-            <span class="itens_produtos_add">28</span>
+            <span class="itens_produtos_add"><?=$qt_pedidos?></span>
         </div>        
 
         <div navegacao="pedido/pagar.php">
