@@ -8,15 +8,17 @@
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));   
     
     
-
-    $lp = "select codigo from produtos where categoria = '{$_SESSION['categoria']}' and deletado != '1' and situacao = '1'";
-    $lpr = mysqli_query($con, $lp);
-    $combos = [];
-    while($lpd = mysqli_fetch_object($lpr)){
-        $lc = "select codigo from produtos where categoria = '8' and deletado != '1' and situacao = '1' and  produtos->>'$[*].produto' like '%\"{$lpd->codigo}\"%'";
-        $lcr = mysqli_query($con, $lc);
-        while($lcd = mysqli_fetch_object($lcr)){
-            $combos[] = $lcd->codigo;
+    $autorizados = [1,3,5];
+    if(in_array($_SESSION['categoria'], $autorizados)){
+        $lp = "select codigo from produtos where categoria = '{$_SESSION['categoria']}' and deletado != '1' and situacao = '1'";
+        $lpr = mysqli_query($con, $lp);
+        $combos = [];
+        while($lpd = mysqli_fetch_object($lpr)){
+            $lc = "select codigo from produtos where categoria = '8' and deletado != '1' and situacao = '1' and  produtos->>'$[*].produto' like '%\"{$lpd->codigo}\"%'";
+            $lcr = mysqli_query($con, $lc);
+            while($lcd = mysqli_fetch_object($lcr)){
+                $combos[] = $lcd->codigo;
+            }
         }
     }
 
