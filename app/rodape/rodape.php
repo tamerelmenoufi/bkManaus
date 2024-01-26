@@ -9,7 +9,7 @@ $v = mysqli_fetch_object(mysqli_query($con, "select * from vendas_tmp where id_u
 //object(stdClass)#4 (1) { ["item35"]=> object(stdClass)#6 (9) { ["tipo"]=> string(7) "produto" ["total"]=> float(30.9) ["valor"]=> float(30.9) ["codigo"]=> int(35) ["regras"]=> object(stdClass)#7 (1) { ["categoria"]=> string(1) "5" } ["status"]=> string(0) "" ["adicional"]=> int(0) ["anotacoes"]=> string(0) "" ["quantidade"]=> int(1) } }
 $qt_pedidos = 0;
 foreach(json_decode($v->detalhes) as $ind => $val){
-    if($ind == 'status' and $val){
+    if($val->status){
         $qt_pedidos++;
     }
 }
