@@ -337,7 +337,7 @@
     </div>
     <div class="d-flex lex-column justify-content-between">
         <button type="button" class="btn btn-danger adicionar" valor="<?=$valor_calculado?>" style="font-family:FlameBold; font-size:20px; margin-top:-20px;">R$ <?=number_format(($valor_calculado*$quantidade),2,",",false)?></button>
-        <div style="font-size:15px; margin-right:10px; text-align:center;"><i class="fa-solid fa-bag-shopping"></i> Adicionar </div>
+        <div style="font-size:15px; margin-right:10px; text-align:center; margin-top:5px;"><i class="fa-solid fa-bag-shopping"></i> Adicionar </div>
     </div>
 </div>   
 <div class="home_rodape"></div>
