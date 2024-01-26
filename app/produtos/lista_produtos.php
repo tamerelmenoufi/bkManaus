@@ -9,7 +9,7 @@
     
     
 
-    $lp = "select codigo from produtos where categorias = '{$_SESSION['categoria']}' and deletado != '1' and situacao = '1'";
+    $lp = "select codigo from produtos where categoria = '{$_SESSION['categoria']}' and deletado != '1' and situacao = '1'";
     $lpr = mysqli_query($con, $lp);
     $combos = [];
     while($lpd = mysqli_fetch_object($lpr)){
