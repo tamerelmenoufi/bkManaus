@@ -6,7 +6,13 @@ $i = ((count($_SESSION['historico']))?(count($_SESSION['historico']) - 1):0);
 $pdAtiva = $_SESSION['historico'][$i]['local'];
 
 $v = mysqli_fetch_object(mysqli_query($con, "select * from vendas_tmp where id_unico = '{$_SESSION['idUnico']}'"));
-$qt_pedidos = count(json_decode($v->detalhes));
+//object(stdClass)#4 (1) { ["item35"]=> object(stdClass)#6 (9) { ["tipo"]=> string(7) "produto" ["total"]=> float(30.9) ["valor"]=> float(30.9) ["codigo"]=> int(35) ["regras"]=> object(stdClass)#7 (1) { ["categoria"]=> string(1) "5" } ["status"]=> string(0) "" ["adicional"]=> int(0) ["anotacoes"]=> string(0) "" ["quantidade"]=> int(1) } }
+$qt_pedidos = 0;
+foreach(json_decode($v->detalhes) as $ind => $val){
+    if($ind == 'status' and $val){
+        $qt_pedidos++;
+    }
+}
 
 ?>
 
@@ -73,11 +79,10 @@ $qt_pedidos = count(json_decode($v->detalhes));
         text-align:center;
         top:5px;
         right:0px;
-        display:block;
+        display:<?=(($qt_pedidos)?'block':'none')?>;
     }
 </style>
 <div class="rodape">
-    <?=var_dump(json_decode($v->detalhes))?>
     <div class="d-flex justify-content-between align-items-center rodape_area">
         <img home src="img/logo.png" />
         <div navegacao="home/index.php">
