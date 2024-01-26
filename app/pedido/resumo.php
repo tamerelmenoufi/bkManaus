@@ -230,6 +230,7 @@ $(function(){
                         url:"rodape/rodape.php",
                         success:function(dados){
                             $(".home_rodape").html(dados);
+                            alert('update')
                         }
                     });                    
                 }
