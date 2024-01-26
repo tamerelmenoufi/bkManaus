@@ -112,6 +112,80 @@
 </div>
 
 <div class="home_corpo">
+
+
+
+<?php
+
+if($combos){
+$query = "select *, produtos->>'$[*].produto' as cod_prod, produtos->>'$[*].quantidade' as qtd_prod from produtos where codigo in(".implode(",",$combos).") order by promocao desc";
+$result = mysqli_query($con, $query);
+while($d = mysqli_fetch_object($result)){
+
+    if(is_file("../../src/combos/icon/{$d->icon}")){
+        $icon = "{$urlPainel}src/combos/icon/{$d->icon}";
+    }else{
+        $icon = "img/imagem_produto.png";
+    }
+
+    $lista_produtos = json_decode($d->cod_prod);
+    if($lista_produtos){
+        $cods = implode(", ",$lista_produtos);
+        $q = "select * from produtos where codigo in ($cods) limit 3";
+        $r = mysqli_query($con, $q);
+        $prd = [];
+        while($d1 = mysqli_fetch_object($r)){
+            $prd[] = $d1->produto;
+        }
+
+        $prd = implode("</div><div style='color:".(($d->promocao == '1')?'#ffffff':'#000000')."';>- ", $prd);
+    }
+?>
+    <div class="produto_painel" codigo = "<?=$d->codigo?>" style="background-color:<?=(($d->promocao == '1')?'#bd0100':'trasparent')?>">
+        <img src="<?=$icon?>" />
+        <div class="w-100">
+            <div class="produto_dados">
+                <h4 style="color:<?=(($d->promocao == '1')?'#fbdb00':'#600f0b')?>"><?=$d->produto?></h4>
+            </div>
+            <div class="produto_dados" style="height:90px;">
+                <div style="color:<?=(($d->promocao == '1')?'#ffffff':'#000000')?>">- <?=$prd?></div>
+            </div>
+
+            <div class="produto_dados">
+                <div class="promocao">DE R$ <?=number_format(CalculaValorCombo($d->codigo),2,",",false)?></div>
+                <div class="d-flex justify-content-between w-100" style="color:<?=(($d->promocao == '1')?'#fbdb00':'#f4352b')?>;">
+                    <div><h2 class="produto_dados" style="margin-top:2px;"><span style="color:#fbdb00; font-size:12px;"><?=(($d->promocao == '1')?'POR ':false)?></span>R$ <?=number_format((($d->promocao == '1')?$d->valor_promocao:CalculaValorCombo($d->codigo)),2,",",false)?></h2></div>
+                    <i class="fa-solid fa-circle-play me-3" style="font-size:25px;"></i>
+                </div>
+            </div>         
+        </div>
+    </div>
+
+<?php
+}
+}
+////////////////////////////////////////FIM DOS COMBOS
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php
 
 print_r($combos);
