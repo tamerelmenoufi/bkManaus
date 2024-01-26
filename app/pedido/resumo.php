@@ -228,6 +228,12 @@ $(function(){
                     $(".home_corpo").html(dados);
                 }
             });
+            $.ajax({
+                url:"rodape/rodape.php",
+                success:function(dados){
+                    $(".home_rodape").html(dados);
+                }
+            });
             $(".home_valores").remove();
             return;
         }
