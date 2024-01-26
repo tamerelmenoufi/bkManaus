@@ -312,15 +312,7 @@ $(function(){
         objValor.attr("total", total);
         objValor.html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2})); 
         calculaTotal();   
-        atualizaDados(cod, qt);    
-        
-        $.ajax({
-            url:"rodape/rodape.php",
-            success:function(dados){
-                $(".home_rodape").html(dados);
-            }
-        });
-        
+        atualizaDados(cod, qt);  
     })
 
     $(".menos").click(function(){
@@ -347,14 +339,6 @@ $(function(){
         objValor.html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         calculaTotal();
         atualizaDados(cod, qt); 
-        
-        
-        $.ajax({
-            url:"rodape/rodape.php",
-            success:function(dados){
-                $(".home_rodape").html(dados);
-            }
-        });
 
     })
 
