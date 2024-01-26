@@ -74,7 +74,7 @@ foreach(json_decode($v->detalhes) as $ind => $val){
         height:15px;
         border-radius:100%;
         background:green;
-        color:#333;
+        color:#fff;
         font-size:10px;
         text-align:center;
         top:5px;
