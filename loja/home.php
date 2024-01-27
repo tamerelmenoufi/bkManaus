@@ -78,8 +78,19 @@
             while($d = mysqli_fetch_object($result)){
 
             $delivery = json_decode($d->delivery_detalhes);
+
+                if(!$d->producao){
+                    $bg = 'bg-secondary';
+                }elseif($d->producao == 'pendente'){
+                    $bg = 'bg-warning';
+                }elseif($d->producao == 'entrega'){
+                    $bg = 'bg-info';
+                }elseif($d->producao == 'entregue'){
+                    $bg = 'bg-success';
+                }
+
             ?>
-                <li class="list-group-item <?=(($d->producao == 'pendente')?'bg-secondary-subtle':'bg-success-subtle')?>" pedido="<?=$d->codigo?>">
+                <li class="list-group-item <?=$bg?>" pedido="<?=$d->codigo?>">
                     <div class="d-flex justify-content-between">
                         <div>
                             Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?>
