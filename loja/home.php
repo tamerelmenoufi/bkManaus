@@ -149,15 +149,15 @@
 <div class="d-flex justify-content-between legenda">
     <div class="d-flex flex-column justify-content-between w-50">
         <div class="d-flex justify-content-between" style="font-size:12px">
-            <div><span style="width:10px; height:10px; border-radius:2px;" class="bg-secondary"></span> Pendente</div>
-            <div><span style="width:10px; height:10px; border-radius:2px;" class="bg-warning"></span> Produção</div>
+            <div class="p-2"><span style="width:10px; height:10px; border-radius:2px;" class="bg-secondary"></span> Pendente</div>
+            <div class="p-2"><span style="width:10px; height:10px; border-radius:2px;" class="bg-warning"></span> Produção</div>
         </div>
         <div class="d-flex justify-content-between" style="font-size:12px">
-            <div><span style="width:10px; height:10px; border-radius:2px;" class="bg-info"></span> Entrega</div>
-            <div><span style="width:10px; height:10px; border-radius:2px;" class="bg-success"></span> Entregue</div>
+            <div class="p-2"><span style="width:10px; height:10px; border-radius:2px;" class="bg-info"></span> Entrega</div>
+            <div class="p-2"><span style="width:10px; height:10px; border-radius:2px;" class="bg-success"></span> Entregue</div>
         </div>
     </div>
-    <div class="w-50">
+    <div class="d-flex justify-content-end w-50 pe-3">
         <button class="btn btn-primary entregadoresXX"><i class="fa-solid fa-person-biking"></i> Entregadores</button>
     </div>
 </div>  
