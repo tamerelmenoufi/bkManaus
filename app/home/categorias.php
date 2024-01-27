@@ -26,6 +26,31 @@
         -webkit-box-orient: vertical;
     }
 
+    .promocoes{
+        margin:5px;
+        background-size:cover;
+        background-image:url('img/bg_botao_combo.png');
+        border-radius:20px;
+        cursor:pointer;
+    }
+    .promocoes img{
+        width:100%;
+    }
+    .promocoes span{
+        margin:10px;
+        /* word-break: break-word; */
+        color:#fff;
+        font-size:20px;
+        margin-right:40px;
+        font-family:FlameBold;
+        word-break: break-all;
+        overflow: hidden; // Removendo barra de rolagem
+        text-overflow: ellipsis; // Adicionando "..." ao final
+        display:-webkit-box;
+        -webkit-line-clamp: 2; // Quantidade de linhas
+        -webkit-box-orient: vertical;
+    }
+
 
     .categorias{
         margin:5px;
@@ -50,6 +75,12 @@
     }
 </style>
 <div class="row g-0">
+    <div class="col-12">
+        <div class="d-flex justify-content-center align-items-center promocoes" local="produtos/lista_promocoes.php">
+            <!-- <img src="<?=$icon?>" alt=""> -->
+            <span>PROMOÇÕES</span>
+        </div>        
+    </div>
     <div class="col-6">
     <?php
     $query = "select * from categorias where codigo = 8";
