@@ -12,42 +12,8 @@
 
 ?>
 <style>
-    .barra_topo{
-        position:absolute;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        flex-direction: column;
-        top:0;
-        width:100%;
-        height:100px;
-        background-color:#f4000a;
-        color:#670600;
-        border-bottom-right-radius:40px;
-        border-bottom-left-radius:40px;
-        font-family:FlameBold;
-    }
-    .barra_topo h2{
-        color:#f6e13a;
-    }
-    .home_corpo{
-        position: absolute;
-        top:100px;
-        bottom:55px;
-        overflow:auto;
-        background-color:#fff;
-        left:0;
-        right:0;
-    }
-    .fechar{
-        color:#fff;
-        font-size:14px;
-        cursor:pointer;
-        position:absolute;
-        right:20px;
-        top:15px;
-    }
-    /* li[pedido]{
+
+    li[pedido]{
         cursor:pointer;
         font-size:12px;
     }
@@ -56,20 +22,12 @@
     }
     .bg-success-subtle{
         background-color:#d1e7dd;
-    } */
-    .entregadores{
-        position:absolute;
-        bottom:10px;
-        right:20px;
     }
-</style>
-<div class="barra_topo">
-    <span class="fechar"><i class="fa-solid fa-right-from-bracket"></i> Sair</span>
-    <h2><?=$l->nome?></h2>
-</div>
 
-<div class="home_corpo">
-    <!-- <div class="row g-0 m-3">
+</style>
+
+
+    <div class="row g-0 m-3">
 
         <ul class="list-group">
             <?php
@@ -137,76 +95,22 @@
             ?>
         </ul>
 
-    </div> -->
-</div>
-<button class="btn btn-primary entregadores"><i class="fa-solid fa-person-biking"></i> Entregadores</button>
+    </div>
+
 
 <script>
     $(function(){
 
-        $.ajax({
-            url:"lista.php",
-            type:"POST",
-            success:function(dados){
-                $(".home_corpo").html(dados);
-            }
-        }); 
 
-        $(".fechar").click(function(){
-            $.confirm({
-                title:"Desconectar",
-                content:"Deseja realmente desconectar do sistema?",
-                type:'red',
-                columnClass:'col-12',
-                buttons:{
-                    sim:{
-                        text:"Sim",
-                        btnClass:'btn btn-danger',
-                        action:function(){
-                            localStorage.removeItem("loja");
-                            window.location.href='./';
-                        }
-                    },
-                    nao:{
-                        text:"Não",
-                        btnClass:'btn btn-warning',
-                        action:function(){
-                            
-                        }
-                    }
-                }
-            })
-        })
-
-        // $("li[pedido]").click(function(){
-        //     pedido = $(this).attr("pedido");
-        //     loja = localStorage.getItem("loja");
-        //     Carregando();
-        //     $.ajax({
-        //         url:"pedido.php",
-        //         type:"POST",
-        //         data:{
-        //             pedido,
-        //             loja
-        //         },
-        //         success:function(dados){
-        //             Carregando('none');
-        //             $(".popupPalco").html(dados);
-        //             $(".popupArea").css("display","block");
-        //         },
-        //         error:function(){
-        //             console.log('erro');
-        //         }
-        //     });
-        // })
-
-        $(".entregadores").click(function(){
+        $("li[pedido]").click(function(){
+            pedido = $(this).attr("pedido");
             loja = localStorage.getItem("loja");
             Carregando();
             $.ajax({
-                url:"entregadores/index.php",
+                url:"pedido.php",
                 type:"POST",
                 data:{
+                    pedido,
                     loja
                 },
                 success:function(dados){
@@ -220,22 +124,19 @@
             });
         })
 
-        // atualizacao = setTimeout(() => {
-        //     $.ajax({
-        //         url:"home.php",
-        //         type:"POST",
-        //         data:{
-        //             loja,
-        //         },
-        //         success:function(dados){
-        //             $(".CorpoApp").html(dados);
-        //         }
-        //     }); 
-        // }, 10000);
 
-        // $(".popupFecha").click(function(){
-        //     clearTimeout(atualizacao);
-        // })
+        atualizacao = setTimeout(() => {
+            $.ajax({
+                url:"home.php",
+                type:"POST",
+                data:{
+                    loja,
+                },
+                success:function(dados){
+                    $(".home_corpo").html(dados);
+                }
+            }); 
+        }, 10000);
 
     })
 </script>
