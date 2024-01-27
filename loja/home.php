@@ -150,10 +150,10 @@
     <div class="d-flex flex-column justify-content-between w-50">
         <div class="d-flex justify-content-between" style="font-size:12px">
             <div class="ms-3 p-1"><object style="width:10px; height:10px; border-radius:2px;" class="bg-secondary"></object> Pendente</div>
-            <div class="ms-3 p-1"><object style="width:10px; height:10px; border-radius:2px;" class="bg-warning"></object> Produção</div>
+            <div class="p-1"><object style="width:10px; height:10px; border-radius:2px;" class="bg-warning"></object> Produção</div>
         </div>
         <div class="d-flex justify-content-between" style="font-size:12px">
-            <div class="p-1"><object style="width:10px; height:10px; border-radius:2px;" class="bg-info"></object> Entrega</div>
+            <div class="ms-3 p-1"><object style="width:10px; height:10px; border-radius:2px;" class="bg-info"></object> Entrega</div>
             <div class="p-1"><object style="width:10px; height:10px; border-radius:2px;" class="bg-success"></object> Entregue</div>
         </div>
     </div>
