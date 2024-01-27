@@ -5,6 +5,7 @@
     .combo{
         margin:5px;
         background-size:cover;
+        background-image:url('img/bg_botao_combo.png');
         border-radius:20px;
         cursor:pointer;
     }
@@ -26,7 +27,6 @@
         -webkit-box-orient: vertical;
     }
 
-    
     .categorias{
         margin:5px;
         background-size:cover;
