@@ -147,7 +147,7 @@
     </div> -->
 </div>
 <div class="d-flex justify-content-between legenda">
-    <div class="d-flex flex-column justify-content-between w-100">
+    <div class="d-flex flex-column justify-content-between w-50">
         <div class="d-flex justify-content-between" style="font-size:12px">
             <div><span style="width:10px; height:10px; border-radius:2px;" class="bg-secondary"></span> Pendente</div>
             <div><span style="width:10px; height:10px; border-radius:2px;" class="bg-warning"></span> Produção</div>
@@ -157,7 +157,7 @@
             <div><span style="width:10px; height:10px; border-radius:2px;" class="bg-success"></span> Entregue</div>
         </div>
     </div>
-    <div>
+    <div class="w-50">
         <button class="btn btn-primary entregadoresXX"><i class="fa-solid fa-person-biking"></i> Entregadores</button>
     </div>
 </div>  
