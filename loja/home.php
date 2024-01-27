@@ -81,7 +81,7 @@
 
                 if(!$d->producao){
                     $bg = 'bg-secondary';
-                }elseif($d->producao == 'pendente'){
+                }elseif($d->producao == 'producao'){
                     $bg = 'bg-warning';
                 }elseif($d->producao == 'entrega'){
                     $bg = 'bg-info';
