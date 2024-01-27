@@ -158,7 +158,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-end w-50 pe-3">
-        <button class="btn btn-primary btn-sn"><i class="fa-solid fa-person-biking"></i> Entregadores</button>
+        <button class="btn btn-primary btn-sm"><i class="fa-solid fa-person-biking"></i> Entregadores</button>
     </div>
 </div>  
 
