@@ -149,12 +149,12 @@
 <div class="d-flex justify-content-between legenda">
     <div class="d-flex flex-column justify-content-between w-50">
         <div class="d-flex justify-content-between" style="font-size:12px">
-            <div class="p-1"><span style="width:10px; height:10px; border-radius:2px;" class="bg-secondary">x</span> Pendente</div>
-            <div class="p-1"><span style="width:10px; height:10px; border-radius:2px;" class="bg-warning">x</span> Produção</div>
+            <div class="p-1"><area style="width:10px; height:10px; border-radius:2px;" class="bg-secondary"></area> Pendente</div>
+            <div class="p-1"><area style="width:10px; height:10px; border-radius:2px;" class="bg-warning"></area> Produção</div>
         </div>
         <div class="d-flex justify-content-between" style="font-size:12px">
-            <div class="p-1"><span style="width:10px; height:10px; border-radius:2px;" class="bg-info">x</span> Entrega</div>
-            <div class="p-1"><span style="width:10px; height:10px; border-radius:2px;" class="bg-success">x</span> Entregue</div>
+            <div class="p-1"><area style="width:10px; height:10px; border-radius:2px;" class="bg-info"></area> Entrega</div>
+            <div class="p-1"><area style="width:10px; height:10px; border-radius:2px;" class="bg-success"></area> Entregue</div>
         </div>
     </div>
     <div class="d-flex justify-content-end w-50 pe-3">
