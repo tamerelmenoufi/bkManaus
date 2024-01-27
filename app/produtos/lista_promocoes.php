@@ -112,7 +112,6 @@
 
 <?php
 ////////////////////////////////////////INICIO DOS COMBOS//////////////////////////////
-if($combos){
 $query = "select *, produtos->>'$[*].produto' as cod_prod, produtos->>'$[*].quantidade' as qtd_prod from produtos where categoria = '8' and situacao = '1' and deletado != '1' and promocao = '1'";
 $result = mysqli_query($con, $query);
 while($d = mysqli_fetch_object($result)){
@@ -157,7 +156,6 @@ while($d = mysqli_fetch_object($result)){
     </div>
 
 <?php
-}
 }
 ////////////////////////////////////////FIM DOS COMBOS//////////////////////////////
 
