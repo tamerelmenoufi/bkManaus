@@ -127,7 +127,7 @@
 
         atualizacao = setTimeout(() => {
             $.ajax({
-                url:"home.php",
+                url:"lista.php",
                 type:"POST",
                 data:{
                     loja,
