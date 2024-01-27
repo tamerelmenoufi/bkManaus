@@ -79,7 +79,7 @@
 
             $delivery = json_decode($d->delivery_detalhes);
 
-                if(!$d->producao){
+                if(!$d->producao or $d->producao == 'pendente'){
                     $bg = 'bg-secondary';
                 }elseif($d->producao == 'producao'){
                     $bg = 'bg-warning';
@@ -139,7 +139,21 @@
 
     </div> -->
 </div>
-<button class="btn btn-primary entregadores"><i class="fa-solid fa-person-biking"></i> Entregadores</button>
+<div class="d-flex justify-content-between">
+    <div class="d-flex flex-column justify-content-between">
+        <div class="d-flex justify-content-between" style="font-size:12px">
+            <div><span style="width:10px; height:10px; border-radius:2px;" class="bg-secondary"></span> Pendente</div>
+            <div><span style="width:10px; height:10px; border-radius:2px;" class="bg-warning"></span> Produção</div>
+        </div>
+        <div class="d-flex justify-content-between" style="font-size:12px">
+            <div><span style="width:10px; height:10px; border-radius:2px;" class="bg-info"></span> Entrega</div>
+            <div><span style="width:10px; height:10px; border-radius:2px;" class="bg-success"></span> Entregue</div>
+        </div>
+    </div>
+    <div>
+        <button class="btn btn-primary entregadores"><i class="fa-solid fa-person-biking"></i> Entregadores</button>
+    </div>
+</div>  
 
 <script>
     $(function(){
