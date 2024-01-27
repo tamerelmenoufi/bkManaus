@@ -57,6 +57,13 @@
     .bg-success-subtle{
         background-color:#d1e7dd;
     } */
+    .legenda{
+        position:absolute;
+        bottom:0px;
+        right:0px;
+        left:0px;
+        height:55px;
+    }
     .entregadores{
         position:absolute;
         bottom:10px;
@@ -139,7 +146,7 @@
 
     </div> -->
 </div>
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-between legenda">
     <div class="d-flex flex-column justify-content-between">
         <div class="d-flex justify-content-between" style="font-size:12px">
             <div><span style="width:10px; height:10px; border-radius:2px;" class="bg-secondary"></span> Pendente</div>
@@ -151,7 +158,7 @@
         </div>
     </div>
     <div>
-        <button class="btn btn-primary entregadores"><i class="fa-solid fa-person-biking"></i> Entregadores</button>
+        <button class="btn btn-primary entregadoresXX"><i class="fa-solid fa-person-biking"></i> Entregadores</button>
     </div>
 </div>  
 
