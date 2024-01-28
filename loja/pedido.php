@@ -135,7 +135,6 @@
         $mensagem = "Confirme o recebimento e atualize o andamento da entrega do pedido na plataforma no linque {$urlEntregador}.";
         EnviarWapp($entrega_ddd.$entrega_telefone,$mensagem);
 
-        
     }
 
     if($_POST['acao'] == 'trocar_entregador'){
