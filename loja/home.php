@@ -159,7 +159,7 @@
     </div>
     <div class="d-flex justify-content-end w-50 pe-3">
         <div class="p-2">
-            <button class="btn btn-primary"><i class="fa-solid fa-person-biking"></i> Entregadores</button>
+            <button class="btn btn-primary entregadores" loja="<?=$_SESSION['bkLoja']?>"><i class="fa-solid fa-person-biking"></i> Entregadores</button>
         </div>
         
     </div>

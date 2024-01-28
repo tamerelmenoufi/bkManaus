@@ -3,10 +3,19 @@
 
     if($_POST['acao'] == 'entregador'){
 
+        $d1 = rand(1,9);
+        $d2 = rand(0,9);
+        $d3 = rand(0,9);
+        $d4 = rand(0,9);
+    
+        $returnCode = $d1.$d2.$d3.$d4;
+        $pickupCode = substr($cliente_telefone,-4);
+
         $entrega_id = $_POST['entrega_id'];
         $entrega_nome = $_POST['entrega_nome'];
         $entrega_ddd = $_POST['entrega_ddd'];
         $entrega_telefone = $_POST['entrega_telefone'];
+        $cliente_telefone = $_POST['cliente_telefone'];
 
         $json_modelo = '
         
@@ -63,8 +72,8 @@
                     "onlinePayment": true
                 }
             ],
-            "pickupCode": "1111",
-            "returnCode": "2222",
+            "pickupCode": "'.$pickupCode.'",
+            "returnCode": "'.$returnCode.'",
             "deliveryFee": 0,
             "deliveryMan": {
                 "id": '.$entrega_id.',
@@ -115,6 +124,9 @@
 
         $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
         $mensagem = "*BK Manaus Informa* - O entregador ({$entrega_nome} - {$entrega_telefone}) está se preparando para levar o pedido *#{$pedido}* ao seu destino.";
+        EnviarWapp($v->Ctelefone,$mensagem);
+
+        $mensagem = "Informe ao entregador o seu código de entrega *{$pickupCode}*.";
         EnviarWapp($v->Ctelefone,$mensagem);
 
         $mensagem = "*BK Manaus Informa* - Olá {$entrega_nome}. Você foi selecionado para a entrega do pedido *#{$pedido}* da loja {$v->Lnome} para {$v->Cnome} no endereço *{$v->Elogradouro} {$v->Enumero} {$v->Ebairro} {$v->complemento} {$v->ponto_referencia}*. Favor comparecer ao balcão de retirada na loja.";
@@ -367,6 +379,7 @@
                             entrega_nome="<?=$e->nome?>"
                             entrega_ddd="<?=$ddd?>"
                             entrega_telefone="<?=$telefone?>"
+                            cliente_telefone="<?=$d->telefone?>"
                         >
                             <div>
                                 <i class="fa-solid fa-check"></i>
@@ -778,6 +791,7 @@
             entrega_nome = $(this).attr("entrega_nome");
             entrega_ddd = $(this).attr("entrega_ddd");
             entrega_telefone = $(this).attr("entrega_telefone");
+            cliente_telefone = $(this).attr("cliente_telefone");
             loja = '<?=$_POST['loja']?>';
 
 
@@ -800,6 +814,7 @@
                                     entrega_nome,
                                     entrega_ddd,
                                     entrega_telefone,
+                                    cliente_telefone,
                                     loja,
                                     acao:'entregador'
                                 },
