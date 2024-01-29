@@ -9,7 +9,7 @@
         $d4 = rand(0,9);
     
         $returnCode = $d1.$d2.$d3.$d4;
-        $pickupCode = substr($cliente_telefone,-4);
+        $pickupCode = substr($_POST['cliente_telefone'],-4);
 
         $entrega_id = $_POST['entrega_id'];
         $entrega_nome = $_POST['entrega_nome'];
@@ -122,6 +122,8 @@
                                                     left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
                                                     where a.codigo = '{$_SESSION['pedido']}'"));
 
+        $endereco = trim("{$v->Elogradouro} {$v->Enumero} {$v->Ebairro} {$v->complemento} {$v->ponto_referencia}");
+
         $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
         $mensagem = "*BK Manaus Informa* - O entregador ({$entrega_nome} - {$entrega_telefone}) está se preparando para levar o pedido *#{$pedido}* ao seu destino.";
         EnviarWapp($v->Ctelefone,$mensagem);
@@ -129,7 +131,7 @@
         $mensagem = "Informe ao entregador o seu código de entrega *{$pickupCode}*.";
         EnviarWapp($v->Ctelefone,$mensagem);
 
-        $mensagem = "*BK Manaus Informa* - Olá {$entrega_nome}. Você foi selecionado para a entrega do pedido *#{$pedido}* da loja {$v->Lnome} para {$v->Cnome} no endereço *{$v->Elogradouro} {$v->Enumero} {$v->Ebairro} {$v->complemento} {$v->ponto_referencia}*. Favor comparecer ao balcão de retirada na loja.";
+        $mensagem = "*BK Manaus Informa* - Olá {$entrega_nome}. Você foi selecionado para a entrega do pedido *#{$pedido}* da loja {$v->Lnome} para {$v->Cnome} no endereço *{$endereco}*. Favor comparecer ao balcão de retirada na loja.";
         EnviarWapp($entrega_ddd.$entrega_telefone,$mensagem);
 
         $mensagem = "Confirme o recebimento e atualize o andamento da entrega do pedido na plataforma no linque {$urlEntregador}.";
