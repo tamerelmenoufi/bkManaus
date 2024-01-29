@@ -101,6 +101,13 @@
     li[entrega_id]:hover > div > i{
         color:#000;
     }
+    #map<?=$md5?> {
+        position:relative;
+        height: 100%;
+        width:100%;
+        opacity:0.6;
+        z-index:0;
+    }
 </style>
 
 <div class="row g-0 m-3">
@@ -108,7 +115,15 @@
     <ul class="list-group">
         <?php
 
-        $query = "select a.*, b.nome, b.telefone, concat(c.logradouro,', ',c.numero,', ',c.bairro,' (',c.ponto_referencia,')') as endereco, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo left join enderecos c on (a.cliente = c.cliente and c.padrao = '1') where a.codigo = '{$_SESSION['Dpedido']}'";
+        $query = "select 
+                        a.*, 
+                        b.nome, 
+                        b.telefone, 
+                        concat(c.logradouro,', ',c.numero,', ',c.bairro,' (',c.ponto_referencia,')') as endereco, 
+                        c.coordenadas,
+                        a.delivery_detalhes->>'$.pickupCode' as entrega, 
+                        a.delivery_detalhes->>'$.returnCode' as retorno 
+                    from vendas a left join clientes b on a.cliente = b.codigo left join enderecos c on (a.cliente = c.cliente and c.padrao = '1') where a.codigo = '{$_SESSION['Dpedido']}'";
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
 
@@ -147,8 +162,8 @@
                     </div>
                 </div>
 
-                <div class="col-12">
-                    <p style="text-align:center" style="height:150px">MAPA</p>
+                <div class="col-12" style="height:150px;">
+                    <div id="map<?=$md5?>"></div>
                 </div>
                 
 
@@ -571,6 +586,34 @@
 <script>
     $(function(){
 
+
+        <?php
+        $coordenadas = explode(",", trim($d->coordenadas));
+        ?>
+        geocoder<?=$md5?> = new google.maps.Geocoder();
+        map<?=$md5?> = new google.maps.Map(document.getElementById("map<?=$md5?>"), {
+            zoomControl: false,
+            mapTypeControl: false,
+            draggable: false,
+            scaleControl: false,
+            scrollwheel: false,
+            navigationControl: false,
+            streetViewControl: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            fullscreenControl: false,
+            center: { lat: <?=$coordenadas[0]?>, lng: <?=$coordenadas[1]?> },
+            zoom: 18,
+        });
+
+        marker<?=$md5?> = new google.maps.Marker({
+            position: { lat: <?=(($coordenadas[0])?:0)?>, lng: <?=(($coordenadas[1])?:0)?> },
+            map:map<?=$md5?>,
+            title: "Hello World!",
+            draggable:false,
+        });
+
+
+        
         $(".recusar_entrega").click(function(){
 
             $.confirm({
