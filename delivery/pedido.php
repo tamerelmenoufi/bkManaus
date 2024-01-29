@@ -591,11 +591,11 @@
         ?>
         geocoder<?=$md5?> = new google.maps.Geocoder();
         map<?=$md5?> = new google.maps.Map(document.getElementById("map<?=$md5?>"), {
-            zoomControl: false,
+            zoomControl: true,
             mapTypeControl: false,
             draggable: false,
-            scaleControl: false,
-            scrollwheel: false,
+            scaleControl: true,
+            scrollwheel: true,
             navigationControl: false,
             streetViewControl: false,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
