@@ -165,6 +165,9 @@
                     <div id="map<?=$md5?>"></div>
                 </div>
                 
+                <div class="col-12">
+                    <a href="https://www.google.com/maps/place/<?=$d->coordenadas?>" target="_blank" class="btn btn-primary w-100"><i class="fa-solid fa-location-arrow"></i> Como Chegar</a>
+                </div>
 
                 <div class="d-flex justify-content-between dados mt-2">
                     <div>
