@@ -146,6 +146,10 @@
                          <?=$d->endereco?>
                     </div>
                 </div>
+
+                <div class="col-12">
+                    <p style="text-align:center" style="height:150px">MAPA</p>
+                </div>
                 
 
                 <div class="d-flex justify-content-between dados mt-2">
