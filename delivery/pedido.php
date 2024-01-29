@@ -105,7 +105,6 @@
         position:relative;
         height: 100%;
         width:100%;
-        opacity:0.6;
         z-index:0;
     }
 </style>
@@ -162,7 +161,7 @@
                     </div>
                 </div>
 
-                <div class="col-12" style="height:150px;">
+                <div class="col-12" style="height:300px;">
                     <div id="map<?=$md5?>"></div>
                 </div>
                 
