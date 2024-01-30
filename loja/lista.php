@@ -38,7 +38,7 @@
             $delivery = json_decode($d->delivery_detalhes);
 
                 if(!$d->producao){
-                    $bg = 'bg-secondary';
+                    $bg = 'bg-warning';
                 }elseif($d->producao == 'producao'){
                     $bg = 'bg-warning';
                 }elseif($d->producao == 'entrega'){
