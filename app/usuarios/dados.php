@@ -22,15 +22,22 @@
     }
 
     if($_POST['telefone']){
-        $q = "SELECT * from clientes WHERE telefone = '{$_POST['telefone']}'";
-        $c = mysqli_fetch_object(mysqli_query($con, $q));
-        if($c->codigo){
-            $_SESSION['codUsr'] = $c->codigo;
+        $telefone = str_replace(['-',' ','(',')'],false,trim($_POST['telefone']));
+        if(strlen($telefone) != 11){
+            $_SESSION['codUsr'] = false;
+            echo 'erro';
+            exit();
         }else{
-            mysqli_query($con, "INSERT INTO clientes set telefone = '{$_POST['telefone']}'");
-            $_SESSION['codUsr'] = mysqli_insert_id($con);
+            $q = "SELECT * from clientes WHERE telefone = '{$_POST['telefone']}'";
+            $c = mysqli_fetch_object(mysqli_query($con, $q));
+            if($c->codigo){
+                $_SESSION['codUsr'] = $c->codigo;
+            }else{
+                mysqli_query($con, "INSERT INTO clientes set telefone = '{$_POST['telefone']}'");
+                $_SESSION['codUsr'] = mysqli_insert_id($con);
+            }
+            mysqli_query($con, "update vendas_tmp set cliente = '{$_SESSION['codUsr']}' where id_unico = '{$_SESSION['idUnico']}'");
         }
-        mysqli_query($con, "update vendas_tmp set cliente = '{$_SESSION['codUsr']}' where id_unico = '{$_SESSION['idUnico']}'");
     }
 
     $query = "select * from clientes where codigo = '{$_SESSION['codUsr']}'";

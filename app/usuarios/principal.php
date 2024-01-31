@@ -114,7 +114,16 @@ $(function(){
                                             },
                                             success:function(dados){
                                                 Carregando('none');
-                                                $(".dados_pessoais").html(dados);
+                                                if(dados == 'error'){
+                                                    $.alert({
+                                                        type:"red",
+                                                        title:"Erro",
+                                                        content:'Erro no número do telefone informado!',
+                                                        columnClass:'col-12',
+                                                    });
+                                                }else{
+                                                    $(".dados_pessoais").html(dados);
+                                                }
                                             }
                                         });
                                     }
@@ -141,6 +150,13 @@ $(function(){
                             }
                                 
                         });
+                    }else{
+                        $.alert({
+                            title:"Erro Telefone",
+                            content:"Seu número está errado, favor conferir e repetir a ação.",
+                            type:'red',
+                            columnClass:'col-12',
+                        })
                     }
                 }
             });

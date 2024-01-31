@@ -1,6 +1,14 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+
+    $telefone = str_replace(['-',' ','(',')'],false,trim($_POST['telefone']));
+    if(strlen($telefone) != 11){
+        echo "{\"status\":\"error\", \"codigo\":\"\"}";
+        $_SESSION['idUnico'] = false;
+        exit();
+    }
+
     if($_POST['idUnico']){
         $_SESSION['idUnico'] = $_POST['idUnico'];
     }
