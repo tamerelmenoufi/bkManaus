@@ -11,7 +11,7 @@
     }
 
     if($_POST['acao'] == 'atualizar'){
-        mysqli_query($con, "update clientes set {$_POST['campo']} = '{$_POST['valor']}' where codigo = '{$_POST['codigo']}'");
+        mysqli_query($con, "update clientes set {$_POST['campo']} = '".addslashes($_POST['valor'])."' where codigo = '{$_POST['codigo']}'");
         $retorno = [
             'status' => 'success',
             'idUnico' => $_SESSION['idUnico'],

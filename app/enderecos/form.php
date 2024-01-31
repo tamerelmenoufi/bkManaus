@@ -17,7 +17,7 @@
         unset($data['codigo']);
         $campos = [];
         foreach($data as $i => $v){
-            $campos[] = "{$i} = '{$v}'";
+            $campos[] = "{$i} = '".addslashes($v)."'";
         }
         $campos[] = "cliente = '{$_POST['codUsr']}'";
         $campos[] = "padrao = '1'";
