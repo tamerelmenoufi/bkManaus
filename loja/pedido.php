@@ -9,7 +9,14 @@
         $d4 = rand(0,9);
     
         $returnCode = $d1.$d2.$d3.$d4;
-        $pickupCode = substr($_POST['cliente_telefone'],-4);
+
+        $d1 = rand(1,9);
+        $d2 = rand(0,9);
+        $d3 = rand(0,9);
+        $d4 = rand(0,9);
+    
+        $pickupCode = $d1.$d2.$d3.$d4;
+        //$pickupCode = substr($_POST['cliente_telefone'],-4);
 
         $entrega_id = $_POST['entrega_id'];
         $entrega_nome = $_POST['entrega_nome'];
