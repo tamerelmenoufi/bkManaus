@@ -725,61 +725,30 @@
 
         $(".finalizar").click(function(){
 
-
             cod = $(this).attr("cod");
+            codigo_entrega = $("#codigo_entrega").val();
 
-            $.confirm({
-                title: 'Finalizar Pedido',
-                content: '' +
-                '<form action="" class="formName">' +
-                '<div class="form-group">' +
-                '<label>Digite seu código da entrega fornecido pelo Cliente</label>' +
-                '<input type="text" placeholder="Código da entrega" class="senha form-control" required />' +
-                '</div>' +
-                '</form>',
-                buttons: {
-                    formSubmit: {
-                        text: 'Submit',
-                        btnClass: 'btn-blue',
-                        action: function () {
-                            var senha = this.$content.find('.senha').val();
-                            if(!senha){
-                                $.alert('Favor informe seu código de acesso!');
-                                return false;
-                            }else if(senha != cod){
-                                $.alert('Código informado não confere, favor consulte o cliente ou a gerência da loja!');
-                                return false;
-                            }
-                            Carregando();
-                            $.ajax({
-                                url:"pedido.php",
-                                type:"POST",
-                                data:{
-                                    acao:'finalizar',
-                                    pedido:'<?=$d->codigo?>',
-                                },
-                                success:function(dados){
-                                    Carregando('none');
-                                    $(".popupPalco").html(dados);
-                                },
-                                error:function(){
-                                    console.log('erro');
-                                }
-                            });
-                        }
-                    },
-                    cancel: function () {
-                        //close
-                    },
+            if(!codigo_entrega){
+                $.alert('Favor informe seu código de acesso!');
+                return false;
+            }else if(codigo_entrega != cod){
+                $.alert('Código informado não confere, favor consulte o cliente ou a gerência da loja!');
+                return false;
+            }
+            Carregando();
+            $.ajax({
+                url:"pedido.php",
+                type:"POST",
+                data:{
+                    acao:'finalizar',
+                    pedido:'<?=$d->codigo?>',
                 },
-                onContentReady: function () {
-                    // bind to events
-                    var jc = this;
-                    this.$content.find('form').on('submit', function (e) {
-                        // if the user submits the form by pressing enter in the field.
-                        e.preventDefault();
-                        jc.$$formSubmit.trigger('click'); // reference the button and click it
-                    });
+                success:function(dados){
+                    Carregando('none');
+                    $(".popupPalco").html(dados);
+                },
+                error:function(){
+                    console.log('erro');
                 }
             });
 
