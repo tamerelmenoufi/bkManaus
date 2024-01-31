@@ -114,7 +114,7 @@
                             <?=$d->nome?>
                         </div>
                         <div>
-                            Entrega: <?=$d->entrega?>
+                            Entrega: ****<?=$d->entregaX?>
                             <br>
                             Retorno: <?=$d->retorno?>
                         </div>
