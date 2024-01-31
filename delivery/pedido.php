@@ -729,10 +729,10 @@
             codigo_entrega = $("#codigo_entrega").val();
 
             if(!codigo_entrega){
-                $.alert('Favor informe seu código de acesso!');
+                $.alert('Favor informe o código da entrega!');
                 return false;
             }else if(codigo_entrega != cod){
-                $.alert('Código informado não confere, favor consulte o cliente ou a gerência da loja!');
+                $.alert('Código informado não confere, favor solicite do cliente ou a gerência de sua loja!');
                 return false;
             }
             Carregando();
