@@ -254,7 +254,7 @@
             }
 
             if(
-            // !cep ||
+            !cep ||
             !logradouro ||
             !numero ||
             !ponto_referencia ||
@@ -270,7 +270,7 @@
                 return false;
             }
             geocoder<?=$md5?> = new google.maps.Geocoder();
-            geocoder<?=$md5?>.geocode({ 'address': `${logradouro}, ${numero}, ${bairro}, ${localidade}, Manaus, Amazonas, Brasil`, 'region': 'BR' }, (results, status) => {
+            geocoder<?=$md5?>.geocode({ 'address': `${logradouro}, ${numero}, ${bairro}, ${localidade}, ${cep}, Manaus, Amazonas, Brasil`, 'region': 'BR' }, (results, status) => {
 
                 if (status == google.maps.GeocoderStatus.OK) {
 
