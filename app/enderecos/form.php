@@ -61,7 +61,7 @@
 <div class="row g-0 mb-3 p-2">
         <h4 class="w-100 text-center">Endereços</h4>
         <div class="mb-1">
-            <label for="cep" class="form-label">CEP*</label>
+            <label for="cep" class="form-label">CEP</label>
             <input type="text" class="form-control <?=(($d->cep)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->cep?>" id="cep">
         </div>
         <div class="mb-1">
@@ -84,10 +84,14 @@
             <label for="bairro" class="form-label">Bairro*</label>
             <input type="text" class="form-control <?=(($d->bairro)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->bairro?>" id="bairro">
         </div>  
-        <div class="mb-2">
+        <!--<div class="mb-2">
             <label for="localidade" class="form-label">Cidade*</label>
             <input type="text" class="form-control <?=(($d->localidade)?'is-valid':'is-invalid')?>" autocomplete="off" value="<?=$d->localidade?>" id="localidade">
+        </div> -->
+        <div class="mb-1">
+            <button type="button" class="btn btn-outline-success w-100 salvar_endereco">Salvar Endereço</button>
             <input type="hidden" value="AM" id="uf">
+            <input type="hidden" value="Manaus" id="localidade">
             <?php
             if($d->codigo){
             ?>
@@ -95,9 +99,6 @@
             <?php
             }
             ?>
-        </div> 
-        <div class="mb-1">
-            <button type="button" class="btn btn-outline-success w-100 salvar_endereco">Salvar Endereço</button>
         </div>
         <div class="mb-1">
             <button type="button" class="btn btn-outline-danger w-100 cancelar_endereco">Cancelar</button>
