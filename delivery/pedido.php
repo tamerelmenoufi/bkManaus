@@ -579,7 +579,7 @@
     <?php
     if($d->producao == 'entrega'){
     ?>
-    <div class="input-group">
+    <div class="input-group mt-2">
         <input type="text" class="form-control" inputmode="numeric" id="codigo_entrega" placeholder="Código do cliente" aria-label="Digite aqui o código fornecido pelo cliente">
         <button type="button" class="btn btn-outline-danger btn-sm finalizar" cod="<?=$d->entrega?>">Finalizar Pedido</button>
     </div>
