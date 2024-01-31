@@ -144,7 +144,7 @@
                         <i class="fa-solid fa-user"></i> <?=$d->nome?>
                     </div>
                     <div>
-                        Entrega: <?=$d->entrega?>
+                        Entrega: ****<?=$d->entregaX?>
                         <br>
                         Retorno: <?=$d->retorno?>
                     </div>
@@ -579,7 +579,11 @@
     <?php
     if($d->producao == 'entrega'){
     ?>
-    <button type="button" class="btn btn-outline-danger btn-sm finalizar">Finalizar Pedido</button>
+    <div class="input-group">
+        <input type="text" class="form-control" inputmode="numeric" id="codigo_entrega" placeholder="Código do cliente" aria-label="Digite aqui o código fornecido pelo cliente">
+        <button type="button" class="btn btn-outline-danger btn-sm finalizar" cod="<?=$d->entrega?>">Finalizar Pedido</button>
+    </div>
+    
     <?php
     }
     ?>
@@ -588,6 +592,7 @@
 <script>
     $(function(){
 
+        $("#codigo_entrega").mask("9999");
 
         <?php
         $coordenadas = explode(",", trim($d->coordenadas));
@@ -719,15 +724,32 @@
         });
 
         $(".finalizar").click(function(){
+
+
+            cod = $(this).attr("cod");
+
             $.confirm({
-                title:"Finalizar Pedido",
-                content:"Esta opção muda a situação do pedido como entregue ao cliente.<br>Deseja realmente finalizar o pedido?",
-                columnClass:'col-12',
-                buttons:{
-                    sim:{
-                        text:'Sim',
-                        btnClass:'btn btn-danger',
-                        action:function(){
+                title: 'Finalizar Pedido',
+                content: '' +
+                '<form action="" class="formName">' +
+                '<div class="form-group">' +
+                '<label>Digite seu código da entrega fornecido pelo Cliente</label>' +
+                '<input type="text" placeholder="Código da entrega" class="senha form-control" required />' +
+                '</div>' +
+                '</form>',
+                buttons: {
+                    formSubmit: {
+                        text: 'Submit',
+                        btnClass: 'btn-blue',
+                        action: function () {
+                            var senha = this.$content.find('.senha').val();
+                            if(!senha){
+                                $.alert('Favor informe seu código de acesso!');
+                                return false;
+                            }else if(senha != cod){
+                                $.alert('Código informado não confere, favor consulte o cliente ou a gerência da loja!');
+                                return false;
+                            }
                             Carregando();
                             $.ajax({
                                 url:"pedido.php",
@@ -746,15 +768,20 @@
                             });
                         }
                     },
-                    nao:{
-                        text:'Não',
-                        btnClass:'btn btn-warning',
-                        action:function(){
-                            
-                        }
-                    }
+                    cancel: function () {
+                        //close
+                    },
+                },
+                onContentReady: function () {
+                    // bind to events
+                    var jc = this;
+                    this.$content.find('form').on('submit', function (e) {
+                        // if the user submits the form by pressing enter in the field.
+                        e.preventDefault();
+                        jc.$$formSubmit.trigger('click'); // reference the button and click it
+                    });
                 }
-            })
+            });
 
 
         })
