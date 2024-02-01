@@ -4,7 +4,9 @@
     if($_POST['codUsr']){
         $_SESSION['codUsr'] = $_POST['codUsr'];
     }
-
+    if($_POST['idUnico']){
+        $_SESSION['idUnico'] = $_POST['idUnico'];
+    }
     $query = "select * from clientes where codigo = '{$_SESSION['codUsr']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
@@ -54,6 +56,7 @@
 
 
 <div class="home_corpo">
+    <div>ID: <?=$_SESSION['idUnico']?></div>
     <div class="dados_pessoais"></div>
     <div class="dados_enderecos"></div>
     <div class="m-2">
