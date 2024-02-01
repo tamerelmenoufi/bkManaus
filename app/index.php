@@ -91,7 +91,7 @@
         .msg{
             position:fixed;
             margin-left:15%;
-            top:25%;
+            bottom:100px;
             width:70%;
             border:solid 1px green;
             background-color:#fff;
