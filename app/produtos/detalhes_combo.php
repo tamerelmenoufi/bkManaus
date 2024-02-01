@@ -559,7 +559,7 @@ $(function(){
                             $(".msg").css("display","flex");
                             setTimeout(() => {
                                 $(".msg").css("display","none");
-                            }, 1000);
+                            }, 2000);
                             //$.alert('Produto Adicionado na lista!');
                             Carregando('none');
                         }
