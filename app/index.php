@@ -120,7 +120,7 @@
             
             <div class="msg">
                 <div class="alert alert-success" role="alert">
-                Produto inserido com sucesso!
+                    <i class="fa-solid fa-check-double"></i> Produto inserido com sucesso!
                 </div>
             </div>
             
