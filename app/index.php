@@ -98,6 +98,7 @@
             height:auto;
             padding:10px;
             display:none;
+            z-index:10;
         }
         .msg h3{
             color:#333;
