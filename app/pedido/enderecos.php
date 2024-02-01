@@ -110,8 +110,8 @@
                     $vl = ($int + (($dec > 0)?1:0) + 7); 
                     if($vl <= $vlopc || $vlopc == 0) {
                         $vlopc = $vl;
-                        $vlopc = 0.1;
-                        // $codTaxa = $v->mottu;
+                        //$vlopc = 0.1;
+                        $codTaxa = $v->mottu;
                         $loja = $v->codigo;
                         $unidade = $v->nome;
                     }
