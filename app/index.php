@@ -129,7 +129,7 @@
             </div>
             
             <div class="msg">
-                <h3>Pruduto adicionado</h3>
+                <h4>Pruduto adicionado</h4>
             </div>
             
             <div class="CorpoApp area"></div>             
