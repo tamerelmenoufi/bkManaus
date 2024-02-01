@@ -444,7 +444,11 @@ $(function(){
                         },
                         success:function(dados){  
                             $(".CorpoApp").html(dados);
-                            $.alert('Produto Adicionado na lista!');
+                            $(".msg").css("display","flex");
+                            setTimeout(() => {
+                                $(".msg").css("display","none");
+                            }, 1000);
+                            //$.alert('Produto Adicionado na lista!');
                             Carregando('none');
                         }
                     }); 

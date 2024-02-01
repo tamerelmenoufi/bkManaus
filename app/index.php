@@ -88,6 +88,25 @@
             overflow:auto;
             z-index:1
         }
+        .msg{
+            position:fixed;
+            top:25%;
+            width:70%;
+            border:solid 3px green;
+            background-color:#eee;
+            border-radius:25px;
+            height:auto;
+            padding:10px;
+            display:none;
+        }
+        .msg h3{
+            color:#333;
+            width:100%;
+            text-align:center;
+            font-family:verdana;
+            padding:20px;
+        }
+
     </Style>
   </head>
   <body translate="no">
@@ -105,7 +124,11 @@
             <div class="popupArea">
                 <i class="fa-solid fa-xmark popupFecha"></i>
                 <div class="popupPalco"></div>
-            </div>            
+            </div>
+            
+            <div class="msg">
+                <h3>Pruduto adicionado</h3>
+            </div>
             
             <div class="CorpoApp area"></div>             
         </div>
