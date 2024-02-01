@@ -546,7 +546,7 @@ $(function(){
                 $(".adicionar").attr("valor", valor);  
 
                 if(acoes){
-
+                    Carregando();
                     $.ajax({
                         url:"produtos/lista_combos.php",
                         type:"POST",
