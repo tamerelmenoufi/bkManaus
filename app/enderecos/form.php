@@ -164,7 +164,7 @@
                         logradouro = $("#logradouro").val(dados.logradouro);
                         complemento = $("#complemento").val();
                         bairro = $("#bairro").val(dados.bairro);
-                        localidade = $("#localidade").val(dados.localidade);
+                        //localidade = $("#localidade").val(dados.localidade);
 
                     }
                 });

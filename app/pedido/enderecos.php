@@ -170,7 +170,7 @@
 
 
 
-        if(!cep || !numero || !ponto_referencia || !bairro || !localidade || !uf){
+        if(/*!cep || */!numero || !ponto_referencia || !bairro || !localidade || !uf){
             // $(".dados_enderecos").remove()
             $(".dados_pagamento").remove()
             $(".atualizar1").css("display","block");
