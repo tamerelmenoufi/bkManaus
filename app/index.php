@@ -93,21 +93,11 @@
             margin-left:15%;
             bottom:100px;
             width:70%;
-            border:solid 1px green;
-            background-color:#fff;
-            border-radius:15px;
             height:auto;
-            padding:10px;
             display:none;
             z-index:10;
         }
-        .msg h4{
-            color:#333;
-            width:100%;
-            text-align:center;
-            font-family:verdana;
-            padding:5px;
-        }
+
 
     </Style>
   </head>
@@ -129,7 +119,9 @@
             </div>
             
             <div class="msg">
-                <h4>Pruduto adicionado</h4>
+                <div class="alert alert-success" role="alert">
+                Produto inserido com sucesso!
+                </div>
             </div>
             
             <div class="CorpoApp area"></div>             
