@@ -173,11 +173,11 @@
                         $mensagem = "*BK Manaus Informa* - Sua solicitação de pagamento para do pedido *#{$pedido}* com PIX foi registrada. Aguardando confirmação.";
                         EnviarWapp($v->Ctelefone,$mensagem);
 
-                        $mensagem = "Para sua comodidade, enviaremos o código da chave PIX para o seu pagamento. Copie a chave e utilize o por pix (chave aleatória) no seu banco.";
-                        EnviarWapp($v->Ctelefone,$mensagem);
+                        //$mensagem = "Para sua comodidade, enviaremos o código da chave PIX para o seu pagamento. Copie a chave e utilize o por pix (chave aleatória) no seu banco.";
+                        //EnviarWapp($v->Ctelefone,$mensagem);
 
-                        $mensagem = $qrcode;
-                        EnviarWapp($v->Ctelefone,$mensagem);
+                        //$mensagem = $qrcode;
+                        //EnviarWapp($v->Ctelefone,$mensagem);
 
                         
                         
