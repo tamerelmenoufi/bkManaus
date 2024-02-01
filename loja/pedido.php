@@ -253,7 +253,7 @@
     <ul class="list-group">
         <?php
 
-        $query = "select a.*, b.nome, b.telefone, d.telefone as Ltelefone, concat(c.logradouro,', ',c.numero,', ',c.bairro,' (',c.ponto_referencia,')') as endereco, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo left join enderecos c on (a.cliente = c.cliente and c.padrao = '1') left join lojas d on a.loja = d.codigo  where a.codigo = '{$_SESSION['pedido']}'";
+        $query = "select a.*, b.nome, b.telefone, d.telefone as Ltelefone, concat(c.logradouro,', ',c.numero,', ',c.bairro,', ',c.complemento,' (',c.ponto_referencia,')') as endereco, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo left join enderecos c on (a.cliente = c.cliente and c.padrao = '1') left join lojas d on a.loja = d.codigo  where a.codigo = '{$_SESSION['pedido']}'";
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
 
