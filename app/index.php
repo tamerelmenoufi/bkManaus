@@ -92,7 +92,7 @@
             position:fixed;
             margin-left:15%;
             bottom:60px;
-            width:70%;
+            width:98%;
             height:auto;
             display:none;
             z-index:10;
