@@ -52,8 +52,8 @@
 <div class="row g-0">
     <div class="col-12">
         <div class="d-flex justify-content-center align-items-center combo" local="produtos/lista_promocoes.php">
-            <!-- <img src="<?=$icon?>" alt=""> -->
-            <span>PROMOÇÕES</span>
+            <img src="img/promocoes.png" alt="">
+            <!-- <span>PROMOÇÕES</span>-->
         </div>        
     </div>
     <div class="col-6">
