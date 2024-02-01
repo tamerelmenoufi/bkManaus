@@ -90,6 +90,7 @@
         }
         .msg{
             position:fixed;
+            margin-left:15%;
             top:25%;
             width:70%;
             border:solid 3px green;
@@ -105,7 +106,7 @@
             width:100%;
             text-align:center;
             font-family:verdana;
-            padding:20px;
+            padding:5px;
         }
 
     </Style>
