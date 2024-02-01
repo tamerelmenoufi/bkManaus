@@ -93,9 +93,9 @@
             margin-left:15%;
             top:25%;
             width:70%;
-            border:solid 3px green;
-            background-color:#eee;
-            border-radius:25px;
+            border:solid 1px green;
+            background-color:#fff;
+            border-radius:15px;
             height:auto;
             padding:10px;
             display:none;
