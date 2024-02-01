@@ -101,7 +101,7 @@
             display:none;
             z-index:10;
         }
-        .msg h3{
+        .msg h4{
             color:#333;
             width:100%;
             text-align:center;
