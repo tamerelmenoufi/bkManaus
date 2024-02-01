@@ -160,7 +160,7 @@
                     success:function(dados){
                         // $(".dados_enderecos").html(dados);   
                         
-                        cep = $("#cep").val(dados.cep);
+                        //cep = $("#cep").val(dados.cep);
                         logradouro = $("#logradouro").val(dados.logradouro);
                         complemento = $("#complemento").val();
                         bairro = $("#bairro").val(dados.bairro);
