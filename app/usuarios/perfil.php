@@ -56,7 +56,7 @@
 
 
 <div class="home_corpo">
-    <div>ID: <?=$_SESSION['idUnico']?></div>
+    <div style="padding:3; text-align:center; color:#a1a1a1; font-size:12px;">ID: <?=$_SESSION['idUnico']?></div>
     <div class="dados_pessoais"></div>
     <div class="dados_enderecos"></div>
     <div class="m-2">
