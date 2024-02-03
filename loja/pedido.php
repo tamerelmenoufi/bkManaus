@@ -432,9 +432,22 @@
 
             foreach($pedido as $i => $v){
 
-                $q = "select * from produtos where codigo ='{$v->codigo}'";
+                $q = "select *, produtos->>'$[*].produto' as cod_prod from produtos where codigo ='{$v->codigo}'";
                 $r = mysqli_query($con, $q);
                 $P = mysqli_fetch_object($r);
+
+                $lista_produtos = json_decode($p->cod_prod);
+                if($lista_produtos){
+                    $cods = implode(", ",$lista_produtos);
+                    $q = "select * from produtos where codigo in ($cods) limit 3";
+                    $r = mysqli_query($con, $q);
+                    $prd = [];
+                    while($d1 = mysqli_fetch_object($r)){
+                        $prd[] = $d1->produto;
+                    }
+            
+                    $prd = implode("</div><div style='color:".(($d->promocao == '1')?'#ffffff':'#000000')."';>- ", $prd);
+                }
 
                 // print_r($v);
                 // echo "<br><br>";
@@ -444,6 +457,7 @@
                 <div class="d-flex justify-content-between dados">
                     <div>
                         <b><?="{$v->quantidade} X ".(($v->tipo == 'combo')?'Combo ':false)."{$P->produto}"?></b>
+                        <div>- <?=$prd?></div>
                     </div>
                 </div>
                 <!-- <div class="d-flex justify-content-between dados">
