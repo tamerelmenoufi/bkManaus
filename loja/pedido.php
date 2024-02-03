@@ -436,17 +436,19 @@
                 $r = mysqli_query($con, $q);
                 $P = mysqli_fetch_object($r);
 
-                $lista_produtos = json_decode($P->cod_prod);
-                if($lista_produtos){
-                    $cods = implode(", ",$lista_produtos);
-                    $q = "select * from produtos where codigo in ($cods) limit 3";
-                    $r = mysqli_query($con, $q);
-                    $prd = [];
-                    while($d1 = mysqli_fetch_object($r)){
-                        $prd[] = $d1->produto;
+                if($P->cod_prod){
+                    $lista_produtos = json_decode($P->cod_prod);
+                    if($lista_produtos){
+                        $cods = implode(", ",$lista_produtos);
+                        $q = "select * from produtos where codigo in ($cods) limit 3";
+                        $r = mysqli_query($con, $q);
+                        $prd = [];
+                        while($d1 = mysqli_fetch_object($r)){
+                            $prd[] = $d1->produto;
+                        }
+                
+                        $prd = implode("</div><div style='color:".(($d->promocao == '1')?'#ffffff':'#000000')."';>- ", $prd);
                     }
-            
-                    $prd = implode("</div><div style='color:".(($d->promocao == '1')?'#ffffff':'#000000')."';>- ", $prd);
                 }
 
                 // print_r($v);
@@ -457,7 +459,13 @@
                 <div class="d-flex justify-content-between dados">
                     <div>
                         <b><?="{$v->quantidade} X ".(($v->tipo == 'combo')?'Combo ':false)."{$P->produto}"?></b>
+                        <?php
+                        if($P->cod_prod){
+                        ?>
                         <div>- <?=$prd?></div>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
                 <!-- <div class="d-flex justify-content-between dados">
