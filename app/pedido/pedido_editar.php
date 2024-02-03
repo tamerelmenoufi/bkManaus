@@ -63,7 +63,7 @@
             <div class="w-100 text-end enderecoLabel"><b>TOTAL R$ <?=number_format($d->valor_total,2,',',false)?></b></div>
 
 
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between mt-3">
                 <div class='col p-1 text-center'>
                     <h5><i class="fa-solid fa-mortar-pestle"></i></h5>
                     Produção
