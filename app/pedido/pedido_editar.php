@@ -61,6 +61,27 @@
             <div class="w-100 text-end enderecoLabel">Entrega R$ <?=number_format($d->valor_entrega,2,',',false)?></div>
             <div class="w-100 text-end enderecoLabel">Desconto R$ <?=number_format($d->valor_desconto,2,',',false)?></div>
             <div class="w-100 text-end enderecoLabel"><b>TOTAL R$ <?=number_format($d->valor_total,2,',',false)?></b></div>
+
+
+            <div class="d-flex justify-content-between">
+                <div class='col p-1 text-center'>
+                    <h5><i class="fa-solid fa-mortar-pestle"></i></h5>
+                    Produção
+                    <hr style="border:solid 5px; color:<?=(($d->producao == 'producao' or $d->producao == 'entrega' or $d->producao == 'entregue')?'green':'#ccc')?>;">
+                </div>
+                <div class='col p-1 text-center'>
+                    <h5><i class="fa-solid fa-person-biking"></i></h5>
+                    Entrega
+                    <hr style="border:solid 5px; color:<?=(($d->producao == 'entrega' or $d->producao == 'entregue')?'green':'#ccc')?>;">
+                </div>
+                <div class='col p-1 text-center'>
+                    <h5><i class="fa-solid fa-people-roof"></i></h5>
+                    Entregue
+                    <hr style="border:solid 5px; color:<?=(($d->producao == 'entregue')?'green':'#ccc')?>">
+                </div>
+            </div>
+
+
     </div>
 </div>
 

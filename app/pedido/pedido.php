@@ -81,24 +81,6 @@
                     }
             ?>
             <div class="w-100 text-end" total="<?=$total?>"><b>TOTAL R$ <?=number_format($total,2,',',false)?></b></div>
-XXXXXXXXXXXXXXX
-            <div class="d-flex justify-content-between dados">
-                <div class='col p-1 text-center'>
-                    <h5><i class="fa-solid fa-mortar-pestle"></i></h5>
-                    Produção
-                    <hr style="border:solid 5px; color:<?=(($dados->producao == 'producao' or $dados->producao == 'entrega' or $dados->producao == 'entregue')?'green':'#ccc')?>;">
-                </div>
-                <div class='col p-1 text-center'>
-                    <h5><i class="fa-solid fa-person-biking"></i></h5>
-                    Entrega
-                    <hr style="border:solid 5px; color:<?=(($dados->producao == 'entrega' or $dados->producao == 'entregue')?'green':'#ccc')?>;">
-                </div>
-                <div class='col p-1 text-center'>
-                    <h5><i class="fa-solid fa-people-roof"></i></h5>
-                    Entregue
-                    <hr style="border:solid 5px; color:<?=(($dados->producao == 'entregue')?'green':'#ccc')?>">
-                </div>
-            </div>
         
     </div>
 </div>
