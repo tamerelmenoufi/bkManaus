@@ -81,7 +81,7 @@
                     }
             ?>
             <div class="w-100 text-end" total="<?=$total?>"><b>TOTAL R$ <?=number_format($total,2,',',false)?></b></div>
-
+XXXXXXXXXXXXXXX
             <div class="d-flex justify-content-between dados">
                 <div class='col p-1 text-center'>
                     <h5><i class="fa-solid fa-mortar-pestle"></i></h5>
