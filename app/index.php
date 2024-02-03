@@ -10,6 +10,10 @@
     // $_SESSION['historico'] = [];
     // $_SESSION['historico'][0]['local'] = 'home/index.php';
     // $_SESSION['historico'][0]['destino'] = '.CorpoApp';
+    if(!$_SESSION['historico']){
+        $_SESSION['historico'][0]['local'] = 'home/index.php';
+        $_SESSION['historico'][0]['destino'] = '.CorpoApp';        
+    }
 ?>
 <!doctype html>
 <html lang="en">
