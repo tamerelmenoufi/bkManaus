@@ -432,7 +432,7 @@
 
             foreach($pedido as $i => $v){
 
-                $q = "select *, produtos->>'$[*].produto' as cod_prod from produtos where codigo ='{$v->codigo}'";
+                echo $q = "select *, produtos->>'$[*].produto' as cod_prod from produtos where codigo ='{$v->codigo}'";
                 $r = mysqli_query($con, $q);
                 $P = mysqli_fetch_object($r);
 
