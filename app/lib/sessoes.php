@@ -1,5 +1,5 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-    print_r($_SESSION);
+    echo json_encode($_SESSION);
 ?>
