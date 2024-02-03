@@ -436,10 +436,10 @@
                 $r = mysqli_query($con, $q);
                 $P = mysqli_fetch_object($r);
 
-                $lista_produtos = json_decode($p->cod_prod);
+                $lista_produtos = json_decode($P->cod_prod);
                 if($lista_produtos){
                     $cods = implode(", ",$lista_produtos);
-                    echo $q = "select * from produtos where codigo in ($cods) limit 3";
+                    $q = "select * from produtos where codigo in ($cods) limit 3";
                     $r = mysqli_query($con, $q);
                     $prd = [];
                     while($d1 = mysqli_fetch_object($r)){
