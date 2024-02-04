@@ -162,20 +162,30 @@
             if(count($_SESSION['historico'])){
             ?>
             $.ajax({
-                url:"lib/refresh.php",
-                dataType:"JSON",
+                url:"lib/idUnico.php",
+                type:"POST",
+                data:{
+                    idUnico,
+                },
                 success:function(dados){
-                    var data = $.parseJSON(dados.dt);
                     $.ajax({
-                        url:dados.pg,
-                        type:"POST",
-                        data,
-                        success:function(retorno){
-                            $(`${dados.tg}`).html(retorno);
+                        url:"lib/refresh.php",
+                        dataType:"JSON",
+                        success:function(dados){
+                            var data = $.parseJSON(dados.dt);
+                            $.ajax({
+                                url:dados.pg,
+                                type:"POST",
+                                data,
+                                success:function(retorno){
+                                    $(`${dados.tg}`).html(retorno);
+                                }
+                            })
                         }
-                    })
+                    })        
                 }
-              })
+            });  
+            
             <?php
             }else{
             ?>
@@ -194,7 +204,6 @@
             ?>
 
         })
-
 
         //Jconfirm
         jconfirm.defaults = {
