@@ -271,7 +271,7 @@
                 return false;
             }
             geocoder<?=$md5?> = new google.maps.Geocoder();
-            geocoder<?=$md5?>.geocode({ 'address': `Rua ${logradouro}, ${numero}, ${bairro}, ${complemento}, Manaus, Amazonas, Brasil`, 'region': 'BR' }, (results, status) => {
+            geocoder<?=$md5?>.geocode({ 'address': `Rua ${logradouro}, ${numero}, ${bairro}, Manaus, Amazonas, Brasil`, 'region': 'BR' }, (results, status) => {
 
                 if (status == google.maps.GeocoderStatus.OK) {
 
