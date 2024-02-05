@@ -118,7 +118,7 @@
                         a.*, 
                         b.nome, 
                         b.telefone, 
-                        concat(c.logradouro,', ',c.numero,', ',c.bairro,', ',c.complemento,' (',c.ponto_referencia,')', ) as endereco, 
+                        concat(c.logradouro,', ',c.numero,', ',c.bairro,', ',c.complemento,' (',c.ponto_referencia,')' ) as endereco, 
                         c.coordenadas,
                         a.delivery_detalhes->>'$.pickupCode' as entrega, 
                         a.delivery_detalhes->>'$.returnCode' as retorno 
