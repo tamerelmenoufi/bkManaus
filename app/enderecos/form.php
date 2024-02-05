@@ -230,11 +230,11 @@
         $(".salvar_endereco").click(function(){
 
             cep = $("#cep").val();
-            logradouro = $("#logradouro").val();
-            numero = $("#numero").val();
+            logradouro = `Rua ` + $("#logradouro").val();
+            numero = `Casa ` + $("#numero").val();
             complemento = $("#complemento").val();
             ponto_referencia = $("#ponto_referencia").val();
-            bairro = $("#bairro").val();
+            bairro = `Bairro ` + $("#bairro").val();
             localidade = $("#localidade").val();
             uf = $("#uf").val();
             <?php
