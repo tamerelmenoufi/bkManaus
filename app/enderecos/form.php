@@ -230,7 +230,7 @@
         $(".salvar_endereco").click(function(){
 
             cep = $("#cep").val();
-            logradouro = `Rua ` + $("#logradouro").val();
+            logradouro = $("#logradouro").val();
             numero = $("#numero").val();
             complemento = $("#complemento").val();
             ponto_referencia = $("#ponto_referencia").val();
@@ -271,7 +271,7 @@
                 return false;
             }
             geocoder<?=$md5?> = new google.maps.Geocoder();
-            geocoder<?=$md5?>.geocode({ 'address': `${logradouro}, ${numero}, ${bairro}, Manaus, Amazonas, Brasil`, 'region': 'BR' }, (results, status) => {
+            geocoder<?=$md5?>.geocode({ 'address': `Rua ${logradouro}, ${numero}, ${bairro}, Manaus, Amazonas, Brasil`, 'region': 'BR' }, (results, status) => {
 
                 if (status == google.maps.GeocoderStatus.OK) {
 
