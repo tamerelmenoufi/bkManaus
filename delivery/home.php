@@ -128,7 +128,7 @@
                             <b><?=strtoupper($d->producao)?></b>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between dados">
+                    <div class="d-flex justify-content-start dados">
                         <div>
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
