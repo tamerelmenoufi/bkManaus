@@ -234,29 +234,29 @@
                 // $operadora_id = 23997683882;
 
 
-                $q = "update vendas set
-                    pagamento = 'pix',
-                    pix_detalhes = '".(($retorno)?:'{}')."',
-                    delivery = '".(($retorno1)?'mottu':'')."',
-                    delivery_detalhes = '".(($retorno1)?:'{}')."',
-                    situacao = '".SituacaoPIX($dados->status)."'
-                where codigo = '{$v->codigo}'
-                ";
+                // $q = "update vendas set
+                //     pagamento = 'pix',
+                //     pix_detalhes = '".(($retorno)?:'{}')."',
+                //     delivery = '".(($retorno1)?'mottu':'')."',
+                //     delivery_detalhes = '".(($retorno1)?:'{}')."',
+                //     situacao = '".SituacaoPIX($dados->status)."'
+                // where codigo = '{$v->codigo}'
+                // ";
 
-                mysqli_query($con, $q);  
+                // mysqli_query($con, $q);  
                 
-                if($dados->status == 'approved'){
-                    $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
-                    $mensagem = "*BK Manaus Informa* - O pagamento do pedido *#{$pedido}* foi confirmado por PIX. Pedido enviado para a loja e está em produção.";
-                    EnviarWapp($v->Ctelefone,$mensagem);
-                    $mensagem = "Vou te informar o andamento por aqui, mas você pode acompanhar seu pedido *#{$pedido}* também pelo linque {$urlApp}.";
-                    EnviarWapp($v->Ctelefone,$mensagem);
+                // if($dados->status == 'approved'){
+                //     $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
+                //     $mensagem = "*BK Manaus Informa* - O pagamento do pedido *#{$pedido}* foi confirmado por PIX. Pedido enviado para a loja e está em produção.";
+                //     EnviarWapp($v->Ctelefone,$mensagem);
+                //     $mensagem = "Vou te informar o andamento por aqui, mas você pode acompanhar seu pedido *#{$pedido}* também pelo linque {$urlApp}.";
+                //     EnviarWapp($v->Ctelefone,$mensagem);
 
-                    $mensagem = "*BK Manaus Informa* - Pedido *#{$pedido}* autorizado, aguardando início de produção.";
-                    EnviarWapp($v->Ltelefone,$mensagem);
-                    $mensagem = "Gerencie pelo painel da loja acessando {$urlLoja}";
-                    EnviarWapp($v->Ltelefone,$mensagem);
-                }
+                //     $mensagem = "*BK Manaus Informa* - Pedido *#{$pedido}* autorizado, aguardando início de produção.";
+                //     EnviarWapp($v->Ltelefone,$mensagem);
+                //     $mensagem = "Gerencie pelo painel da loja acessando {$urlLoja}";
+                //     EnviarWapp($v->Ltelefone,$mensagem);
+                // }
 
 
             ?>
