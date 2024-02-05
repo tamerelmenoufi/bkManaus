@@ -231,10 +231,10 @@
 
             cep = $("#cep").val();
             logradouro = `Rua ` + $("#logradouro").val();
-            numero = `Casa ` + $("#numero").val();
+            numero = $("#numero").val();
             complemento = $("#complemento").val();
             ponto_referencia = $("#ponto_referencia").val();
-            bairro = `Bairro ` + $("#bairro").val();
+            bairro = $("#bairro").val();
             localidade = $("#localidade").val();
             uf = $("#uf").val();
             <?php
