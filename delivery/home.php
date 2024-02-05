@@ -106,7 +106,7 @@
 
             $delivery = json_decode($d->delivery_detalhes);
             ?>
-                <li class="list-group-item <?=(($d->producao == 'entregue')?'bg-secondary-subtle':'bg-success-subtle')?>" pedido="<?=$d->codigo?>">
+                <li class="list-group-item <?=(($d->producao != 'entregue')?'bg-secondary-subtle':'bg-success-subtle')?>" pedido="<?=$d->codigo?>">
                     <div class="d-flex justify-content-between">
                         <div>
                             Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?>
