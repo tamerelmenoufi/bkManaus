@@ -170,10 +170,12 @@
 
                     if($operadora_id){
 
-                        $mensagem = "*BK Manaus Informa* - Sua solicitação de pagamento para o pedido *#{$pedido}* com PIX foi registrada. Aguardando confirmação.".date("d/m/Y H:i:s");
+                        $dataTeste = date("d/m/Y H:i:s");
+
+                        $mensagem = "*BK Manaus Informa* - Sua solicitação de pagamento para o pedido *#{$pedido}* com PIX foi registrada. Aguardando confirmação.".$dataTeste;
                         EnviarWapp($v->Ctelefone,$mensagem);
 
-                        $mensagem = "Copie o código da chave PIX para o seu pagamento diretamente no aplicativo bkManaus pelo linque {$urlApp}".date("d/m/Y H:i:s");
+                        $mensagem = "Copie o código da chave PIX para o seu pagamento diretamente no aplicativo bkManaus pelo linque {$urlApp}".$dataTeste;
                         EnviarWapp($v->Ctelefone,$mensagem);
 
                         //$mensagem = "Para sua comodidade, enviaremos o código da chave PIX para o seu pagamento. Copie a chave e utilize o por pix (chave aleatória) no seu banco.";
