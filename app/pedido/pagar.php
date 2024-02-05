@@ -8,6 +8,11 @@
     if($_POST['codUsr']){
         $_SESSION['codUsr'] = $_POST['codUsr'];
     }
+
+    if($_SESSION['codUsr']){
+        mysqli_query($con, "update vendas_tmp set cliente = '{$_SESSION['codUsr']}' where id_unico = '{$_SESSION['idUnico']}'");
+    }
+
 ?>
 
 <style>
