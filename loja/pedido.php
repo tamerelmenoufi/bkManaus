@@ -374,7 +374,7 @@
                     <h5>Selecione o Entregador</h5>
                     <ul class="list-group">
                         <?php
-                        $q = "select a.* from entregadores a where a.situacao = '1' and a.deletado != '1' and a.loja = '{$_POST['loja']}' and (select count(*) from vendas where delivery_detalhes->>'$.deliveryMan.id' = a.codigo and producao != 'entregue') = 0 order by a.nome";
+                        $q = "select a.* from entregadores a where a.situacao = '1' and a.deletado != '1' and a.loja = '{$_POST['loja']}' and (select count(*) from vendas where delivery_detalhes->>'$.deliveryMan.id' = a.codigo and producao != 'entregue' and situacao = 'pago') = 0 order by a.nome";
                         $r = mysqli_query($con, $q);
                         while($e = mysqli_fetch_object($r)){
                             $fone = trim(str_replace(['-','(',')',' '],false,$e->telefone));
