@@ -170,8 +170,6 @@
 
                     if($operadora_id){
 
-                        $dataTeste = false; //date("d/m/Y H:i:s");
-
                         $mensagem = "*BK Manaus Informa* - Sua solicitação de pagamento para o pedido *#{$pedido}* com PIX foi registrada. Aguardando confirmação.";
                         EnviarWapp($v->Ctelefone,$mensagem);
 
