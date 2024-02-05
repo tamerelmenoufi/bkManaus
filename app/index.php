@@ -141,6 +141,7 @@
         $(function(){
 
             idUnico = localStorage.getItem("idUnico");
+            codUsr = localStorage.getItem("codUsr");
 
             if(!idUnico){
                 idUnico = '<?=$idUnico?>';
@@ -166,6 +167,7 @@
                 type:"POST",
                 data:{
                     idUnico,
+                    codUsr,
                 },
                 success:function(dados){
                     $.ajax({
@@ -194,6 +196,7 @@
                 type:"POST",
                 data:{
                     idUnico,
+                    codUsr,
                 },
                 success:function(dados){
                     $(".CorpoApp").html(dados);
