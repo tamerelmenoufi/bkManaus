@@ -45,7 +45,7 @@
                     <i class="fa-solid fa-dollar-sign"></i>
                     Valor do Pedido
                 </div>
-                <div class="valores">$R <?=number_format($d->valor_compra,2,',',false)?></div>
+                <div class="valores">R$ <?=number_format($d->valor_compra,2,',',false)?></div>
             </div> 
             <div class="d-flex justify-content-between">    
                 <div class="pedidosLabel w-100" >
@@ -66,7 +66,7 @@
                     <i class="fa-solid fa-dollar-sign"></i>
                     Total
                 </div>
-                <div class="valores"><b>$R <?=number_format($d->valor_total,2,',',false)?></b></div>
+                <div class="valores"><b>R$ <?=number_format($d->valor_total,2,',',false)?></b></div>
             </div>
             <div class="d-flex justify-content-between mt-2">    
                 <button type="button" class="btn btn-danger" pedido="<?=$d->codigo?>"
@@ -121,7 +121,7 @@ if(!$_POST['novoPedido']){
                     <i class="fa-solid fa-dollar-sign"></i>
                     Valor do Pedido
                 </div>
-                <div class="valores">$R <?=number_format($d->valor_compra,2,',',false)?></div>
+                <div class="valores">R$ <?=number_format($d->valor_compra,2,',',false)?></div>
             </div> 
             <div class="d-flex justify-content-between">    
                 <div class="pedidosLabel w-100" >
@@ -142,7 +142,7 @@ if(!$_POST['novoPedido']){
                     <i class="fa-solid fa-dollar-sign"></i>
                     Total
                 </div>
-                <div class="valores"><b>$R <?=number_format($d->valor_total,2,',',false)?></b></div>
+                <div class="valores"><b>R$ <?=number_format($d->valor_total,2,',',false)?></b></div>
             </div>
             <div class="d-flex justify-content-between mt-2">    
                 <button type="button" class="btn btn-danger" pedido="<?=$d->codigo?>"

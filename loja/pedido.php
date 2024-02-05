@@ -363,7 +363,7 @@
                 ?>
                 <div class="d-flex justify-content-end mt-1 mb-3">
                     <div class="text-danger trocar_entregador">
-                        <i class="fa-solid fa-rotate"></i> Trocar o enregador
+                        <i class="fa-solid fa-rotate"></i> Trocar o entregador
                     </div>
                 </div>
                 <?php
