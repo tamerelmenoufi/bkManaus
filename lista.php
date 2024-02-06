@@ -38,7 +38,7 @@
                         <tr>
                             <td><?=$c->categoria?></td>
                             <td><?=$p->produto?></td>
-                            <td><?=(($c->codigo == 8)?number_format(CalculaValorCombo($d->codigo),2,",",false):number_format($c->valor,2,",",false))?></td>
+                            <td><?=(($c->codigo == 8)?number_format(CalculaValorCombo($c->codigo),2,",",false):number_format($p->valor,2,",",false))?></td>
                         </tr>
                 <?php
                         }
