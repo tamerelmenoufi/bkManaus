@@ -25,7 +25,7 @@
                         $query1 = "select * from produtos where categoria = '{$c->codigo}' and situacao = '1' and deletado != '1' order by produto";
                         $result1 = mysqli_query($con, $query1);
                         while($p = mysqli_fetch_object($result1)){
-                            echo $d1->produto."<br>";
+                            echo $p->produto."<br>";
                         }
                     }
                 ?>
