@@ -24,6 +24,7 @@
                             <th>Categoria</th>
                             <th>Produto</th>
                             <th>Valor</th>
+                            <th>Valor no Combo</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,7 +39,8 @@
                         <tr>
                             <td><?=$c->categoria?></td>
                             <td><?=$p->produto?></td>
-                            <td><?=(($c->codigo == 8)?number_format(CalculaValorCombo($p->codigo),2,",",false):number_format($p->valor,2,",",false))?></td>
+                            <td>R$ <?=(($c->codigo == 8)?number_format(CalculaValorCombo($p->codigo),2,",",false):number_format($p->valor,2,",",false))?></td>
+                            <td>R$ <?=(($c->codigo == 8)?'-':number_format($p->valor_combo,2,",",false))?></td>
                         </tr>
                 <?php
                         }
