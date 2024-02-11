@@ -59,17 +59,17 @@
         </div>
         <div class="row">
             <div class="col">
-                <i class="fa-brands fa-whatsapp"></i> +55 92 986123301
+                <i class="fa-brands fa-whatsapp"></i> <a href="https://api.whatsapp.com/send?phone=5592986123301" target="_blank">+55 92 986123301</a>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <i class="fa-solid fa-at"></i> atendimento@bkmanaus.com.br
+                <i class="fa-solid fa-at"></i> <a href="mailto:atendimento@bkmanaus.com.br" target="_blank">atendimento@bkmanaus.com.br</a>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <i class="fa-solid fa-house"></i> https://bkmanaus.com.br
+                <i class="fa-solid fa-house"></i> <a href="https://bkmanaus.com.br" target="_blank">https://bkmanaus.com.br</a>
             </div>
         </div>
     </div>
