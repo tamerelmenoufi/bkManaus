@@ -42,6 +42,15 @@
         bottom:0;
         height:80px;
     }
+    a{
+        text-decoration:none;
+        color:orange;
+    }
+    a:hover{
+        text-decoration:none;
+        color:orange;
+    }
+    
 
 </style>
 
