@@ -26,7 +26,7 @@
 ?>
 
 <style>
-    .barra_topo{
+       .barra_topo{
         position:absolute;
         display: flex;
         justify-content: flex-end;
@@ -75,21 +75,6 @@
         height:135px;
         margin:5px;
     }
-
-    .combos{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        margin:5px;
-        border-radius:15px;
-        margin-bottom:20px;
-    }
-    .combos img{
-        height:135px;
-        margin:5px;
-    }
-    
     .produto_dados{
         position:relative;
         width:100%;
@@ -114,7 +99,9 @@
         font-size:16px; 
         display: -webkit-box; 
         -webkit-box-orient: vertical; 
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 1;
+        text-overflow: ellipsis;
+        direction: ltr;
     }
     .promocao{
         position:absolute;
