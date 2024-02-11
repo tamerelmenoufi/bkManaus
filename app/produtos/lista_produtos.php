@@ -69,6 +69,7 @@
         margin:5px;
         border-radius:15px;
         margin-bottom:20px;
+        min-height:160px;
     }
     .produto_painel img{
         height:135px;
@@ -92,7 +93,7 @@
     .produto_dados{
         position:relative;
         width:100%;
-        height:40px;
+        height:25px;
     }
     .produto_dados h4, .produto_dados h2{
         position:absolute;
@@ -155,7 +156,7 @@ while($d = mysqli_fetch_object($result)){
             $prd[] = $d1->produto;
         }
 
-        $prd = implode("</div><div style='color:".(($d->promocao == '1')?'#ffffff':'#000000')."';>- ", $prd);
+        $prd = implode("</div><div class='produto_dados' style='color:".(($d->promocao == '1')?'#ffffff':'#000000')."';>- ", $prd);
     }
 ?>
     <div class="combos" codigo = "<?=$d->codigo?>" style="background-color:<?=(($d->promocao == '1')?'#bd0100':'trasparent')?>">
@@ -164,8 +165,8 @@ while($d = mysqli_fetch_object($result)){
             <div class="produto_dados">
                 <h4 style="color:<?=(($d->promocao == '1')?'#fbdb00':'#600f0b')?>"><?=$d->produto?></h4>
             </div>
-            <div class="produto_dados" style="height:90px;">
-                <div style="color:<?=(($d->promocao == '1')?'#ffffff':'#000000')?>">- <?=$prd?></div>
+            <div style="height:90px;">
+                <div class="produto_dados" style="color:<?=(($d->promocao == '1')?'#ffffff':'#000000')?>">- <?=$prd?></div>
             </div>
 
             <div class="produto_dados">
