@@ -105,7 +105,7 @@
 
         if(!taxa){
             $(".pagamentos").remove();
-            $(".loja_fechada").css("display","block!important");
+            $(".loja_fechada").removeClass("loja_fechada");
         }
 
         $("button[pagamento]").click(function(){
