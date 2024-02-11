@@ -142,8 +142,8 @@ while($d = mysqli_fetch_object($result)){
     <div class="combos" codigo = "<?=$d->codigo?>" style="background-color:<?=(($d->promocao == '1')?'#bd0100':'trasparent')?>">
         <img src="<?=$icon?>" />
         <div class="w-100">
-            <div>
-                <h4 class="produto_dados" style="color:<?=(($d->promocao == '1')?'#fbdb00':'#600f0b')?>"><?=$d->produto?></h4>
+            <div class="produto_dados">
+                <h4 style="color:<?=(($d->promocao == '1')?'#fbdb00':'#600f0b')?>"><?=$d->produto?></h4>
             </div>
             <div style="height:90px;">
                 <div class="produto_dados" style="color:<?=(($d->promocao == '1')?'#ffffff':'#000000')?>">- <?=$prd?></div>
