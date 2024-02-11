@@ -129,8 +129,8 @@ while($d = mysqli_fetch_object($result)){
             <div class="produto_dados">
                 <h4 style="color:<?=(($d->promocao == '1')?'#fbdb00':'#600f0b')?>"><?=$d->produto?></h4>
             </div>
-            <div class="produto_dados" style="height:90px;">
-                <div style="color:<?=(($d->promocao == '1')?'#ffffff':'#000000')?>">- <?=$prd?></div>
+            <div style="height:90px;">
+                <div class="produto_dados" style="color:<?=(($d->promocao == '1')?'#ffffff':'#000000')?>">- <?=$prd?></div>
             </div>
             <!-- <div class="produto_dados">
                 <h2 style="color:#f12a2a">
@@ -139,7 +139,13 @@ while($d = mysqli_fetch_object($result)){
                 </h2>
             </div>     -->
             <div class="produto_dados">
+                <?php
+                if($d->promocao == '1'){
+                ?>
                 <div class="promocao">DE R$ <?=number_format(CalculaValorCombo($d->codigo),2,",",false)?></div>
+                <?php
+                }
+                ?>
                 <div class="d-flex justify-content-between w-100" style="color:<?=(($d->promocao == '1')?'#fbdb00':'#f4352b')?>;">
                     <div><h2 class="produto_dados" style="margin-top:2px;"><span style="color:#fbdb00; font-size:12px;"><?=(($d->promocao == '1')?'POR ':false)?></span>R$ <?=number_format((($d->promocao == '1')?$d->valor_promocao:CalculaValorCombo($d->codigo)),2,",",false)?></h2></div>
                     <i class="fa-solid fa-circle-play me-3" style="font-size:25px;"></i>
