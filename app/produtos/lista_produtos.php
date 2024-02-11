@@ -69,7 +69,6 @@
         margin:5px;
         border-radius:15px;
         margin-bottom:20px;
-        min-height:160px;
     }
     .produto_painel img{
         height:135px;
@@ -84,6 +83,7 @@
         margin:5px;
         border-radius:15px;
         margin-bottom:20px;
+        min-height:160px;
     }
     .combos img{
         height:135px;
