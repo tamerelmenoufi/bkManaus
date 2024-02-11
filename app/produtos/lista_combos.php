@@ -84,6 +84,7 @@
         -webkit-line-clamp: 1;
         text-overflow: ellipsis;
         direction: ltr;
+        height:auto;
     }
     .promocao{
         position:absolute;
