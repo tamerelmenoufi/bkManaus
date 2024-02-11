@@ -65,7 +65,7 @@
 
             <ul class="list-group m-3">
                 <?php
-                $query = "select * from lojas where situacao = '1' and deletado != '1' order by nome";
+                $query = "select * from lojas where /*situacao = '1' and*/ deletado != '1' order by nome";
                 $result = mysqli_query($con, $query);
                 while($d = mysqli_fetch_object($result)){
                 ?>
