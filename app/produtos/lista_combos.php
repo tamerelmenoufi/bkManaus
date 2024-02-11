@@ -52,6 +52,7 @@
         margin:5px;
         border-radius:15px;
         margin-bottom:20px;
+        min-height:160px;
     }
     .produto_painel img{
         height:135px;
@@ -60,7 +61,7 @@
     .produto_dados{
         position:relative;
         width:100%;
-        height:40px;
+        height:25px;
     }
     .produto_dados h4, .produto_dados h2{
         position:absolute;
