@@ -97,7 +97,7 @@
                 <div class="popupPalco"></div>
             </div>            
             
-            <div class="CorpoApp area"></div>             
+            <div class="CorpoApp area"></div>
         </div>
         <div class="col-4 d-none d-md-block area"></div>
     </div>
