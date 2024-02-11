@@ -30,6 +30,9 @@
     .valores{
         white-space: nowrap;
     }
+    .loja_fechada{
+        display:none;
+    }
 </style>
 
 <div class="row g-0 p-2">
@@ -62,7 +65,7 @@
             </div>
 
 
-            <div class="d-flex justify-content-between mt-3">    
+            <div class="d-flex justify-content-between mt-3 pagamentos">    
                 <div class="enderecoLabel w-100 text-center pe-2">
                     <button class="btn btn-success w-100" pagamento="pix">
                         <i class="fa-brands fa-pix"></i>
@@ -74,6 +77,12 @@
                         <i class="fa-regular fa-credit-card"></i>
                         Crédito                        
                     </button>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center mt-3 loja_fechada">  
+                <div class="alert alert-danger" role="alert">
+                    Loja Fechada
                 </div>
             </div>
 
@@ -93,6 +102,11 @@
         $("span[total]").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         $("span[taxa_entraga]").html('R$ ' + taxa.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         $("span[pagar]").html('R$ ' + pagar.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+
+        if(!taxa){
+            $(".pagamentos").remove();
+            $(".loja_fechada").css("diaplay","block");
+        }
 
         $("button[pagamento]").click(function(){
             
