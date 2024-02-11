@@ -44,11 +44,11 @@
     }
     a{
         text-decoration:none;
-        color:orange;
+        color:blue;
     }
     a:hover{
         text-decoration:none;
-        color:blue;
+        color:orange;
     }
     
 
