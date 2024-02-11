@@ -11,7 +11,7 @@
         top:0;
         width:100%;
         height:100px;
-        background-color:#0a7817;
+        background-color:#d3240f;
         color:#f9de37;
         border-bottom-right-radius:40px;
         border-bottom-left-radius:40px;
