@@ -28,7 +28,7 @@
         <h4 class="w-100 text-center">ENDEREÇO PARA ENTREGA</h4>
 
         <?php
-        $query = "select * from enderecos where cliente = '{$_SESSION['codUsr']}' order by padrao desc";
+        $query = "select * from enderecos where cliente = '{$_SESSION['codUsr']}' order by codigo desc";
         $result = mysqli_query($con, $query);
         while($c = mysqli_fetch_object($result)){
 
