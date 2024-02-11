@@ -60,10 +60,10 @@
     .produto_dados{
         position:relative;
         width:100%;
+        height:40px;
     }
     .produto_dados h4, .produto_dados h2{
         position:absolute;
-        height:40px;
         left:0;
         right:0;
         padding:0;
@@ -76,7 +76,6 @@
         direction: ltr;
     }
     .produto_dados div{
-        margin-top:90px;
         overflow: hidden; 
         font-family:FlameBold; 
         font-size:16px; 
