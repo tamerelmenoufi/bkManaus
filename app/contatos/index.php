@@ -50,9 +50,9 @@
     <h2>Contato</h2>
 </div>
 
-<div class="home_corpo">
+<div class="home_corpo p-2">
     <div class="container">
-        <div class="row">
+        <div class="row mb-3">
             <div class="col">
                 Para dúvidas, sugestões ou reclamações, entre em contato conosco utilizando um dos contatos a seguinte.
             </div>
