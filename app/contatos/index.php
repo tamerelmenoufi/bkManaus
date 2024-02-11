@@ -81,6 +81,11 @@
                 <i class="fa-solid fa-house"></i> <a href="https://bkmanaus.com.br" target="_blank">https://bkmanaus.com.br</a>
             </div>
         </div>
+        <div class="row mb-1">
+            <div class="col">
+                <span style="color:#a1a1a1">Aplicativo atende pedidos todos os dias das 11h às 23h.</span>
+            </div>
+        </div>
     </div>
     
 </div>   
