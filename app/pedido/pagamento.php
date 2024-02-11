@@ -80,8 +80,8 @@
                 </div>
             </div>
 
-            <div class="w-100 mt-3 loja_fechada">  
-                <div class="alert alert-danger" role="alert">
+            <div class="d-flex justify-content-center mt-3 loja_fechada">  
+                <div class="alert alert-danger w-100" role="alert">
                     Loja Fechada
                 </div>
             </div>
