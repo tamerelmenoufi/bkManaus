@@ -120,7 +120,7 @@
         position:absolute;
         top:-15px;
         left:0px;
-        font-family:UniformLight;
+        font-family:FlameBold;
         color:#fff;
         font-weight:bold;
     }
