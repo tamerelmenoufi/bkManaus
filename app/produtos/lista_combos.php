@@ -76,6 +76,7 @@
         direction: ltr;
     }
     .produto_dados div{
+        margin-top:90px;
         overflow: hidden; 
         font-family:FlameBold; 
         font-size:16px; 
