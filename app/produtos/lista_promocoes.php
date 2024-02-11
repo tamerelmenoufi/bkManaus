@@ -90,6 +90,7 @@
     .produto_dados div{
         overflow: hidden; 
         /* font-family:FlameBold;  */
+        font-family:UniformLight;
         font-size:16px; 
         display: -webkit-box; 
         -webkit-box-orient: vertical; 
