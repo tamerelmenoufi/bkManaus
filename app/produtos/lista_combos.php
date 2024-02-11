@@ -60,10 +60,10 @@
     .produto_dados{
         position:relative;
         width:100%;
-        height:40px;
     }
     .produto_dados h4, .produto_dados h2{
         position:absolute;
+        height:40px;
         left:0;
         right:0;
         padding:0;
@@ -84,7 +84,6 @@
         -webkit-line-clamp: 1;
         text-overflow: ellipsis;
         direction: ltr;
-        height:30px;
     }
     .promocao{
         position:absolute;
