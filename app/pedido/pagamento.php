@@ -31,7 +31,7 @@
         white-space: nowrap;
     }
     .loja_fechada{
-        display:none;
+        display:none!important;
     }
 </style>
 
