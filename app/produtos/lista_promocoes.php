@@ -47,16 +47,30 @@
         margin:5px;
         border-radius:15px;
         margin-bottom:20px;
-        min-height:160px;
     }
     .produto_painel img{
         height:135px;
         margin:5px;
     }
+
+    .combos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        margin:5px;
+        border-radius:15px;
+        margin-bottom:20px;
+    }
+    .combos img{
+        height:135px;
+        margin:5px;
+    }
+    
     .produto_dados{
         position:relative;
         width:100%;
-        height:25px;
+        height:40px;
     }
     .produto_dados h4, .produto_dados h2{
         position:absolute;
@@ -73,13 +87,11 @@
     }
     .produto_dados div{
         overflow: hidden; 
-        /* font-family:FlameBold;  */
+        font-family:FlameBold; 
         font-size:16px; 
         display: -webkit-box; 
         -webkit-box-orient: vertical; 
-        -webkit-line-clamp: 1;
-        text-overflow: ellipsis;
-        direction: ltr;
+        -webkit-line-clamp: 2;
     }
     .promocao{
         position:absolute;
@@ -87,7 +99,6 @@
         left:0px;
         font-family:UniformLight;
         color:#fff;
-        font-weight:bold;
     }
 </style>
 
