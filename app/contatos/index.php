@@ -51,24 +51,26 @@
 </div>
 
 <div class="home_corpo">
-<div class="row">
-        <div class="col">
-            Para dúvidas, sugestões ou reclamações, entre em contato conosco utilizando um dos contatos a seguinte.
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                Para dúvidas, sugestões ou reclamações, entre em contato conosco utilizando um dos contatos a seguinte.
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <i class="fa-brands fa-whatsapp"></i> +55 92 986123301
+        <div class="row">
+            <div class="col">
+                <i class="fa-brands fa-whatsapp"></i> +55 92 986123301
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <i class="fa-solid fa-at"></i> atendimento@bkmanaus.com.br
+        <div class="row">
+            <div class="col">
+                <i class="fa-solid fa-at"></i> atendimento@bkmanaus.com.br
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <i class="fa-solid fa-house"></i> https://bkmanaus.com.br
+        <div class="row">
+            <div class="col">
+                <i class="fa-solid fa-house"></i> https://bkmanaus.com.br
+            </div>
         </div>
     </div>
     
