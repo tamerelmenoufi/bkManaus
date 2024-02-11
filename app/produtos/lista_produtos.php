@@ -122,6 +122,7 @@
         left:0px;
         font-family:UniformLight;
         color:#fff;
+        font-weight:bold;
     }
 </style>
 
