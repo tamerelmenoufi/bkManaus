@@ -6,7 +6,7 @@
         $_SESSION['bkLoja'] = $_POST['loja'];
     }
 
-    $query = "select * from lojas where codigo = '{$_SESSION['bkLoja']}'";
+    $query = "select * from lojas where codigo = '{$_SESSION['bkLoja']}' and situacao = '1' and deletado != '1'";
     $result = mysqli_query($con, $query);
     $l = mysqli_fetch_object($result);
 
