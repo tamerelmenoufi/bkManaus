@@ -45,6 +45,11 @@
 
 </style>
 
+
+<div class="barra_topo">
+    <h2>Contato</h2>
+</div>
+
 <div class="home_corpo">
 
 </div>   
@@ -76,7 +81,7 @@ $(function(){
         }
     });
 
-    
+
 })
 
 	
