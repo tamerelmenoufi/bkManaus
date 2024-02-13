@@ -123,7 +123,7 @@ while($d = mysqli_fetch_object($result)){
             $prd[] = $d1->produto;
         }
 
-        $prd = implode("</div><div class='produto_dados' style='color:".(($d->promocao == '1')?'#ffffff':'#000000')."; height:20px;'>- ", $prd);
+        $prd = implode("</div><div class='produto_dados' style='color:".(($d->promocao == '1')?'#ffffff':'#000000')."; height:22px;'>- ", $prd);
     }
 ?>
     <div class="produto_painel" codigo = "<?=$d->codigo?>" style="background-color:<?=(($d->promocao == '1')?'#bd0100':'trasparent')?>">
@@ -133,7 +133,7 @@ while($d = mysqli_fetch_object($result)){
                 <h4 style="color:<?=(($d->promocao == '1')?'#fbdb00':'#600f0b')?>"><?=$d->produto?></h4>
             </div>
             <div style="height:90px;">
-                <div class="produto_dados" style="color:<?=(($d->promocao == '1')?'#ffffff':'#000000')?>; height:20px;">- <?=$prd?></div>
+                <div class="produto_dados" style="color:<?=(($d->promocao == '1')?'#ffffff':'#000000')?>; height:22px;">- <?=$prd?></div>
             </div>
             <!-- <div class="produto_dados">
                 <h2 style="color:#f12a2a">
