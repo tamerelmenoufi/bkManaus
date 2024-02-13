@@ -52,7 +52,7 @@
 <div class="row g-0">
     <div class="col-12">
         <div class="d-flex justify-content-center align-items-center combo" local="produtos/lista_promocoes.php">
-            <img src="img/promocoes.png?<?=md5(date("YmdHis"))?>" alt="">
+            <img src="img/promocoes.png?20240213" alt="">
             <!-- <span>PROMOÇÕES</span>-->
         </div>        
     </div>
