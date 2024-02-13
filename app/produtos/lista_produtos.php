@@ -115,7 +115,7 @@
         font-size:16px; 
         display: -webkit-box; 
         -webkit-box-orient: vertical; 
-        -webkit-line-clamp: 1;
+        -webkit-line-clamp: 2;
     }
     .promocao{
         position:absolute;
@@ -158,7 +158,7 @@ while($d = mysqli_fetch_object($result)){
             $prd[] = $d1->produto;
         }
 
-        $prd = implode("</div><div class='produto_dados' style='color:".(($d->promocao == '1')?'#ffffff':'#000000')."; height:22px; font-family:Uniform; -webkit-line-clamp: 1;'>- ", $prd);
+        $prd = implode("</div><div class='produto_dados' style='color:".(($d->promocao == '1')?'#ffffff':'#000000')."; height:22px; font-family:Uniform; -webkit-line-clamp: 1; white-space: nowrap;'>- ", $prd);
     }
 ?>
     <div class="combos" codigo = "<?=$d->codigo?>" style="background-color:<?=(($d->promocao == '1')?'#bd0100':'trasparent')?>">
@@ -168,7 +168,7 @@ while($d = mysqli_fetch_object($result)){
                 <h4 style="color:<?=(($d->promocao == '1')?'#fbdb00':'#600f0b')?>"><?=$d->produto?></h4>
             </div>
             <div style="height:90px;">
-                <div class="produto_dados" style="color:<?=(($d->promocao == '1')?'#ffffff':'#000000')?>; height:22px; font-family:Uniform; -webkit-line-clamp: 1;">- <?=$prd?></div>
+                <div class="produto_dados" style="color:<?=(($d->promocao == '1')?'#ffffff':'#000000')?>; height:22px; font-family:Uniform; -webkit-line-clamp: 1; white-space: nowrap;">- <?=$prd?></div>
             </div>
 
             <div class="produto_dados">
