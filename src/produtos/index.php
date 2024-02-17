@@ -27,7 +27,7 @@
     }
 
     if($_SESSION['usuarioBusca']){
-      $where = " and produto like '%{$_SESSION['usuarioBusca']}%' ";
+      $where = " and a.produto like '%{$_SESSION['usuarioBusca']}%' ";
     }
 
 
@@ -183,7 +183,7 @@
 
             <div class="d-block d-md-none d-lg-none d-xl-none d-xxl-none">
             <?php
-                  $query = "select * from produtos where deletado != '1' and categoria = '{$_SESSION['categoria']}' {$where} order by promocao desc, produto asc";
+                  $query = "select a.*, (SELECT count(*) FROM `produtos` where produto produtos->>'$[*].produto' like concat('%','"',a.codigo,'"','%')) as qt from produtos a where a.deletado != '1' and a.categoria = '{$_SESSION['categoria']}' {$where} order by a.promocao desc, a.produto asc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
