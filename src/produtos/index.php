@@ -141,6 +141,9 @@
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
+
+                    $q = "SELECT count(*) as qt FROM `produtos` where produtos->>'$[*].produto' like ('%\"{$d->codigo}\"%')";
+                    $qt = mysqli_fetch_object(mysqli_query($con, $q));
                 ?>
                 <tr>
                   <td style='width:100%'><?=$d->produto?></td>
@@ -168,7 +171,7 @@
                     >
                       Editar
                     </button>
-                    <button class="btn btn-danger" delete="<?=$d->codigo?>">
+                    <button class="btn btn-danger" <?=(($qt)?'disabled':'delete="'.$d->codigo.'"')?> >
                       Excluir
                     </button>
                   </td>
@@ -188,7 +191,7 @@
                   
                   while($d = mysqli_fetch_object($result)){
 
-                    echo $q = "SELECT count(*) as qt FROM `produtos` where produtos->>'$[*].produto' like ('%\"{$d->codigo}\"%')";
+                    $q = "SELECT count(*) as qt FROM `produtos` where produtos->>'$[*].produto' like ('%\"{$d->codigo}\"%')";
                     $qt = mysqli_fetch_object(mysqli_query($con, $q));
 
                 ?>
@@ -248,7 +251,7 @@
                         </button>
                       </div>
                       <div class="col-6 p-2">
-                        <button class="btn btn-danger w-100" delete="<?=$d->codigo?>">
+                        <button class="btn btn-danger w-100" <?=(($qt)?'disabled':'delete="'.$d->codigo.'"')?> >
                           Excluir <?=$qt->qt?>
                         </button>
                       </div>
