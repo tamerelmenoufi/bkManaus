@@ -171,7 +171,7 @@
                     >
                       Editar
                     </button>
-                    <button class="btn btn-danger" <?=(($qt)?'disabled':'delete="'.$d->codigo.'"')?> >
+                    <button class="btn btn-danger" <?=(($qt->qt)?'disabled':'delete="'.$d->codigo.'"')?> >
                       Excluir
                     </button>
                   </td>
@@ -251,7 +251,7 @@
                         </button>
                       </div>
                       <div class="col-6 p-2">
-                        <button class="btn btn-danger w-100" <?=(($qt)?'disabled':'delete="'.$d->codigo.'"')?> >
+                        <button class="btn btn-danger w-100" <?=(($qt->qt)?'disabled':'delete="'.$d->codigo.'"')?> >
                           Excluir <?=$qt->qt?>
                         </button>
                       </div>
