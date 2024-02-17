@@ -188,7 +188,8 @@
                   
                   while($d = mysqli_fetch_object($result)){
 
-                    $qt = mysqli_fetch_object(mysqli_query($con, "SELECT count(*) as qt FROM `produtos` where produtos->>'$[*].produto' like ('%\"{$d->codigo}\"%')"));
+                    $q = "SELECT count(*) as qt FROM `produtos` where produtos->>'$[*].produto' like ('%\"{$d->codigo}\"%')";
+                    $qt = mysqli_fetch_object(mysqli_query($con, $q));
 
                 ?>
                 <div class="card mb-3 p-3">
