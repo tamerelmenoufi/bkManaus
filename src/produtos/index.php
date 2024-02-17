@@ -27,7 +27,7 @@
     }
 
     if($_SESSION['usuarioBusca']){
-      $where = " and a.produto like '%{$_SESSION['usuarioBusca']}%' ";
+      $where = " and produto like '%{$_SESSION['usuarioBusca']}%' ";
     }
 
 
@@ -183,10 +183,13 @@
 
             <div class="d-block d-md-none d-lg-none d-xl-none d-xxl-none">
             <?php
-                  $query = "select a.*, (SELECT count(*) FROM `produtos` where produto produtos->>'$[*].produto' like concat('%','"',a.codigo,'"','%')) as qt from produtos a where a.deletado != '1' and a.categoria = '{$_SESSION['categoria']}' {$where} order by a.promocao desc, a.produto asc";
+                  $query = "select * from produtos where deletado != '1' and categoria = '{$_SESSION['categoria']}' {$where} order by promocao desc, produto asc";
                   $result = sisLog($query);
                   
                   while($d = mysqli_fetch_object($result)){
+
+                    $qt = mysqli_fetch_object(mysqli_query($con, "SELECT count(*) as qt FROM `produtos` where produtos->>'$[*].produto' like ('%"{$d->codigo}"%')"));
+
                 ?>
                 <div class="card mb-3 p-3">
                     <div class="row">
@@ -245,7 +248,7 @@
                       </div>
                       <div class="col-6 p-2">
                         <button class="btn btn-danger w-100" delete="<?=$d->codigo?>">
-                          Excluir
+                          Excluir <?=$qt->qt?>
                         </button>
                       </div>
                     </div>
