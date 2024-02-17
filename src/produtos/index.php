@@ -188,7 +188,7 @@
                   
                   while($d = mysqli_fetch_object($result)){
 
-                    $q = "SELECT count(*) as qt FROM `produtos` where produtos->>'$[*].produto' like ('%\"{$d->codigo}\"%')";
+                    echo $q = "SELECT count(*) as qt FROM `produtos` where produtos->>'$[*].produto' like ('%\"{$d->codigo}\"%')";
                     $qt = mysqli_fetch_object(mysqli_query($con, $q));
 
                 ?>
