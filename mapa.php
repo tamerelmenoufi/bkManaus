@@ -134,7 +134,7 @@ window.initMap = initMap;
           <br />
           <b>End:</b>
           <select id="end">
-            <option value="31.260371,29.9885296">Final</option>
+            <option value="31.2073906,29.9134407">Final</option>
             <option value="Vancouver, BC">Vancouver, BC</option>
             <option value="Seattle, WA">Seattle, WA</option>
             <option value="San Francisco, CA">San Francisco, CA</option>
