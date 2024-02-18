@@ -3,7 +3,7 @@
     //SELECT *, STR_TO_DATE(FROM_UNIXTIME(dados->>'$.timestamp'/1000),"%Y-%m-%d %H:%i:%s") as data FROM `logLocation` where usuario = 248;
 
 
-    $query = "SELECT * FROM `logLocation` where usuario = 248 and FROM_UNIXTIME(dados->>'$.timestamp'/1000,"%Y-%m-%d %H:%i:%s") between '2024-02-17 12:30:00' and '2024-02-17 13:10:00'";
+    $query = "SELECT * FROM `logLocation` where usuario = 248 and FROM_UNIXTIME(dados->>'$.timestamp'/1000,'%Y-%m-%d %H:%i:%s') between '2024-02-17 12:30:00' and '2024-02-17 13:10:00'";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
@@ -12,6 +12,8 @@
       echo $dados->coords->latitude." & ".$dados->coords->longitude."<br>";
 
     }
+
+    exit();
 ?>
 
 <html>
