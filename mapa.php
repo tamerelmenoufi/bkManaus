@@ -67,8 +67,8 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 
   directionsService
     .route({
-      origin: { lat: 31.2604054, lng: 29.9872474 }; //document.getElementById("start").value,
-      destination: { lat: 29.19999885559082, lng: 31.2602822 }; //document.getElementById("end").value,
+      origin: document.getElementById("start").value,
+      destination: document.getElementById("end").value,
       waypoints: waypts,
       optimizeWaypoints: true,
       travelMode: google.maps.TravelMode.DRIVING,
@@ -123,7 +123,7 @@ window.initMap = initMap;
           <b>Waypoints:</b> <br />
           <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br />
           <select multiple id="waypoints">
-            <option value="-3.0218189,-60.0063354">Final</option>
+            <option value="29.19999885559082,31.2602822">Final</option>
             <option value="toronto, ont">Toronto, ONT</option>
             <option value="chicago, il">Chicago</option>
             <option value="winnipeg, mb">Winnipeg</option>
@@ -134,7 +134,7 @@ window.initMap = initMap;
           <br />
           <b>End:</b>
           <select id="end">
-            <option value="-3.0218189,-60.0063354">Final</option>
+            <option value="29.19999885559082,31.2602822">Final</option>
             <option value="Vancouver, BC">Vancouver, BC</option>
             <option value="Seattle, WA">Seattle, WA</option>
             <option value="San Francisco, CA">San Francisco, CA</option>
