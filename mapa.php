@@ -114,7 +114,7 @@ window.initMap = initMap;
         <div>
           <b>Start:</b>
           <select id="start">
-            <option value="31.2604054,29.9872474">Inicial</option>
+            <option value="Sid Beshr, Alexandria">Inicial</option>
             <option value="Boston, MA">Boston, MA</option>
             <option value="New York, NY">New York, NY</option>
             <option value="Miami, FL">Miami, FL</option>
@@ -123,7 +123,7 @@ window.initMap = initMap;
           <b>Waypoints:</b> <br />
           <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br />
           <select multiple id="waypoints">
-            <option value="-3.0218189,-60.0063354">Final</option>
+            <option value="Mansheya, Alexandria">Final</option>
             <option value="toronto, ont">Toronto, ONT</option>
             <option value="chicago, il">Chicago</option>
             <option value="winnipeg, mb">Winnipeg</option>
