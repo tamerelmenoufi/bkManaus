@@ -19,7 +19,7 @@
 
 <div>
 <strong>Start: </strong>
-<select id="start" onchange="calcRoute();">
+<select id="start" onchange="initMap();">
   <option value="chicago, il">Chicago</option>
   <option value="st louis, mo">St Louis</option>
   <option value="joplin, mo">Joplin, MO</option>
@@ -34,9 +34,9 @@
   <option value="los angeles, ca">Los Angeles</option>
 </select>
 <strong>End: </strong>
-<select id="end" onchange="calcRoute();">
+<select id="end" onchange="initMap();">
   <option value="chicago, il">Chicago</option>
-  <option value="st louis, mo">St Louis</option>
+  <option value="st louis, mo" select>St Louis</option>
   <option value="joplin, mo">Joplin, MO</option>
   <option value="oklahoma city, ok">Oklahoma City</option>
   <option value="amarillo, tx">Amarillo</option>
@@ -55,31 +55,34 @@
 function initMap() {
   var directionsService = new google.maps.DirectionsService();
   var directionsRenderer = new google.maps.DirectionsRenderer();
+  var start = document.getElementById('start').value;
+  var end = document.getElementById('end').value;
   var chicago = new google.maps.LatLng(41.850033, -87.6500523);
   var mapOptions = {
     zoom:7,
-    center: chicago
+    center: chicago,
+    origin: start,
+    destination: end,
+    travelMode: 'DRIVING'
   }
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
   directionsRenderer.setMap(map);
 }
 
-function calcRoute() {
-  var directionsService = new google.maps.DirectionsService();
-  var directionsRenderer = new google.maps.DirectionsRenderer();
-  var start = document.getElementById('start').value;
-  var end = document.getElementById('end').value;
-  var request = {
-    origin: start,
-    destination: end,
-    travelMode: 'DRIVING'
-  };
-  directionsService.route(request, function(result, status) {
-    if (status == 'OK') {
-      directionsRenderer.setDirections(result);
-    }
-  });
-}
+// function calcRoute() {
+//   var start = document.getElementById('start').value;
+//   var end = document.getElementById('end').value;
+//   var request = {
+//     origin: start,
+//     destination: end,
+//     travelMode: 'DRIVING'
+//   };
+//   directionsService.route(request, function(result, status) {
+//     if (status == 'OK') {
+//       directionsRenderer.setDirections(result);
+//     }
+//   });
+// }
 
     </script>
 
