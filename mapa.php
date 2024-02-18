@@ -114,7 +114,7 @@ window.initMap = initMap;
         <div>
           <b>Start:</b>
           <select id="start">
-            <option value="31.2604054,29.9872474">Inicial</option>
+            <option value="31.2604004,29.988434">Inicial</option>
             <option value="Boston, MA">Boston, MA</option>
             <option value="New York, NY">New York, NY</option>
             <option value="Miami, FL">Miami, FL</option>
@@ -134,7 +134,7 @@ window.initMap = initMap;
           <br />
           <b>End:</b>
           <select id="end">
-            <option value="31.1782578,29.9296994">Final</option>
+            <option value="31.2604954,29.9888106">Final</option>
             <option value="Vancouver, BC">Vancouver, BC</option>
             <option value="Seattle, WA">Seattle, WA</option>
             <option value="San Francisco, CA">San Francisco, CA</option>
