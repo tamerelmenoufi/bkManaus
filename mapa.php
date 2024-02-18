@@ -1,16 +1,8 @@
-<?php
-    include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
-?>
-<!doctype html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="img/icone.png">
-    <title>BK - Manaus</title>
-    <?php
-    include("lib/header.php");
-    ?>
+    <title>Directions Service</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
     <style>
         /* 
  * Always set the map height explicitly to define the size of the div element
@@ -44,13 +36,8 @@ body {
   padding-left: 10px;
 }
     </style>
-  </head>
-  <body translate="no">
-
- 
-
-<script>
-function initMap() {
+    <script>
+        function initMap() {
   const directionsService = new google.maps.DirectionsService();
   const directionsRenderer = new google.maps.DirectionsRenderer();
   const map = new google.maps.Map(document.getElementById("map"), {
@@ -86,11 +73,10 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 }
 
 window.initMap = initMap;
-
     </script>
-
-
-<div id="floating-panel">
+  </head>
+  <body>
+    <div id="floating-panel">
       <b>Start: </b>
       <select id="start">
         <option value="chicago, il">Chicago</option>
@@ -124,15 +110,16 @@ window.initMap = initMap;
     </div>
     <div id="map"></div>
 
-    <?php
-        include("lib/footer.php");
-    ?>
-    <script>
-        $(function(){
-
-        })
-
-    </script>
-
+    <!-- 
+      The `defer` attribute causes the callback to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises.
+      See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+      for more information.
+      -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+      defer
+    ></script>
   </body>
 </html>
