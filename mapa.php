@@ -60,7 +60,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     if (checkboxArray.options[i].selected) {
       waypts.push({
         location: checkboxArray[i].value,
-        stopover: true,
+        stopover: false,
       });
     }
   }
