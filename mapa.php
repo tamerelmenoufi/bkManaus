@@ -1,3 +1,10 @@
+<?php
+    include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
+
+
+    $query = "SELECT *, FROM_UNIXTIME(dados->>'$.timestamp'/1000) as data FROM `logLocation` where FROM_UNIXTIME(dados->>'$.timestamp'/1000) like '%2024-02-17%' and usuario = 248 and data between '2024-02-17 11:30:00' and '2024-02-17 12:10:00' ORDER BY `logLocation`.`codigo` ASC";
+?>
+
 <html>
   <head>
     <title>Directions Service</title>
@@ -97,15 +104,6 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 
 window.initMap = initMap;
     </script>
-  </head>
-  <body>
-  <html>
-  <head>
-    <title>Waypoints in Directions</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <script type="module" src="./index.js"></script>
   </head>
   <body>
     <div id="container">
