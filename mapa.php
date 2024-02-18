@@ -65,6 +65,8 @@ function initMap() {
 }
 
 function calcRoute() {
+  var directionsService = new google.maps.DirectionsService();
+  var directionsRenderer = new google.maps.DirectionsRenderer();
   var start = document.getElementById('start').value;
   var end = document.getElementById('end').value;
   var request = {
