@@ -12,46 +12,72 @@
     include("lib/header.php");
     ?>
   </head>
-  <body translate="no" onload="initialize()">
+  <body translate="no">
 
 
 <div id="map" style="width: 320px; height: 480px;"></div>
 
-  <div>
-    <input id="address" type="textbox" value="Sydney, NSW">
-    <input type="button" value="Encode" onclick="codeAddress()">
-  </div>
+<div>
+<strong>Start: </strong>
+<select id="start" onchange="calcRoute();">
+  <option value="chicago, il">Chicago</option>
+  <option value="st louis, mo">St Louis</option>
+  <option value="joplin, mo">Joplin, MO</option>
+  <option value="oklahoma city, ok">Oklahoma City</option>
+  <option value="amarillo, tx">Amarillo</option>
+  <option value="gallup, nm">Gallup, NM</option>
+  <option value="flagstaff, az">Flagstaff, AZ</option>
+  <option value="winona, az">Winona</option>
+  <option value="kingman, az">Kingman</option>
+  <option value="barstow, ca">Barstow</option>
+  <option value="san bernardino, ca">San Bernardino</option>
+  <option value="los angeles, ca">Los Angeles</option>
+</select>
+<strong>End: </strong>
+<select id="end" onchange="calcRoute();">
+  <option value="chicago, il">Chicago</option>
+  <option value="st louis, mo">St Louis</option>
+  <option value="joplin, mo">Joplin, MO</option>
+  <option value="oklahoma city, ok">Oklahoma City</option>
+  <option value="amarillo, tx">Amarillo</option>
+  <option value="gallup, nm">Gallup, NM</option>
+  <option value="flagstaff, az">Flagstaff, AZ</option>
+  <option value="winona, az">Winona</option>
+  <option value="kingman, az">Kingman</option>
+  <option value="barstow, ca">Barstow</option>
+  <option value="san bernardino, ca">San Bernardino</option>
+  <option value="los angeles, ca">Los Angeles</option>
+</select>
+</div>
 
 <script>
 
-        var geocoder;
-        var map;
-        function initialize() {
-            geocoder = new google.maps.Geocoder();
-            var latlng = new google.maps.LatLng(-34.397, 150.644);
-            var mapOptions = {
-            zoom: 8,
-            center: latlng
-            }
-            map = new google.maps.Map(document.getElementById('map'), mapOptions);
-        }
+function initMap() {
+  var directionsService = new google.maps.DirectionsService();
+  var directionsRenderer = new google.maps.DirectionsRenderer();
+  var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+  var mapOptions = {
+    zoom:7,
+    center: chicago
+  }
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  directionsRenderer.setMap(map);
+}
 
-        function codeAddress() {
-            var address = document.getElementById('address').value;
-            geocoder.geocode( { 'address': address}, function(results, status) {
-            if (status == 'OK') {
-                map.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location
-                });
-            } else {
-                alert('Geocode was not successful for the following reason: ' + status);
-            }
-            });
-        }
-
-
+function calcRoute() {
+  var start = document.getElementById('start').value;
+  var end = document.getElementById('end').value;
+  var request = {
+    origin: start,
+    destination: end,
+    travelMode: 'DRIVING'
+  };
+  directionsService.route(request, function(result, status) {
+    if (status == 'OK') {
+      directionsRenderer.setDirections(result);
+    }
+  });
+}
 
     </script>
 
