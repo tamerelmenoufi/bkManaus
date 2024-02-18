@@ -12,7 +12,7 @@
     include("lib/header.php");
     ?>
   </head>
-  <body translate="no">
+  <body translate="no" onload="initialize()">
 
 
 <div id="map" style="width: 320px; height: 480px;"></div>
@@ -52,9 +52,6 @@
         }
 
 
-        $(function(){
- 
-        })
 
     </script>
 
@@ -63,7 +60,7 @@
     ?>
     <script>
         $(function(){
-            initialize()
+
         })
 
     </script>
