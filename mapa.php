@@ -12,7 +12,7 @@
     include("lib/header.php");
     ?>
   </head>
-  <body translate="no">
+  <body translate="no" onload="initMap()">
 
 
 <div id="map" style="width: 320px; height: 480px;"></div>
