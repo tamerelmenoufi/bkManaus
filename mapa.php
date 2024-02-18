@@ -1,5 +1,6 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
+    //SELECT *, STR_TO_DATE(FROM_UNIXTIME(dados->>'$.timestamp'/1000),"%Y-%m-%d %H:%i:%s") as data FROM `logLocation` where usuario = 248;
 
 
     $query = "SELECT *, FROM_UNIXTIME(dados->>'$.timestamp'/1000) as data FROM `logLocation` where FROM_UNIXTIME(dados->>'$.timestamp'/1000) like '%2024-02-17%' and usuario = 248 and data between '2024-02-17 11:30:00' and '2024-02-17 12:10:00' ORDER BY `logLocation`.`codigo` ASC";
