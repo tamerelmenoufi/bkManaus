@@ -1,4 +1,5 @@
 <?php
+    $app = true;
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias where codigo = '{$_SESSION['categoria']}'"));  
