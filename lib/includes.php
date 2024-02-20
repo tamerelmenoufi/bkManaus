@@ -31,7 +31,7 @@
         }
     }
 
-    if($app){
+    if($_SESSION['idUnico']){
         $query = "insert into app_acessos set device = '{$_SESSION['idUnico']}', cliente = '{$_SESSION['codUsr']}', local = '{$_SERVER['PHP_SELF']}', data = NOW()";
         mysqli_query($con, $query);
     }
