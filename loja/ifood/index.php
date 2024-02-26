@@ -10,23 +10,7 @@
     }
 ?>
 <style>
-    th{
-        font-size:13px;
-    }
-    td{
-        font-size:12px;
-    }
 
-    tr{
-        position:relative;
-        border: solid 1px green;
-        width:100%;
-    }
-    tbody{
-        position:relative;
-        border:solid 1px red;
-        width:100%;
-    }
     
 </style>
 <h4>Pedido do ifood</h4>
