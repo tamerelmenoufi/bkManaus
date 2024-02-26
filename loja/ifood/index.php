@@ -17,12 +17,12 @@
         width:70px;
     }
     .categorias{
-        margin-top:20px;
+        margin-top:15px;
     }
     
 </style>
 <h4>Pedido do ifood</h4>
-<div style="position:absolute; left:0; right:0; top:70px; bottom:0; overflow:auto;">
+<div style="position:absolute; left:0; right:0; top:70px; bottom:0; overflow:auto; padding:10px;">
     <?php
         $query = "select * from categorias where situacao = '1' and deletado != '1' order by ordem";
         $result = mysqli_query($con, $query);
