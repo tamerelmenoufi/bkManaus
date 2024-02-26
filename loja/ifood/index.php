@@ -1,5 +1,13 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
+
+
+    if($_POST['cep']){
+        $cep = str_replace('-',false,$_POST['cep']);
+        $d = ConsultaCEP($cep);
+        echo json_encode($d);
+        exit();
+    }
 ?>
 <style>
     th{
@@ -92,3 +100,59 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    $(function(){
+
+        $("#cep").mask("99999-999");
+        $("#cep").blur(function(){
+            cep = $(this).val();
+            // if(!cep || (cep.length == 9 && cep.substring(0,2) == 69)){
+            //     idUnico = localStorage.getItem("idUnico");
+            //     codUsr = localStorage.getItem("codUsr");
+            //     $.ajax({
+            //         url:"enderecos/form.php",
+            //         type:"POST",
+            //         data:{
+            //             idUnico,
+            //             codUsr,
+            //             cep
+            //         },
+            //         success:function(dados){
+            //             $(".dados_enderecos").html(dados);                     
+            //         }
+            //     });
+
+            // }else 
+            
+            if( cep.length > 0 && (cep.substring(0,2) != 69 || cep.length != 9)){
+                $.alert({
+                    title:"Erro",
+                    content:"CEP inválido ou fora da área de atendimento",
+                    type:"red"
+                })
+            }else{
+                $.ajax({
+                    url:"ifood/index.php",
+                    type:"POST",
+                    dataType:"JSON",
+                    data:{
+                        cep,
+                    },
+                    success:function(dados){
+                        // $(".dados_enderecos").html(dados);   
+                        
+                        //cep = $("#cep").val(dados.cep);
+                        logradouro = $("#logradouro").val(dados.logradouro);
+                        complemento = $("#complemento").val();
+                        bairro = $("#bairro").val(dados.bairro);
+                        //localidade = $("#localidade").val(dados.localidade);
+
+                    }
+                });
+            }
+        })
+
+    })
+</script>
