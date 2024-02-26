@@ -25,6 +25,7 @@
     tbody{
         position:relative;
         border:solid 1px red;
+        width:100%;
     }
     
 </style>
