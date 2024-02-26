@@ -26,18 +26,18 @@
         $result = mysqli_query($con, $query);
         while($c = mysqli_fetch_object($result)){
     ?>
-        <thead>
-            <tr acao="<?=$c->codigo?>">
+        <thead acao="<?=$c->codigo?>">
+            <tr>
                 <th colspan="4"><div style="margin-top:20px;"><?=$c->categoria?></div></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody grupo="<?=$c->codigo?>" style="display:none;">
     <?php
             $query1 = "select * from produtos where categoria = '{$c->codigo}' and situacao = '1' and deletado != '1' order by produto";
             $result1 = mysqli_query($con, $query1);
             while($p = mysqli_fetch_object($result1)){
     ?>
-            <tr grupo="<?=$c->codigo?>" style="display:none;">
+            <tr>
                 <td>
                     <div class="form-check">
                         <input class="form-check-input" id="produto<?=$p->codigo?>" type="checkbox" value="<?=$p->codigo?>" valor="<?=(($c->codigo == 8)?CalculaValorCombo($p->codigo):$p->valor)?>" >
@@ -108,10 +108,10 @@
         $("#telefone").mask("(92) 99188-6570");
         $("#cep").mask("99999-999");
 
-        $("tr[acao]").click(function(){
-            $("tr[grupo]").css("display","none");
+        $("thead[acao]").click(function(){
+            $("tbody[grupo]").css("display","none");
             opc = $(this).attr("acao");
-            $(`tr[grupo="${opc}"]`).css("display","block");
+            $(`tbody[grupo="${opc}"]`).css("display","block");
         })
 
 
