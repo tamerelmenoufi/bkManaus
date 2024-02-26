@@ -18,6 +18,10 @@
     }
     .categorias{
         margin-top:15px;
+        background-color:#eee;
+    }
+    .grupo{
+        border: solid 0px 1px 1px 1px #eee; 
     }
     
 </style>
@@ -39,7 +43,7 @@
                 $result1 = mysqli_query($con, $query1);
                 while($p = mysqli_fetch_object($result1)){
 ?>
-            <div class="d-flex bd-highlight">
+            <div class="d-flex bd-highlight grupo">
                 <div class="p-1 flex-grow-1 bd-highlight tamanho">
                     <div class="form-check">
                         <input class="form-check-input" id="produto<?=$p->codigo?>" type="checkbox" value="<?=$p->codigo?>" valor="<?=(($c->codigo == 8)?CalculaValorCombo($p->codigo):$p->valor)?>" >
