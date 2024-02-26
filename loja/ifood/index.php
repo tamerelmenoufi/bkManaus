@@ -40,10 +40,10 @@
                         </label>
                     </div>
                 </div>
-                <div class="p-1 bd-highlight">
+                <div class="p-1 bd-highlight" style="width:70px;">
                     <input type="number" class="form-control form-control-sm" v<?=$p->codigo?>>
                 </div>
-                <div class="p-1 bd-highlight">
+                <div class="p-1 bd-highlight" style="width:70px;">
                     R$ <?=(($c->codigo == 8)?number_format(CalculaValorCombo($p->codigo),2,",",false):number_format($p->valor,2,",",false))?>
                 </div>
             </div>
