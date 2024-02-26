@@ -27,7 +27,7 @@
         while($c = mysqli_fetch_object($result)){
     ?>
         <thead>
-            <tr>
+            <tr acao="<?=$c->codigo?>">
                 <th colspan="4"><div style="margin-top:20px;"><?=$c->categoria?></div></th>
             </tr>
         </thead>
@@ -37,7 +37,7 @@
             $result1 = mysqli_query($con, $query1);
             while($p = mysqli_fetch_object($result1)){
     ?>
-            <tr>
+            <tr grupo="<?=$c->codigo?>" style="display:none;">
                 <td>
                     <div class="form-check">
                         <input class="form-check-input" id="produto<?=$p->codigo?>" type="checkbox" value="<?=$p->codigo?>" valor="<?=(($c->codigo == 8)?CalculaValorCombo($p->codigo):$p->valor)?>" >
