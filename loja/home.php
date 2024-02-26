@@ -253,6 +253,26 @@
             });
         })
 
+
+        $(".ifood").click(function(){
+            Carregando();
+            $.ajax({
+                url:"ifood/index.php",
+                type:"POST",
+                data:{
+                    
+                },
+                success:function(dados){
+                    Carregando('none');
+                    $(".popupPalco").html(dados);
+                    $(".popupArea").css("display","block");
+                },
+                error:function(){
+                    console.log('erro');
+                }
+            });
+        })
+
         // atualizacao = setTimeout(() => {
         //     $.ajax({
         //         url:"home.php",
