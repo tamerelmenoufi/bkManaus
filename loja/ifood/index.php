@@ -12,7 +12,7 @@
 ?>
     <thead>
         <tr>
-            <th colspan="3" style="margin-top:30px;"><?=$c->categoria?></th>
+            <th colspan="3" style="margin-top:30px!important;"><?=$c->categoria?></th>
         </tr>
     </thead>
     <tbody>
