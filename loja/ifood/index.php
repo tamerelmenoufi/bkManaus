@@ -20,7 +20,7 @@
     ?>
         <thead>
             <tr>
-                <th colspan="3"><div style="margin-top:30px;"><?=$c->categoria?></div></th>
+                <th colspan="3"><div style="margin-top:20px;"><?=$c->categoria?></div></th>
             </tr>
         </thead>
         <tbody>
