@@ -16,6 +16,9 @@
     .largura{
         width:70px;
     }
+    .categorias{
+        margin-top:20px;
+    }
     
 </style>
 <h4>Pedido do ifood</h4>
@@ -26,8 +29,8 @@
         while($c = mysqli_fetch_object($result)){
     ?>
         <div acao="<?=$c->codigo?>">
-            <div class="d-flex bd-highlight">
-                <h5><?=$c->categoria?></h5>
+            <div class="d-flex bd-highlight categorias">
+                <h6><?=$c->categoria?></h6>
             </div>
         </div>
         <div grupo="<?=$c->codigo?>" style="display:none;">
