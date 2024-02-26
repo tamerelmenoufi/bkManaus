@@ -20,6 +20,9 @@
         width:100%;
         border:solid 1px red;
     }
+    tr{
+        width:100%;
+    }
     
 </style>
 <h4>Pedido do ifood</h4>
@@ -35,7 +38,7 @@
                 <th colspan="4"><div style="margin-top:20px;"><?=$c->categoria?></div></th>
             </tr>
         </thead>
-        <tbody grupo="<?=$c->codigo?>" style="height:0px;">
+        <tbody grupo="<?=$c->codigo?>" style="display:none;">
     <?php
             $query1 = "select * from produtos where categoria = '{$c->codigo}' and situacao = '1' and deletado != '1' order by produto";
             $result1 = mysqli_query($con, $query1);
