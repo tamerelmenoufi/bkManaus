@@ -36,7 +36,7 @@
         <div acao="<?=$c->codigo?>">
             <div class="d-flex justify-content-between categorias">
                 <div class="p-2"><?=$c->categoria?></div>
-                <div class="p-2"><i class="fa-solid fa-chevron-up"></i></div>
+                <div class="p-2 icone"><i class="fa-solid fa-chevron-up"></i></div>
             </div>
         </div>
         <div grupo="<?=$c->codigo?>" style="display:none;" class="grupo">
@@ -120,6 +120,9 @@
 
         $("div[acao]").click(function(){
             $("div[grupo]").css("display","none");
+            $("div[acao]").children("div").children("div.icone").children("i").addClass("fa-chevron-up")
+            $(this).children("div").children("div.icone").children("i").removeClass("fa-chevron-up")
+            $(this).children("div").children("div.icone").children("i").addClass("fa-chevron-down")
             opc = $(this).attr("acao");
             $(`div[grupo="${opc}"]`).css("display","block");
         })
