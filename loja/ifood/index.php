@@ -21,7 +21,7 @@
         background-color:#eee;
     }
     .grupo{
-        border: solid 0px 1px 1px 1px #eee; 
+        border: solid 1px #eee; 
     }
     
 </style>
