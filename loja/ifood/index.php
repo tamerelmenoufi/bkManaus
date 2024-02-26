@@ -20,6 +20,7 @@
     tr{
         position:relative;
         border: solid 1px green;
+        width:100%;
     }
     tbody{
         position:relative;
