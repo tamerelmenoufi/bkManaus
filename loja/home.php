@@ -69,8 +69,17 @@
         bottom:10px;
         right:20px;
     }
+    .ifood{
+        position:absolute;
+        left:20px;
+        top:10px;
+        height:40px;
+        width:auto;
+        cursor:pointer;
+    }
 </style>
 <div class="barra_topo">
+    <img class="ifood" src="<?=$urlPainel?>/img/ifood.png" />
     <span class="fechar"><i class="fa-solid fa-right-from-bracket"></i> Sair</span>
     <h2><?=$l->nome?></h2>
 </div>
