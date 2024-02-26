@@ -50,4 +50,43 @@
         }
     ?>
     </table>
+
+    <h4>Cliente</h4>
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome do Cliente</label>
+        <input type="text" class="form-control" id="nome" >
+    </div>
+    <div class="mb-3">
+        <label for="telefone" class="form-label">Telefone</label>
+        <input type="text" class="form-control" id="telefone" >
+    </div>
+
+    <h4>Endereço para entrega</h4>
+    <div class="mb-3">
+        <label for="cep" class="form-label">CEP</label>
+        <input type="text" class="form-control" id="cep" >
+    </div>
+    <div class="mb-3">
+        <label for="logradouro" class="form-label">Rua</label>
+        <input type="text" class="form-control" id="logradouro" >
+    </div>
+    <div class="mb-3">
+        <label for="numero" class="form-label">Número</label>
+        <input type="text" class="form-control" id="numero" >
+    </div>
+    <div class="mb-3">
+        <label for="complemento" class="form-label">Complemento</label>
+        <input type="text" class="form-control" id="complemento" >
+    </div>
+    <div class="mb-3">
+        <label for="ponto_referencia" class="form-label">Ponto de Referencia</label>
+        <input type="text" class="form-control" id="ponto_referencia" >
+    </div>
+    <div class="mb-3">
+        <label for="bairro" class="form-label">Bairro</label>
+        <input type="text" class="form-control" id="bairro" >
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary mb-3">Incluir Pedido</button>
+    </div>
 </div>
