@@ -16,6 +16,10 @@
     td{
         font-size:12px;
     }
+
+    tr{
+        border: solid 1px green;
+    }
     
 </style>
 <h4>Pedido do ifood</h4>
