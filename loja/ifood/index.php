@@ -10,7 +10,12 @@
     }
 ?>
 <style>
-
+    .tamanho{
+        size:12px;
+    }
+    .largura{
+        width:70px;
+    }
     
 </style>
 <h4>Pedido do ifood</h4>
@@ -32,7 +37,7 @@
                 while($p = mysqli_fetch_object($result1)){
 ?>
             <div class="d-flex bd-highlight">
-                <div class="p-1 flex-grow-1 bd-highlight">
+                <div class="p-1 flex-grow-1 bd-highlight tamanho">
                     <div class="form-check">
                         <input class="form-check-input" id="produto<?=$p->codigo?>" type="checkbox" value="<?=$p->codigo?>" valor="<?=(($c->codigo == 8)?CalculaValorCombo($p->codigo):$p->valor)?>" >
                         <label class="form-check-label" for="produto<?=$p->codigo?>">
@@ -40,10 +45,10 @@
                         </label>
                     </div>
                 </div>
-                <div class="p-1 bd-highlight" style="width:70px;">
+                <div class="p-1 bd-highlight tamanho largura" >
                     <input type="number" class="form-control form-control-sm" v<?=$p->codigo?>>
                 </div>
-                <div class="p-1 bd-highlight" style="width:70px;">
+                <div class="p-1 bd-highlight tamanho largura" >
                     R$ <?=(($c->codigo == 8)?number_format(CalculaValorCombo($p->codigo),2,",",false):number_format($p->valor,2,",",false))?>
                 </div>
             </div>
