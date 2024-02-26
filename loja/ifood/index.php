@@ -25,8 +25,8 @@
                 <h5><?=$c->categoria?></h5>
             </div>
         </div>
-        <div>
-            <div grupo="<?=$c->codigo?>" style="display:none;" class="d-flex bd-highlight">
+        <div grupo="<?=$c->codigo?>" style="display:none;">
+            <div class="d-flex bd-highlight">
 <?php
                 $query1 = "select * from produtos where categoria = '{$c->codigo}' and situacao = '1' and deletado != '1' order by produto";
                 $result1 = mysqli_query($con, $query1);
