@@ -3,7 +3,7 @@
 ?>
 
 <h4>Pedido do ifood</h4>
-<div style="position:absolute; border:solid 1px red; left:0; right:0; top:100px; bottom:0; overflow:auto;">
+<div style="position:absolute; border:solid 1px red; left:0; right:0; top:80px; bottom:0; overflow:auto;">
     <table class="table table-hover">
     <?php
         $query = "select * from categorias where situacao = '1' and deletado != '1' order by ordem";
