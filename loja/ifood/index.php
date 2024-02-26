@@ -107,6 +107,14 @@
 
         $("#telefone").mask("(92) 99188-6570");
         $("#cep").mask("99999-999");
+
+        $("tr[acao]").click(function(){
+            $("tr[grupo]").css("display","none");
+            opc = $(this).attr("acao");
+            $(`tr[grupo="${opc}"]`).css("display","block");
+        })
+
+
         $("#cep").blur(function(){
             cep = $(this).val();
             // if(!cep || (cep.length == 9 && cep.substring(0,2) == 69)){
