@@ -57,7 +57,7 @@
                         </label>
                     </div>
                 </td>
-                <td style="width:70px;">
+                <td style="calc(100% - 140px)">
                 <input type="number" class="form-control form-control-sm" v<?=$p->codigo?>></td>
                 <td style="width:70px;">R$ <?=(($c->codigo == 8)?number_format(CalculaValorCombo($p->codigo),2,",",false):number_format($p->valor,2,",",false))?></td>
             </tr>
