@@ -62,12 +62,12 @@
     <div class="p-2">
         <h4>Cliente</h4>
         <div class="mb-3">
-            <label for="nome" class="form-label">Nome do Cliente</label>
-            <input type="text" class="form-control" id="nome" >
-        </div>
-        <div class="mb-3">
             <label for="telefone" class="form-label">Telefone</label>
             <input type="text" class="form-control" id="telefone" >
+        </div>        
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome do Cliente</label>
+            <input type="text" class="form-control" id="nome" >
         </div>
 
         <h4>Endereço para entrega</h4>
