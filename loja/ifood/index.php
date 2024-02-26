@@ -35,7 +35,7 @@
     ?>
         <div acao="<?=$c->codigo?>">
             <div class="d-flex bd-highlight categorias">
-                <h6><?=$c->categoria?></h6>
+                <div class="p-2"><?=$c->categoria?></div>
             </div>
         </div>
         <div grupo="<?=$c->codigo?>" style="display:none;" class="grupo">
