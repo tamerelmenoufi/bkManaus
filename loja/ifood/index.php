@@ -10,8 +10,8 @@
     $result = mysqli_query($con, $query);
     while($c = mysqli_fetch_object($result)){
 ?>
-    <thead style="margin-top:30px;">
-        <tr>
+    <thead>
+        <tr style="margin-top:30px;">
             <th colspan="3"><?=$c->categoria?></th>
         </tr>
     </thead>
