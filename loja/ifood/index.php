@@ -20,6 +20,10 @@
     tr{
         border: solid 1px green;
     }
+    tbody{
+        position:relative;
+        border:solid 1px red;
+    }
     
 </style>
 <h4>Pedido do ifood</h4>
