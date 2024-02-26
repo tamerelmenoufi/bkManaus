@@ -5,21 +5,17 @@
 <h4>Pedido do ifood</h4>
 
 <table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Produto</th>
-            <th>Valor</th>
-        </tr>
-    </thead>
-    <tbody>
 <?php
     $query = "select * from categorias where situacao = '1' and deletado != '1' order by ordem";
     $result = mysqli_query($con, $query);
     while($c = mysqli_fetch_object($result)){
 ?>
+    <thead>
         <tr>
             <th colspan="3"><?=$c->categoria?></th>
         </tr>
+    </thead>
+    <tbody>
 <?php
         $query1 = "select * from produtos where categoria = '{$c->codigo}' and situacao = '1' and deletado != '1' order by produto";
         $result1 = mysqli_query($con, $query1);
@@ -31,7 +27,9 @@
         </tr>
 <?php
         }
-    }
 ?>
     </tbody>
+<?php
+    }
+?>
 </table>
