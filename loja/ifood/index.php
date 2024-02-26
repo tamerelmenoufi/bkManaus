@@ -1,7 +1,11 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 ?>
-
+<style>
+    td{
+        font-size:12px;
+    }
+</style>
 <h4>Pedido do ifood</h4>
 <div style="position:absolute; left:0; right:0; top:70px; bottom:0; overflow:auto;">
     <table class="table table-hover">
