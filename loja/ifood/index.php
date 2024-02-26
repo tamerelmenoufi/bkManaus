@@ -20,32 +20,38 @@
         $result = mysqli_query($con, $query);
         while($c = mysqli_fetch_object($result)){
     ?>
-        <div class="d-flex bd-highlight" acao="<?=$c->codigo?>">
-            <h5><?=$c->categoria?></h5>
+        <div acao="<?=$c->codigo?>">
+            <div class="d-flex bd-highlight">
+                <h5><?=$c->categoria?></h5>
+            </div>
         </div>
-        <div grupo="<?=$c->codigo?>" style="display:none;" class="d-flex bd-highlight">
-    <?php
-            $query1 = "select * from produtos where categoria = '{$c->codigo}' and situacao = '1' and deletado != '1' order by produto";
-            $result1 = mysqli_query($con, $query1);
-            while($p = mysqli_fetch_object($result1)){
-    ?>
-            <div class="p-2 flex-fill bd-highlight">
-                <div class="form-check">
-                    <input class="form-check-input" id="produto<?=$p->codigo?>" type="checkbox" value="<?=$p->codigo?>" valor="<?=(($c->codigo == 8)?CalculaValorCombo($p->codigo):$p->valor)?>" >
-                    <label class="form-check-label" for="produto<?=$p->codigo?>">
-                        <?=$p->produto?>
-                    </label>
+        <div>
+            <div grupo="<?=$c->codigo?>" style="display:none;" class="d-flex bd-highlight">
+<?php
+                $query1 = "select * from produtos where categoria = '{$c->codigo}' and situacao = '1' and deletado != '1' order by produto";
+                $result1 = mysqli_query($con, $query1);
+                while($p = mysqli_fetch_object($result1)){
+?>
+                <div class="p-2 flex-fill bd-highlight">
+                    <div class="form-check">
+                        <input class="form-check-input" id="produto<?=$p->codigo?>" type="checkbox" value="<?=$p->codigo?>" valor="<?=(($c->codigo == 8)?CalculaValorCombo($p->codigo):$p->valor)?>" >
+                        <label class="form-check-label" for="produto<?=$p->codigo?>">
+                            <?=$p->produto?>
+                        </label>
+                    </div>
                 </div>
+                <div class="p-2 flex-fill bd-highlight">
+                    <input type="number" class="form-control form-control-sm" v<?=$p->codigo?>>
+                </div>
+                <div class="p-2 flex-fill bd-highlight">
+                    R$ <?=(($c->codigo == 8)?number_format(CalculaValorCombo($p->codigo),2,",",false):number_format($p->valor,2,",",false))?>
+                </div>
+<?php
+                }
+?>
             </div>
-            <div class="p-2 flex-fill bd-highlight">
-                <input type="number" class="form-control form-control-sm" v<?=$p->codigo?>>
-            </div>
-            <div class="p-2 flex-fill bd-highlight">
-                R$ <?=(($c->codigo == 8)?number_format(CalculaValorCombo($p->codigo),2,",",false):number_format($p->valor,2,",",false))?>
-            </div>
-    <?php
-            }
-
+        </div>
+<?php
         }
     ?>
 
