@@ -16,13 +16,6 @@
     td{
         font-size:12px;
     }
-    tbody{
-        width:100%;
-        border:solid 1px red;
-    }
-    tr{
-        width:100%;
-    }
     
 </style>
 <h4>Pedido do ifood</h4>
@@ -118,7 +111,7 @@
         $("thead[acao]").click(function(){
             $("tbody[grupo]").css("display","none");
             opc = $(this).attr("acao");
-            $(`tbody[grupo="${opc}"]`).css("display","grid");
+            $(`tbody[grupo="${opc}"]`).css("display","block");
         })
 
 
