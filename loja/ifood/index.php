@@ -115,7 +115,7 @@
         $("thead[acao]").click(function(){
             $("tbody[grupo]").css("display","none");
             opc = $(this).attr("acao");
-            $(`tbody[grupo="${opc}"]`).css("display","inline");
+            $(`tbody[grupo="${opc}"]`).css("display","grid");
         })
 
 
