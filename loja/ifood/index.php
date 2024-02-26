@@ -36,7 +36,7 @@
         <div acao="<?=$c->codigo?>">
             <div class="d-flex justify-content-between categorias">
                 <div class="p-2"><?=$c->categoria?></div>
-                <i class="fa-solid fa-chevron-up"></i>
+                <div class="p-2"><i class="fa-solid fa-chevron-up"></i></div>
             </div>
         </div>
         <div grupo="<?=$c->codigo?>" style="display:none;" class="grupo">
