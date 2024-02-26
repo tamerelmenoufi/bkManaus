@@ -105,6 +105,7 @@
 <script>
     $(function(){
 
+        $("#telefone").mask("(92) 99188-6570");
         $("#cep").mask("99999-999");
         $("#cep").blur(function(){
             cep = $(this).val();
