@@ -35,7 +35,7 @@
                 <th colspan="4"><div style="margin-top:20px;"><?=$c->categoria?></div></th>
             </tr>
         </thead>
-        <tbody grupo="<?=$c->codigo?>" style="display:none;">
+        <tbody grupo="<?=$c->codigo?>" style="height:0px;">
     <?php
             $query1 = "select * from produtos where categoria = '{$c->codigo}' and situacao = '1' and deletado != '1' order by produto";
             $result1 = mysqli_query($con, $query1);
