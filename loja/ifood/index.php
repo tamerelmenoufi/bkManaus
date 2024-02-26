@@ -18,10 +18,11 @@
     }
     .categorias{
         margin-top:15px;
-        background-color:#eee;
+        border: solid 1px #ddd; 
+        background-color:#ddd;
     }
     .grupo{
-        border: solid 1px #eee; 
+        border: solid 1px #ddd; 
     }
     
 </style>
