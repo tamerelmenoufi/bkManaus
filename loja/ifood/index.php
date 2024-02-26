@@ -30,8 +30,16 @@
             while($p = mysqli_fetch_object($result1)){
     ?>
             <tr>
-                <td><input type="checkbox" value="<?=$p->codigo?>" valor="<?=(($c->codigo == 8)?CalculaValorCombo($p->codigo):$p->valor)?>" > <?=$p->produto?></td>
-                <td style="width:70px;"><input type="number" class="form-control form-control-sm" v<?=$p->codigo?>></td>
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input" id="produto<?=$p->codigo?>" type="checkbox" value="<?=$p->codigo?>" valor="<?=(($c->codigo == 8)?CalculaValorCombo($p->codigo):$p->valor)?>" >
+                        <label class="form-check-label" for="produto<?=$p->codigo?>">
+                            <?=$p->produto?>
+                        </label>
+                    </div>
+                </td>
+                <td style="width:70px;">
+                <input type="number" class="form-control form-control-sm" v<?=$p->codigo?>></td>
                 <td>R$ <?=(($c->codigo == 8)?number_format(CalculaValorCombo($p->codigo),2,",",false):number_format($p->valor,2,",",false))?></td>
             </tr>
     <?php
