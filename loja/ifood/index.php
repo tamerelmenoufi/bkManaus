@@ -17,7 +17,7 @@
         width:70px;
     }
     .categorias{
-        margin-top:15px;
+        margin-top:5px;
         border: solid 1px #ddd; 
         background-color:#ddd;
     }
