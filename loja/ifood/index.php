@@ -20,8 +20,8 @@
         $result = mysqli_query($con, $query);
         while($c = mysqli_fetch_object($result)){
     ?>
-        <div acao="<?=$c->codigo?>">
-            <?=$c->categoria?>
+        <div class="d-flex bd-highlight" acao="<?=$c->codigo?>">
+            <h5><?=$c->categoria?></h5>
         </div>
         <div grupo="<?=$c->codigo?>" style="display:none;" class="d-flex bd-highlight">
     <?php
