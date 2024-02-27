@@ -131,6 +131,7 @@
 
         if($v->pagamento == 'ifood'){
             $ifood = json_decode($v->ifood);
+            $v->codigo = $ifood->codigo;
             $v->Cnome = $ifood->cliente->nome;
             $v->Ctelefone = $ifood->cliente->telefone;
            
@@ -192,6 +193,7 @@
         
         if($v->pagamento == 'ifood'){
             $ifood = json_decode($v->ifood);
+            $v->codigo = $ifood->codigo;
             $v->Cnome = $ifood->cliente->nome;
             $v->Ctelefone = $ifood->cliente->telefone;
             
@@ -251,6 +253,7 @@
 
         if($v->pagamento == 'ifood'){
             $ifood = json_decode($v->ifood);
+            $v->codigo = $ifood->codigo;
             $v->Cnome = $ifood->cliente->nome;
             $v->Ctelefone = $ifood->cliente->telefone;
             
@@ -295,31 +298,34 @@
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
 
+        if($d->pagamento == 'ifood'){
+            $ifood = json_decode($d->ifood);
+            $d->codigo = $ifood->codigo;
+            $d->nome = $ifood->cliente->nome;
+            $d->telefone = $ifood->cliente->telefone;
+            $d->endereco = "{$ifood->endereco->logradouro}, {$ifood->endereco->numero}, {$ifood->endereco->bairro}, {$ifood->endereco->complemento}, ".(($ifood->endereco->ponto_referencia)?"({$ifood->endereco->ponto_referencia})":false);
+            $ifood = 'ifood';
+        }
+
+
         $Ctelefone = $d->telefone;
         $Ltelefone = $d->Ltelefone;
         $pedido = str_pad($d->codigo, 6, "0", STR_PAD_LEFT);
 
-            if($d->producao == 'pendente'){
-                mysqli_query($con, "update vendas set producao = 'producao' where codigo = '{$d->codigo}'");
-                $d->producao = 'producao';
+        if($d->producao == 'pendente'){
+            mysqli_query($con, "update vendas set producao = 'producao' where codigo = '{$d->codigo}'");
+            $d->producao = 'producao';
 
-                $pedido = str_pad($d->codigo, 6, "0", STR_PAD_LEFT);
-                $mensagem = "*BK Manaus Informa* - O pedido *#{$pedido}* foi recebido pela loja e está sendo preparado.";
-                EnviarWapp($d->telefone,$mensagem);
+            $pedido = str_pad($d->codigo, 6, "0", STR_PAD_LEFT);
+            $mensagem = "*BK Manaus Informa* - O pedido *#{$pedido}* foi recebido pela loja e está sendo preparado.";
+            EnviarWapp($d->telefone,$mensagem);
 
-            }
-            
-            $pedido = json_decode($d->detalhes);
-            $delivery = json_decode($d->delivery_detalhes);
+        }
+        
+        $pedido = json_decode($d->detalhes);
+        $delivery = json_decode($d->delivery_detalhes);
 
-            if($d->pagamento == 'ifood'){
-                $ifood = json_decode($d->ifood);
-                $d->codigo = $ifood->codigo;
-                $d->nome = $ifood->cliente->nome;
-                $d->telefone = $ifood->cliente->telefone;
-                $d->endereco = "{$ifood->endereco->logradouro}, {$ifood->endereco->numero}, {$ifood->endereco->bairro}, {$ifood->endereco->complemento}, ".(($ifood->endereco->ponto_referencia)?"({$ifood->endereco->ponto_referencia})":false);
-                $ifood = 'ifood';
-            }
+
 
         ?>
             <li class="list-group-item" pedido="<?=$d->codigo?>">
