@@ -40,7 +40,7 @@
             if($d->pagamento == 'ifood'){
                 $ifood = json_decode($d->ifood);
                 $d->nome = $ifood->cliente->nome;
-                // $d->codigo = $ifood->codigo;
+                $d->codigo_ifood = $ifood->codigo;
             }
 
                 if(!$d->producao or $d->producao == 'pendente'){
@@ -57,7 +57,7 @@
                 <li class="list-group-item <?=$bg?>" pedido="<?=$d->codigo?>">
                     <div class="d-flex justify-content-between">
                         <div>
-                            Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT).(($ifood)?' (ifood) ':false)?>
+                            Pedido #<?=str_pad((($d->codigo_ifood)?:$d->codigo), 6, "0", STR_PAD_LEFT).(($ifood)?' (ifood) ':false)?>
                             <br>
                             <?=$d->nome?>
                         </div>
