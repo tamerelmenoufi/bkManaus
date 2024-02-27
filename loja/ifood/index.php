@@ -51,7 +51,7 @@
                 <div class="p-1 flex-grow-1 bd-highlight tamanho">
                     <?=$p->produto?>
                 </div>
-                <div class="p-1 bd-highlight tamanho" style="width:90px; background-color:<?=$bg?>" >
+                <div l<?=$p->codigo?> class="p-1 bd-highlight tamanho" style="width:90px; background-color:<?=$bg?>" >
                     <div class="d-flex justify-content-between">
                         <i class="fa-regular fa-square-minus menos" cod="<?=$p->codigo?>" style="font-size:25px; mrgin-right:5px; color:red; opacity:0.5; cursor:pointer;"></i>
                         <div
@@ -140,6 +140,7 @@
             qt = (qt*1 + 1);
             $(`div[cod="${cod}"]`).attr("qt",qt);
             $(`div[cod="${cod}"]`).html(qt);
+            $(`div[l${cod}]`).css("font-weight","bold");
         })
 
         $(".menos").click(function(){
@@ -149,6 +150,11 @@
                 qt = (qt*1 - 1);
             }else{
                 qt = 0;
+            }
+            if(qt > 0){
+                $(`div[l${cod}]`).css("font-weight","bold");
+            }else{
+                $(`div[l${cod}]`).css("font-weight","normal");
             }
             $(`div[cod="${cod}"]`).attr("qt",qt);
             $(`div[cod="${cod}"]`).html(qt);
