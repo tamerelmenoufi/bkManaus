@@ -113,7 +113,7 @@
             <input type="text" class="form-control" id="bairro" >
         </div>
         <div class="mb-3">
-            <button type="submit" class="btn btn-primary mb-3">Incluir Pedido</button>
+            <button incluir type="button" class="btn btn-primary mb-3">Incluir Pedido</button>
         </div>
     </div>
 </div>
@@ -162,25 +162,7 @@
 
 
         $("#cep").blur(function(){
-            cep = $(this).val();
-            // if(!cep || (cep.length == 9 && cep.substring(0,2) == 69)){
-            //     idUnico = localStorage.getItem("idUnico");
-            //     codUsr = localStorage.getItem("codUsr");
-            //     $.ajax({
-            //         url:"enderecos/form.php",
-            //         type:"POST",
-            //         data:{
-            //             idUnico,
-            //             codUsr,
-            //             cep
-            //         },
-            //         success:function(dados){
-            //             $(".dados_enderecos").html(dados);                     
-            //         }
-            //     });
-
-            // }else 
-            
+            cep = $(this).val();           
             if( cep.length > 0 && (cep.substring(0,2) != 69 || cep.length != 9)){
                 $.alert({
                     title:"Erro",
@@ -208,6 +190,20 @@
                 });
             }
         })
+
+        $("button[incluir]").click(function(){
+            produtos = [];
+            $("div[cod]").each(function(){
+                codigo = $(this).attr("cod");
+                quantidade = $(this).attr("qt");
+                valor = $(this).attr("valor");
+                if(qt > 0){
+                    produtos.push({ codigo, quantidade, valor});
+                }
+            })
+
+            console.log(produtos);
+        });
 
     })
 </script>
