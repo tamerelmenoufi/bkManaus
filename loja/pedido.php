@@ -224,7 +224,7 @@
 
     if($_POST['acao'] == 'finalizar'){
 
-        mysqli_query($con, "update vendas set producao = 'entregue' where codigo = '{$_SESSION['pedido']}'");
+        mysqli_query($con, "update vendas set producao = 'entregue' where codigo = '{$_POST['pedido']}'");
 
         $v = mysqli_fetch_object(mysqli_query($con, "select a.*,
                 a.pix_detalhes->>'$.id' as operadora_id,
@@ -300,7 +300,7 @@
 
         if($d->pagamento == 'ifood'){
             $ifood = json_decode($d->ifood);
-            $d->codigo = $ifood->codigo;
+            // $d->codigo = $ifood->codigo;
             $d->nome = $ifood->cliente->nome;
             $d->telefone = $ifood->cliente->telefone;
             $d->endereco = "{$ifood->endereco->logradouro}, {$ifood->endereco->numero}, {$ifood->endereco->bairro}, {$ifood->endereco->complemento}, ".(($ifood->endereco->ponto_referencia)?"({$ifood->endereco->ponto_referencia})":false);
@@ -312,23 +312,23 @@
         $Ltelefone = $d->Ltelefone;
         $pedido = str_pad($d->codigo, 6, "0", STR_PAD_LEFT);
 
-        if($d->producao == 'pendente'){
-            mysqli_query($con, "update vendas set producao = 'producao' where codigo = '{$_SESSION['pedido']}'");
-            $d->producao = 'producao';
+            if($d->producao == 'pendente'){
+                mysqli_query($con, "update vendas set producao = 'producao' where codigo = '{$d->codigo}'");
+                $d->producao = 'producao';
 
-            $pedido = str_pad($d->codigo, 6, "0", STR_PAD_LEFT);
-            $mensagem = "*BK Manaus Informa* - O pedido *#{$pedido}* foi recebido pela loja e está sendo preparado.";
-            EnviarWapp($d->telefone,$mensagem);
+                $pedido = str_pad($d->codigo, 6, "0", STR_PAD_LEFT);
+                $mensagem = "*BK Manaus Informa* - O pedido *#{$pedido}* foi recebido pela loja e está sendo preparado.";
+                EnviarWapp($d->telefone,$mensagem);
 
-        }
-        
-        $pedido = json_decode($d->detalhes);
-        $delivery = json_decode($d->delivery_detalhes);
+            }
+            
+            $pedido = json_decode($d->detalhes);
+            $delivery = json_decode($d->delivery_detalhes);
 
 
 
         ?>
-            <li class="list-group-item" pedido="<?=$_SESSION['pedido']?>">
+            <li class="list-group-item" pedido="<?=$d->codigo?>">
 
                 <div class="d-flex justify-content-between dados">
                     <div>
@@ -507,7 +507,7 @@
                 // print_r($v);
                 // echo "<br><br>";
         ?>
-            <li class="list-group-item" pedido="<?=$_SESSION['pedido']?>">
+            <li class="list-group-item" pedido="<?=$d->codigo?>">
 
                 <div class="d-flex justify-content-between dados">
                     <div>
@@ -937,7 +937,7 @@
                                 type:"POST",
                                 data:{
                                     acao:'finalizar',
-                                    pedido:'<?=$_SESSION['pedido']?>',
+                                    pedido:'<?=$d->codigo?>',
                                 },
                                 success:function(dados){
                                     Carregando('none');
