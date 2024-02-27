@@ -158,6 +158,7 @@
             $d->nome = $ifood->cliente->nome;
             $d->telefone = $ifood->cliente->telefone;
             $d->endereco = "{$ifood->endereco->logradouro}, {$ifood->endereco->numero}, {$ifood->endereco->bairro}, {$ifood->endereco->complemento}, ".(($ifood->endereco->ponto_referencia)?"({$ifood->endereco->ponto_referencia})":false);
+            $d->coordenadas = $ifood->coordenadas;
             $ifood = 'ifood';
         }
 
