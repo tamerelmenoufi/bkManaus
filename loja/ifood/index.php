@@ -179,6 +179,7 @@
                             cod="<?=$p->codigo?>"
                             qt="0"
                             tipo="<?=(($c->codigo == 8)?'combo':'produto')?>"
+                            categoria="<?=$c->codigo?>"
                             valor="<?=(($c->codigo == 8)?CalculaValorCombo($p->codigo):$p->valor)?>"
                         >0</div>
                         <i class="fa-regular fa-square-plus mais" cod="<?=$p->codigo?>" style="font-size:25px; mrgin-left:5px; color:green; opacity:0.5; cursor:pointer;"></i>
@@ -329,11 +330,12 @@
             produtos = [];
             $("div[cod]").each(function(){
                 codigo = $(this).attr("cod");
+                categoria = $(this).attr("categoria");
                 quantidade = $(this).attr("qt");
                 valor = $(this).attr("valor");
                 tipo = $(this).attr("tipo");
                 if(quantidade > 0){
-                    produtos.push({ codigo, quantidade, valor, tipo});
+                    produtos.push({ codigo, quantidade, valor, tipo, categoria});
                 }
             })
             if(!produtos.length){
