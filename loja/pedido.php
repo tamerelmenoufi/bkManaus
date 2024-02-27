@@ -274,6 +274,13 @@
             $pedido = json_decode($d->detalhes);
             $delivery = json_decode($d->delivery_detalhes);
 
+            if($d->pagamento == 'ifood'){
+                $ifood = json_decode($d->ifood);
+                $d->nome = $ifood->cliente->nome;
+                $d->telefone = $ifood->cliente->telefone;
+                $d->endereco = "{$ifood->endereco->logradouro}, {$ifood->endereco->numero}, {$ifood->endereco->bairro}, {$ifood->endereco->complemento}, ".(($ifood->endereco->ponto_referencia)?"({$ifood->endereco->ponto_referencia})":false);
+            }
+
         ?>
             <li class="list-group-item" pedido="<?=$d->codigo?>">
 
