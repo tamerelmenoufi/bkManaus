@@ -5,5 +5,5 @@
         $_SESSION = base64_decode(json_decode($_POST['session'])); 
     }
 
-    echo base64_encode(json_encode($_SESSION));
+    echo base64_encode(encode($_SESSION));
 ?>

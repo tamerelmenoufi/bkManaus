@@ -58,7 +58,7 @@
 
         $query = "INSERT INTO vendas set 
                                         detalhes = '{$json}', 
-                                        ifood = '".json_encode($_POST)."', 
+                                        ifood = '".json_encode($_POST, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)."', 
                                         loja = '{$_SESSION['bkLoja']}', 
                                         pagamento = 'ifood', 
                                         data=NOW(),
