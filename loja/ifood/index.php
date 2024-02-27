@@ -54,7 +54,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="p-1 bd-highlight tamanho largura" >
+                <div class="p-1 bd-highlight tamanho" style="width:90px;" >
                     <div class="d-flex justify-content-between">
                         <i class="fa-regular fa-square-minus" style="font-size:25px; mrgin-right:5px;"></i>
                         <div style="width:40px; height:25px; border:solid 1px #ddd; text-align:center; padding:2px;">1</div>
