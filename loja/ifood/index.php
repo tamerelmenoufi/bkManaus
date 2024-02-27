@@ -201,7 +201,7 @@
                     produtos.push({ codigo, quantidade, valor});
                 }
             })
-            if(!produtos){
+            if(produtos.length){
                 $.alert({
                     content:'Favor selecione o(s) produto(s) para criar o pedido!',
                     title:"Pedido sem Produtos",
