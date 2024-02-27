@@ -250,10 +250,7 @@
                 return false;                
             }
 
-            dados.push({"cliente":{nome, telefone}})
-            dados.push({"endereco":{cep, logradouro, numero, complemento, ponto_referencia, bairro, localidade, uf}})
-            dados.push({"pedido":produtos})
-
+            dados.push({"cliente":{nome, telefone}, "endereco":{cep, logradouro, numero, complemento, ponto_referencia, bairro, localidade, uf}, "pedido":produtos})
 
             console.log(dados);
         });
