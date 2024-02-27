@@ -2,6 +2,77 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     if($_POST['acao'] == 'insert'){
+
+/*
+        {
+            "item13": {
+                "tipo": "produto",
+                "total": 15,
+                "valor": 15,
+                "codigo": 13,
+                "regras": {
+                    "categoria": "1"
+                },
+                "status": "",
+                "adicional": 0,
+                "anotacoes": "",
+                "quantidade": 1
+            },
+            "item15": {
+                "tipo": "produto",
+                "total": 25.9,
+                "valor": 25.9,
+                "codigo": 15,
+                "regras": {
+                    "categoria": "1"
+                },
+                "status": "",
+                "adicional": 0,
+                "anotacoes": "",
+                "quantidade": 1
+            },
+            "item126": {
+                "tipo": "combo",
+                "total": 21,
+                "valor": 21,
+                "codigo": 126,
+                "regras": {
+                    "combo": {
+                        "remocao": [],
+                        "inclusao": [],
+                        "substituicao": [],
+                        "inclusao_valor": [],
+                        "substituicao_valor": [],
+                        "inclusao_quantidade": []
+                    }
+                },
+                "status": "true",
+                "adicional": 0,
+                "anotacoes": "",
+                "quantidade": 1
+            },
+            "item128": {
+                "tipo": "combo",
+                "total": 12.9,
+                "valor": 12.9,
+                "codigo": 128,
+                "regras": {
+                    "combo": {
+                        "inclusao": [],
+                        "substituicao": [],
+                        "inclusao_valor": [],
+                        "substituicao_valor": [],
+                        "inclusao_quantidade": []
+                    }
+                },
+                "status": "true",
+                "adicional": 0,
+                "anotacoes": "",
+                "quantidade": 2
+            }
+        }
+//*/
+
         print_r($_POST);
         exit();
     }
