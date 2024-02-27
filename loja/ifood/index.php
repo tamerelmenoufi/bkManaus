@@ -83,21 +83,21 @@
             <input type="text" class="form-control" id="telefone" >
         </div>        
         <div class="mb-3">
-            <label for="nome" class="form-label">Nome do Cliente</label>
+            <label for="nome" class="form-label">Nome do Cliente*</label>
             <input type="text" class="form-control" id="nome" >
         </div>
 
         <h4>Endereço para entrega</h4>
         <div class="mb-3">
-            <label for="cep" class="form-label">CEP</label>
+            <label for="cep" class="form-label">CEP*</label>
             <input type="text" class="form-control" id="cep" >
         </div>
         <div class="mb-3">
-            <label for="logradouro" class="form-label">Rua</label>
+            <label for="logradouro" class="form-label">Rua*</label>
             <input type="text" class="form-control" id="logradouro" >
         </div>
         <div class="mb-3">
-            <label for="numero" class="form-label">Número</label>
+            <label for="numero" class="form-label">Número*</label>
             <input type="text" class="form-control" id="numero" >
         </div>
         <div class="mb-3">
@@ -105,11 +105,11 @@
             <input type="text" class="form-control" id="complemento" >
         </div>
         <div class="mb-3">
-            <label for="ponto_referencia" class="form-label">Ponto de Referencia</label>
+            <label for="ponto_referencia" class="form-label">Ponto de Referencia*</label>
             <input type="text" class="form-control" id="ponto_referencia" >
         </div>
         <div class="mb-3">
-            <label for="bairro" class="form-label">Bairro</label>
+            <label for="bairro" class="form-label">Bairro*</label>
             <input type="text" class="form-control" id="bairro" >
         </div>
         <div class="mb-3">
@@ -192,6 +192,20 @@
         })
 
         $("button[incluir]").click(function(){
+
+            telefone = $("#telefone").val();
+            nome = $("#nome").val();
+            cep = $("#cep").val();
+            logradouro = $("#logradouro").val();
+            numero = $("#numero").val();
+            complemento = $("#complemento").val();
+            ponto_referencia = $("#ponto_referencia").val();
+            bairro = $("#bairro").val();
+            localidade = 'Manaus';
+            uf = 'AM';
+
+            //Verificação dos produtos
+            dados = [];
             produtos = [];
             $("div[cod]").each(function(){
                 codigo = $(this).attr("cod");
@@ -209,7 +223,39 @@
                 })
                 return false;
             }
-            console.log(produtos);
+
+            //Verificação do cadastro do cliente
+            if(!nome){
+                $.alert({
+                    content:'Favor informe o nome do cliente!',
+                    title:"Dados do Cliente",
+                    type:"red",
+                })
+                return false;                
+            }
+
+            //Verificação do endereço para entrega
+            if(
+                !cep || 
+                !logradouro || 
+                !numero || 
+                !ponto_referencia || 
+                !bairro || 
+            ){
+                $.alert({
+                    content:'Preencha o endereço nos campos com * (obrigatórios)!',
+                    title:"Endereço para entrega",
+                    type:"red",
+                })
+                return false;                
+            }
+
+            dados.push({"cliente":{nome, telefone}})
+            dados.push({"endereco":{cep, logradouro, numero, complemento, ponto_referencia, bairro, localidade, uf}})
+            dados.push({"pedido":produtos})
+
+
+            console.log(dados);
         });
 
     })
