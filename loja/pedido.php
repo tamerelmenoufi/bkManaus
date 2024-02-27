@@ -224,7 +224,7 @@
 
     if($_POST['acao'] == 'finalizar'){
 
-        mysqli_query($con, "update vendas set producao = 'entregue' where codigo = '{$_POST['pedido']}'");
+        mysqli_query($con, "update vendas set producao = 'entregue' where codigo = '{$_SESSION['pedido']}'");
 
         $v = mysqli_fetch_object(mysqli_query($con, "select a.*,
                 a.pix_detalhes->>'$.id' as operadora_id,
@@ -313,7 +313,7 @@
         $pedido = str_pad($d->codigo, 6, "0", STR_PAD_LEFT);
 
         if($d->producao == 'pendente'){
-            mysqli_query($con, "update vendas set producao = 'producao' where codigo = '{$d->codigo}'");
+            mysqli_query($con, "update vendas set producao = 'producao' where codigo = '{$_SESSION['pedido']}'");
             $d->producao = 'producao';
 
             $pedido = str_pad($d->codigo, 6, "0", STR_PAD_LEFT);
@@ -328,7 +328,7 @@
 
 
         ?>
-            <li class="list-group-item" pedido="<?=$d->codigo?>">
+            <li class="list-group-item" pedido="<?=$_SESSION['pedido']?>">
 
                 <div class="d-flex justify-content-between dados">
                     <div>
@@ -507,7 +507,7 @@
                 // print_r($v);
                 // echo "<br><br>";
         ?>
-            <li class="list-group-item" pedido="<?=$d->codigo?>">
+            <li class="list-group-item" pedido="<?=$_SESSION['pedido']?>">
 
                 <div class="d-flex justify-content-between dados">
                     <div>
@@ -937,7 +937,7 @@
                                 type:"POST",
                                 data:{
                                     acao:'finalizar',
-                                    pedido:'<?=$d->codigo?>',
+                                    pedido:'<?=$_SESSION['pedido']?>',
                                 },
                                 success:function(dados){
                                     Carregando('none');
