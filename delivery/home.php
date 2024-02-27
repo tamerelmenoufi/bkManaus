@@ -109,6 +109,7 @@
 
             if($d->pagamento == 'ifood'){
                 $ifood = json_decode($d->ifood);
+                $d->codigo_ifood = $ifood->codigo;
                 $d->nome = $ifood->cliente->nome;
                 $d->codigo_ifood = $ifood->codigo;
                             
@@ -123,7 +124,7 @@
                 <li class="list-group-item <?=(($d->producao != 'entregue')?'bg-secondary-subtle':'bg-success-subtle')?>" pedido="<?=$d->codigo?>">
                     <div class="d-flex justify-content-between">
                         <div>
-                            Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?>
+                            Pedido #<?=str_pad((($d->codigo_ifood)?:$d->codigo), 6, "0", STR_PAD_LEFT).(($d->codigo_ifood)?' (ifood)':false)?>
                             <br>
                             <?=$d->nome?>
                         </div>
