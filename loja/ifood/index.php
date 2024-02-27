@@ -368,6 +368,9 @@
                             data,
                             success:function(dados){
                                 console.log(dados);
+                                $(".popupPalco").html('');
+                                $(".popupArea").css("display","none");
+                                Carregando('none');
                             }
                         });                        
 
