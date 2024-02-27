@@ -145,10 +145,10 @@
         $(".menos").click(function(){
             cod = $(this).attr("cod");
             qt = $(`div[cod="${cod}"]`).attr("qt");
-            if(qt > 1){
+            if(qt > 0){
                 qt = (qt*1 - 1);
             }else{
-                qt = 1;
+                qt = 0;
             }
             $(`div[cod="${cod}"]`).attr("qt",qt);
             $(`div[cod="${cod}"]`).html(qt);
