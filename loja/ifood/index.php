@@ -1,8 +1,12 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-    if($_POST['acao'] == 'insert'){
+    if($_POST['loja']){
+        $_SESSION['bkLoja'] = $_POST['loja'];
+    }
 
+    if($_POST['acao'] == 'insert'){
+        $valor_compra = 0;
         $json = '{';
         foreach($_POST['pedido'] as $ind => $val){
             if($val['tipo'] == 'combo'){
@@ -26,6 +30,7 @@
                             \"anotacoes\": \"\",
                             \"quantidade\": {$val['quantidade']}
                         }";
+                $valor_compra = $valor_compra + ($val['valor']*$val['quantidade']);
             }else{
                 $js[] = "\"item{$val['codigo']}\": {
                         \"tipo\": \"produto\",
@@ -40,83 +45,30 @@
                         \"anotacoes\": \"\",
                         \"quantidade\": {$val['quantidade']}
                     }";
+                $valor_compra = $valor_compra + ($val['valor']*$val['quantidade']);
             }
         }
         $json .= implode(",", $js);
         $json .= '}';
 
+        $valor_entrega = 10;
+        $valor_total = ($valor_compra + $valor_entrega);
+
         echo $json;
 
-/*
-        {
-            "item13": {
-                "tipo": "produto",
-                "total": 15,
-                "valor": 15,
-                "codigo": 13,
-                "regras": {
-                    "categoria": "1"
-                },
-                "status": "",
-                "adicional": 0,
-                "anotacoes": "",
-                "quantidade": 1
-            },
-            "item15": {
-                "tipo": "produto",
-                "total": 25.9,
-                "valor": 25.9,
-                "codigo": 15,
-                "regras": {
-                    "categoria": "1"
-                },
-                "status": "",
-                "adicional": 0,
-                "anotacoes": "",
-                "quantidade": 1
-            },
-            "item126": {
-                "tipo": "combo",
-                "total": 21,
-                "valor": 21,
-                "codigo": 126,
-                "regras": {
-                    "combo": {
-                        "remocao": [],
-                        "inclusao": [],
-                        "substituicao": [],
-                        "inclusao_valor": [],
-                        "substituicao_valor": [],
-                        "inclusao_quantidade": []
-                    }
-                },
-                "status": "true",
-                "adicional": 0,
-                "anotacoes": "",
-                "quantidade": 1
-            },
-            "item128": {
-                "tipo": "combo",
-                "total": 12.9,
-                "valor": 12.9,
-                "codigo": 128,
-                "regras": {
-                    "combo": {
-                        "inclusao": [],
-                        "substituicao": [],
-                        "inclusao_valor": [],
-                        "substituicao_valor": [],
-                        "inclusao_quantidade": []
-                    }
-                },
-                "status": "true",
-                "adicional": 0,
-                "anotacoes": "",
-                "quantidade": 2
-            }
-        }
-//*/
-
+        $query = "INSERT INTO vendas set 
+                                        detalhes = '{$json}', 
+                                        ifood = '".json_encode($_POST)."', 
+                                        loja = '{$_SESSION['bkLoja']}', 
+                                        pagamento = 'ifood', 
+                                        data=NOW(),
+                                        valor_compra = '{$valor_compra}',
+                                        valor_entrega = '{$valor_entrega}',
+                                        valor_total = '{$valor_total}',
+                                        producao = 'pendente',
+                                        situacao = 'pago'
+                ";
+        mysqli_query($con, $query);
         // print_r($_POST);
         exit();
     }
@@ -373,7 +325,7 @@
                 return false;                
             }
 
-            data = {"cliente":{nome, telefone}, "endereco":{cep, logradouro, numero, complemento, ponto_referencia, bairro, localidade, uf}, "pedido":produtos, "acao":"insert"};
+            data = {"cliente":{nome, telefone}, "endereco":{cep, logradouro, numero, complemento, ponto_referencia, bairro, localidade, uf}, "pedido":produtos, "acao":"insert", "loja":"<?=$_SESSION['bkLoja']?>"};
 
             $.ajax({
                 url:"ifood/index.php",
