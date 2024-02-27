@@ -131,7 +131,7 @@
 
         if($v->pagamento == 'ifood'){
             $ifood = json_decode($v->ifood);
-            $v->codigo = $ifood->codigo;
+            $v->codigo_ifood = $ifood->codigo;
             $v->Cnome = $ifood->cliente->nome;
             $v->Ctelefone = $ifood->cliente->telefone;
            
@@ -146,7 +146,7 @@
 
         $endereco = trim("{$v->Elogradouro} {$v->Enumero} {$v->Ebairro} {$v->complemento} {$v->ponto_referencia}");
 
-        $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
+        $pedido = str_pad((($v->codigo_ifood)?:$v->codigo), 6, "0", STR_PAD_LEFT);
         $mensagem = "*BK Manaus Informa* - O entregador ({$entrega_nome} - {$entrega_telefone}) está se preparando para levar o pedido *#{$pedido}* ao seu destino.";
         EnviarWapp($v->Ctelefone,$mensagem);
 
@@ -193,7 +193,7 @@
         
         if($v->pagamento == 'ifood'){
             $ifood = json_decode($v->ifood);
-            $v->codigo = $ifood->codigo;
+            $v->codigo_ifood = $ifood->codigo;
             $v->Cnome = $ifood->cliente->nome;
             $v->Ctelefone = $ifood->cliente->telefone;
             
@@ -204,7 +204,7 @@
             $v->Eponto_referencia = $ifood->endereco->ponto_referencia;
         }
 
-        $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
+        $pedido = str_pad((($v->codigo_ifood)?:$v->codigo), 6, "0", STR_PAD_LEFT);
         $mensagem = "*BK Manaus Informa* - Estamos buscando um novo entregador para agilizar a entrega do pedido *#{$pedido}*.";
         EnviarWapp($v->Ctelefone,$mensagem);
 
@@ -253,7 +253,7 @@
 
         if($v->pagamento == 'ifood'){
             $ifood = json_decode($v->ifood);
-            $v->codigo = $ifood->codigo;
+            $v->codigo_ifood = $ifood->codigo;
             $v->Cnome = $ifood->cliente->nome;
             $v->Ctelefone = $ifood->cliente->telefone;
             
@@ -264,7 +264,7 @@
             $v->Eponto_referencia = $ifood->endereco->ponto_referencia;
         }
 
-        $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
+        $pedido = str_pad((($v->codigo_ifood)?:$v->codigo), 6, "0", STR_PAD_LEFT);
         $mensagem = "*BK Manaus Informa* - O pedido *#{$pedido}*, foi confirmado como entregue.";
         EnviarWapp($v->Ctelefone,$mensagem);
         EnviarWapp($v->Dtelefone,$mensagem);
@@ -300,7 +300,7 @@
 
         if($d->pagamento == 'ifood'){
             $ifood = json_decode($d->ifood);
-            // $d->codigo = $ifood->codigo;
+            $d->codigo_ifood = $ifood->codigo;
             $d->nome = $ifood->cliente->nome;
             $d->telefone = $ifood->cliente->telefone;
             $d->endereco = "{$ifood->endereco->logradouro}, {$ifood->endereco->numero}, {$ifood->endereco->bairro}, {$ifood->endereco->complemento}, ".(($ifood->endereco->ponto_referencia)?"({$ifood->endereco->ponto_referencia})":false);
@@ -310,13 +310,13 @@
 
         $Ctelefone = $d->telefone;
         $Ltelefone = $d->Ltelefone;
-        $pedido = str_pad($d->codigo, 6, "0", STR_PAD_LEFT);
+        $pedido = str_pad((($d->codigo_ifood)?:$d->codigo), 6, "0", STR_PAD_LEFT);
 
             if($d->producao == 'pendente'){
                 mysqli_query($con, "update vendas set producao = 'producao' where codigo = '{$d->codigo}'");
                 $d->producao = 'producao';
 
-                $pedido = str_pad($d->codigo, 6, "0", STR_PAD_LEFT);
+                $pedido = str_pad((($d->codigo_ifood)?:$d->codigo), 6, "0", STR_PAD_LEFT);
                 $mensagem = "*BK Manaus Informa* - O pedido *#{$pedido}* foi recebido pela loja e está sendo preparado.";
                 EnviarWapp($d->telefone,$mensagem);
 
@@ -332,7 +332,7 @@
 
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        <i class="fa-solid fa-receipt"></i> Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT).(($ifood)?' (ifood) ':false)?>
+                        <i class="fa-solid fa-receipt"></i> Pedido #<?=str_pad((($d->codigo_ifood)?:$d->codigo), 6, "0", STR_PAD_LEFT).(($ifood)?' (ifood) ':false)?>
                         <br>
                         <i class="fa-solid fa-user"></i> <?=$d->nome?>
                     </div>
