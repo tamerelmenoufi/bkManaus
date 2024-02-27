@@ -47,12 +47,7 @@
 ?>
             <div class="d-flex bd-highlight">
                 <div class="p-1 flex-grow-1 bd-highlight tamanho">
-                    <div class="form-check">
-                        <input class="form-check-input" id="produto<?=$p->codigo?>" type="checkbox" value="<?=$p->codigo?>" valor="<?=(($c->codigo == 8)?CalculaValorCombo($p->codigo):$p->valor)?>" >
-                        <label class="form-check-label" for="produto<?=$p->codigo?>">
-                            <?=$p->produto?>
-                        </label>
-                    </div>
+                    <?=$p->produto?>
                 </div>
                 <div class="p-1 bd-highlight tamanho" style="width:90px;" >
                     <div class="d-flex justify-content-between">
