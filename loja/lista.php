@@ -39,7 +39,7 @@
 
             if($d->pagamento == 'ifood'){
                 $ifood = json_decode($d->ifood);
-                $d->nome = $ifood['cliente']['nome'];
+                $d->nome = $ifood->cliente->nome;
             }
 
                 if(!$d->producao or $d->producao == 'pendente'){
