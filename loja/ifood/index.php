@@ -344,16 +344,45 @@
                 return false;                
             }
 
-            data = {"cliente":{nome, telefone}, "endereco":{cep, logradouro, numero, complemento, ponto_referencia, bairro, localidade, uf}, "codigo":codigo_ifood, "pedido":produtos, "acao":"insert", "loja":"<?=$_SESSION['bkLoja']?>"};
 
-            $.ajax({
-                url:"ifood/index.php",
-                type:"POST",
-                data,
-                success:function(dados){
-                    console.log(dados);
+
+            geocoder<?=$md5?> = new google.maps.Geocoder();
+            geocoder<?=$md5?>.geocode({ 'address': `Rua ${logradouro}, ${numero}, ${bairro}, Manaus, Amazonas, Brasil`, 'region': 'BR' }, (results, status) => {
+
+                if (status == google.maps.GeocoderStatus.OK) {
+
+                    if (results[0]) {
+
+                        var latitude<?=$md5?> = results[0].geometry.location.lat();
+                        var longitude<?=$md5?> = results[0].geometry.location.lng();
+
+                        coordenadas = `${latitude<?=$md5?>},${longitude<?=$md5?>}`;
+
+                        Carregando();
+
+                        data = {"cliente":{nome, telefone}, "endereco":{cep, logradouro, numero, complemento, ponto_referencia, bairro, localidade, uf}, "codigo":codigo_ifood, coordenadas, "pedido":produtos, "acao":"insert", "loja":"<?=$_SESSION['bkLoja']?>"};
+
+                        $.ajax({
+                            url:"ifood/index.php",
+                            type:"POST",
+                            data,
+                            success:function(dados){
+                                console.log(dados);
+                            }
+                        });                        
+
+                    }
                 }
-            });
+            })
+
+
+
+
+
+
+
+
+
 
         });
 
