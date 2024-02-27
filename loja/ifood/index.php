@@ -201,7 +201,14 @@
                     produtos.push({ codigo, quantidade, valor});
                 }
             })
-
+            if(!produtos){
+                $.alert({
+                    content:'Favor selecione o(s) produto(s) para criar o pedido!',
+                    title:"Pedido sem Produtos",
+                    type:"red",
+                })
+                return false;
+            }
             console.log(produtos);
         });
 
