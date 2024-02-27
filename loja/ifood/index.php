@@ -56,9 +56,9 @@
                 </div>
                 <div class="p-1 bd-highlight tamanho largura" >
                     <div class="d-flex justify-content-between">
-                        <i class="fa-regular fa-square-minus"></i>
+                        <i class="fa-regular fa-square-minus" style="font-size:25px; mrgin-right:5px;"></i>
                         <div style="width:40px; height:25px; border:solid 1px #ddd; text-align:center; padding:2px;">1</div>
-                        <i class="fa-regular fa-square-plus"></i>
+                        <i class="fa-regular fa-square-plus" style="font-size:25px; mrgin-left:5px;"></i>
                     </div>
                     <input type="number" class="form-control form-control-sm" v<?=$p->codigo?>>
                 </div>
