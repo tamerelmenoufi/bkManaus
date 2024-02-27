@@ -39,7 +39,7 @@
                         \"adicional\": 0,
                         \"anotacoes\": \"\",
                         \"quantidade\": {$val['quantidade']}
-                    },"
+                    }";
             }
         }
         $json .= implode(","$js);
