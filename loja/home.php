@@ -79,7 +79,7 @@
     }
 </style>
 <div class="barra_topo">
-    <i class="fa-solid fa-plus"></i> <img class="ifood" src="<?=$urlPainel?>/img/ifood.png?<?=date("YmdHis")?>" />
+    <img class="ifood" src="<?=$urlPainel?>/img/ifood.png?<?=date("YmdHis")?>" />
     <span class="fechar"><i class="fa-solid fa-right-from-bracket"></i> Sair</span>
     <h2><?=$l->nome?></h2>
 </div>
