@@ -205,7 +205,6 @@
             uf = 'AM';
 
             //Verificação dos produtos
-            dados = [];
             produtos = [];
             $("div[cod]").each(function(){
                 codigo = $(this).attr("cod");
@@ -250,7 +249,7 @@
                 return false;                
             }
 
-            dados.push({"cliente":{nome, telefone}, "endereco":{cep, logradouro, numero, complemento, ponto_referencia, bairro, localidade, uf}, "pedido":produtos})
+            dados = {"cliente":{nome, telefone}, "endereco":{cep, logradouro, numero, complemento, ponto_referencia, bairro, localidade, uf}, "pedido":produtos};
 
             console.log(dados);
         });
