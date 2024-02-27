@@ -43,16 +43,18 @@
 <?php
                 $query1 = "select * from produtos where categoria = '{$c->codigo}' and situacao = '1' and deletado != '1' order by produto";
                 $result1 = mysqli_query($con, $query1);
+                $k = 0;
                 while($p = mysqli_fetch_object($result1)){
+                    if($k%2 == 0) $bg = '#fff'; else $bg = '#eee';
 ?>
             <div class="d-flex bd-highlight">
                 <div class="p-1 flex-grow-1 bd-highlight tamanho">
                     <?=$p->produto?>
                 </div>
-                <div class="p-1 bd-highlight tamanho" style="width:90px;" >
+                <div class="p-1 bd-highlight tamanho" style="width:90px; background-color:<?=$bg?>" >
                     <div class="d-flex justify-content-between">
                         <i class="fa-regular fa-square-minus" style="font-size:25px; mrgin-right:5px; color:red; opacity:0.5"></i>
-                        <div style="width:40px; height:25px; text-align:center; padding:2px;">1</div>
+                        <div style="width:40px; height:25px; text-align:center; padding:2px;">0</div>
                         <i class="fa-regular fa-square-plus" style="font-size:25px; mrgin-left:5px; color:green; opacity:0.5"></i>
                     </div>
                 </div>
@@ -61,6 +63,7 @@
                 </div>
             </div>
 <?php
+            $k++;
                 }
 ?>
         </div>
