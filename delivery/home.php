@@ -105,6 +105,14 @@
             while($d = mysqli_fetch_object($result)){
 
             $delivery = json_decode($d->delivery_detalhes);
+
+
+            if($d->pagamento == 'ifood'){
+                $ifood = json_decode($d->ifood);
+                $d->nome = $ifood->cliente->nome;
+                $d->codigo_ifood = $ifood->codigo;
+            }
+
             ?>
                 <li class="list-group-item <?=(($d->producao != 'entregue')?'bg-secondary-subtle':'bg-success-subtle')?>" pedido="<?=$d->codigo?>">
                     <div class="d-flex justify-content-between">
