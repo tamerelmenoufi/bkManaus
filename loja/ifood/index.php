@@ -23,7 +23,7 @@
                             },
                             \"status\": \"true\",
                             \"adicional\": 0,
-                            \"anotacoes\": "",
+                            \"anotacoes\": \"\",
                             \"quantidade\": {$val['quantidade']}
                         }";
             }else{
