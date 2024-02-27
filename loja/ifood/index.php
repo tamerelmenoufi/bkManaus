@@ -134,6 +134,26 @@
             $(`div[grupo="${opc}"]`).css("display","block");
         })
 
+        $(".mais").click(function(){
+            cod = $(this).attr("cod");
+            qt = $(`div[cod="${cod}"]`).attr("qt");
+            qt = (qt*1 + 1);
+            $(`div[cod="${cod}"]`).attr("qt",qt);
+            $(`div[cod="${cod}"]`).html(qt);
+        })
+
+        $(".menos").click(function(){
+            cod = $(this).attr("cod");
+            qt = $(`div[cod="${cod}"]`).attr("qt");
+            if(qt > 1){
+                qt = (qt*1 - 1);
+            }else{
+                qt = 1;
+            }
+            $(`div[cod="${cod}"]`).attr("qt",qt);
+            $(`div[cod="${cod}"]`).html(qt);
+        })
+
 
         $("#cep").blur(function(){
             cep = $(this).val();
