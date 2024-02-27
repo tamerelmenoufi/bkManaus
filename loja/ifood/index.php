@@ -47,11 +47,11 @@
                 while($p = mysqli_fetch_object($result1)){
                     if($k%2 == 0) $bg = '#fff'; else $bg = '#eee';
 ?>
-            <div class="d-flex bd-highlight">
+            <div l<?=$p->codigo?> class="d-flex bd-highlight">
                 <div class="p-1 flex-grow-1 bd-highlight tamanho">
                     <?=$p->produto?>
                 </div>
-                <div l<?=$p->codigo?> class="p-1 bd-highlight tamanho" style="width:90px; background-color:<?=$bg?>" >
+                <div class="p-1 bd-highlight tamanho" style="width:90px; background-color:<?=$bg?>" >
                     <div class="d-flex justify-content-between">
                         <i class="fa-regular fa-square-minus menos" cod="<?=$p->codigo?>" style="font-size:25px; mrgin-right:5px; color:red; opacity:0.5; cursor:pointer;"></i>
                         <div
