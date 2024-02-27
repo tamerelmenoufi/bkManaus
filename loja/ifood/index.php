@@ -197,7 +197,7 @@
                 codigo = $(this).attr("cod");
                 quantidade = $(this).attr("qt");
                 valor = $(this).attr("valor");
-                if(qt > 0){
+                if(quantidade > 0){
                     produtos.push({ codigo, quantidade, valor});
                 }
             })
