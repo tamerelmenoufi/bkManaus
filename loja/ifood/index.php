@@ -42,7 +42,7 @@
                     }";
             }
         }
-        $json .= implode(","$js);
+        $json .= implode(",", $js);
         $json .= '}';
 
         echo $json;
