@@ -56,7 +56,7 @@
                 <li class="list-group-item <?=$bg?>" pedido="<?=$d->codigo?>">
                     <div class="d-flex justify-content-between">
                         <div>
-                            Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?>
+                            Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT).(($ifood)?' (ifood) ':false)?>
                             <br>
                             <?=$d->nome?>
                         </div>

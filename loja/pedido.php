@@ -317,6 +317,7 @@
                 $d->nome = $ifood->cliente->nome;
                 $d->telefone = $ifood->cliente->telefone;
                 $d->endereco = "{$ifood->endereco->logradouro}, {$ifood->endereco->numero}, {$ifood->endereco->bairro}, {$ifood->endereco->complemento}, ".(($ifood->endereco->ponto_referencia)?"({$ifood->endereco->ponto_referencia})":false);
+                $ifood = 'ifood';
             }
 
         ?>
@@ -324,7 +325,7 @@
 
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        <i class="fa-solid fa-receipt"></i> Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?>
+                        <i class="fa-solid fa-receipt"></i> Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT).(($ifood)?' (ifood) ':false)?>
                         <br>
                         <i class="fa-solid fa-user"></i> <?=$d->nome?>
                     </div>
