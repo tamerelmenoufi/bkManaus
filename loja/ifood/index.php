@@ -1,6 +1,11 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+    if($_POST['acao'] == 'insert'){
+        print_r($_POST);
+        exit();
+    }
+
 
     if($_POST['cep']){
         $cep = str_replace('-',false,$_POST['cep']);
@@ -249,9 +254,17 @@
                 return false;                
             }
 
-            dados = {"cliente":{nome, telefone}, "endereco":{cep, logradouro, numero, complemento, ponto_referencia, bairro, localidade, uf}, "pedido":produtos};
+            data = {"cliente":{nome, telefone}, "endereco":{cep, logradouro, numero, complemento, ponto_referencia, bairro, localidade, uf}, "pedido":produtos, "acao":"insert"};
 
-            console.log(dados);
+            $.ajax({
+                url:"ifood/index.php",
+                type:"POST",
+                data,
+                success:function(dados){
+                    console.log(dados);
+                }
+            });
+
         });
 
     })
