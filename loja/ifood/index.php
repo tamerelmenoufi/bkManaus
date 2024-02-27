@@ -240,7 +240,7 @@
                 !logradouro || 
                 !numero || 
                 !ponto_referencia || 
-                !bairro || 
+                !bairro
             ){
                 $.alert({
                     content:'Preencha o endereço nos campos com * (obrigatórios)!',
