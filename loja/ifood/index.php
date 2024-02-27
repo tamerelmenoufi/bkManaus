@@ -53,9 +53,14 @@
                 </div>
                 <div class="p-1 bd-highlight tamanho" style="width:90px; background-color:<?=$bg?>" >
                     <div class="d-flex justify-content-between">
-                        <i class="fa-regular fa-square-minus" style="font-size:25px; mrgin-right:5px; color:red; opacity:0.5"></i>
-                        <div style="width:40px; height:25px; text-align:center; padding:2px;">0</div>
-                        <i class="fa-regular fa-square-plus" style="font-size:25px; mrgin-left:5px; color:green; opacity:0.5"></i>
+                        <i class="fa-regular fa-square-minus menos" cod="<?=$p->codigo?>" style="font-size:25px; mrgin-right:5px; color:red; opacity:0.5; cursor:pointer;"></i>
+                        <div
+                            style="width:40px; height:25px; text-align:center; padding:2px;"
+                            cod="<?=$p->codigo?>"
+                            qt="0"
+                            valor="<?=(($c->codigo == 8)?CalculaValorCombo($p->codigo):$p->valor)?>"
+                        >0</div>
+                        <i class="fa-regular fa-square-plus mais" cod="<?=$p->codigo?>" style="font-size:25px; mrgin-left:5px; color:green; opacity:0.5; cursor:pointer;"></i>
                     </div>
                 </div>
                 <div class="p-1 bd-highlight tamanho largura" >
@@ -69,7 +74,7 @@
         </div>
 <?php
         }
-    ?>
+?>
 
     <div class="p-2">
         <h4>Cliente</h4>
