@@ -52,7 +52,7 @@
                 <div class="p-1 bd-highlight tamanho" style="width:90px;" >
                     <div class="d-flex justify-content-between">
                         <i class="fa-regular fa-square-minus" style="font-size:25px; mrgin-right:5px; color:red; opacity:0.5"></i>
-                        <div style="width:40px; height:25px; border:solid 1px #ddd; text-align:center; padding:2px;">1</div>
+                        <div style="width:40px; height:25px; text-align:center; padding:2px;">1</div>
                         <i class="fa-regular fa-square-plus" style="font-size:25px; mrgin-left:5px; color:green; opacity:0.5"></i>
                     </div>
                 </div>
