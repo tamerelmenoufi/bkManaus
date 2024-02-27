@@ -37,6 +37,11 @@
 
             $delivery = json_decode($d->delivery_detalhes);
 
+            if($d->pagamento == 'ifood'){
+                $ifood = json_decode($d->ifood);
+                $d->nome = $ifood['cliente']['nome'];
+            }
+
                 if(!$d->producao or $d->producao == 'pendente'){
                     $bg = 'bg-secondary';
                 }elseif($d->producao == 'producao'){
