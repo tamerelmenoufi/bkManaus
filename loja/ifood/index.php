@@ -3,6 +3,50 @@
 
     if($_POST['acao'] == 'insert'){
 
+        $json = '{';
+        foreach($_POST['pedido'] as $ind => $val){
+            if($val['tipo'] == 'combo'){
+                $js[] = "\"item{$val['codigo']}\": {
+                            \"tipo\": \"combo\",
+                            \"total\": {$val['valor']},
+                            \"valor\": {$val['valor']},
+                            \"codigo\": {$val['codigo']},
+                            \"regras\": {
+                                \"combo\": {
+                                    \"remocao\": [],
+                                    \"inclusao\": [],
+                                    \"substituicao\": [],
+                                    \"inclusao_valor\": [],
+                                    \"substituicao_valor\": [],
+                                    \"inclusao_quantidade\": []
+                                }
+                            },
+                            \"status\": \"true\",
+                            \"adicional\": 0,
+                            \"anotacoes\": "",
+                            \"quantidade\": {$val['quantidade']}
+                        }";
+            }else{
+                $js[] = "\"item{$val['codigo']}\": {
+                        \"tipo\": \"produto\",
+                        \"total\": {$val['valor']},
+                        \"valor\": {$val['valor']},
+                        \"codigo\": {$val['codigo']},
+                        \"regras\": {
+                            \"categoria\": \"{$val['categoria']}\"
+                        },
+                        \"status\": \"true\",
+                        \"adicional\": 0,
+                        \"anotacoes\": \"\",
+                        \"quantidade\": {$val['quantidade']}
+                    },"
+            }
+        }
+        $json .= implode(","$js);
+        $json .= '}';
+
+        echo $json;
+
 /*
         {
             "item13": {
@@ -73,7 +117,7 @@
         }
 //*/
 
-        print_r($_POST);
+        // print_r($_POST);
         exit();
     }
 
