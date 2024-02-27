@@ -100,6 +100,14 @@
 </style>
 <h4>Pedido do ifood</h4>
 <div style="position:absolute; left:0; right:0; top:70px; bottom:0; overflow:auto; padding:10px;">
+
+<div class="p-2">
+    <div class="mb-3">
+        <label for="telefone" class="form-label">Número do Pedido ifood*</label>
+        <input type="text" class="form-control" id="codigo" >
+    </div>   
+</div>
+
     <?php
         $query = "select * from categorias where situacao = '1' and deletado != '1' order by ordem";
         $result = mysqli_query($con, $query);
@@ -267,6 +275,7 @@
 
         $("button[incluir]").click(function(){
 
+            codigo_ifood = $("#codigo").val();
             telefone = $("#telefone").val();
             nome = $("#nome").val();
             cep = $("#cep").val();
@@ -277,6 +286,16 @@
             bairro = $("#bairro").val();
             localidade = 'Manaus';
             uf = 'AM';
+
+            //Verificação do código do pedido
+            if(!codigo_ifood){
+                $.alert({
+                    content:'Favor informe o número do pedido!',
+                    title:"Número do Pedido",
+                    type:"red",
+                })
+                return false;
+            }
 
             //Verificação dos produtos
             produtos = [];
@@ -325,7 +344,7 @@
                 return false;                
             }
 
-            data = {"cliente":{nome, telefone}, "endereco":{cep, logradouro, numero, complemento, ponto_referencia, bairro, localidade, uf}, "pedido":produtos, "acao":"insert", "loja":"<?=$_SESSION['bkLoja']?>"};
+            data = {"cliente":{nome, telefone}, "endereco":{cep, logradouro, numero, complemento, ponto_referencia, bairro, localidade, uf}, "codigo":codigo_ifood, "pedido":produtos, "acao":"insert", "loja":"<?=$_SESSION['bkLoja']?>"};
 
             $.ajax({
                 url:"ifood/index.php",
