@@ -28,10 +28,23 @@
             left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
             where a.codigo = '{$_SESSION['Dpedido']}'"));
 
+        if($v->pagamento == 'ifood'){
+            $ifood = json_decode($v->ifood);
+            $v->codigo_ifood = $ifood->codigo;
+            $v->Cnome = $ifood->cliente->nome;
+            $v->Ctelefone = $ifood->cliente->telefone;
+            
+            $v->Elogradouro = $ifood->endereco->logradouro;
+            $v->Enumero = $ifood->endereco->numero;
+            $v->Ebairro = $ifood->endereco->bairro;
+            $v->Ecomplemento = $ifood->endereco->complemento;
+            $v->Eponto_referencia = $ifood->endereco->ponto_referencia;
+        }
+
         $q = "update vendas set producao = 'producao', delivery_id = '', delivery_detalhes = '{}' where codigo = '{$_SESSION['Dpedido']}'";
         mysqli_query($con, $q);
 
-        $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
+        $pedido = str_pad((($v->codigo_ifood)?:$v->codigo), 6, "0", STR_PAD_LEFT);
         $mensagem = "*BK Manaus Informa* - Estamos buscando um novo entregador para agilizar a entrega do pedido *#{$pedido}*.";
         EnviarWapp($v->Ctelefone,$mensagem);
 
@@ -78,7 +91,20 @@
             left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
             where a.codigo = '{$_POST['pedido']}'"));
 
-        $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
+        if($v->pagamento == 'ifood'){
+            $ifood = json_decode($v->ifood);
+            $v->codigo_ifood = $ifood->codigo;
+            $v->Cnome = $ifood->cliente->nome;
+            $v->Ctelefone = $ifood->cliente->telefone;
+            
+            $v->Elogradouro = $ifood->endereco->logradouro;
+            $v->Enumero = $ifood->endereco->numero;
+            $v->Ebairro = $ifood->endereco->bairro;
+            $v->Ecomplemento = $ifood->endereco->complemento;
+            $v->Eponto_referencia = $ifood->endereco->ponto_referencia;
+        }
+
+        $pedido = str_pad((($v->codigo_ifood)?:$v->codigo), 6, "0", STR_PAD_LEFT);
         $mensagem = "*BK Manaus Informa* - O pedido *#{$pedido}*, foi confirmado como entregue.";
         
         EnviarWapp($v->Ctelefone,$mensagem);
@@ -126,6 +152,15 @@
         $result = mysqli_query($con, $query);
         $d = mysqli_fetch_object($result);
 
+        if($d->pagamento == 'ifood'){
+            $ifood = json_decode($d->ifood);
+            $d->codigo_ifood = $ifood->codigo;
+            $d->nome = $ifood->cliente->nome;
+            $d->telefone = $ifood->cliente->telefone;
+            $d->endereco = "{$ifood->endereco->logradouro}, {$ifood->endereco->numero}, {$ifood->endereco->bairro}, {$ifood->endereco->complemento}, ".(($ifood->endereco->ponto_referencia)?"({$ifood->endereco->ponto_referencia})":false);
+            $ifood = 'ifood';
+        }
+
             if($d->producao == 'pendente'){
                 mysqli_query($con, "update vendas set producao = 'producao' where codigo = '{$d->codigo}'");
                 $d->producao = 'producao';
@@ -139,7 +174,7 @@
 
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        <i class="fa-solid fa-receipt"></i> Pedido #<?=str_pad($d->codigo, 6, "0", STR_PAD_LEFT)?>
+                        <i class="fa-solid fa-receipt"></i> Pedido #<?=str_pad((($d->codigo_ifood)?:$d->codigo), 6, "0", STR_PAD_LEFT).(($d->codigo_ifood)?' (ifood)':false)?>
                         <br>
                         <i class="fa-solid fa-user"></i> <?=$d->nome?>
                     </div>
