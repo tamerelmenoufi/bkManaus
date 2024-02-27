@@ -111,6 +111,12 @@
                 $ifood = json_decode($d->ifood);
                 $d->nome = $ifood->cliente->nome;
                 $d->codigo_ifood = $ifood->codigo;
+                            
+                $d->Elogradouro = $ifood->endereco->logradouro;
+                $d->Enumero = $ifood->endereco->numero;
+                $d->Ebairro = $ifood->endereco->bairro;
+                $d->Ecomplemento = $ifood->endereco->complemento;
+                $d->Eponto_referencia = $ifood->endereco->ponto_referencia;
             }
 
             ?>
