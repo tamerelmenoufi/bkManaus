@@ -129,6 +129,20 @@
                                                     left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
                                                     where a.codigo = '{$_SESSION['pedido']}'"));
 
+        if($v->pagamento == 'ifood'){
+            $ifood = json_decode($v->ifood);
+            $v->Cnome = $ifood->cliente->nome;
+            $v->Ctelefone = $ifood->cliente->telefone;
+           
+            $v->Elogradouro = $ifood->endereco->logradouro;
+            $v->Enumero = $ifood->endereco->numero;
+            $v->Ebairro = $ifood->endereco->bairro;
+            $v->Ecomplemento = $ifood->endereco->complemento;
+            $v->Eponto_referencia = $ifood->endereco->ponto_referencia;
+        }
+
+
+
         $endereco = trim("{$v->Elogradouro} {$v->Enumero} {$v->Ebairro} {$v->complemento} {$v->ponto_referencia}");
 
         $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
@@ -176,6 +190,18 @@
                                                     left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
                                                     where a.codigo = '{$_SESSION['pedido']}'"));
         
+        if($v->pagamento == 'ifood'){
+            $ifood = json_decode($v->ifood);
+            $v->Cnome = $ifood->cliente->nome;
+            $v->Ctelefone = $ifood->cliente->telefone;
+            
+            $v->Elogradouro = $ifood->endereco->logradouro;
+            $v->Enumero = $ifood->endereco->numero;
+            $v->Ebairro = $ifood->endereco->bairro;
+            $v->Ecomplemento = $ifood->endereco->complemento;
+            $v->Eponto_referencia = $ifood->endereco->ponto_referencia;
+        }
+
         $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
         $mensagem = "*BK Manaus Informa* - Estamos buscando um novo entregador para agilizar a entrega do pedido *#{$pedido}*.";
         EnviarWapp($v->Ctelefone,$mensagem);
@@ -222,6 +248,18 @@
             left join lojas d on a.loja = d.codigo
             left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
             where a.codigo = '{$_POST['pedido']}'"));
+
+        if($v->pagamento == 'ifood'){
+            $ifood = json_decode($v->ifood);
+            $v->Cnome = $ifood->cliente->nome;
+            $v->Ctelefone = $ifood->cliente->telefone;
+            
+            $v->Elogradouro = $ifood->endereco->logradouro;
+            $v->Enumero = $ifood->endereco->numero;
+            $v->Ebairro = $ifood->endereco->bairro;
+            $v->Ecomplemento = $ifood->endereco->complemento;
+            $v->Eponto_referencia = $ifood->endereco->ponto_referencia;
+        }
 
         $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
         $mensagem = "*BK Manaus Informa* - O pedido *#{$pedido}*, foi confirmado como entregue.";
