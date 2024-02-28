@@ -1,5 +1,7 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
+    header("location:https://painel.bkmanaus.com.br/app/");
+    exit();
     $idUnico = uniqid();
     if($_GET['s']) {
         mysqli_query($con, "update vendas_tmp set cliente = '' where id_unico = '{$_SESSION['idUnico']}'");
