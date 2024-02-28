@@ -150,9 +150,7 @@
 
             $("body").attr("device", idUnico);
 
-
             $(".CorpoApp").css("min-height", $(window).height());
-
 
             $(".popupFecha").click(function(){
                 $(".popupPalco").html('');
