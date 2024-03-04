@@ -137,7 +137,7 @@
 
             // return false;
 
-            if(distancia > 8){
+            if(distancia > 7999){
                 $.alert({
                     title:"Limite de Distância",
                     content:`Infelizmente o seu endereço está fora da nossa área de entregas. Logo estaremos entregando para todos os bairros de Manaus.`,
