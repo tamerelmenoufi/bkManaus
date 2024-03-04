@@ -97,6 +97,7 @@
         taxa = ($("span[valor_taxa].ativo").attr("valor_taxa"))*1;
         codTaxa = ($("span[codigo_taxa].ativo").attr("codigo_taxa"));
         loja = ($("span[codigo_taxa].ativo").attr("loja"));
+        distancia = ($("span[distancia].ativo").attr("distancia"))*1;
         pagar = (total*1+taxa*1);
 
         $("span[total]").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
@@ -116,6 +117,7 @@
             taxa = ($("span[valor_taxa].ativo").attr("valor_taxa"))*1;
             codTaxa = ($("span[codigo_taxa].ativo").attr("codigo_taxa"));
             loja = ($("span[codigo_taxa].ativo").attr("loja"));
+            distancia = ($("span[distancia].ativo").attr("distancia"))*1;
             pagar = (total*1+taxa*1);
             
             cupom = 0;
@@ -134,6 +136,16 @@
             // alert(codVenda);
 
             // return false;
+
+            if(distancia > 8){
+                $.alert({
+                    title:"Limite de Distância",
+                    content:`Infelizmente o seu endereço está fora da nossa área de entregas. Logo estaremos entregando para todos os bairros de Manaus.`,
+                    type:"red"
+                });
+                return false;
+            }
+
 
             $.confirm({
                 title:"Confirmação de pagamento",

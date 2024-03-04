@@ -105,6 +105,7 @@
                 if($local->status == 'OK'){
 
                     $vl = $local->routes[0]->legs[0]->distance->value;
+                    $distancia = $vl;
                     $vl = number_format($vl/1000,1,"-",false);
                     list($int, $dec) = explode("-", $vl);
                     $vl = ($int + (($dec > 0)?1:0) + 7); 
@@ -131,11 +132,11 @@
 
         <div class="d-flex justify-content-between">
             <div class="enderecoLabel" codigo="<?=$c->codigo?>">
-                <i class="fa-solid fa-location-dot"></i>
+                <i class="fa-solid fa-location-dot"></i> (<?=$distancia?>)
                 <?="{$c->logradouro}, {$c->numero}, {$c->bairro}"?>
             </div>
             <div class="d-flex justify-content-between">
-            <span class="padraoRotulo <?=(($c->padrao == '1')?'ativo':false)?>" style="padding-right:5px; padding-left:5px; color:#a1a1a1; font-size:14px; white-space:nowrap; display:<?=(($c->padrao == '1')?'block':'none')?>" valor_taxa="<?=$vlopc?>" codigo_taxa="<?=$codTaxa?>" loja="<?=$loja?>">R$ <?=number_format($vlopc,2,',',false)?></span>
+            <span class="padraoRotulo <?=(($c->padrao == '1')?'ativo':false)?>" style="padding-right:5px; padding-left:5px; color:#a1a1a1; font-size:14px; white-space:nowrap; display:<?=(($c->padrao == '1')?'block':'none')?>" distancia="<?=$distancia?>" valor_taxa="<?=$vlopc?>" codigo_taxa="<?=$codTaxa?>" loja="<?=$loja?>">R$ <?=number_format($vlopc,2,',',false)?></span>
             <div class="form-check form-switch">
                 <input class="form-check-input padrao" type="radio" name="padrao" role="switch" value="<?=$c->codigo?>" <?=(($c->padrao == '1')?'checked':false)?> id="flexSwitchCheckDefault<?=$c->codigo?>">
             </div>
