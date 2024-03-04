@@ -132,7 +132,7 @@
 
         <div class="d-flex justify-content-between">
             <div class="enderecoLabel" codigo="<?=$c->codigo?>">
-                <i class="fa-solid fa-location-dot"></i> (<?=$distancia?>)
+                <i class="fa-solid fa-location-dot"></i> 
                 <?="{$c->logradouro}, {$c->numero}, {$c->bairro}"?>
             </div>
             <div class="d-flex justify-content-between">
