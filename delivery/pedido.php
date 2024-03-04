@@ -187,7 +187,7 @@
                 </div>
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        <i class="fa-solid fa-mobile-screen-button"></i> <a href="tel:<?=$d->telefone?>"><?=$d->telefone/*substr($d->telefone,0,6).'****-**'.substr($d->telefone,-2)*/?></a>
+                        <i class="fa-solid fa-mobile-screen-button"></i> <?=$d->telefone/*substr($d->telefone,0,6).'****-**'.substr($d->telefone,-2)*/?>
                         <a href="tel:<?=$d->telefone?>"><i class="fa-solid fa-phone-volume" style="color:blue; margin-left:20px;"></i> Ligar</a>
                         <a href="https://api.whatsapp.com/send?phone=<?=str_replace([' ','-','(',')'],false,"+55".$d->telefone)?>"><i class="fa-brands fa-whatsapp" style="color:blue; margin-left:20px;"></i> Mensagem</a>
                     </div>
