@@ -187,7 +187,7 @@
                 </div>
                 <div class="d-flex justify-content-between dados">
                     <div>
-                        <i class="fa-solid fa-mobile-screen-button"></i> <?=$d->telefone/*substr($d->telefone,0,6).'****-**'.substr($d->telefone,-2)*/?>
+                        <i class="fa-solid fa-mobile-screen-button"></i> <a href="tel:<?=$d->telefone?>"><?=$d->telefone/*substr($d->telefone,0,6).'****-**'.substr($d->telefone,-2)*/?></a>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between dados">
