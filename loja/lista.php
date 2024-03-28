@@ -62,6 +62,9 @@
                             <?=$d->nome?>
                         </div>
                         <div>
+                            Data: <?=dataBr($d->data)?>
+                        </div>
+                        <div>
                             Entrega: <?=$d->entrega?>
                             <br>
                             Retorno: <?=$d->retorno?>
