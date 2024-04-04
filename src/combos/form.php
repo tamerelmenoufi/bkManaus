@@ -287,7 +287,7 @@
                 <div style="display:flex; justify-content:end">
                     <button type="submit" class="btn btn-success btn-ms">Salvar</button>
                     <input type="hidden" id="codigo" value="<?=$_POST['cod']?>" />
-                    <input type="hidden" name="categoria" id="categoria" value="<?=$_POST['cod']?>" />
+                    <input type="hidden" name="categoria" id="categoria" value="<?=$_SESSION['categoria']?>" />
                 </div>
             </div>
         </div>
