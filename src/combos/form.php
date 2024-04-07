@@ -72,7 +72,7 @@
 
 
         foreach ($data as $name => $value) {
-            $attr[] = "{$name} = '" . addslashes(mysqli_real_escape_string($con, $value)) . "'";
+            $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
         }
 
         $attr = implode(', ', $attr);
