@@ -77,23 +77,22 @@
 
 
         foreach ($data as $name => $value) {
-
-            $j = [
-                'produtos', 'categorias_itens', 'categorias_troca', 'itens_add', 'itens_troca', 'itens'
-            ];
-
-            if(in_array($nome,$j) and !$value) $value = '[]';
-
             $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
         }
 
-        $attr = implode(', ', $attr);
-
         if($_POST['codigo']){
+            $attr = implode(', ', $attr);
             $query = "update produtos set {$attr} where codigo = '{$_POST['codigo']}'";
             sisLog($query);
             $cod = $_POST['codigo'];
         }else{
+            $j = [
+                'categorias_itens', 'categorias_troca', 'itens_add', 'itens_troca', 'itens'
+            ];
+            foreach($j as $ji => $jv){
+                $attr[] = "{$ji} = '" . $jv . "'";
+            }
+            $attr = implode(', ', $attr);
             $query = "insert into produtos set {$attr}";
             sisLog($query);
             $cod = mysqli_insert_id($con);
