@@ -85,7 +85,7 @@
                 'categorias_itens', 'categorias_troca', 'itens_add', 'itens_troca', 'itens'
             ];
             foreach($j as $ji => $jv){
-                $attr[] = "{$ji} = '" . $jv . "'";
+                $attr[] = "{$ji} = '[]'";
             }
             $attr = implode(', ', $attr);
             $query = "insert into produtos set {$attr}";
