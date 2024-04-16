@@ -54,7 +54,7 @@
     }
 
    
-    echo $query = "select *,
+    $query = "select *,
                         itens->>'$[*].item' as lista_itens, 
                         itens_add->>'$[*].item' as lista_add, 
                         itens_troca->>'$[*].item' as lista_troca, 
