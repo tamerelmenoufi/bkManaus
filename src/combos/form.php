@@ -85,7 +85,7 @@
                 'categorias_itens', 'categorias_troca', 'itens_add', 'itens_troca', 'itens'
             ];
             foreach($j as $ji => $jv){
-                $attr[] = "{$ji} = '[]'";
+                $attr[] = "{$jv} = '[]'";
             }
             $attr = implode(', ', $attr);
             $query = "insert into produtos set {$attr}";
@@ -95,7 +95,7 @@
 
         $retorno = [
             'status' => true,
-            'codigo' => $query
+            'codigo' => $cod
         ];
 
         echo json_encode($retorno);
@@ -450,7 +450,7 @@
                     mimeType: 'multipart/form-data',
                     data: campos,
                     success:function(dados){
-                        console.log(dados);
+                        // console.log(dados);
                         // if(dados.status){
                             $.ajax({
                                 url:"src/combos/index.php",
