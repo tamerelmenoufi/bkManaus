@@ -77,6 +77,13 @@
 
 
         foreach ($data as $name => $value) {
+
+            $j = [
+                'produtos', 'categorias_itens', 'categorias_troca', 'itens_add', 'itens_troca', 'itens'
+            ];
+
+            if(in_array($nome,$j) and !$value) $value = '[]';
+
             $attr[] = "{$name} = '" . mysqli_real_escape_string($con, $value) . "'";
         }
 
