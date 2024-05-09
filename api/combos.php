@@ -4,7 +4,7 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($_POST))
     $_POST = json_decode(file_get_contents('php://input'), true);
 
-    $q = "select * from produtos where situacao = '1' and deletado != '1' /*and valor > 0 and icon != ''*/ ".(($_POST['categoria'])?" and categoria = '{$_POST['categoria']}'":false);
+    $q = "select * from produtos where situacao = '1' and deletado != '1' and categoria = '8'";
     $r = mysqli_query($con, $q);
     
     $p = [];
