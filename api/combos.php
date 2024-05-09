@@ -24,6 +24,7 @@
             }
     
             $d->descricao = "- ".implode("\n- ", $prd);
+            $d->valor = (($d->promocao == '1')?$d->valor_promocao:CalculaValorCombo($d->codigo));
         }
 
         $p[] = $d;
