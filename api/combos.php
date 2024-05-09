@@ -23,7 +23,7 @@
                 $prd[] = $d1->produto;
             }
     
-            $d->descricao = implode("\n- ", $prd);
+            $d->descricao = "- ".implode("\n- ", $prd);
         }
 
         $p[] = $d;
