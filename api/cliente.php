@@ -8,25 +8,19 @@
 
     $query = "select * from enderecos where cliente = '{$_POST['cliente']}'";
     $result = mysqli_query($con, $query);
-    $enderecos = [];
-    $padrao = [];
+    $c = [];
     while($d = mysqli_fetch_object($result)){
         if($d->padrao){
-            $padrao = $d;
+            $c['padrao'] = $d;
         }
-            $enderecos[] = $d;
+            $c['enderecos'][] = $d;
     }
 
     $query = "select * from clientes where codigo = '{$_POST['cliente']}'";
     $result = mysqli_query($con, $query);
-    $cliente = [];
     $d = mysqli_fetch_object($result);
     if($d->codigo){
-        $cliente = $d;
+        $c['cliente'] = $d;
     }
 
-    // print_r($cliente);
-
-    $c = array_merge($cliente, $enderecos);
-
-    echo json_encode($padrao);
+    echo json_encode($c);
