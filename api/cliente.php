@@ -27,6 +27,6 @@
 
     // print_r($cliente);
 
-    $c = array_merge($cliente);
+    $c = array_merge($cliente, $enderecos);
 
     echo json_encode($padrao);
