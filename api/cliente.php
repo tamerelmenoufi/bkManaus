@@ -29,4 +29,4 @@
 
     // $c = array_merge($cliente);
 
-    echo json_encode($enderecos);
+    echo json_encode($padrao);
