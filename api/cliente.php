@@ -27,6 +27,6 @@
 
     print_r($cliente);
 
-    $c = array_merge($cliente);
+    // $c = array_merge($cliente);
 
-    echo json_encode($c);
+    echo json_encode($cliente);
