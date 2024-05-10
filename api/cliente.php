@@ -29,4 +29,4 @@
 
     // $c = array_merge($cliente);
 
-    echo json_encode($cliente);
+    echo json_encode($enderecos);
