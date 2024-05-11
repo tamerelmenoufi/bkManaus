@@ -19,7 +19,10 @@
         $c['vendas_tmp'] = [];
 
     }else{
-        $c['vendas_tmp'] = json_decode($d->detalhes);
+        $c['vendas_tmp'] = [
+                            'cliente'=> $d->cliente,
+                            'id_unico'=> $d->id_unico, 
+                            json_decode($d->detalhes)];
     }
 
     $query = "select * from enderecos where cliente = '{$d->cliente}'";
