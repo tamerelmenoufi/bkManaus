@@ -4,6 +4,8 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($_POST))
     $_POST = json_decode(file_get_contents('php://input'), true);
 
+    $_POST['id_unico'] = '1715380125060-9201';
+
     $query = "select * from vendas_tmp where id_unico = '{$_POST['id_unico']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
