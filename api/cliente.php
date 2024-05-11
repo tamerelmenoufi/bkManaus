@@ -11,7 +11,7 @@
     if(!$d->codigo){
 
         $query = "insert into vendas_tmp set id_unico = '{$_POST['id_unico']}', detalhes = '{}'";
-        $result = mysqli_query($query);
+        $result = mysqli_query($con, $query);
         $v = mysqli_fetch_object($result);
 
         $d->cliente = false;
