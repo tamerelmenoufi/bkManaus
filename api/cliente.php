@@ -32,18 +32,18 @@
     $c['padrao'] = [];
     $c['enderecos'] = [];
     $c['cliente'] = [];
-    while($d = mysqli_fetch_object($result)){
-        if($d->padrao){
-            $c['padrao'] = $d;
+    while($d1 = mysqli_fetch_object($result)){
+        if($d1->padrao){
+            $c['padrao'] = $d1;
         }
-            $c['enderecos'][] = $d;
+            $c['enderecos'][] = $d1;
     }
 
     $query = "select * from clientes where codigo = '{$d->cliente}'";
     $result = mysqli_query($con, $query);
-    $d = mysqli_fetch_object($result);
-    if($d->codigo){
-        $c['cliente'] = $d;
+    $d2 = mysqli_fetch_object($result);
+    if($d2->codigo){
+        $c['cliente'] = $d2;
     }
 
     echo json_encode($c);
