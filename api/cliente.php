@@ -22,7 +22,7 @@
         $c['vendas_tmp'] = [
                             'cliente'=> $d->cliente,
                             'id_unico'=> $d->id_unico, 
-                            json_decode($d->detalhes)];
+                            'venda' => json_decode($d->detalhes)];
     }
 
     $query = "select * from enderecos where cliente = '{$d->cliente}'";
