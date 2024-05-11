@@ -5,7 +5,16 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($_POST))
     $_POST = json_decode(file_get_contents('php://input'), true);
 
-    if($_POST['telefone']){
+    if($_POST['acao'] == 'ativar'){
+        $query = "select * from clientes where telefone = '{$_POST['telefone']}'";
+        $result = mysqli_query($con, $query);
+        $c = mysqli_fetch_object($result);
+
+        mysqli_query($con, "update vendas_tmp set cliente = '{$c->codigo}' where id_unico = '{$_POST['id_unico']}'");
+
+    }
+
+    if($_POST['acao'] == 'enviar_codigo'){
 
         $telefone = str_replace(['-',' ','(',')'],false,trim($_POST['telefone']));
     
@@ -46,7 +55,7 @@
                             'venda' => json_decode($d->detalhes)];
     }
 
-    $query = "select * from enderecos where cliente = '{$d->cliente}'";
+    $query = "select * from enderecos where cliente = '{$d->cliente}' and cliente > 0";
     $result = mysqli_query($con, $query);
     $c['padrao'] = [];
     $c['enderecos'] = [];
