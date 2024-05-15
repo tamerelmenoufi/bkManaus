@@ -1,7 +1,7 @@
 <?php
 
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
-    exit();
+    // exit();
     
     $delTab = ['dashboard', 'relatorios','sisLog','logs'];
     $dataTable = ['usuarios']; 
