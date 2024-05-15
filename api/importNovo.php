@@ -1,5 +1,6 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
+    exit();
 
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($_POST))
