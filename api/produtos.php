@@ -14,3 +14,5 @@
     }
     
     echo json_encode($p);
+
+    file_put_contents(date("YmdHis").".txt",json_encode($p));
