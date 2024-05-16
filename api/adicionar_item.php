@@ -53,7 +53,7 @@
 
 
     $c = [];
-    $query = "select * from vendas_tmp where id_unico = '{$_POST['id_unico']}'";
+    $query = "select * from vendas_tmp where id_unico = '{$_POST['idUnico']}'";
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
