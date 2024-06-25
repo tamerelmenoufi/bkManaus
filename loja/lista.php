@@ -32,7 +32,7 @@
         <ul class="list-group">
             <?php
             echo $query = "
-                        select b.* from ifood a
+                        select b.* from ifood b
                         union
                         select a.*, if(a.producao = 'pendente',0,1) as ordem, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['bkLoja']}' /*and data >= NOW() - INTERVAL 1 DAY*/ order by a.producao asc, a.data desc";
             $result = mysqli_query($con, $query);
