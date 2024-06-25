@@ -33,6 +33,7 @@
             <?php
             $query = "
             (select
+            'entrega' as tipo,
             a.codigo,	
             '' as device,	
             '' as detalhes,	
@@ -60,7 +61,7 @@
             '' as retorno
                     from ifood a)
                         union
-                        (select a.*, if(a.producao = 'pendente',0,1) as ordem, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['bkLoja']}' /*and data >= NOW() - INTERVAL 1 DAY*/) order by producao desc, data desc";
+                        (select 'pedido' as tipo, a.*, if(a.producao = 'pendente',0,1) as ordem, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['bkLoja']}' /*and data >= NOW() - INTERVAL 1 DAY*/) order by producao desc, data desc";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
 
@@ -83,7 +84,7 @@
                 }
 
             ?>
-                <li class="list-group-item <?=$bg?>" pedido="<?=$d->codigo?>">
+                <li class="list-group-item <?=$bg?>" <?=$d->tipo?>="<?=$d->codigo?>">
                     <div class="d-flex justify-content-between">
                         <div>
                             Pedido #<?=str_pad((($d->codigo_ifood)?:$d->codigo), 6, "0", STR_PAD_LEFT).(($ifood)?' (ifood) ':false)?>
@@ -160,6 +161,31 @@
                     console.log('erro');
                 }
             });
+        })
+
+        $("li[entrega]").click(function(){
+            entrega = $(this).attr("entrega");
+            loja = localStorage.getItem("loja");
+
+            $.alert('Em Desenvolvimento')
+
+            // Carregando();
+            // $.ajax({
+            //     url:"pedido.php",
+            //     type:"POST",
+            //     data:{
+            //         pedido,
+            //         loja
+            //     },
+            //     success:function(dados){
+            //         Carregando('none');
+            //         $(".popupPalco").html(dados);
+            //         $(".popupArea").css("display","block");
+            //     },
+            //     error:function(){
+            //         console.log('erro');
+            //     }
+            // });
         })
 
 
