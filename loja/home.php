@@ -257,7 +257,7 @@
         $(".ifood").click(function(){
             Carregando();
             $.ajax({
-                url:"ifood/index.php",
+                url:"ifood_n/index.php",
                 type:"POST",
                 data:{
                 },
