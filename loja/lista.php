@@ -31,7 +31,7 @@
 
         <ul class="list-group">
             <?php
-            echo $query = "
+            $query = "
             (select
             a.codigo,	
             '' as device,	
