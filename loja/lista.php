@@ -33,10 +33,10 @@
             <?php
             echo $query = "
             (select
-            codigo,	
+            a.codigo,	
             '' as device,	
             '' as detalhes,	
-            ifood,
+            a.ifood,
             '' as loja,	
             '' as cliente,	
             '' as endereco,	
@@ -46,21 +46,21 @@
             '' as delivery,	
             '' as delivery_id,	
             '' as delivery_detalhes,	
-            data,	
+            a.data,	
             '' as cupom,	
             '' as valor_compra,	
             '' as valor_entrega,	
             '' as valor_desconto,	
             '' as valor_total,
             '' as producao,
-            situacao,
+            a.situacao,
             '' as ordem,	
             '' as nome,
             '' as entrega,	
             '' as retorno
-                    from ifood)
+                    from ifood a)
                         union
-                        (select a.*, if(a.producao = 'pendente',0,1) as ordem, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['bkLoja']}' /*and data >= NOW() - INTERVAL 1 DAY*/ order by a.producao asc, a.data desc)";
+                        (select a.*, if(a.producao = 'pendente',0,1) as ordem, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['bkLoja']}' /*and data >= NOW() - INTERVAL 1 DAY*/) order by a.producao asc, a.data desc";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
 
