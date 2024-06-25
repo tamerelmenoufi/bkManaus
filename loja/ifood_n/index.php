@@ -1,5 +1,11 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
+
+    if($_POST['acao'] == 'salvar'){
+        $query = "insert into ifood set ifood = '', data = NOW(), entregador = '{$_POST['entregador']}', situacao = '{$_POST['situacao']}'";
+        mysqli_query($con, $query);
+    }
+
 ?>
 <style>
     
@@ -58,7 +64,7 @@
                     content:"Dados incompletos!",
                     type:"red"
                 });
-                
+
                 return false;
             }
 
@@ -68,10 +74,13 @@
                 data:{
                     ifood,
                     entregador,
-                    situacao
+                    situacao,
+                    acao:'salvar'
                 },
                 success:function(dados){
-                    $.alert('tudo numa boa!')
+                    $.alert('Pedido Registrado!');
+                    $(".popupPalco").html('');
+                    $(".popupArea").css("display","none");
                 }
             })
 
