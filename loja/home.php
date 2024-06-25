@@ -89,7 +89,7 @@
 
         <ul class="list-group">
             <?php
-            $query = "
+            echo $query = "
                 select * from ifood
                 union
                 select a.*, if(a.producao = 'pendente',0,1) as ordem, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['bkLoja']}' order by a.producao asc, a.data desc";
