@@ -53,7 +53,7 @@
             '' as valor_desconto,	
             '' as valor_total,
             a.producao,
-            a.situacao,
+            'pago' as situacao,
             '' as ordem,	
             '' as nome,
             '' as entrega,	
