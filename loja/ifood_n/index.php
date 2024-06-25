@@ -52,6 +52,16 @@
             entregador = $("#entregador").val();
             situacao = $("#situacao").val();
 
+            if(!ifood || !entregador || !situacao){
+                $.alert({
+                    title:"Erro",
+                    content:"Dados incompletos!",
+                    type:"red"
+                });
+                
+                return false;
+            }
+
             $.ajax({
                 url:"ifood_n/index.php",
                 type:"POST",
