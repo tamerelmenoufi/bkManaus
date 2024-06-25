@@ -13,7 +13,7 @@
 ?>
 <style>
 
-    li[pedido]{
+    li[pedido], li[entrega]{
         cursor:pointer;
         font-size:12px;
     }
