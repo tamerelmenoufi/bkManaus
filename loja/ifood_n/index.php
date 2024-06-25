@@ -15,7 +15,7 @@
     <div class="p-2">
         <div class="mb-3">
             <label for="telefone" class="form-label">Entregador*</label>
-            <select name="entregador" id="entregador">
+            <select name="entregador" id="entregador" class="form-select">
                 <?php
                 $q = "select * from entregadores where situacao = '1' and deletado != '1' order by nome";
                 $r = mysqli_query($con, $q);
@@ -31,7 +31,7 @@
     <div class="p-2">
         <div class="mb-3">
             <label for="telefone" class="form-label">Situação*</label>
-            <select name="situacao" id="situacao">
+            <select name="situacao" id="situacao" class="form-select">
                 <option value="0">Pendente</option>
                 <option value="1">Entregue</option>
             </select>
