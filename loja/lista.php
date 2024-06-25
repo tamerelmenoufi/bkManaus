@@ -32,7 +32,33 @@
         <ul class="list-group">
             <?php
             echo $query = "
-                        select b.* from ifood b
+            select
+            codigo,	
+            '' as device,	
+            '' as detalhes,	
+            '' as ifood,
+            '' as loja,	
+            '' as cliente,	
+            '' as endereco,	
+            '' as pagamento,	
+            '' as pix_detalhes,	
+            '' as cartao_detalhes,	
+            '' as delivery,	
+            '' as delivery_id,	
+            '' as delivery_detalhes,	
+            data,	
+            '' as cupom,	
+            '' as valor_compra,	
+            '' as valor_entrega,	
+            '' as valor_desconto,	
+            '' as valor_total,
+            '' as producao,
+            situacao,
+            '' as ordem,	
+            nome,
+            '' as entrega,	
+            '' as retorno
+                    from ifood
                         union
                         select a.*, if(a.producao = 'pendente',0,1) as ordem, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['bkLoja']}' /*and data >= NOW() - INTERVAL 1 DAY*/ order by a.producao asc, a.data desc";
             $result = mysqli_query($con, $query);
