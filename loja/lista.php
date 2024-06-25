@@ -52,7 +52,7 @@
             '' as valor_entrega,	
             '' as valor_desconto,	
             '' as valor_total,
-            '' as producao,
+            a.producao,
             a.situacao,
             '' as ordem,	
             '' as nome,
