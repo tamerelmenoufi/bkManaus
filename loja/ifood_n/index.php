@@ -2,7 +2,7 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     if($_POST['acao'] == 'salvar'){
-        $query = "insert into ifood set ifood = '', data = NOW(), entregador = '{$_POST['entregador']}', situacao = '{$_POST['situacao']}'";
+        $query = "insert into ifood set ifood = '{$_POST['ifood']}', data = NOW(), entregador = '{$_POST['entregador']}', situacao = '{$_POST['situacao']}'";
         mysqli_query($con, $query);
     }
 
