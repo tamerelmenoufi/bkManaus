@@ -9,7 +9,7 @@
     <div class="p-2">
         <div class="mb-3">
             <label for="telefone" class="form-label">Número do Pedido ifood*</label>
-            <input type="text" class="form-control" id="codigo" >
+            <input type="text" class="form-control" id="ifood" >
         </div>   
     </div>
     <div class="p-2">
@@ -39,13 +39,32 @@
     </div>
     <div class="p-2">
         <div class="mb-3">
-            <button class="btn btn-success w-100">SALVAR DADOS</button>
+            <button class="btn btn-success w-100 salvar">SALVAR DADOS</button>
         </div>
     </div>
 </div>
 
 <script>
     $(function(){
+        $(".salvar").click(function(){
 
+            ifood = $("#ifood").val();
+            entregador = $("#entregador").val();
+            situacao = $("#situacao").val();
+
+            $.ajax({
+                url:"ifood_n/index.php",
+                type:"POST",
+                data:{
+                    ifood,
+                    entregador,
+                    situacao
+                },
+                success:function(dados){
+                    $.alert('tudo numa boa!')
+                }
+            })
+
+        })
     })
 </script>
