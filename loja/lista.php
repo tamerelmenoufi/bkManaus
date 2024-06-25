@@ -31,12 +31,12 @@
 
         <ul class="list-group">
             <?php
-            echo $query = "
+            $query = "
             select
             codigo,	
             '' as device,	
             '' as detalhes,	
-            '' as ifood,
+            ifood,
             '' as loja,	
             '' as cliente,	
             '' as endereco,	
@@ -55,7 +55,7 @@
             '' as producao,
             situacao,
             '' as ordem,	
-            nome,
+            '' as nome,
             '' as entrega,	
             '' as retorno
                     from ifood
