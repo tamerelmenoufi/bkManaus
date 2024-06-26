@@ -46,7 +46,7 @@
             '' as cartao_detalhes,	
             '' as delivery,	
             '' as delivery_id,	
-            a.entregador as delivery_detalhes,	
+            b.nome as delivery_detalhes,	
             a.data,	
             '' as cupom,	
             '' as valor_compra,	
@@ -59,7 +59,7 @@
             '' as nome,
             '' as entrega,	
             '' as retorno
-                    from ifood a)
+                    from ifood a left join entregadores b on a.entregador = b.codigo)
 
                         union
 
