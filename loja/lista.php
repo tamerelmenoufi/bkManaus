@@ -174,7 +174,7 @@
                         <div>
                             <i class="fa-solid fa-person-biking"></i> <b>Entregador: </b> 
                         </div>
-                        <div>
+                        <div class="ms-2">
                             <?=$d->delivery_detalhes?>
                         </div>
                     </div>
