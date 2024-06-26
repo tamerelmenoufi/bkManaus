@@ -4,6 +4,7 @@
     if($_POST['acao'] == 'salvar'){
         if($_POST['codigo']){
             $query = "update ifood set 
+                                        /*loja = '{$_POST['loja']}',*/
                                         ifood = '{$_POST['ifood']}',
                                         data = '{$_POST['data']}',
                                         valor = '{$_POST['valor']}',
@@ -12,7 +13,14 @@
                                 where codigo = '{$_POST['codigo']}'";
             mysqli_query($con, $query);
         }else{
-            $query = "insert into ifood set ifood = '{$_POST['ifood']}', data = NOW(), entregador = '{$_POST['entregador']}', situacao = '{$_POST['situacao']}'";
+            $query = "insert into ifood set 
+                                        loja = '{$_POST['loja']}',
+                                        ifood = '{$_POST['ifood']}',
+                                        data = '{$_POST['data']}',
+                                        valor = '{$_POST['valor']}',
+                                        entregador = '{$_POST['entregador']}', 
+                                        situacao = '{$_POST['situacao']}'
+                                        ";
             mysqli_query($con, $query);            
         }
 
@@ -96,7 +104,7 @@
                                 });
 
         $(".salvar").click(function(){
-
+            loja = localStorage.getItem("loja");
             codigo = $("#codigo").val();
             ifood = $("#ifood").val();
             data = $("#data").val();
@@ -119,6 +127,7 @@
                 type:"POST",
                 data:{
                     codigo,
+                    loja,
                     ifood,
                     data,
                     valor,
