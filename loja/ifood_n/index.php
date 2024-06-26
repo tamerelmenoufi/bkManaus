@@ -79,8 +79,8 @@
         <div class="mb-3">
             <label for="situacao" class="form-label">Situação*</label>
             <select name="situacao" id="situacao" class="form-select">
-                <option value="0" <?=(($d->situacao == '0')?'selected':false)?>>Pendente</option>
-                <option value="1" <?=(($d->situacao == '1')?'selected':false)?>>Entregue</option>
+                <option value="pendente" <?=(($d->situacao == 'pendente')?'selected':false)?>>Pendente</option>
+                <option value="entregue" <?=(($d->situacao == 'entregue')?'selected':false)?>>Entregue</option>
             </select>
         </div>
     </div>
