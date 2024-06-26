@@ -42,7 +42,7 @@
     <div class="p-2">
         <div class="mb-3">
             <label for="data" class="form-label">Data do pedido*</label>
-            <input type="date" class="form-control" id="data" value="<?=(($d->data)?:date("Y-m-d H:i:s"))?>" >
+            <input type="datetime-local" class="form-control" id="data" value="<?=(($d->data)?:date("Y-m-d H:i:s"))?>" >
         </div>   
     </div>
     <div class="p-2">
