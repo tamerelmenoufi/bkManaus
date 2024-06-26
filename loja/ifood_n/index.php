@@ -4,7 +4,7 @@
     if($_POST['acao'] == 'salvar'){
         if($_POST['codigo']){
             $query = "update ifood set 
-                                        /*loja = '{$_POST['loja']}',*/
+                                        loja = '{$_POST['loja']}',
                                         ifood = '{$_POST['ifood']}',
                                         data = '{$_POST['data']}',
                                         valor = '{$_POST['valor']}',
