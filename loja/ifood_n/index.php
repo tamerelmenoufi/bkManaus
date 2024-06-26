@@ -86,6 +86,15 @@
 
 <script>
     $(function(){
+
+        $("#valor").maskMoney({
+                                    prefix:'',
+                                    allowNegative: false,
+                                    thousands:'', 
+                                    decimal:',', 
+                                    affixesStay: ''
+                                });
+
         $(".salvar").click(function(){
 
             codigo = $("#codigo").val();
