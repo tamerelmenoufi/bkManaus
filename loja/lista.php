@@ -172,7 +172,7 @@
                     </div>
                     <div class="d-flex justify-content-start dados">
                         <div>
-                            <i class="fa-solid fa-person-biking"></i> Entregador: 
+                            <i class="fa-solid fa-person-biking"></i> <b>Entregador: </b> 
                         </div>
                         <div>
                             <?=$d->delivery_detalhes?>
