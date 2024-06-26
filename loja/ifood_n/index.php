@@ -9,7 +9,7 @@
                                         data = '{$_POST['data']}',
                                         valor = '{$_POST['valor']}',
                                         entregador = '{$_POST['entregador']}', 
-                                        situacao = '{$_POST['situacao']}' 
+                                        producao = '{$_POST['situacao']}' 
                                 where codigo = '{$_POST['codigo']}'";
             mysqli_query($con, $query);
         }else{
@@ -19,7 +19,7 @@
                                         data = '{$_POST['data']}',
                                         valor = '{$_POST['valor']}',
                                         entregador = '{$_POST['entregador']}', 
-                                        situacao = '{$_POST['situacao']}'
+                                        producao = '{$_POST['situacao']}'
                                         ";
             mysqli_query($con, $query);            
         }
