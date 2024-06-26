@@ -215,28 +215,28 @@
         })
 
         $("li[entrega]").click(function(){
-            entrega = $(this).attr("entrega");
+            codigo = $(this).attr("entrega");
             loja = localStorage.getItem("loja");
 
-            $.alert('Em Desenvolvimento')
+            // $.alert('Em Desenvolvimento')
 
-            // Carregando();
-            // $.ajax({
-            //     url:"pedido.php",
-            //     type:"POST",
-            //     data:{
-            //         pedido,
-            //         loja
-            //     },
-            //     success:function(dados){
-            //         Carregando('none');
-            //         $(".popupPalco").html(dados);
-            //         $(".popupArea").css("display","block");
-            //     },
-            //     error:function(){
-            //         console.log('erro');
-            //     }
-            // });
+            Carregando();
+            $.ajax({
+                url:"pedido.php",
+                type:"POST",
+                data:{
+                    codigo,
+                    loja
+                },
+                success:function(dados){
+                    Carregando('none');
+                    $(".popupPalco").html(dados);
+                    $(".popupArea").css("display","block");
+                },
+                error:function(){
+                    console.log('erro');
+                }
+            });
         })
 
 
