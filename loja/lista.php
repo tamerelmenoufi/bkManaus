@@ -83,8 +83,10 @@
                     $bg = 'bg-success';
                 }
 
+
+                if($d->tipo == 'pedido'){
             ?>
-                <li class="list-group-item <?=$bg?>" <?=$d->tipo?>="<?=$d->codigo?>">
+                <li class="list-group-item <?=$bg?>" pedido="<?=$d->codigo?>">
                     <div class="d-flex justify-content-between">
                         <div>
                             Pedido #<?=str_pad((($d->codigo_ifood)?:$d->codigo), 6, "0", STR_PAD_LEFT).(($ifood)?' (ifood) ':false)?>
@@ -130,6 +132,55 @@
                     ?>
                 </li>
             <?php
+                }else{
+            ?>                    
+                <li class="list-group-item <?=$bg?>" entrega="<?=$d->codigo?>">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            Pedido #<?=str_pad((($d->codigo_ifood)?:$d->codigo), 6, "0", STR_PAD_LEFT).(($ifood)?' (ifood) ':false)?>
+                            <br>
+                            <?=$d->nome?>
+                        </div>
+                        <div>
+                            Data: <?=dataBr($d->data)?>
+                        </div>
+                        <div>
+                            Entrega: <?=$d->entrega?>
+                            <br>
+                            Retorno: <?=$d->retorno?>
+                        </div>
+                    </div>
+                    <?php
+                    if($delivery->deliveryMan->name){
+                    ?>
+                    <div class="d-flex justify-content-between mt-2 mb-2">
+                        <div><b><i class="fa-solid fa-motorcycle"></i> Dados de Entrega</b></div>
+                        <div>
+                            <b><?=strtoupper($d->producao)?></b>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between dados">
+                        <div>
+                            <i class="fa-solid fa-person-biking"></i> Nome
+                        </div>
+                        <div>
+                            <?=$delivery->deliveryMan->name?>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between dados">
+                        <div>
+                            <i class="fa-solid fa-mobile-screen-button"></i> Telefone
+                        </div>
+                        <div>
+                            <?="({$delivery->deliveryMan->ddd}) {$delivery->deliveryMan->phone}"?>
+                        </div>
+                    </div>                    
+                    <?php
+                    }
+                    ?>
+                </li>
+            <?php
+                }
             }
             ?>
         </ul>
