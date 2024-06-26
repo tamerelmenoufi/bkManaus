@@ -160,7 +160,7 @@
                             Data: <?=dataBr($d->data)?>
                         </div>
                         <div>
-                            Situação: <?=$d->situacao?>
+                            Situação: <?=$d->producao?>
                         </div>
                     </div>
 
