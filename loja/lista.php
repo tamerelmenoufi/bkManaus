@@ -46,7 +46,7 @@
             '' as cartao_detalhes,	
             '' as delivery,	
             '' as delivery_id,	
-            '' as delivery_detalhes,	
+            a.entregador as delivery_detalhes,	
             a.data,	
             '' as cupom,	
             '' as valor_compra,	
@@ -60,8 +60,25 @@
             '' as entrega,	
             '' as retorno
                     from ifood a)
+
                         union
-                        (select 'pedido' as tipo, a.*, if(a.producao = 'pendente',0,1) as ordem, b.nome, a.delivery_detalhes->>'$.pickupCode' as entrega, a.delivery_detalhes->>'$.returnCode' as retorno from vendas a left join clientes b on a.cliente = b.codigo where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['bkLoja']}' /*and data >= NOW() - INTERVAL 1 DAY*/) order by producao desc, data desc";
+
+            (select 
+                    'pedido' as tipo, 
+                    a.*, 
+                    if(a.producao = 'pendente',0,1) as ordem, 
+                    b.nome, 
+                    a.delivery_detalhes->>'$.pickupCode' as entrega, 
+                    a.delivery_detalhes->>'$.returnCode' as retorno 
+                    
+                from vendas a 
+                    left join clientes b on a.cliente = b.codigo 
+                where /*a.delivery_id = '{$l->mottu}' and*/ 
+                    a.situacao = 'pago' and 
+                    loja = '{$_SESSION['bkLoja']}' 
+                    /*and data >= NOW() - INTERVAL 1 DAY*/) 
+                order by producao desc, data desc";
+
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
 
@@ -158,7 +175,7 @@
                             <i class="fa-solid fa-person-biking"></i> Nome
                         </div>
                         <div>
-                            <?=$d->entregador?>
+                            <?=$d->delivery_detalhes?>
                         </div>
                     </div>
                 </li>
