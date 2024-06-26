@@ -170,9 +170,9 @@
                             <b><?=strtoupper($d->producao)?></b>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between dados">
+                    <div class="d-flex justify-content-start dados">
                         <div>
-                            <i class="fa-solid fa-person-biking"></i> Nome
+                            <i class="fa-solid fa-person-biking"></i> Entregador: 
                         </div>
                         <div>
                             <?=$d->delivery_detalhes?>
