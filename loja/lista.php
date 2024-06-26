@@ -222,7 +222,7 @@
 
             Carregando();
             $.ajax({
-                url:"pedido.php",
+                url:"ifood_n/index.php",
                 type:"POST",
                 data:{
                     codigo,
