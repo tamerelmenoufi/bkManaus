@@ -23,7 +23,7 @@
         </div>
 
         <div class="col-md-3 p-2">
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-warning" role="alert">
                 <span>Produtos</span>
                 <h1><?=number_format($v->pagamento_devolucao,0,',','.')?></h1>
             </div>
