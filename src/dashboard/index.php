@@ -118,7 +118,7 @@
         <div class="col-md-3 p-2">
             <div class="alert alert-warning" role="alert">
                 <span>Entregas finalizadas</span>
-                <h1>R$ <?=number_format($v->pagamento_produto,2,',','.')?></h1>
+                <h1><?=number_format($v->pagamento_produto,0,',','.')?></h1>
             </div>
         </div>
 
