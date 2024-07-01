@@ -30,28 +30,28 @@
         <div class="col-md-3 p-2">
             <div class="alert alert-warning" role="alert">
                 <span>Produtos</span>
-                <h1><?=number_format($v->quantidade_produtos,0,',','.')?></h1>
+                <h1><?=number_format($d->quantidade_produtos,0,',','.')?></h1>
             </div>
         </div>
 
         <div class="col-md-3 p-2">
             <div class="alert alert-success" role="alert">
                 <span>Vendas</span>
-                <h1><?=number_format($v->quantidade_vendas,0,',','.')?></h1>
+                <h1><?=number_format($d->quantidade_vendas,0,',','.')?></h1>
             </div>
         </div>
 
         <div class="col-md-3 p-2">
             <div class="alert alert-primary" role="alert">
                 <span>Entregadores</span>
-                <h1><?=number_format($v->quantidade_entregadores,0,',','.')?></h1>
+                <h1><?=number_format($d->quantidade_entregadores,0,',','.')?></h1>
             </div>
         </div>
 
         <div class="col-md-3 p-2">
             <div class="alert alert-secondary" role="alert">
                 <span>Entregas</span>
-                <h1><?=number_format($v->quantidade_entregue,0,',','.')?></h1>
+                <h1><?=number_format($d->quantidade_entregue,0,',','.')?></h1>
             </div>
         </div>
         
