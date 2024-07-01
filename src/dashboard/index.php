@@ -93,7 +93,45 @@
     </div>
 </div>
 
+<div class="m-3">
+    
+    <div class="row g-0">
+        <div class="col-md-12 p-2">
+            <h6>Resumo Ifood</h6>
+        </div>
 
+        <div class="col-md-3 p-2">
+            <div class="alert alert-primary" role="alert">
+                <span>Quantidade de Vendas</span>
+                <h1><?=number_format($v->pagamento_devolucao,0,',','.')?></h1>
+            </div>
+        </div>
+
+
+        <div class="col-md-3 p-2">
+            <div class="alert alert-success" role="alert">
+                <span>Total das Vendas</span>
+                <h1>R$ <?=number_format($v->pagamento_devolucao,2,',','.')?></h1>
+            </div>
+        </div>        
+
+        <div class="col-md-3 p-2">
+            <div class="alert alert-warning" role="alert">
+                <span>Entregas finalizadas</span>
+                <h1>R$ <?=number_format($v->pagamento_produto,2,',','.')?></h1>
+            </div>
+        </div>
+
+        <div class="col-md-3 p-2">
+            <div class="alert alert-primary" role="alert">
+                <span>Tickt Médio</span>
+                <h1>R$ <?=number_format($v->pagamento_produto,2,',','.')?></h1>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
 
 
 <script>
