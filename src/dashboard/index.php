@@ -6,7 +6,7 @@
     echo $query = " SELECT
             (select count(*) from produtos where situacao = '1' and deletado != '1') as quantidade_produtos,
             (select count(*) from vendas where situacao = 'pago') as quantidade_vendas,
-            (select * from entregadores where deletado != '1') as quantidade_entregadores,
+            (select count(*) from entregadores where deletado != '1') as quantidade_entregadores,
             (select count(*) from vendas where situacao = 'pago' and producao = 'entregue') as quantidade_entregue
 
     ";
