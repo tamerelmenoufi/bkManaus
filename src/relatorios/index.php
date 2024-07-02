@@ -4,7 +4,7 @@
 
 ?>
 
-<div class="row g-0">
+<!-- <div class="row g-0">
     <div class="col-12">
         <div class="m-3">
             <h3>Calendário de Produção</h3>
@@ -19,9 +19,10 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="row g-0">
+    <h3 class="m-3">Calendário de Produção</h3>
     <div class="col-4">
         <div class="area_calendario m-3"></div>
     </div>
