@@ -7,13 +7,13 @@
 
 <div class="row">
     <div class="col-md-3">
-        <input type="data" id="data_inicio" value="<?=$_POST['data_inicio']?>">
+        <input type="data" id="data_inicio" class="form-control" value="<?=$_POST['data_inicio']?>">
     </div>
     <div class="col-md-3">
-        <input type="data" id="data_fim" value="<?=$_POST['data_fim']?>">
+        <input type="data" id="data_fim" class="form-control" value="<?=$_POST['data_fim']?>">
     </div>
     <div class="col-md-3">
-        <select id="entregadores">
+        <select id="entregadores"  class="select-control">
             <option value="todos">Todos</option>
             <?php
             $q = "select * from entregadores where situacao = '1' and deletado != '1' order by nome asc";
