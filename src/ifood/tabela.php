@@ -4,7 +4,7 @@
 ?>
 
 <h3>Lista do período de <?=$_POST['data']?></h3>
-<div class="table-responsive">
+<div class="table-responsive" style="max-heigh:200px;">
     <table class="table table-hover">
         <thead>
             <tr>
