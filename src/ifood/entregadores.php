@@ -13,14 +13,14 @@
         <input type="date" id="data_fim" class="form-control" value="<?=$_POST['data_fim']?>">
     </div>
     <div class="col-md-3 mb-2">
-        <select id="entregadores"  class="form-select">
+        <select id="entregador"  class="form-select">
             <option value="todos">Todos</option>
             <?php
             $q = "select * from entregadores where situacao = '1' and deletado != '1' order by nome asc";
             $r = mysqli_query($con, $q);
             while($s = mysqli_fetch_object($r)){
             ?>
-            <option value="<?=$s->codigo?>"><?=$s->nome?></option>
+            <option value="<?=$s->codigo?>" <?=(($_POST['entregador'] == $s->codigo)?'selectd':false)?>><?=$s->nome?></option>
             <?php
             }
             ?>
@@ -59,3 +59,27 @@
         ?>
     </tbody>
 </table>
+
+<script>
+    $(function(){
+        $(".lista_entregadores").click(function(){
+
+            data_inicio = $(".data_inicio").val()
+            data_fim = $(".data_fim").val()
+            entregador = $(".entregador").val()
+
+            $.ajax({
+                url:"src/ifood/entregadores.php",
+                data:{
+                    data_inicio,
+                    data_fim,
+                    entregador
+                },
+                success:function(dados){
+                    $(".area_entregadores").html(dados);
+                }
+            })
+
+        })
+    })
+</script>
