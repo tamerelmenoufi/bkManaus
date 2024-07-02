@@ -62,11 +62,16 @@
 
 <script>
     $(function(){
+
+        Carregando('none')
+
         $(".lista_entregadores").click(function(){
 
             data_inicio = $(".data_inicio").val()
             data_fim = $(".data_fim").val()
             entregador = $(".entregador").val()
+
+            Carregando()
 
             $.ajax({
                 url:"src/ifood/entregadores.php",
