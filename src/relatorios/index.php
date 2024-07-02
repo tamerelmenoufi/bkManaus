@@ -19,10 +19,31 @@
     </div>
 </div>
 
+<div class="row g-0">
+    <div class="col-4">
+        <div class="calendario"></div>
+    </div>
+    <div class="col-8">
+        <div class="dados_calncario"></div>
+    </div>
+    
+</div>
+
 <script>
     $(function(){
 
         Carregando('none')
+
+        $.ajax({
+            url:"src/relatorios/calendario.php",
+            type:"POST",
+            data:{
+
+            },
+            success:function(dados){
+                $(".calendario").html(dados);
+            }
+        })
 
     })
 </script>
