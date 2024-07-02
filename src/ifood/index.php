@@ -45,6 +45,18 @@
             },
             success:function(dados){
                 $(".area_calendario").html(dados);
+
+                $.ajax({
+                        url:"src/ifood/tabela.php",
+                        type:"POST",
+                        data:{
+                            data:`${Y}-${n}`
+                        },
+                        success:function(dados){
+                            $(".dados_calncario").html(dados);
+                        }
+                    })
+
             }
         })
 
