@@ -3,7 +3,7 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 ?>
 
-<h3>Lista do período de <?=$_POST['data']?></h3>
+<h3>Lista do período de <?=dataBr($_POST['data'])?></h3>
 <div class="table-responsive" style="max-height:500px;">
     <table class="table table-hover">
         <thead>
