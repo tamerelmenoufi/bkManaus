@@ -181,13 +181,13 @@
                 url:"src/ifood/tabela.php",
                 type:"POST",
                 data:{
-                    data:`${Y}-${n}`
+                    data
                 },
                 success:function(dados){
                     $(".dados_calncario").html(dados);
                 }
             })
         })
-        
+
     })
 </script>
