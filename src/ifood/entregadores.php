@@ -7,10 +7,10 @@
 
 <div class="row">
     <div class="col-md-3 mb-2">
-        <input type="data" id="data_inicio" class="form-control" value="<?=$_POST['data_inicio']?>">
+        <input type="date" id="data_inicio" class="form-control" value="<?=$_POST['data_inicio']?>">
     </div>
     <div class="col-md-3 mb-2">
-        <input type="data" id="data_fim" class="form-control" value="<?=$_POST['data_fim']?>">
+        <input type="date" id="data_fim" class="form-control" value="<?=$_POST['data_fim']?>">
     </div>
     <div class="col-md-3 mb-2">
         <select id="entregadores"  class="form-select">
@@ -18,7 +18,7 @@
             <?php
             $q = "select * from entregadores where situacao = '1' and deletado != '1' order by nome asc";
             $r = mysqli_query($con, $q);
-            while($s = mysqli_fetch_object($result)){
+            while($s = mysqli_fetch_object($r)){
             ?>
             <option value="<?=$s->codigo?>"><?=$s->nome?></option>
             <?php
