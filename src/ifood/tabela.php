@@ -21,7 +21,7 @@
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
             ?>
-            <tr>
+            <tr class="table-<?=(($d->producao == 'entregue')?'success':'danger')?>">
                 <td><?=$d->data?></td>
                 <td><?=$d->ifood?></td>
                 <td><?=$d->valor?></td>
