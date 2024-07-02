@@ -160,7 +160,7 @@
                     $(".area_calendario").html(dados);
 
                     $.ajax({
-                        url:"src/relatorios/tabelas.php",
+                        url:"src/relatorios/tabela.php",
                         type:"POST",
                         data:{
                             data:`${Y}-${n}`
