@@ -140,74 +140,40 @@
 ?>
 <script>
     $(function(){
+
+        Carregando('none')
+
+
         $("button[dateAcao]").click(function(){
             n = ("00" + $("select[dateN]").val()).slice(-2);
             Y = $("select[dateY]").val();
+            Carregando()
             $.ajax({
-                url:"financeira/dashboard/home/calendario.php",
+                url:"src/relatorios/calendario.php",
                 type:"POST",
                 data:{
                     n,
                     Y
                 },
                 success:function(dados){
-                    $("div[dbCalendar]").html(dados);
 
-                    $.ajax({
-                        url:"financeira/dashboard/home/tabela.php",
-                        type:"POST",
-                        data:{
-                            data:`${Y}-${n}`
-                        },
-                        success:function(dados){
-                            $("div[dbTabela").html(dados);
-                        }
-                    })
+                    $(".area_calendario").html(dados);
 
-                    $.ajax({
-                        url:"financeira/dashboard/home/cadastros.php",
-                        type:"POST",
-                        data:{
-                            data:`${Y}-${n}`
-                        },
-                        success:function(dados){
-                            $("div[dbCadastros").html(dados);
-                        }
-                    })
+                    // $.ajax({
+                    //     url:"src/relatorios/tabelas.php",
+                    //     type:"POST",
+                    //     data:{
+                    //         data:`${Y}-${n}`
+                    //     },
+                    //     success:function(dados){
+                    //         $("div[dbTabela").html(dados);
+                    //     }
+                    // })
+
 
                 }
             });
         })
 
-
-        $(".registros").click(function(){
-            
-            Carregando();
-            
-            data = $(this).attr("data");
-
-            $.ajax({
-                url:"financeira/dashboard/home/tabela.php",
-                type:"POST",
-                data:{
-                    data
-                },
-                success:function(dados){
-                    $("div[dbTabela").html(dados);
-                }
-            })
-
-            $.ajax({
-                url:"financeira/dashboard/home/cadastros.php",
-                type:"POST",
-                data:{
-                    data
-                },
-                success:function(dados){
-                    $("div[dbCadastros").html(dados);
-                }
-            })
-
-        })
     })
 </script>
