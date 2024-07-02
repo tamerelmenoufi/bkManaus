@@ -31,6 +31,55 @@
     // echo "<h2>Calendário de $month_name $year</h2>";
 ?>
 
+<style>
+    .calendario{
+        width:100%;
+    }
+    .calendario td{
+        font-size:12px;
+        text-align:center;
+        min-height:25px;
+        padding:5px;
+        vertical-align:top;
+    }
+
+    .calendario th{
+        font-size:12px;
+        text-align:center;
+        min-height:25px;
+        padding:5px;
+    }
+    .registros{
+        padding:5px;
+        font-size:12px;
+        margin:5px;
+        width:100%;
+        height:25px;
+        border-radius:5px;
+        background:blue;
+        color:#fff;
+        cursor:pointer;
+    }
+    .registros_limpo{
+        padding:5px;
+        font-size:12px;
+        margin:5px;
+        width:100%;
+        height:25px;
+        border-radius:5px;
+        background:#fff;
+        color:#fff;
+    }
+    .alert div{
+        font-size:12px;
+        color:#a1a1a1;
+        text-align:left;
+    }
+    .alert h1{
+        text-align:center;
+    }
+</style>
+
 <div class="input-group mb-3">
   <label class="input-group-text" for="inputGroupSelect01">Mês</label>
   <select dateN class="form-select">
