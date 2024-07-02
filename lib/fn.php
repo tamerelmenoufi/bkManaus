@@ -5,7 +5,7 @@
         list($y,$m,$d) = explode("-",$d);
         $data = false;
         if($y && $m && $d){
-            $data = "{$d}/{$m}/$y"(($h)?" {$h}":false);
+            $data = "{$d}/{$m}/$y".(($h)?" {$h}":false);
         }elseif($y && $m){
             $data = "{$m}/$y"; //.(($h)?" {$h}":false);
         }
