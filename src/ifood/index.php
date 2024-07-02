@@ -28,9 +28,12 @@
     <div class="col-md-8">
         <div class="dados_calncario m-3"></div>
     </div>
-    
 </div>
-
+<div class="row g-0">
+    <div class="col-md-12">
+        <div class="area_entregadores m-3"></div>
+    </div>
+</div>
 <script>
     $(function(){
 
@@ -46,15 +49,22 @@
                 $(".area_calendario").html(dados);
 
                 $.ajax({
-                        url:"src/ifood/tabela.php",
-                        type:"POST",
-                        data:{
-                            data:`${Y}-${n}`
-                        },
-                        success:function(dados){
-                            $(".dados_calncario").html(dados);
-                        }
-                    })
+                    url:"src/ifood/tabela.php",
+                    type:"POST",
+                    data:{
+                        data:`${Y}-${n}`
+                    },
+                    success:function(dados){
+                        $(".dados_calncario").html(dados);
+                    }
+                })
+
+                $.ajax({
+                    url:"src/ifood/entregadores.php",
+                    success:function(dados){
+                        $(".area_entregadores").html(dados);
+                    }
+                })
 
             }
         })
