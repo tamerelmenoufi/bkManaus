@@ -6,13 +6,13 @@
 <h3>Produção por Entregadores</h3>
 
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2">
         <input type="data" id="data_inicio" class="form-control" value="<?=$_POST['data_inicio']?>">
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2">
         <input type="data" id="data_fim" class="form-control" value="<?=$_POST['data_fim']?>">
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2">
         <select id="entregadores"  class="form-select">
             <option value="todos">Todos</option>
             <?php
@@ -26,7 +26,7 @@
             ?>
         </select>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2">
         <button class="btn btn-primary w-100 lista_entregadores">Filtrar Dados</button>
     </div>
 </div>
