@@ -16,7 +16,7 @@
 
     $dados = [];
 
-    $query = "select data from vendas where data like '{$year}-".str_pad($month, 2, "0", STR_PAD_LEFT)."%'";
+    $query = "select data from ifood where data like '{$year}-".str_pad($month, 2, "0", STR_PAD_LEFT)."%'";
 
     $result = mysqli_query($con,$query);
     while($d = mysqli_fetch_object($result)){
