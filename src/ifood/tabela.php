@@ -17,7 +17,7 @@
         </thead>
         <tbody>
             <?php
-            $query = "select * from ifood where data like '%{$_POST['data']}%'";
+            $query = "select a.*, b.nome as entregador from ifood a left join entregadores b on a.entregador = b.codigo where a.data like '%{$_POST['data']}%'";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
             ?>
