@@ -16,13 +16,13 @@
 
     $dados = [];
 
-    $query = "select ultimo_acesso as data from clientes where ultimo_acesso like '{$year}-".str_pad($month, 2, "0", STR_PAD_LEFT)."%'";
+    $query = "select data from vendas where data like '{$year}-".str_pad($month, 2, "0", STR_PAD_LEFT)."%'";
 
-    // $result = mysqli_query($con,$query);
-    // while($d = mysqli_fetch_object($result)){
-    //     $dt = trim(explode(" ", $d->data)[0]);
-    //     $dados[$dt]++;
-    // }
+    $result = mysqli_query($con,$query);
+    while($d = mysqli_fetch_object($result)){
+        $dt = trim(explode(" ", $d->data)[0]);
+        $dados[$dt]++;
+    }
 
 ?>
 
