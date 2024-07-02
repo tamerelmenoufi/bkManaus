@@ -22,10 +22,10 @@
 </div> -->
 
 <div class="row g-0">
-    <div class="col-4">
+    <div class="col-md-4">
         <div class="area_calendario m-3"></div>
     </div>
-    <div class="col-8">
+    <div class="col-md-8">
         <div class="dados_calncario m-3"></div>
     </div>
     
