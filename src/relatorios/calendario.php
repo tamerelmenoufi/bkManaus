@@ -15,20 +15,15 @@
     $month_name = date("F", $first_day_of_month);
 
     $dados = [];
-    // $query = "select a.codigo as cod_cliente, a.nome, a.cpf, a.ultimo_acesso, b.log, b.codigo from consultas_log b left join clientes a on a.codigo = b.cliente where a.ultimo_acesso like '{$year}-".str_pad($month, 2, "0", STR_PAD_LEFT)."%' order by b.codigo asc";
+
     $query = "select ultimo_acesso as data from clientes where ultimo_acesso like '{$year}-".str_pad($month, 2, "0", STR_PAD_LEFT)."%'";
-    // $query = "select * from sisLog where data like '{$year}-".str_pad($month, 2, "0", STR_PAD_LEFT)."%' and tabela in ('clientes', 'CONSULTAS') and sessao->>'$.codUsr' > 0 group by sessao->>'$.codUsr'";
 
-    $result = mysqli_query($con,$query);
-    while($d = mysqli_fetch_object($result)){
-        $dt = trim(explode(" ", $d->data)[0]);
-        $dados[$dt]++;
-    }
+    // $result = mysqli_query($con,$query);
+    // while($d = mysqli_fetch_object($result)){
+    //     $dt = trim(explode(" ", $d->data)[0]);
+    //     $dados[$dt]++;
+    // }
 
-    // print_r($dados);
-
-    // Cabeçalho do calendário
-    // echo "<h2>Calendário de $month_name $year</h2>";
 ?>
 
 <style>

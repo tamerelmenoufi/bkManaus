@@ -21,10 +21,10 @@
 
 <div class="row g-0">
     <div class="col-4">
-        <div class="calendario"></div>
+        <div class="area_calendario m-3"></div>
     </div>
     <div class="col-8">
-        <div class="dados_calncario"></div>
+        <div class="dados_calncario m-3"></div>
     </div>
     
 </div>
@@ -41,7 +41,7 @@
 
             },
             success:function(dados){
-                $(".calendario").html(dados);
+                $(".area_calendario").html(dados);
             }
         })
 
