@@ -75,6 +75,7 @@
 
             $.ajax({
                 url:"src/ifood/entregadores.php",
+                type:"POST",
                 data:{
                     data_inicio,
                     data_fim,
