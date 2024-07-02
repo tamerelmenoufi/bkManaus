@@ -159,16 +159,16 @@
 
                     $(".area_calendario").html(dados);
 
-                    // $.ajax({
-                    //     url:"src/relatorios/tabelas.php",
-                    //     type:"POST",
-                    //     data:{
-                    //         data:`${Y}-${n}`
-                    //     },
-                    //     success:function(dados){
-                    //         $("div[dbTabela").html(dados);
-                    //     }
-                    // })
+                    $.ajax({
+                        url:"src/relatorios/tabelas.php",
+                        type:"POST",
+                        data:{
+                            data:`${Y}-${n}`
+                        },
+                        success:function(dados){
+                            $(".dados_calncario").html(dados);
+                        }
+                    })
 
 
                 }
