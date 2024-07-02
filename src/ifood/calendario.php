@@ -29,6 +29,7 @@
 <style>
     .calendario{
         width:100%;
+        height:450px;
     }
     .calendario td{
         font-size:12px;
