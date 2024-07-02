@@ -13,7 +13,7 @@
         <input type="data" id="data_fim" class="form-control" value="<?=$_POST['data_fim']?>">
     </div>
     <div class="col-md-3">
-        <select id="entregadores"  class="select-control">
+        <select id="entregadores"  class="form-select">
             <option value="todos">Todos</option>
             <?php
             $q = "select * from entregadores where situacao = '1' and deletado != '1' order by nome asc";
