@@ -174,6 +174,20 @@
                 }
             });
         })
-
+        
+        $(".registros").click(function(){
+            data = $(this).attr("data");
+            $.ajax({
+                url:"src/ifood/tabela.php",
+                type:"POST",
+                data:{
+                    data:`${Y}-${n}`
+                },
+                success:function(dados){
+                    $(".dados_calncario").html(dados);
+                }
+            })
+        })
+        
     })
 </script>
