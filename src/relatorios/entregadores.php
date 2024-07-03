@@ -78,7 +78,7 @@
             <td><?=strtoupper($d->producao)?></td>
         </tr>
         <?php
-        $valor_total = $valor_total + $d->valor;
+        $valor_total = $valor_total + $d->valor_total;
         $i++;
         }
         ?>
