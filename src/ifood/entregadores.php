@@ -78,7 +78,7 @@
         ?>
         <tr>
             <th colspan="3" style="text-align:right">TOTAL DAS VENDAS</th>
-            <th><?=number_format($valor_total,2,',','.')?></th>
+            <th>R$ <?=number_format($valor_total,2,',','.')?></th>
             <th colspan="2"></th>
         </tr>
     </tbody>
