@@ -305,7 +305,7 @@
                                 return false;
                             }
                             if(name.length != 4){
-                                $.alert('O código de entrega é Obrigatório');
+                                $.alert('O código de entrega está errado ou incompleto!');
                                 return false;
                             }
                             
