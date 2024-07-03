@@ -157,6 +157,8 @@
                 $d->Eponto_referencia = $ifood->endereco->ponto_referencia;
             }
 
+
+            if($d->tipo == 'pedido'){
             ?>
                 <li class="list-group-item <?=(($d->producao != 'entregue')?'bg-secondary-subtle':'bg-success-subtle')?>" pedido="<?=$d->codigo?>">
                     <div class="d-flex justify-content-between">
@@ -193,6 +195,25 @@
                     ?>
                 </li>
             <?php
+            }else{
+            ?>
+            <li class="list-group-item <?=(($d->producao != 'entregue')?'bg-secondary-subtle':'bg-success-subtle')?>" entrega="<?=$d->codigo?>">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            Ifood #<?=str_pad($d->ifood, 6, "0", STR_PAD_LEFT)?>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <b>Situação</b>
+                        </div>
+                        <div>
+                            <b><?=strtoupper($d->producao)?></b>
+                        </div>
+                    </div>                    
+                </li>
+            <?php
+            }
             }
             ?>
         </ul>
