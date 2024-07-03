@@ -13,7 +13,7 @@
 ?>
 <style>
 
-    li[pedido], li[entrega]{
+    li[pedido], li[entrega], li[entregaBLQ]{
         cursor:pointer;
         font-size:12px;
     }
@@ -151,7 +151,7 @@
             <?php
                 }else{
             ?>                    
-                <li class="list-group-item <?=$bg?>" entrega="<?=$d->codigo?>">
+                <li class="list-group-item <?=$bg?>" entrega<?=(($d->producao == 'entregue')?'BLQ':false)?>="<?=$d->codigo?>">
                     <div class="d-flex justify-content-between">
                         <div>
                             Pedido #<?=str_pad($d->ifood, 6, "0", STR_PAD_LEFT).' (ifood) '?>
