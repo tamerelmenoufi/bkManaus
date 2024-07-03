@@ -27,7 +27,7 @@
     </div>
     <div class="col-md-3 mb-2">
         <select id="entregador"  class="form-select">
-            <option value="todos">Todos</option>
+            <option value="">Todos</option>
             <?php
             $q = "select * from entregadores where situacao = '1' and deletado != '1' order by nome asc";
             $r = mysqli_query($con, $q);
