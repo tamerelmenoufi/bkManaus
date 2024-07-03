@@ -70,7 +70,7 @@
         cursor:pointer;
         font-size:12px;
     }
-    li[entrega]{
+    li[entrega], li[entrgaBLQ]{
         cursor:pointer;
         font-size:12px;
     }
@@ -211,7 +211,7 @@
             <?php
             }else{
             ?>
-            <li class="list-group-item <?=(($d->producao != 'entregue')?'bg-secondary-subtle':'bg-success-subtle')?>" entrega="<?=$d->codigo?>" ifood="<?=$d->ifood?>">
+            <li class="list-group-item <?=(($d->producao != 'entregue')?'bg-secondary-subtle':'bg-success-subtle')?>" entrega<?=(($d->producao != 'entregue')?false:'BLQ')?>="<?=$d->codigo?>" ifood="<?=$d->ifood?>">
                     <div class="d-flex justify-content-between">
                         <div>
                             Ifood #<?=str_pad($d->ifood, 6, "0", STR_PAD_LEFT)?>
