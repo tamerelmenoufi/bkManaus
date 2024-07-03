@@ -12,7 +12,6 @@
                 <th>Data</th>
                 <th>Pedido</th>
                 <th>Valor</th>
-                <th>Entregador</th>
                 <th>Situação</th>
             </tr>
         </thead>
