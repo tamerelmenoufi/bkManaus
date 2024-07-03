@@ -1,6 +1,10 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+    if($_POST['loja']){
+        $_SESSION['bkLoja'] = $_POST['loja'];
+    }
+
     if($_POST['acao'] == 'salvar'){
 
 
@@ -79,7 +83,11 @@
             <label for="entregador" class="form-label">Entregador*</label>
             <select name="entregador" id="entregador" class="form-select">
                 <?php
-                $q = "select a.*, (select count(*) from ifood where entregador = a.codigo and producao != 'entregue') as pendente from entregadores a where a.situacao = '1' and a.deletado != '1' order by a.nome";
+                $q = "select 
+                            a.*,
+                            (select count(*) from ifood where entregador = a.codigo and producao != 'entregue') as pendente 
+                        from entregadores a 
+                        where a.situacao = '1' and a.deletado != '1' and a.loja = '{$_SESSION['bkLoja']}' order by a.nome";
                 $r = mysqli_query($con, $q);
                 while($s = mysqli_fetch_object($r)){
                 ?>
