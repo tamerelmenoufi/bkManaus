@@ -70,7 +70,7 @@
         cursor:pointer;
         font-size:12px;
     }
-    li[entrega], li[entrgaBLQ]{
+    li[entrega], li[entrgablq]{
         cursor:pointer;
         font-size:12px;
     }
