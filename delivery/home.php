@@ -100,7 +100,34 @@
                     from vendas a 
                     left join clientes b on a.cliente = b.codigo 
                     left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
-                    where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['DbkLoja']}' and delivery_detalhes->>'$.deliveryMan.id' = '{$_SESSION['DbkEntregador']}' order by ordem asc, a.data desc) UNION (select * from ifood where loja = '{$_SESSION['DbkLoja']}' and entregador = '{$_SESSION['DbkEntregador']}')";
+                    where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['DbkLoja']}' and delivery_detalhes->>'$.deliveryMan.id' = '{$_SESSION['DbkEntregador']}' order by ordem asc, a.data desc) UNION (select
+            'entrega' as tipo,
+            a.codigo,	
+            '' as device,	
+            '' as detalhes,	
+            a.ifood,
+            '' as loja,	
+            '' as cliente,	
+            '' as endereco,	
+            '' as pagamento,	
+            '' as pix_detalhes,	
+            '' as cartao_detalhes,	
+            '' as delivery,	
+            '' as delivery_id,	
+            b.nome as delivery_detalhes,	
+            a.data,	
+            '' as cupom,	
+            '' as valor_compra,	
+            '' as valor_entrega,	
+            '' as valor_desconto,	
+            '' as valor_total,
+            a.producao,
+            'pago' as situacao,
+            '' as ordem,	
+            '' as nome,
+            '' as entrega,	
+            '' as retorno
+                    from ifood a left join entregadores b on a.entregador = b.codigo where a.loja = '{$_SESSION['DbkLoja']}' and a.entregador = '{$_SESSION['DbkEntregador']}')";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
 
