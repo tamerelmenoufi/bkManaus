@@ -56,7 +56,7 @@
     </thead>
     <tbody>
         <?php
-        $query = "select a.*, b.nome as entregador from ifood a left join entregadores b on a.entregador = b.codigo where 1 {$where} order by b.nome asc, a.data asc";
+        echo $query = "select a.*, b.nome as entregador from ifood a left join entregadores b on a.entregador = b.codigo where 1 {$where} order by b.nome asc, a.data asc";
         $result = mysqli_query($con, $query);
         while($d = mysqli_fetch_object($result)){
         ?>
