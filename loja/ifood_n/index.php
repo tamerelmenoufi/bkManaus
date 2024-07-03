@@ -130,6 +130,8 @@
             entregador = $("#entregador").val();
             situacao = $("#situacao").val();
 
+            console.log(`!${ifood} || !${entregador} || !${situacao} || !${data} || !${valor}`)
+
             if(!ifood || !entregador || !situacao || !data || !valor){
                 $.alert({
                     title:"Erro",
