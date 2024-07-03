@@ -30,7 +30,7 @@
                 <td><?=$d->loja?></td>
                 <td><?=dataBr($d->data)?></td>
                 <td>#<?=$d->codigo?></td>
-                <td>R$ <?=number_format($d->valor,2,',','.')?></td>
+                <td>R$ <?=number_format($d->valor_total,2,',','.')?></td>
                 <td><?=strtoupper($d->producao)?></td>
             </tr>
             <?php
