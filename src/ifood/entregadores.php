@@ -73,11 +73,11 @@
         ?>
         <tr class="table-<?=(($d->producao == 'entregue')?'success':'danger')?>">
             <td><?=$i?></td>
-            <td><?=((trim($d->loja))?:"RETIRADA NA LOJA")?></td>
+            <td><?=$d->loja?></td>
             <td><?=dataBr($d->data)?></td>
             <td>#<?=$d->ifood?></td>
             <td>R$ <?=number_format($d->valor,2,',','.')?></td>
-            <td><?=$d->entregador?></td>
+            <td><?=(($d->entregador)?:"RETIRADA NA LOJA")?></td>
             <td><?=strtoupper($d->producao)?></td>
         </tr>
         <?php
