@@ -30,7 +30,7 @@
             while($d = mysqli_fetch_object($result)){
             ?>
             <tr class="table-<?=(($d->producao == 'entregue')?'success':'danger')?>">
-                <td><?=$d->loja?></td>
+                <td><?=(($d->loja)?:"RETIRADA NA LOJA")?></td>
                 <td><?=dataBr($d->data)?></td>
                 <td>#<?=$d->ifood?></td>
                 <td>R$ <?=number_format($d->valor,2,',','.')?></td>
