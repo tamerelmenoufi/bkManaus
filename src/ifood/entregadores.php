@@ -48,6 +48,7 @@
     <thead>
         <tr>
             <th>#</th>
+            <th>Loja</th>
             <th>Data</th>
             <th>Pedido</th>
             <th>Valor</th>
@@ -57,7 +58,14 @@
     </thead>
     <tbody>
         <?php
-        $query = "select a.*, b.nome as entregador from ifood a left join entregadores b on a.entregador = b.codigo where 1 {$where} order by b.nome asc, a.data asc";
+        $query = "select 
+                        a.*, 
+                        b.nome as entregador,
+                        c.nome as loja 
+                    from ifood a 
+                         left join entregadores b on a.entregador = b.codigo 
+                         left join lojas c on a.loja = c.codigo 
+                    where 1 {$where} order by b.nome asc, a.data asc";
         $result = mysqli_query($con, $query);
         $i=1;
         $valor_total = 0;
@@ -65,6 +73,7 @@
         ?>
         <tr class="table-<?=(($d->producao == 'entregue')?'success':'danger')?>">
             <td><?=$i?></td>
+            <td><?=$d->loja?></td>
             <td><?=dataBr($d->data)?></td>
             <td>#<?=$d->ifood?></td>
             <td>R$ <?=number_format($d->valor,2,',','.')?></td>
@@ -77,7 +86,7 @@
         }
         ?>
         <tr>
-            <th colspan="3" style="text-align:right">TOTAL DAS VENDAS</th>
+            <th colspan="4" style="text-align:right">TOTAL DAS VENDAS</th>
             <th>R$ <?=number_format($valor_total,2,',','.')?></th>
             <th colspan="2"></th>
         </tr>
