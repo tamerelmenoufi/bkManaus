@@ -3,13 +3,13 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     if($_POST['data_inicio'] and $_POST['data_fim']){
-        $where = " and data between '{$_POST['data_inicio']}' and '{$_POST['data_fim']}' ";
+        $where = " and a.data between '{$_POST['data_inicio']}' and '{$_POST['data_fim']}' ";
     }else if($_POST['data_inicio']){
-        $where = " and data = '{$_POST['data_inicio']}' ";
+        $where = " and a.data = '{$_POST['data_inicio']}' ";
     }
 
     if($_POST['entregador']){
-        $where .= " and entregador = '{$_POST['entregador']}' ";
+        $where .= " and a.entregador = '{$_POST['entregador']}' ";
     }
 
 
@@ -29,7 +29,7 @@
         <select id="entregador"  class="form-select">
             <option value="todos">Todos</option>
             <?php
-            $q = "select * from entregadores where situacao = '1' and deletado != '1' {$where} order by nome asc";
+            $q = "select * from entregadores where situacao = '1' and deletado != '1' order by nome asc";
             $r = mysqli_query($con, $q);
             while($s = mysqli_fetch_object($r)){
             ?>
@@ -56,7 +56,7 @@
     </thead>
     <tbody>
         <?php
-        $query = "select a.*, b.nome as entregador from ifood a left join entregadores b on a.entregador = b.codigo order by b.nome asc, a.data asc";
+        $query = "select a.*, b.nome as entregador from ifood a left join entregadores b on a.entregador = b.codigo where 1 {$where} order by b.nome asc, a.data asc";
         $result = mysqli_query($con, $query);
         while($d = mysqli_fetch_object($result)){
         ?>
