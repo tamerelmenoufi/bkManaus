@@ -64,11 +64,14 @@
             <label for="entregador" class="form-label">Entregador*</label>
             <select name="entregador" id="entregador" class="form-select">
                 <?php
-                $q = "select * from entregadores where situacao = '1' and deletado != '1' order by nome";
+                $q = "select a.*, (select count(*) from ifood where entregador = a.codigo) as pendente from entregadores a where a.situacao = '1' and a.deletado != '1' order by a.nome";
                 $r = mysqli_query($con, $q);
                 while($s = mysqli_fetch_object($r)){
                 ?>
-                <option value="<?=$s->codigo?>" <?=(($s->codigo == $d->entregador)?'selected':false)?>><?=$s->nome?></option>                
+                <option 
+                        value="<?=$s->codigo?>" 
+                        <?=(($s->pendente)?'disabled':false)?> 
+                        <?=(($s->codigo == $d->entregador)?'selected':false)?>><?=$s->nome?></option>                
                 <?php
                 }
                 ?>
