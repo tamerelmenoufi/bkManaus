@@ -82,7 +82,7 @@
 
         <ul class="list-group">
             <?php
-            $query = "(select 
+            echo $query = "(select 
                             a.*, 
                             if(a.producao = 'pendente',0,1) as ordem, 
                             b.nome, 
