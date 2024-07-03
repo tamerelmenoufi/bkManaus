@@ -47,6 +47,7 @@
 <table class="table table-hover">
     <thead>
         <tr>
+            <th>#</th>
             <th>Data</th>
             <th>Pedido</th>
             <th>Valor</th>
@@ -56,11 +57,14 @@
     </thead>
     <tbody>
         <?php
-        echo $query = "select a.*, b.nome as entregador from ifood a left join entregadores b on a.entregador = b.codigo where 1 {$where} order by b.nome asc, a.data asc";
+        $query = "select a.*, b.nome as entregador from ifood a left join entregadores b on a.entregador = b.codigo where 1 {$where} order by b.nome asc, a.data asc";
         $result = mysqli_query($con, $query);
+        $i=1;
+        $valor_total = 0;
         while($d = mysqli_fetch_object($result)){
         ?>
         <tr class="table-<?=(($d->producao == 'entregue')?'success':'danger')?>">
+            <td><?=$i?></td>
             <td><?=dataBr($d->data)?></td>
             <td>#<?=$d->ifood?></td>
             <td>R$ <?=number_format($d->valor,2,',','.')?></td>
@@ -68,8 +72,15 @@
             <td><?=strtoupper($d->producao)?></td>
         </tr>
         <?php
+        $valor_total = $valor_total + $d->valor;
+        $i++;
         }
         ?>
+        <tr>
+            <th colspan="3" style="text-align:right">TOTAL DAS VENDAS</th>
+            <th><?=number_format($valor_total,2,',','.')?></th>
+            <th colspan="2"></th>
+        </tr>
     </tbody>
 </table>
 
