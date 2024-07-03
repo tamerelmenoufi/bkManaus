@@ -290,8 +290,8 @@
                 content: '' +
                 '<form action="" class="formName">' +
                 '<div class="form-group">' +
-                '<label>Digito o código para a entrega ifood <b>'+ ifood +'</b></label>' +
-                '<input type="text" placeholder="Your name" class="name form-control" required />' +
+                '<label>Digito o código para a entrega ifood <b>#'+ ifood +'</b></label>' +
+                '<input type="text" inputmode="numeric" placeholder="Digite o código" class="name form-control" required />' +
                 '</div>' +
                 '</form>',
                 buttons: {
@@ -304,6 +304,11 @@
                                 $.alert('O código de entrega é Obrigatório');
                                 return false;
                             }
+                            if(name.length != 4){
+                                $.alert('O código de entrega é Obrigatório');
+                                return false;
+                            }
+                            
                             $.alert('Your name is ' + name);
                         }
                     },
@@ -317,6 +322,7 @@
                     this.$content.find('form').on('submit', function (e) {
                         // if the user submits the form by pressing enter in the field.
                         e.preventDefault();
+                        $(".name").mask("9999");
                         jc.$$formSubmit.trigger('click'); // reference the button and click it
                     });
                 }
