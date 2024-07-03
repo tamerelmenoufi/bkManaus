@@ -148,7 +148,7 @@
 
 
             $.confirm({
-                title:"Confirmação de pagamento",
+                title:"Confirmação de Pagamento",
                 content:"Esta operação finaliza a sua compra e gera a cobrança.<br>Deseja prosseguir?",
                 buttons:{
                     sim:{
