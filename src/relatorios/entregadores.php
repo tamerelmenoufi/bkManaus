@@ -52,7 +52,7 @@
             <th>Data</th>
             <th>Pedido</th>
             <th>Valor</th>
-            <!-- <th>Entregador</th> -->
+            <th>Valor Entrega</th>
             <th>Situação</th>
         </tr>
     </thead>
@@ -66,7 +66,7 @@
                     where 1 {$where} order by a.data asc";
         $result = mysqli_query($con, $query);
         $i=1;
-        $valor_total = 0;
+        $valor_total = $valor_entrega_total = 0;
         while($d = mysqli_fetch_object($result)){
         ?>
         <tr class="table-<?=(($d->producao == 'entregue')?'success':'danger')?>">
@@ -75,16 +75,19 @@
             <td><?=dataBr($d->data)?></td>
             <td>#<?=$d->codigo?></td>
             <td>R$ <?=number_format($d->valor_total,2,',','.')?></td>
+            <td>R$ <?=number_format($d->valor_entrega,2,',','.')?></td>
             <td><?=strtoupper($d->producao)?></td>
         </tr>
         <?php
         $valor_total = $valor_total + $d->valor_total;
+        $valor_entrega_total = $valor_entrega_total + $d->valor_entrega;
         $i++;
         }
         ?>
         <tr>
             <th colspan="4" style="text-align:right">TOTAL DAS VENDAS</th>
             <th>R$ <?=number_format($valor_total,2,',','.')?></th>
+            <th>R$ <?=number_format($valor_entrega_total,2,',','.')?></th>
             <th colspan="2"></th>
         </tr>
     </tbody>
