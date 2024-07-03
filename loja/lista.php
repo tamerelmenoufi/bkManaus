@@ -170,6 +170,9 @@
                             <b><?=strtoupper($d->producao)?></b>
                         </div>
                     </div>
+                    <?php
+                    if($d->delivery_detalhes){
+                    ?>
                     <div class="d-flex justify-content-start dados">
                         <div>
                             <i class="fa-solid fa-person-biking"></i> <b>Entregador: </b> 
@@ -178,6 +181,17 @@
                             <?=$d->delivery_detalhes?>
                         </div>
                     </div>
+                    <?php
+                    }else{
+                    ?>
+                    <div class="d-flex justify-content-start dados">
+                        <div class="text-center">
+                            <i class="fa-solid fa-person-biking"></i> <b>RETIRADA NA LOJA</b> 
+                        </div>
+                    </div>                    
+                    <?php
+                    }
+                    ?>
                 </li>
             <?php
                 }

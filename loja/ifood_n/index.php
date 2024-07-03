@@ -82,6 +82,7 @@
         <div class="mb-3">
             <label for="entregador" class="form-label">Entregador*</label>
             <select name="entregador" id="entregador" class="form-select">
+                <option value="0">Retirada na loja</option>
                 <?php
                 $q = "select 
                             a.*,
