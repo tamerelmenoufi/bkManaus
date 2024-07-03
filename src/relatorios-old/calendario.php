@@ -29,7 +29,6 @@
 <style>
     .calendario{
         width:100%;
-        height:450px;
     }
     .calendario td{
         font-size:12px;
@@ -75,7 +74,7 @@
         text-align:center;
     }
 </style>
-<h3>Calendário de Produção (BkManaus)</h3>
+
 <div class="input-group mb-3">
   <label class="input-group-text" for="inputGroupSelect01">Mês</label>
   <select dateN class="form-select">
@@ -160,34 +159,20 @@
 
                     $(".area_calendario").html(dados);
 
-                    $.ajax({
-                        url:"src/relatorios/tabela.php",
-                        type:"POST",
-                        data:{
-                            data:`${Y}-${n}`
-                        },
-                        success:function(dados){
-                            $(".dados_calncario").html(dados);
-                        }
-                    })
+                    // $.ajax({
+                    //     url:"src/relatorios/tabelas.php",
+                    //     type:"POST",
+                    //     data:{
+                    //         data:`${Y}-${n}`
+                    //     },
+                    //     success:function(dados){
+                    //         $("div[dbTabela").html(dados);
+                    //     }
+                    // })
 
 
                 }
             });
-        })
-        
-        $(".registros").click(function(){
-            data = $(this).attr("data");
-            $.ajax({
-                url:"src/relatorios/tabela.php",
-                type:"POST",
-                data:{
-                    data
-                },
-                success:function(dados){
-                    $(".dados_calncario").html(dados);
-                }
-            })
         })
 
     })

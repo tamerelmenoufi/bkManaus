@@ -22,18 +22,16 @@
 </div> -->
 
 <div class="row g-0">
-    <div class="col-md-4">
+    <h3 class="m-3">Calendário de Produção</h3>
+    <div class="col-4">
         <div class="area_calendario m-3"></div>
     </div>
-    <div class="col-md-8">
+    <div class="col-8">
         <div class="dados_calncario m-3"></div>
     </div>
+    
 </div>
-<div class="row g-0">
-    <div class="col-md-12">
-        <div class="area_entregadores m-3"></div>
-    </div>
-</div>
+
 <script>
     $(function(){
 
@@ -47,25 +45,6 @@
             },
             success:function(dados){
                 $(".area_calendario").html(dados);
-
-                $.ajax({
-                    url:"src/relatorios/tabela.php",
-                    type:"POST",
-                    data:{
-                        data:`${Y}-${n}`
-                    },
-                    success:function(dados){
-                        $(".dados_calncario").html(dados);
-                    }
-                })
-
-                $.ajax({
-                    url:"src/relatorios/entregadores.php",
-                    success:function(dados){
-                        $(".area_entregadores").html(dados);
-                    }
-                })
-
             }
         })
 
