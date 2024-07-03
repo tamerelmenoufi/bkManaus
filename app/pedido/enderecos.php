@@ -100,13 +100,13 @@
 
                 $local = json_decode($local);
 
-                echo $local->status."<br>".$local->routes[0]->legs[0]->distance->value."<br>".$v->coordenadas."<br><hr>";
+                // echo $local->status."<br>".$local->routes[0]->legs[0]->distance->value."<br>".$v->coordenadas."<br><hr>";
 
                 if($local->status == 'OK'){
 
                     $vl = $local->routes[0]->legs[0]->distance->value;
                     $distancia = $vl;
-                    $vl = number_format($vl/1000,1,"-",false);
+                    echo $vl = number_format($vl/1000,1,"-",false);
                     list($int, $dec) = explode("-", $vl);
                     $vl = ($int + (($dec > 0)?1:0) + 7); 
                     if($vl <= $vlopc || $vlopc == 0) {
