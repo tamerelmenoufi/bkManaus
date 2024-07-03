@@ -2,6 +2,19 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     if($_POST['acao'] == 'salvar'){
+
+
+        if($_POST['situacao'] == 'entregue'){
+
+            $add = ", finalizacao = NOW(), situacao = 'concluido'";
+
+        }else{
+
+            $add = ", finalizacao = 0, situacao = 'pendente'";
+
+        }
+
+
         if($_POST['codigo']){
             $query = "update ifood set 
                                         loja = '{$_POST['loja']}',
@@ -9,7 +22,8 @@
                                         data = '{$_POST['data']}',
                                         valor = '{$_POST['valor']}',
                                         entregador = '{$_POST['entregador']}', 
-                                        producao = '{$_POST['situacao']}' 
+                                        producao = '{$_POST['situacao']}'
+                                        {$add}
                                 where codigo = '{$_POST['codigo']}'";
             mysqli_query($con, $query);
         }else{
@@ -20,6 +34,7 @@
                                         valor = '{$_POST['valor']}',
                                         entregador = '{$_POST['entregador']}', 
                                         producao = '{$_POST['situacao']}'
+                                        {$add}
                                         ";
             mysqli_query($con, $query);            
         }
