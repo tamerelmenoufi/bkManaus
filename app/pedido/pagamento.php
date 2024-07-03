@@ -165,7 +165,7 @@
                                     cupom,
                                     valor_cupom,
                                     valor_compra,
-                                    valor_entrega,
+                                    valor_entrega:0,
                                     codigo_entrega,
                                     loja,
                                     valor_desconto,
