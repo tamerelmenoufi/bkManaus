@@ -82,7 +82,7 @@
 
         <ul class="list-group">
             <?php
-            $query = "select 
+            $query = "(select 
                             a.*, 
                             if(a.producao = 'pendente',0,1) as ordem, 
                             b.nome, 
@@ -100,7 +100,7 @@
                     from vendas a 
                     left join clientes b on a.cliente = b.codigo 
                     left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
-                    where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['DbkLoja']}' and delivery_detalhes->>'$.deliveryMan.id' = '{$_SESSION['DbkEntregador']}' order by ordem asc, a.data desc";
+                    where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['DbkLoja']}' and delivery_detalhes->>'$.deliveryMan.id' = '{$_SESSION['DbkEntregador']}' order by ordem asc, a.data desc) UNION (select * from ifood where loja = '{$_SESSION['DbkLoja']}' and entregador = '{$_SESSION['DbkEntregador']}')";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
 
