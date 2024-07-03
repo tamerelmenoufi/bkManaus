@@ -201,7 +201,7 @@
             <?php
             }else{
             ?>
-            <li class="list-group-item <?=(($d->producao != 'entregue')?'bg-secondary-subtle':'bg-success-subtle')?>" entrega="<?=$d->codigo?>">
+            <li class="list-group-item <?=(($d->producao != 'entregue')?'bg-secondary-subtle':'bg-success-subtle')?>" entrega="<?=$d->codigo?>" ifood="<?=$d->ifood?>">
                     <div class="d-flex justify-content-between">
                         <div>
                             Ifood #<?=str_pad($d->ifood, 6, "0", STR_PAD_LEFT)?>
@@ -277,6 +277,55 @@
                 }
             });
         })
+
+
+
+        $("li[entrega]").click(function(){
+            entrega = $(this).attr("entrega");
+            ifood = $(this).attr("ifood");
+
+            
+            $.confirm({
+                title: 'Confirmação de Entrega',
+                content: '' +
+                '<form action="" class="formName">' +
+                '<div class="form-group">' +
+                '<label>Digito o código para a entrega ifood <b>'+ ifood +'</b></label>' +
+                '<input type="text" placeholder="Your name" class="name form-control" required />' +
+                '</div>' +
+                '</form>',
+                buttons: {
+                    formSubmit: {
+                        text: 'Submit',
+                        btnClass: 'btn-blue',
+                        action: function () {
+                            var name = this.$content.find('.name').val();
+                            if(!name){
+                                $.alert('O código de entrega é Obrigatório');
+                                return false;
+                            }
+                            $.alert('Your name is ' + name);
+                        }
+                    },
+                    cancel: function () {
+                        //close
+                    },
+                },
+                onContentReady: function () {
+                    // bind to events
+                    var jc = this;
+                    this.$content.find('form').on('submit', function (e) {
+                        // if the user submits the form by pressing enter in the field.
+                        e.preventDefault();
+                        jc.$$formSubmit.trigger('click'); // reference the button and click it
+                    });
+                }
+            });
+
+
+        })
+
+
 
         $(".entregadores").click(function(){
             loja = localStorage.getItem("Dloja");
