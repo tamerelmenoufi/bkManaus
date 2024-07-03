@@ -105,7 +105,7 @@
                 if($local->status == 'OK'){
 
                     $vl = $local->routes[0]->legs[0]->distance->value;
-                    $distancia = $vl;
+                    $dist = $vl;
                     echo $vl = number_format($vl/1000,1,"-",false);
                     echo "<br>";
                     list($int, $dec) = explode("-", $vl);
@@ -116,6 +116,7 @@
                         $codTaxa = $v->mottu;
                         $loja = $v->codigo;
                         $unidade = $v->nome;
+                        $distancia = $dist;
                     }
                 }
                 ////////// SOLUÇÃO PRÓPRIA ////////////////////////////
