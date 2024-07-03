@@ -60,6 +60,10 @@
         cursor:pointer;
         font-size:12px;
     }
+    li[entrega]{
+        cursor:pointer;
+        font-size:12px;
+    }
     .bg-secondary-subtle{
         background-color:#e2e3e5;
     }
