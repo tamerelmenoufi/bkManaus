@@ -106,8 +106,8 @@
 
                     $vl = $local->routes[0]->legs[0]->distance->value;
                     $dist = $vl;
-                    echo $vl = number_format($vl/1000,1,"-",false);
-                    echo "<br>";
+                    $vl = number_format($vl/1000,1,"-",false);
+                    // echo "<br>";
                     list($int, $dec) = explode("-", $vl);
                     $vl = ($int + (($dec > 0)?1:0) + 7); 
                     if($vl <= $vlopc || $vlopc == 0) {
