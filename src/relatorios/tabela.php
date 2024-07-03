@@ -20,10 +20,8 @@
             <?php
             $query = "select 
                             a.*, 
-                            b.nome as entregador,
                             c.nome as loja
                         from vendas a 
-                             left join entregadores b on a.entregador = b.codigo 
                              left join lojas c on a.loja = c.codigo 
                         where a.data like '%{$_POST['data']}%'";
             $result = mysqli_query($con, $query);
@@ -34,7 +32,6 @@
                 <td><?=dataBr($d->data)?></td>
                 <td>#<?=$d->codigo?></td>
                 <td>R$ <?=number_format($d->valor,2,',','.')?></td>
-                <td><?=$d->entregador?></td>
                 <td><?=strtoupper($d->producao)?></td>
             </tr>
             <?php
