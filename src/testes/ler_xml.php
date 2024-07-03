@@ -1,6 +1,9 @@
 <?php
 
-    $xml = simplexml_load_file('teste.xml') or die("Erro: Não foi possível carregar o arquivo XML.");
+echo "teste";
 
 
-    var_dump($xml);
+    // $xml = simplexml_load_file('teste.xml') or die("Erro: Não foi possível carregar o arquivo XML.");
+
+
+    // var_dump($xml);
