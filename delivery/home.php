@@ -318,11 +318,11 @@
                 },
                 onContentReady: function () {
                     // bind to events
+                    $(".name").mask("9999");
                     var jc = this;
                     this.$content.find('form').on('submit', function (e) {
                         // if the user submits the form by pressing enter in the field.
                         e.preventDefault();
-                        e.children("input").mask("9999");
                         jc.$$formSubmit.trigger('click'); // reference the button and click it
                     });
                 }
