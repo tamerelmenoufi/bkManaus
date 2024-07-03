@@ -3,9 +3,9 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     if($_POST['data_inicio'] and $_POST['data_fim']){
-        $where = " and a.data between '{$_POST['data_inicio']}' and '{$_POST['data_fim']}' ";
+        $where = " and a.data between '{$_POST['data_inicio']} 00:00:00' and '{$_POST['data_fim']} 23:59:59' ";
     }else if($_POST['data_inicio']){
-        $where = " and a.data = '{$_POST['data_inicio']}' ";
+        $where = " and a.data like '%{$_POST['data_inicio']}%' ";
     }
 
     if($_POST['entregador']){
