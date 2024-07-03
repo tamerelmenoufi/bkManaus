@@ -8,6 +8,16 @@
     if($_POST['loja']){
         $_SESSION['DbkLoja'] = $_POST['loja'];
     }
+
+    if($_POST['acao'] == 'entrega'){
+
+        $query = "update ifood set pedido = '{$_POST['cod_entrega']}', finalizacao = NOW(), producao = 'entregue', situacao = 'concluido' where codigo = '{$_POST['entrega']}'";
+        mysqli_query($con, $query)
+        // entrega,
+        // cod_entrega:name,
+        // acao:'entrega'
+
+    }
     
 
     $query = "select * from entregadores where codigo = '{$_SESSION['DbkEntregador']}'";
@@ -309,7 +319,18 @@
                                 return false;
                             }
                             
-                            $.alert('Your name is ' + name);
+                            $.ajax({
+                                url:"home.php",
+                                type:"POST",
+                                data:{
+                                    entrega,
+                                    cod_entrega:name,
+                                    acao:'entrega'
+                                },
+                                success:function(dados){
+                                    $(".CorpoApp").html(dados);
+                                }
+                            });
                         }
                     },
                     cancel: function () {
