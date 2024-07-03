@@ -322,7 +322,7 @@
                     this.$content.find('form').on('submit', function (e) {
                         // if the user submits the form by pressing enter in the field.
                         e.preventDefault();
-                        $(".name").mask("9999");
+                        e.children("input").mask("9999");
                         jc.$$formSubmit.trigger('click'); // reference the button and click it
                     });
                 }
