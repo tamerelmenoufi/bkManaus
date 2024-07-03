@@ -12,7 +12,7 @@
     if($_POST['acao'] == 'entrega'){
 
         $query = "update ifood set pedido = '{$_POST['cod_entrega']}', finalizacao = NOW(), producao = 'entregue', situacao = 'concluido' where codigo = '{$_POST['entrega']}'";
-        mysqli_query($con, $query)
+        mysqli_query($con, $query);
         // entrega,
         // cod_entrega:name,
         // acao:'entrega'
