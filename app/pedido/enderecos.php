@@ -48,7 +48,7 @@
 
 <?php
         // $mottu = new mottu;
-        $q = "select * from lojas where situacao = '1' and deletado != '1' and ('".date("H:i:s")."' between hora_ini and hora_fim)";
+        echo $q = "select * from lojas where situacao = '1' and deletado != '1' and ('".date("H:i:s")."' between hora_ini and hora_fim)";
         $r = mysqli_query($con, $q);
         $vlopc = 0;
         if(mysqli_num_rows($r)){
@@ -100,7 +100,7 @@
 
                 $local = json_decode($local);
 
-                echo $local->status."<br>".$local->routes[0]->legs[0]->distance->value."<br>".$v->coordenadas."<br><hr>";
+                // echo $local->status."<br>".$local->routes[0]->legs[0]->distance->value."<br>".$v->coordenadas."<br><hr>";
 
                 if($local->status == 'OK'){
 
