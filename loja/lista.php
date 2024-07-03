@@ -184,9 +184,9 @@
                     <?php
                     }else{
                     ?>
-                    <div class="d-flex justify-content-start dados">
-                        <div class="text-center">
-                            <i class="fa-solid fa-person-biking"></i> <b>RETIRADA NA LOJA</b> 
+                    <div class="d-flex justify-content-center dados">
+                        <div>
+                            <i class="fa-solid fa-bag-shopping"></i> <b>RETIRADA NA LOJA</b> 
                         </div>
                     </div>                    
                     <?php
