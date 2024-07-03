@@ -83,6 +83,7 @@
         <ul class="list-group">
             <?php
             echo $query = "(select 
+                            'pedido' as tipo,
                             a.*, 
                             if(a.producao = 'pendente',0,1) as ordem, 
                             b.nome, 
