@@ -13,3 +13,11 @@
     print_r($json);
 
     echo "</pre>";
+
+
+    foreach($json->NFe->det as $i => $val){
+
+
+        echo $val->prod->xProd."<br>";
+
+    }
