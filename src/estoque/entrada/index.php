@@ -91,7 +91,7 @@
                 data:{
                     base64,
                     tipo,
-                    nonme,
+                    nome,
                     acao:"upload_xml"
                 },
                 success:function(dados){
