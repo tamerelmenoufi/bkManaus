@@ -14,7 +14,7 @@
 
     echo "</pre>";
 
-    print_r($json->NFe->infNFe->det) ;
+    echo "produtos:".($json->NFe->infNFe->det) ;
 
 
     foreach($json->NFe->infNFe->det as $i => $val){
