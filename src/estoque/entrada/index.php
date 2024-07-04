@@ -1,5 +1,29 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
+
+    if($_POST['acapo'] == 'upload_xml'){
+
+        if(!is_dir("../../volumes/")) mkdir("../../volumes/");
+        if(!is_dir("../../volumes/notas/")) mkdir("../../volumes/notas");
+        if(!is_dir("../../volumes/notas/xml/")) mkdir("../../volumes/notas/xml/");
+        
+        $arquivo = str_replace("data:text/xml;base64,", false, $_POST['base64']);
+        $nome = md5($_POST['base64']).".xml";
+
+        if(file_put_contents("../../volumes/notas/xml/{$nome}", $arquivo)){
+
+            $xml = simplexml_load_file("../../volumes/notas/xml/{$nome}");
+            $json = json_encode($xml);
+
+            $query = "insert into notas set dados = '{$json}', data = NOW(), situacao = '1'";
+            mysqli_query($con, $quey);
+
+        }
+
+
+
+    }
+
 ?>
 <div class="m-3">
     <div class="row g-0">
@@ -16,7 +40,7 @@
                         <input class="form-control form-control-sm" id="formFileSm" type="file">
                         <input id="dadosXML" base64="" nome="" tipo="" type="hidden">
                     </div>
-                    <a href="#" class="btn btn-primary btn-sm">Incluir Nota</a>
+                    <a href="#" class="btn btn-primary btn-sm incluir_nota">Incluir Nota</a>
                 </div>
             </div>
         </div>
@@ -55,5 +79,27 @@
             alert('Nao suporta HTML5');
         }
         
+        $(".incluir_nota").click(function(){
+
+            base64 = $("#dadosXML").attr("base64", base64);
+            tipo = $("#dadosXML").attr("tipo", tipo);
+            nome = $("#dadosXML").attr("nome", nome);
+
+            $.ajax({
+                url:"src/estoque/entrada/index.php",
+                type:"POST",
+                data:{
+                    base64,
+                    tipo,
+                    nonme,
+                    acao:"upload_xml"
+                },
+                success:function(dados){
+                    $("#paginaHome").html(dados);
+                }
+            })
+
+        })
+
     })
 </script>
