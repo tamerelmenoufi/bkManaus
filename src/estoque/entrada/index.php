@@ -45,7 +45,92 @@
             </div>
         </div>
     </div>
+
+
+
+
+    <div class="row g-0">
+        <div class="col-md-12">
+            <h3>Notas Inseridas</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>UF</th>
+                        <th>Código</th>
+                        <th>Natureza</th>
+                        <th>Modelo</th>
+                        <th>Série</th>
+                        <th>Nota</th>
+                        <th>Emissão</th>
+                        <th>Data</th>
+                        <th>Operação</th>
+                        <th>Destino</th>
+                        <th>Município</th>
+                        <th>Impressão</th>
+                        <th>Emissão</th>
+                        <th>Dígito</th>
+                        <th>Ambiente</th>
+                        <th>Finalidade</th>
+                        <th>Consumidor</th>
+                        <th>Presencial</th>
+                        <th>Intermediador</th>
+                        <th>Aplicativo</th>
+                        <th>Versão</th>
+                    </tr>
+                </thead>
+                <tbody>
+            <?php
+            $query = "select * from notas";
+            $result = mysqli_query($con, $query);
+            while($d = mysqli_fetch_object($result)){
+                $n = json_decode($d->dados);
+
+                // "cUF": "35",
+                // "cNF": "09257673",
+                // "natOp": "Venda de mercadoria adquirida ou recebida de terceiros, dest",
+                // "mod": "55",
+                // "serie": "1",
+                // "nNF": "251139",
+                // "dhEmi": "2024-07-01T18:39:17-03:00",
+                // "dhSaiEnt": "2024-07-01T18:39:17-03:00",
+                // "tpNF": "1",
+                // "idDest": "2",
+                // "cMunFG": "3525904",
+                // "tpImp": "1",
+                // "tpEmis": "1",
+                // "cDV": "8",
+                // "tpAmb": "1",
+                // "finNFe": "1",
+                // "indFinal": "0",
+                // "indPres": "9",
+                // "indIntermed": "0",
+                // "procEmi": "0",
+                // "verProc": "GSNFE_4-4.0"
+            ?>
+                    <tr>
+            <?php
+                foreach($n->NFe->infNFe->ide as $i => $val){
+            ?>
+                        <th><?=$val?></th>
+            <?php
+                }
+            ?>                        
+                    </tr>
+            <?php
+            }
+            ?>
+                </tbody>
+            </table>            
+        </div>
+    </div>
+
+
 </div>
+
+
+
+
+
 <script>
     $(function(){
         Carregando('none');
