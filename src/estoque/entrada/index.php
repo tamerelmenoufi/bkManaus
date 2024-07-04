@@ -1,7 +1,7 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-    if($_POST['acapo'] == 'upload_xml'){
+    if($_POST['acao'] == 'upload_xml'){
 
         if(!is_dir("../../volumes/")) mkdir("../../volumes/");
         if(!is_dir("../../volumes/notas/")) mkdir("../../volumes/notas");
@@ -84,7 +84,7 @@
             base64 = $("#dadosXML").attr("base64", base64);
             tipo = $("#dadosXML").attr("tipo", tipo);
             nome = $("#dadosXML").attr("nome", nome);
-
+            Carregando()
             $.ajax({
                 url:"src/estoque/entrada/index.php",
                 type:"POST",
