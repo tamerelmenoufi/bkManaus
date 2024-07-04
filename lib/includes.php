@@ -7,7 +7,12 @@
     include "vendor/rede/classes.php";
     include "vendor/mercado_pago/classes.php";
     include "vendor/mottu/classes.php";
-    $con = AppConnect('bk_manaus');
+    $local = explode("/", $_SERVER['PHP_SELF']);
+    if($local[3] == 'estoque'){
+        $con = AppConnect('bk_estoque');
+    }else{
+        $con = AppConnect('bk_manaus');
+    }
     $conApi = AppConnect('information_schema');
     $md5 = md5(date("YmdHis"));
 
