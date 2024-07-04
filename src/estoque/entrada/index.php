@@ -66,7 +66,7 @@
                         <th>Operação</th>
                         <th>Destino</th>
                         <th>Município</th>
-                        <th>Impressão</th>
+                        <!-- <th>Impressão</th>
                         <th>Emissão</th>
                         <th>Dígito</th>
                         <th>Ambiente</th>
@@ -75,7 +75,7 @@
                         <th>Presencial</th>
                         <th>Intermediador</th>
                         <th>Aplicativo</th>
-                        <th>Versão</th>
+                        <th>Versão</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -87,27 +87,6 @@
 
                 $c = $n->NFe->infNFe->ide;
 
-                // "": "35",
-                // "": "09257673",
-                // "": "Venda de mercadoria adquirida ou recebida de terceiros, dest",
-                // "": "55",
-                // "": "1",
-                // "": "251139",
-                // "": "2024-07-01T18:39:17-03:00",
-                // "": "2024-07-01T18:39:17-03:00",
-                // "": "1",
-                // "": "2",
-                // "": "3525904",
-                // "": "1",
-                // "": "1",
-                // "": "8",
-                // "": "1",
-                // "": "1",
-                // "": "0",
-                // "": "9",
-                // "": "0",
-                // "": "0",
-                // "": "GSNFE_4-4.0"
             ?>
                     <tr>
                         <td><?=$c->cUF?></td>                    
@@ -121,7 +100,7 @@
                         <td><?=$c->tpNF?></td>                    
                         <td><?=$c->idDest?></td>                    
                         <td><?=$c->cMunFG?></td>                    
-                        <td><?=$c->tpImp?></td>                    
+                        <!-- <td><?=$c->tpImp?></td>                    
                         <td><?=$c->tpEmis?></td>                    
                         <td><?=$c->cDV?></td>                    
                         <td><?=$c->tpAmb?></td>                    
@@ -130,7 +109,7 @@
                         <td><?=$c->indPres?></td>                    
                         <td><?=$c->indIntermed?></td>                    
                         <td><?=$c->procEmi?></td>                    
-                        <td><?=$c->verProc?></td>                    
+                        <td><?=$c->verProc?></td>                     -->
                     </tr>
             <?php
             }
