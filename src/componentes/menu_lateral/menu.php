@@ -88,6 +88,23 @@
     </div>  
 
 
+    <h4>Estoque</h4>
+    <div class="row mb-1">
+      <div class="col">
+        <a url="src/estoque/entrada/index.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Entrada</span>
+        </a>
+      </div>
+    </div>  
+    <div class="row mb-1">
+      <div class="col">
+        <a url="src/estoque/saida/index.php" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa-regular fa-user col-1"></i> <span class="col-11">Saída</span>
+        </a>
+      </div>
+    </div>  
+
+
   </div>
 </div>
 
