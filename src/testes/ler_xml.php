@@ -10,7 +10,7 @@
 
     echo "<pre>";
 
-    // var_dump($xml);
+    print_r($json);
 
     echo "</pre>";
 
