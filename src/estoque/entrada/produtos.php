@@ -14,7 +14,7 @@
 ?>
 <div class="card mb-3">
   <h6 class="card-header"><?=$p->xProd?></h6>
-    <table class="table">
+    <table class="table tablet-hover">
         <tbody>
 
             <tr>
