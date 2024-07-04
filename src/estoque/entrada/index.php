@@ -81,9 +81,9 @@
         
         $(".incluir_nota").click(function(){
 
-            base64 = $("#dadosXML").attr("base64", base64);
-            tipo = $("#dadosXML").attr("tipo", tipo);
-            nome = $("#dadosXML").attr("nome", nome);
+            base64 = $("#dadosXML").attr("base64");
+            tipo = $("#dadosXML").attr("tipo");
+            nome = $("#dadosXML").attr("nome");
             Carregando()
             $.ajax({
                 url:"src/estoque/entrada/index.php",
