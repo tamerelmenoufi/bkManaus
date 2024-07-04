@@ -1,8 +1,5 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
-
-    echo $_SERVER['PHP_SELF'];
-
 ?>
 <div class="m-3">
     <div class="row g-0">
