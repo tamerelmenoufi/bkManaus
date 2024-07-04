@@ -25,6 +25,13 @@
     }
 
 ?>
+
+<style>
+    table{
+        font-size:12px;
+    }
+</style>
+
 <div class="m-3">
     <div class="row g-0">
         <div class="col-md-12">
