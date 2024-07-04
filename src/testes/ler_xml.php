@@ -14,10 +14,10 @@
 
     echo "</pre>";
 
-    echo "produtos:".($json->NFe->infNFe->det) ;
+    // echo "produtos:".($json->NFe->infNFe->det) ;
 
 
-    foreach($json->NFe->infNFe->det as $i => $val){
+    foreach($xml->NFe->infNFe->det as $i => $val){
 
 
         echo $val->prod->xProd."<br>";
