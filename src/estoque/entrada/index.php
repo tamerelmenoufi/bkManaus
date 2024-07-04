@@ -20,8 +20,6 @@
 
         }
 
-
-
     }
 
 ?>
@@ -83,6 +81,8 @@
                         <th>Intermediador</th>
                         <th>Aplicativo</th>
                         <th>Versão</th> -->
+                        <th>Ações</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -117,6 +117,19 @@
                         <td><?=$c->indIntermed?></td>                    
                         <td><?=$c->procEmi?></td>                    
                         <td><?=$c->verProc?></td>                     -->
+                        <th>
+                            <button 
+                                class="btn btn-primary btn-sm produtos"
+                                data-bs-toggle="offcanvas"
+                                href="#offcanvasDireita"
+                                role="button"
+                                aria-controls="offcanvasDireita"
+                                nota="<?=$d->codigo?>"
+                            >
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                        </th>
+
                     </tr>
             <?php
             }
@@ -183,6 +196,24 @@
                 },
                 success:function(dados){
                     $("#paginaHome").html(dados);
+                }
+            })
+
+        })
+
+
+        $(".produtos").click(function(){
+
+            nota = $(this).attr("nota");
+
+            $.ajax({
+                url:"src/estoque/entrada/produtos.php",
+                type:"POST",
+                data:{
+                    nota
+                },
+                success:function(dados){
+                    $(".LateralDireita").html(dados);
                 }
             })
 
