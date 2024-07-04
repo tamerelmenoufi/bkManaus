@@ -59,8 +59,8 @@
                         <th>Código</th>
                         <th>Natureza</th>
                         <th>Modelo</th>
-                        <th>Série</th>
                         <th>Nota</th>
+                        <th>Série</th>
                         <th>Emissão</th>
                         <th>Data</th>
                         <th>Operação</th>
@@ -85,36 +85,52 @@
             while($d = mysqli_fetch_object($result)){
                 $n = json_decode($d->dados);
 
-                // "cUF": "35",
-                // "cNF": "09257673",
-                // "natOp": "Venda de mercadoria adquirida ou recebida de terceiros, dest",
-                // "mod": "55",
-                // "serie": "1",
-                // "nNF": "251139",
-                // "dhEmi": "2024-07-01T18:39:17-03:00",
-                // "dhSaiEnt": "2024-07-01T18:39:17-03:00",
-                // "tpNF": "1",
-                // "idDest": "2",
-                // "cMunFG": "3525904",
-                // "tpImp": "1",
-                // "tpEmis": "1",
-                // "cDV": "8",
-                // "tpAmb": "1",
-                // "finNFe": "1",
-                // "indFinal": "0",
-                // "indPres": "9",
-                // "indIntermed": "0",
-                // "procEmi": "0",
-                // "verProc": "GSNFE_4-4.0"
+                $c = $n->NFe->infNFe->ide;
+
+                // "": "35",
+                // "": "09257673",
+                // "": "Venda de mercadoria adquirida ou recebida de terceiros, dest",
+                // "": "55",
+                // "": "1",
+                // "": "251139",
+                // "": "2024-07-01T18:39:17-03:00",
+                // "": "2024-07-01T18:39:17-03:00",
+                // "": "1",
+                // "": "2",
+                // "": "3525904",
+                // "": "1",
+                // "": "1",
+                // "": "8",
+                // "": "1",
+                // "": "1",
+                // "": "0",
+                // "": "9",
+                // "": "0",
+                // "": "0",
+                // "": "GSNFE_4-4.0"
             ?>
                     <tr>
-            <?php
-                foreach($n->NFe->infNFe->ide as $i => $val){
-            ?>
-                        <th><?=$val?></th>
-            <?php
-                }
-            ?>                        
+                        <td><?=$c->cUF?></td>                    
+                        <td><?=$c->cNF?></td>                    
+                        <td><?=$c->natOp?></td>                    
+                        <td><?=$c->mod?></td>                    
+                        <td><?=$c->serie?></td>                    
+                        <td><?=$c->nNF?></td>                    
+                        <td><?=$c->dhEmi?></td>                    
+                        <td><?=$c->dhSaiEnt?></td>                    
+                        <td><?=$c->tpNF?></td>                    
+                        <td><?=$c->idDest?></td>                    
+                        <td><?=$c->cMunFG?></td>                    
+                        <td><?=$c->tpImp?></td>                    
+                        <td><?=$c->tpEmis?></td>                    
+                        <td><?=$c->cDV?></td>                    
+                        <td><?=$c->tpAmb?></td>                    
+                        <td><?=$c->finNFe?></td>                    
+                        <td><?=$c->indFinal?></td>                    
+                        <td><?=$c->indPres?></td>                    
+                        <td><?=$c->indIntermed?></td>                    
+                        <td><?=$c->procEmi?></td>                    
+                        <td><?=$c->verProc?></td>                    
                     </tr>
             <?php
             }
