@@ -59,8 +59,8 @@
                         <th>Código</th>
                         <th>Natureza</th>
                         <th>Modelo</th>
-                        <th>Nota</th>
                         <th>Série</th>
+                        <th>Nota</th>
                         <th>Emissão</th>
                         <th>Data</th>
                         <th>Operação</th>
