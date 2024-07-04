@@ -10,10 +10,10 @@
     $n = json_decode($d->dados);
     // print_r($n);
 
-
-    foreach($n->NFe->infNFe->det as $i => $val){
-
-
-        echo $val->prod->xProd."<br>";
-
+    if(is_array($n->NFe->infNFe->det)){
+        foreach($n->NFe->infNFe->det as $i => $val){
+            echo $val->prod->xProd."<br>";
+        }
+    }else{
+        echo $n->NFe->infNFe->det->prod->xProd."<br>";
     }
