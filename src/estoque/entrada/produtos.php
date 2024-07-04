@@ -12,8 +12,8 @@
 
     function produtoMapa($p){
 ?>
-<div class="card">
-  <h5 class="card-header"><?=$p->xProd?></h5>
+<div class="card mb-3">
+  <h6 class="card-header"><?=$p->xProd?></h6>
   <div class="card-body">
     <table class="table">
         <tbody>
