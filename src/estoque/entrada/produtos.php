@@ -8,4 +8,12 @@
     $d = mysqli_fetch_object($result);
 
     $n = json_decode($d->dados);
-    print_r($n);
+    // print_r($n);
+
+
+    foreach($n->NFe->infNFe->det as $i => $val){
+
+
+        echo $val->prod->xProd."<br>";
+
+    }
