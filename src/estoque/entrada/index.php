@@ -10,7 +10,7 @@
         $arquivo = str_replace("data:text/xml;base64,", false, $_POST['base64']);
         $nome = md5($_POST['base64']).".xml";
 
-        if(file_put_contents("../../volumes/notas/xml/{$nome}", $arquivo)){
+        if(file_put_contents("../../volumes/notas/xml/{$nome}", base64_decode($arquivo))){
 
             $xml = simplexml_load_file("../../volumes/notas/xml/{$nome}");
             $json = json_encode($xml);
