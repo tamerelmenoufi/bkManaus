@@ -16,7 +16,7 @@
             $json = json_encode($xml);
 
             $query = "insert into notas set dados = '{$json}', data = NOW(), situacao = '1'";
-            mysqli_query($con, $quey);
+            mysqli_query($con, $query);
 
         }
 
