@@ -10,7 +10,7 @@
 
     echo "<pre>";
 
-    print_r($json);
+    var_dump($json);
 
     echo "</pre>";
 
