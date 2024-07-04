@@ -7,7 +7,7 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
-    echo $n = json_decode($d->dados);
+    $n = json_decode($d->dados);
     // print_r($n);
 
 
