@@ -14,7 +14,6 @@
 ?>
 <div class="card mb-3">
   <h6 class="card-header"><?=$p->xProd?></h6>
-  <div class="card-body">
     <table class="table">
         <tbody>
 
@@ -76,7 +75,6 @@
             </tr>
         </tbody>
     </table>
-    </div>
 </div>    
 <?php
     }
