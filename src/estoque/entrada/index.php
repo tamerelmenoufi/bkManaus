@@ -18,6 +18,37 @@
             $query = "insert into notas set dados = '{$json}', data = NOW(), xml = '{$nome}', situacao = '0'";
             mysqli_query($con, $query);
 
+
+            foreach($xml->NFe->infNFe->det as $i => $val){
+
+                $p = $val->prod;
+
+                $query = "insert into movimentacao set 
+                                                       cProd = '{$p->cProd}',
+                                                       cEAN = '{$p->cEAN}',
+                                                       xProd = '{$p->xProd}',
+                                                       NCM = '{$p->NCM}',
+                                                       CFOP = '{$p->CFOP}',
+                                                       uCom = '{$p->uCom}',
+                                                       qCom = '{$p->qCom}',
+                                                       vUnCom = '{$p->vUnCom}',
+                                                       vProd = '{$p->vProd}',
+                                                       cEANTrib = '{$p->cEANTrib}',
+                                                       uTrib = '{$p->uTrib}',
+                                                       qTrib = '{$p->qTrib}',
+                                                       vUnTrib = '{$p->vUnTrib}',
+                                                       indTot = '{$p->indTot}'                
+                
+                ";
+    
+
+
+
+            }
+
+
+
+
         }
 
     }
