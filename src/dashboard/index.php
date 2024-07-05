@@ -2,6 +2,19 @@
 
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+    if($_POST['filtro'] == 'filtrar'){
+        $_SESSION['dashboardDataInicial'] = $_POST['dashboardDataInicial'];
+        $_SESSION['dashboardDataFinal'] = $_POST['dashboardDataFinal'];
+      }elseif($_POST['filtro']){
+        $_SESSION['dashboardDataInicial'] = false;
+        $_SESSION['dashboardDataFinal'] = false;
+      }
+  
+      if($_SESSION['dashboardDataInicial'] and $_SESSION['dashboardDataFinal']){
+        $where = " and dataCriacao between '{$_SESSION['dashboardDataInicial']} 00:00:00' and '{$_SESSION['dashboardDataFinal']} 23:59:59' ";
+
+      }
+
 
     $query = " SELECT
             (select count(*) from produtos where situacao = '1' and deletado != '1') as quantidade_produtos,
@@ -151,6 +164,39 @@
 <script>
     $(function(){
         Carregando('none')
+
+        $("button[filtro]").click(function(){
+          filtro = $(this).attr("filtro");
+          dashboardDataInicial = $("#data_inicial").val();
+          dashboardDataFinal = $("#data_final").val();
+          Carregando()
+          $.ajax({
+              url:"src/dashboard/index.php",
+              type:"POST",
+              data:{
+                  filtro,
+                  dashboardDataInicial,
+                  dashboardDataFinal
+              },
+              success:function(dados){
+                  $("#paginaHome").html(dados);
+              }
+          })
+        })
+
+        $("button[limpar]").click(function(){
+          Carregando()
+          $.ajax({
+              url:"src/dashboard/index.php",
+              type:"POST",
+              data:{
+                  filtro:'limpar',
+              },
+              success:function(dados){
+                  $("#paginaHome").html(dados);
+              }
+          })
+        })
         
     })
 </script>
