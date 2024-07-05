@@ -259,6 +259,10 @@
         $("button[novoCadastro]").click(function(){
             $.ajax({
                 url:"src/itens/form.php",
+                type:"POST",
+                data:{
+                  categoria_itens:'<?=$_SESSION['categoria_itens']?>'
+                },
                 success:function(dados){
                     $(".LateralDireita").html(dados);
                 }

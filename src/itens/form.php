@@ -1,6 +1,8 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+    if($_POST['categoria_itens']) $_SESSION['categoria_itens'] = $_POST['categoria_itens'];
+
     $c = mysqli_fetch_object(mysqli_query($con, "select * from categorias_itens where codigo = '{$_SESSION['categoria_itens']}'"));
 
 
@@ -142,6 +144,7 @@
                         <div style="display:flex; justify-content:end">
                             <button type="submit" class="btn btn-success btn-ms">Salvar</button>
                             <input type="hidden" id="codigo" value="<?=$_POST['cod']?>" />
+                            <input type="hidden" id="categoria" name="categoria" value="<?=$_SESSION['categoria_itens']?>" />
                         </div>
                     </div>
                 </div>
