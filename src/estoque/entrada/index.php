@@ -24,13 +24,13 @@
                 var_dump($val);
                 $p = $val->prod;
                 $imposto = json_encode($val->imposto);
-                $nItem = $val['@attributes'];
+                echo "Item: ".$nItem = $val['@attributes']['nItem'];
 
                 $query = "insert into movimentacao set 
                                                        cod_nota = '{$cod_nota}',
                                                        data = NOW(),
                                                        tipo = 'e',
-                                                       nItem = '{$nItem['nItem']}',
+                                                       nItem = '{$nItem}',
                                                        cProd = '{$p->cProd}',
                                                        cEAN = '{$p->cEAN}',
                                                        xProd = '{$p->xProd}',
