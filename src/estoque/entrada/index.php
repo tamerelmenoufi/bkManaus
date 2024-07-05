@@ -24,8 +24,7 @@
                 var_dump($val);
                 $p = $val->prod;
                 $imposto = json_encode($val->imposto);
-                $at = '@attributes';
-                $nItem = $val->$at;
+                $nItem = $val['@attributes'];
 
                 $query = "insert into movimentacao set 
                                                        cod_nota = '{$cod_nota}',
