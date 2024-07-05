@@ -21,10 +21,10 @@
 
             foreach($xml->NFe->infNFe->det as $i => $val){
 
-                print_r($val);
+                //print_r($val);
                 $p = $val->prod;
                 $imposto = json_encode($val->imposto);
-                echo "Item: ".$nItem = $val['nItem'];
+                $nItem = $val['nItem'];
 
                 $query = "insert into movimentacao set 
                                                        cod_nota = '{$cod_nota}',
