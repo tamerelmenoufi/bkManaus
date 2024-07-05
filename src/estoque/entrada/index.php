@@ -21,7 +21,7 @@
 
             foreach($xml->NFe->infNFe->det as $i => $val){
 
-                var_dump($val);
+                print_r($val);
                 $p = $val->prod;
                 $imposto = json_encode($val->imposto);
                 echo "Item: ".$nItem = $val['@attributes']['nItem'];
