@@ -17,13 +17,17 @@
 
             $query = "insert into notas set dados = '{$json}', data = NOW(), xml = '{$nome}', situacao = '0'";
             mysqli_query($con, $query);
-
+            $cod_nota = mysqli_insert_id($con);
 
             foreach($xml->NFe->infNFe->det as $i => $val){
 
                 $p = $val->prod;
+                $imposto = json_encode($val->imposto);
 
                 $query = "insert into movimentacao set 
+                                                       cod_nota = '{$cod_nota}',
+                                                       data = NOW(),
+                                                       tipo = 'e',
                                                        cProd = '{$p->cProd}',
                                                        cEAN = '{$p->cEAN}',
                                                        xProd = '{$p->xProd}',
@@ -37,12 +41,10 @@
                                                        uTrib = '{$p->uTrib}',
                                                        qTrib = '{$p->qTrib}',
                                                        vUnTrib = '{$p->vUnTrib}',
-                                                       indTot = '{$p->indTot}'                
-                
+                                                       indTot = '{$p->indTot}',
+                                                       imposto = '{$imposto}'
                 ";
-    
-
-
+                mysqli_query($con,$query);
 
             }
 
