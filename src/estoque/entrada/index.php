@@ -24,7 +24,7 @@
                 print_r($val);
                 $p = $val->prod;
                 $imposto = json_encode($val->imposto);
-                echo "Item: ".$nItem = $val['@attributes']['nItem'];
+                echo "Item: ".$nItem = $val['nItem'];
 
                 $query = "insert into movimentacao set 
                                                        cod_nota = '{$cod_nota}',
