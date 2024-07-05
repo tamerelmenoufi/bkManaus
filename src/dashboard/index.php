@@ -43,6 +43,24 @@
 
 
 <div class="m-3">
+
+
+    <div class="row g-0 mb-3 mt-3">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <label class="input-group-text">Filtro por Período </label>
+                <label class="input-group-text" for="data_inicial"> De </label>
+                <input type="date" id="data_inicial" class="form-control" <?=$busca_disabled?> value="<?=$_SESSION['dashboardDataInicial']?>" >
+                <label class="input-group-text" for="data_final"> A </label>
+                <input type="date" id="data_final" class="form-control" value="<?=$_SESSION['dashboardDataFinal']?>" >
+                <button filtro="filtrar" class="btn btn-outline-secondary" type="button">Buscar</button>
+                <button filtro="limpar" class="btn btn-outline-danger" type="button">limpar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     
     <div class="row g-0">
         <div class="col-md-12 p-2">
