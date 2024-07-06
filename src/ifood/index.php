@@ -1,6 +1,8 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+    $month = (($_SESSION['n'])?:date("n"));
+    $year = (($_SESSION['Y'])?:date("Y"));
 
 ?>
 
@@ -26,7 +28,7 @@
         <div class="area_calendario m-3"></div>
     </div>
     <div class="col-md-8">
-        <div class="dados_calncario m-3"></div>
+        <div class="dados_calendario m-3"></div>
     </div>
 </div>
 <div class="row g-0">
@@ -48,14 +50,16 @@
             success:function(dados){
                 $(".area_calendario").html(dados);
 
+                
+
                 $.ajax({
                     url:"src/ifood/tabela.php",
                     type:"POST",
                     data:{
-                        data:`${Y}-${n}`
+                        data:'<?="{$year}-{$month}"?>'
                     },
                     success:function(dados){
-                        $(".dados_calncario").html(dados);
+                        $(".dados_calendario").html(dados);
                     }
                 })
 
