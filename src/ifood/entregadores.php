@@ -3,6 +3,9 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     if($_POST['acao'] == 'filtro_entregadores'){
+    ?>
+        <option value="">Todos</option>
+    <?php
         $q = "select * from entregadores where situacao = '1' and deletado != '1' and loja = '{$_POST['loja']}' order by nome asc";
         $r = mysqli_query($con, $q);
         while($s = mysqli_fetch_object($r)){
