@@ -185,7 +185,7 @@
                     data
                 },
                 success:function(dados){
-                    $(".dados_calncario").html(dados);
+                    $(".dados_calendario").html(dados);
                 }
             })
         })
