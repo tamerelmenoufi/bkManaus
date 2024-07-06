@@ -2,6 +2,17 @@
     
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+    if($_POST['acao'] == 'filtro_entregadores'){
+        $q = "select * from entregadores where situacao = '1' and deletado != '1' and loja = '{$_POST['loja']}' order by nome asc";
+        $r = mysqli_query($con, $q);
+        while($s = mysqli_fetch_object($r)){
+    ?>
+        <option value="<?=$s->codigo?>" <?=(($_POST['entregador'] == $s->codigo)?'selected':false)?>><?=$s->nome?></option>
+    <?php
+        }
+        exit();
+    }
+
     if($_POST['data_inicio'] and $_POST['data_fim']){
         $where = " and a.data between '{$_POST['data_inicio']} 00:00:00' and '{$_POST['data_fim']} 23:59:59' ";
     }else if($_POST['data_inicio']){
@@ -19,17 +30,31 @@
 <h3>Produção detalhada</h3>
 
 <div class="row">
-    <div class="col-md-3 mb-2">
+    <div class="col-md-2 mb-2">
         <input type="date" id="data_inicio" class="form-control" value="<?=$_POST['data_inicio']?>">
     </div>
-    <div class="col-md-3 mb-2">
+    <div class="col-md-2 mb-2">
         <input type="date" id="data_fim" class="form-control" value="<?=$_POST['data_fim']?>">
+    </div>
+    <div class="col-md-3 mb-2">
+        <select id="loja"  class="form-select">
+            <option value="">Todos</option>
+            <?php
+            $q = "select * from lojas where situacao = '1' and deletado != '1' order by nome asc";
+            $r = mysqli_query($con, $q);
+            while($s = mysqli_fetch_object($r)){
+            ?>
+            <option value="<?=$s->codigo?>" <?=(($_POST['loja'] == $s->codigo)?'selected':false)?>><?=$s->nome?></option>
+            <?php
+            }
+            ?>
+        </select>
     </div>
     <div class="col-md-3 mb-2">
         <select id="entregador"  class="form-select">
             <option value="">Todos</option>
             <?php
-            $q = "select * from entregadores where situacao = '1' and deletado != '1' order by nome asc";
+            $q = "select * from entregadores where situacao = '1' and deletado != '1' and loja = '{$_POST['loja']}' order by nome asc";
             $r = mysqli_query($con, $q);
             while($s = mysqli_fetch_object($r)){
             ?>
@@ -39,7 +64,7 @@
             ?>
         </select>
     </div>
-    <div class="col-md-3 mb-2">
+    <div class="col-md-2 mb-2">
         <button class="btn btn-primary w-100 lista_entregadores">Filtrar Dados</button>
     </div>
 </div>
@@ -97,6 +122,21 @@
     $(function(){
 
         Carregando('none')
+
+        $("#loja").change(function(){
+            loja = $(this).val();
+            $.ajax({
+                url:"src/ifood/entregadores.php",
+                type:"POST",
+                data:{
+                    acao:'filtro_entregadores',
+                    loja
+                },
+                success:function(dados){
+                    $("#entregadores").html(dados);
+                }
+            })
+        })
 
         $(".lista_entregadores").click(function(){
 
