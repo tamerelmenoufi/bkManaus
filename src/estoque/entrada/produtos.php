@@ -3,7 +3,7 @@
 
     if($_POST['nota']) $_SESSION['nota'] = $_POST['nota'];
 
-    echo $query = "select * from movimentacao where nota = '{$_SESSION['nota']}'";
+    $query = "select * from movimentacao where cod_nota = '{$_SESSION['nota']}'";
     $result = mysqli_query($con, $query);
     while($p = mysqli_fetch_object($result)){
 
