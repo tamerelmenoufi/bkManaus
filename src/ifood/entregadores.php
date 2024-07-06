@@ -4,7 +4,7 @@
 
     if($_POST['acao'] == 'filtro_entregadores'){
     ?>
-        <option value="">Todos</option>
+        <option value="">Todos os Entregadores</option>
     <?php
         $q = "select * from entregadores where situacao = '1' and deletado != '1' and loja = '{$_POST['loja']}' order by nome asc";
         $r = mysqli_query($con, $q);
@@ -41,7 +41,7 @@
     </div>
     <div class="col-md-3 mb-2">
         <select id="loja"  class="form-select">
-            <option value="">Todos</option>
+            <option value="">Todas as Lojas</option>
             <?php
             $q = "select * from lojas where situacao = '1' and deletado != '1' order by nome asc";
             $r = mysqli_query($con, $q);
@@ -55,7 +55,7 @@
     </div>
     <div class="col-md-3 mb-2">
         <select id="entregador"  class="form-select">
-            <option value="">Todos</option>
+            <option value="">Todos os Entregadores</option>
             <?php
             $q = "select * from entregadores where situacao = '1' and deletado != '1' and loja = '{$_POST['loja']}' order by nome asc";
             $r = mysqli_query($con, $q);
