@@ -26,6 +26,10 @@
         $where .= " and a.entregador = '{$_POST['entregador']}' ";
     }
 
+    if($_POST['loja']){
+        $where .= " and a.loja = '{$_POST['loja']}' ";
+    }
+
 
 
 ?>
