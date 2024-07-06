@@ -12,7 +12,8 @@
   
       if($_SESSION['dashboardDataInicial'] and $_SESSION['dashboardDataFinal']){
         $where = " and data between '{$_SESSION['dashboardDataInicial']} 00:00:00' and '{$_SESSION['dashboardDataFinal']} 23:59:59' ";
-
+      }else if($_SESSION['dashboardDataInicial']){
+        $where = " and data like '{$_SESSION['dashboardDataInicial']}%' ";
       }
 
 
