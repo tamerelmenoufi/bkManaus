@@ -133,7 +133,7 @@
                     loja
                 },
                 success:function(dados){
-                    $("#entregadores").html(dados);
+                    $("#entregador").html(dados);
                 }
             })
         })
