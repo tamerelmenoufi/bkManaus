@@ -142,6 +142,7 @@
 
             data_inicio = $("#data_inicio").val()
             data_fim = $("#data_fim").val()
+            loja = $("#loja").val()
             entregador = $("#entregador").val()
 
             Carregando()
@@ -152,6 +153,7 @@
                 data:{
                     data_inicio,
                     data_fim,
+                    loja,
                     entregador
                 },
                 success:function(dados){
