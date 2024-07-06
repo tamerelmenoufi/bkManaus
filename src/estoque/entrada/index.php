@@ -33,9 +33,9 @@
                                                 NCM = '{$p->NCM}',
                                                 CFOP = '{$p->CFOP}',
                                                 uCom = '{$p->uCom}',
-                                                qCom = '{$p->qCom}',
-                                                vUnCom = '{$p->vUnCom}',
-                                                valor = '{$p->vUnCom}',
+                                                qCom = '1',
+                                                vUnCom = '".($p->vUnCom/$p->uCom)."',
+                                                valor = '".($p->vUnCom/$p->uCom)."',
                                                 situacao = '1'
                 ";
                 mysqli_query($con,$query);     
