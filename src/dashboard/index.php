@@ -106,7 +106,7 @@
     
     <div class="row g-0">
         <div class="col-md-12 p-2">
-            <h6>Resumo Financeiro<?=(($titulo)?:false)?></h6>
+            <h6>Resumo Financeiro<?=(($titulo)?:' Geral')?></h6>
         </div>
 
         <div class="col-md-3 p-2">
@@ -145,7 +145,7 @@
     
     <div class="row g-0">
         <div class="col-md-12 p-2">
-            <h6>Resumo Ifood<?=(($titulo)?:false)?></h6>
+            <h6>Resumo Ifood<?=(($titulo)?:' Geral')?></h6>
         </div>
 
         <div class="col-md-3 p-2">
