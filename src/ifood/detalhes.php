@@ -76,6 +76,7 @@
     </div>
     <div class="col-md-2 mb-2">
         <button class="btn btn-primary w-100 lista_entregadores">Filtrar Dados</button>
+        <a href="src/ifood/detalhes_print.php" target="_blank" class="btn btn-warning btn-sm"><i class="fa-solid fa-file-csv"></i></a>
     </div>
 </div>
 
