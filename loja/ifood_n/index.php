@@ -83,7 +83,7 @@
             <label for="entregador" class="form-label">Entregador*</label>
             <select name="entregador" id="entregador" class="form-select">
                 <option value="0">Retirada na loja</option>
-                <option value="1">Entrega pelo Parceiro</option>
+                <option value="1" <?=((1 == $d->entregador)?'selected':false)?>>Entrega pelo Parceiro</option>
                 <?php
                 $q = "select 
                             a.*,
