@@ -282,7 +282,8 @@
                 url:"src/combos/form.php",
                 type:"POST",
                 data:{
-                  cod
+                  cod,
+                  categoria:'<?=$_SESSION['categoria']?>'
                 },
                 success:function(dados){
                     $(".LateralDireita").html(dados);
