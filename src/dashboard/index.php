@@ -124,7 +124,7 @@
         <div class="col-md-3 p-2">
             <div class="alert alert-primary" role="alert">
                 <span>Tickt Médio</span>
-                <h1>R$ <?=number_format( ($d->total_vendas/$d->quantidade_vendas) ,2,',','.')?></h1>
+                <h1>R$ <?=number_format( ($d->total_vendas/(($d->quantidade_vendas)?:1)) ,2,',','.')?></h1>
             </div>
         </div>
 
@@ -171,7 +171,7 @@
         <div class="col-md-3 p-2">
             <div class="alert alert-primary" role="alert">
                 <span>Tickt Médio</span>
-                <h1>R$ <?=number_format($d->total_vendas_ifood/$d->quantidade_vendas_ifood,2,',','.')?></h1>
+                <h1>R$ <?=number_format($d->total_vendas_ifood/(($d->quantidade_vendas_ifood)?:1),2,',','.')?></h1>
             </div>
         </div>
 
