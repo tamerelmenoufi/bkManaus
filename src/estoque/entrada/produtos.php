@@ -65,7 +65,9 @@
             </tr>
             <tr class="table-primary">
                 <td>Quantidade Convertida</td>
-                <td><?=$p->qConv?></td>
+                <td>
+                    <input class="form-control form-control-sm" id="qConv" type="text" placeholder="00.0000" value="<?=$p->qConv?>" >
+                </td>
             </tr>
             <tr class="table-primary">
                 <td>Valor Unitário Convertido</td>
