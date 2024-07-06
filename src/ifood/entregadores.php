@@ -97,7 +97,7 @@
                     from ifood a 
                          left join entregadores b on a.entregador = b.codigo 
                          left join lojas c on a.loja = c.codigo 
-                    where 1 {$where} order by b.nome asc, a.data asc";
+                    where 1 {$where} order by /*b.nome asc, a.data asc*/ a.data desc";
         $result = mysqli_query($con, $query);
         $i=1;
         $valor_total = 0;
