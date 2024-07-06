@@ -2,9 +2,9 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
     header('Content-Type: text/csv; charset=utf-8');
     header('Content-Disposition: attachment; filename=detalhes.csv');
-?>
-#;Loja;Data;Pedido;Valor;Entregador;Situação
-<?php
+
+    echo "#;Loja;Data;Pedido;Valor;Entregador;Situação\n";
+
         $query = "select 
                         a.*, 
                         b.nome as entregador,
@@ -17,11 +17,11 @@
         $i=1;
         $valor_total = 0;
         while($d = mysqli_fetch_object($result)){
-        ?>
-        <?=$i?>;<?=$d->loja?>;<?=dataBr($d->data)?>;<?=$d->ifood?>;<?=$d->valor?>;<?=(($d->entregador)?:"RETIRADA NA LOJA")?>;<?=strtoupper($d->producao)?>
-        <?php
-        $valor_total = $valor_total + $d->valor;
-        $i++;
+
+            echo "{$i};{$d->loja};".dataBr($d->data).";{$d->ifood};{$d->valor};".(($d->entregador)?:"RETIRADA NA LOJA").";".strtoupper($d->producao)."\n";
+
+            $valor_total = $valor_total + $d->valor;
+            $i++;
         }
-        ?>
-        ;;;TOTAL DAS VENDAS;<?=$valor_total?>;;
+        echo ";;;TOTAL DAS VENDAS;<?=$valor_total?>;;";
+?>
