@@ -3,10 +3,14 @@
 
     if($_POST['nota']) $_SESSION['nota'] = $_POST['nota'];
 
-    $query = "select * from movimentacao where nota = '{$_SESSION['nota']}'";
+    $query = "select * from notas where codigo = '{$_SESSION['nota']}'";
     $result = mysqli_query($con, $query);
-    while($p = mysqli_fetch_object($result)){
+    $d = mysqli_fetch_object($result);
 
+    $n = json_decode($d->dados);
+    // print_r($n);
+
+    function produtoMapa($p){
 ?>
 <div class="card mb-3">
   <h6 class="card-header"><?=$p->xProd?></h6>
@@ -73,5 +77,15 @@
     </table>
 </div>    
 <?php
+    }
+
+    if(is_array($n->NFe->infNFe->det)){
+        foreach($n->NFe->infNFe->det as $i => $val){
+            // echo $val->prod->xProd."<br>";
+            produtoMapa($val->prod);
+        }
+    }else{
+        // echo $n->NFe->infNFe->det->prod->xProd."<br>";
+        produtoMapa($n->NFe->infNFe->det->prod);
     }
 ?>
