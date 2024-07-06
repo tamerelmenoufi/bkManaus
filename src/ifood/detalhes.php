@@ -74,8 +74,10 @@
             ?>
         </select>
     </div>
-    <div class="col-md-2 mb-2">
-        <button class="btn btn-primary w-100 lista_entregadores">Filtrar Dados</button>
+    <div class="col-md-1 mb-2">
+        <button class="btn btn-primary lista_entregadores W-100">Filtrar Dados</button>
+    </div>
+    <div class="col-md-1 mb-2">
         <a href="src/ifood/detalhes_print.php" target="_blank" class="btn btn-warning btn-sm ms-2"><i class="fa-solid fa-file-csv"></i></a>
     </div>
 </div>
