@@ -40,7 +40,7 @@
                 ";
                 mysqli_query($con,$query);     
 
-                $query = "insert into movimentacao set 
+                echo $query = "insert into movimentacao set 
                                                        cod_nota = '{$cod_nota}',
                                                        data = NOW(),
                                                        tipo = 'e',
