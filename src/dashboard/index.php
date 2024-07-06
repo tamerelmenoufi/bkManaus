@@ -12,8 +12,10 @@
   
       if($_SESSION['dashboardDataInicial'] and $_SESSION['dashboardDataFinal']){
         $where = " and data between '{$_SESSION['dashboardDataInicial']} 00:00:00' and '{$_SESSION['dashboardDataFinal']} 23:59:59' ";
+        $titulo = " de ".dataBr($_SESSION['dashboardDataInicial'])." a ".dataBr($_SESSION['dashboardDataFinal']);
       }else if($_SESSION['dashboardDataInicial']){
         $where = " and data like '{$_SESSION['dashboardDataInicial']}%' ";
+        $titulo = " em  ".dataBr($_SESSION['dashboardDataInicial']);
       }
 
 
@@ -65,7 +67,7 @@
     
     <div class="row g-0">
         <div class="col-md-12 p-2">
-            <h6>Resumo Geral</h6>
+            <h6>Resumo <?=(($titulo)?:'Geral')?></h6>
         </div>
 
         <div class="col-md-3 p-2">
@@ -104,7 +106,7 @@
     
     <div class="row g-0">
         <div class="col-md-12 p-2">
-            <h6>Resumo Financeiro</h6>
+            <h6>Resumo Financeiro<?=(($titulo)?:false)?></h6>
         </div>
 
         <div class="col-md-3 p-2">
@@ -143,7 +145,7 @@
     
     <div class="row g-0">
         <div class="col-md-12 p-2">
-            <h6>Resumo Ifood</h6>
+            <h6>Resumo Ifood<?=(($titulo)?:false)?></h6>
         </div>
 
         <div class="col-md-3 p-2">
