@@ -55,7 +55,6 @@
                 <td>Unidade Convertida</td>
                 <td>
                     <select id="uConv" class="form-select form-select-sm">
-                        <option value=""></option>
                         <option <?=(($p->uConv == 'UN')?'selected':false)?> value="UN">UN</option>
                         <option <?=(($p->uConv == 'CX')?'selected':false)?> value="CX">CX</option>
                         <option <?=(($p->uConv == 'PCT')?'selected':false)?> value="PCT">PCT</option>

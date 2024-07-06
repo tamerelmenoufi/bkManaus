@@ -26,6 +26,20 @@
                 $imposto = json_encode($val->imposto);
                 $nItem = $val['nItem'];
 
+                $query = "insert into estoque set 
+                                                cProd = '{$p->cProd}',
+                                                cEAN = '{$p->cEAN}',
+                                                xProd = '{$p->xProd}',
+                                                NCM = '{$p->NCM}',
+                                                CFOP = '{$p->CFOP}',
+                                                uCom = '{$p->uCom}',
+                                                qCom = '{$p->qCom}',
+                                                vUnCom = '{$p->vUnCom}',
+                                                valor = '{$p->vUnCom}',
+                                                situacao = '1'
+                ";
+                mysqli_query($con,$query);     
+
                 $query = "insert into movimentacao set 
                                                        cod_nota = '{$cod_nota}',
                                                        data = NOW(),
@@ -39,6 +53,11 @@
                                                        uCom = '{$p->uCom}',
                                                        qCom = '{$p->qCom}',
                                                        vUnCom = '{$p->vUnCom}',
+
+                                                       uConv = (select uCom from estoque where cProd = '{$p->cProd}'),
+                                                       qCon = (select qCom from estoque where cProd = '{$p->cProd}'),
+                                                       vUnCov = ((select uCom from estoque where cProd = '{$p->cProd}')/(select qCom from estoque where cProd = '{$p->cProd}')),
+
                                                        vProd = '{$p->vProd}',
                                                        cEANTrib = '{$p->cEANTrib}',
                                                        uTrib = '{$p->uTrib}',
@@ -48,6 +67,8 @@
                                                        imposto = '{$imposto}'
                 ";
                 mysqli_query($con,$query);
+
+           
 
             }
 
