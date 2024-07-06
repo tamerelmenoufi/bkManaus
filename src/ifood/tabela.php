@@ -25,13 +25,13 @@
                         from ifood a 
                              left join entregadores b on a.entregador = b.codigo 
                              left join lojas c on a.loja = c.codigo 
-                        where a.data like '%{$_POST['data']}%'";
+                        where a.data like '%{$_POST['data']}%' order by a.data desc";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
 
                 if(!$d->entregador){
                     $entregador = 'RETIRADA NA LOJA';
-                }else if($d->entregador === 1){
+                }else if($d->entregador == '1'){
                     $entregador = 'RETIRADA PELO PARCEIRO';
                 }else{
                     $entregador = $d->entregador;
