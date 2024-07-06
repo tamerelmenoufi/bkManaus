@@ -98,7 +98,7 @@
         <?php
         $query = "select 
                         a.*, 
-                        b.nome as entregador,
+                        IF(b.nome,b.nome,a.entregador) as entregador,
                         c.nome as loja 
                     from ifood a 
                          left join entregadores b on a.entregador = b.codigo 
@@ -108,6 +108,14 @@
         $i=1;
         $valor_total = 0;
         while($d = mysqli_fetch_object($result)){
+
+            if(!$d->entregador){
+                $entregador = 'RETIRADA NA LOJA';
+            }else if($d->entregador === 1){
+                $entregador = 'RETIRADA PELO PARCEIRO';
+            }else{
+                $entregador = $d->entregador;
+            }
         ?>
         <tr class="table-<?=(($d->producao == 'entregue')?'success':'danger')?>">
             <td><?=$i?></td>
@@ -115,7 +123,7 @@
             <td><?=dataBr($d->data)?></td>
             <td>#<?=$d->ifood?></td>
             <td>R$ <?=number_format($d->valor,2,',','.')?></td>
-            <td><?=(($d->entregador)?:"RETIRADA NA LOJA")?></td>
+            <td><?=$entregador?></td>
             <td><?=strtoupper($d->producao)?></td>
         </tr>
         <?php
