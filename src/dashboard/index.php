@@ -11,24 +11,24 @@
       }
   
       if($_SESSION['dashboardDataInicial'] and $_SESSION['dashboardDataFinal']){
-        $where = " and dataCriacao between '{$_SESSION['dashboardDataInicial']} 00:00:00' and '{$_SESSION['dashboardDataFinal']} 23:59:59' ";
+        $where = " and data between '{$_SESSION['dashboardDataInicial']} 00:00:00' and '{$_SESSION['dashboardDataFinal']} 23:59:59' ";
 
       }
 
 
     $query = " SELECT
             (select count(*) from produtos where situacao = '1' and deletado != '1') as quantidade_produtos,
-            (select count(*) from vendas where situacao = 'pago') as quantidade_vendas,
+            (select count(*) from vendas where situacao = 'pago' {$where}) as quantidade_vendas,
             (select count(*) from entregadores where deletado != '1') as quantidade_entregadores,
-            (select count(*) from vendas where situacao = 'pago' and producao = 'entregue') as quantidade_entregue,
+            (select count(*) from vendas where situacao = 'pago' and producao = 'entregue' {$where}) as quantidade_entregue,
 
-            (select sum(valor_total) from vendas where situacao = 'pago') as total_vendas,
-            (select sum(valor_entrega) from vendas where situacao = 'pago') as total_entregas,
-            (select sum(valor_entrega) from vendas where situacao = 'cancelado') as total_cancelados,
+            (select sum(valor_total) from vendas where situacao = 'pago' {$where}) as total_vendas,
+            (select sum(valor_entrega) from vendas where situacao = 'pago' {$where}) as total_entregas,
+            (select sum(valor_entrega) from vendas where situacao = 'cancelado' {$where}) as total_cancelados,
 
-            (select count(*) from ifood) as quantidade_vendas_ifood,
-            (select sum(valor) from ifood ) as total_vendas_ifood,
-            (select count(*) from ifood where producao = 'entregue') as quantidade_entrgue_ifood
+            (select count(*) from ifood where 1 {$where}) as quantidade_vendas_ifood,
+            (select sum(valor) from ifood where 1 {$where}) as total_vendas_ifood,
+            (select count(*) from ifood where producao = 'entregue' {$where}) as quantidade_entrgue_ifood
          
 
     ";
