@@ -56,7 +56,7 @@
 
                                                        uConv = (select uCom from estoque where cProd = '{$p->cProd}'),
                                                        qConv = (select qCom from estoque where cProd = '{$p->cProd}'),
-                                                       vUnConv = ((select uCom from estoque where cProd = '{$p->cProd}')/(select qCom from estoque where cProd = '{$p->cProd}')),
+                                                       vUnConv = (select vUnCom from estoque where cProd = '{$p->cProd}'),
 
                                                        vProd = '{$p->vProd}',
                                                        cEANTrib = '{$p->cEANTrib}',

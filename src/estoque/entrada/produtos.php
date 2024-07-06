@@ -55,10 +55,10 @@
                 <td>Unidade Convertida</td>
                 <td>
                     <select id="uConv" class="form-select form-select-sm">
-                        <option <?=(($p->uConv == 'UN')?'selected':false)?> value="UN">UN</option>
-                        <option <?=(($p->uConv == 'CX')?'selected':false)?> value="CX">CX</option>
-                        <option <?=(($p->uConv == 'PCT')?'selected':false)?> value="PCT">PCT</option>
-                        <option <?=(($p->uConv == 'KG')?'selected':false)?> value="KG">KG</option>
+                        <option <?=((strtolower($p->uConv) == 'un')?'selected':false)?> value="un">un</option>
+                        <option <?=((strtolower($p->uConv) == 'cx')?'selected':false)?> value="cx">cx</option>
+                        <option <?=((strtolower($p->uConv) == 'pct')?'selected':false)?> value="pct">pct</option>
+                        <option <?=((strtolower($p->uConv) == 'kg')?'selected':false)?> value="kg">kg</option>
                     </select>
                 </td>
             </tr>
