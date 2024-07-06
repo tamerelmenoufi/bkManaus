@@ -23,5 +23,5 @@
             $valor_total = $valor_total + $d->valor;
             $i++;
         }
-        echo ";;;TOTAL DAS VENDAS;<?=$valor_total?>;;";
+        echo ";;;TOTAL;{$valor_total};;";
 ?>
