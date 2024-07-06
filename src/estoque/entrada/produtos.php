@@ -49,6 +49,22 @@
                 <td>Valor total bruto</td>
                 <td><?=$p->vProd?></td>
             </tr>
+
+
+            <tr class="bg-primary">
+                <td>Unidade Convertida</td>
+                <td><?=$p->uConv?></td>
+            </tr>
+            <tr class="bg-primary">
+                <td>Quantidade Convertida</td>
+                <td><?=$p->qConv?></td>
+            </tr>
+            <tr class="bg-primary">
+                <td>Valor Unitário Convertido</td>
+                <td><?=$p->vUnConv?></td>
+            </tr>
+
+
             <tr>
                 <td>Código de barras tributável</td>
                 <td><?=$p->cEANTrib?></td>
