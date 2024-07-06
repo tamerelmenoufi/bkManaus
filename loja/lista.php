@@ -46,7 +46,7 @@
             '' as cartao_detalhes,	
             '' as delivery,	
             '' as delivery_id,	
-            b.nome as delivery_detalhes,	
+            if(b.nome,b.nome,a.entregador) as delivery_detalhes,	
             a.data,	
             '' as cupom,	
             '' as valor_compra,	
@@ -171,7 +171,23 @@
                         </div>
                     </div>
                     <?php
-                    if($d->delivery_detalhes){
+                    if(!$d->delivery_detalhes){
+                    ?>
+                    <div class="d-flex justify-content-center dados">
+                        <div>
+                            <i class="fa-solid fa-bag-shopping"></i> <b>RETIRADA NA LOJA</b> 
+                        </div>
+                    </div>   
+                    <?php
+                    }else if($d->delivery_detalhes == '1'){
+                    ?>
+                    <div class="d-flex justify-content-center dados">
+                        <div>
+                            <i class="fa-solid fa-bag-shopping"></i> <b>RETIRADA PELO PARCEIRO</b> 
+                        </div>
+                    </div>                  
+                    <?php
+                    }else{
                     ?>
                     <div class="d-flex justify-content-start dados">
                         <div>
@@ -181,14 +197,6 @@
                             <?=$d->delivery_detalhes?>
                         </div>
                     </div>
-                    <?php
-                    }else{
-                    ?>
-                    <div class="d-flex justify-content-center dados">
-                        <div>
-                            <i class="fa-solid fa-bag-shopping"></i> <b>RETIRADA NA LOJA</b> 
-                        </div>
-                    </div>                    
                     <?php
                     }
                     ?>
