@@ -64,7 +64,7 @@
                 })
 
                 $.ajax({
-                    url:"src/ifood/entregadores.php",
+                    url:"src/ifood/detalhes.php",
                     success:function(dados){
                         $(".area_entregadores").html(dados);
                     }

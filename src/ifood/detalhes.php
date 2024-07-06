@@ -31,6 +31,9 @@
     }
 
 
+    if($where){ $_SESSION['where'] = $where; } else { $_SESSION['where'] = false; }
+
+
 
 ?>
 
@@ -133,7 +136,7 @@
         $("#loja").change(function(){
             loja = $(this).val();
             $.ajax({
-                url:"src/ifood/entregadores.php",
+                url:"src/ifood/detalhes.php",
                 type:"POST",
                 data:{
                     acao:'filtro_entregadores',
@@ -155,7 +158,7 @@
             Carregando()
 
             $.ajax({
-                url:"src/ifood/entregadores.php",
+                url:"src/ifood/detalhes.php",
                 type:"POST",
                 data:{
                     data_inicio,
