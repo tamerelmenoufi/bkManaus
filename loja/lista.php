@@ -46,7 +46,7 @@
             '' as cartao_detalhes,	
             '' as delivery,	
             '' as delivery_id,	
-            if(b.nome,b.nome,a.entregador) as delivery_detalhes,	
+            if(b.nome != '',b.nome,a.entregador) as delivery_detalhes,	
             a.data,	
             '' as cupom,	
             '' as valor_compra,	
