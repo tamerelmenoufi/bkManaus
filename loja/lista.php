@@ -90,15 +90,15 @@
                 $d->codigo_ifood = $ifood->codigo;
             }
 
-                if(!$d->producao or $d->producao == 'pendente'){
-                    $bg = 'bg-secondary';
-                }elseif($d->producao == 'producao'){
-                    $bg = 'bg-warning';
-                }elseif($d->producao == 'entrega'){
-                    $bg = 'bg-info';
-                }elseif($d->producao == 'entregue'){
-                    $bg = 'bg-success';
-                }
+            if(!$d->producao or $d->producao == 'pendente'){
+                $bg = 'bg-secondary';
+            }elseif($d->producao == 'producao'){
+                $bg = 'bg-warning';
+            }elseif($d->producao == 'entrega'){
+                $bg = 'bg-info';
+            }elseif($d->producao == 'entregue'){
+                $bg = 'bg-success';
+            }
 
 
                 if($d->tipo == 'pedido'){
