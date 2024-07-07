@@ -111,7 +111,7 @@
 
             if(!$d->entregador){
                 $entregador = 'RETIRADA NA LOJA';
-            }else if($d->entregador === 1){
+            }else if($d->entregador == '1'){
                 $entregador = 'RETIRADA PELO PARCEIRO';
             }else{
                 $entregador = $d->entregador;
