@@ -20,7 +20,7 @@
             <?php
             $query = "select 
                             a.*, 
-                            IF(b.nome,b.nome,a.entregador) as entregador,
+                            IF(b.nome != '',b.nome,a.entregador) as entregador,
                             c.nome as loja
                         from ifood a 
                              left join entregadores b on a.entregador = b.codigo 
