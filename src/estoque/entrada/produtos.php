@@ -105,7 +105,14 @@
     $(function(){
 
 
-        $('#qConv').mask('0#');
+        // $('#qConv').mask("#.##0,00", {reverse: true});
+
+        $('#qConv').keyup(function(){
+            qConv = $(this).val();
+            q = <?=$p->qCom?>;
+
+
+        })
 
     })
 </script>
