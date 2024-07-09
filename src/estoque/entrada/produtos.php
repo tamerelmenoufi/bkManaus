@@ -105,7 +105,7 @@
     $(function(){
 
 
-        // $('#qConv').mask("#.##0,00", {reverse: true});
+        $('#qConv').mask("#.####0.0000", {reverse: true});
 
         $('#qConv').keyup(function(){
             qConv = $(this).val();
