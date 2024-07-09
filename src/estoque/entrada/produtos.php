@@ -105,9 +105,9 @@
     $(function(){
 
 
-        $('#qConv').mask("#.##0,00", {reverse: true});
+        $('.qConv').mask("#.##0,00", {reverse: true});
 
-        $('#qConv').keyup(function(){
+        $('.qConv').keyup(function(){
             qConv = $(this).val();
             q = $(this).attr("quantidade");
             reg = $(this).attr("reg");
