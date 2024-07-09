@@ -65,7 +65,7 @@
             <tr class="table-primary">
                 <td>Quantidade Convertida</td>
                 <td>
-                    <input reg="<?=p->codigo?>" class="form-control form-control-sm qConv" type="text" placeholder="00.0000" value="<?=$p->qConv?>" >
+                    <input reg="<?=$p->codigo?>" class="form-control form-control-sm qConv" type="text" placeholder="00.0000" value="<?=$p->qConv?>" >
                 </td>
             </tr>
             <tr class="table-primary">
