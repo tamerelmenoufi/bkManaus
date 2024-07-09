@@ -127,7 +127,7 @@
             vUnCom = $(this).attr("vUnCom");
             reg = $(this).attr("reg");
 
-            total = (vUnCom/(qConv * q))
+            total = (vUnCom/q)
 
             $("td[vUnConv]").html(total)
 
