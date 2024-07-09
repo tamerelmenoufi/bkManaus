@@ -65,7 +65,10 @@
             <tr class="table-primary">
                 <td>Quantidade Convertida</td>
                 <td>
-                    <input reg="<?=$p->codigo?>" class="form-control form-control-sm qConv" type="text" placeholder="0.0000" value="<?=$p->qConv?>" >
+                    <div class="input-group mb-3">
+                        <input reg="<?=$p->codigo?>" class="form-control form-control-sm qConv" type="text" placeholder="0.0000" value="<?=$p->qConv?>" >
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-regular fa-floppy-disk"></i></button>
+                    </div>
                 </td>
             </tr>
             <tr class="table-primary">
