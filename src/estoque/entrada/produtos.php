@@ -100,3 +100,12 @@
 <?php
     }
 ?>
+
+<script>
+    $(function(){
+
+
+        $('#qConv').mask('0#');
+
+    })
+</script>
