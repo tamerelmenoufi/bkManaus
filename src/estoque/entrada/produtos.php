@@ -54,7 +54,11 @@
             <tr class="table-primary">
                 <td>Unidade Convertida</td>
                 <td>
-                    <select class="form-select form-select-sm uConv" quantidade="<?=$p->qCom?>" reg="<?=$p->codigo?>" vUnCom='<?=$p->vUnCom?>' >
+                    <select class="form-select form-select-sm uConv" 
+                            quantidade="<?=$p->qCom?>" 
+                            reg="<?=$p->codigo?>" 
+                            vUnCom='<?=$p->vUnCom?>' 
+                    >
                         <option <?=((strtolower($p->uConv) == 'un')?'selected':false)?> value="un">un</option>
                         <option <?=((strtolower($p->uConv) == 'cx')?'selected':false)?> value="cx">cx</option>
                         <option <?=((strtolower($p->uConv) == 'pct')?'selected':false)?> value="pct">pct</option>
@@ -66,7 +70,14 @@
                 <td>Quantidade Convertida</td>
                 <td>
                     <div class="input-group mb-3">
-                        <input reg="<?=$p->codigo?>" class="form-control form-control-sm qConv" type="text" placeholder="0.0000" value="<?=$p->qConv?>"  >
+                        <input reg="<?=$p->codigo?>" 
+                               class="form-control form-control-sm qConv" 
+                               type="text" 
+                               placeholder="0.0000" 
+                               value="<?=$p->qConv?>"
+                               quantidade="<?=$p->qCom?>" 
+                               vUnCom='<?=$p->vUnCom?>' 
+                        >
                         <button converter = '<?=$p->codigo?>' class="btn btn-primary" type="button" id="button-addon2"><i class="fa-regular fa-floppy-disk"></i></button>
                     </div>
                 </td>
