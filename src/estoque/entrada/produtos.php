@@ -129,7 +129,7 @@
 
             total = (vUnCom/qConv)
 
-            $("td[vUnConv]").html(total)
+            $("td[vUnConv]").html(total.indexOf(10))
 
         })
 
