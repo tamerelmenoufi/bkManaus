@@ -54,7 +54,7 @@
             <tr class="table-primary">
                 <td>Unidade Convertida</td>
                 <td>
-                    <select id="uConv" class="form-select form-select-sm">
+                    <select class="form-select form-select-sm uConv" quantidade="<?=$p->qCom?>" reg="<?=p->codigo?>" >
                         <option <?=((strtolower($p->uConv) == 'un')?'selected':false)?> value="un">un</option>
                         <option <?=((strtolower($p->uConv) == 'cx')?'selected':false)?> value="cx">cx</option>
                         <option <?=((strtolower($p->uConv) == 'pct')?'selected':false)?> value="pct">pct</option>
@@ -65,7 +65,7 @@
             <tr class="table-primary">
                 <td>Quantidade Convertida</td>
                 <td>
-                    <input class="form-control form-control-sm" id="qConv" type="text" placeholder="00.0000" value="<?=$p->qConv?>" >
+                    <input reg="<?=p->codigo?>" class="form-control form-control-sm qConv" type="text" placeholder="00.0000" value="<?=$p->qConv?>" >
                 </td>
             </tr>
             <tr class="table-primary">
@@ -109,7 +109,10 @@
 
         $('#qConv').keyup(function(){
             qConv = $(this).val();
-            q = <?=$p->qCom?>;
+            q = $(this).attr("quantidade");
+            reg = $(this).attr("reg");
+
+            
 
 
         })
