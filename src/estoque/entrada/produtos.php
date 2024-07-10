@@ -133,5 +133,28 @@
 
         })
 
+        $("button[converter]").click(function(){
+            reg = $(this).attr("converter");
+
+            uCom = $(`select[reg="${reg}"]`).val();
+            vCom = $(`input[reg="${reg}"]`).val();
+            vUnCom = $(`td[vUnConv="${reg}"]`).text();
+
+            if(
+                uCom &&
+                vCom*1 > 0 &&
+                vUnCom*1 > 0
+            ){
+                console.log(uCom)
+                console.log(vCom)
+                console.log(vUnCom)
+            }else{
+                $.alert('Erro nos dados cadastrados!')
+            }
+
+
+        })
+
+
     })
 </script>
