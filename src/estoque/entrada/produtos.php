@@ -14,7 +14,7 @@
         
         $query = "update estoque set 
                                     uCom = '{$_POST['uCom']}',
-                                    qCom = '{$_POST['qCom']}',
+                                    /*qCom = '{$_POST['qCom']}',*/
                                     vUnCom = '{$_POST['vUnCom']}'
                 where cProd = '{$_POST['cProd']}'
         ";
