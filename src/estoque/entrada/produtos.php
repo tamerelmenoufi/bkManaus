@@ -6,7 +6,7 @@
     // reg,
     // cProd
     // uCom,
-    // vCom,
+    // qCom,
     // vUnCom,
     // acao:'conversao'
 
@@ -14,7 +14,7 @@
         
         $query = "update estoque set 
                                     uCom = '{$_POST['uCom']}',
-                                    vCom = '{$_POST['vCom']}',
+                                    qCom = '{$_POST['qCom']}',
                                     vUnCom = '{$_POST['vUnCom']}'
                 where cProd = '{$_POST['cProd']}'
         ";
@@ -22,7 +22,7 @@
 
         $query = "update movimentacao set 
                                     uConv = '{$_POST['uCom']}',
-                                    vConv = '{$_POST['vCom']}',
+                                    qConv = '{$_POST['qCom']}',
                                     vUnConv = '{$_POST['vUnCom']}'
                 where codigo = '{$_POST['reg']}'
         ";
@@ -172,17 +172,17 @@
             reg = $(this).attr("converter");
             cProd = $(this).attr("cProd");
             uCom = $(`select[reg="${reg}"]`).val();
-            vCom = $(`input[reg="${reg}"]`).val();
+            qCom = $(`input[reg="${reg}"]`).val();
             vUnCom = $(`td[vUnConv="${reg}"]`).text();
 
             if(
                 uCom &&
                 cProd &&
-                vCom*1 > 0 &&
+                qCom*1 > 0 &&
                 vUnCom*1 > 0
             ){
                 console.log(uCom)
-                console.log(vCom)
+                console.log(qCom)
                 console.log(vUnCom)
 
                 $.ajax({
@@ -192,7 +192,7 @@
                         reg,
                         cProd,
                         uCom,
-                        vCom,
+                        qCom,
                         vUnCom,
                         acao:'conversao'
                     },
