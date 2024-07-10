@@ -157,6 +157,10 @@
 
         Carregando('none')
 
+        $("input").click(function(){
+            $(this).select();
+        })
+
         $('.qConv').mask("#0.0000", {reverse: true});
 
         $('.qConv').keyup(function(){
