@@ -81,7 +81,7 @@
             </tr>
 
 
-            <tr class="table-<?=((strtolower($p->uCom) != strtolower($p->uConv))?'success':'primary')?>">
+            <tr <?=(strtolower($p->uCom))?> <?=(strtolower($p->uConv))?> class="table-<?=((strtolower($p->uCom) != strtolower($p->uConv))?'success':'primary')?>">
                 <td>Unidade Convertida</td>
                 <td>
                     <select class="form-select form-select-sm uConv" 
