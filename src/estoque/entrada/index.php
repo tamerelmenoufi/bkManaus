@@ -33,7 +33,7 @@
                                                 NCM = '{$p->NCM}',
                                                 CFOP = '{$p->CFOP}',
                                                 uCom = '{$p->uCom}',
-                                                qCom = '{$p->uCom}',
+                                                qCom = 0,
                                                 vUnCom = '".($p->vUnCom)."',
                                                 situacao = '1'
                 ";
