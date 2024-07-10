@@ -3,6 +3,36 @@
 
     if($_POST['nota']) $_SESSION['nota'] = $_POST['nota'];
 
+    // reg,
+    // cProd
+    // uCom,
+    // vCom,
+    // vUnCom,
+    // acao:'conversao'
+
+    if($_POST['acao'] == 'conversao'){
+        
+        $query = "update estoque set 
+                                    uCom = '{$_POST['uCom']}',
+                                    vCom = '{$_POST['vCom']}',
+                                    vUnCom = '{$_POST['vUnCom']}'
+                where cProd = '{$_POST['cProd']}'
+        ";
+        mysqli_query($con, $query);
+
+        $query = "update movimentacao set 
+                                    uConv = '{$_POST['uCom']}',
+                                    vConv = '{$_POST['vCom']}',
+                                    vUnConv = '{$_POST['vUnCom']}'
+                where codigo = '{$_POST['reg']}'
+        ";
+        mysqli_query($con, $query);
+
+        exit();
+
+    }
+
+
     $query = "select * from movimentacao where cod_nota = '{$_SESSION['nota']}'";
     $result = mysqli_query($con, $query);
     while($p = mysqli_fetch_object($result)){
@@ -78,7 +108,12 @@
                                quantidade="<?=$p->qCom?>" 
                                vUnCom='<?=$p->vUnCom?>' 
                         >
-                        <button converter = '<?=$p->codigo?>' class="btn btn-primary" type="button" id="button-addon2"><i class="fa-regular fa-floppy-disk"></i></button>
+                        <button converter = '<?=$p->codigo?>' 
+                                class="btn btn-primary" 
+                                type="button" 
+                                id="button-addon2"
+                                cProd="<?=$p->cProd?>"
+                        ><i class="fa-regular fa-floppy-disk"></i></button>
                     </div>
                 </td>
             </tr>
@@ -135,19 +170,38 @@
 
         $("button[converter]").click(function(){
             reg = $(this).attr("converter");
-
+            cProd = $(this).attr("cProd");
             uCom = $(`select[reg="${reg}"]`).val();
             vCom = $(`input[reg="${reg}"]`).val();
             vUnCom = $(`td[vUnConv="${reg}"]`).text();
 
             if(
                 uCom &&
+                cProd &&
                 vCom*1 > 0 &&
                 vUnCom*1 > 0
             ){
                 console.log(uCom)
                 console.log(vCom)
                 console.log(vUnCom)
+
+                $.ajax({
+                    url:"src/estoque/entrada/produtos.php",
+                    type:"POST",
+                    data:{
+                        reg,
+                        cProd,
+                        uCom,
+                        vCom,
+                        vUnCom,
+                        acao:'conversao'
+                    },
+                    success:function(dados){
+                        $.alert('Dados convertidos com sucesso!')
+                    }
+                })
+
+
             }else{
                 $.alert('Erro nos dados cadastrados!')
             }
