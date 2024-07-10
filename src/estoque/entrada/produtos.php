@@ -119,7 +119,7 @@
             </tr>
             <tr class="table-<?=((strtolower($p->uCom) != strtolower($p->uConv))?'success':'primary')?>">
                 <td>Valor Unitário Convertido</td>
-                <td vUnConv = '<?=$p->codigo?>'><?=((strtolower($p->uCom) != strtolower($p->uConv))?number_format($p->qCom/$p->vUnCom,10,'.',false):$p->vUnConv)?></td>
+                <td vUnConv = '<?=$p->codigo?>'><?=((strtolower($p->uCom) != strtolower($p->uConv))?number_format($p->vUnCom/$p->qCom,10,'.',false):$p->vUnConv)?></td>
             </tr>
 
 
