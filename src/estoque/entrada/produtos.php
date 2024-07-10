@@ -28,7 +28,7 @@
         ";
         mysqli_query($con, $query);
 
-        exit();
+        // exit();
 
     }
 
@@ -197,7 +197,7 @@
                         acao:'conversao'
                     },
                     success:function(dados){
-                        $.alert('Dados convertidos com sucesso!')
+                        $(".LateralDireita").html(dados);
                     }
                 })
 
