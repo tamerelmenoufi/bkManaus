@@ -184,6 +184,7 @@
                             >
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </button>
+                            <button class="btn btn-danger btn-sm" excluir="<?=$d->codigo?>"><i class="fa-solid fa-trash-can"></i></button>
                         </th>
 
                     </tr>
