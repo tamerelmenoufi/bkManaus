@@ -81,7 +81,7 @@
             </tr>
 
 
-            <tr class="table-<?=(($p->vUnCom != $p->uConv)?'success':'primary')?>primary">
+            <tr class="table-<?=(($p->vUnCom != $p->uConv)?'success':'primary')?>">
                 <td>Unidade Convertida</td>
                 <td>
                     <select class="form-select form-select-sm uConv" 
@@ -96,7 +96,7 @@
                     </select>
                 </td>
             </tr>
-            <tr class="table-primary">
+            <tr class="table-<?=(($p->vUnCom != $p->uConv)?'success':'primary')?>">
                 <td>Quantidade Convertida</td>
                 <td>
                     <div class="input-group mb-3">
@@ -117,7 +117,7 @@
                     </div>
                 </td>
             </tr>
-            <tr class="table-primary">
+            <tr class="table-<?=(($p->vUnCom != $p->uConv)?'success':'primary')?>">
                 <td>Valor Unitário Convertido</td>
                 <td vUnConv = '<?=$p->codigo?>'><?=(($p->vUnCom != $p->uConv)?number_format($p->qCom/$p->vUnCom,10,'.',false):$p->vUnConv)?></td>
             </tr>
