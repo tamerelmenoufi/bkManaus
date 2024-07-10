@@ -153,6 +153,7 @@
 <script>
     $(function(){
 
+        Carregando('none')
 
         $('.qConv').mask("#0.0000", {reverse: true});
 
@@ -181,9 +182,7 @@
                 qCom*1 > 0 &&
                 vUnCom*1 > 0
             ){
-                console.log(uCom)
-                console.log(qCom)
-                console.log(vUnCom)
+                Carregando()
 
                 $.ajax({
                     url:"src/estoque/entrada/produtos.php",
