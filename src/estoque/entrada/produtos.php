@@ -93,6 +93,7 @@
                         <option <?=((strtolower($p->uConv) == 'cx')?'selected':false)?> value="cx">cx</option>
                         <option <?=((strtolower($p->uConv) == 'pct')?'selected':false)?> value="pct">pct</option>
                         <option <?=((strtolower($p->uConv) == 'kg')?'selected':false)?> value="kg">kg</option>
+                        <option <?=((strtolower($p->uConv) == 'gr')?'selected':false)?> value="gr">gr</option>
                     </select>
                 </td>
             </tr>
