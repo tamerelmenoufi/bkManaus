@@ -81,7 +81,7 @@
             </tr>
 
 
-            <tr class="table-primary">
+            <tr class="table-<?=(($p->vUnCom != $p->uConv)?'success':'primary')?>primary">
                 <td>Unidade Convertida</td>
                 <td>
                     <select class="form-select form-select-sm uConv" 
@@ -119,7 +119,7 @@
             </tr>
             <tr class="table-primary">
                 <td>Valor Unitário Convertido</td>
-                <td vUnConv = '<?=$p->codigo?>'><?=$p->vUnConv?></td>
+                <td vUnConv = '<?=$p->codigo?>'><?=(($p->vUnCom != $p->uConv)?number_format($p->qCom/$p->vUnCom,10,'.',false):$p->vUnConv)?></td>
             </tr>
 
 
