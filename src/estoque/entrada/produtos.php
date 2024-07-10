@@ -12,13 +12,13 @@
 
     if($_POST['acao'] == 'conversao'){
         
-        $query = "update estoque set 
-                                    uCom = '{$_POST['uCom']}',
-                                    /*qCom = '{$_POST['qCom']}',*/
-                                    vUnCom = '{$_POST['vUnCom']}'
-                where cProd = '{$_POST['cProd']}'
-        ";
-        mysqli_query($con, $query);
+        // $query = "update estoque set 
+        //                             uCom = '{$_POST['uCom']}',
+        //                             /*qCom = '{$_POST['qCom']}',*/
+        //                             vUnCom = '{$_POST['vUnCom']}'
+        //         where cProd = '{$_POST['cProd']}'
+        // ";
+        // mysqli_query($con, $query);
 
         $query = "update movimentacao set 
                                     uConv = '{$_POST['uCom']}',
