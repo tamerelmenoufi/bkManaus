@@ -184,9 +184,19 @@
                             >
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </button>
+                            <?php
+                            if($d->situacao == '0'){
+                            ?>
                             <button class="btn btn-danger btn-sm" excluir="<?=$d->codigo?>"><i class="fa-solid fa-trash-can"></i></button>
-                            <button class="btn btn-warning btn-sm" estoque="<?=$d->codigo?>"><i class="fa-solid fa-dolly"></i></button>
                             <button class="btn btn-success btn-sm" incluir="<?=$d->codigo?>"><i class="fa-solid fa-file-import"></i></button>
+                            <?php
+                            }else if($d->situacao == '1'){
+                            ?>
+                            <button class="btn btn-warning btn-sm" estoque="<?=$d->codigo?>"><i class="fa-solid fa-dolly"></i></button>
+                            <?php
+                            }
+                            ?>
+                            
                         </th>
 
                     </tr>
