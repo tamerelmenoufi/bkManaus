@@ -32,7 +32,78 @@
             mysqli_query($con, $query);
             $cod_nota = mysqli_insert_id($con);
 
+
+            ///////////////////////// EMPRESAS ////////////////////////////////
+            //fornecedor
+            $f = $xml->NFe->infNFe->emit;
+
+            echo $query = "INSERT INTO empresas SET 
+                                            cnpj = '{$f->CNPJ}',
+                                            nome = '{$f->xNome}',
+                                            fantasia = '{$f->xNome}',
+                                            inscricao_estadual = '{$f->IE}',
+                                            inscricao_municipal = '{$f->IM}',
+                                            inscricao_suframa = '{$f->ISUF}',
+                                            logradouro = '{$f->enderDest->xLgr}',
+                                            numero = '{$f->enderDest->nro}',
+                                            complemento = '{$f->enderDest->xCpl}',
+                                            bairro = '{$f->enderDest->xBairro}',
+                                            cod_municipio = '{$f->enderDest->cMun}',
+                                            municipio = '{$f->enderDest->xMun}',
+                                            uf = '{$f->enderDest->UF}',
+                                            cep = '{$f->enderDest->CEP}',
+                                            cod_pais = '{$f->enderDest->cPais}',
+                                            pais = '{$f->enderDest->xPais}',
+                                            telefone = '{$f->enderDest->fone}',
+                                            email = '{$f->email}',
+                                            coordenadas = '',
+                                            tipo = 'f',
+                                            situacao = '1',
+                                            certificado = '',
+                                            deletado = '0'
+            ";
+
+            mysqli_query($con, $query);
+
+            //grupo
+            $g = $xml->NFe->infNFe->dest;
+
+            $query = "INSERT INTO empresas SET 
+                                            cnpj = '{$g->CNPJ}',
+                                            nome = '{$g->xNome}',
+                                            fantasia = '{$g->xNome}',
+                                            inscricao_estadual = '{$g->IE}',
+                                            inscricao_municipal = '{$g->IM}',
+                                            inscricao_suframa = '{$g->ISUF}',
+                                            logradouro = '{$g->enderDest->xLgr}',
+                                            numero = '{$g->enderDest->nro}',
+                                            complemento = '{$g->enderDest->xCpl}',
+                                            bairro = '{$g->enderDest->xBairro}',
+                                            cod_municipio = '{$g->enderDest->cMun}',
+                                            municipio = '{$g->enderDest->xMun}',
+                                            uf = '{$g->enderDest->UF}',
+                                            cep = '{$g->enderDest->CEP}',
+                                            cod_pais = '{$g->enderDest->cPais}',
+                                            pais = '{$g->enderDest->xPais}',
+                                            telefone = '{$g->enderDest->fone}',
+                                            email = '{$g->email}',
+                                            coordenadas = '',
+                                            tipo = 'f',
+                                            situacao = '1',
+                                            certificado = '',
+                                            deletado = '0'
+            ";
+
+            mysqli_query($con, $query);
+
+            ///////////////////////////////////////////////////////////////////
+
+
             foreach($xml->NFe->infNFe->det as $i => $val){
+
+
+
+
 
                 //print_r($val);
                 $p = $val->prod;
