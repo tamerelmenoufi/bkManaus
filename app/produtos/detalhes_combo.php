@@ -490,7 +490,7 @@ $(function(){
 
         function convertData(d){
             let formatar = {
-                codigo : d.codigo,
+                codigo : d?.codigo,
                 inclusao: d?.inclusao?.map( v => {
                     return v
                 }),
