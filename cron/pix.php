@@ -79,7 +79,7 @@
             $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
             $mensagem = "*BK Manaus Informa* - O pagamento do pedido *#{$pedido}* foi confirmado por PIX. Pedido enviado para a loja e está em produção.";
             EnviarWapp($v->Ctelefone,$mensagem);
-            $mensagem = "Vou te informar o andamento por aqui, mas você pode acompanhar seu pedido *#{$pedido}* também pelo linque {$urlApp}.";
+            $mensagem = "Vou te informar o andamento por aqui, mas você pode acompanhar seu pedido *#{$pedido}* também pelo link {$urlApp}.";
             EnviarWapp($v->Ctelefone,$mensagem);
 
             $mensagem = "*BK Manaus Informa* - Pedido *#{$pedido}* autorizado, aguardando início de produção.";

@@ -156,7 +156,7 @@
         $mensagem = "*BK Manaus Informa* - Olá {$entrega_nome}. Você foi selecionado para a entrega do pedido *#{$pedido}* da loja {$v->Lnome} para {$v->Cnome} no endereço *{$endereco}*. Favor comparecer ao balcão de retirada na loja.";
         EnviarWapp($entrega_ddd.$entrega_telefone,$mensagem);
 
-        $mensagem = "Confirme o recebimento e atualize o andamento da entrega do pedido na plataforma no linque {$urlEntregador}.";
+        $mensagem = "Confirme o recebimento e atualize o andamento da entrega do pedido na plataforma no link {$urlEntregador}.";
         EnviarWapp($entrega_ddd.$entrega_telefone,$mensagem);
 
     }

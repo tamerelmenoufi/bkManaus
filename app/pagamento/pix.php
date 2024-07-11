@@ -175,7 +175,7 @@
                         $mensagem = "*BK Manaus Informa* - Sua solicitação de pagamento para o pedido *#{$pedido}* com PIX foi registrada. Aguardando confirmação.";
                         EnviarWapp($v->Ctelefone,$mensagem);
 
-                        $mensagem = "Copie o código da chave PIX para o seu pagamento diretamente no aplicativo bkManaus pelo linque {$urlApp}";
+                        $mensagem = "Copie o código da chave PIX para o seu pagamento diretamente no aplicativo bkManaus pelo link {$urlApp}";
                         EnviarWapp($v->Ctelefone,$mensagem);
 
                         //$mensagem = "Para sua comodidade, enviaremos o código da chave PIX para o seu pagamento. Copie a chave e utilize o por pix (chave aleatória) no seu banco.";
@@ -251,7 +251,7 @@
                     $pedido = str_pad($v->codigo, 6, "0", STR_PAD_LEFT);
                     $mensagem = "*BK Manaus Informa* - O pagamento do pedido *#{$pedido}* foi confirmado por PIX. Pedido enviado para a loja e está em produção.";
                     EnviarWapp($v->Ctelefone,$mensagem);
-                    $mensagem = "Vou te informar o andamento por aqui, mas você pode acompanhar seu pedido *#{$pedido}* também pelo linque {$urlApp}.";
+                    $mensagem = "Vou te informar o andamento por aqui, mas você pode acompanhar seu pedido *#{$pedido}* também pelo link {$urlApp}.";
                     EnviarWapp($v->Ctelefone,$mensagem);
 
                     $mensagem = "*BK Manaus Informa* - Pedido *#{$pedido}* autorizado, aguardando início de produção.";

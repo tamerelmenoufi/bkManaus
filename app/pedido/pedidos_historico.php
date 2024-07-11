@@ -50,7 +50,7 @@
             <div class="d-flex justify-content-between">    
                 <div class="pedidosLabel w-100" >
                     <i class="fa-solid fa-dollar-sign"></i>
-                    Taxa de Enterga
+                    Taxa de Entrega
                 </div>
                 <div class="valores"><i class="fa-solid fa-plus mais"></i> $R <?=number_format($d->valor_entrega,2,',',false)?></div>
             </div> 
@@ -126,7 +126,7 @@ if(!$_POST['novoPedido']){
             <div class="d-flex justify-content-between">    
                 <div class="pedidosLabel w-100" >
                     <i class="fa-solid fa-dollar-sign"></i>
-                    Taxa de Enterga
+                    Taxa de Entrega
                 </div>
                 <div class="valores"><i class="fa-solid fa-plus mais"></i> $R <?=number_format($d->valor_entrega,2,',',false)?></div>
             </div> 
@@ -170,7 +170,7 @@ if(!$_POST['novoPedido']){
     $q = ($q + $q1);
     if(!$q){
 ?>
-<h3 class='w-100 text-center' style='margin-top:200px;'>Sem Pedidos!</h3><p class='w-100 text-center'>Ainda não existe nenhum produto em sua cesta de comrpas.</p>
+<h3 class='w-100 text-center' style='margin-top:200px;'>Sem Pedidos!</h3><p class='w-100 text-center'>Ainda não existe nenhum produto em sua cesta de compras.</p>
 <?php
     }
 }
