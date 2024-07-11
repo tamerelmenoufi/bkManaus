@@ -5,69 +5,6 @@ include("config.php");
 if($_GET['id']) $_POST["id"] = $_GET['id'];
 if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 
-	/**
-	 *
-	 *
-	 * ARQUIVO DE EXEMPLO DE COMO PODE MONTAR A API
-	 */
-
-	// TODOS OS DADOS AQUI VOCE DEVE VIR DA SUA BASE DE DADOS
-
-	// DOCUMENTAÇÃO:
-	//	https://github.com/nfephp-org/sped-nfe/tree/master/docs
-
-	// REVISAR TODO O ARQUIVO api/gerador/emissor.php
-
-	/*
-	MODELO DA NOTA:
-	65 - NFC-e
-	55 - NF-e
-	*/
-
-	/*
-	TIPO DE IMPRESSAO - $impressao
-	Para NF-e (modelo 55),  permitido utilizar os Formatos de Impresso do DANFE abaixo:
-	0 = Sem gerao de DANFE;
-	1 = DANFE normal, Retrato;
-	2 = DANFE normal, Paisagem;
-	3 = DANFE Simplificado;
-	4 = DANFE NFC-e;
-	5 = DANFE NFC-e em mensagem eletrnica (o envio de mensagem eletrnica pode ser feita de forma simultanea com a impresso do DANFE; usar o tpImp=5 quando esta for a unica forma de disponibilizao do DANFE)
-	*/
-
-	/*
-	Tipo de Emissao da NF-e
-	1 - Normal - emisso normal;
-	2 - Contingncia FS - emisso em contingncia com impresso do DANFE em Formulrio de Segurana;
-	3 - Contingncia SCAN - emisso em contingncia no Sistema de Contingncia do Ambiente Nacional ? SCAN;
-	4 - Contingncia DPEC - emisso em contingncia com envio da Declarao Prvia de Emisso em Contingncia ? DPEC;
-	9 - Contingncia off-line da NFC-e;
-	5 - Contingncia FS-DA - emisso em contingncia com impresso do DANFE em Formulrio de Segurana para Impresso de Documento Auxiliar de Documento Fiscal Eletrnico (FS-DA).
-	*/
-
-	/*
-	PRESENÇA - $presenca
-	0=No se aplica (por exemplo, Nota Fiscal complementar
-	ou de ajuste);
-	1=Operao presencial;
-	2=Operao no presencial, pela Internet;
-	3=Operao no presencial, Teleatendimento;
-	4=NFC-e em operao com entrega a domiclio;
-	9=Operao no presencial, outros.
-	*/
-
-	/**
-	 * CERTIFICADO DIGITAL::::::::::::
-	 * colocar na pasta: /api-nfe/certificado_digital/
-	 *
-	 */
-
-
-	 /**
-	 * LOGOTIPO PARA A NOTA (.JPG)::::::::::::
-	 * colocar na pasta: /api-nfe/logos_notas/
-	 *
-	 */
 
 	function limpardados($txt){
 		return preg_replace("/[^0-9]/", "", $txt);
@@ -109,14 +46,16 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 
 			$code = array_search(strtoupper($uf), $estados);
 			return $code;
-	   }
+	}
 
 	$venda_id = $_POST["id"];
 
 
 	// SELECIONE OS DADOS SUA TABELA DE VENDAS
 	$sql = 'SELECT a.*, (select forma_pagamento from vendas_pagamento where a.codigo = venda and deletado != \'1\' order by valor desc limit 1) as forma_pagamento FROM vendas a WHERE a.deletado != \'1\' and a.codigo = ?';
-    $stmt = $PDO->prepare($sql);
+	$sql = 'SELECT * FROM vendas WHERE deletado != \'1\' and codigo = ?';
+    
+	$stmt = $PDO->prepare($sql);
     $stmt->execute([$venda_id]);
     $rowVenda = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt = null;
