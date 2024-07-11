@@ -288,5 +288,35 @@
 
         })
 
+        $("button[excluir]").click(function(){
+
+            nota = $(this).attr("nota");
+            excluir = $(this).attr("excluir");
+
+            $.confirm({
+                type:"red",
+                title:"Alerta de Exclusão",
+                content:`Deseja realmente excluir a nota ${nota}?`,
+                buttons:{
+                    'Sim':{
+                        text:'Sim',
+                        btnClass:'btn btn-danger',
+                        action:function(){
+                            alert('Sim')
+                        }
+                    },
+                    'Não':{
+                        text:'Não',
+                        btnClass:'btn btn-success',
+                        action:function(){
+                            alert('Não')
+                        }
+                    }
+                }
+            })
+
+        })
+
+
     })
 </script>
