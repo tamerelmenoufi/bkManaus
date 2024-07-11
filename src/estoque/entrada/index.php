@@ -1,6 +1,19 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+
+    if($_POST['acao'] == 'excluir'){
+
+        $query = "delete from movimentacao where cod_nota = '{$_POST['excluir']}'";
+        mysqli_query($con, $query);
+
+        $query = "delete from notas where codigo = '{$_POST['excluir']}'";
+        mysqli_query($con, $query);
+
+        if(is_file("../../volumes/notas/xml/{$_POST['xml']}")) unlink("../../volumes/notas/xml/{$_POST['xml']}");
+
+    }
+
     if($_POST['acao'] == 'upload_xml'){
 
         if(!is_dir("../../volumes/")) mkdir("../../volumes/");
@@ -187,7 +200,7 @@
                             <?php
                             if($d->situacao == '0'){
                             ?>
-                            <button class="btn btn-danger btn-sm" excluir="<?=$d->codigo?>" nota="<?=$c->nNF?>"><i class="fa-solid fa-trash-can"></i></button>
+                            <button class="btn btn-danger btn-sm" excluir="<?=$d->codigo?>" nota="<?=$c->nNF?>" xml="<?=$c->xml?>"><i class="fa-solid fa-trash-can"></i></button>
                             <button class="btn btn-success btn-sm" incluir="<?=$d->codigo?>"><i class="fa-solid fa-file-import"></i></button>
                             <?php
                             }else if($d->situacao == '1'){
@@ -292,6 +305,7 @@
 
             nota = $(this).attr("nota");
             excluir = $(this).attr("excluir");
+            xml = $(this).attr("xml");
 
             $.confirm({
                 type:"red",
@@ -308,6 +322,7 @@
                                 type:"POST",
                                 data:{
                                     excluir,
+                                    xml,
                                     acao:'excluir'
                                 },
                                 success:function(dados){
