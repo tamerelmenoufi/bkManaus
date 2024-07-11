@@ -200,7 +200,7 @@
                             <?php
                             if($d->situacao == '0'){
                             ?>
-                            <button class="btn btn-danger btn-sm" excluir="<?=$d->codigo?>" nota="<?=$c->nNF?>" xml="<?=$c->xml?>"><i class="fa-solid fa-trash-can"></i></button>
+                            <button class="btn btn-danger btn-sm" excluir="<?=$d->codigo?>" nota="<?=$c->nNF?>" xml="<?=$d->xml?>"><i class="fa-solid fa-trash-can"></i></button>
                             <button class="btn btn-success btn-sm" incluir="<?=$d->codigo?>"><i class="fa-solid fa-file-import"></i></button>
                             <?php
                             }else if($d->situacao == '1'){
