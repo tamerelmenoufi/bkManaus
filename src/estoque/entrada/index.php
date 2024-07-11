@@ -88,7 +88,7 @@
                                             telefone = '{$g->enderDest->fone}',
                                             email = '{$g->email}',
                                             coordenadas = '',
-                                            tipo = 'f',
+                                            tipo = 'g',
                                             situacao = '1',
                                             certificado = '',
                                             deletado = '0'
