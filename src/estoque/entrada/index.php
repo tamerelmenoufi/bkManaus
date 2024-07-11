@@ -302,6 +302,7 @@
                         text:'Sim',
                         btnClass:'btn btn-danger',
                         action:function(){
+                            Carregando()
                             $.ajax({
                                 url:"src/estoque/entrada/index.php",
                                 type:"POST",
