@@ -140,7 +140,7 @@
                         "description": "Pedido '.$pedido.' - Venda BKManaus (Delivery)",
                         "payment_method_id": "pix",
                         "payer": {
-                        "email": "'.$v->Cemail.'",
+                        "email": "'.(($v->Cemail)?:'delivery@bkmanaus.com.br').'",
                         "first_name": "'.substr($v->Cnome, 0, ($pos-1)).'",
                         "last_name": "'.substr($v->Cnome, $pos, strlen($v->Cnome)).'",
                         "identification": {
