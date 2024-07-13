@@ -1,0 +1,53 @@
+Excelente. Parabéns. Segue resumo q fiz enquanto assisti o video.
+
+- MODELO
+NFCE : 65
+NFE  : 55
+
+- MODULOS
+1 - PRODUCAO
+IMPOSTOS E ETC
+2 - HOMOLOGACAO
+TESTE
+
+- PASSOS PARA EMISSAO DA NFCE
+* Pegar tabela do ibge com cidades
+* retirar todas as mascaras dos dados
+* verificar tag biblioteca makeNfe
+* dica para criar funcoes, coloque new NFePHP antes NewToolsNfe 
+
+1 - GERAR UM XML
+UTILIZAR O EXEMPLO: 4.00testaMakeNFe.php
+Preenche as informaçoes para gerar o XML
+
+2 - ASSINAR XML
+UTILIZAR O EXEMPLO: 4.00testaAssinaNFe.php
+* Vai ler o Xml Gerar e Adicionar a Tag Signature
+* Tem que gerar o config.json(Nele que vai o nome do certificado e senha)
+
+3 - VALIDAR O XML
+UTILIZAR O EXEMPLO: 4.00testaValidaXml.php
+
+4 - ENVIAR PARA SEFAZ
+UTILIZAR O EXEMPLO: 4.00testaEnviaLote.php
+*ID LOTE = FICAR EM BRANCO
+ASSICONRA = ENVIAR E VERIFICAR STATUS = 0 (todos os estados)
+SINCORA = FAZ ENVIO E TRAZ STATUS NA VARIAVEL RESPOSTA = 1
+var_dump($resposta)
+
+5 - CONSULTAR O PROTOCOLO
+UTILIZAR O EXEMPLO: 4.00testaConsultaRecibo.php
+Pegar o numero do recibo a partir do envio passo anterior
+dentro da variavel $resposta vai ter a informacao cStatus
+
+
+5.1 - STATUS 100 AUTORIZADO USO NFE
+
+6 - ADICIONAR PROTOCOLO
+UTILIZAR O EXEMPLO: 4.00testaAddProt.php
+xmlreci se consultar pelo recibo
+xmlsit se consultar pela chave
+
+7 - IMPRIMIR A DANFE
+UTILIZAR O EXEMPLO: 4.00testaDanfce.php E 4.00testaDanfe.php?
+Mostrar menos

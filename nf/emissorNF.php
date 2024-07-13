@@ -74,13 +74,15 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 
     if(empty($rowVenda)) die("Vendas nao encontrada");
 
-	if(!empty($rowVenda["nf_numero"])) die("Já foi emitida uma nota para esta venda! ");
+	$Blc = json_decode($rowVenda["dados"]);
+
+	//if(!empty($rowVenda["nf_numero"])) die("Já foi emitida uma nota para esta venda! ");
 
     // configuracao DO EMISSOR DA NOTA E NÚMERO DA PROXIMA NOTA FISCAL
 	// pode ser montado para facilitar o uso.
 	// novos campos: numero_proxima_nfc e numero_proxima_nf por exemplo
 
-	$tipoNota = 1; // 1- NFC-e / 2- NF-e
+	$tipoNota = 2; // 1- NFC-e / 2- NF-e
 
 	if($tipoNota==1){
 
@@ -93,10 +95,10 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 	}elseif($tipoNota==2){
 
 		// MODELO NF GRANDE
-		$modelo = 55;
-		$presenca = 2;
-		$frete = 0;
-		$impressao = 1;
+		$modelo = $Blc->ide->mod;
+		$presenca = $Blc->ide->indPres;
+		$frete = $Blc->transp->modFrete;
+		$impressao = $Blc->ide->tpImp;
 
 	}
 
@@ -117,19 +119,34 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 
 		$NUMERO_DA_NOTA = 1; // NUMERO DA NF QUE SERÁ EMITIDA (DEVE SER SEQUENCIAL, É IMPORTANTE GUARDAR A ORDEM NO SEU BANCO DE DADOS)
 
+		$dest = $Blc->dest;
+		$emit = $Blc->emit;
+
+		//Listar dados do destinatário do banco
+		$sql = 'SELECT * FROM empresas WHERE cnpj = ?';
+		$stmt = $PDO->prepare($sql);
+		$stmt->execute([$dest->CNPJ]);
+		$dadosDest = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		//Listar dados do emitente do banco
+		$sql = 'SELECT * FROM empresas WHERE cnpj = ?';
+		$stmt = $PDO->prepare($sql);
+		$stmt->execute([$emit->CNPJ]);
+		$dadosEmit = $stmt->fetch(PDO::FETCH_ASSOC);		
+
 		// PEDIDO / VENDA / AQUI AS INFOMACOES PRINCIPAIS
 		$data_nfe = array(
 			'ID' => $rowVenda["codigo"], // ID DA VENDA NO SISTEMA
 			'NF' => $nota['numero_proxima_nfc'], // Número da NF (Deve seguir uma ordem exata)
-			'serie' => 3,
-			'operacao' => 1, // Tipo de Operação da Nota Fiscal (0) entrada
-			'metodo_envio' => 1, // Metodo de transmisão de nota 1) Modo síncrono (pequena). / 0) modo assíncrono (nota grande)
+			'serie' => $Blc->ide->serie,
+			'operacao' => (($_POST['e'])?'0':'1'), //  (1) Saída Entrada Tipo de Operação da Nota Fiscal e (0) entrada
+			'metodo_envio' => 0, // Metodo de transmisão de nota 1) Modo síncrono (pequena). / 0) modo assíncrono (nota grande)
 			'natureza_operacao' => 'Venda', // Natureza da Operação - ''
 			'modelo' => $modelo, // Modelo da Nota Fiscal (65 - NFC / 55 - NF)
-			'emissao' => 1, // Tipo de Emissao da NF-e
-			'finalidade' => 1, // Finalidade de emissao da Nota Fiscal 
-			'consumidorfinal' => 1,  // Indicação do consumidor final (0) - entre empresas
-			'destinatario' => 1, // 1 = Operao interna; 2 = Operao interestadual; 3 = Operao com exterior.
+			'emissao' => $Blc->ide->tpEmis, // Tipo de Emissao da NF-e
+			'finalidade' => $Blc->ide->finNFe, // Finalidade de emissao da Nota Fiscal 
+			'consumidorfinal' => $Blc->ide->indFinal,  // Indicação do consumidor final (0) - entre empresas
+			'destinatario' => $Blc->ide->idDest, // 1 = Operao interna; 2 = Operao interestadual; 3 = Operao com exterior.
 			'impressao' => $impressao, // Tipo de impressao
 			'intermediario' => $intermediario,
 			'intermediador' => array(
@@ -208,9 +225,9 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 
 	   // CLIENTE
 	   // $cadastro (1 - pessoa fisica / 2 pessao juridica)
-	   		$cadastro = 1;
-			$cpfnanota = trim(limpardados($_POST["cpf"])); // CPF DO CLIENTE, ENVIAR SEM MASCARA
-
+	   		$cadastro = 2;
+			// $cpfnanota = trim(limpardados($_POST["cpf"])); // CPF DO CLIENTE, ENVIAR SEM MASCARA
+			$cpfnanota = false;
 
 
 			if($cpfnanota!=""){
@@ -297,53 +314,54 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 				WHERE pv.venda = '$venda_id' and pv.deletado != '1'";
 
 
+		$sql = "SELECT * FROM movimentacao WHERE cod_nota = '{$rowVenda['codigo']}'";
+
+
 		$stmt = $PDO->query($sql);
 		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
+			$impostos = json_decode($row['imposto']);
 
-			//////////////////////////////////////////////////////////
-
-			$pedido = json_decode($row["produto_json"]);
-			$sabores = false;
-
-
-			$ListaPedido = [];
-			for($i=0; $i < count($pedido->produtos); $i++){
-				$ListaPedido[] = $pedido->produtos[$i]->descricao;
-			}
-			if($ListaPedido) $sabores = implode(', ', $ListaPedido);
-
-			$Prod = [];
-			if(count($pedido->produtos) > 0){
-				foreach($pedido->produtos as $ind => $prod){
-					if(is_array($prod)){
-						foreach($prod as $ind1 => $prod1){
-							$Prod[] = $prod1->descricao;
-						}
-					}else{
-						$Prod[] = $prod->descricao;
-					}
-
-				}
-				$Prod = (($Prod)?implode(' ',$Prod):false);
-			}
-
-
-			//////////////////////////////////////////////////////////
-
-
+			// {
+			// 	"IPI": {
+			// 		"cEnq": "999",
+			// 		"IPINT": {
+			// 			"CST": "53"
+			// 		}
+			// 	},
+			// 	"PIS": {
+			// 		"PISNT": {
+			// 			"CST": "06"
+			// 		}
+			// 	},
+			// 	"ICMS": {
+			// 		"ICMS00": {
+			// 			"CST": "00",
+			// 			"vBC": "11783.04",
+			// 			"orig": "2",
+			// 			"modBC": "3",
+			// 			"pICMS": "4.00",
+			// 			"vICMS": "471.32"
+			// 		}
+			// 	},
+			// 	"COFINS": {
+			// 		"COFINSNT": {
+			// 			"CST": "06"
+			// 		}
+			// 	}
+			// }
 
 			$codigo=$row["codigo"];
-			$quatidade = (empty($row["quantidade"])) ? "1" : $row["quantidade"];;
-			$nomeproduto=$pedido->categoria->descricao." ".$Prod." ".$pedido->medida->descricao." ".strip_tags($row["produto_descricao"]); // NOME DO PRODUTO
-			$ncm=$row["ncm"]; // NCM
-			$cest=$row["cest"]; // CEST
-			$unit=(empty($row["unidade"])) ? "UN" : $row["unidade"]; // CODIGO UNIDADE
-			$origem = (empty($row["origem"])) ? "0" : $row["origem"];
-			$cfop = $row["cfop"];
-			$icms = $row["icms"];
-			$preco = $row["valor_unitario"];
-			$preco_total = $row["valor_total"];
+			$quatidade = $row['qCom'];
+			$nomeproduto = $row['xProd']; // NOME DO PRODUTO
+			$ncm = $row["NCM"]; // NCM
+			$cest = $row[""]; // CEST
+			$unit = $row["uCom"]; // CODIGO UNIDADE
+			$origem = $row[""];
+			$cfop = $row["CFOP"];
+			$icms = $row[""];
+			$preco = $row["vUnCom"];
+			$preco_total = $row["vProd"];
 			$peso = '0.100';
 
 			$data_nfe['produtos'][$x] = array(
