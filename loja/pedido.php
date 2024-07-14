@@ -484,6 +484,8 @@
             
 
             foreach($pedido as $i => $v){
+                
+            if($v->status){
 
                 $q = "select *, produtos->>'$[*].produto' as cod_prod from produtos where codigo ='{$v->codigo}'";
                 $r = mysqli_query($con, $q);
@@ -814,6 +816,7 @@
             ?>
             </li>
             <?php
+            }
             }
         ?>
     </ul>
