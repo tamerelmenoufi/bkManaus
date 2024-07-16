@@ -62,8 +62,12 @@
     while($d = mysqli_fetch_object($result)){
 
         $venda = json_decode($d->detalhes);
-
-        $venda = count($venda);
+        $p = false;
+        foreach($venda as $vi => $vd){
+            if($vi){
+                $p = true;
+            }
+        }
 
 
 
@@ -86,7 +90,7 @@
                 <td>{$i}</td>
                 <td>{$d->device}</td>
                 <td>{$d->nome}</td>
-                <td>".(($venda)?$d->detalhes:false)."</td>
+                <td>".(($p)?$d->detalhes:false)."</td>
              </tr>";
         $i++;
     }
