@@ -63,6 +63,8 @@
 
         $venda = json_decode($d->detalhes);
 
+
+
         if($d->semana != $semana){
             echo "<tr>
                 <td colspan = '4'><h3>{$d->semana}</h3></td>
@@ -82,7 +84,7 @@
                 <td>{$i}</td>
                 <td>{$d->device}</td>
                 <td>{$d->nome}</td>
-                <td>".(($venda)?'Venda':false)."</td>
+                <td>".(($venda)?print_r($venda):false)."</td>
              </tr>";
         $i++;
     }
