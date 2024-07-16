@@ -35,7 +35,15 @@
 <script src="https://painel.bkmanaus.com.br/lib/vendor/slick/slick.js" ></script>
 
 
-<script src="https://painel.bkmanaus.com.br/lib/vendor/jquery-maskmoney/jquery.maskMoney.js" ></script>  </head>
+<script src="https://painel.bkmanaus.com.br/lib/vendor/jquery-maskmoney/jquery.maskMoney.js" ></script>
+
+<style>
+    td{
+        white-space: nowrap;
+    }
+</style>
+
+</head>
   <body translate="no">
 
 <div class="container">
