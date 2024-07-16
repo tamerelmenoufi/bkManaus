@@ -56,6 +56,13 @@
 
     foreach($intervalos as $ind => $val){
 
+        $rClientes = 0;
+        $rVendas = 0;
+        $rHorario = 0;
+        $rTotal = 0;
+
+
+
     $query = "
     
         (SELECT a.data as data, a.device as device, c.nome as nome, b.detalhes as detalhes, '{$val[0]}' as semana, time(data) as hora, if( time(data) >= '11:00:00' and time(data) <= '23:00:00', 'green', 'red') as cor FROM app_acessos a left join vendas_tmp b on a.device = b.id_unico left join clientes c on a.cliente = c.codigo where a.data BETWEEN '{$val[1]}' and '{$val[2]}' and a.device != '' group by a.device order by detalhes desc)
@@ -75,6 +82,11 @@
                 $p = true;
             }
         }
+
+        $rClientes[$ind] = ($rClientes[$ind] + (($d->nome)?1:0));
+        $rVendas[$ind] = ($rVendas[$ind] + (($p)?1:0));
+        $rHorario[$ind] = ($rHorario[$ind] + (($d->cor == 'green')?1:0));
+        $rTotal[$ind] = $i;
 
 
 
@@ -106,6 +118,23 @@
     }
 
     echo "</table>";
+
+
+
+    foreach($rClientes as $i => $v){
+
+        echo "<h2>{$i}</h2>";
+        echo "<p>Total: {$rTotal}</p>";
+        echo "<p>Com Cadastrados: {$rClientes}</p>";
+        echo "<p>Sem Cadastrados: ".($rTotal - $rClientes)."</p>";
+        echo "<p>Carrinho: ".($rVendas)."</p>";
+        echo "<p>Acessos: ".($rTotal - $rVendas)."</p>";
+        echo "<p>Horário Atendimento: ".($rHorario)."</p>";
+        echo "<p>Acessos: ".($rTotal - $rHorario)."</p>";
+        echo "<hr>";
+
+    }
+
     ?>
 
 </div>
