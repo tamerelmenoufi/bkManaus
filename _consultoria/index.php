@@ -63,6 +63,8 @@
 
         $venda = json_decode($d->detalhes);
 
+        $venda = count($venda);
+
 
 
         if($d->semana != $semana){
