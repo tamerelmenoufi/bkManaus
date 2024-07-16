@@ -3,7 +3,7 @@
 
     $campos = " a.device, c.nome, b.detalhes ";
 
-    echo $query = "
+    $query = "
     
         SELECT {$campos} FROM app_acessos a left join vendas_tmp b on a.device = b.id_unico left join clientes c on a.cliente = c.codigo where a.data BETWEEN '2024-06-13 00:00:00' and '2024-06-15 23:59:59' and a.device != '' group by a.device UNION
         SELECT {$campos} FROM app_acessos a left join vendas_tmp b on a.device = b.id_unico left join clientes c on a.cliente = c.codigo where a.data BETWEEN '2024-06-20 00:00:00' and '2024-06-22 23:59:59' and a.device != '' group by a.device UNION
@@ -13,7 +13,7 @@
 
     ";
 
-    $result = mysqli_connect($con, $query);
+    $result = mysqli_query($con, $query);
 
     while($d = mysqli_fetch_object($result)){
 
