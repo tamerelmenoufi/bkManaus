@@ -60,7 +60,7 @@
     ];
 
 
-    echo "<table class='table table-hover'>";
+    // echo "<table class='table table-hover'>";
 
     foreach($intervalos as $ind => $val){
 
@@ -98,34 +98,34 @@
 
 
 
-        if($d->semana != $semana){
-            echo "<tr>
-                <td colspan = '4'><h3>{$d->semana}</h3></td>
-             </tr>";
+        // if($d->semana != $semana){
+        //     echo "<tr>
+        //         <td colspan = '4'><h3>{$d->semana}</h3></td>
+        //      </tr>";
 
-             echo "<tr>
-             <th>#</th>
-             <th>Equipamento</th>
-             <th>Cliente</th>
-             <th>Venda</th>
-             <th>Hora</th>
-          </tr>";
-            $semana = $d->semana;
-            $i = 1;
-        }
+        //      echo "<tr>
+        //      <th>#</th>
+        //      <th>Equipamento</th>
+        //      <th>Cliente</th>
+        //      <th>Venda</th>
+        //      <th>Hora</th>
+        //   </tr>";
+        //     $semana = $d->semana;
+        //     $i = 1;
+        // }
 
-        echo "<tr>
-                <td>{$i}</td>
-                <td>{$d->device}</td>
-                <td>".(($d->nome)?'<i class="fa-solid fa-user"></i>':false)."</td>
-                <td>".(($p)?'<i class="fa-solid fa-bag-shopping"></i>':false)."</td>
-                <td style='color:{$d->cor}'>".(($p)?$d->hora:$d->hora)."</td>
-             </tr>";
+        // echo "<tr>
+        //         <td>{$i}</td>
+        //         <td>{$d->device}</td>
+        //         <td>".(($d->nome)?'<i class="fa-solid fa-user"></i>':false)."</td>
+        //         <td>".(($p)?'<i class="fa-solid fa-bag-shopping"></i>':false)."</td>
+        //         <td style='color:{$d->cor}'>".(($p)?$d->hora:$d->hora)."</td>
+        //      </tr>";
         $i++;
     }
     }
 
-    echo "</table>";
+    // echo "</table>";
 
     function c($t, $v){
         return number_format(($v*100/$t),0,false,false);
