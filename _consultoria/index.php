@@ -119,21 +119,21 @@
 
     echo "</table>";
 
-
-
+    echo "<table class='table table-hover'>";
     foreach($rClientes as $i => $v){
-
-        echo "<h2>{$i}</h2>";
-        echo "<p>Total: {$rTotal[$i]}</p>";
-        echo "<p>Com Cadastrados: {$rClientes[$i]}</p>";
-        echo "<p>Sem Cadastrados: ".($rTotal[$i] - $rClientes[$i])."</p>";
-        echo "<p>Carrinho: ".($rVendas[$i])."</p>";
-        echo "<p>Acessos: ".($rTotal[$i] - $rVendas[$i])."</p>";
-        echo "<p>Horário Atendimento: ".($rHorario[$i])."</p>";
-        echo "<p>Fora do Horário: ".($rTotal[$i] - $rHorario[$i])."</p>";
-        echo "<hr>";
+ 
+        echo "<tr><td colspan='3'><h2>{$i}</h2></td></tr>";
+        echo "<tr><td>Total</td><td>{$rTotal[$i]}</td><td></td></tr>";
+        echo "<tr><td>Com Cadastrados</td><td> {$rClientes[$i]}</td><td></td></tr>";
+        echo "<tr><td>Sem Cadastrados</td><td>".($rTotal[$i] - $rClientes[$i])."</td><td></td></tr>";
+        echo "<tr><td>Carrinho</td><td>".($rVendas[$i])."</td><td></td></tr>";
+        echo "<tr><td>Acessos</td><td>".($rTotal[$i] - $rVendas[$i])."</td><td></td></tr>";
+        echo "<tr><td>Horário Atendimento</td><td>".($rHorario[$i])."</td><td></td></tr>";
+        echo "<tr><td>Fora do Horário</td><td>".($rTotal[$i] - $rHorario[$i])."</td><td></td></tr>";
 
     }
+    echo "</table>";
+
 
     ?>
 
