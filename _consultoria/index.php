@@ -26,6 +26,7 @@
                 <td colspan = '3'><b>{$d->semana}</b></td>
              </tr>";
             $semana = $d->semana;
+            $i = 1;
         }
 
         echo "<tr>
