@@ -130,7 +130,7 @@
         echo "<p>Carrinho: ".($rVendas[$i])."</p>";
         echo "<p>Acessos: ".($rTotal[$i] - $rVendas[$i])."</p>";
         echo "<p>Horário Atendimento: ".($rHorario[$i])."</p>";
-        echo "<p>Acessos: ".($rTotal[$i] - $rHorario[$i])."</p>";
+        echo "<p>Fora do Horário: ".($rTotal[$i] - $rHorario[$i])."</p>";
         echo "<hr>";
 
     }
