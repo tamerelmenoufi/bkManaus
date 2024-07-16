@@ -27,9 +27,9 @@
              </tr>";
 
              echo "<tr>
-             <td>#</td>
-             <td>Equipamento</td>
-             <td>Cliente</td>
+             <th>#</th>
+             <th>Equipamento</th>
+             <th>Cliente</th>
           </tr>";
             $semana = $d->semana;
             $i = 1;
