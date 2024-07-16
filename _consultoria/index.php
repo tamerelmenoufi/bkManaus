@@ -124,12 +124,12 @@
  
         echo "<tr><td colspan='3'><h2>{$i}</h2></td></tr>";
         echo "<tr><td>Total</td><td>{$rTotal[$i]}</td><td><div class='progress'><div class='progress-bar progress-bar-striped role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div></div></td></tr>";
-        echo "<tr><td>Com Cadastrados</td><td> {$rClientes[$i]}</td><div class='progress-bar progress-bar-striped role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div></div><td></td></tr>";
-        echo "<tr><td>Sem Cadastrados</td><td>".($rTotal[$i] - $rClientes[$i])."</td><td><div class='progress-bar progress-bar-striped role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div></div></td></tr>";
-        echo "<tr><td>Carrinho</td><td>".($rVendas[$i])."</td><td><div class='progress-bar progress-bar-striped role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div></div></td></tr>";
-        echo "<tr><td>Acessos</td><td>".($rTotal[$i] - $rVendas[$i])."</td><td><div class='progress-bar progress-bar-striped role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div></div></td></tr>";
-        echo "<tr><td>Horário Atendimento</td><td>".($rHorario[$i])."</td><td><div class='progress-bar progress-bar-striped role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div></div></td></tr>";
-        echo "<tr><td>Fora do Horário</td><td>".($rTotal[$i] - $rHorario[$i])."</td><td><div class='progress-bar progress-bar-striped role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div></div></td></tr>";
+        echo "<tr><td>Com Cadastrados</td><td> {$rClientes[$i]}</td><div class='progress'><div class='progress-bar progress-bar-striped role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div></div><td></td></tr>";
+        echo "<tr><td>Sem Cadastrados</td><td>".($rTotal[$i] - $rClientes[$i])."</td><td><div class='progress'><div class='progress-bar progress-bar-striped role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div></div></td></tr>";
+        echo "<tr><td>Carrinho</td><td>".($rVendas[$i])."</td><td><div class='progress'><div class='progress-bar progress-bar-striped role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div></div></td></tr>";
+        echo "<tr><td>Acessos</td><td>".($rTotal[$i] - $rVendas[$i])."</td><td><div class='progress'><div class='progress-bar progress-bar-striped role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div></div></td></tr>";
+        echo "<tr><td>Horário Atendimento</td><td>".($rHorario[$i])."</td><td><div class='progress'><div class='progress-bar progress-bar-striped role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div></div></td></tr>";
+        echo "<tr><td>Fora do Horário</td><td>".($rTotal[$i] - $rHorario[$i])."</td><td><div class='progress'><div class='progress-bar progress-bar-striped role='progressbar' style='width: 10%' aria-valuenow='10' aria-valuemin='0' aria-valuemax='100'></div></div></td></tr>";
 
     }
     echo "</table>";
