@@ -124,13 +124,13 @@
     foreach($rClientes as $i => $v){
 
         echo "<h2>{$i}</h2>";
-        echo "<p>Total: {$rTotal}</p>";
-        echo "<p>Com Cadastrados: {$rClientes}</p>";
-        echo "<p>Sem Cadastrados: ".($rTotal - $rClientes)."</p>";
-        echo "<p>Carrinho: ".($rVendas)."</p>";
-        echo "<p>Acessos: ".($rTotal - $rVendas)."</p>";
-        echo "<p>Horário Atendimento: ".($rHorario)."</p>";
-        echo "<p>Acessos: ".($rTotal - $rHorario)."</p>";
+        echo "<p>Total: {$rTotal[$i]}</p>";
+        echo "<p>Com Cadastrados: {$rClientes[$i]}</p>";
+        echo "<p>Sem Cadastrados: ".($rTotal[$i] - $rClientes[$i])."</p>";
+        echo "<p>Carrinho: ".($rVendas[$i])."</p>";
+        echo "<p>Acessos: ".($rTotal[$i] - $rVendas[$i])."</p>";
+        echo "<p>Horário Atendimento: ".($rHorario[$i])."</p>";
+        echo "<p>Acessos: ".($rTotal[$i] - $rHorario[$i])."</p>";
         echo "<hr>";
 
     }
