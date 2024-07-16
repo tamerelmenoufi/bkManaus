@@ -120,7 +120,7 @@
     echo "</table>";
 
     function c($t, $v){
-        return number_format($v*100/$t,0,false,false);
+        return number_format(($v*100/$t),0,false,false);
     }
 
     echo "<table class='table table-hover mt-3'>";
