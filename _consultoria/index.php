@@ -84,7 +84,7 @@
                 <td>{$i}</td>
                 <td>{$d->device}</td>
                 <td>{$d->nome}</td>
-                <td>".(($venda)?($venda):false)."</td>
+                <td>".(($venda)?var_dump($venda):false)."</td>
              </tr>";
         $i++;
     }
