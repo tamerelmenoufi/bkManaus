@@ -56,10 +56,10 @@
 
     foreach($intervalos as $ind => $val){
 
-        $rClientes = 0;
-        $rVendas = 0;
-        $rHorario = 0;
-        $rTotal = 0;
+        $rClientes[$ind] = 0;
+        $rVendas[$ind] = 0;
+        $rHorario[$ind] = 0;
+        $rTotal[$ind] = 0;
 
 
 
