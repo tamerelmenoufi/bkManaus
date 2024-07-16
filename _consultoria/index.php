@@ -86,7 +86,7 @@
                 <td>{$i}</td>
                 <td>{$d->device}</td>
                 <td>{$d->nome}</td>
-                <td>".(($venda)?$d->detalhes:false)."</td>
+                <td>".(($venda)?$venda:false)."</td>
              </tr>";
         $i++;
     }
