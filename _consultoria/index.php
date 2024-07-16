@@ -61,15 +61,18 @@
     $semana = false;
     while($d = mysqli_fetch_object($result)){
 
+        $venda = json_decode($d->detalhes);
+
         if($d->semana != $semana){
             echo "<tr>
-                <td colspan = '3'><h3>{$d->semana}</h3></td>
+                <td colspan = '4'><h3>{$d->semana}</h3></td>
              </tr>";
 
              echo "<tr>
              <th>#</th>
              <th>Equipamento</th>
              <th>Cliente</th>
+             <th>Venda</th>
           </tr>";
             $semana = $d->semana;
             $i = 1;
@@ -79,6 +82,7 @@
                 <td>{$i}</td>
                 <td>{$d->device}</td>
                 <td>{$d->nome}</td>
+                <td>".(($venda)?'Venda':false)."</td>
              </tr>";
         $i++;
     }
