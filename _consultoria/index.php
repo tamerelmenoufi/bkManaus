@@ -134,8 +134,8 @@
     echo "<table class='table table-hover mt-3'>";
     foreach($rClientes as $i => $v){
  
-        echo "<tr class='table-".(($i> 2)?'success':'warning')."'><td colspan='3'><h2>{$i}</h2></td></tr>";
-        echo "<tr class='table-".(($i> 2)?'success':'warning')."'><td>Total</td><td>{$rTotal[$i]}</td><td></td></tr>";
+        echo "<tr class='table-".(($i> 2)?'success':'warning')."'><td colspan='3'><h2>".$intervalos[$i][0]."</h2></td></tr>";
+        echo "<tr class='table-".(($i> 2)?'success':'warning')."'><td>Total</td><td><h3>{$rTotal[$i]}</h3</td><td></td></tr>";
         echo "<tr class='table-".(($i> 2)?'success':'warning')."'><td>Com Cadastrados</td><td> {$rClientes[$i]}</td><td class='w-100'><div class='progress'><div class='progress-bar progress-bar-striped' role='progressbar' style='width: ".c($rTotal[$i], $rClientes[$i])."%' aria-valuenow='".c($rTotal[$i], $rClientes[$i])."' aria-valuemin='0' aria-valuemax='100'>".c($rTotal[$i], $rClientes[$i])."%</div></div></td></tr>";
         echo "<tr class='table-".(($i> 2)?'success':'warning')."'><td>Sem Cadastrados</td><td>".($rTotal[$i] - $rClientes[$i])."</td><td class='w-100'><div class='progress'><div class='progress-bar progress-bar-striped bg-danger' role='progressbar' style='width: ".c($rTotal[$i], $rTotal[$i] - $rClientes[$i])."%' aria-valuenow='".c($rTotal[$i], $rTotal[$i] - $rClientes[$i])."' aria-valuemin='0' aria-valuemax='100'>".c($rTotal[$i], $rTotal[$i] - $rClientes[$i])."%</div></div></td></tr>";
         echo "<tr class='table-".(($i> 2)?'success':'warning')."'><td>Carrinho</td><td>".($rVendas[$i])."</td><td class='w-100'><div class='progress'><div class='progress-bar progress-bar-striped' role='progressbar' style='width: ".c($rTotal[$i], $rVendas[$i])."%' aria-valuenow='".c($rTotal[$i], $rVendas[$i])."' aria-valuemin='0' aria-valuemax='100'>".c($rTotal[$i], $rVendas[$i])."%</div></div></td></tr>";
