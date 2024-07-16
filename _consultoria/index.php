@@ -99,7 +99,7 @@
                 <td>{$d->device}</td>
                 <td>".(($d->nome)?'<i class="fa-solid fa-user"></i>':false)."</td>
                 <td>".(($p)?'<i class="fa-solid fa-bag-shopping"></i>':false)."</td>
-                <td style='color:<?=$d->cor?>'>".(($p)?$d->hora:false)."</td>
+                <td style='color:{$d->cor}'>".(($p)?$d->hora:false)."</td>
              </tr>";
         $i++;
     }
