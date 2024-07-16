@@ -43,20 +43,27 @@
   <?php
     $campos = " a.data as data, a.device as device, c.nome as nome, b.detalhes as detalhes";
 
+    $intervalos = [
+        ['Semana de 13/06 a 15/06', '2024-06-13 00:00:00', '2024-06-15 23:59:59'],
+        ['Semana de 20/06 a 22/06', '2024-06-20 00:00:00', '2024-06-22 23:59:59'],
+        ['Semana de 27/06 a 29/06', '2024-06-27 00:00:00', '2024-06-29 23:59:59'],
+        ['Semana de 04/07 a 06/07', '2024-07-04 00:00:00', '2024-07-06 23:59:59'],
+        ['Semana de 11/07 a 13/07', '2024-07-11 00:00:00', '2024-07-13 23:59:59'],
+    ];
+
+
+    echo "<table class='table table-hover'>";
+
+    foreach($intervalos as $ind => $val){
+
     echo $query = "
     
-        (SELECT {$campos}, concat('Semana de 13/06 a 15/06') as semana FROM app_acessos a left join vendas_tmp b on a.device = b.id_unico left join clientes c on a.cliente = c.codigo where a.data BETWEEN '2024-06-13 00:00:00' and '2024-06-15 23:59:59' and a.device != '' group by a.device order by detalhes desc)/* UNION
-        (SELECT {$campos}, concat('Semana de 20/06 a 22/06') as semana FROM app_acessos a left join vendas_tmp b on a.device = b.id_unico left join clientes c on a.cliente = c.codigo where a.data BETWEEN '2024-06-20 00:00:00' and '2024-06-22 23:59:59' and a.device != '' group by a.device order by detalhes desc) UNION
-        (SELECT {$campos}, concat('Semana de 20/27 a 29/06') as semana FROM app_acessos a left join vendas_tmp b on a.device = b.id_unico left join clientes c on a.cliente = c.codigo where a.data BETWEEN '2024-06-27 00:00:00' and '2024-06-29 23:59:59' and a.device != '' group by a.device order by detalhes desc) UNION 
-        (SELECT {$campos}, concat('Semana de 04/07 a 06/07') as semana FROM app_acessos a left join vendas_tmp b on a.device = b.id_unico left join clientes c on a.cliente = c.codigo where a.data BETWEEN '2024-07-04 00:00:00' and '2024-07-06 23:59:59' and a.device != '' group by a.device order by detalhes desc) UNION
-        (SELECT {$campos}, concat('Semana de 11/07 a 13/07') as semana FROM app_acessos a left join vendas_tmp b on a.device = b.id_unico left join clientes c on a.cliente = c.codigo where a.data BETWEEN '2024-07-11 00:00:00' and '2024-07-13 23:59:59' and a.device != '' group by a.device order by detalhes desc)*/
-
+        (SELECT a.data as data, a.device as device, c.nome as nome, b.detalhes as detalhes, '{$val[0]}' as semana FROM app_acessos a left join vendas_tmp b on a.device = b.id_unico left join clientes c on a.cliente = c.codigo where a.data BETWEEN '{$val[1]}' and '{$val[2]}' and a.device != '' group by a.device order by detalhes desc)
     ";
 
     $result = mysqli_query($con, $query);
 
 
-    echo "<table class='table table-hover'>";
     $i = 1;
     $semana = false;
     while($d = mysqli_fetch_object($result)){
@@ -93,6 +100,7 @@
                 <td>".(($p)?$d->detalhes:false)."</td>
              </tr>";
         $i++;
+    }
     }
 
     echo "</table>";
