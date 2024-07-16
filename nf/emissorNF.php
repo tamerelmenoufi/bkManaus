@@ -136,15 +136,16 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 
 		// PEDIDO / VENDA / AQUI AS INFOMACOES PRINCIPAIS
 		$data_nfe = array(
+			'nfe_referenciada' => '', //vazio ou a [chave] da nota para entrada
 			'ID' => $rowVenda["codigo"], // ID DA VENDA NO SISTEMA
 			'NF' => $nota['numero_proxima_nfc'], // Número da NF (Deve seguir uma ordem exata)
 			'serie' => $Blc->ide->serie,
 			'operacao' => (($_POST['e'])?'0':'1'), //  (1) Saída Entrada Tipo de Operação da Nota Fiscal e (0) entrada
 			'metodo_envio' => 0, // Metodo de transmisão de nota 1) Modo síncrono (pequena). / 0) modo assíncrono (nota grande)
-			'natureza_operacao' => 'Venda', // Natureza da Operação - ''
+			'natureza_operacao' => 'Venda', // criar uma seleção do CFOP - Venda ou CFOP (nomenclatiura correspondente) Natureza da Operação - ''
 			'modelo' => $modelo, // Modelo da Nota Fiscal (65 - NFC / 55 - NF)
-			'emissao' => $Blc->ide->tpEmis, // Tipo de Emissao da NF-e
-			'finalidade' => $Blc->ide->finNFe, // Finalidade de emissao da Nota Fiscal 
+			'emissao' => "1", //sempre 1 (entrada ou saída) $Blc->ide->tpEmis, // Tipo de Emissao da NF-e
+			'finalidade' => "1", // Sempre 1 e 4 para devolução $Blc->ide->finNFe, // Finalidade de emissao da Nota Fiscal 
 			'consumidorfinal' => $Blc->ide->indFinal,  // Indicação do consumidor final (0) - entre empresas
 			'destinatario' => $Blc->ide->idDest, // 1 = Operao interna; 2 = Operao interestadual; 3 = Operao com exterior.
 			'impressao' => $impressao, // Tipo de impressao
@@ -153,6 +154,8 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 				"cnpj" => "", //CNPJ do intermediador: Mercado livre, outros marketplaces
 				"idcadastro" => "" // nome do intermediador:
 			),
+
+			//dados abaixo espelho da nota de saída
 			'pedido' => array(
 				'pagamento' => 1, // Indicador da forma de pagamento
 				'presenca' => $presenca, // Indicador de presenca do comprador no estabelecimento comercial no momento da operacao
@@ -165,6 +168,7 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 				'forma_pagamento' => $formasPagamentoNF[$rowVenda["forma_pagamento"]], // 01 - dinheiro // 02-
 				'valor_pagamento' =>  number_format(($rowVenda["valor"] + $rowVenda["taxa"] - $rowVenda["desconto"]), 2, '.', '') // valor total de R$75,00
 			),
+			// semprea a empresa que recebe a nota
 			'empresa' => array(
 				"tpAmb" => 1, // AMBIENTE: 1 - PRODUÇÃO / 2 - HOMOLOGACAO
 				"razaosocial" => "FERNANDO MEIRELLES BRITO CAVALCANTE", // RAZA0 SOCIAL DA EMPRESA (obrigatorio)
@@ -262,7 +266,7 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 				}
 
 				// SE FOR USADO DEVERÁ TER TODOS OS CAMPOS
-
+				//troca dos dados entre o emissor e destinatário
 				$data_nfe['cliente'] = array(
 					$d1 => "", // Número do CPF / CNPJ
 					$d2 => "", // Nome / RAZÃO SOCIAL
@@ -351,19 +355,21 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			// 	}
 			// }
 
+			//verificar o tipo da empresa e os ICMS utilizado
 			$codigo=$row["codigo"];
 			$quatidade = $row['qCom'];
 			$nomeproduto = $row['xProd']; // NOME DO PRODUTO
 			$ncm = $row["NCM"]; // NCM
 			$cest = $row[""]; // CEST
 			$unit = $row["uCom"]; // CODIGO UNIDADE
-			$origem = $row[""];
-			$cfop = $row["CFOP"];
-			$icms = $row[""];
+			$origem = $row[""]; // no ICMS ->> ICMS[00] ->> orig
+			$cfop = $row["CFOP"]; // CFOP escolhido na entrada (natureza da operação [natureza_operacao])
+			$icms = $row[""]; // ICMS do uso da empresa 
 			$preco = $row["vUnCom"];
 			$preco_total = $row["vProd"];
 			$peso = '0.100';
 
+			
 			$data_nfe['produtos'][$x] = array(
 				'item' => $codigo, // ITEM do produto
 				'nome' => $nomeproduto, // Nome do produto
@@ -380,6 +386,7 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			$data_nfe['produtos'][$x]['impostos']['icms']['codigo_cfop'] = $cfop; // CFOP do produto
 			$data_nfe['produtos'][$x]['impostos']['icms']['origem'] = $origem; // origem do produto
 
+			// Sempre colocar o cst (código da situação tributária) da nota original
 			$data_nfe['produtos'][$x]['impostos']["icms"]["situacao_tributaria"] = $icms;
 			$data_nfe['produtos'][$x]['impostos']['ipi']['situacao_tributaria'] = "-1";
 			$data_nfe['produtos'][$x]['impostos']['pis']['situacao_tributaria'] = "";
