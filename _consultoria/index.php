@@ -38,7 +38,7 @@
 <script src="https://painel.bkmanaus.com.br/lib/vendor/jquery-maskmoney/jquery.maskMoney.js" ></script>  </head>
   <body translate="no">
 
-
+<div class="container">
   <?php
     $campos = " a.device, c.nome, b.detalhes";
 
@@ -85,6 +85,7 @@
     echo "</table>";
     ?>
 
+</div>
 
     </body>
 </html>
