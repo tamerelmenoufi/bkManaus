@@ -58,7 +58,7 @@
 
     $query = "
     
-        (SELECT a.data as data, a.device as device, c.nome as nome, b.detalhes as detalhes, '{$val[0]}' as semana FROM app_acessos a left join vendas_tmp b on a.device = b.id_unico left join clientes c on a.cliente = c.codigo where a.data BETWEEN '{$val[1]}' and '{$val[2]}' and a.device != '' group by a.device order by detalhes desc)
+        (SELECT a.data as data, a.device as device, c.nome as nome, b.detalhes as detalhes, '{$val[0]}' as semana, time(data) as hora FROM app_acessos a left join vendas_tmp b on a.device = b.id_unico left join clientes c on a.cliente = c.codigo where a.data BETWEEN '{$val[1]}' and '{$val[2]}' and a.device != '' group by a.device order by detalhes desc)
     ";
 
     $result = mysqli_query($con, $query);
@@ -88,6 +88,7 @@
              <th>Equipamento</th>
              <th>Cliente</th>
              <th>Venda</th>
+             <th>Hora</th>
           </tr>";
             $semana = $d->semana;
             $i = 1;
@@ -98,6 +99,7 @@
                 <td>{$d->device}</td>
                 <td>".(($d->nome)?'<i class="fa-solid fa-user"></i>':false)."</td>
                 <td>".(($p)?'<i class="fa-solid fa-bag-shopping"></i>':false)."</td>
+                <td>".(($p)?$d->hora:false)."</td>
              </tr>";
         $i++;
     }
