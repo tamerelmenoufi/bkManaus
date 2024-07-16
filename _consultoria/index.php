@@ -25,6 +25,12 @@
             echo "<tr>
                 <td colspan = '3'><b>{$d->semana}</b></td>
              </tr>";
+
+             echo "<tr>
+             <td>#</td>
+             <td>Equipamento</td>
+             <td>Cliente</td>
+          </tr>";
             $semana = $d->semana;
             $i = 1;
         }
@@ -32,7 +38,7 @@
         echo "<tr>
                 <td>{$i}</td>
                 <td>{$d->device}</td>
-                <td>{$d->cliente}</td>
+                <td>{$d->nome}</td>
              </tr>";
         $i++;
     }
