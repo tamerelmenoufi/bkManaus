@@ -39,6 +39,7 @@
   <body translate="no">
 
 <div class="container">
+    <h1>Relatório da Consultoria - App BK Manaus</h1>
   <?php
     $campos = " a.device, c.nome, b.detalhes";
 
