@@ -1,7 +1,7 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
-    $campos = " a.device, c.cliente, b.detalhes ";
+    $campos = " a.device, c.nome, b.detalhes ";
 
     echo $query = "
     
