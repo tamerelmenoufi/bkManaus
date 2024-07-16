@@ -63,7 +63,7 @@
 
         if($d->semana != $semana){
             echo "<tr>
-                <td colspan = '3'><b>{$d->semana}</b></td>
+                <td colspan = '3'><h3>{$d->semana}</h3></td>
              </tr>";
 
              echo "<tr>
