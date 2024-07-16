@@ -96,8 +96,6 @@
         $rHorario[$ind] = ($rHorario[$ind] + (($d->cor == 'green')?1:0));
         $rTotal[$ind] = $i;
 
-
-
         // if($d->semana != $semana){
         //     echo "<tr>
         //         <td colspan = '4'><h3>{$d->semana}</h3></td>
@@ -121,6 +119,7 @@
         //         <td>".(($p)?'<i class="fa-solid fa-bag-shopping"></i>':false)."</td>
         //         <td style='color:{$d->cor}'>".(($p)?$d->hora:$d->hora)."</td>
         //      </tr>";
+
         $i++;
     }
     }
