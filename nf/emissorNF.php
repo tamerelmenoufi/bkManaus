@@ -196,6 +196,9 @@ $_POST['e'] = true;
 				"logo" => "793413af836e67708856b843449fd8a7.jpg", // LOGO
 			),
 		);
+		echo "<pre>";
+		print_r($data_nfe);
+		echo "</pre>";
 
 		// VALIDADAR DADOS DO EMISSOR:
 		if($data_nfe["empresa"]["razaosocial"]==""){ $errValidar .= "<br>Configure a Razão Social do emissor da nota fiscal"; }
