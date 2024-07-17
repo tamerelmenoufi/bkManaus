@@ -439,7 +439,7 @@ $_POST['e'] = true;
 			curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-			$response_server = curl_exec($ch);
+			echo $response_server = curl_exec($ch);
 			$response = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $response_server));
 			var_dump($response);
 			if (curl_errno($ch)) {
