@@ -122,7 +122,7 @@ $_POST['e'] = true;
 		$emit = $Blc->emit;
 
 		//Listar dados do destinatário do banco
-		echo $sql = 'SELECT * FROM empresas WHERE cnpj = ?';
+		$sql = 'SELECT * FROM empresas WHERE cnpj = ?';
 		$stmt = $PDO->prepare($sql);
 		$stmt->execute([$dest->CNPJ]);
 		$dadosDest = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -195,6 +195,8 @@ $_POST['e'] = true;
 				"logo" => "793413af836e67708856b843449fd8a7.jpg", // LOGO
 			),
 		);
+
+		print_r($data_nfe);
 
 
 		// VALIDADAR DADOS DO EMISSOR:
