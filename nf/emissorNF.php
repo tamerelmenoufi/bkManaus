@@ -197,7 +197,7 @@ $_POST['e'] = true;
 			),
 		);
 
-		print_r($$data_nfe);
+		print_r($data_nfe);
 
 		// VALIDADAR DADOS DO EMISSOR:
 		if($data_nfe["empresa"]["razaosocial"]==""){ $errValidar .= "<br>Configure a Razão Social do emissor da nota fiscal"; }
