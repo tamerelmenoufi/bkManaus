@@ -74,7 +74,7 @@ $_POST['e'] = true;
 
 	$Blc = json_decode($rowVenda["dados"]);
 
-	print_r($Blc);
+	echo "mod: ". $Blc->ide->mod;
 
 	//if(!empty($rowVenda["nf_numero"])) die("Já foi emitida uma nota para esta venda! ");
 
