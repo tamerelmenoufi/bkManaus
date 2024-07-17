@@ -52,7 +52,7 @@ $_POST['e'] = true;
 
 
 	// SELECIONE OS DADOS SUA TABELA DE VENDAS
-	echo $sql = 'SELECT * FROM notas WHERE codigo = ?';
+	$sql = 'SELECT * FROM notas WHERE codigo = ?';
     
 	$stmt = $PDO->prepare($sql);
     $stmt->execute([$venda_id]);
@@ -122,7 +122,7 @@ $_POST['e'] = true;
 		$emit = $Blc->emit;
 
 		//Listar dados do destinatário do banco
-		$sql = 'SELECT * FROM empresas WHERE cnpj = ?';
+		echo $sql = 'SELECT * FROM empresas WHERE cnpj = ?';
 		$stmt = $PDO->prepare($sql);
 		$stmt->execute([$dest->CNPJ]);
 		$dadosDest = $stmt->fetch(PDO::FETCH_ASSOC);
