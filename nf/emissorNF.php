@@ -132,7 +132,12 @@ $_POST['e'] = true;
 		$sql = 'SELECT * FROM empresas WHERE cnpj = ?';
 		$stmt = $PDO->prepare($sql);
 		$stmt->execute([$emit->CNPJ]);
-		$dadosEmit = $stmt->fetch(PDO::FETCH_ASSOC);		
+		$dadosEmit = $stmt->fetch(PDO::FETCH_ASSOC);	
+		
+		echo "<pre>";
+		print_r($Blc);
+		echo "</pre>";
+
 
 		// PEDIDO / VENDA / AQUI AS INFOMACOES PRINCIPAIS
 		$data_nfe = array(
