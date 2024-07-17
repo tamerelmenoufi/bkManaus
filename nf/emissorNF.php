@@ -75,7 +75,6 @@ $_POST['e'] = true;
 	$Blc = json_decode($rowVenda["dados"]);
 
 	$Blc = $Blc->NFe->infNFe;
-	print_r($Blc);
 
 	//if(!empty($rowVenda["nf_numero"])) die("Já foi emitida uma nota para esta venda! ");
 
@@ -197,6 +196,8 @@ $_POST['e'] = true;
 				"logo" => "793413af836e67708856b843449fd8a7.jpg", // LOGO
 			),
 		);
+
+		print_r($$data_nfe);
 
 		// VALIDADAR DADOS DO EMISSOR:
 		if($data_nfe["empresa"]["razaosocial"]==""){ $errValidar .= "<br>Configure a Razão Social do emissor da nota fiscal"; }
