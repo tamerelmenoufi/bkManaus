@@ -3,7 +3,7 @@
 include("config.php");
 
 if($_GET['id']) $_POST["id"] = $_GET['id'];
-if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
+$_POST['e'] = true;
 
 
 	function limpardados($txt){
@@ -52,7 +52,6 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 
 
 	// SELECIONE OS DADOS SUA TABELA DE VENDAS
-	$sql = 'SELECT a.*, (select forma_pagamento from vendas_pagamento where a.codigo = venda and deletado != \'1\' order by valor desc limit 1) as forma_pagamento FROM vendas a WHERE a.deletado != \'1\' and a.codigo = ?';
 	$sql = 'SELECT * FROM notas WHERE codigo = ?';
     
 	$stmt = $PDO->prepare($sql);
@@ -191,8 +190,8 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 				"tokenIBPT" => "", // GERAR TOKEN NO https://deolhonoimposto.ibpt.org.br/
 				"CSC" => "", //"3c3419278d232aa4",  // obrigatorio para NFC-e somente
 				"CSCid" => "", // EXEMPLO 000001 // obrigatorio para NFC-e somente
-				"certificado_nome" => "6e7d5964332962ee541b3501b22e8830.p12", // NOME DO ARQUIVOS DO CERTIFICADO, IRÁ BUCAR NA PASTA api-nfe/certificado_digital
-				"certificado_senha" => "1234", // SENHA DO CERTIFICADO DIGITAL
+				"certificado_nome" => $rowVenda["certificado"], // NOME DO ARQUIVOS DO CERTIFICADO, IRÁ BUCAR NA PASTA api-nfe/certificado_digital
+				"certificado_senha" => $rowVenda["certificado_senha"], // SENHA DO CERTIFICADO DIGITAL
 				"logo" => "793413af836e67708856b843449fd8a7.jpg", // LOGO
 			),
 		);
@@ -437,9 +436,9 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			$response = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $response_server));
 			var_dump($response);
 			if (curl_errno($ch)) {
-				$errValidar = print_r(curl_error($ch), true);
+				echo $errValidar = print_r(curl_error($ch), true);
 				// var_dump(curl_error($ch));
-				$PDO->query("UPDATE vendas SET nf_error='{$errValidar}' where codigo='$venda_id'");
+				// $PDO->query("UPDATE vendas SET nf_error='{$errValidar}' where codigo='$venda_id'");
 				die;
 			}
 			curl_close($ch);
@@ -462,8 +461,8 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 					$errValidar .= '</ul>';
 				}
 
-				$PDO->query("UPDATE vendas SET nf_error='{$errValidar}' where codigo='$venda_id'");
-
+				// $PDO->query("UPDATE vendas SET nf_error='{$errValidar}' where codigo='$venda_id'");
+				echo $errValidar;
 
 			}elseif(!$response){
 
@@ -471,15 +470,16 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 				$errValidar .= '<h2>Erro no servidor ao emitir</h2>';
 				$errValidar .= print_r($response_server, true);
 				// var_dump($response_server);
-				$PDO->query("UPDATE vendas SET nf_error='{$errValidar}' where codigo='$venda_id'");
+				// $PDO->query("UPDATE vendas SET nf_error='{$errValidar}' where codigo='$venda_id'");
+				echo $errValidar;
 
 			} else {
 
 				if($response->teste == "ok"){
 					$cont = "tipo=validate&";
-					$errValidar = $endpoint ."danfe/?".$cont."chave=".$response->chave."&logo=".$data_nfe["empresa"]["logo"];
+					echo $errValidar = $endpoint ."danfe/?".$cont."chave=".$response->chave."&logo=".$data_nfe["empresa"]["logo"];
 					// header("location: ".$endpoint ."danfe/?".$cont."chave=".$response->chave."&logo=".$data_nfe["empresa"]["logo"]); exit;
-					$PDO->query("UPDATE vendas SET nf_teste='{$errValidar}' where codigo='$venda_id'");
+					// $PDO->query("UPDATE vendas SET nf_teste='{$errValidar}' where codigo='$venda_id'");
 					die;
 				}
 
@@ -492,7 +492,8 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 				$chave = $response->chave; // numero da chave de acesso
 				$xml = (string) $response->xml; // URL do XML
 
-				//var_dump($response);
+				var_dump($response);
+
 				if($status=="aprovado"){
 
 					// ::::: Açoes a serem feitas apos a emissao ::::
@@ -505,25 +506,25 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 					$response_xml = simplexml_load_file("http://nf.mohatron.com/API-NFE/api-nfe/gerador/xml/{$xml}");
 					$response_xml = json_encode($response_xml);
 
-					$PDO->query("UPDATE vendas SET
-						nf_numero='$nfe',
-						nf_status='$status',
-						nf_chave='$chave',
-						nf_xml='$xml',
-						nf_json = '$response_xml'
-					where codigo='$venda_id'");
+					// $PDO->query("UPDATE vendas SET
+					// 	nf_numero='$nfe',
+					// 	nf_status='$status',
+					// 	nf_chave='$chave',
+					// 	nf_xml='$xml',
+					// 	nf_json = '$response_xml'
+					// where codigo='$venda_id'");
 
 					// echo '<script>window.open('. $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"].')</script>';
 					// Redirecionar para imprimir a Nota:
 					// header("location: ". $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"]); exit;
 					$errValidar = $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"];
-					$PDO->query("UPDATE vendas SET nf_pdf='{$errValidar}' where codigo='$venda_id'");
+					// $PDO->query("UPDATE vendas SET nf_pdf='{$errValidar}' where codigo='$venda_id'");
 					exit();
 
 				} else {
 					// echo "Não foi possível aprovar a nota nesse momento: ". $status;
-					$errValidar = "Não foi possível aprovar a nota nesse momento: ". $status;
-					$PDO->query("UPDATE vendas SET nf_error='{$errValidar}' where codigo='$venda_id'");
+					echo $errValidar = "Não foi possível aprovar a nota nesse momento: ". $status;
+					// $PDO->query("UPDATE vendas SET nf_error='{$errValidar}' where codigo='$venda_id'");
 					exit();
 				}
 			}
