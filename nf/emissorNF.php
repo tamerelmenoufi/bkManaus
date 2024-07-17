@@ -140,7 +140,7 @@ $_POST['e'] = true;
 
 
 		// PEDIDO / VENDA / AQUI AS INFOMACOES PRINCIPAIS
-		print_r($BlcDados->NFe);
+		echo ($Blc->attributes->Id);
 		$data_nfe = array(
 			//'nfe_referenciada' => $id['Id'], //'', //vazio ou a [chave] da nota para entrada
 			'ID' => $rowVenda["codigo"], // ID DA VENDA NO SISTEMA
