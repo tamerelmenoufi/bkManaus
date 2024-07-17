@@ -383,6 +383,8 @@ $_POST['e'] = true;
 
 			$data_nfe['produtos'][$x]['impostos']['icms']['codigo_cfop'] = $cfop; // CFOP do produto
 			$data_nfe['produtos'][$x]['impostos']['icms']['origem'] = $origem; // origem do produto
+			$data_nfe['produtos'][$x]['impostos']["icms"]["alicota"] = $impostos->IPI->IPINT->pICMS;
+			$data_nfe['produtos'][$x]['impostos']["icms"]["modBC"] = $impostos->IPI->IPINT->modBC;
 
 			// Sempre colocar o cst (código da situação tributária) da nota original
 			$data_nfe['produtos'][$x]['impostos']["icms"]["situacao_tributaria"] = $icms;
