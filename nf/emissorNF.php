@@ -134,9 +134,9 @@ $_POST['e'] = true;
 		$stmt->execute([$emit->CNPJ]);
 		$dadosEmit = $stmt->fetch(PDO::FETCH_ASSOC);	
 		
-		//echo "<pre>";
-		//print_r($Blc);
-		//echo "</pre>";
+		echo "<pre>";
+		print_r($Blc);
+		echo "</pre>";
 
 
 		// PEDIDO / VENDA / AQUI AS INFOMACOES PRINCIPAIS
