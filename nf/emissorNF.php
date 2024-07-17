@@ -52,7 +52,7 @@ $_POST['e'] = true;
 
 
 	// SELECIONE OS DADOS SUA TABELA DE VENDAS
-	$sql = 'SELECT * FROM notas WHERE codigo = ?';
+	echo $sql = 'SELECT * FROM notas WHERE codigo = ?';
     
 	$stmt = $PDO->prepare($sql);
     $stmt->execute([$venda_id]);
