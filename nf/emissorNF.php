@@ -140,8 +140,9 @@ $_POST['e'] = true;
 
 
 		// PEDIDO / VENDA / AQUI AS INFOMACOES PRINCIPAIS
+		$id = $BlcDados->NFe;
 		$data_nfe = array(
-			'nfe_referenciada' => $BlcDados->NFe['Id'], //'', //vazio ou a [chave] da nota para entrada
+			'nfe_referenciada' => $id['Id'], //'', //vazio ou a [chave] da nota para entrada
 			'ID' => $rowVenda["codigo"], // ID DA VENDA NO SISTEMA
 			'NF' => $nota['numero_proxima_nfc'], // Número da NF (Deve seguir uma ordem exata)
 			'serie' => $nota['numero_proxima_nfc'],
