@@ -59,6 +59,7 @@ $_POST['e'] = true;
     $rowVenda = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt = null;
 
+	print_r($rowVenda);
 
 	// SELECIONE O NÚMERO DA NOTA
 	$sql = 'SELECT * FROM configuracao WHERE codigo = ?';
