@@ -141,7 +141,7 @@ $_POST['e'] = true;
 
 		// PEDIDO / VENDA / AQUI AS INFOMACOES PRINCIPAIS
 		$attr = '@attributes';
-		var_dump($Blc->$attr);
+		var_dump($Blc->$attr->Id);
 		$data_nfe = array(
 			//'nfe_referenciada' => $id['Id'], //'', //vazio ou a [chave] da nota para entrada
 			'ID' => $rowVenda["codigo"], // ID DA VENDA NO SISTEMA
