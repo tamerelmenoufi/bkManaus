@@ -385,7 +385,7 @@ $_POST['e'] = true;
 			$data_nfe['produtos'][$x]['impostos']['icms']['origem'] = $origem; // origem do produto
 			$data_nfe['produtos'][$x]['impostos']["icms"]["pICMS"] = $impostos->ICMS->ICMS00->pICMS;
 			$data_nfe['produtos'][$x]['impostos']["icms"]["modBC"] = $impostos->ICMS->ICMS00->modBC;
-			$data_nfe['produtos'][$x]['impostos']["icms"]["vBC"] = $impostos->ICMS->ICMS00->vBC;
+			// $data_nfe['produtos'][$x]['impostos']["icms"]["vBC"] = $impostos->ICMS->ICMS00->vBC;
 
 			// Sempre colocar o cst (código da situação tributária) da nota original
 			$data_nfe['produtos'][$x]['impostos']["icms"]["situacao_tributaria"] = $icms;
