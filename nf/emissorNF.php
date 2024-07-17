@@ -53,7 +53,7 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 
 	// SELECIONE OS DADOS SUA TABELA DE VENDAS
 	$sql = 'SELECT a.*, (select forma_pagamento from vendas_pagamento where a.codigo = venda and deletado != \'1\' order by valor desc limit 1) as forma_pagamento FROM vendas a WHERE a.deletado != \'1\' and a.codigo = ?';
-	$sql = 'SELECT * FROM vendas WHERE deletado != \'1\' and codigo = ?';
+	$sql = 'SELECT * FROM notas WHERE codigo = ?';
     
 	$stmt = $PDO->prepare($sql);
     $stmt->execute([$venda_id]);
@@ -117,7 +117,7 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			'outros' => "99", // outros
 		);
 
-		$NUMERO_DA_NOTA = 1; // NUMERO DA NF QUE SERÁ EMITIDA (DEVE SER SEQUENCIAL, É IMPORTANTE GUARDAR A ORDEM NO SEU BANCO DE DADOS)
+		// $NUMERO_DA_NOTA = 1; // NUMERO DA NF QUE SERÁ EMITIDA (DEVE SER SEQUENCIAL, É IMPORTANTE GUARDAR A ORDEM NO SEU BANCO DE DADOS)
 
 		$dest = $Blc->dest;
 		$emit = $Blc->emit;
@@ -139,14 +139,14 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			'nfe_referenciada' => '', //vazio ou a [chave] da nota para entrada
 			'ID' => $rowVenda["codigo"], // ID DA VENDA NO SISTEMA
 			'NF' => $nota['numero_proxima_nfc'], // Número da NF (Deve seguir uma ordem exata)
-			'serie' => $Blc->ide->serie,
+			'serie' => $nota['numero_proxima_nfc'],
 			'operacao' => (($_POST['e'])?'0':'1'), //  (1) Saída Entrada Tipo de Operação da Nota Fiscal e (0) entrada
 			'metodo_envio' => 0, // Metodo de transmisão de nota 1) Modo síncrono (pequena). / 0) modo assíncrono (nota grande)
 			'natureza_operacao' => 'Venda', // criar uma seleção do CFOP - Venda ou CFOP (nomenclatiura correspondente) Natureza da Operação - ''
 			'modelo' => $modelo, // Modelo da Nota Fiscal (65 - NFC / 55 - NF)
 			'emissao' => "1", //sempre 1 (entrada ou saída) $Blc->ide->tpEmis, // Tipo de Emissao da NF-e
 			'finalidade' => "1", // Sempre 1 e 4 para devolução $Blc->ide->finNFe, // Finalidade de emissao da Nota Fiscal 
-			'consumidorfinal' => $Blc->ide->indFinal,  // Indicação do consumidor final (0) - entre empresas
+			'consumidorfinal' => '0', //$Blc->ide->indFinal,  // Indicação do consumidor final (0) - entre empresas
 			'destinatario' => $Blc->ide->idDest, // 1 = Operao interna; 2 = Operao interestadual; 3 = Operao com exterior.
 			'impressao' => $impressao, // Tipo de impressao
 			'intermediario' => $intermediario,
@@ -160,37 +160,37 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 				'pagamento' => 1, // Indicador da forma de pagamento
 				'presenca' => $presenca, // Indicador de presenca do comprador no estabelecimento comercial no momento da operacao
 				'modalidade_frete' => $frete, // Modalidade do frete
-				'frete' =>  number_format(0, 2, '.', ''), // Total do frete
-				'desconto' =>  number_format($rowVenda["desconto"], 2, '.', ''),  // Total do desconto
-				'outras_despesas' =>  number_format($rowVenda["taxa"], 2, '.', ''), // Outras Despesas
-				'total' =>  number_format(($rowVenda["valor"]), 2, '.', ''), // Valor total do pedido pago pelo cliente
-				'troco' =>  number_format(0, 2, '.', ''), // Troco
-				'forma_pagamento' => $formasPagamentoNF[$rowVenda["forma_pagamento"]], // 01 - dinheiro // 02-
-				'valor_pagamento' =>  number_format(($rowVenda["valor"] + $rowVenda["taxa"] - $rowVenda["desconto"]), 2, '.', '') // valor total de R$75,00
+				'frete' =>  $Blc->total->ICMSTot->vFrete, //number_format(0, 2, '.', ''), // Total do frete
+				'desconto' =>  $Blc->total->ICMSTot->vDesc, //number_format($rowVenda["desconto"], 2, '.', ''),  // Total do desconto
+				'outras_despesas' => $Blc->total->ICMSTot->vOutro,  //number_format($rowVenda["taxa"], 2, '.', ''), // Outras Despesas
+				'total' =>  $Blc->total->ICMSTot->vProd,  //number_format(($rowVenda["valor"]), 2, '.', ''), // Valor total do pedido pago pelo cliente
+				'troco' =>  0,  //number_format(0, 2, '.', ''), // Troco
+				'forma_pagamento' => $Blc->pag->detPag->tPag, //$formasPagamentoNF[$rowVenda["forma_pagamento"]], // 01 - dinheiro // 02-
+				'valor_pagamento' =>  $Blc->pag->detPag->vPag, //number_format(($rowVenda["valor"] + $rowVenda["taxa"] - $rowVenda["desconto"]), 2, '.', '') // valor total de R$75,00
 			),
 			// semprea a empresa que recebe a nota
 			'empresa' => array(
-				"tpAmb" => 1, // AMBIENTE: 1 - PRODUÇÃO / 2 - HOMOLOGACAO
-				"razaosocial" => "FERNANDO MEIRELLES BRITO CAVALCANTE", // RAZA0 SOCIAL DA EMPRESA (obrigatorio)
-				"cnpj" => limpardados("28856577000119"), // CNPJ DA EMPRESA (obrigatorio)
-				"fantasia" => "YOBOM SORVETES", // NOME FANTASIA (obrigatorio)
-				"ie" => limpardados("05.397.880-3 SN"), // INSCRICAO ESTADUAL (obrigatorio)
-				"im" => limpardados(""), // INSCRICAO MUNICIPAL (não obrigatório)
-				"cnae" => limpardados("4721-1/03"), // CNAE EMPRESA  (obrigatorio)
-				"crt" => "1", // CRT
-				"rua" => " RUA CAMPOS BRAVOS", // obrigatorio
-				"numero" => "290", // obrigatorio
-				"bairro" => "ALVORADA", // obrigatorio
-				"cidade" => "MANAUS", // NOME DA CIDADE,  obrigatorio
-				"ccidade" => limpardados("1302603"), // CODIGO DA CIDADE IBGE, buscar no google,  obrigatorio
-				"cep" => limpardados("69047000"),  // obrigatorio
-				"siglaUF" => "AM", // SIGLA DO ESTADO,  obrigatorio
-				"codigoUF" => getCodigoEstado("AM"), // CODIGO DO ESTADO, obrigatorio
-				"fone" => limpardados("9299811327"), // obrigatorio
+				"tpAmb" => 2, // AMBIENTE: 1 - PRODUÇÃO / 2 - HOMOLOGACAO
+				"razaosocial" => $Blc->dest->xNome , // RAZA0 SOCIAL DA EMPRESA (obrigatorio)
+				"cnpj" => limpardados($Blc->dest->CNPJ), // CNPJ DA EMPRESA (obrigatorio)
+				"fantasia" => $Blc->dest->xNome, // NOME FANTASIA (obrigatorio)
+				"ie" => limpardados($Blc->dest->IE), // INSCRICAO ESTADUAL (obrigatorio)
+				"im" => limpardados($Blc->dest->IM), // INSCRICAO MUNICIPAL (não obrigatório)
+				"cnae" => limpardados($Blc->dest->XXXX), // CNAE EMPRESA  (obrigatorio)
+				"crt" => $Blc->dest->CRT, // CRT
+				"rua" => $Blc->dest->enderDest->xLgr, // obrigatorio
+				"numero" => $Blc->dest->enderDest->xMun, // obrigatorio
+				"bairro" => $Blc->dest->enderDest->xBairro, // obrigatorio
+				"cidade" => $Blc->dest->enderDest->xMun, // NOME DA CIDADE,  obrigatorio
+				"ccidade" => limpardados($Blc->dest->enderDest->cMun), // CODIGO DA CIDADE IBGE, buscar no google,  obrigatorio
+				"cep" => limpardados($Blc->dest->enderDest->CEP),  // obrigatorio
+				"siglaUF" => $Blc->dest->enderDest->UF, // SIGLA DO ESTADO,  obrigatorio
+				"codigoUF" => getCodigoEstado($Blc->dest->enderDest->UF), // CODIGO DO ESTADO, obrigatorio
+				"fone" => limpardados($Blc->dest->enderDest->fone), // obrigatorio
 				// "tokenIBPT" => "MRt3jLNz2B11esr0orhG7IAQmDvzJO1-Pi34WMOVaLzgGFgxm1Dh31l98cvitbOx", // GERAR TOKEN NO https://deolhonoimposto.ibpt.org.br/
 				"tokenIBPT" => "", // GERAR TOKEN NO https://deolhonoimposto.ibpt.org.br/
-				"CSC" => "e6443ad379254f91", //"3c3419278d232aa4",  // obrigatorio para NFC-e somente
-				"CSCid" => "000002", // EXEMPLO 000001 // obrigatorio para NFC-e somente
+				"CSC" => "", //"3c3419278d232aa4",  // obrigatorio para NFC-e somente
+				"CSCid" => "", // EXEMPLO 000001 // obrigatorio para NFC-e somente
 				"certificado_nome" => "6e7d5964332962ee541b3501b22e8830.p12", // NOME DO ARQUIVOS DO CERTIFICADO, IRÁ BUCAR NA PASTA api-nfe/certificado_digital
 				"certificado_senha" => "1234", // SENHA DO CERTIFICADO DIGITAL
 				"logo" => "793413af836e67708856b843449fd8a7.jpg", // LOGO
@@ -268,19 +268,19 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 				// SE FOR USADO DEVERÁ TER TODOS OS CAMPOS
 				//troca dos dados entre o emissor e destinatário
 				$data_nfe['cliente'] = array(
-					$d1 => "", // Número do CPF / CNPJ
-					$d2 => "", // Nome / RAZÃO SOCIAL
-					$d3 => "", // RG (NAÕ OBRIGATÓRIO) / INSCRICAO ESTADUAL
-					'endereco' => $endereco, // Endereço de entrega dos produtos
-					'complemento' => $complemento, // Complemento do endereço de entrega
-					'numero' => $numero, // Número do endereço de entrega
-					'bairro' => $bairro, // Bairro do endereço de entrega
-					'cidade' => $cidade, // Cidade do endereço de entrega
-					'cidade_cod' => $codigocidade, // Código da cidade IBGE
-					'uf' => $estado, // Estado do endereço de entrega
-					'cep' => $cep, // CEP do endereço de entrega
-					'telefone' => $telefone, // Telefone do cliente
-					'email' => $email // E-mail do cliente para envio da NF-e
+					$d1 => limpardados($Blc->emit->CNPJ), // Número do CPF / CNPJ
+					$d2 => $Blc->emit->xNome, // Nome / RAZÃO SOCIAL
+					$d3 => limpardados($Blc->emit->IE), // RG (NAÕ OBRIGATÓRIO) / INSCRICAO ESTADUAL
+					'endereco' => $Blc->emit->enderEmit->xLgr, // Endereço de entrega dos produtos
+					'complemento' => $Blc->emit->enderEmit->xCpl, // Complemento do endereço de entrega
+					'numero' => $Blc->emit->enderEmit->nro, // Número do endereço de entrega
+					'bairro' => $Blc->emit->enderEmit->xBairro, // Bairro do endereço de entrega
+					'cidade' => $Blc->emit->enderEmit->xMun, // Cidade do endereço de entrega
+					'cidade_cod' => limpardados($Blc->emit->enderEmit->cMun), // Código da cidade IBGE
+					'uf' => $Blc->emit->enderEmit->UF, // Estado do endereço de entrega
+					'cep' => limpardados($Blc->emit->enderEmit->CEP), // CEP do endereço de entrega
+					'telefone' => limpardados($Blc->emit->enderEmit->fone), // Telefone do cliente
+					'email' => $Blc->emit->email // E-mail do cliente para envio da NF-e
 				);
 			}
 
@@ -312,10 +312,6 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 		 * pv.valor_total = (VALOR DE VENDA * QUANTIDADE)
 		 *
 		 */
-		$sql = "SELECT pv.*,  p.ncm,  p.cest, p.cfop, p.origem, p.unit, p.icms
-				FROM vendas_produtos as pv
-				LEFT JOIN produtos as p ON REPLACE(JSON_EXTRACT(pv.produto_json, '$.produtos[0].codigo'),'\"','') = p.codigo
-				WHERE pv.venda = '$venda_id' and pv.deletado != '1'";
 
 
 		$sql = "SELECT * FROM movimentacao WHERE cod_nota = '{$rowVenda['codigo']}'";
@@ -360,11 +356,11 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			$quatidade = $row['qCom'];
 			$nomeproduto = $row['xProd']; // NOME DO PRODUTO
 			$ncm = $row["NCM"]; // NCM
-			$cest = $row[""]; // CEST
+			$cest = $row["CEST"]; // CEST
 			$unit = $row["uCom"]; // CODIGO UNIDADE
-			$origem = $row[""]; // no ICMS ->> ICMS[00] ->> orig
+			$origem = $impostos->ICMS->ICMS00->orig; // no ICMS ->> ICMS[00] ->> orig
 			$cfop = $row["CFOP"]; // CFOP escolhido na entrada (natureza da operação [natureza_operacao])
-			$icms = $row[""]; // ICMS do uso da empresa 
+			$icms = $row["XXX"]; // ICMS do uso da empresa 
 			$preco = $row["vUnCom"];
 			$preco_total = $row["vProd"];
 			$peso = '0.100';
@@ -373,7 +369,7 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 			$data_nfe['produtos'][$x] = array(
 				'item' => $codigo, // ITEM do produto
 				'nome' => $nomeproduto, // Nome do produto
-				'ean' => '', // EAN do produto
+				'ean' => $row['cEAN'], // EAN do produto
 				'ncm' => str_replace(array(" ", ".", ","), "", $ncm), // NCM do produto
 				'cest' => str_replace(array(" ", ".", ","), "", $cest), // CEST do produto
 				'unidade' => $unit, // UNIT do produto (UN, PC, KG)
@@ -388,9 +384,9 @@ if($_GET['cpf']) $_POST["cpf"] = $_GET['cpf'];
 
 			// Sempre colocar o cst (código da situação tributária) da nota original
 			$data_nfe['produtos'][$x]['impostos']["icms"]["situacao_tributaria"] = $icms;
-			$data_nfe['produtos'][$x]['impostos']['ipi']['situacao_tributaria'] = "-1";
-			$data_nfe['produtos'][$x]['impostos']['pis']['situacao_tributaria'] = "";
-			$data_nfe['produtos'][$x]['impostos']['cofins']['situacao_tributaria'] = "";
+			$data_nfe['produtos'][$x]['impostos']['ipi']['situacao_tributaria'] = $impostos->IPI->IPINT->CST;
+			$data_nfe['produtos'][$x]['impostos']['pis']['situacao_tributaria'] = $impostos->PIS->PISNT->CST;
+			$data_nfe['produtos'][$x]['impostos']['cofins']['situacao_tributaria'] = $impostos->COFINS->COFINSNT->CST;
 
 			$x++;
 

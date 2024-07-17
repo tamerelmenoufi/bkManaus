@@ -60,6 +60,10 @@
                 <td><?=$p->NCM?></td>
             </tr>
             <tr>
+                <td>CEST</td>
+                <td><?=$p->CEST?></td>
+            </tr>
+            <tr>
                 <td>CFOP</td>
                 <td><?=$p->CFOP?></td>
             </tr>
