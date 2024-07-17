@@ -448,8 +448,8 @@ if($_REQUEST['produtos'][$x]["drawback"] && (!$_REQUEST['produtos'][$x]["reg_exp
 		$std->vICMSOp = null;
 		$std->pDif = null;
 		$std->vICMSDif = null;
-		$std->vBCSTRet = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["vBCSTRet"]!="")? RmvString($_REQUEST['produtos'][$x]["impostos"]["icms"]["vBCSTRet"]) : '0.00'; // Base de Cálculo ICMS Retido na operação anterior
-		$std->pST = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["pST"]!="")? RmvString($_REQUEST['produtos'][$x]["impostos"]["icms"]["pST"], 3) : '0.00'; // Alíquota suportada pelo Consumidor Final
+		$std->vBCSTRet = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["vBCSTRet"]!="")? RmvString($_REQUEST['produtos'][$x]["impostos"]["icms"]["vBCSTRet"]) : '0.00'; // Base de CÃ¡lculo ICMS Retido na operaÃ§Ã£o anterior
+		$std->pST = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["pST"]!="")? RmvString($_REQUEST['produtos'][$x]["impostos"]["icms"]["pST"], 3) : '0.00'; // AlÃ­quota suportada pelo Consumidor Final
 		$std->vBCFCPSTRet = null;
 		$std->pFCPSTRet = null;
 		$std->vFCPSTRet = null;
@@ -457,8 +457,8 @@ if($_REQUEST['produtos'][$x]["drawback"] && (!$_REQUEST['produtos'][$x]["reg_exp
 		$std->vBCEfet = null;
 		$std->pICMSEfet = null;
 		$std->vICMSEfet = null;
-		$std->vICMSSubstituto = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["vICMSSubstituto"]!="")? $_REQUEST['produtos'][$x]["impostos"]["icms"]["vICMSSubstituto"] : '0.00'; // Valor do ICMS próprio do Substituto
-		$std->vICMSSTRet = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["vICMSSTRet"]!="")? $_REQUEST['produtos'][$x]["impostos"]["icms"]["vICMSSTRet"] : '0.00'; // Valor do ICMS ST Retido na operação anterior
+		$std->vICMSSubstituto = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["vICMSSubstituto"]!="")? $_REQUEST['produtos'][$x]["impostos"]["icms"]["vICMSSubstituto"] : '0.00'; // Valor do ICMS prÃ³prio do Substituto
+		$std->vICMSSTRet = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["vICMSSTRet"]!="")? $_REQUEST['produtos'][$x]["impostos"]["icms"]["vICMSSTRet"] : '0.00'; // Valor do ICMS ST Retido na operaÃ§Ã£o anterior
 
 	    $elem = $nfe->tagICMS($std);
 
@@ -477,8 +477,8 @@ if($_REQUEST['produtos'][$x]["drawback"] && (!$_REQUEST['produtos'][$x]["reg_exp
 		$std->pFCPST = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["pFCPST"]!="")? RmvString($_REQUEST['produtos'][$x]["impostos"]["icms"]["pFCPST"],3) : null;
 		$std->vFCPST = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["pFCPST"]!="")? CalcularPorcent($valorBC, RmvString($_REQUEST['produtos'][$x]["impostos"]["icms"]["pFCPST"],3)) : null;
 		$std->vCredICMSSN = null;
-		$std->vBCSTRet = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["vBCSTRet"]!="")? RmvString($_REQUEST['produtos'][$x]["impostos"]["icms"]["vBCSTRet"]) : null; // Base de Cálculo ICMS Retido na operação anterior
-		$std->pST = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["pST"]!="")? RmvString($_REQUEST['produtos'][$x]["impostos"]["icms"]["pST"], 3) : null; // Alíquota suportada pelo Consumidor Final
+		$std->vBCSTRet = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["vBCSTRet"]!="")? RmvString($_REQUEST['produtos'][$x]["impostos"]["icms"]["vBCSTRet"]) : null; // Base de CÃ¡lculo ICMS Retido na operaÃ§Ã£o anterior
+		$std->pST = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["pST"]!="")? RmvString($_REQUEST['produtos'][$x]["impostos"]["icms"]["pST"], 3) : null; // AlÃ­quota suportada pelo Consumidor Final
 		$std->vICMSSTRet = null;
 		$std->vBCFCPSTRet = null; 
 		$std->pFCPSTRet = null;
@@ -492,7 +492,7 @@ if($_REQUEST['produtos'][$x]["drawback"] && (!$_REQUEST['produtos'][$x]["reg_exp
 		$std->pRedBC = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["pRedBC"]!="")? RmvString($_REQUEST['produtos'][$x]["impostos"]["icms"]["pRedBC"],3) : null;
 		$std->pICMS = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["pICMS"]!="")? RmvString($_REQUEST['produtos'][$x]["impostos"]["icms"]["pICMS"],3) : null;
 		$std->vICMS = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["pICMS"]!="")? CalcularPorcent($valorBC, RmvString($_REQUEST['produtos'][$x]["impostos"]["icms"]["pICMS"],3)) : null;
-		$std->vICMSSubstituto = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["vICMSSubstituto"]!="")? $_REQUEST['produtos'][$x]["impostos"]["icms"]["vICMSSubstituto"] : '0.00'; // Valor do ICMS próprio do Substituto
+		$std->vICMSSubstituto = ($_REQUEST['produtos'][$x]["impostos"]["icms"]["vICMSSubstituto"]!="")? $_REQUEST['produtos'][$x]["impostos"]["icms"]["vICMSSubstituto"] : '0.00'; // Valor do ICMS prÃ³prio do Substituto
 	    
 		
 		$elem = $nfe->tagICMSSN($std);
@@ -501,7 +501,7 @@ if($_REQUEST['produtos'][$x]["drawback"] && (!$_REQUEST['produtos'][$x]["reg_exp
 	$vTotalICMS += (!empty($std->vICMS)) ? $std->vICMS : 0;
 
 	/*
-	 * Node com informações da partilha do ICMS entre a UF de origem e UF de destino ou a UF definida na legislação.
+	 * Node com informaÃ§Ãµes da partilha do ICMS entre a UF de origem e UF de destino ou a UF definida na legislaÃ§Ã£o.
 		$std->item = 1; //item da NFe
 		$std->orig = 0;
 		$std->CST = '90';
@@ -523,7 +523,7 @@ if($_REQUEST['produtos'][$x]["drawback"] && (!$_REQUEST['produtos'][$x]["reg_exp
 
 
 	/*
-	// Node de informação do ICMS Interestadual do item na NFe
+	// Node de informaÃ§Ã£o do ICMS Interestadual do item na NFe
 	$std->item = 1; //item da NFe
 	$std->vBCUFDest = 100.00;
 	$std->vBCFCPUFDest = 100.00;
@@ -831,11 +831,11 @@ $elem = $nfe->tagexporta($std);
 
 /**  TECNICO RESPONSAVEL * */
 if($_REQUEST['tecnico']['cnpj']!=""){
-$std->CNPJ = strval($_REQUEST['tecnico']['cnpj']); //CNPJ da pessoa jurídica responsável pelo sistema utilizado na emissão do documento fiscal eletrônico
+$std->CNPJ = strval($_REQUEST['tecnico']['cnpj']); //CNPJ da pessoa jurÃ­dica responsÃ¡vel pelo sistema utilizado na emissÃ£o do documento fiscal eletrÃ´nico
 $std->xContato= strval($_REQUEST['tecnico']['contato']); //Nome da pessoa a ser contatada
-$std->email = strval($_REQUEST['tecnico']['email']); //E-mail da pessoa jurídica a ser contatada
-$std->fone = strval($_REQUEST['tecnico']['fone']); //Telefone da pessoa jurídica/física a ser contatada
-$std->CSRT = strval($_REQUEST['tecnico']['csrt']); //Código de Segurança do Responsável Técnico
+$std->email = strval($_REQUEST['tecnico']['email']); //E-mail da pessoa jurÃ­dica a ser contatada
+$std->fone = strval($_REQUEST['tecnico']['fone']); //Telefone da pessoa jurÃ­dica/fÃ­sica a ser contatada
+$std->CSRT = strval($_REQUEST['tecnico']['csrt']); //CÃ³digo de SeguranÃ§a do ResponsÃ¡vel TÃ©cnico
 $std->idCSRT = strval($_REQUEST['tecnico']['idcsrt']); //Identificador do CSRT
 $elem = $nfe->taginfRespTec($std);
 }
@@ -857,7 +857,7 @@ $chave = $nfe->getChave();
 
 $modelo = $nfe->getModelo();
 
-//echo $nfe->getErrors(); // debug de errros
+var_dump($nfe->getErrors()); // debug de errros
 
 // Pasta principal onde vai ficar os XML
 $pasta = "./xml/";
@@ -877,7 +877,7 @@ else
 	
 	
 	/*
-	*  	VERIFICAR O CERTIFICADO DIGITAL SE ESTÁ CORRETO
+	*  	VERIFICAR O CERTIFICADO DIGITAL SE ESTÃ CORRETO
 	*/
 	
 	try { 
@@ -949,7 +949,7 @@ else
 			$xml_assinado = file_get_contents($pasta."assinadas/".$chave.".xml"); 
 
 			$idLote = substr(str_replace(',', '', number_format(microtime(true)*1000000, 0)), 0, 15);
-			$modEnvio = 1; // 1 - sincrono (somente 1 nota) / 0 - acyntrocno, não recebe a resposta na hora
+			$modEnvio = 1; // 1 - sincrono (somente 1 nota) / 0 - acyntrocno, nÃ£o recebe a resposta na hora
 
 			$response_envio = $tools->sefazEnviaLote([$xml_assinado], $idLote, $modEnvio);
 		
@@ -975,7 +975,7 @@ else
 				
 		}
 
-		// delay para evitar notas em contingência
+		// delay para evitar notas em contingÃªncia
 		if($modelonf=="65"){
 			sleep(3);
 		}else{
@@ -1032,7 +1032,7 @@ else
 			
 			} else {
 	
-				echo json_encode(array("error" => "Error de Autorização: ". $arr['protNFe']['infProt']['xMotivo']." (".$arr['protNFe']['infProt']['cStat'].")"));
+				echo json_encode(array("error" => "Error de AutorizaÃ§Ã£o: ". $arr['protNFe']['infProt']['xMotivo']." (".$arr['protNFe']['infProt']['cStat'].")"));
 				die;
 			}
 
@@ -1040,7 +1040,7 @@ else
 		}else{
 						
 			echo json_encode(array("error" => "Consuta Sefaz: ".$std_prot['protNFe']['infProt']['xMotivo']." (".$std_prot['protNFe']['infProt']['cStat'].")"));
-		} 
+		}
 		/*
 		*  FIM PROTOCOLO
 		*/
