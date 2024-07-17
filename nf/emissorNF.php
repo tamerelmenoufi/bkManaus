@@ -197,8 +197,6 @@ $_POST['e'] = true;
 			),
 		);
 
-		print_r($data_nfe);
-
 		// VALIDADAR DADOS DO EMISSOR:
 		if($data_nfe["empresa"]["razaosocial"]==""){ $errValidar .= "<br>Configure a Razão Social do emissor da nota fiscal"; }
 		if($data_nfe["empresa"]["cnpj"]==""){ $errValidar .= "<br>Configure o CNPJ do emissor da nota fiscal"; }
@@ -221,10 +219,10 @@ $_POST['e'] = true;
 
 		// erro de valicações
 		if($errValidar!=""){
-			$errValidar = "Erro na emissão:".$errValidar;
+			echo $errValidar = "Erro na emissão:".$errValidar;
 			// echo '<h2>Erro na emissão:</h2>';
 			// echo '<p>'.$errValidar.'</p>';
-			$PDO->query("UPDATE vendas SET nf_error='{$errValidar}' where codigo='$venda_id'");
+			// $PDO->query("UPDATE vendas SET nf_error='{$errValidar}' where codigo='$venda_id'");
 			die;
 		}
 
