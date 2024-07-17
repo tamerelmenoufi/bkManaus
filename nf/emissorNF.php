@@ -428,6 +428,9 @@ $_POST['e'] = true;
 
 			$fields_string = http_build_query($data_nfe);
 
+
+			echo $endpoint."gerador/Emissor.php";
+
 			// Envio POST
 			$ch = curl_init();
 			curl_setopt($ch,CURLOPT_URL, $endpoint."gerador/Emissor.php");
