@@ -441,7 +441,7 @@ $_POST['e'] = true;
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 			$response_server = curl_exec($ch);
 			$response = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $response_server));
-			var_dump($response);
+			// var_dump($response);
 			if (curl_errno($ch)) {
 				echo $errValidar = print_r(curl_error($ch), true);
 				// var_dump(curl_error($ch));
@@ -476,7 +476,7 @@ $_POST['e'] = true;
 				// echo '<h2>Erro no servidor ao emitir</h2>';
 				$errValidar .= '<h2>Erro no servidor ao emitir</h2>';
 				$errValidar .= print_r($response_server, true);
-				var_dump($response_server);
+				// var_dump($response_server);
 				// $PDO->query("UPDATE vendas SET nf_error='{$errValidar}' where codigo='$venda_id'");
 				echo $errValidar;
 
