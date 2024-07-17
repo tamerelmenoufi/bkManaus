@@ -59,8 +59,6 @@ $_POST['e'] = true;
     $rowVenda = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt = null;
 
-	print_r($rowVenda);
-
 	// SELECIONE O NÚMERO DA NOTA
 	$sql = 'SELECT * FROM configuracao WHERE codigo = ?';
     $stmt = $PDO->prepare($sql);
@@ -75,6 +73,8 @@ $_POST['e'] = true;
     if(empty($rowVenda)) die("Vendas nao encontrada");
 
 	$Blc = json_decode($rowVenda["dados"]);
+
+	print_r($Blc);
 
 	//if(!empty($rowVenda["nf_numero"])) die("Já foi emitida uma nota para esta venda! ");
 
