@@ -142,7 +142,7 @@ $_POST['e'] = true;
 		// PEDIDO / VENDA / AQUI AS INFOMACOES PRINCIPAIS
 		$attr = '@attributes';
 		$data_nfe = array(
-			'nfe_referenciada' => $Blc->$attr->Id, //'', //vazio ou a [chave] da nota para entrada
+			'nfe_referenciada' => str_replace("NFe",false,trim($Blc->$attr->Id)), //'', //vazio ou a [chave] da nota para entrada
 			'ID' => $rowVenda["codigo"], // ID DA VENDA NO SISTEMA
 			'NF' => $nota['numero_proxima_nfc'], // Número da NF (Deve seguir uma ordem exata)
 			'serie' => $nota['numero_proxima_nfc'],
