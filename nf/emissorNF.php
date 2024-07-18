@@ -204,7 +204,7 @@ $_POST['e'] = true;
 		if($data_nfe["empresa"]["cnpj"]==""){ $errValidar .= "<br>Configure o CNPJ do emissor da nota fiscal"; }
 		if($data_nfe["empresa"]["fantasia"]==""){ $errValidar .= "<br>Configure o Nome Fantasia do emissor da nota fiscal"; }
 		if($data_nfe["empresa"]["ie"]==""){ $errValidar .= "<br>Configure a Inscrição Estadual do emissor da nota fiscal"; }
-		// if($data_nfe["empresa"]["crt"]==""){ $errValidar .= "<br>Configure o CRT do emissor da nota fiscal"; }
+		if($data_nfe["empresa"]["crt"]==""){ $errValidar .= "<br>Configure o CRT do emissor da nota fiscal"; }
 		if($data_nfe["empresa"]["rua"]==""){ $errValidar .= "<br>Configure o Rua do endereço do emissor da nota fiscal"; }
 		if($data_nfe["empresa"]["numero"]==""){ $errValidar .= "<br>Configure o Número do endereço do emissor da nota fiscal"; }
 		if($data_nfe["empresa"]["bairro"]==""){ $errValidar .= "<br>Configure o Bairro do endereço do emissor da nota fiscal"; }
@@ -216,8 +216,8 @@ $_POST['e'] = true;
 		if($data_nfe["empresa"]["fone"]==""){ $errValidar .= "<br>Configure o Telefone do emissor da nota fiscal"; }
 		if($data_nfe["empresa"]["certificado_nome"]==""){ $errValidar .= "<br>Deve fazer upload do certificado digital"; }
 		if($data_nfe["empresa"]["certificado_senha"]==""){ $errValidar .= "<br>Configure a senha do certificado digital"; }
-		// if($data_nfe["empresa"]["CSC"]==""){ $errValidar .= "<br>Configure o CSC do emissor da nota (O Contador poderá te informar este dado)"; }
-		// if($data_nfe["empresa"]["CSCid"]==""){ $errValidar .= "<br>Configure o ID do CSC do emissor da nota (O Contador poderá te informar este dado)"; }
+		if($data_nfe["empresa"]["CSC"]==""){ $errValidar .= "<br>Configure o CSC do emissor da nota (O Contador poderá te informar este dado)"; }
+		if($data_nfe["empresa"]["CSCid"]==""){ $errValidar .= "<br>Configure o ID do CSC do emissor da nota (O Contador poderá te informar este dado)"; }
 
 		// erro de valicações
 		if($errValidar!=""){
