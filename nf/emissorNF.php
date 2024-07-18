@@ -171,7 +171,7 @@ $_POST['e'] = true;
 			),
 			// semprea a empresa que recebe a nota
 			'empresa' => array(
-				"tpAmb" => 2, // AMBIENTE: 1 - PRODUÇÃO / 2 - HOMOLOGACAO
+				"tpAmb" => 1, // AMBIENTE: 1 - PRODUÇÃO / 2 - HOMOLOGACAO
 				"razaosocial" => $Blc->dest->xNome , // RAZA0 SOCIAL DA EMPRESA (obrigatorio)
 				"cnpj" => limpardados($Blc->dest->CNPJ), // CNPJ DA EMPRESA (obrigatorio)
 				"fantasia" => $Blc->dest->xNome, // NOME FANTASIA (obrigatorio)
