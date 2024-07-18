@@ -216,8 +216,8 @@ $_POST['e'] = true;
 		if($data_nfe["empresa"]["fone"]==""){ $errValidar .= "<br>Configure o Telefone do emissor da nota fiscal"; }
 		if($data_nfe["empresa"]["certificado_nome"]==""){ $errValidar .= "<br>Deve fazer upload do certificado digital"; }
 		if($data_nfe["empresa"]["certificado_senha"]==""){ $errValidar .= "<br>Configure a senha do certificado digital"; }
-		if($data_nfe["empresa"]["CSC"]==""){ $errValidar .= "<br>Configure o CSC do emissor da nota (O Contador poderá te informar este dado)"; }
-		if($data_nfe["empresa"]["CSCid"]==""){ $errValidar .= "<br>Configure o ID do CSC do emissor da nota (O Contador poderá te informar este dado)"; }
+		// if($data_nfe["empresa"]["CSC"]==""){ $errValidar .= "<br>Configure o CSC do emissor da nota (O Contador poderá te informar este dado)"; }
+		// if($data_nfe["empresa"]["CSCid"]==""){ $errValidar .= "<br>Configure o ID do CSC do emissor da nota (O Contador poderá te informar este dado)"; }
 
 		// erro de valicações
 		if($errValidar!=""){
