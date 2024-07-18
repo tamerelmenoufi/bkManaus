@@ -13,7 +13,7 @@ $_POST['e'] = true;
 
 		$sql = 'SELECT * FROM cfop WHERE saida = ?';
 		$stmt = $PDO->prepare($sql);
-		$stmt->execute($e);
+		$stmt->execute([$e]);
 		$nota = $stmt->fetch(PDO::FETCH_ASSOC);
 
 		return (($nota['entrada'])?:"");
