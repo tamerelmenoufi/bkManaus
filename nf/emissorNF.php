@@ -197,9 +197,7 @@ $_POST['e'] = true;
 				"logo" => "793413af836e67708856b843449fd8a7.jpg", // LOGO
 			),
 		);
-		echo "<pre>";
-		print_r($data_nfe);
-		echo "</pre>";
+
 
 		// VALIDADAR DADOS DO EMISSOR:
 		if($data_nfe["empresa"]["razaosocial"]==""){ $errValidar .= "<br>Configure a Razão Social do emissor da nota fiscal"; }
@@ -404,7 +402,7 @@ $_POST['e'] = true;
 		}
 
 
-		// print_r($data_nfe);
+	
 
 			// Tecnico resposavel - opcional e obrigatório para alguns estados
 			// Se for usar são obrigatório: cnpj, contato (nome), email e fone
@@ -434,6 +432,10 @@ $_POST['e'] = true;
 			// echo json_encode($data_nfe);
 			// exit();
 
+
+			echo "<pre>";
+			print_r($data_nfe);
+			echo "</pre>";
 
 			$fields_string = http_build_query($data_nfe);
 
