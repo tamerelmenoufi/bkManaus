@@ -9,7 +9,9 @@ $_POST['e'] = true;
 
 		global $PDO;
 
-		echo $sql = 'SELECT * FROM cfop WHERE saida = ?';
+		echo $e;
+
+		$sql = 'SELECT * FROM cfop WHERE saida = ?';
 		$stmt = $PDO->prepare($sql);
 		$stmt->execute($e);
 		$nota = $stmt->fetch(PDO::FETCH_ASSOC);
