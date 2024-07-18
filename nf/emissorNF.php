@@ -5,6 +5,17 @@ include("config.php");
 if($_GET['id']) $_POST["id"] = $_GET['id'];
 $_POST['e'] = true;
 
+	function cfopEntrada($e){
+
+		$sql = 'SELECT * FROM cfop WHERE saida = ?';
+		$stmt = $PDO->prepare($sql);
+		$stmt->execute($e);
+		$nota = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		return (($nota['entrada'])?:"");
+
+	}
+
 
 	function limpardados($txt){
 		return preg_replace("/[^0-9]/", "", $txt);
@@ -143,7 +154,7 @@ $_POST['e'] = true;
 			'serie' => $nota['serie'],
 			'operacao' => (($_POST['e'])?'0':'1'), //  (1) Saída Entrada Tipo de Operação da Nota Fiscal e (0) entrada
 			'metodo_envio' => 0, // Metodo de transmisão de nota 1) Modo síncrono (pequena). / 0) modo assíncrono (nota grande)
-			'natureza_operacao' => 'Venda', // criar uma seleção do CFOP - Venda ou CFOP (nomenclatiura correspondente) Natureza da Operação - ''
+			'natureza_operacao' => 'Entradas de Insumos', // criar uma seleção do CFOP - Venda ou CFOP (nomenclatiura correspondente) Natureza da Operação - ''
 			'modelo' => $modelo, // Modelo da Nota Fiscal (65 - NFC / 55 - NF)
 			'emissao' => "1", //sempre 1 (entrada ou saída) $Blc->ide->tpEmis, // Tipo de Emissao da NF-e
 			'finalidade' => "1", // Sempre 1 e 4 para devolução $Blc->ide->finNFe, // Finalidade de emissao da Nota Fiscal 
@@ -362,7 +373,7 @@ $_POST['e'] = true;
 			$cest = $row["CEST"]; // CEST
 			$unit = $row["uCom"]; // CODIGO UNIDADE
 			//$origem = $impostos->ICMS->ICMS00->orig; // no ICMS ->> ICMS[00] ->> orig
-			$cfop = "2102"; //$row["CFOP"]; // CFOP escolhido na entrada (natureza da operação [natureza_operacao])
+			$cfop = cfopEntrada($row["CFOP"]) ; // "2102"  CFOP escolhido na entrada (natureza da operação [natureza_operacao])
 			// $icms = $impostos->ICMS->ICMS00->CST; // ICMS do uso da empresa 
 			$preco = $row["vUnCom"];
 			$preco_total = $row["vProd"];
