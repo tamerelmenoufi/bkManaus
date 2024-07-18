@@ -72,9 +72,9 @@ $_POST['e'] = true;
 
     if(empty($rowVenda)) die("Vendas nao encontrada");
 
-	$BlcDados = json_decode($rowVenda["dados"]);
+	$Blc = json_decode($rowVenda["dados"]);
 
-	$Blc = $BlcDados->NFe->infNFe;
+	$Blc = $Blc->NFe->infNFe;
 
 	//if(!empty($rowVenda["nf_numero"])) die("Já foi emitida uma nota para esta venda! ");
 
@@ -141,9 +141,8 @@ $_POST['e'] = true;
 
 		// PEDIDO / VENDA / AQUI AS INFOMACOES PRINCIPAIS
 		$attr = '@attributes';
-		var_dump($Blc->$attr->Id);
 		$data_nfe = array(
-			//'nfe_referenciada' => $id['Id'], //'', //vazio ou a [chave] da nota para entrada
+			'nfe_referenciada' => $Blc->$attr->Id, //'', //vazio ou a [chave] da nota para entrada
 			'ID' => $rowVenda["codigo"], // ID DA VENDA NO SISTEMA
 			'NF' => $nota['numero_proxima_nfc'], // Número da NF (Deve seguir uma ordem exata)
 			'serie' => $nota['numero_proxima_nfc'],
