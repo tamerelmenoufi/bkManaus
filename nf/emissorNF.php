@@ -177,10 +177,10 @@ $_POST['e'] = true;
 				'frete' =>  $Blc->total->ICMSTot->vFrete, //number_format(0, 2, '.', ''), // Total do frete
 				'desconto' =>  $Blc->total->ICMSTot->vDesc, //number_format($rowVenda["desconto"], 2, '.', ''),  // Total do desconto
 				'outras_despesas' => $Blc->total->ICMSTot->vOutro,  //number_format($rowVenda["taxa"], 2, '.', ''), // Outras Despesas
-				'total' =>  $Blc->total->ICMSTot->vNF,  //number_format(($rowVenda["valor"]), 2, '.', ''), // Valor total do pedido pago pelo cliente
+				'total' =>  $Blc->total->ICMSTot->vProd,  //number_format(($rowVenda["valor"]), 2, '.', ''), // Valor total do pedido pago pelo cliente
 				'troco' =>  number_format(0, 2, '.', ''), // Troco
 				'forma_pagamento' => $Blc->pag->detPag->tPag, //$formasPagamentoNF[$rowVenda["forma_pagamento"]], // 01 - dinheiro // 02-
-				'valor_pagamento' =>  $Blc->pag->detPag->vPag, //number_format(($rowVenda["valor"] + $rowVenda["taxa"] - $rowVenda["desconto"]), 2, '.', '') // valor total de R$75,00
+				'valor_pagamento' =>  $Blc->total->ICMSTot->vProd, //number_format(($rowVenda["valor"] + $rowVenda["taxa"] - $rowVenda["desconto"]), 2, '.', '') // valor total de R$75,00
 			),
 			// semprea a empresa que recebe a nota
 			'empresa' => array(
