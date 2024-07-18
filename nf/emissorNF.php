@@ -354,6 +354,8 @@ $_POST['e'] = true;
 			// 	}
 			// }
 
+
+
 			//verificar o tipo da empresa e os ICMS utilizado
 			$codigo=$row["codigo"];
 			$quatidade = $row['qCom'];
@@ -361,9 +363,9 @@ $_POST['e'] = true;
 			$ncm = $row["NCM"]; // NCM
 			$cest = $row["CEST"]; // CEST
 			$unit = $row["uCom"]; // CODIGO UNIDADE
-			$origem = $impostos->ICMS->ICMS00->orig; // no ICMS ->> ICMS[00] ->> orig
+			//$origem = $impostos->ICMS->ICMS00->orig; // no ICMS ->> ICMS[00] ->> orig
 			$cfop = $row["CFOP"]; // CFOP escolhido na entrada (natureza da operação [natureza_operacao])
-			$icms = $impostos->ICMS->ICMS00->CST; // ICMS do uso da empresa 
+			// $icms = $impostos->ICMS->ICMS00->CST; // ICMS do uso da empresa 
 			$preco = $row["vUnCom"];
 			$preco_total = $row["vProd"];
 			$peso = '0.100';
@@ -383,13 +385,16 @@ $_POST['e'] = true;
 			);
 
 			$data_nfe['produtos'][$x]['impostos']['icms']['codigo_cfop'] = $cfop; // CFOP do produto
-			$data_nfe['produtos'][$x]['impostos']['icms']['origem'] = $origem; // origem do produto
-			$data_nfe['produtos'][$x]['impostos']["icms"]["pICMS"] = $impostos->ICMS->ICMS00->pICMS;
-			$data_nfe['produtos'][$x]['impostos']["icms"]["modBC"] = $impostos->ICMS->ICMS00->modBC;
-			// $data_nfe['produtos'][$x]['impostos']["icms"]["vBC"] = $impostos->ICMS->ICMS00->vBC;
 
+			foreach($impostos->ICMS as $icmsInd => $icmdVal){
+			$data_nfe['produtos'][$x]['impostos']['icms']['origem'] = $icmdVal->orig; // origem do produto
+			$data_nfe['produtos'][$x]['impostos']["icms"]["pICMS"] = $icmdVal->pICMS;
+			$data_nfe['produtos'][$x]['impostos']["icms"]["modBC"] = $icmdVal->modBC;
 			// Sempre colocar o cst (código da situação tributária) da nota original
-			$data_nfe['produtos'][$x]['impostos']["icms"]["situacao_tributaria"] = $icms;
+			$data_nfe['produtos'][$x]['impostos']["icms"]["situacao_tributaria"] = $icmdVal->CST;
+			} 
+
+
 			$data_nfe['produtos'][$x]['impostos']['ipi']['situacao_tributaria'] = $impostos->IPI->IPINT->CST;
 			$data_nfe['produtos'][$x]['impostos']['pis']['situacao_tributaria'] = $impostos->PIS->PISNT->CST;
 			$data_nfe['produtos'][$x]['impostos']['cofins']['situacao_tributaria'] = $impostos->COFINS->COFINSNT->CST;
