@@ -192,8 +192,8 @@ $_POST['e'] = true;
 				"tokenIBPT" => "", // GERAR TOKEN NO https://deolhonoimposto.ibpt.org.br/
 				"CSC" => "", //"3c3419278d232aa4",  // obrigatorio para NFC-e somente
 				"CSCid" => "", // EXEMPLO 000001 // obrigatorio para NFC-e somente
-				"certificado_nome" => $dadosDest["certificadox"], // NOME DO ARQUIVOS DO CERTIFICADO, IRÁ BUCAR NA PASTA api-nfe/certificado_digital
-				"certificado_senha" => $dadosDest["certificado_senha"], // SENHA DO CERTIFICADO DIGITAL
+				"certificado_nome" => $dadosDest["certificado"], // NOME DO ARQUIVOS DO CERTIFICADO, IRÁ BUCAR NA PASTA api-nfe/certificado_digital
+				"certificado_senha" => $dadosDest["certificado_senha"].'11', // SENHA DO CERTIFICADO DIGITAL
 				"logo" => "793413af836e67708856b843449fd8a7.jpg", // LOGO
 			),
 		);
