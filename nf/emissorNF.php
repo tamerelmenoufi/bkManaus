@@ -6,7 +6,7 @@ if($_GET['id']) $_POST["id"] = $_GET['id'];
 $_POST['e'] = true;
 
 	function cfopEntrada($e){
-
+		set_time_limit(90);
 		global $PDO;
 
 		$sql = 'SELECT * FROM cfop WHERE saida = ?';
@@ -365,8 +365,6 @@ $_POST['e'] = true;
 			// 	}
 			// }
 
-
-
 			//verificar o tipo da empresa e os ICMS utilizado
 			$codigo=$row["codigo"];
 			$quatidade = $row['qCom'];
@@ -446,14 +444,15 @@ $_POST['e'] = true;
 			// exit();
 
 
-			echo "<pre>";
-			print_r($data_nfe);
-			echo "</pre>";
+			//echo "<pre>";
+			//print_r($data_nfe);
+			//echo "</pre>";
 
 			$fields_string = http_build_query($data_nfe);
 
 
 			// Envio POST
+			set_time_limit(100);
 			$ch = curl_init();
 			curl_setopt($ch,CURLOPT_URL, $endpoint."gerador/Emissor.php");
 			curl_setopt($ch,CURLOPT_POST, count($data_nfe, COUNT_RECURSIVE));
@@ -461,6 +460,7 @@ $_POST['e'] = true;
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 			$response_server = curl_exec($ch);
+			set_time_limit(100);
 			$response = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $response_server));
 			// var_dump($response);
 			if (curl_errno($ch)) {
