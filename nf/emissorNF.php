@@ -462,7 +462,7 @@ $_POST['e'] = true;
 			$response_server = curl_exec($ch);
 			set_time_limit(100);
 			$response = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $response_server));
-			// var_dump($response);
+			var_dump($response);
 			if (curl_errno($ch)) {
 				echo $errValidar = print_r(curl_error($ch), true);
 				// var_dump(curl_error($ch));
