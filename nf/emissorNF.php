@@ -152,8 +152,8 @@ $_POST['e'] = true;
 		$data_nfe = array(
 			'nfe_referenciada' => str_replace("NFe",false,trim($Blc->$attr->Id)), //'', //vazio ou a [chave] da nota para entrada
 			'ID' => $rowVenda["codigo"], // ID DA VENDA NO SISTEMA
-			'NF' => $_GET[nf], //$nota['numero_proxima_nfc'], // Número da NF (Deve seguir uma ordem exata)
-			'serie' => $_GET[serie], //$nota['serie'],
+			'NF' => $nota['numero_proxima_nfc'], //$_GET[nf], // Número da NF (Deve seguir uma ordem exata)
+			'serie' => $nota['serie'], //$_GET[serie],
 			'operacao' => (($_POST['e'])?'0':'1'), //  (1) Saída Entrada Tipo de Operação da Nota Fiscal e (0) entrada
 			'metodo_envio' => 0, // Metodo de transmisão de nota 1) Modo síncrono (pequena). / 0) modo assíncrono (nota grande)
 			'natureza_operacao' => 'Entradas de Insumos', // criar uma seleção do CFOP - Venda ou CFOP (nomenclatiura correspondente) Natureza da Operação - ''
@@ -531,7 +531,7 @@ $_POST['e'] = true;
 					$proximanfc = (int) $nfe + 1;
 					$PDO->query("UPDATE configuracao SET numero_proxima_nfc='$proximanfc'");
 
-					$response_xml = simplexml_load_file("http://nf.mohatron.com/API-NFE/api-nfe/gerador/xml/{$xml}");
+					$response_xml = simplexml_load_file("{$endpoint}gerador/xml/{$xml}");
 					$response_xml = json_encode($response_xml);
 
 					// $PDO->query("UPDATE vendas SET
