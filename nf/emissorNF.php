@@ -532,23 +532,6 @@ $_POST['e'] = true;
 
 					$nf_pdf = $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"];
 
-					// $PDO->query("UPDATE notas SET
-					// 	nf_numero='$nfe',
-					// 	nf_status='$status',
-					// 	nf_chave='$chave',
-					// 	nf_xml='$xml',
-					// 	nf_json = '$response_xml'
-					// where codigo='$venda_id'");
-
-					$sql = "UPDATE notas SET
-					 	nf_numero='?',
-					 	nf_status='?',
-					 	nf_chave='?',
-					 	nf_xml='?',
-					 	nf_json = '?',
-						nf_pdf='?'
-					 where codigo='?'";
-
 					echo  $s = "UPDATE notas SET
 					 	nf_numero='$nfe',
 					 	nf_status='$status',
@@ -558,8 +541,7 @@ $_POST['e'] = true;
 						nf_pdf='$nf_pdf'
 					 where codigo='$venda_id'";
 
-					$stmt = $PDO->prepare($sql);
-					$stmt->execute([$nfe, $status, $chave, $xml, $response_xml, $nf_pdf, $venda_id]);
+					$PDO->query($s);
 
 					// echo '<script>window.open('. $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"].')</script>';
 					// Redirecionar para imprimir a Nota:
