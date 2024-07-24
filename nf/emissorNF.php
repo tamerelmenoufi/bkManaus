@@ -79,10 +79,6 @@ $_POST['e'] = true;
     $nota = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt = null;
 
-	$sql = 'UPDATE configuracao set numero_proxima_nfc = (numero_proxima_nfc+1) WHERE codigo = ?';
-	$stmt = $PDO->prepare($sql);
-	$stmt->execute([1]);
-
     if(empty($rowVenda)) die("Vendas nao encontrada");
 
 	$Blc = json_decode($rowVenda["dados"]);
@@ -462,7 +458,7 @@ $_POST['e'] = true;
 			$response_server = curl_exec($ch);
 			set_time_limit(100);
 			$response = json_decode(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $response_server));
-			var_dump($response);
+			
 			if (curl_errno($ch)) {
 				echo $errValidar = print_r(curl_error($ch), true);
 				// var_dump(curl_error($ch));
@@ -520,21 +516,23 @@ $_POST['e'] = true;
 				$chave = $response->chave; // numero da chave de acesso
 				$xml = (string) $response->xml; // URL do XML
 
-				var_dump($response);
-
 				if($status=="aprovado"){
 
 					// ::::: Açoes a serem feitas apos a emissao ::::
 					// Guardar dos dados de retorno na banco de dados
 					// Enviar um email também por exemplo
 					// Atualizar o numero da proxima nf no seu banco de dados
-					$proximanfc = (int) $nfe + 1;
-					$PDO->query("UPDATE configuracao SET numero_proxima_nfc='$proximanfc'");
+
+					$sql = 'UPDATE configuracao set numero_proxima_nfc = (numero_proxima_nfc+1) WHERE codigo = ?';
+					$stmt = $PDO->prepare($sql);
+					$stmt->execute([1]);
 
 					$response_xml = simplexml_load_file("{$endpoint}gerador/xml/{$xml}");
 					$response_xml = json_encode($response_xml);
 
-					// $PDO->query("UPDATE vendas SET
+					$nf_pdf = $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"];
+
+					// $PDO->query("UPDATE notas SET
 					// 	nf_numero='$nfe',
 					// 	nf_status='$status',
 					// 	nf_chave='$chave',
@@ -542,10 +540,22 @@ $_POST['e'] = true;
 					// 	nf_json = '$response_xml'
 					// where codigo='$venda_id'");
 
+					echo $sql = "UPDATE notas SET
+					 	nf_numero='?',
+					 	nf_status='?',
+					 	nf_chave='?',
+					 	nf_xml='?',
+					 	nf_json = '?',
+						nf_pdf='?'
+					 where codigo='?'";
+
+					$stmt = $PDO->prepare($sql);
+					$stmt->execute([$nfe, $status, $chave, $xml, $response_xml, $nf_pdf, $venda_id]);
+
 					// echo '<script>window.open('. $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"].')</script>';
 					// Redirecionar para imprimir a Nota:
 					// header("location: ". $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"]); exit;
-					$errValidar = $endpoint ."danfe/index.php?chave=".$chave."&logo=".$data_nfe["empresa"]["logo"];
+					
 					// $PDO->query("UPDATE vendas SET nf_pdf='{$errValidar}' where codigo='$venda_id'");
 					exit();
 
