@@ -437,7 +437,7 @@
                             $.ajax({
                                 url:"nf/emissorNF.php",
                                 type:"POST",
-                                dataType:"JSON",
+                                //typeData:"JSON",
                                 data:{
                                     id
                                 },
