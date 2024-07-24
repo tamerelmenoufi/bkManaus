@@ -61,7 +61,7 @@ $_POST['e'] = true;
 			return $code;
 	}
 
-	$venda_id = $_POST["id"];
+	$venda_id = $_POST["nota"];
 
 
 	// SELECIONE OS DADOS SUA TABELA DE VENDAS
