@@ -540,7 +540,7 @@ $_POST['e'] = true;
 					// 	nf_json = '$response_xml'
 					// where codigo='$venda_id'");
 
-					echo $sql = "UPDATE notas SET
+					$sql = "UPDATE notas SET
 					 	nf_numero='?',
 					 	nf_status='?',
 					 	nf_chave='?',
@@ -548,6 +548,15 @@ $_POST['e'] = true;
 					 	nf_json = '?',
 						nf_pdf='?'
 					 where codigo='?'";
+
+					echo  $s = "UPDATE notas SET
+					 	nf_numero='$nfe',
+					 	nf_status='$status',
+					 	nf_chave='$chave',
+					 	nf_xml='$xml',
+					 	nf_json = '$response_xml',
+						nf_pdf='$nf_pdf'
+					 where codigo='$venda_id'";
 
 					$stmt = $PDO->prepare($sql);
 					$stmt->execute([$nfe, $status, $chave, $xml, $response_xml, $nf_pdf, $venda_id]);
