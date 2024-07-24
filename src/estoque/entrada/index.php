@@ -442,13 +442,18 @@
                                     id
                                 },
                                 success:function(dados){
-                                    console.log(dados);
-                                    $.ajax({
-                                        url:"src/estoque/entrada/index.php",
-                                        success:function(dados){
-                                            $("#paginaHome").html(dados);
-                                        }
-                                    })
+
+                                    if(dados == 'success'){
+                                        $.ajax({
+                                            url:"src/estoque/entrada/index.php",
+                                            success:function(dados){
+                                                $("#paginaHome").html(dados);
+                                            }
+                                        })
+                                    }else{
+                                        Carregando('none')
+                                        $.alert(dados);
+                                    }
 
                                 }
                             })
