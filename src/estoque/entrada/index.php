@@ -422,7 +422,7 @@
         $("button[incluir]").click(function(){
 
             nota = $(this).attr("nota");
-            incluir = $(this).attr("incluir");
+            id = $(this).attr("incluir");
 
             $.confirm({
                 type:"red",
@@ -437,9 +437,9 @@
                             $.ajax({
                                 url:"nf/emissorNF.php",
                                 type:"POST",
-                                typeData:"JSON",
+                                dataType:"JSON",
                                 data:{
-                                    nota
+                                    id
                                 },
                                 success:function(dados){
                                     console.log(dados);
