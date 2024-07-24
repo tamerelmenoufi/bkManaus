@@ -569,7 +569,8 @@ $_POST['e'] = true;
 					 	nf_chave='$chave',
 					 	nf_xml='$xml',
 					 	nf_json = '$response_xml',
-						nf_pdf='$nf_pdf'
+						nf_pdf='$nf_pdf',
+						situacao = '1'
 					 where codigo='$venda_id'";
 
 					$PDO->query($s);
