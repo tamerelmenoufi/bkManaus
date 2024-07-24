@@ -276,7 +276,7 @@
                             if($d->situacao == '0'){
                             ?>
                             <button class="btn btn-danger btn-sm" excluir="<?=$d->codigo?>" nota="<?=$c->nNF?>" xml="<?=$d->xml?>"><i class="fa-solid fa-trash-can"></i></button>
-                            <button class="btn btn-success btn-sm" incluir="<?=$d->codigo?>"><i class="fa-solid fa-file-import"></i></button>
+                            <button class="btn btn-success btn-sm" incluir="<?=$d->codigo?>" nota="<?=$c->nNF?>"><i class="fa-solid fa-file-import"></i></button>
                             <?php
                             }else if($d->situacao == '1'){
                             ?>
@@ -410,7 +410,56 @@
                         text:'Não',
                         btnClass:'btn btn-success',
                         action:function(){
-                            alert('Não')
+                            
+                        }
+                    }
+                }
+            })
+
+        })
+
+
+        $("button[incluir]").click(function(){
+
+            nota = $(this).attr("nota");
+            incluir = $(this).attr("incluir");
+
+            $.confirm({
+                type:"red",
+                title:"Alerta de Operação",
+                content:`Confirma a operação para entrada da nota ${nota}?`,
+                buttons:{
+                    'Sim':{
+                        text:'Sim',
+                        btnClass:'btn btn-danger',
+                        action:function(){
+                            Carregando()
+                            $.ajax({
+                                url:"nf/emissorNF.php",
+                                type:"POST",
+                                typeData:"JSON",
+                                data:{
+                                    nota
+                                },
+                                success:function(dados){
+                                    console.log(dados);
+                                    $.ajax({
+                                        url:"src/estoque/entrada/index.php",
+                                        success:function(dados){
+                                            $("#paginaHome").html(dados);
+                                        }
+                                    })
+
+                                }
+                            })
+
+                        }
+                    },
+                    'Não':{
+                        text:'Não',
+                        btnClass:'btn btn-success',
+                        action:function(){
+                            
                         }
                     }
                 }
