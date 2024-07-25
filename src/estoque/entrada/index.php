@@ -17,13 +17,13 @@
 
     if($_POST['acao'] == 'estoque'){
 
-        $query = "select * from movimentacao where cod_nota = '{$_POST['estoque']}'";
+        $query = "select *, if(qConv > 0, qConv, 1) as qConv from movimentacao where cod_nota = '{$_POST['estoque']}'";
         $result = mysqli_query($con, $query);
         while($p = mysqli_fetch_object($result)){
 
             $query = "update estoque set 
                                         uCom = '{$p->uConv}',
-                                        qCom = (qCom + ".((($p->qConv === 0)?1:$p->qConv) * $p->qCom)."),
+                                        qCom = (qCom + {$p->qConv}),
                                         vUnCom = '{$p->vUnConv}',
                                         situacao = '1'
                     where cProd = '{$p->cProd}'
