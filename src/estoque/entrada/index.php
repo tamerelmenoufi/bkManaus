@@ -23,7 +23,7 @@
 
             $query = "update estoque set 
                                         uCom = '{$p->uConv}',
-                                        qCom = (qCom + {$p->qConv}),
+                                        qCom = (qCom + ".($p->qConv * $p->qCom)."),
                                         vUnCom = '{$p->vUnConv}'
                     where cProd = '{$p->cProd}'
             ";
