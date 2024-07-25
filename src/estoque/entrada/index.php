@@ -14,6 +14,28 @@
 
     }
 
+
+    if($_POST['acao'] == 'estoque'){
+
+        $query = "select * from movimentacao where cod_nota = '{$_POST['estoque']}'";
+        $result = mysqli_query($con, $query);
+        while($p = mysqli_fetch_object($result)){
+
+            $query = "update estoque set 
+                                        uCom = '{$p->uConv}',
+                                        qCom = (qCom + {$p->qConv}),
+                                        vUnCom = '{$p->vUnConv}'
+                    where cProd = '{$p->cProd}'
+            ";
+            mysqli_query($con, $query);
+
+        }
+
+        mysqli_query($con, "update movimentacao set situacao = '2' where cod_nota = '{$_POST['estoque']}'");
+
+    }
+
+
     if($_POST['acao'] == 'upload_xml'){
 
         if(!is_dir("../../volumes/")) mkdir("../../volumes/");
@@ -280,7 +302,7 @@
                             <?php
                             }else if($d->situacao == '1'){
                             ?>
-                            <button class="btn btn-warning btn-sm" estoque="<?=$d->codigo?>"><i class="fa-solid fa-dolly"></i></button>
+                            <button class="btn btn-warning btn-sm" estoque="<?=$d->codigo?>" nota="<?=$c->nNF?>"><i class="fa-solid fa-dolly"></i></button>
                             <?php
                             }
                             ?>
@@ -458,6 +480,48 @@
                                 }
                             })
 
+                        }
+                    },
+                    'Não':{
+                        text:'Não',
+                        btnClass:'btn btn-success',
+                        action:function(){
+                            
+                        }
+                    }
+                }
+            })
+
+        })
+
+
+        $("button[estoque]").click(function(){
+
+            nota = $(this).attr("nota");
+            estoque = $(this).attr("estoque");
+
+            $.confirm({
+                type:"red",
+                title:"Alerta de Operação",
+                content:`Confirma a inclusão dos produtos da nota ${nota} no estoque?`,
+                buttons:{
+                    'Sim':{
+                        text:'Sim',
+                        btnClass:'btn btn-danger',
+                        action:function(){
+                            Carregando()
+                            $.ajax({
+                                url:"src/estoque/entrada/index.php",
+                                type:"POST",
+                                data:{
+                                    estoque,
+                                    nota,
+                                    acao:'estoque'
+                                },
+                                success:function(dados){
+                                    $("#paginaHome").html(dados);
+                                }
+                            })
                         }
                     },
                     'Não':{
