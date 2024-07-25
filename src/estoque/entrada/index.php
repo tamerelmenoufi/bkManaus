@@ -24,14 +24,15 @@
             $query = "update estoque set 
                                         uCom = '{$p->uConv}',
                                         qCom = (qCom + ".($p->qConv * $p->qCom)."),
-                                        vUnCom = '{$p->vUnConv}'
+                                        vUnCom = '{$p->vUnConv}',
+                                        situacao = '1'
                     where cProd = '{$p->cProd}'
             ";
             mysqli_query($con, $query);
 
         }
 
-        mysqli_query($con, "update movimentacao set situacao = '2' where cod_nota = '{$_POST['estoque']}'");
+        mysqli_query($con, "update nota set situacao = '2' where codigo = '{$_POST['estoque']}'");
 
     }
 
