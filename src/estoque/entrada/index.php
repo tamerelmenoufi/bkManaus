@@ -32,6 +32,7 @@
 
         }
 
+        $q = "update nota set situacao = '2' where codigo = '{$_POST['estoque']}'<br>";
         mysqli_query($con, "update nota set situacao = '2' where codigo = '{$_POST['estoque']}'");
 
     }
