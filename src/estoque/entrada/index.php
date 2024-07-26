@@ -309,6 +309,7 @@
                                 role="button"
                                 aria-controls="offcanvasDireita"
                                 nota="<?=$d->codigo?>"
+                                situacao="<?=$d->situacao?>"
                             >
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </button>
@@ -402,12 +403,14 @@
         $(".produtos").click(function(){
 
             nota = $(this).attr("nota");
+            situacao = $(this).attr("situacao");
 
             $.ajax({
                 url:"src/estoque/entrada/produtos.php",
                 type:"POST",
                 data:{
-                    nota
+                    nota,
+                    situacao
                 },
                 success:function(dados){
                     $(".LateralDireita").html(dados);

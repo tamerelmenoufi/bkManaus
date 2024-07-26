@@ -3,6 +3,9 @@
 
     if($_POST['nota']) $_SESSION['nota'] = $_POST['nota'];
 
+    $blq = false;
+    if($_POST['situacao'] == '2') $blq = 'disabled';
+
     // reg,
     // cProd
     // uCom,
@@ -88,7 +91,7 @@
             <tr <?=(strtolower($p->uCom))?> <?=(strtolower($p->uConv))?> class="table-<?=((strtolower($p->uCom) != strtolower($p->uConv))?'success':'primary')?>">
                 <td>Unidade Convertida</td>
                 <td>
-                    <select class="form-select form-select-sm uConv" 
+                    <select <?=$blq?> class="form-select form-select-sm uConv" 
                             quantidade="<?=$p->qCom?>" 
                             reg="<?=$p->codigo?>" 
                             vUnCom='<?=$p->vUnCom?>' 
@@ -112,13 +115,15 @@
                                placeholder="0.0000" 
                                value="<?=$p->qConv?>"
                                quantidade="<?=$p->qCom?>" 
-                               vUnCom='<?=$p->vUnCom?>' 
+                               vUnCom='<?=$p->vUnCom?>'
+                               <?=$blq?>
                         >
                         <button converter = '<?=$p->codigo?>' 
                                 class="btn btn-primary" 
                                 type="button" 
                                 id="button-addon2"
                                 cProd="<?=$p->cProd?>"
+                                <?=$blq?>
                         ><i class="fa-regular fa-floppy-disk"></i></button>
                     </div>
                 </td>
