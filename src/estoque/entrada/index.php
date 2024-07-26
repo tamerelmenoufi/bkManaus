@@ -330,6 +330,10 @@
                                         detalhes="<?=$d->codigo?>" 
                                         empresa="<?=$d->empresa?>" 
                                         nota="<?=$c->nNF?>"
+                                        data-bs-toggle="offcanvas"
+                                        href="#offcanvasDireita"
+                                        role="button"
+                                        aria-controls="offcanvasDireita"
                                 ><i class="fa-solid fa-info"></i></button>
                                 <?php
                             }
@@ -427,6 +431,24 @@
             })
 
         })
+
+        $("button[detalhes]").click(function(){
+
+            detalhes = $(this).attr("detalhes");
+
+            $.ajax({
+                url:"src/estoque/entrada/detalhes.php",
+                type:"POST",
+                data:{
+                    detalhes
+                },
+                success:function(dados){
+                    $(".LateralDireita").html(dados);
+                }
+            })
+
+        })
+
 
         $("button[excluir]").click(function(){
 
