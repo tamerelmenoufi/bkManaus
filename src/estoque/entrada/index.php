@@ -21,7 +21,7 @@
         $result = mysqli_query($con, $query);
         while($p = mysqli_fetch_object($result)){
 
-            $query = "update estoque set 
+            $query = "update estoque_{$_POST['empresa']} set 
                                         uCom = '{$p->uConv}',
                                         qCom = (qCom + ".($p->qConv * $p->qCom)."),
                                         vUnCom = '{$p->vUnConv}',
@@ -121,21 +121,38 @@
 
             mysqli_query($con, $query);
 
+            list($estoque) = mysqli_fetch_row(mysqli_query($con, "select codigo from empresas where cnpj = '{$g->CNPJ}'"));
+
+            ///////////////////////////////////////////////////////////////////
+
+            mysqli_query($con,
+                "CREATE TABLE `estoque_{$estoque}` (
+                                        `codigo` bigint(20) NOT NULL,
+                                        `cProd` char(30) NOT NULL,
+                                        `cEAN` char(100) NOT NULL,
+                                        `xProd` varchar(255) NOT NULL,
+                                        `NCM` char(30) NOT NULL,
+                                        `CEST` char(30) NOT NULL,
+                                        `CFOP` char(30) NOT NULL,
+                                        `uCom` char(20) NOT NULL,
+                                        `qCom` decimal(20,4) NOT NULL,
+                                        `vUnCom` decimal(20,10) NOT NULL,
+                                        `situacao` enum('0','1') NOT NULL COMMENT '0 = Bloqueado, 1 = Liberado'
+                                        )"
+            );
+
+
             ///////////////////////////////////////////////////////////////////
 
 
             foreach($xml->NFe->infNFe->det as $i => $val){
-
-
-
-
 
                 //print_r($val);
                 $p = $val->prod;
                 $imposto = json_encode($val->imposto);
                 $nItem = $val['nItem'];
 
-                $query = "insert into estoque set 
+                $query = "insert into estoque_{$estoque} set 
                                                 cProd = '{$p->cProd}',
                                                 cEAN = '{$p->cEAN}',
                                                 xProd = '{$p->xProd}',
@@ -164,9 +181,9 @@
                                                        qCom = '{$p->qCom}',
                                                        vUnCom = '{$p->vUnCom}',
 
-                                                       uConv = (select uCom from estoque where cProd = '{$p->cProd}'),
-                                                       qConv = (select qCom from estoque where cProd = '{$p->cProd}'),
-                                                       vUnConv = (select vUnCom from estoque where cProd = '{$p->cProd}'),
+                                                       uConv = (select uCom from estoque_{$estoque} where cProd = '{$p->cProd}'),
+                                                       qConv = (select qCom from estoque_{$estoque} where cProd = '{$p->cProd}'),
+                                                       vUnConv = (select vUnCom from estoque_{$estoque} where cProd = '{$p->cProd}'),
 
                                                        vProd = '{$p->vProd}',
                                                        cEANTrib = '{$p->cEANTrib}',
@@ -254,7 +271,7 @@
                 </thead>
                 <tbody>
             <?php
-            $query = "select * from notas";
+            $query = "select a.*, b.codigo as empresa from notas a left join empresas b on a.dados.'$.dest->>CNPJ' == b.cnpj";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
                 $n = json_decode($d->dados);
@@ -303,7 +320,7 @@
                             <?php
                             }else if($d->situacao == '1'){
                             ?>
-                            <button class="btn btn-warning btn-sm" estoque="<?=$d->codigo?>" nota="<?=$c->nNF?>"><i class="fa-solid fa-dolly"></i></button>
+                            <button class="btn btn-warning btn-sm" estoque="<?=$d->codigo?>" empresa="<?=$d->empresa?>" nota="<?=$c->nNF?>"><i class="fa-solid fa-dolly"></i></button>
                             <?php
                             }
                             ?>
@@ -500,6 +517,7 @@
 
             nota = $(this).attr("nota");
             estoque = $(this).attr("estoque");
+            empresa = $(this).attr("empresa");
 
             $.confirm({
                 type:"red",
@@ -517,6 +535,7 @@
                                 data:{
                                     estoque,
                                     nota,
+                                    empresa,
                                     acao:'estoque'
                                 },
                                 success:function(dados){
