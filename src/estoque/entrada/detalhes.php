@@ -15,9 +15,12 @@
     Featured
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">
+        <div class="d-flex justify-content-between">
+            <span>Teste</span>
+            <button class="btn btn-danger btn-sm">OK</button>
+        </div>
+    </li>
   </ul>
 </div>
 
