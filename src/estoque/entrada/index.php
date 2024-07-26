@@ -21,7 +21,7 @@
         $result = mysqli_query($con, $query);
         while($p = mysqli_fetch_object($result)){
 
-            $query = "update estoque_{$_POST['empresa']} set 
+            echo $query = "update estoque_{$_POST['empresa']} set 
                                         uCom = '{$p->uConv}',
                                         qCom = (qCom + ".($p->qConv * $p->qCom)."),
                                         vUnCom = '{$p->vUnConv}',
