@@ -323,6 +323,15 @@
                             ?>
                             <button class="btn btn-warning btn-sm" estoque="<?=$d->codigo?>" empresa="<?=$d->empresa?>" nota="<?=$c->nNF?>"><i class="fa-solid fa-dolly"></i></button>
                             <?php
+                            }else if($d->situacao == '2'){
+                                ?>
+                                <button 
+                                        class="btn btn-warning btn-sm" 
+                                        detalhes="<?=$d->codigo?>" 
+                                        empresa="<?=$d->empresa?>" 
+                                        nota="<?=$c->nNF?>"
+                                ><i class="fa-solid fa-circle-info"></i></button>
+                                <?php
                             }
                             ?>
                             
