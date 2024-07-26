@@ -271,7 +271,7 @@
                 </thead>
                 <tbody>
             <?php
-            $query = "select a.*, b.codigo as empresa from notas a left join empresas b on a.dados->'$.dest.CNPJ' = b.cnpj";
+            $query = "select a.*, b.codigo as empresa from notas a left join empresas b on a.dados->'$.NFe.infNFe.dest.CNPJ' = b.cnpj";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
                 $n = json_decode($d->dados);
