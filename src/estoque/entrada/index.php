@@ -330,7 +330,7 @@
                                         detalhes="<?=$d->codigo?>" 
                                         empresa="<?=$d->empresa?>" 
                                         nota="<?=$c->nNF?>"
-                                ><i class="fa-solid fa-circle-info text-white"></i></button>
+                                ><i class="fa-solid fa-circle-info text-secondary"></i></button>
                                 <?php
                             }
                             ?>
