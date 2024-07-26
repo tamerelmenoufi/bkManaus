@@ -127,7 +127,7 @@
 
             mysqli_query($con,
                 "CREATE TABLE `estoque_{$estoque}` (
-                                        `codigo` bigint(20) NOT NULL,
+                                        `codigo` bigint(20) PRIMARY KEY NOT NULL,
                                         `cProd` char(30) NOT NULL,
                                         `cEAN` char(100) NOT NULL,
                                         `xProd` varchar(255) NOT NULL,
