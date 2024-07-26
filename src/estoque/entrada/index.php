@@ -326,11 +326,11 @@
                             }else if($d->situacao == '2'){
                                 ?>
                                 <button 
-                                        class="btn btn-warning btn-sm" 
+                                        class="btn btn-secondary btn-sm" 
                                         detalhes="<?=$d->codigo?>" 
                                         empresa="<?=$d->empresa?>" 
                                         nota="<?=$c->nNF?>"
-                                ><i class="fa-solid fa-circle-info text-secondary"></i></button>
+                                ><i class="fa-solid fa-circle-info"></i></button>
                                 <?php
                             }
                             ?>
