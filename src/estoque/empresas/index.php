@@ -3,6 +3,8 @@
 
     if($_POST['empresa']) $_SESSION['estoque']['empresa'] = $_POST['estoque']['empresa'];
 
+echo "CODIGO EMPRESA = {$_SESSION['estoque']['empresa']}";
+
 ?>
 
 
