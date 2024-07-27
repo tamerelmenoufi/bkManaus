@@ -36,7 +36,7 @@
     }
 ?>
 
-<div class="alert alert-warning" role="alert">
+<div class="alert alert-warning" role="alert" style="postion:fixed; top:40px;">
   A simple warning alert—check it out!
 </div>
 
