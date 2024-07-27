@@ -37,16 +37,18 @@
     Nota Principal
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">
         <?php
         foreach($infPrincipal as $i => $v){
             
         ?>
+    <li class="list-group-item">
         <div class="d-flex justify-content-between">
             <span><?=$v[0]?></span>
             <div><?=$v[1]?></div>
             <!--<button class="btn btn-danger btn-sm">OK</button>-->
         </div>
+    </li>
+    <li class="list-group-item">
         <?php
         }
         ?>
@@ -84,25 +86,29 @@ $infEntrada = [
 ?>
  
 <div class="card mb-3">
-  <div class="card-header">
-    Registro de Entrada
-  </div>
-  <ul class="list-group list-group-flush">
-        <?php
-        foreach($infEntrada as $i => $v){
-        ?>
-        <div class="d-flex justify-content-between">
-            <span><?=$v[0]?></span>
-            <div><?=$v[1]?></div>
-            <!--<button class="btn btn-danger btn-sm">OK</button>-->
-        </div>
-        <?php
-        }
-        ?>
-        <div class="d-flex justify-content-between">
-            <span>Arquivo XML</span>
-            <a href='<?=$urlNota?>gerador/xml/<?=$d->nf_xml?>' target="_blank" class="btn btn-link btn-sm"><?=$d->nf_chave?>.xml</a>
-            <!--<button class="btn btn-danger btn-sm">OK</button>-->
-        </div>
-  </ul>
+    <div class="card-header">
+        Registro de Entrada
+    </div>
+    <ul class="list-group list-group-flush">
+            <?php
+            foreach($infEntrada as $i => $v){
+            ?>
+        <li class="list-group-item">
+            <div class="d-flex justify-content-between">
+                <span><?=$v[0]?></span>
+                <div><?=$v[1]?></div>
+                <!--<button class="btn btn-danger btn-sm">OK</button>-->
+            </div>
+        </li>
+        <li class="list-group-item">
+            <?php
+            }
+            ?>
+            <div class="d-flex justify-content-between">
+                <span>Arquivo XML</span>
+                <a href='<?=$urlNota?>gerador/xml/<?=$d->nf_xml?>' target="_blank" class="btn btn-link btn-sm"><?=$d->nf_chave?>.xml</a>
+                <!--<button class="btn btn-danger btn-sm">OK</button>-->
+            </div>
+        </li>
+    </ul>
 </div>
