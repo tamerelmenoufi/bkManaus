@@ -16,9 +16,6 @@
         ['Tipo', 'tpNF'],
         ['Data da Emissão', 'dhEmi'],
         ['Descrição', 'natOp'],
-        ['Número da Nota', 'nNF'],
-        ['Número da Nota', 'nNF'],
-        ['Número da Nota', 'nNF'],
     ];
 
  ?>
