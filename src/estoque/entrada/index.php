@@ -321,11 +321,13 @@
                             <button class="btn btn-danger btn-sm" excluir="<?=$d->codigo?>" nota="<?=$c->nNF?>" xml="<?=$d->xml?>"><i class="fa-solid fa-trash-can"></i></button>
                             <button class="btn btn-success btn-sm" incluir="<?=$d->codigo?>" nota="<?=$c->nNF?>"><i class="fa-solid fa-file-import"></i></button>
                             <?php
-                            }else if($d->situacao == '1'){
+                            }
+                            if($d->situacao == '1'){
                             ?>
                             <button class="btn btn-warning btn-sm" estoque="<?=$d->codigo?>" empresa="<?=$d->empresa?>" nota="<?=$c->nNF?>"><i class="fa-solid fa-dolly"></i></button>
                             <?php
-                            }else if($d->situacao == '2'){
+                            }
+                            if($d->situacao == '1' or $d->situacao == '2'){
                                 ?>
                                 <button 
                                         class="btn btn-secondary btn-sm" 
