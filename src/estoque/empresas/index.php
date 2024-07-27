@@ -32,7 +32,7 @@
 if($_SESSION['estoque']['empresa']){
 
 
-    echo $query = "select * from empresas where codigo = '{$_SESSION['estqoue']['empresa']}'";
+    $query = "select * from empresas where codigo = '{$_SESSION['estoque']['empresa']}'";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
@@ -52,7 +52,7 @@ if($_SESSION['estoque']['empresa']){
         </thead>
         <tbody>
     <?php
-        echo $q = "select * from estoque_{$d->codigo} order by nome asc";
+        $q = "select * from estoque_{$d->codigo} order by nome asc";
         $r = mysqli_query($con, $q);
         while($e = mysqli_fetch_object($r)){
     ?>
