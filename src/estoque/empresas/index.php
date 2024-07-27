@@ -2,6 +2,8 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     if($_POST['empresa']) $_SESSION['estoque']['empresa'] = $_POST['empresa'];
+    if($_POST['busca']) $_SESSION['estoque']['busca'] = $_POST['busca'];
+    if($_POST['busca'] == 'limpar') $_SESSION['estoque']['busca'] = false;
 
 ?>
 
@@ -42,8 +44,9 @@ if($_SESSION['estoque']['empresa']){
   <div class="card-body">
 
     <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Buscar Produtos por código ou descrição" aria-label="Buscar Produtos por código ou descrição" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input filtro type="text" class="form-control" placeholder="Buscar Produtos por código ou descrição" aria-label="Buscar Produtos por código ou descrição" aria-describedby="button-addon2">
+        <button filtrar class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button limpar class="btn btn-outline-danger" type="button" id="button-addon2"><i class="fa-solid fa-trash"></i></button>
     </div>
 
 
@@ -111,5 +114,50 @@ if($_SESSION['estoque']['empresa']){
             }
         })
       })
+
+      $("button[filtrar]").click(function(){
+        busca = $("input[filtro]").val();
+
+        if(!busca){
+            $.alert({
+                type:"red",
+                title:"Ausência de informações",
+                content:"Informe o código ou produto que deseja buscar no campo de busca!"
+            })
+            return false
+        }
+        Carregando();
+        $.ajax({
+            url:"src/estoque/empresas/index.php",
+            type:"POST",
+            data:{
+                busca
+            },
+            success:function(dados){
+                $("#paginaHome").html(dados);
+            }
+        })
+    
+      })
+
+
+      $("button[limpar]").click(function(){
+
+        Carregando();
+        $.ajax({
+            url:"src/estoque/empresas/index.php",
+            type:"POST",
+            data:{
+                busca:'limpar'
+            },
+            success:function(dados){
+                $("#paginaHome").html(dados);
+            }
+        })
+    
+      })
+
+
+
   })
 </script>
