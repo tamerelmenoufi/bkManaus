@@ -11,7 +11,7 @@
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 ?>
-  <li class="list-group-item"><?=$d->nome?> - <?=$d->cpf?></li>
+  <li class="list-group-item"><?=$d->nome?> - <?=$d->cnpj?></li>
 <?php
     }
 ?>
