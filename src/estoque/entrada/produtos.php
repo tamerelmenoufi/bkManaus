@@ -47,7 +47,7 @@
     while($p = mysqli_fetch_object($result)){
 
 ?>
-<div class="card mb-3">
+<div class="card mb-3" style="margin-top:60px;">
   <h6 class="card-header"><?=$p->xProd?></h6>
     <table class="table table-hover">
         <tbody>
