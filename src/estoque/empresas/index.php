@@ -9,7 +9,7 @@
   <div class="card-body">
     <h5 class="card-title">Consulta de Estoque por empresa</h5>
     <p class="card-text">Selecione uma empresa para verificação do estque de produtos.</p>
-    <select name="empresa" id="empresa" class="select-form">
+    <select name="empresa" id="empresa" class="form-select">
         <option value="">:: Selecione uma empresa ::</option>
         <?php
             $q = "select * from empresas where tipo = 'g' order by nome asc";
