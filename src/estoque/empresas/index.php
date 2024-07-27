@@ -28,6 +28,55 @@
 </div>
 
 
+<?php
+if($_SESSION['estqoue']['empresa']){
+
+
+    $query = "select * from empresas where codigo = '{$_SESSION['estqoue']['empresa']}'";
+    $result = mysqli_query($con, $query);
+    while($d = mysqli_fetch_object($result)){
+
+?>
+<div class="card m-3">
+  <h5 class="card-header"><?=$d->nome?> - <?=$d->cnpj?></h5>
+  <div class="card-body">
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Produto</th>
+                <th>Unidade</th>
+                <th>Quantidade</th>
+                <th>Preço Unitário</th>
+            </tr>
+        </thead>
+        <tbody>
+    <?php
+        $q = "select * from estoque_{$d->codigo} order by nome asc";
+        $r = mysqli_query($con, $q);
+        while($e = mysqli_fetch_object($r)){
+    ?>
+            <tr>
+                <td><?=$e->cProd?></td>
+                <td><?=$e->xProd?></td>
+                <td><?=$e->uCom?></td>
+                <td><?=$e->qCom?></td>
+                <td><?=$e->vUnCom?></td>
+                <td>
+            </tr>     
+    <?php
+        }
+    ?>
+        </tbody>
+    </table>    
+  </div>
+</div>
+<?php
+    }
+}
+?>
+
+
 
 <script>
   $(function(){
