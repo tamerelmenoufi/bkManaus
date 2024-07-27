@@ -36,7 +36,7 @@
     }
 ?>
 
-<div class="alert alert-warning" role="alert" style="position:fixed; top:50px; right:20px; width:100%; z-index:99">
+<div class="alert alert-warning" role="alert">
   A simple warning alert—check it out!
 </div>
 
@@ -47,7 +47,7 @@
     while($p = mysqli_fetch_object($result)){
 
 ?>
-<div class="card mb-3" style="margin-top:60px;">
+<div class="card mb-3">
   <h6 class="card-header"><?=$p->xProd?></h6>
     <table class="table table-hover">
         <tbody>
