@@ -52,7 +52,7 @@ if(!$blq){
 ?>
 <?php
 
-    $query = "select * from movimentacao where cod_nota = '{$_SESSION['nota']}'";
+    $query = "select * from movimentacao where cod_nota = '{$_SESSION['nota']}' and tipo = 'e'";
     $result = mysqli_query($con, $query);
     while($p = mysqli_fetch_object($result)){
 

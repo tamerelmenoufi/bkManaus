@@ -324,7 +324,7 @@ $_POST['e'] = true;
 		 */
 
 
-		$sql = "SELECT * FROM movimentacao WHERE cod_nota = '{$rowVenda['codigo']}'";
+		$sql = "SELECT * FROM movimentacao WHERE cod_nota = '{$rowVenda['codigo']}' and tipo = 'e'";
 
 
 		$stmt = $PDO->query($sql);

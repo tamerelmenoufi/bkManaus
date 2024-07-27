@@ -4,7 +4,7 @@
 
     if($_POST['acao'] == 'excluir'){
 
-        $query = "delete from movimentacao where cod_nota = '{$_POST['excluir']}'";
+        $query = "delete from movimentacao where cod_nota = '{$_POST['excluir']}' and tipo = 'e'";
         mysqli_query($con, $query);
 
         $query = "delete from notas where codigo = '{$_POST['excluir']}'";
@@ -17,7 +17,7 @@
 
     if($_POST['acao'] == 'estoque'){
 
-        $query = "select *, if(qConv > 0, qConv, 1) as qConv from movimentacao where cod_nota = '{$_POST['estoque']}'";
+        $query = "select *, if(qConv > 0, qConv, 1) as qConv from movimentacao where cod_nota = '{$_POST['estoque']}' and tipo = 'e'";
         $result = mysqli_query($con, $query);
         while($p = mysqli_fetch_object($result)){
 
