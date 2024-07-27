@@ -40,7 +40,7 @@ if($_SESSION['estoque']['empresa']){
 <div class="card m-3">
   <h5 class="card-header"><?=$d->nome?> - <?=$d->cnpj?></h5>
   <div class="card-body">
-    <table>
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Código</th>
