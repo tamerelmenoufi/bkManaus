@@ -48,10 +48,10 @@
             <!--<button class="btn btn-danger btn-sm">OK</button>-->
         </div>
     </li>
-    <li class="list-group-item">
         <?php
         }
         ?>
+    <li class="list-group-item">    
         <div class="d-flex justify-content-between">
             <span>Arquivo XML</span>
             <a href='./src/volumes/notas/xml/<?=$d->xml?>' target="_blank" class="btn btn-link btn-sm"><?=$d->xml?></a>
@@ -100,10 +100,10 @@ $infEntrada = [
                 <!--<button class="btn btn-danger btn-sm">OK</button>-->
             </div>
         </li>
-        <li class="list-group-item">
             <?php
             }
             ?>
+        <li class="list-group-item">    
             <div class="d-flex justify-content-between">
                 <span>Arquivo XML</span>
                 <a href='<?=$urlNota?>gerador/xml/<?=$d->nf_xml?>' target="_blank" class="btn btn-link btn-sm"><?=$d->nf_chave?>.xml</a>
