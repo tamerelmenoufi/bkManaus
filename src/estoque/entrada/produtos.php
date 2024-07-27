@@ -34,7 +34,13 @@
         // exit();
 
     }
+?>
 
+<div class="alert alert-warning" role="alert">
+  A simple warning alert—check it out!
+</div>
+
+<?php
 
     $query = "select * from movimentacao where cod_nota = '{$_SESSION['nota']}'";
     $result = mysqli_query($con, $query);
