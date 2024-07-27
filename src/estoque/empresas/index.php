@@ -52,7 +52,7 @@ if($_SESSION['estoque']['empresa']){
         </thead>
         <tbody>
     <?php
-        $q = "select * from estoque_{$d->codigo} order by nome asc";
+        $q = "select * from estoque_{$d->codigo} order by xProd asc";
         $r = mysqli_query($con, $q);
         while($e = mysqli_fetch_object($r)){
     ?>
