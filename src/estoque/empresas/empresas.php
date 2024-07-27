@@ -16,3 +16,10 @@
     }
 ?>
 </ul>
+
+<script>
+    $(function(){
+        Carregando('none')
+        
+    })
+</script>
