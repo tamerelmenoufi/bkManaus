@@ -63,6 +63,8 @@ $infEntrada = [
     ['Número', $y->NFe->infNFe->ide->nNF],
     ['Série', $y->NFe->infNFe->ide->serie],
     ['Tipo', $y->NFe->infNFe->ide->tpNF],
+    ['Situação', $d->nf_status],
+    ['Chave', $d->nf_chave],
     
     ['Emitente CNPJ', $y->NFe->infNFe->emit->CNPJ],
     ['Emitente', $y->NFe->infNFe->emit->xNome],
@@ -92,5 +94,10 @@ $infEntrada = [
         <?php
         }
         ?>
+        <div class="d-flex justify-content-between">
+            <span>Arquivo XML</span>
+            <a href='<?=$urlNota?>gerador/xml/<?=$d->nf_xml?>' target="_blank" class="btn btn-link btn-sm"><?=$d->nf_chave?>.xml</a>
+            <!--<button class="btn btn-danger btn-sm">OK</button>-->
+        </div>
   </ul>
 </div>

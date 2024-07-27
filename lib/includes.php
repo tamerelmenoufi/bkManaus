@@ -21,6 +21,8 @@
     $urlEntregador = 'https://painel.bkmanaus.com.br/delivery/';
     $urlLoja = 'https://painel.bkmanaus.com.br/loja/';
 
+    $urlNota = "http://nf.mohatron.com/bk/API-NFE/api-nfe/"; // COM BARRA NO FINAL
+
     if($_POST['historico']){
         $pagina = str_replace("/bkManaus/app/", false, $_SERVER["PHP_SELF"]);
         $destino = $_POST['historico'];
