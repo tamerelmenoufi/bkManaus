@@ -34,16 +34,22 @@
         // exit();
 
     }
-?>
 
+
+if(!$blq){  
+?>
 <div class="alert alert-warning" role="alert">
     <i class="fa-solid fa-triangle-exclamation text-danger"></i> Produtos não adicionados ao estoque!
 </div>
-
+<?php
+}else{
+?>
 <div class="alert alert-success" role="alert">
     <i class="fa-solid fa-circle-check text-success"></i> Produtos adicionados ao estoque!
 </div>
-
+<?php
+}
+?>
 <?php
 
     $query = "select * from movimentacao where cod_nota = '{$_SESSION['nota']}'";
