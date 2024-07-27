@@ -40,9 +40,7 @@
 if($_SESSION['estoque']['empresa']){
 ?>
 
-<div class="d-flex justify-content-end m-3">
-    <button iniciar_venda class="btn btn-success btn-sm"><i class="fa-solid fa-bag-shopping"></i> Iniciar uma Venda</button>
-</div>
+<div venda class="m-3"></div>
 
 <?php
 
@@ -102,7 +100,20 @@ if($_SESSION['estoque']['empresa']){
 
 <script>
   $(function(){
-      Carregando('none');
+    
+    Carregando('none');
+
+    $.ajax({
+        url:"src/estoque/empresas/venda.php",
+        type:"POST",
+        data:{
+            empresa:'<?=$_SESSION['estoque']['empresa']?>',
+        },
+        success:function(dados){
+            $("div[venda]").html(dados)
+        }
+    })
+
 
       $("button[listaEstoque]").click(function(){
         empresa = $("#empresa").val();
