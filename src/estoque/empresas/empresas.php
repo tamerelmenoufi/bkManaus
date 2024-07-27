@@ -23,6 +23,7 @@
 
         $("button[destinataria]").click(function(){
             destinataria = $(this).attr("destinataria");
+            Carregando()
             $.ajax({
                 url:"src/estoque/empresas/index.php",
                 type:"POST",
