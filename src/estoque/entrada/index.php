@@ -397,11 +397,11 @@
             nome = $("#dadosXML").attr("nome");
 
             if(!base64 || !tipo || !nome){
-                $.alert{
+                $.alert({
                     type:'red',
                     title:"Dados incompletos",
                     content:"Favor selecione o arquivo XML para incluir a note!"
-                };
+                });
                 return false;
             }
 
