@@ -16,7 +16,7 @@
             $r = mysqli_query($con, $q);
             while($e = mysqli_fetch_object($r)){
         ?>        
-        <option value="<?=$e->codigo?>"><?=$e->nome?></option>
+        <option value="<?=$e->codigo?>"><?=$e->nome?> (<?=$e->cnpj?>)</option>
         <?php
             }
         ?>  
