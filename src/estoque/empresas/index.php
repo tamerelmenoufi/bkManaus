@@ -40,7 +40,7 @@
 if($_SESSION['estoque']['empresa']){
 ?>
 
-<div class="d-flex justify-content-end">
+<div class="d-flex justify-content-end m-3">
     <button iniciar_venda class="btn btn-primary btn-sm">Iniciar uma Venda</button>
 </div>
 
