@@ -11,7 +11,7 @@
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 ?>
-  <button type="button" class="list-group-item list-group-item-action"><?=$d->nome?> - <?=$d->cnpj?></button>
+  <button destinataria="<?=$d->codigo?>" type="button" class="list-group-item list-group-item-action"><?=$d->nome?> - <?=$d->cnpj?></button>
 <?php
     }
 ?>
@@ -20,6 +20,21 @@
 <script>
     $(function(){
         Carregando('none')
+
+        $("button[destinataria]").click(function(){
+            destinataria = $(this).attr("destinataria");
+            $.ajax({
+                url:"src/estoque/empresas/index.php",
+                type:"POST",
+                data:{
+                    destinataria,
+                    empresa:'<?=$_SESSION['estoque']['empresa']?>'
+                },
+                success:function(dados){
+                    $("#paginaHome").html(dados);
+                }
+            })
+        })
 
     })
 </script>

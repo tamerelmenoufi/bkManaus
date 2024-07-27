@@ -2,6 +2,9 @@
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
     if($_POST['empresa']) $_SESSION['estoque']['empresa'] = $_POST['empresa'];
+    if($_POST['destinataria']) $_SESSION['estoque']['destinataria'] = $_POST['destinataria'];
+
+    
     if($_POST['busca']) $_SESSION['estoque']['busca'] = $_POST['busca'];
     if($_POST['busca'] == 'limpar') $_SESSION['estoque']['busca'] = false;
 
@@ -12,7 +15,6 @@
     }
 
 ?>
-
 
 <div class="card m-3">
   <h5 class="card-header">Estoque</h5>
@@ -108,6 +110,7 @@ if($_SESSION['estoque']['empresa']){
         type:"POST",
         data:{
             empresa:'<?=$_SESSION['estoque']['empresa']?>',
+            destinataria:'<?=$_SESSION['estoque']['destinataria']?>'
         },
         success:function(dados){
             $("div[venda]").html(dados)
