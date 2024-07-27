@@ -1,6 +1,8 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
 
+    if($_POST['empresa']) $_SESSION['estoque']['empresa'] = $_POST['estoque']['empresa'];
+
 ?>
 
 
@@ -16,7 +18,7 @@
             $r = mysqli_query($con, $q);
             while($e = mysqli_fetch_object($r)){
         ?>        
-        <option value="<?=$e->codigo?>"><?=$e->nome?> - <?=$e->cnpj?></option>
+        <option value="<?=$e->codigo?>" <?=(($_SESSION['estoque']['empresa'] == $e->codigo)?'selected':false)?> ><?=$e->nome?> - <?=$e->cnpj?></option>
         <?php
             }
         ?>  
