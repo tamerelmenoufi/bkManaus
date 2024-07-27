@@ -32,7 +32,7 @@
 if($_SESSION['estqoue']['empresa']){
 
 
-    $query = "select * from empresas where codigo = '{$_SESSION['estqoue']['empresa']}'";
+    echo $query = "select * from empresas where codigo = '{$_SESSION['estqoue']['empresa']}'";
     $result = mysqli_query($con, $query);
     while($d = mysqli_fetch_object($result)){
 
