@@ -40,6 +40,13 @@ if($_SESSION['estoque']['empresa']){
 <div class="card m-3">
   <h5 class="card-header"><?=$d->nome?> - <?=$d->cnpj?></h5>
   <div class="card-body">
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Buscar Produtos por código ou descrição" aria-label="Buscar Produtos por código ou descrição" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+
     <table class="table table-hover">
         <thead>
             <tr>
