@@ -36,7 +36,7 @@
   <div class="card-header">
     Nota Principal
   </div>
-  <ul class="list-group list-group-flush">
+  <ul class="list-group">
         <?php
         foreach($infPrincipal as $i => $v){
             
@@ -89,7 +89,7 @@ $infEntrada = [
     <div class="card-header">
         Registro de Entrada
     </div>
-    <ul class="list-group list-group-flush">
+    <ul class="list-group">
             <?php
             foreach($infEntrada as $i => $v){
             ?>
