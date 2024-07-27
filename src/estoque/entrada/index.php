@@ -195,7 +195,6 @@
                 ";
                 mysqli_query($con,$query);
 
-           
 
             }
 
