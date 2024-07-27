@@ -6,7 +6,7 @@
 
 ?>
 
-<div class="d-flex justify-content-end">
+<div class="d-flex justify-content-end mb-2">
     <button iniciar_venda class="btn btn-success btn-sm"><i class="fa-solid fa-bag-shopping"></i> Iniciar uma Venda</button>
 </div>
 
