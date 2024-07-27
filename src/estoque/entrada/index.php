@@ -56,6 +56,9 @@
             $cod_nota = mysqli_insert_id($con);
 
 
+            if($cod_nota){
+
+
             ///////////////////////// EMPRESAS ////////////////////////////////
             //fornecedor
             $f = $xml->NFe->infNFe->emit;
@@ -198,7 +201,7 @@
 
             }
 
-
+        }
 
 
         }
