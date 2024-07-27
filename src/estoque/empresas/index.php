@@ -5,30 +5,25 @@
 
 
 <div class="card m-3">
-  <h5 class="card-header">Featured</h5>
+  <h5 class="card-header">Estoque</h5>
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <h5 class="card-title">Consulta de Estoque por empresa</h5>
+    <p class="card-text">Selecione uma empresa para verificação do estque de produtos.</p>
+    <select name="empresa" id="empresa">
+        <option value="">:: Selecione uma empresa ::</option>
+        <?php
+            $q = "select * from empresas where tipo = 'g' order by nome asc";
+            $r = mysqli_query($con, $q);
+            while($e = mysqli_fetch_object($r)){
+        ?>        
+        <option value="<?=$e->codigo?>"><?=$e->nome?></option>
+        <?php
+            }
+        ?>  
+    </select>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
-
-
-<?php
-    $q = "select * from empresas where tipo = 'g' order by nome asc";
-    $r = mysqli_query($con, $q);
-    while($e = mysqli_fetch_object($r)){
-    ?>
-    <div class="row mb-1">
-      <div class="col">
-        <a url="src/estoque/empresas/index.php?cod=<?=$e->codigo?>" class="text-decoration-none" data-bs-dismiss="offcanvas" aria-label="Close">
-          <i class="fa-regular fa-user col-1"></i> <span class="col-11"><?=$e->nome?></span>
-        </a>
-      </div>
-    </div>  
-    <?php
-    }
-    ?>
 
 
 
