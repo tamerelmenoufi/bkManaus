@@ -24,7 +24,7 @@
 
 ?>
 
-<div class="card m-3">
+<div class="card">
   <h5 class="card-header">Venda (<?=$d->nome?> - <?=$d->cnpj?>)</h5>
   <div class="card-body">
     <table class="table table-hover">
