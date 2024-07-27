@@ -5,6 +5,12 @@
     if($_POST['busca']) $_SESSION['estoque']['busca'] = $_POST['busca'];
     if($_POST['busca'] == 'limpar') $_SESSION['estoque']['busca'] = false;
 
+    if($_SESSION['estoque']['busca']){
+
+        $where = " and (cProd like '%{$_SESSION['estoque']['busca']}%' or xProd like '%{$_SESSION['estoque']['busca']}%') ";
+
+    }
+
 ?>
 
 
@@ -62,7 +68,7 @@ if($_SESSION['estoque']['empresa']){
         </thead>
         <tbody>
     <?php
-        $q = "select * from estoque_{$d->codigo} order by xProd asc";
+        $q = "select * from estoque_{$d->codigo} where 1 {$where} order by xProd asc";
         $r = mysqli_query($con, $q);
         while($e = mysqli_fetch_object($r)){
     ?>
