@@ -37,6 +37,11 @@
         <?php
         }
         ?>
+        <div class="d-flex justify-content-between">
+            <span>Arquivo XML</span>
+            <a href='../volumes/notas/xml/<?=$d->xml?>' target="_blank" class="btn btn-link"><?=$d->xml?></a>
+            <!--<button class="btn btn-danger btn-sm">OK</button>-->
+        </div>
     </li>
   </ul>
 </div>
