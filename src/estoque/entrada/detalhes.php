@@ -54,15 +54,43 @@
   </ul>
 </div>
 
+<?php
 
+
+$y = json_decode($d->nf_json);
+
+$infEntrada = [
+    ['Número', $y->NFe->infNFe->ide->nNF],
+    ['Série', $y->NFe->infNFe->ide->serie],
+    ['Tipo', $y->NFe->infNFe->ide->tpNF],
+    
+    ['Emitente CNPJ', $y->NFe->infNFe->emit->CNPJ],
+    ['Emitente', $y->NFe->infNFe->emit->xNome],
+
+    ['Destinatário CNPJ', $y->NFe->infNFe->dest->CNPJ],
+    ['Destinatário', $y->NFe->infNFe->dest->xNome],
+
+    ['Data da Emissão', $y->NFe->infNFe->ide->dhEmi],
+    ['Descrição', $y->NFe->infNFe->ide->natOp],
+];
+
+?>
  
 <div class="card mb-3">
   <div class="card-header">
     Registro de Entrada
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
+        <?php
+        foreach($infEntrada as $i => $v){
+        ?>
+        <div class="d-flex justify-content-between">
+            <span><?=$v[0]?></span>
+            <div><?=$v[1]?></div>
+            <!--<button class="btn btn-danger btn-sm">OK</button>-->
+        </div>
+        <?php
+        }
+        ?>
   </ul>
 </div>
