@@ -395,6 +395,16 @@
             base64 = $("#dadosXML").attr("base64");
             tipo = $("#dadosXML").attr("tipo");
             nome = $("#dadosXML").attr("nome");
+
+            if(!base64 || !tipo || !nome){
+                $.alert{
+                    type:'red',
+                    title:"Dados incompletos",
+                    content:"Favor selecione o arquivo XML para incluir a note!"
+                };
+                return false;
+            }
+
             Carregando()
             $.ajax({
                 url:"src/estoque/entrada/index.php",
