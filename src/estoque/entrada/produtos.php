@@ -37,7 +37,7 @@
 ?>
 
 <div class="alert alert-warning" role="alert">
-  A simple warning alert—check it out!
+    <i class="fa-solid fa-triangle-exclamation"></i> Produtos não adicionado ao estoque!
 </div>
 
 <?php
