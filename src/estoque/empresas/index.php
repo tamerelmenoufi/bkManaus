@@ -41,7 +41,7 @@ if($_SESSION['estoque']['empresa']){
 ?>
 
 <div class="d-flex justify-content-end m-3">
-    <button iniciar_venda class="btn btn-primary btn-sm">Iniciar uma Venda</button>
+    <button iniciar_venda class="btn btn-success btn-sm"><i class="fa-solid fa-bag-shopping"></i> Iniciar uma Venda</button>
 </div>
 
 <?php
