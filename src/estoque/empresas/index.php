@@ -70,6 +70,13 @@ if($_SESSION['estoque']['empresa']){
                 <th>Unidade</th>
                 <th>Quantidade</th>
                 <th>Preço Unitário</th>
+                <?php
+                if($_SESSION['estoque']['destinataria']){
+                ?>
+                <th>Venda</th>
+                <?php
+                }
+                ?>
             </tr>
         </thead>
         <tbody>
@@ -84,7 +91,18 @@ if($_SESSION['estoque']['empresa']){
                 <td><?=$e->uCom?></td>
                 <td><?=$e->qCom?></td>
                 <td><?=$e->vUnCom?></td>
+                <?php
+                if($_SESSION['estoque']['destinataria']){
+                ?>
                 <td>
+                    <div class="input-group mb-3">
+                        <input quantidade_<?=$e->codigo?> type="text" class="form-control" placeholder="00000" aria-describedby="button-addon3">
+                        <button adicionar="<?=$e->codigo?>" class="btn btn-outline-secondary" type="button" id="button-addon3"><i class="fa-solid fa-cart-plus"></i></button>
+                    </div>
+                </td>
+                <?php
+                }
+                ?>
             </tr>     
     <?php
         }
