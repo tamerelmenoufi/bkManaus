@@ -5,7 +5,7 @@
 
 <?php
     $q = "select * from empresas where tipo = 'g' order by nome asc";
-    $r = mysqli_query($conE, $q);
+    $r = mysqli_query($con, $q);
     while($e = mysqli_fetch_object($r)){
     ?>
     <div class="row mb-1">

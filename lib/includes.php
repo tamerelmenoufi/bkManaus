@@ -12,7 +12,6 @@
         $con = AppConnect('bk_estoque');
     }else{
         $con = AppConnect('bk_manaus');
-        $conE = AppConnect('bk_estoque');
     }
     $conApi = AppConnect('information_schema');
     $md5 = md5(date("YmdHis"));
