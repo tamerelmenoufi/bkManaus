@@ -6,20 +6,40 @@
     $d = mysqli_fetch_object($result);
 
 
+    $x = json_decode($d->dados);
+
     //var_dump($d);
+
+    $infPrincipal = [
+        ['Número', 'nNF'],
+        ['Série', 'serie'],
+        ['Tipo', 'tpNF'],
+        ['Data da Emissão', 'dhEmi'],
+        ['Descrição', 'natOp'],
+        ['Número da Nota', 'nNF'],
+        ['Número da Nota', 'nNF'],
+        ['Número da Nota', 'nNF'],
+    ];
 
  ?>
  
  <div class="card mb-3">
   <div class="card-header">
-    Featured
+    Nota Principal
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
+        <?php
+        foreach($infPrincipal as $i => $v){
+        ?>
         <div class="d-flex justify-content-between">
-            <span>Teste</span>
-            <button class="btn btn-danger btn-sm">OK</button>
+            <span><?=$v[0]?></span>
+            <div><?=$x->NFe->infNFe->ide->$v[1]?></div>
+            <!--<button class="btn btn-danger btn-sm">OK</button>-->
         </div>
+        <?php
+        }
+        ?>
     </li>
   </ul>
 </div>
@@ -28,7 +48,7 @@
  
 <div class="card mb-3">
   <div class="card-header">
-    Featured
+    Registro de Entrada
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">An item</li>
