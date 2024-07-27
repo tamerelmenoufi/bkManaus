@@ -32,6 +32,7 @@
                 },
                 success:function(dados){
                     $("#paginaHome").html(dados);
+                    listaEmpresas.close();
                 }
             })
         })
