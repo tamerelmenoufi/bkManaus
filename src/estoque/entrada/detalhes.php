@@ -5,6 +5,11 @@
     $result = mysqli_query($con, $query);
     $d = mysqli_fetch_object($result);
 
+    $tipo = [
+        '0' => '0 - Entrada',
+        '1' => '1 - Saída',
+    ];
+
 
     $x = json_decode($d->dados);
 
@@ -13,7 +18,7 @@
     $infPrincipal = [
         ['Número', $x->NFe->infNFe->ide->nNF],
         ['Série', $x->NFe->infNFe->ide->serie],
-        ['Tipo', $x->NFe->infNFe->ide->tpNF],
+        ['Tipo', $tipo[$x->NFe->infNFe->ide->tpNF]],
         
         ['Emitente CNPJ', $x->NFe->infNFe->emit->CNPJ],
         ['Emitente', $x->NFe->infNFe->emit->xNome],
@@ -62,7 +67,7 @@ $y = json_decode($d->nf_json);
 $infEntrada = [
     ['Número', $y->NFe->infNFe->ide->nNF],
     ['Série', $y->NFe->infNFe->ide->serie],
-    ['Tipo', $y->NFe->infNFe->ide->tpNF],
+    ['Tipo', $tipo[$y->NFe->infNFe->ide->tpNF]],
     ['Situação', $d->nf_status],
     ['Chave', $d->nf_chave],
     
