@@ -44,7 +44,7 @@ if($_SESSION['estoque']['empresa']){
   <div class="card-body">
 
     <div class="input-group mb-3">
-        <input filtro type="text" value="<?=$_SESSION['estqoue']['busca']?>" class="form-control" placeholder="Buscar Produtos por código ou descrição" aria-label="Buscar Produtos por código ou descrição" aria-describedby="button-addon2">
+        <input filtro type="text" value="<?=$_SESSION['estoque']['busca']?>" class="form-control" placeholder="Buscar Produtos por código ou descrição" aria-label="Buscar Produtos por código ou descrição" aria-describedby="button-addon2">
         <button filtrar class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
         <button limpar class="btn btn-outline-danger" type="button" id="button-addon2"><i class="fa-solid fa-trash"></i></button>
     </div>
