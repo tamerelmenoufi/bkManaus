@@ -29,7 +29,7 @@
 
 
 <?php
-if($_SESSION['estqoue']['empresa']){
+if($_SESSION['estoque']['empresa']){
 
 
     echo $query = "select * from empresas where codigo = '{$_SESSION['estqoue']['empresa']}'";
