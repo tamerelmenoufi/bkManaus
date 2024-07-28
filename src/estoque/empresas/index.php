@@ -205,8 +205,8 @@ if($_SESSION['estoque']['empresa']){
 
       $("button[adicionar]").click(function(){
         codigo = $(this).attr("adicionar");
-        quantidade = $(`input[quantidade="${codigo}"]`).val();
-        limite = $(`input[quantidade="${codigo}"]`).attr("limite");
+        quantidade = parseInt($(`input[quantidade="${codigo}"]`).val());
+        limite = parseInt($(`input[quantidade="${codigo}"]`).attr("limite"));
 
         if(quantidade > limite){
             $.alert('limite inferior ao pedido')
