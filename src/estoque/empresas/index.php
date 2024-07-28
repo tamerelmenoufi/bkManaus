@@ -12,7 +12,7 @@
 
     if($_POST['acao'] == 'venda'){
 
-        $query = "insert into movimentacao
+        echo $query = "insert into movimentacao
                                             (cod_nota,	
                                             data,
                                             tipo,
@@ -71,9 +71,9 @@
 
                     from estoque_{$_SESSION['estoque']['empresa']}  where  qCom <= {$_POST['quantidade']} and codigo = {$_POST['codigo']}
                 ";
-        $result = mysqli_query($con, $query);
+        mysqli_query($con, $query);
 
-        if(!mysqli_affected_rows()){
+        if(!mysqli_affected_rows($con)){
             echo 'erro';
             exit();
         }else{
