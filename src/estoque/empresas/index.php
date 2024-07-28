@@ -96,7 +96,7 @@ if($_SESSION['estoque']['empresa']){
                 ?>
                 <td>
                     <div class="input-group mb-3">
-                        <input quantidade=<?=$e->codigo?> type="text" class="form-control" placeholder="00000" aria-describedby="button-addon3">
+                        <input quantidade=<?=$e->codigo?> limite="<?=$e->qCom?>" type="text" class="form-control" placeholder="00000" aria-describedby="button-addon3">
                         <button adicionar="<?=$e->codigo?>" class="btn btn-outline-secondary" type="button" id="button-addon3"><i class="fa-solid fa-cart-plus"></i></button>
                     </div>
                 </td>
@@ -201,6 +201,19 @@ if($_SESSION['estoque']['empresa']){
             }
         })
     
+      })
+
+      $("button[adicionar]").click(function(){
+        codigo = $(this).attr("adicionar");
+        quantidade = $(`input[quantidade="${codigo}"]`).val();
+        limite = $(`input[quantidade="${codigo}"]`).attr("limite");
+
+        if(quantidade > limite){
+            $.alert('limite inferior ao pedido')
+        }else{
+            $.alert('Pedido confirmado')
+        }
+
       })
 
 
