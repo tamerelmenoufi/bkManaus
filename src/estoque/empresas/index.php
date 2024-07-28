@@ -68,7 +68,7 @@
                                             '{}',
                                             '0'
 
-                    from estoque_{$_SESSION['estoque']['empresa']}  where  qCom <= {$_POST['quantidade']} and codigo = {$_POST['codigo']}
+                    from estoque_{$_SESSION['estoque']['empresa']}  where  qCom >= {$_POST['quantidade']} and codigo = {$_POST['codigo']}
                 ";
         mysqli_query($con, $query);
 
