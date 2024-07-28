@@ -4,6 +4,83 @@
     if($_POST['empresa']) $_SESSION['estoque']['empresa'] = $_POST['empresa'];
     if($_POST['destinataria']) $_SESSION['estoque']['destinataria'] = $_POST['destinataria'];
 
+    //codigo,
+    //quantidade,
+    //limite,
+    //empresa,
+    //destinataria,
+
+    if($_POST['acao'] == 'venda'){
+
+        $query = "insert into movimentacao
+                                            (cod_nota,	
+                                            data,
+                                            tipo,
+                                            nItem,	
+                                            cProd,	
+                                            cEAN,	
+                                            xProd,	
+                                            NCM,
+                                            CEST,	
+                                            CFOP,	
+                                            uCom,	
+                                            qCom,	
+                                            vUnCom,	
+                                            uConv,
+                                            qConv,	
+                                            vUnConv,	
+                                            vProd,	
+                                            cEANTrib,	
+                                            uTrib,	
+                                            qTrib,	
+                                            vUnTrib,
+
+                                            indTot,	
+                                            imposto,	
+                                            situacao)
+
+                    SELECT
+
+                                            (select codigo from vendas where 
+                                                                            emitente = '{$_SESSION['estoque']['empresa']}' and 
+                                                                            destinatario = '{$_SESSION['estoque']['destinataria']}' 
+                                                                            and situacao = '0'),
+                                            NOW(),
+                                            tipo='s',
+                                            '0',
+                                            cProd,
+                                            cEAN,
+                                            xProd,
+                                            NCM,
+                                            CEST,
+                                            CFOP,
+                                            uCom,
+                                            '{$_POST['quantidade']}',
+                                            vUnCom,
+                                            uCom,
+                                            qCom,
+                                            vUnCom,
+                                            ({$_POST['quantidade']} * vUnCom),
+                                            '',
+                                            uCom,
+                                            qCom,
+                                            vUnCom,
+                                            '1',
+                                            '{}',
+                                            '0'
+
+                    from estoque_{$_SESSION['estoque']['empresa']}  where  qCom <= {$_POST['quantidade']} and codigo = {$_POST['codigo']}
+                ";
+        $result = mysqli_query($con, $query);
+
+        if(!mysqli_affected_rows($result)){
+            echo 'erro';
+            exit();
+        }else{
+            mysqli_query($con, "UPDATE estoque_{$_SESSION['estoque']['empresa']} set qCom = (qCom - {$_POST['quantidade']}) where codigo = '{$_POST['codigo']}'");
+        }
+
+    }
     
     if($_POST['busca']) $_SESSION['estoque']['busca'] = $_POST['busca'];
     if($_POST['busca'] == 'limpar') $_SESSION['estoque']['busca'] = false;
@@ -213,7 +290,22 @@ if($_SESSION['estoque']['empresa']){
         }else if(quantidade > limite){
             $.alert('limite inferior ao pedido')
         }else{
-            $.alert('Pedido confirmado')
+            Carregando();
+            $.ajax({
+                url:"src/estoque/empresas/index.php",
+                type:"POST",
+                data:{
+                    codigo,
+                    quantidade,
+                    limite,
+                    empresa:'<?=$_SESSION['estoque']['empresa']?>',
+                    destinataria:'<?=$_SESSION['estoque']['destinataria']?>',
+                    acao:'venda'
+                },
+                success:function(dados){
+                    $("#paginaHome").html(dados);
+                }
+            })
         }
 
       })
