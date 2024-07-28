@@ -123,7 +123,7 @@ if($_SESSION['estoque']['empresa']){
     
     Carregando('none');
 
-    $("input[quantidade]").mask("#0");
+    $("input[quantidade]").mask("####0");
 
     $.ajax({
         url:"src/estoque/empresas/venda.php",
