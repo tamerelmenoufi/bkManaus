@@ -12,7 +12,7 @@
 
     if($_POST['acao'] == 'venda'){
 
-        echo $query = "insert into movimentacao
+        $query = "insert into movimentacao
                                             (cod_nota,	
                                             data,
                                             tipo,
@@ -302,6 +302,15 @@ if($_SESSION['estoque']['empresa']){
                     acao:'venda'
                 },
                 success:function(dados){
+                    if(dados == 'erro'){
+                        $.alert({
+                            type:'red',
+                            title:'Erro',
+                            content:'A compra não foi confirmada, favor confira a quantidade disponível!'
+                        })
+                        Carregando('none');
+                        return false;
+                    }
                     $("#paginaHome").html(dados);
                 }
             })
