@@ -208,7 +208,9 @@ if($_SESSION['estoque']['empresa']){
         quantidade = parseInt($(`input[quantidade="${codigo}"]`).val());
         limite = parseInt($(`input[quantidade="${codigo}"]`).attr("limite"));
 
-        if(quantidade > limite){
+        if(!quantidade){
+            $.alert('Informe uma quantidade')
+        }else if(quantidade > limite){
             $.alert('limite inferior ao pedido')
         }else{
             $.alert('Pedido confirmado')
