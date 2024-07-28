@@ -96,7 +96,7 @@ if($_SESSION['estoque']['empresa']){
                 ?>
                 <td>
                     <div class="input-group mb-3">
-                        <input quantidade_<?=$e->codigo?> type="text" class="form-control" placeholder="00000" aria-describedby="button-addon3">
+                        <input quantidade=<?=$e->codigo?> type="text" class="form-control" placeholder="00000" aria-describedby="button-addon3">
                         <button adicionar="<?=$e->codigo?>" class="btn btn-outline-secondary" type="button" id="button-addon3"><i class="fa-solid fa-cart-plus"></i></button>
                     </div>
                 </td>
@@ -122,6 +122,8 @@ if($_SESSION['estoque']['empresa']){
   $(function(){
     
     Carregando('none');
+
+    $("input[quantidade]").mask("#0");
 
     $.ajax({
         url:"src/estoque/empresas/venda.php",
