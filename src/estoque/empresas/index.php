@@ -34,7 +34,6 @@
                                             uTrib,	
                                             qTrib,	
                                             vUnTrib,
-
                                             indTot,	
                                             imposto,	
                                             situacao)
@@ -46,7 +45,7 @@
                                                                             destinatario = '{$_SESSION['estoque']['destinataria']}' 
                                                                             and situacao = '0'),
                                             NOW(),
-                                            tipo='s',
+                                            's',
                                             '0',
                                             cProd,
                                             cEAN,
