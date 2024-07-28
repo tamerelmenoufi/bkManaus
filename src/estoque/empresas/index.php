@@ -73,7 +73,7 @@
                 ";
         $result = mysqli_query($con, $query);
 
-        if(!mysqli_affected_rows($result)){
+        if(!mysqli_affected_rows()){
             echo 'erro';
             exit();
         }else{
