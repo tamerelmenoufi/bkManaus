@@ -137,6 +137,9 @@ if($_SESSION['estoque']['empresa']){
         <button limpar class="btn btn-outline-danger" type="button" id="button-addon2"><i class="fa-solid fa-trash"></i></button>
     </div>
 
+    <?php
+    if($where){
+    ?>
 
     <table class="table table-hover">
         <thead>
@@ -184,7 +187,10 @@ if($_SESSION['estoque']['empresa']){
         }
     ?>
         </tbody>
-    </table>    
+    </table>   
+    <?php
+    }
+    ?>
   </div>
 </div>
 <?php
