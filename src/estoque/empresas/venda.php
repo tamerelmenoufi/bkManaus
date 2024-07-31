@@ -51,7 +51,7 @@
                 <td><?=$e->qCom?></td>
                 <td><?=$e->vUnCom?></td>
                 <td>
-                    <button devolverItem="<?=$e->codigo?>" class="btn btn-danger btn-sm">
+                    <button devolverItem="<?=$e->codigo?>" produto="<?=$e->xProd?>" class="btn btn-danger btn-sm">
                         <i class="fa-solid fa-trash-can"></i>
                     </button>
                 </td>
@@ -96,16 +96,18 @@
         $("button[devolverItem]").click(function(){
 
             item = $(this).attr("devolverItem");
+            produto = $(this).attr("produto");
 
             $.confirm({
                 title:"Excluir Item",
-                content:"Deseja realmente excluir o item da nota?",
+                type:'red',
+                content:`Deseja realmente excluir o item <b>${produto}</b> da nota?`,
                 buttons:{
                     'Sim':function(){
 
                     },
                     'não':function(){
-                        
+
                     }
                 }
             })
