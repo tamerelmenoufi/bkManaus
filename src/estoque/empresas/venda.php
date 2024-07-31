@@ -45,6 +45,7 @@
                 <th>Unidade</th>
                 <th>Quantidade</th>
                 <th>Preço Unitário</th>
+                <th>Preço Total</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -54,6 +55,8 @@
         $r = mysqli_query($con, $q);
         $i = 1;
         while($e = mysqli_fetch_object($r)){
+
+            $soma = ($e->vUnCom*$e->qCom);
     ?>
             <tr>
                 <td><?=$i?></td>
@@ -62,6 +65,7 @@
                 <td><?=$e->uCom?></td>
                 <td><?=$e->qCom?></td>
                 <td><?=$e->vUnCom?></td>
+                <td><?=$soma?></td>
                 <td>
                     <button devolverItem="<?=$e->codigo?>" produto="<?=$e->xProd?>" class="btn btn-danger btn-sm">
                         <i class="fa-solid fa-trash-can"></i>
@@ -70,6 +74,9 @@
                 <td>
             </tr>     
     <?php
+
+        $total_geral = ($total_geral + $soma);
+
         $i++;
         }
     ?>
