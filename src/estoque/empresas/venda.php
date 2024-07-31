@@ -56,6 +56,7 @@
         while($e = mysqli_fetch_object($r)){
     ?>
             <tr>
+                <td><?=$i?></td>
                 <td><?=$e->cProd?></td>
                 <td><?=$e->xProd?></td>
                 <td><?=$e->uCom?></td>
