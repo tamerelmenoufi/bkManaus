@@ -34,7 +34,7 @@
 ?>
 
 <div class="card">
-  <h5 class="card-header">Trasferência (<?=$d->nome?> - <?=$d->cnpj?>)</h5>
+  <h5 class="card-header">Transferência (<?=$d->nome?> - <?=$d->cnpj?>)</h5>
   <div class="card-body">
     <table class="table table-hover">
         <thead>
