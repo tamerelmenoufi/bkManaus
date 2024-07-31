@@ -7,7 +7,9 @@
     if($_POST['acao'] == 'devolver'){
 
         echo $query = "update estoque_{$_SESSION['estoque']['empresa']} set qCom = (qCom + (select qCom from movimentacao where codigo = '{$_POST['item']}')) where cProd = (select cProd from movimentacao where codigo = '{$_POST['item']}')";
-        mysqli_query($con, $query);
+        if(mysqli_query($con, $query)){
+            mysqli_query($con, "delete from movimentacao where codigo = '{$_POST['item']}'");
+        }
         exit();
     }
 
