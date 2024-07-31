@@ -81,9 +81,9 @@
     ?>
 
             <tr>
-                <td colspan="6" class="text-end">Total da Nota</td>
-                <td class="text-start"><?=$total_geral?></td>
-                <td></td>
+                <th colspan="6" class="text-end">Total da Nota</th>
+                <th class="text-start"><?=$total_geral?></th>
+                <th></th>
             </tr>   
 
         </tbody>
