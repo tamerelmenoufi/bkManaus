@@ -214,7 +214,7 @@ if($_SESSION['estoque']['empresa']){
     })
 
 
-      $("button[listaEstoque]").click(function(){
+    $("button[listaEstoque]").click(function(){
         empresa = $("#empresa").val();
         if(!empresa){
             $.alert({
@@ -235,9 +235,9 @@ if($_SESSION['estoque']['empresa']){
                 $("#paginaHome").html(dados);
             }
         })
-      })
+    })
 
-      $("button[filtrar]").click(function(){
+    $("button[filtrar]").click(function(){
         busca = $("input[filtro]").val();
 
         if(!busca){
@@ -259,11 +259,11 @@ if($_SESSION['estoque']['empresa']){
                 $("#paginaHome").html(dados);
             }
         })
-    
-      })
+
+    })
 
 
-      $("button[limpar]").click(function(){
+    $("button[limpar]").click(function(){
 
         Carregando();
         $.ajax({
@@ -276,10 +276,10 @@ if($_SESSION['estoque']['empresa']){
                 $("#paginaHome").html(dados);
             }
         })
-    
-      })
 
-      $("button[adicionar]").click(function(){
+    })
+
+    $("button[adicionar]").click(function(){
         codigo = $(this).attr("adicionar");
         quantidade = parseInt($(`input[quantidade="${codigo}"]`).val());
         limite = parseInt($(`input[quantidade="${codigo}"]`).attr("limite"));
@@ -316,7 +316,7 @@ if($_SESSION['estoque']['empresa']){
             })
         }
 
-      })
+    })
 
 
 
