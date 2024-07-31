@@ -35,6 +35,7 @@
                 <th>Unidade</th>
                 <th>Quantidade</th>
                 <th>Preço Unitário</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -49,6 +50,11 @@
                 <td><?=$e->uCom?></td>
                 <td><?=$e->qCom?></td>
                 <td><?=$e->vUnCom?></td>
+                <td>
+                    <button devolverItem="<?=$e->codigo?>" class="btn btn-danger btn-sm">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </td>
                 <td>
             </tr>     
     <?php
@@ -82,6 +88,25 @@
                         content:dados,
                         type:"blue"
                     })
+                }
+            })
+
+        })
+
+        $("button[devolverItem]").click(function(){
+
+            item = $(this).attr("devolverItem");
+
+            $.confirm({
+                title:"Excluir Item",
+                content:"Deseja realmente excluir o item da nota?",
+                buttons:{
+                    'Sim':function(){
+
+                    },
+                    'não':function(){
+                        
+                    }
                 }
             })
 
