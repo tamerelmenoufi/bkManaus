@@ -39,6 +39,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
+                <th>#</th>
                 <th>Código</th>
                 <th>Produto</th>
                 <th>Unidade</th>
@@ -51,6 +52,7 @@
     <?php
         $q = "select * from movimentacao where cod_nota = '{$d->codigo}' and tipo = 's' order by codigo asc";
         $r = mysqli_query($con, $q);
+        $i = 1;
         while($e = mysqli_fetch_object($r)){
     ?>
             <tr>
@@ -67,6 +69,7 @@
                 <td>
             </tr>     
     <?php
+        $i++;
         }
     ?>
         </tbody>
