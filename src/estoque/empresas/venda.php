@@ -122,6 +122,19 @@
                             },
                             success:function(dados){
                                 console.log(dados);
+
+                                $.ajax({
+                                    url:"src/estoque/empresas/index.php",
+                                    type:"POST",
+                                    data:{
+                                        empresa:'<?=$_SESSION['estoque']['empresa']?>',
+                                        destinataria:'<?=$_SESSION['estoque']['destinataria']?>'
+                                    },
+                                    success:function(dados){
+                                        $("#paginaHome").html(dados);
+                                    }
+                                })
+
                             }
                         })
 
