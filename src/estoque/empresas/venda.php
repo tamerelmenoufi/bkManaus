@@ -4,6 +4,12 @@
     if($_POST['empresa']) $_SESSION['estoque']['empresa'] = $_POST['empresa'];
     if($_POST['destinataria']) $_SESSION['estoque']['destinataria'] = $_POST['destinataria'];
 
+    if($_POST['acao'] == 'devolver'){
+
+        echo $query = "update estoque_{$_SESSION['estoque']['empresa']} set qCom = (qCom + (select qCom from movimentacao where codigo = '{$_POST['item']}')) where cProd = (select cProd from movimentacao where codigo = '{$_POST['item']}')";
+        exit();
+    }
+
 ?>
 
 <div class="d-flex justify-content-end mb-2">
@@ -104,6 +110,20 @@
                 content:`Deseja realmente excluir o item <b>${produto}</b> da nota?`,
                 buttons:{
                     'Sim':function(){
+
+                        Carregando();
+                        $.ajax({
+                            url:"src/estoque/empresas/venda.php",
+                            type:"POST",
+                            data:{
+                                empresa:'<?=$_SESSION['estoque']['empresa']?>',
+                                item,
+                                acao:'devolver'
+                            },
+                            success:function(dados){
+                                console.log(dados);
+                            }
+                        })
 
                     },
                     'não':function(){
