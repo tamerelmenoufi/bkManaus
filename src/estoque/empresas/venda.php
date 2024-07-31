@@ -71,7 +71,6 @@
                         <i class="fa-solid fa-trash-can"></i>
                     </button>
                 </td>
-                <td>
             </tr>     
     <?php
 
@@ -80,6 +79,13 @@
         $i++;
         }
     ?>
+
+            <tr>
+                <td colspan="6" class="text-end">Total da Nota</td>
+                <td class="text-start"><?=$total_geral?></td>
+                <td></td>
+            </tr>   
+
         </tbody>
     </table>    
   </div>
