@@ -49,7 +49,7 @@
         if(file_put_contents("../../volumes/notas/xml/{$nome}", base64_decode($arquivo))){
 
             $xml = simplexml_load_file("../../volumes/notas/xml/{$nome}");
-            $json = json_encode($xml);
+            $json = addslashes(json_encode($xml));
 
             echo $query = "insert into notas set dados = '{$json}', data = NOW(), xml = '{$nome}', situacao = '0'";
             mysqli_query($con, $query);
