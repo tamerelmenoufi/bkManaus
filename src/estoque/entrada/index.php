@@ -51,7 +51,7 @@
             $xml = simplexml_load_file("../../volumes/notas/xml/{$nome}");
             $json = json_encode($xml);
 
-            $query = "insert into notas set dados = '{$json}', data = NOW(), xml = '{$nome}', situacao = '0'";
+            echo $query = "insert into notas set dados = '{$json}', data = NOW(), xml = '{$nome}', situacao = '0'";
             mysqli_query($con, $query);
             $cod_nota = mysqli_insert_id($con);
 
