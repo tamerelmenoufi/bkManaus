@@ -21,6 +21,6 @@
 
     $cod = $d1.$d2.$d3.$d4;
 
-    $result = EnviarWapp($_POST['telefone'],"BK Manaus informe: Seu código de acesso é *{$cod}*");
+    //$result = EnviarWapp($_POST['telefone'],"BK Manaus informe: Seu código de acesso é *{$cod}*");
 
     echo "{\"status\":\"success\", \"codigo\":\"{$cod}\"}";
