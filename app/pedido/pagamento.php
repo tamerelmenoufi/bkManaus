@@ -33,6 +33,9 @@
     .loja_fechada{
         display:none!important;
     }
+    span[desconto]{
+        color:red;
+    }
 </style>
 
 <div class="row g-0 p-2">
@@ -141,7 +144,7 @@
 
         $("span[total]").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         $("span[taxa_entraga]").html('R$ ' + taxa.toLocaleString('pt-br', {minimumFractionDigits: 2}));
-        $("span[desconto]").html('R$ ' + desconto.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+        $("span[desconto]").html('R$ -' + desconto.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         $("span[pagar]").html('R$ ' + pagar.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
         if(!taxa){
