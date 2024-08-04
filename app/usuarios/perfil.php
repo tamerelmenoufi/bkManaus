@@ -118,7 +118,7 @@ $(function(){
                     btnClass:'btn-danger',
                     action:function(){
                         localStorage.removeItem("codUsr");
-                        localStorage.removeItem("idUnico");
+                        //localStorage.removeItem("idUnico");
                         window.location.href='./?s=1';
                     }
                 },
