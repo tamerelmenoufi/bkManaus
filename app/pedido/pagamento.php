@@ -274,6 +274,16 @@
                 },
                 success:function(dados){
 
+                    if(dados == 'erro'){
+
+                        $.alert({
+                            title:'Erro',
+                            type:'red',
+                            content:'Código informado não confere!'
+                        })
+
+                    }
+
                     $.ajax({
                         url:"pedido/pagar.php",
                         type:"POST",
@@ -283,16 +293,7 @@
                         },
                         success:function(dados){
 
-                            if(dados == 'erro'){
-
-                                $.alert({
-                                    title:'Erro',
-                                    type:'red',
-                                    content:'Código informado não confere!'
-                                })
-                            }
-
-                            
+                           
                             $(`.CorpoApp`).html(dados);
 
                         }
