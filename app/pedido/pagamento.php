@@ -141,6 +141,7 @@
 
         $("span[total]").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         $("span[taxa_entraga]").html('R$ ' + taxa.toLocaleString('pt-br', {minimumFractionDigits: 2}));
+        $("span[desconto]").html('R$ ' + desconto.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         $("span[pagar]").html('R$ ' + pagar.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
         if(!taxa){
@@ -157,14 +158,15 @@
             codTaxa = ($("span[codigo_taxa].ativo").attr("codigo_taxa"));
             loja = ($("span[codigo_taxa].ativo").attr("loja"));
             distancia = ($("span[distancia].ativo").attr("distancia"))*1;
-            pagar = (total*1+taxa*1);
+            desconto = ($("span[desconto].ativo").attr("desconto"))*1;
+            pagar = (total*1+taxa*1-desconto*1);
             
             cupom = 0;
             valor_cupom = 0;
             valor_compra = total;
             valor_entrega = taxa;
             codigo_entrega = codTaxa;
-            valor_desconto = 0;
+            valor_desconto = desconto;
             valor_total = pagar;
 
             idUnico = localStorage.getItem("idUnico");
