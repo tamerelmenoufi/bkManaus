@@ -65,7 +65,7 @@
             </div>
 
             
-            <div class="d-flex justify-content-between">    
+            <div class="mt-3 w-100">    
                 <div class="card">
                     <div class="card-header">
                         Cupom Promocional
