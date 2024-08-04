@@ -142,6 +142,8 @@
         desconto = <?=(($_SESSION['desconto'])?'($("span[valor_taxa].ativo").attr("valor_taxa"))*1':'0')?>;
         pagar = (total*1+taxa*1-desconto*1);
 
+        $("span[desconto]").attr("desconto", desconto);
+
         $("span[total]").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         $("span[taxa_entraga]").html('R$ ' + taxa.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         $("span[desconto]").html('R$ -' + desconto.toLocaleString('pt-br', {minimumFractionDigits: 2}));
