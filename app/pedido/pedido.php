@@ -47,7 +47,7 @@
     if($pendente){
     ?>
     <div pendentes>
-        <div class="alert alert-danger text-center botaoAlert m-2" role="alert">
+        <div class="alert alert-danger text-center botaoAlert" role="alert">
             <b>Atenção!</b><br>Você possui pedidos pendentes, clique aqui para listar.
         </div>
     </div>
