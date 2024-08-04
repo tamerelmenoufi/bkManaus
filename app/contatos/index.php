@@ -57,7 +57,7 @@
 
 
 <div class="barra_topo">
-    <h2>Informações</h2>
+    <h6>Informações</h6>
 </div>
 
 <div class="home_corpo p-2">
@@ -90,54 +90,54 @@
     </div>
 
 
-    <div class="card" style="width: 18rem;">
+    <div class="card">
         <div class="card-header">
-            <h1>Regulamento da Promoção "Desconto e Entrega Grátis BK Manaus - Agosto 2024"</h1>
+            <h5>Regulamento da Promoção "Desconto e Entrega Grátis BK Manaus - Agosto 2024"</h5>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 
 
-                <h2>1. Objetivo da Promoção</h2>
+                <h6>1. Objetivo da Promoção</h6>
                 <p>
                     A promoção "Desconto e Entrega Grátis BK Manaus - Agosto 2024" tem como objetivo oferecer um desconto nas compras realizadas durante o mês de agosto de 2024 e entregar gratuitamente os pedidos que utilizarem o código promocional divulgado.
                 </p>
                 
-                <h2>2. Período da Promoção</h2>
+                <h6>2. Período da Promoção</h6>
                 <p>
                     A promoção é válida das 00h00 do dia 1º de agosto de 2024 até as 23h59 do dia 31 de agosto de 2024.
                 </p>
                 
-                <h2>3. Abrangência</h2>
+                <h6>3. Abrangência</h6>
                 <p>
                     A promoção é válida exclusivamente para pedidos realizados na cidade de Manaus, Amazonas, Brasil.
                 </p>
                 
-                <h2>4. Participação</h2>
+                <h6>4. Participação</h6>
                 <p>Para participar da promoção, os clientes devem:</p>
                 <ul>
                     <li>Realizar a compra durante o período de vigência da promoção.</li>
                     <li>Utilizar o código promocional exclusivamento no aplicativo próprio, divulgado nos banners, cupons e mídias sociais da BK Manaus no ato da compra.</li>
                 </ul>
                 
-                <h2>5. Código Promocional</h2>
+                <h6>5. Código Promocional</h6>
                 <p>
                     O código promocional será divulgado através de banners, cupons e mídias sociais da BK Manaus. O código deve ser inserido no campo apropriado do aplicativo no momento da finalização do pedido para que o desconto e a entrega gratuita sejam aplicados.
                 </p>
                 
-                <h2>6. Desconto</h2>
+                <h6>6. Desconto</h6>
                 <ul>
                     <li>O desconto será aplicado automaticamente ao valor total da compra após a inserção do código promocional válido.</li>
                     <li>O valor do desconto será de do valor integral da taxa de entrega de acordo com o cálculo da distância definido pelo aplicativo.</li>
                 </ul>
                 
-                <h2>7. Entrega Gratuita</h2>
+                <h6>7. Entrega Gratuita</h6>
                 <ul>
                     <li>A entrega gratuita é válida somente para pedidos realizados com o uso do código promocional divulgado.</li>
                     <li>A promoção de entrega gratuita abrange apenas os endereços de entrega no raio de 8 km de distância das projas ativas para o delivery (Loja Paraíba, Loja Djalma Batista e Loja Stúdio 5) localizados na cidade de Manaus.</li>
                 </ul>
                 
-                <h2>8. Condições Gerais</h2>
+                <h6>8. Condições Gerais</h6>
                 <ul>
                     <li>A promoção não é cumulativa com outras promoções, descontos ou ofertas.</li>
                     <li>O código promocional é de uso contínuo durante o período promocional.</li>
@@ -145,7 +145,7 @@
                     <li>Caso o cliente esqueça de inserir o código promocional, não será possível aplicar o desconto e a entrega gratuita após a finalização do pedido.</li>
                 </ul>
                 
-                <h2>9. Disposições Finais</h2>
+                <h6>9. Disposições Finais</h6>
                 <ul>
                     <li>A BK Manaus se reserva o direito de alterar os termos desta promoção a qualquer momento, sem aviso prévio, respeitando os direitos adquiridos pelos participantes até a data da alteração.</li>
                     <li>Em caso de dúvidas ou controvérsias sobre a promoção, os participantes poderão entrar em contato com o atendimento ao cliente da BK Manaus.</li>
