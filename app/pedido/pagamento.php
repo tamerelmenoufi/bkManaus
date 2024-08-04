@@ -66,7 +66,7 @@
 
             
             <div class="d-flex justify-content-between">    
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <div class="card-header">
                         Cupom Promocional
                     </div>
