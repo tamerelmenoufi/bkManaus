@@ -64,6 +64,23 @@
                 <span class="valores" pagar></span> 
             </div>
 
+            
+            <div class="d-flex justify-content-between">    
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        Cupom Promocional
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Digite abaixo o código do seu CUPOM</li>
+                        <li class="list-group-item">
+                            <div class="input-group mt-1">
+                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Enviar</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
             <div class="d-flex justify-content-between mt-3 pagamentos">    
                 <div class="enderecoLabel w-100 text-center pe-2">
