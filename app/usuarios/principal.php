@@ -71,7 +71,8 @@ $(function(){
                             '<div class="mb-3">' +
                             '<label for="codigoValida" class="form-label">Telefone</label>' +
                             '<input type="text" inputmode="numeric" class="form-control codigoValida" id="codigoValida" aria-describedby="validarMensagem">' +
-                            '<div id="validarMensagem" class="form-text">Digite o código <b>'+dados.codigo+'</b>  no campo acima!</div>' +
+                            '<!--<div id="validarMensagem" class="form-text">Digite o código <b>'+dados.codigo+'</b>  no campo acima!</div>-->' +
+                            '<div class="alert alert-primary" role="alert"><h1 class="text-center">'+dados.codigo+'</h1><p class="text-center">Digite o código no campo acima!</p></div>' +
                             '</div>' +
                             '</form>',
                             buttons: {
