@@ -170,7 +170,7 @@ if(!$_POST['novoPedido']){
     $q = ($q + $q1);
     if(!$q){
 ?>
-<h3 class='w-100 text-center' style='margin-top:200px; padding:10px;'>Sem Pedidos!</h3><p class='w-100 text-center'>Ainda não existe nenhum produto em sua cesta de compras.</p>
+<h3 class='w-100 text-center' style='margin-top:200px;'>Sem Pedidos!</h3><p class='w-100 text-center p-3'>Ainda não existe nenhum produto em sua cesta de compras.</p>
 <?php
     }
 }
