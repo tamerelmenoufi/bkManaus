@@ -275,7 +275,7 @@
                 success:function(dados){
 
                     $.ajax({
-                        url:"pedido/pagamento.php",
+                        url:"pedido/pagar.php",
                         type:"POST",
                         data:{
                             idUnico,
