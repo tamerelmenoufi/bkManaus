@@ -92,7 +92,7 @@
 
     <div class="card mt-3">
         <div class="card-header">
-            <h5>Regulamento da Promoção "Desconto e Entrega Grátis BK Manaus - Agosto 2024"</h5>
+            <h5>Regulamento da Promoção "Entrega Grátis BK Manaus - Agosto 2024"</h5>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
@@ -100,7 +100,7 @@
 
                 <h6>1. Objetivo da Promoção</h6>
                 <p>
-                    A promoção "Desconto e Entrega Grátis BK Manaus - Agosto 2024" tem como objetivo oferecer um desconto nas compras realizadas durante o mês de agosto de 2024 e entregar gratuitamente os pedidos que utilizarem o código promocional divulgado.
+                    A promoção "Entrega Grátis BK Manaus - Agosto 2024" tem como objetivo oferecer enregas grátis nas compras realizadas durante o mês de agosto de 2024 para os pedidos que utilizarem o código promocional divulgado.
                 </p>
                 
                 <h6>2. Período da Promoção</h6>
@@ -116,13 +116,14 @@
                 <h6>4. Participação</h6>
                 <p>Para participar da promoção, os clientes devem:</p>
                 <ul>
+                    <li>Acessar o aplicativo próprio da BK Manaus</li>
                     <li>Realizar a compra durante o período de vigência da promoção.</li>
-                    <li>Utilizar o código promocional exclusivamento no aplicativo próprio, divulgado nos banners, cupons e mídias sociais da BK Manaus no ato da compra.</li>
+                    <li>Utilizar o código promocional, divulgado pelas mídias sociais, cupons e banners da bk Manaus, no ato da compra.</li>
                 </ul>
                 
                 <h6>5. Código Promocional</h6>
                 <p>
-                    O código promocional será divulgado através de banners, cupons e mídias sociais da BK Manaus. O código deve ser inserido no campo apropriado do aplicativo no momento da finalização do pedido para que o desconto e a entrega gratuita sejam aplicados.
+                    O código promocional será divulgado através de banners, cupons e mídias sociais da BK Manaus. O código deve ser inserido no campo apropriado do aplicativo no momento da finalização do pedido para que o desconto da entrega gratuita sejam aplicados.
                 </p>
                 
                 <h6>6. Desconto</h6>
