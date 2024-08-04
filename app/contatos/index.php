@@ -90,7 +90,7 @@
     </div>
 
 
-    <div class="card">
+    <div class="card mt-3">
         <div class="card-header">
             <h5>Regulamento da Promoção "Desconto e Entrega Grátis BK Manaus - Agosto 2024"</h5>
         </div>
@@ -152,7 +152,7 @@
                     <li>A participação nesta promoção implica na aceitação total e irrestrita de todos os termos e condições deste regulamento.</li>
                 </ul>
                 
-                <p>Manaus, 01 de agosto de 2024.</p>
+                <p style="margin-top:30px;">Manaus, 01 de agosto de 2024.</p>
 
 
             </li>
