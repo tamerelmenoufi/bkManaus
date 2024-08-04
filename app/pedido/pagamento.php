@@ -55,7 +55,21 @@
                 </div>
                 <span class="valores" taxa_entraga></span> 
             </div>
-
+            
+            <?php
+            if($_SESSION['desconto']){
+            ?>
+            <div class="d-flex justify-content-between">    
+                <div class="enderecoLabel w-100" >
+                    <i class="fa-solid fa-location-dot"></i>
+                    Desconto
+                </div>
+                <span class="valores" desconto></span> 
+            </div>            
+            <?php
+            }
+            ?>
+            
             <div class="d-flex justify-content-between">    
                 <div class="enderecoLabel w-100">
                     <i class="fa-solid fa-location-dot"></i>
@@ -64,7 +78,9 @@
                 <span class="valores" pagar></span> 
             </div>
 
-            
+            <?php
+            if(!$_SESSION['desconto']){
+            ?>
             <div class="mt-3 w-100">    
                 <div class="card">
                     <div class="card-header">
@@ -74,13 +90,18 @@
                         <li class="list-group-item">Digite abaixo o código do seu CUPOM</li>
                         <li class="list-group-item">
                             <div class="input-group mt-1">
-                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Enviar</button>
+                                <input type="text" class="form-control cupom" placeholder="BK0000" aria-label="BK0000" aria-describedby="cuponProm">
+                                <button class="btn btn-outline-secondary salvaCupom" type="button" id="cuponProm">Enviar</button>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
+            <?php
+            }
+            ?>
+
+
 
             <div class="d-flex justify-content-between mt-3 pagamentos">    
                 <div class="enderecoLabel w-100 text-center pe-2">
@@ -115,7 +136,8 @@
         codTaxa = ($("span[codigo_taxa].ativo").attr("codigo_taxa"));
         loja = ($("span[codigo_taxa].ativo").attr("loja"));
         distancia = ($("span[distancia].ativo").attr("distancia"))*1;
-        pagar = (total*1+taxa*1);
+        desconto = <?=(($_SESSION['desconto'])?'($("span[valor_taxa].ativo").attr("valor_taxa"))*1':'0')?>;
+        pagar = (total*1+taxa*1-desconto*1);
 
         $("span[total]").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         $("span[taxa_entraga]").html('R$ ' + taxa.toLocaleString('pt-br', {minimumFractionDigits: 2}));
@@ -223,6 +245,64 @@
             })
             
             
+        })
+
+        $("#cuponProm").click(function(){
+
+            idUnico = localStorage.getItem("idUnico");
+            codUsr = localStorage.getItem("codUsr");
+
+            cupom = $(".cupom").val();
+
+            if(!cupom){
+                $.alert({
+                    title:'Erro',
+                    type:'red',
+                    content:'Digite seu código promocional!'
+                })
+                return false;
+            }
+
+            Carregando()
+            $.ajax({
+                url:"pedido/cupom.php",
+                type:"POST",
+                data:{
+                    idUnico,
+                    codUsr,
+                    cupom
+                },
+                success:function(dados){
+
+                    $.ajax({
+                        url:"pedido/pagamento.php",
+                        type:"POST",
+                        data:{
+                            idUnico,
+                            codUsr
+                        },
+                        success:function(dados){
+
+                            if(dados == 'erro'){
+
+                                $.alert({
+                                    title:'Erro',
+                                    type:'red',
+                                    content:'Código informado não confere!'
+                                })
+                            }
+
+                            
+                            $(`.CorpoApp`).html(dados);
+
+                        }
+                    });  
+
+
+                }
+            });  
+
+
         })
 
 
