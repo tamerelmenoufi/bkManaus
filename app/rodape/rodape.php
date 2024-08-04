@@ -113,7 +113,7 @@ foreach(json_decode($v->detalhes) as $ind => $val){
         
         <div navegacao="contatos/index.php">
             <i class="fa-solid fa-circle-info" <?=(($pdAtiva == 'contatos/index.php')?'style="color:#ffdb37;"':false)?>></i>
-            <p <?=(($pdAtiva == 'contatos/index.php')?'style="color:#ffdb37;"':false)?>>Informações</p>
+            <p <?=(($pdAtiva == 'contatos/index.php')?'style="color:#ffdb37;"':false)?>>Info</p>
         </div>           
     </div>
 </div>
