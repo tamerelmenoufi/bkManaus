@@ -26,7 +26,7 @@
 
 <?php
 
-    $query = "select *, pix_detalhes->>'$.id' as operadora_id from vendas where (device = '{$_SESSION['idUnico']}' and cliente = '{$_SESSION['codUsr']}') and situacao = 'pendente'";
+    echo $query = "select *, pix_detalhes->>'$.id' as operadora_id from vendas where (device = '{$_SESSION['idUnico']}' or cliente = '{$_SESSION['codUsr']}') and situacao = 'pendente'";
     $result = mysqli_query($con, $query);
 
     $q = mysqli_num_rows($result);
