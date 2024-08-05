@@ -142,7 +142,7 @@
         desconto = <?=(($_SESSION['desconto'])?'($("span[valor_taxa].ativo").attr("valor_taxa"))*1':'0')?>;
         pagar = (total*1+taxa*1-desconto*1);
 
-        $("span[desconto]").attr("desconto", desconto);
+        <?=(($_SESSION['desconto'])?'$("span[desconto]").attr("desconto", desconto);':false)?>;
 
         $("span[total]").html('R$ ' + total.toLocaleString('pt-br', {minimumFractionDigits: 2}));
         $("span[taxa_entraga]").html('R$ ' + taxa.toLocaleString('pt-br', {minimumFractionDigits: 2}));
@@ -163,7 +163,7 @@
             codTaxa = ($("span[codigo_taxa].ativo").attr("codigo_taxa"));
             loja = ($("span[codigo_taxa].ativo").attr("loja"));
             distancia = ($("span[distancia].ativo").attr("distancia"))*1;
-            desconto = ($("span[desconto]").attr("desconto"))*1;
+            desconto = <?=(($_SESSION['desconto'])?'($("span[desconto]").attr("desconto"))*1':'0')?>;
             pagar = (total*1+taxa*1-desconto*1);
             
             cupom = 0;
