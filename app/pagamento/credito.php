@@ -116,6 +116,8 @@
                                     valor_total = '{$_POST['valor_total']}',
                                     situacao = 'pendente'
                     ";
+        file_put_contents('insert-venda.txt', $q);
+        
         mysqli_query($con, $q);
         $_POST['codVenda'] = mysqli_insert_id($con);
 
