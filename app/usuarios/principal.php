@@ -27,7 +27,10 @@
         <div class="col">
             <div class="mb-3">
                 <label for="telefone" class="form-label">Telefone</label>
-                <input type="text" inputmode="numeric" class="form-control" id="telefone" aria-describedby="telefoneAjuda">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="telefone" placeholder="(92) 9 0000-0000" aria-label="(92) 9 0000-0000" aria-describedby="linktelefone">
+                    <button class="btn btn-outline-secondary" id="telefoneAcao" type="button" id="linktelefone">Entrar</button>
+                </div>
                 <div id="telefoneAjuda" class="form-text">Digite o seu número Telefone/WhatsApp identificação!</div>
             </div>
         </div>
@@ -46,8 +49,8 @@ $(function(){
 ?>
     $(".desconectar").css("display","none");
     $("#telefone").mask("(99) 99999-9999");
-    $("#telefone").keyup(function(){
-        telefone = $(this).val();
+    $("#telefoneAcao").click(function(){
+        telefone = $("#telefone").val();
         if(telefone.length == 15){
             Carregando();
             $(this).val("");
