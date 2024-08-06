@@ -90,10 +90,15 @@
         </tbody>
     </table> 
   </div>
+  <?php
+    if($i > 1){
+  ?>
   <div class="d-flex justify-content-end">
     <button class="btn btn-primary btn-sm m-3"><i class="fa-solid fa-file-circle-plus"></i> Gerar Nota</button>
   </div>
-
+  <?php
+    }
+  ?>
 </div>
 
 <?php
