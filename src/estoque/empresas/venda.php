@@ -88,8 +88,12 @@
             </tr>   
 
         </tbody>
-    </table>    
+    </table> 
   </div>
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-primary btn-sm"><i class="fa-solid fa-file-circle-plus"></i> Gerar Nota</button>
+  </div>
+
 </div>
 
 <?php
