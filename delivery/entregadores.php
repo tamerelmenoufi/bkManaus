@@ -159,6 +159,7 @@
                             '<form action="" class="formName">' +
                             '<div class="form-group">' +
                             '<label>Digite seu código de acesso</label>' +
+                            '<div class="alert alert-primary m-3 text-center" role="alert"><h3>'+dadosSenha+'</h3></div>' +
                             '<input type="text" placeholder="Código de acesso" class="senha form-control" required />' +
                             '</div>' +
                             '</form>',
