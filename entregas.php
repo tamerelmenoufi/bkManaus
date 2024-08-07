@@ -54,8 +54,8 @@
                     $anterior = false;
                     while($c = mysqli_fetch_object($result)){
 
-                        $tempo_entrega = ((strtotime($c->finalizacao) - strtotime($c->data))/60);
-                        if($anterior) $intervalo_entrega = (abs(strtotime($c->data) - strtotime($anterior))/60);
+                        $tempo_entrega = number_format(((strtotime($c->finalizacao) - strtotime($c->data))/1),2,":",false);
+                        if($anterior) $intervalo_entrega = number_format((abs(strtotime($c->data) - strtotime($anterior))/1),2,":",false);
                         $anterior = $c->data;
 
                 ?>
