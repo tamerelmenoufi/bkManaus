@@ -26,7 +26,7 @@
             <div class="col-12">
                 <form action="./entregas.php" method="POST">
                 <div class="input-group mb-3">
-                    <input type="date" id="data" name="data" class="form-control" value="<?=$_POST['data']?>" placeholder="Selecione a Data" aria-label="Selecione a Data" aria-describedby="buscarData">
+                    <input type="date" id="data" name="data" class="form-control" value="<?=$data?>" placeholder="Selecione a Data" aria-label="Selecione a Data" aria-describedby="buscarData">
                     <button class="btn btn-outline-secondary" type="submit" id="buscarData">Buscar</button>
                 </div>
                 </form>
