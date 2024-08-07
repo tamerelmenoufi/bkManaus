@@ -70,7 +70,7 @@
                     </thead>
                     <tbody>
                 <?php
-                    $query = "select * from ifood where data like '{$data}%' and entregador > 0 order by entregador, data";
+                    $query = "select * from ifood where data like '{$data}%' and entregador = '{$e->codigo}' order by entregador, data";
                     $result = mysqli_query($con, $query);
                     $anterior = false;
                     while($c = mysqli_fetch_object($result)){
