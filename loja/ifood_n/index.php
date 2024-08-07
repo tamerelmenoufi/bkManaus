@@ -167,11 +167,11 @@
             //data = $("#data").val();
             //valor = $("#valor").val();
             entregador = $("#entregador").val();
-            situacao = $("#situacao").val();
+            //situacao = $("#situacao").val();
 
             //console.log(`!${ifood} || !${entregador} || !${situacao} || !${data} || !${valor}`)
 
-            if(!ifood || !entregador || !situacao /*|| !data || !valor*/){
+            if(!ifood || !entregador /*|| !situacao || !data || !valor*/){
                 $.alert({
                     title:"Erro",
                     content:"Dados incompletos!",
@@ -191,7 +191,7 @@
                     //data,
                     //valor,
                     entregador,
-                    situacao,
+                    //situacao,
                     acao:'salvar'
                 },
                 success:function(dados){
