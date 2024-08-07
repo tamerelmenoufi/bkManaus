@@ -37,7 +37,7 @@
                 <h4>Controle das entregas</h4>
 
                 <?php
-                    $query1 = "select * from ifood where data like '{$data}%' and entregador > 0 order by entregador, data group by entregador";
+                    $query1 = "select * from ifood where data like '{$data}%' and entregador > 0 group by entregador order by entregador, data";
                     $result1 = mysqli_query($con, $query1);
                     $entregador = false;
                     while($e = mysqli_fetch_object($result1)){
