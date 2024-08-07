@@ -15,16 +15,20 @@
   <body translate="no">
 
     <div class="container mt-3">
+
+    
+        <div class="row">
+            <div class="col-12">
+                <div class="input-group mb-3">
+                    <form action="./entregas.php" method="POST">
+                        <input type="date" id="data" class="form-control" value="<?=$_POST['data']?>" placeholder="Selecione a Data" aria-label="Selecione a Data" aria-describedby="buscarData">
+                        <button class="btn btn-outline-secondary" type="submit" id="buscarData">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col">
-
-            <div class="input-group mb-3">
-                <form action="./entregas.php" method="POST">
-                    <input type="date" id="data" class="form-control" value="<?=$_POST['data']?>" placeholder="Selecione a Data" aria-label="Selecione a Data" aria-describedby="buscarData">
-                    <button class="btn btn-outline-secondary" type="submit" id="buscarData">Buscar</button>
-                </form>
-            </div>
-
                 <h4>Controle das entregas</h4>
                 <table class="table table-hover">
                     <thead>
