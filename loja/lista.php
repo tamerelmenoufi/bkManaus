@@ -59,7 +59,7 @@
             '' as nome,
             '' as entrega,	
             '' as retorno
-                    from ifood a left join entregadores b on a.entregador = b.codigo where a.loja = '{$_SESSION['bkLoja']}' )
+                    from ifood a left join entregadores b on a.entregador = b.codigo where a.loja = '{$_SESSION['bkLoja']}' and (situacao != 'entregue' or data >= NOW() - INTERVAL 1 DAY) )
 
                         union
 
@@ -75,7 +75,7 @@
                     left join clientes b on a.cliente = b.codigo 
                 where /*a.delivery_id = '{$l->mottu}' and*/ 
                     a.situacao = 'pago' and 
-                    loja = '{$_SESSION['bkLoja']}' 
+                    loja = '{$_SESSION['bkLoja']}' and (a.situacao != 'entregue' or data >= NOW() - INTERVAL 1 DAY)
                     /*and data >= NOW() - INTERVAL 1 DAY*/) 
                 order by data desc, producao desc";
 
