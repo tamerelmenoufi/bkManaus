@@ -54,8 +54,18 @@
                     $anterior = false;
                     while($c = mysqli_fetch_object($result)){
 
-                        $tempo_entrega = number_format(((strtotime($c->finalizacao) - strtotime($c->data))/1),2,":",false);
-                        if($anterior) $intervalo_entrega = number_format((abs(strtotime($c->data) - strtotime($anterior))/1),2,":",false);
+                        $tempo_entrega = ((strtotime($c->finalizacao) - strtotime($c->data))/60);
+                        $tempo_entrega_hora = floor($tempo_entrega / 60);
+                        $tempo_entrega_minutos = ($tempo_entrega % 60);
+                        $tempo_entrega = "{$tempo_entrega_hora}:{$tempo_entrega_minutos}";
+
+
+                        if($anterior) {
+                            $intervalo_entrega = (abs(strtotime($c->data) - strtotime($anterior))/60);
+                            $intervalo_entrega_hora = floor($intervalo_entrega / 60);
+                            $intervalo_entrega_minutos = ($intervalo_entrega % 60);
+                            $intervalo_entrega = "{$intervalo_entrega_hora}:{$intervalo_entrega_minutos}";                            
+                        }
                         $anterior = $c->data;
 
                 ?>
@@ -66,7 +76,7 @@
                             <td><?=$c->data?></td>
                             <td><?=$c->finalizacao?></td>
                             <td><?=$tempo_entrega?></td>
-                            <td><?=(($intervalo_entrega)?:'-')?></td>
+                            <td><?=$intervalo_entrega?></td>
                         </tr>
                 <?php
                     }
