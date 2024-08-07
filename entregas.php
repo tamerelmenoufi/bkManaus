@@ -55,15 +55,15 @@
                     while($c = mysqli_fetch_object($result)){
 
                         $tempo_entrega = ((strtotime($c->finalizacao) - strtotime($c->data))/60);
-                        $tempo_entrega_hora = floor($tempo_entrega / 60);
-                        $tempo_entrega_minutos = ($tempo_entrega % 60);
+                        $tempo_entrega_hora = str_pad(floor($tempo_entrega / 60) , 2 , '0' , STR_PAD_LEFT);
+                        $tempo_entrega_minutos = str_pad(($tempo_entrega % 60) , 2 , '0' , STR_PAD_LEFT);
                         $tempo_entrega = "{$tempo_entrega_hora}:{$tempo_entrega_minutos}";
 
 
                         if($anterior) {
                             $intervalo_entrega = (abs(strtotime($c->data) - strtotime($anterior))/60);
-                            $intervalo_entrega_hora = floor($intervalo_entrega / 60);
-                            $intervalo_entrega_minutos = ($intervalo_entrega % 60);
+                            $intervalo_entrega_hora = str_pad(floor($intervalo_entrega / 60) , 2 , '0' , STR_PAD_LEFT);
+                            $intervalo_entrega_minutos = str_pad(($intervalo_entrega % 60) , 2 , '0' , STR_PAD_LEFT);
                             $intervalo_entrega = "{$intervalo_entrega_hora}:{$intervalo_entrega_minutos}";                            
                         }
                         $anterior = $c->data;
