@@ -27,7 +27,7 @@
                                         /*data = '{$_POST['data']}',*/
                                         valor = '{$_POST['valor']}',
                                         entregador = '{$_POST['entregador']}', 
-                                        producao = '{$_POST['situacao']}'
+                                        producao = 'pendente'
                                         {$add}
                                 where codigo = '{$_POST['codigo']}'";
             mysqli_query($con, $query);
