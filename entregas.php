@@ -37,7 +37,7 @@
                 <h4>Controle das entregas</h4>
 
                 <?php
-                    $query1 = "select * from ifood where data like '{$data}%' and entregador > 0 group by entregador order by entregador, data";
+                    $query1 = "select a.*, b.nome as nome_entregador from ifood a left join entregadores b on a.entregador = b.codigo where a.data like '{$data}%' and a.entregador > 0 group by a.entregador order by a.entregador, a.data";
                     $result1 = mysqli_query($con, $query1);
                     $entregador = false;
                     while($e = mysqli_fetch_object($result1)){
@@ -46,7 +46,7 @@
                 ?>
                 <div class="card mb-3">
                 <div class="card-header">
-                    <?=$e->entregador?>
+                    <h5><?=$e->nome_entregador?></h5>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
@@ -61,7 +61,6 @@
                         <tr>
                             <th>Pedido</th>
                             <th>Loja</th>
-                            <th>Entregador</th>
                             <th>Data Pedido</th>
                             <th>Data Finalização</th>
                             <th>Tempo de Entrega</th>
@@ -70,7 +69,7 @@
                     </thead>
                     <tbody>
                 <?php
-                    $query = "select * from ifood where data like '{$data}%' and entregador = '{$e->entregador}' order by data asc";
+                    $query = "select a.*, b.nome as nome_loja from ifood a left join lojas on a.loja = b.codigo where a.data like '{$data}%' and a.entregador = '{$e->entregador}' order by a.data asc";
                     $result = mysqli_query($con, $query);
                     $anterior = false;
                     $intervalo_entrega = false;
@@ -97,8 +96,7 @@
                 ?>
                         <tr>
                             <td><?=$c->ifood?></td>
-                            <td><?=$c->loja?></td>
-                            <td><?=$c->entregador?></td>
+                            <td><?=$c->nome_loja?></td>
                             <td><?=$c->data?></td>
                             <td><?=$c->finalizacao?></td>
                             <td class="text-<?=$cor1?>"><?=$tempo_entrega?></td>
