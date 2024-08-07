@@ -19,12 +19,12 @@
     
         <div class="row">
             <div class="col-12">
+                <form action="./entregas.php" method="POST">
                 <div class="input-group mb-3">
-                    <form action="./entregas.php" method="POST">
-                        <input type="date" id="data" class="form-control" value="<?=$_POST['data']?>" placeholder="Selecione a Data" aria-label="Selecione a Data" aria-describedby="buscarData">
-                        <button class="btn btn-outline-secondary" type="submit" id="buscarData">Buscar</button>
-                    </form>
+                    <input type="date" id="data" class="form-control" value="<?=$_POST['data']?>" placeholder="Selecione a Data" aria-label="Selecione a Data" aria-describedby="buscarData">
+                    <button class="btn btn-outline-secondary" type="submit" id="buscarData">Buscar</button>
                 </div>
+                </form>
             </div>
         </div>
         <div class="row">
