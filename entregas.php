@@ -43,7 +43,6 @@
                     while($e = mysqli_fetch_object($result1)){
 
                         if($entregador != $e->entregador){
-                            $anterior = false;
                 ?>
                 <div class="card mb-3">
                 <div class="card-header">
@@ -73,7 +72,7 @@
                 <?php
                     $query = "select * from ifood where data like '{$data}%' and entregador = '{$e->entregador}' order by entregador, data";
                     $result = mysqli_query($con, $query);
-                    
+                    $anterior = false;
                     while($c = mysqli_fetch_object($result)){
 
                         $tempo_entrega = ((strtotime($c->finalizacao) - strtotime($c->data))/60);
