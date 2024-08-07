@@ -119,7 +119,7 @@
                     from vendas a 
                     left join clientes b on a.cliente = b.codigo 
                     left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
-                    where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['DbkLoja']}' and delivery_detalhes->>'$.deliveryMan.id' = '{$_SESSION['DbkEntregador']}' order by ordem asc, a.data desc) UNION (select
+                    where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['DbkLoja']}' and delivery_detalhes->>'$.deliveryMan.id' = '{$_SESSION['DbkEntregador']}' and (a.producao != 'entregue' or data >= NOW() - INTERVAL 1 DAY)) UNION (select
             'entrega' as tipo,
             a.codigo,
             '' as device,
@@ -155,7 +155,7 @@
             '' as Ebairro,
             '' as Elocalidade,	
             '' as Euf
-                    from ifood a left join entregadores b on a.entregador = b.codigo where a.loja = '{$_SESSION['DbkLoja']}' and a.entregador = '{$_SESSION['DbkEntregador']}')";
+                    from ifood a left join entregadores b on a.entregador = b.codigo where a.loja = '{$_SESSION['DbkLoja']}' and a.entregador = '{$_SESSION['DbkEntregador']}' and (a.producao != 'entregue' or data >= NOW() - INTERVAL 1 DAY)) order by producao desc, data desc";
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
 
