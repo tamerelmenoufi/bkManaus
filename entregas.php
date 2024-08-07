@@ -70,7 +70,7 @@
                     </thead>
                     <tbody>
                 <?php
-                    $query = "select * from ifood where data like '{$data}%' and entregador = '{$e->entregador}' order by entregador, data";
+                    $query = "select * from ifood where data like '{$data}%' and entregador = '{$e->entregador}' order by data asc";
                     $result = mysqli_query($con, $query);
                     $anterior = false;
                     $intervalo_entrega = false;
