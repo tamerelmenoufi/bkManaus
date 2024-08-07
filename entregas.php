@@ -44,7 +44,7 @@
 
                         if($entregador != $e->entregador){
                 ?>
-                <div class="card" style="width: 18rem;">
+                <div class="card mb-3">
                 <div class="card-header">
                     <?=$e->entregador?>
                 </div>
