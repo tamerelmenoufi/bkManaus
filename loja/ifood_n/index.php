@@ -18,6 +18,7 @@
 
         }
 
+        $add = ", finalizacao = 0, situacao = 'pendente'"; //Remover esta linha caso a loja finalize o pedido
 
         if($_POST['codigo']){
             $query = "update ifood set 
@@ -37,14 +38,13 @@
                                         data = NOW(),
                                         valor = '{$_POST['valor']}',
                                         entregador = '{$_POST['entregador']}', 
-                                        producao = '{$_POST['situacao']}'
+                                        producao = 'pendente' 
                                         {$add}
                                         ";
             mysqli_query($con, $query);            
         }
 
     }
-
 
     if($_POST['codigo']){
         $query = "select * from ifood where codigo = '{$_POST['codigo']}'";
@@ -119,6 +119,7 @@
     </div>
     <?php
     if($d->codigo){
+        /*
     ?>
     <div class="p-2">
         <div class="mb-3">
@@ -130,10 +131,13 @@
         </div>
     </div>
     <?php
+    //*/
     }else{
+        /*
     ?>
     <input type="hidden" name="situacao" id="situacao" value="pendente">
     <?php
+    //*/
     }
     ?>
     <div class="p-2">
