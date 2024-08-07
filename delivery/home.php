@@ -92,7 +92,7 @@
 </style>
 <div class="barra_topo">
     <span class="fechar"><i class="fa-solid fa-right-from-bracket"></i> Sair</span>
-    <h2><?=$e->nome?></h2>
+    <h5><?=$e->nome?></h5>
 </div>
 
 <div class="home_corpo">
