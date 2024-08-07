@@ -31,7 +31,7 @@
 
         <ul class="list-group">
             <?php
-            $query = "
+           echo $query = "
             (select
             'entrega' as tipo,
             a.codigo,	
