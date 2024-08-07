@@ -117,6 +117,9 @@
             </select>
         </div>
     </div>
+    <?php
+    if($d->codigo){
+    ?>
     <div class="p-2">
         <div class="mb-3">
             <label for="situacao" class="form-label">Situação*</label>
@@ -126,12 +129,20 @@
             </select>
         </div>
     </div>
+    <?php
+    }else{
+    ?>
+    <input type="hidden" name="situacao" id="situacao" value="pendente">
+    <?php
+    }
+    ?>
     <div class="p-2">
         <div class="mb-3">
             <button class="btn btn-success w-100 salvar">SALVAR DADOS</button>
             <input type="hidden" id="codigo" value="<?=$d->codigo?>">
         </div>
     </div>
+
 </div>
 
 <script>
