@@ -1,5 +1,10 @@
 <?php
     include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
+
+
+    if($_POST) $data = $_POST['data'];
+    else $data = date("Y-m-d");
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -21,7 +26,7 @@
             <div class="col-12">
                 <form action="./entregas.php" method="POST">
                 <div class="input-group mb-3">
-                    <input type="date" id="data" class="form-control" value="<?=$_POST['data']?>" placeholder="Selecione a Data" aria-label="Selecione a Data" aria-describedby="buscarData">
+                    <input type="date" id="data" name="data" class="form-control" value="<?=$_POST['data']?>" placeholder="Selecione a Data" aria-label="Selecione a Data" aria-describedby="buscarData">
                     <button class="btn btn-outline-secondary" type="submit" id="buscarData">Buscar</button>
                 </div>
                 </form>
@@ -44,7 +49,7 @@
                     </thead>
                     <tbody>
                 <?php
-                    $query = "select * from ifood where data like '{$_POST['data']}%' and entregador > 0 order by entregador, data";
+                    $query = "select * from ifood where data like '{$data}%' and entregador > 0 order by entregador, data";
                     $result = mysqli_query($con, $query);
                     while($c = mysqli_fetch_object($result)){
                 ?>
