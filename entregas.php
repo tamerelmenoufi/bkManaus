@@ -35,6 +35,27 @@
         <div class="row">
             <div class="col">
                 <h4>Controle das entregas</h4>
+
+                <?php
+                    $query1 = "select * from ifood where data like '{$data}%' and entregador > 0 order by entregador, data";
+                    $result1 = mysqli_query($con, $query1);
+                    $entregador = false;
+                    while($e = mysqli_fetch_object($result1)){
+
+                        if($entregador != $e->entregador){
+                ?>
+                <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    <?=$e->entregador?>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                <?php
+
+                        }
+
+                ?>
+
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -83,6 +104,20 @@
                 ?>
                     </tbody>
                 </table>
+                <?php
+                    if($entregador != $e->entregador){
+                ?>
+            </li>
+            </ul>
+            </div>
+                <?php
+
+                    }
+
+                    $entregador = $e->entregador;
+
+                    }
+                ?>                
             </div>
         </div>
     </div>
