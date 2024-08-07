@@ -59,7 +59,7 @@
             '' as nome,
             '' as entrega,	
             '' as retorno
-                    from ifood a left join entregadores b on a.entregador = b.codigo where a.loja = '{$_SESSION['bkLoja']}' and (situacao != 'entregue' or data >= NOW() - INTERVAL 1 DAY) )
+                    from ifood a left join entregadores b on a.entregador = b.codigo where a.loja = '{$_SESSION['bkLoja']}' and (a.situacao != 'entregue' or data >= NOW() - INTERVAL 1 DAY) )
 
                         union
 
