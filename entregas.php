@@ -73,6 +73,8 @@
                     $query = "select * from ifood where data like '{$data}%' and entregador = '{$e->entregador}' order by entregador, data";
                     $result = mysqli_query($con, $query);
                     $anterior = false;
+                    $intervalo_entrega = false;
+                    $tempo_entrega = false;
                     while($c = mysqli_fetch_object($result)){
 
                         $tempo_entrega = ((strtotime($c->finalizacao) - strtotime($c->data))/60);
