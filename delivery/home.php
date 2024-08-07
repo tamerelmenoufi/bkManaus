@@ -46,7 +46,7 @@
         border-bottom-left-radius:40px;
         font-family:FlameBold;
     }
-    .barra_topo h2{
+    .barra_topo h5{
         color:#f6e13a;
     }
     .home_corpo{
