@@ -23,7 +23,7 @@
             $query = "update ifood set 
                                         loja = '{$_POST['loja']}',
                                         ifood = '{$_POST['ifood']}',
-                                        data = '{$_POST['data']}',
+                                        /*data = '{$_POST['data']}',*/
                                         valor = '{$_POST['valor']}',
                                         entregador = '{$_POST['entregador']}', 
                                         producao = '{$_POST['situacao']}'
@@ -34,7 +34,7 @@
             $query = "insert into ifood set 
                                         loja = '{$_POST['loja']}',
                                         ifood = '{$_POST['ifood']}',
-                                        data = '{$_POST['data']}',
+                                        data = NOW(),
                                         valor = '{$_POST['valor']}',
                                         entregador = '{$_POST['entregador']}', 
                                         producao = '{$_POST['situacao']}'
@@ -66,24 +66,38 @@
             <input type="text" class="form-control" id="ifood" value="<?=$d->ifood?>" >
         </div>   
     </div>
+    <?php
+    /*
+    ?>
     <div class="p-2">
         <div class="mb-3">
             <label for="data" class="form-label">Data do pedido*</label>
             <input type="datetime-local" class="form-control" id="data" value="<?=(($d->data)?:date("Y-m-d H:i:s"))?>" >
         </div>   
     </div>
+
     <div class="p-2">
         <div class="mb-3">
             <label for="valor" class="form-label">Valor da Compra*</label>
             <input type="text" class="form-control" id="valor" value="<?=$d->valor?>" >
         </div>   
-    </div>    
+    </div> 
+    <?php
+    //*/
+    ?>      
     <div class="p-2">
         <div class="mb-3">
             <label for="entregador" class="form-label">Entregador*</label>
             <select name="entregador" id="entregador" class="form-select">
+                <?php
+                /*
+                ?>
                 <option value="0">Retirada na loja</option>
                 <option value="1" <?=((1 == $d->entregador)?'selected':false)?>>Entrega pelo Parceiro</option>
+                <?php
+                //*/
+                ?>
+                <option value="">:: Selecione o Entregador::</option>
                 <?php
                 $q = "select 
                             a.*,
@@ -135,14 +149,14 @@
             loja = localStorage.getItem("loja");
             codigo = $("#codigo").val();
             ifood = $("#ifood").val();
-            data = $("#data").val();
-            valor = $("#valor").val();
+            //data = $("#data").val();
+            //valor = $("#valor").val();
             entregador = $("#entregador").val();
             situacao = $("#situacao").val();
 
-            console.log(`!${ifood} || !${entregador} || !${situacao} || !${data} || !${valor}`)
+            //console.log(`!${ifood} || !${entregador} || !${situacao} || !${data} || !${valor}`)
 
-            if(!ifood || !entregador || !situacao || !data || !valor){
+            if(!ifood || !entregador || !situacao /*|| !data || !valor*/){
                 $.alert({
                     title:"Erro",
                     content:"Dados incompletos!",
@@ -159,8 +173,8 @@
                     codigo,
                     loja,
                     ifood,
-                    data,
-                    valor,
+                    //data,
+                    //valor,
                     entregador,
                     situacao,
                     acao:'salvar'
