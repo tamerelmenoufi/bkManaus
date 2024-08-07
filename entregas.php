@@ -69,7 +69,7 @@
                     </thead>
                     <tbody>
                 <?php
-                    $query = "select a.*, b.nome as nome_loja from ifood a left join lojas on a.loja = b.codigo where a.data like '{$data}%' and a.entregador = '{$e->entregador}' order by a.data asc";
+                    $query = "select a.*, b.nome as nome_loja from ifood a left join lojas b on a.loja = b.codigo where a.data like '{$data}%' and a.entregador = '{$e->entregador}' order by a.data asc";
                     $result = mysqli_query($con, $query);
                     $anterior = false;
                     $intervalo_entrega = false;
