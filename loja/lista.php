@@ -31,7 +31,7 @@
 
         <ul class="list-group">
             <?php
-           echo $query = "
+           $query = "
             (select
             'entrega' as tipo,
             a.codigo,	
@@ -59,7 +59,7 @@
             '' as nome,
             '' as entrega,	
             '' as retorno
-                    from ifood a left join entregadores b on a.entregador = b.codigo where a.loja = '{$_SESSION['bkLoja']}' and (a.situacao != 'entregue' or data >= NOW() - INTERVAL 1 DAY) )
+                    from ifood a left join entregadores b on a.entregador = b.codigo where a.loja = '{$_SESSION['bkLoja']}' and (a.producao != 'entregue' or data >= NOW() - INTERVAL 1 DAY) )
 
                         union
 
@@ -75,7 +75,7 @@
                     left join clientes b on a.cliente = b.codigo 
                 where /*a.delivery_id = '{$l->mottu}' and*/ 
                     a.situacao = 'pago' and 
-                    loja = '{$_SESSION['bkLoja']}' and (a.situacao != 'entregue' or data >= NOW() - INTERVAL 1 DAY)
+                    loja = '{$_SESSION['bkLoja']}' and (a.producao != 'entregue' or data >= NOW() - INTERVAL 1 DAY)
                     /*and data >= NOW() - INTERVAL 1 DAY*/) 
                 order by data desc, producao desc";
 
