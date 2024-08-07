@@ -1,0 +1,77 @@
+<?php
+    include("{$_SERVER['DOCUMENT_ROOT']}/bkManaus/lib/includes.php");
+?>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="img/icone.png">
+    <title>BK - Manaus</title>
+    <?php
+    include("lib/header.php");
+    ?>
+  </head>
+  <body translate="no">
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+
+            <div class="input-group mb-3">
+                <form action="./entregas.php" method="POST">
+                    <input type="date" id="data" class="form-control" value="<?=$_POST['data']?>" placeholder="Selecione a Data" aria-label="Selecione a Data" aria-describedby="buscarData">
+                    <button class="btn btn-outline-secondary" type="submit" id="buscarData">Buscar</button>
+                </form>
+            </div>
+
+                <h4>Controle das entregas</h4>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Pedido</th>
+                            <th>Loja</th>
+                            <th>Entregador</th>
+                            <th>Data Pedido</th>
+                            <th>Data Finalização</th>
+                            <th>Tempo de Entrega</th>
+                            <th>Intervalo Entregas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                <?php
+                    $query = "select * from ifood where data like '{$_POST['data']}%' and entregador > 0 order by entregador, data";
+                    $result = mysqli_query($con, $query);
+                    while($c = mysqli_fetch_object($result)){
+                ?>
+                        <tr>
+                            <td><?=$c->ifood?></td>
+                            <td><?=$c->loja?></td>
+                            <td><?=$c->entregador?></td>
+                            <td><?=$c->data?></td>
+                            <td><?=$c->finalizacao?></td>
+                            <td><?=$tempo_entrega?></td>
+                            <td><?=$intervalo_entrega?></td>
+                        </tr>
+                <?php
+                    }
+                ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <?php
+        include("lib/footer.php");
+    ?>
+
+    <script>
+        $(function(){
+ 
+        })
+
+    </script>
+
+  </body>
+</html>
