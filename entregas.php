@@ -87,6 +87,9 @@
                             $intervalo_entrega_minutos = str_pad(($intervalo_entrega % 60) , 2 , '0' , STR_PAD_LEFT);
                             $intervalo_entrega = "{$intervalo_entrega_hora}:{$intervalo_entrega_minutos}";                            
                         }
+
+                        if($intervalo_entrega_minutos*1 < 15 and $intervalo_entrega_hora*1 == 0) $cor2 = 'danger'; else $cor2 = 'success';
+                        if($tempo_entrega_minutos*1 < 15 and $tempo_entrega_hora*1 == 0) $cor1 = 'danger'; else $cor1 = 'success';
                         $anterior = $c->data;
 
                 ?>
@@ -96,8 +99,8 @@
                             <td><?=$c->entregador?></td>
                             <td><?=$c->data?></td>
                             <td><?=$c->finalizacao?></td>
-                            <td><?=$tempo_entrega?></td>
-                            <td><?=$intervalo_entrega?></td>
+                            <td class="text-<?=$cor1?>"><?=$tempo_entrega?></td>
+                            <td class="text-<?=$cor2?>"><?=$intervalo_entrega?></td>
                         </tr>
                 <?php
                     }
