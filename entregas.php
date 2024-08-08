@@ -80,9 +80,9 @@
                         $tempo_entrega_hora = str_pad(floor($tempo_entrega / 60) , 2 , '0' , STR_PAD_LEFT);
                         $tempo_entrega_minutos = str_pad(($tempo_entrega % 60) , 2 , '0' , STR_PAD_LEFT);
                         if($tempo_entrega_hora < 0 or $tempo_entrega_minutos < 0){
-                            $tempo_entrega = "{$tempo_entrega_hora}:{$tempo_entrega_minutos}";
+                           $tempo_entrega = "-";
                         }else{
-                            $tempo_entrega = "-";
+                            $tempo_entrega = "{$tempo_entrega_hora}:{$tempo_entrega_minutos}";
                         }
 
                         if($anterior) {
