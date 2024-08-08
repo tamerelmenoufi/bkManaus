@@ -77,7 +77,7 @@
                     a.situacao = 'pago' and 
                     loja = '{$_SESSION['bkLoja']}' and (a.producao != 'entregue' or data >= NOW() - INTERVAL 1 DAY)
                     /*and data >= NOW() - INTERVAL 1 DAY*/) 
-                order by ordem asc, data desc";
+                order by producao desc, data desc";
 
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
