@@ -55,7 +55,7 @@
             '' as valor_total,
             a.producao,
             'pago' as situacao,
-            '' as ordem,	
+            IF(a.producao = 'pendente', 0, IF(a.producao = 'entrega'), 1, 2) as ordem,	
             '' as nome,
             '' as entrega,	
             '' as retorno
@@ -66,7 +66,7 @@
             (select 
                     'pedido' as tipo, 
                     a.*, 
-                    if(a.producao = 'pendente',0,1) as ordem, 
+                    IF(a.producao = 'pendente', 0, IF(a.producao = 'entrega'), 1, 2) as ordem,
                     b.nome, 
                     a.delivery_detalhes->>'$.pickupCode' as entrega, 
                     a.delivery_detalhes->>'$.returnCode' as retorno 
@@ -77,7 +77,7 @@
                     a.situacao = 'pago' and 
                     loja = '{$_SESSION['bkLoja']}' and (a.producao != 'entregue' or data >= NOW() - INTERVAL 1 DAY)
                     /*and data >= NOW() - INTERVAL 1 DAY*/) 
-                order by producao desc, data desc";
+                order by ordem asc, data desc";
 
             $result = mysqli_query($con, $query);
             while($d = mysqli_fetch_object($result)){
