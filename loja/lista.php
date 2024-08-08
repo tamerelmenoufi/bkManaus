@@ -100,16 +100,6 @@
                 $bg = 'bg-success';
             }
 
-            list($dt, $hr) = explode(" ", $d->data);
-            list($da,$dm,$dd) = explode("-", trim($dt));
-            list($hh,$hm,$hs) = explode(":", trim($hr));
-
-            $data = mktime($hh, $hm, $hs, $dm, $dd, $da);
-            $data10 = mktime($hh, $hm+10, $hs, $dm, $dd, $da);
-            $agora = mktime(date("H"),date("i"),date("s"),date("m"),date("d"),date("Y"));
-
-            if($agora < $data10){ $blq = true; }else{ $blq = false; }
-
 
                 if($d->tipo == 'pedido'){
             ?>
@@ -228,19 +218,6 @@
             pedido = $(this).attr("pedido");
             loja = localStorage.getItem("loja");
 
-            <?php
-            if($blq){
-            ?>
-            $.alert({
-                type:"red",
-                title:"Baixa fora do prazo",
-                content:"O pedido foi aberto há menos de 15 minutos. Prazo muito curto para fechamento do pedido recente."
-            })
-            return false;
-            <?php
-            }
-            ?>
-
             Carregando();
             $.ajax({
                 url:"pedido.php",
@@ -265,19 +242,6 @@
             loja = localStorage.getItem("loja");
 
             // $.alert('Em Desenvolvimento')
-
-            <?php
-            if($blq){
-            ?>
-            $.alert({
-                type:"red",
-                title:"Baixa fora do prazo",
-                content:"O pedido foi aberto há menos de 15 minutos. Prazo muito curto para fechamento do pedido recente."
-            })
-            return false;
-            <?php
-            }
-            ?>
 
             Carregando();
             $.ajax({

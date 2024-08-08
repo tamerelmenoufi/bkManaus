@@ -175,7 +175,16 @@
                 $d->Eponto_referencia = $ifood->endereco->ponto_referencia;
             }
 
+                list($dt, $hr) = explode(" ", $d->data);
+                list($da,$dm,$dd) = explode("-", trim($dt));
+                list($hh,$hm,$hs) = explode(":", trim($hr));
 
+                $data = mktime($hh, $hm, $hs, $dm, $dd, $da);
+                $data10 = mktime($hh, $hm+10, $hs, $dm, $dd, $da);
+                $agora = mktime(date("H"),date("i"),date("s"),date("m"),date("d"),date("Y"));
+
+                if($agora < $data10){ $blq = true; }else{ $blq = false; }
+                
             if($d->tipo == 'pedido'){
             ?>
                 <li class="list-group-item <?=(($d->producao != 'entregue')?'bg-secondary-subtle':'bg-success-subtle')?>" pedido="<?=$d->codigo?>">
@@ -272,6 +281,21 @@
             pedido = $(this).attr("pedido");
             loja = localStorage.getItem("Dloja");
             entregador = localStorage.getItem("Dentregador");
+
+
+            <?php
+            if($blq){
+            ?>
+            $.alert({
+                type:"red",
+                title:"Baixa fora do prazo",
+                content:"O pedido foi aberto há menos de 15 minutos. Prazo muito curto para fechamento do pedido recente."
+            })
+            return false;
+            <?php
+            }
+            ?>
+
             Carregando();
             $.ajax({
                 url:"pedido.php",
@@ -298,6 +322,18 @@
             entrega = $(this).attr("entrega");
             ifood = $(this).attr("ifood");
 
+            <?php
+            if($blq){
+            ?>
+            $.alert({
+                type:"red",
+                title:"Baixa fora do prazo",
+                content:"O pedido foi aberto há menos de 15 minutos. Prazo muito curto para fechamento do pedido recente."
+            })
+            return false;
+            <?php
+            }
+            ?>
             
             $.confirm({
                 title: 'Confirmação de Entrega',
@@ -357,7 +393,7 @@
         })
 
 
-
+/*
         $(".entregadores").click(function(){
             loja = localStorage.getItem("Dloja");
             entregador = localStorage.getItem("Dentregador");
@@ -379,7 +415,7 @@
                 }
             });
         })
-
+//*/
         atualizacao = setTimeout(() => {
             loja = localStorage.getItem("Dloja");
             entregador = localStorage.getItem("Dentregador");
