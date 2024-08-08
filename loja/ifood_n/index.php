@@ -101,8 +101,8 @@
                 <?php
                 $q = "select 
                             a.*,
-                            (select count(*) from ifood where entregador = a.codigo and producao != 'entregue') as pendente/*,
-                            (select count(*) from vendas where entregador = a.codigo and producao != 'entregue') as pendente1*/
+                            (select count(*) from ifood where entregador = a.codigo and producao != 'entregue') as pendente,
+                            (select count(*) from vendas where delivery_detalhes->>'$.deliveryMan.id' = a.codigo and producao != 'entregue') as pendente1
                         from entregadores a 
                         where a.situacao = '1' and a.deletado != '1' and a.loja = '{$_SESSION['bkLoja']}' order by a.nome";
                 $r = mysqli_query($con, $q);
