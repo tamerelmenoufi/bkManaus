@@ -55,7 +55,7 @@
             '' as valor_total,
             a.producao,
             'pago' as situacao,
-            IF(a.producao = 'pendente', 0, IF(a.producao = 'entrega'), 1, 2) as ordem,	
+            IF(a.producao = 'pendente', 0, IF(a.producao = 'entrega', 1, 2)) as ordem,	
             '' as nome,
             '' as entrega,	
             '' as retorno
@@ -66,7 +66,7 @@
             (select 
                     'pedido' as tipo, 
                     a.*, 
-                    IF(a.producao = 'pendente', 0, IF(a.producao = 'entrega'), 1, 2) as ordem,
+                    IF(a.producao = 'pendente', 0, IF(a.producao = 'entrega', 1, 2)) as ordem,
                     b.nome, 
                     a.delivery_detalhes->>'$.pickupCode' as entrega, 
                     a.delivery_detalhes->>'$.returnCode' as retorno 
