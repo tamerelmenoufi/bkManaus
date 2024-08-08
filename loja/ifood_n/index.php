@@ -101,7 +101,8 @@
                 <?php
                 $q = "select 
                             a.*,
-                            (select count(*) from ifood where entregador = a.codigo and producao != 'entregue') as pendente 
+                            (select count(*) from ifood where entregador = a.codigo and producao != 'entregue') as pendente,
+                            (select count(*) from vendas where entregador = a.codigo and producao != 'entregue') as pendente1
                         from entregadores a 
                         where a.situacao = '1' and a.deletado != '1' and a.loja = '{$_SESSION['bkLoja']}' order by a.nome";
                 $r = mysqli_query($con, $q);
@@ -109,7 +110,7 @@
                 ?>
                 <option 
                         value="<?=$s->codigo?>" 
-                        <?=(($s->pendente and !$d->codigo)?'disabled':false)?> 
+                        <?=((($s->pendente or $s->pendente1) and !$d->codigo)?'disabled':false)?> 
                         <?=(($s->codigo == $d->entregador)?'selected':false)?>><?=$s->nome?></option>                
                 <?php
                 }
