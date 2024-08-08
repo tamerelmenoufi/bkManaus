@@ -79,8 +79,11 @@
                         $tempo_entrega = ((strtotime($c->finalizacao) - strtotime($c->data))/60);
                         $tempo_entrega_hora = str_pad(floor($tempo_entrega / 60) , 2 , '0' , STR_PAD_LEFT);
                         $tempo_entrega_minutos = str_pad(($tempo_entrega % 60) , 2 , '0' , STR_PAD_LEFT);
-                        $tempo_entrega = "{$tempo_entrega_hora}:{$tempo_entrega_minutos}";
-
+                        if($tempo_entrega_hora < 0 or $tempo_entrega_minutos < 0){
+                            $tempo_entrega = "{$tempo_entrega_hora}:{$tempo_entrega_minutos}";
+                        }else{
+                            $tempo_entrega = "-";
+                        }
 
                         if($anterior) {
                             $intervalo_entrega = (abs(strtotime($c->data) - strtotime($anterior))/60);
@@ -90,6 +93,7 @@
                         }
 
                         if($intervalo_entrega_minutos*1 < 15 and $intervalo_entrega_hora*1 == 0) $cor2 = 'danger'; else $cor2 = 'success';
+
                         if($tempo_entrega_minutos*1 < 15 and $tempo_entrega_hora*1 == 0) $cor1 = 'danger'; else $cor1 = 'success';
                         $anterior = $c->data;
 
