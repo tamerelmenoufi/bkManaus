@@ -110,7 +110,7 @@
                 ?>
                 <option 
                         value="<?=$s->codigo?>" 
-                        <?=((($s->pendente or $s->pendente1))?'disabled':false)?> 
+                        <?=((($s->pendente or $s->pendente1) and ($d->entregador != $s->codigo ))?'disabled':false)?> 
                         <?=(($s->codigo == $d->entregador)?'selected':false)?>><?=$s->nome?></option>                
                 <?php
                 }
