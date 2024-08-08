@@ -34,7 +34,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <h4>Controle das entregas</h4>
+                <h4>Controle das entregas (ifood)</h4>
 
                 <?php
                     $query1 = "select a.*, b.nome as nome_entregador from ifood a left join entregadores b on a.entregador = b.codigo where a.data like '{$data}%' and a.entregador > 0 group by a.entregador order by a.entregador, a.data";
