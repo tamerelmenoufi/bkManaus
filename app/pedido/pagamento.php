@@ -155,6 +155,15 @@
         }
 
         $("button[pagamento]").click(function(){
+
+            if(!validarCPF(<?=$d->cpf?>)){
+                $.alert({
+                    title:'Erro CPF',
+                    content:"O CPF cadastrado deve estar errado ou incompleto. Favor retorne ao cadastro do seu perfil e atulize o CPF!",
+                    type:"red"
+                });
+                return false;
+            }
             
             pagamento = $(this).attr("pagamento");
 
