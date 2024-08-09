@@ -102,6 +102,7 @@
             <?php
             $query = "(select 
                             'pedido' as tipo,
+                            now() as agora,
                             a.*, 
                             if(a.producao = 'pendente',0,1) as ordem, 
                             b.nome, 
@@ -121,6 +122,7 @@
                     left join enderecos c on (a.cliente = c.cliente and c.padrao = '1')
                     where /*a.delivery_id = '{$l->mottu}' and*/ a.situacao = 'pago' and loja = '{$_SESSION['DbkLoja']}' and delivery_detalhes->>'$.deliveryMan.id' = '{$_SESSION['DbkEntregador']}' and (a.producao != 'entregue' or data >= NOW() - INTERVAL 1 DAY)) UNION (select
             'entrega' as tipo,
+            now() as agora,
             a.codigo,
             '' as device,
             '' as detalhes,	
