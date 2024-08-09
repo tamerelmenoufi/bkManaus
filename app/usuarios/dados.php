@@ -114,10 +114,17 @@
                 $(this).removeClass("is-invalid")
                 $(this).addClass("is-valid")
             }else if(campo == 'cpf'){
-                if(valor.length == 14){
+                if(valor.length == 14 && validarCPF(valor)){
                     ExecutaAtualizacao(campo, valor);
                     $(this).removeClass("is-invalid")
                     $(this).addClass("is-valid")
+                }else{
+                    $.alert({
+                        title:'Erro CPF',
+                        content:'CPF incompleto ou inválido!',
+                        type:'red'
+                    });
+                    $("#cpf").val("");
                 }
             }else if(campo == 'email'){
                 ExecutaAtualizacao(campo, valor);
