@@ -181,9 +181,13 @@
                 list($da,$dm,$dd) = explode("-", trim($dt));
                 list($hh,$hm,$hs) = explode(":", trim($hr));
 
+                list($at, $ar) = explode(" ", $d->agora);
+                list($aa,$am,$ad) = explode("-", trim($at));
+                list($ahh,$ahm,$ahs) = explode(":", trim($ar));
+
                 $data = mktime($hh, $hm, $hs, $dm, $dd, $da);
                 $data10 = mktime($hh, $hm+10, $hs, $dm, $dd, $da);
-                $agora = mktime(date("H"),date("i"),date("s"),date("m"),date("d"),date("Y"));
+                $agora = mktime($ahh, $ahm, $ahs, $am, $ad, $aa);
 
                 if($agora < $data10){ $blq = true; }else{ $blq = false; }
                 
