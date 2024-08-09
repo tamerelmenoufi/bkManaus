@@ -150,8 +150,8 @@
         $("span[pagar]").html('R$ ' + pagar.toLocaleString('pt-br', {minimumFractionDigits: 2}));
 
         if(!taxa){
-            //$(".pagamentos").remove();
-            //$(".loja_fechada").removeClass("loja_fechada");
+            $(".pagamentos").remove();
+            $(".loja_fechada").removeClass("loja_fechada");
         }
 
         $("button[pagamento]").click(function(){
